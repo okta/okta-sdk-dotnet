@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -401,7 +402,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BouncesRemoveListResult</returns>
         System.Threading.Tasks.Task<BouncesRemoveListResult> BulkRemoveEmailAddressBouncesAsync(BouncesRemoveListObj bouncesRemoveListObj = default(BouncesRemoveListObj), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Remove Emails from Email Provider Bounce List
         /// </summary>
@@ -423,7 +423,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgOktaSupportSettingsObj</returns>
         System.Threading.Tasks.Task<OrgOktaSupportSettingsObj> ExtendOktaSupportAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Extend Okta Support Access
         /// </summary>
@@ -444,7 +443,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgOktaCommunicationSetting</returns>
         System.Threading.Tasks.Task<OrgOktaCommunicationSetting> GetOktaCommunicationSettingsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retreive the Okta Communication Settings
         /// </summary>
@@ -464,8 +462,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OrgContactTypeObj&gt;</returns>
-        System.Threading.Tasks.Task<List<OrgContactTypeObj>> GetOrgContactTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<OrgContactTypeObj> GetOrgContactTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the Org Contact Types
         /// </summary>
@@ -487,7 +484,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgContactUser</returns>
         System.Threading.Tasks.Task<OrgContactUser> GetOrgContactUserAsync(string contactType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve the User of the Contact Type
         /// </summary>
@@ -509,7 +505,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgOktaSupportSettingsObj</returns>
         System.Threading.Tasks.Task<OrgOktaSupportSettingsObj> GetOrgOktaSupportSettingsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve the Okta Support Settings
         /// </summary>
@@ -530,7 +525,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgPreferences</returns>
         System.Threading.Tasks.Task<OrgPreferences> GetOrgPreferencesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve the Org Preferences
         /// </summary>
@@ -551,7 +545,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgSetting</returns>
         System.Threading.Tasks.Task<OrgSetting> GetOrgSettingsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve the Org Settings
         /// </summary>
@@ -572,7 +565,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgOktaSupportSettingsObj</returns>
         System.Threading.Tasks.Task<OrgOktaSupportSettingsObj> GrantOktaSupportAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Grant Okta Support Access to your Org
         /// </summary>
@@ -593,7 +585,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgPreferences</returns>
         System.Threading.Tasks.Task<OrgPreferences> HideOktaUIFooterAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Update the Preference to Hide the Okta Dashboard Footer
         /// </summary>
@@ -614,7 +605,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgOktaCommunicationSetting</returns>
         System.Threading.Tasks.Task<OrgOktaCommunicationSetting> OptInUsersToOktaCommunicationEmailsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Opt in all Users to Okta Communication emails
         /// </summary>
@@ -635,7 +625,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgOktaCommunicationSetting</returns>
         System.Threading.Tasks.Task<OrgOktaCommunicationSetting> OptOutUsersFromOktaCommunicationEmailsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Opt out all Users from Okta Communication emails
         /// </summary>
@@ -657,7 +646,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgSetting</returns>
         System.Threading.Tasks.Task<OrgSetting> PartialUpdateOrgSettingAsync(OrgSetting orgSetting = default(OrgSetting), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Update the Org Settings
         /// </summary>
@@ -679,7 +667,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgOktaSupportSettingsObj</returns>
         System.Threading.Tasks.Task<OrgOktaSupportSettingsObj> RevokeOktaSupportAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Revoke Okta Support Access
         /// </summary>
@@ -700,7 +687,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgPreferences</returns>
         System.Threading.Tasks.Task<OrgPreferences> ShowOktaUIFooterAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Update the Preference to Show the Okta Dashboard Footer
         /// </summary>
@@ -723,7 +709,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgContactUser</returns>
         System.Threading.Tasks.Task<OrgContactUser> UpdateOrgContactUserAsync(string contactType, OrgContactUser orgContactUser, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Replace the User of the Contact Type
         /// </summary>
@@ -746,7 +731,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task UpdateOrgLogoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Upload the Org Logo
         /// </summary>
@@ -768,7 +752,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgSetting</returns>
         System.Threading.Tasks.Task<OrgSetting> UpdateOrgSettingAsync(OrgSetting orgSetting, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Replace the Org Settings
         /// </summary>
@@ -878,7 +861,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+         
         /// <summary>
         /// Remove Emails from Email Provider Bounce List A list of email addresses to be removed from the set of email addresses that are bounced.
         /// </summary>
@@ -962,7 +945,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<BouncesRemoveListResult> localVarResponse = await BulkRemoveEmailAddressBouncesWithHttpInfoAsync(bouncesRemoveListObj, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Remove Emails from Email Provider Bounce List A list of email addresses to be removed from the set of email addresses that are bounced.
         /// </summary>
@@ -1103,7 +1085,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgOktaSupportSettingsObj> localVarResponse = await ExtendOktaSupportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Extend Okta Support Access Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.
         /// </summary>
@@ -1241,7 +1222,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgOktaCommunicationSetting> localVarResponse = await GetOktaCommunicationSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retreive the Okta Communication Settings Gets Okta Communication Settings of your organization.
         /// </summary>
@@ -1374,12 +1354,46 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OrgContactTypeObj&gt;</returns>
-        public async System.Threading.Tasks.Task<List<OrgContactTypeObj>> GetOrgContactTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<OrgContactTypeObj> GetOrgContactTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<OrgContactTypeObj>> localVarResponse = await GetOrgContactTypesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
 
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<OrgContactTypeObj>(localVarRequestOptions, "/api/v1/org/contacts", this.AsynchronousClient);
+        }
         /// <summary>
         /// Retrieve the Org Contact Types Gets Contact Types of your organization.
         /// </summary>
@@ -1527,7 +1541,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgContactUser> localVarResponse = await GetOrgContactUserWithHttpInfoAsync(contactType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve the User of the Contact Type Retrieves the URL of the User associated with the specified Contact Type.
         /// </summary>
@@ -1673,7 +1686,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgOktaSupportSettingsObj> localVarResponse = await GetOrgOktaSupportSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve the Okta Support Settings Gets Okta Support Settings of your organization.
         /// </summary>
@@ -1811,7 +1823,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgPreferences> localVarResponse = await GetOrgPreferencesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve the Org Preferences Gets preferences of your organization.
         /// </summary>
@@ -1949,7 +1960,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgSetting> localVarResponse = await GetOrgSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve the Org Settings Get settings of your organization.
         /// </summary>
@@ -2087,7 +2097,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgOktaSupportSettingsObj> localVarResponse = await GrantOktaSupportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Grant Okta Support Access to your Org Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours.
         /// </summary>
@@ -2225,7 +2234,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgPreferences> localVarResponse = await HideOktaUIFooterWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Update the Preference to Hide the Okta Dashboard Footer Hide the Okta UI footer for all end users of your organization.
         /// </summary>
@@ -2363,7 +2371,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgOktaCommunicationSetting> localVarResponse = await OptInUsersToOktaCommunicationEmailsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Opt in all Users to Okta Communication emails Opts in all users of this org to Okta Communication emails.
         /// </summary>
@@ -2501,7 +2508,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgOktaCommunicationSetting> localVarResponse = await OptOutUsersFromOktaCommunicationEmailsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Opt out all Users from Okta Communication emails Opts out all users of this org from Okta Communication emails.
         /// </summary>
@@ -2644,7 +2650,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgSetting> localVarResponse = await PartialUpdateOrgSettingWithHttpInfoAsync(orgSetting, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Update the Org Settings Partial update settings of your organization.
         /// </summary>
@@ -2785,7 +2790,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgOktaSupportSettingsObj> localVarResponse = await RevokeOktaSupportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Revoke Okta Support Access Revokes Okta Support access to your organization.
         /// </summary>
@@ -2923,7 +2927,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgPreferences> localVarResponse = await ShowOktaUIFooterWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Update the Preference to Show the Okta Dashboard Footer Makes the Okta UI footer visible for all end users of your organization.
         /// </summary>
@@ -3082,7 +3085,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgContactUser> localVarResponse = await UpdateOrgContactUserWithHttpInfoAsync(contactType, orgContactUser, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Replace the User of the Contact Type Updates the User associated with the specified Contact Type.
         /// </summary>
@@ -3236,7 +3238,6 @@ namespace Okta.Sdk.Api
         {
             await UpdateOrgLogoWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Upload the Org Logo Updates the logo for your organization.
         /// </summary>
@@ -3386,7 +3387,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OrgSetting> localVarResponse = await UpdateOrgSettingWithHttpInfoAsync(orgSetting, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Replace the Org Settings Update settings of your organization.
         /// </summary>

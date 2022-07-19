@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -1281,7 +1282,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserActivationToken</returns>
         System.Threading.Tasks.Task<UserActivationToken> ActivateUserAsync(string userId, bool sendEmail, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Activate a User
         /// </summary>
@@ -1306,7 +1306,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task AddAllAppsAsTargetToRoleAsync(string userId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Assign all Apps as Target to Role
         /// </summary>
@@ -1332,7 +1331,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task AddApplicationTargetToAdminRoleForUserAsync(string userId, string roleId, string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Assign an Application Target to Administrator Role
         /// </summary>
@@ -1360,7 +1358,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task AddApplicationTargetToAppAdminRoleForUserAsync(string userId, string roleId, string appName, string applicationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Assign an Application Instance Target to an Application Administrator Role
         /// </summary>
@@ -1388,7 +1385,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task AddGroupTargetToRoleAsync(string userId, string roleId, string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Assign a Group Target to Role
         /// </summary>
@@ -1415,7 +1411,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Role</returns>
         System.Threading.Tasks.Task<Role> AssignRoleToUserAsync(string userId, AssignRoleRequest assignRoleRequest, bool? disableNotifications = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Assign a Role
         /// </summary>
@@ -1442,7 +1437,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserCredentials</returns>
         System.Threading.Tasks.Task<UserCredentials> ChangePasswordAsync(string userId, ChangePasswordRequest changePasswordRequest, bool? strict = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Change Password
         /// </summary>
@@ -1468,7 +1462,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserCredentials</returns>
         System.Threading.Tasks.Task<UserCredentials> ChangeRecoveryQuestionAsync(string userId, UserCredentials userCredentials, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Change Recovery Question
         /// </summary>
@@ -1493,7 +1486,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task ClearUserSessionsAsync(string userId, bool? oauthTokens = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete all User Sessions
         /// </summary>
@@ -1520,7 +1512,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
         System.Threading.Tasks.Task<User> CreateUserAsync(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), UserNextLogin? nextLogin = default(UserNextLogin?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Create a User
         /// </summary>
@@ -1547,7 +1538,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeactivateOrDeleteUserAsync(string userId, bool? sendEmail = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete a User
         /// </summary>
@@ -1572,7 +1562,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeactivateUserAsync(string userId, bool? sendEmail = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Deactivate a User
         /// </summary>
@@ -1596,7 +1585,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
         System.Threading.Tasks.Task<User> ExpirePasswordAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Expire Password
         /// </summary>
@@ -1619,7 +1607,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TempPassword</returns>
         System.Threading.Tasks.Task<TempPassword> ExpirePasswordAndGetTemporaryPasswordAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Expire Password and Set Temporary Password
         /// </summary>
@@ -1643,7 +1630,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ForgotPasswordResponse</returns>
         System.Threading.Tasks.Task<ForgotPasswordResponse> ForgotPasswordAsync(string userId, bool? sendEmail = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Initiate Forgot Password
         /// </summary>
@@ -1669,7 +1655,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserCredentials</returns>
         System.Threading.Tasks.Task<UserCredentials> ForgotPasswordSetNewPasswordAsync(string userId, UserCredentials userCredentials, bool? sendEmail = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Reset Password with Recovery Question
         /// </summary>
@@ -1696,8 +1681,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Object&gt;</returns>
-        System.Threading.Tasks.Task<List<Object>> GetLinkedObjectsForUserAsync(string userId, string relationshipName, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<Object> GetLinkedObjectsForUserAsync(string userId, string relationshipName, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Linked Objects
         /// </summary>
@@ -1728,7 +1712,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OAuth2RefreshToken</returns>
         System.Threading.Tasks.Task<OAuth2RefreshToken> GetRefreshTokenForUserAndClientAsync(string userId, string clientId, string tokenId, string expand = default(string), int? limit = default(int?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a Refresh Token for a Client
         /// </summary>
@@ -1756,7 +1739,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
         System.Threading.Tasks.Task<User> GetUserAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a User
         /// </summary>
@@ -1781,7 +1763,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OAuth2ScopeConsentGrant</returns>
         System.Threading.Tasks.Task<OAuth2ScopeConsentGrant> GetUserGrantAsync(string userId, string grantId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a User Grant
         /// </summary>
@@ -1807,7 +1788,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Role</returns>
         System.Threading.Tasks.Task<Role> GetUserRoleAsync(string userId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a Role
         /// </summary>
@@ -1830,8 +1810,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AppLink&gt;</returns>
-        System.Threading.Tasks.Task<List<AppLink>> ListAppLinksAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<AppLink> ListAppLinksAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Assigned Application Links
         /// </summary>
@@ -1856,8 +1835,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;CatalogApplication&gt;</returns>
-        System.Threading.Tasks.Task<List<CatalogApplication>> ListApplicationTargetsForApplicationAdministratorRoleForUserAsync(string userId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<CatalogApplication> ListApplicationTargetsForApplicationAdministratorRoleForUserAsync(string userId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Application Targets for Application Administrator Role
         /// </summary>
@@ -1883,8 +1861,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Role&gt;</returns>
-        System.Threading.Tasks.Task<List<Role>> ListAssignedRolesForUserAsync(string userId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<Role> ListAssignedRolesForUserAsync(string userId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Assigned Roles
         /// </summary>
@@ -1911,8 +1888,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2ScopeConsentGrant&gt;</returns>
-        System.Threading.Tasks.Task<List<OAuth2ScopeConsentGrant>> ListGrantsForUserAndClientAsync(string userId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<OAuth2ScopeConsentGrant> ListGrantsForUserAndClientAsync(string userId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Grants for a Client
         /// </summary>
@@ -1941,8 +1917,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Group&gt;</returns>
-        System.Threading.Tasks.Task<List<Group>> ListGroupTargetsForRoleAsync(string userId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<Group> ListGroupTargetsForRoleAsync(string userId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Group Targets for Role
         /// </summary>
@@ -1971,8 +1946,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2RefreshToken&gt;</returns>
-        System.Threading.Tasks.Task<List<OAuth2RefreshToken>> ListRefreshTokensForUserAndClientAsync(string userId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<OAuth2RefreshToken> ListRefreshTokensForUserAndClientAsync(string userId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Refresh Tokens for a Client
         /// </summary>
@@ -1998,8 +1972,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2Client&gt;</returns>
-        System.Threading.Tasks.Task<List<OAuth2Client>> ListUserClientsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<OAuth2Client> ListUserClientsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Clients
         /// </summary>
@@ -2025,8 +1998,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2ScopeConsentGrant&gt;</returns>
-        System.Threading.Tasks.Task<List<OAuth2ScopeConsentGrant>> ListUserGrantsAsync(string userId, string scopeId = default(string), string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<OAuth2ScopeConsentGrant> ListUserGrantsAsync(string userId, string scopeId = default(string), string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all User Grants
         /// </summary>
@@ -2052,8 +2024,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Group&gt;</returns>
-        System.Threading.Tasks.Task<List<Group>> ListUserGroupsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<Group> ListUserGroupsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Groups
         /// </summary>
@@ -2075,8 +2046,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;IdentityProvider&gt;</returns>
-        System.Threading.Tasks.Task<List<IdentityProvider>> ListUserIdentityProvidersAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<IdentityProvider> ListUserIdentityProvidersAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Identity Providers
         /// </summary>
@@ -2104,8 +2074,7 @@ namespace Okta.Sdk.Api
         /// <param name="sortOrder"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;User&gt;</returns>
-        System.Threading.Tasks.Task<List<User>> ListUsersAsync(string after = default(string), string q = default(string), int? limit = default(int?), string filter = default(string), string search = default(string), string sortBy = default(string), string sortOrder = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<User> ListUsersAsync(string after = default(string), string q = default(string), int? limit = default(int?), string filter = default(string), string search = default(string), string sortBy = default(string), string sortOrder = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Users
         /// </summary>
@@ -2136,7 +2105,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
         System.Threading.Tasks.Task<User> PartialUpdateUserAsync(string userId, UpdateUserRequest user, bool? strict = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Update a User
         /// </summary>
@@ -2162,7 +2130,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserActivationToken</returns>
         System.Threading.Tasks.Task<UserActivationToken> ReactivateUserAsync(string userId, bool? sendEmail = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Reactivate a User
         /// </summary>
@@ -2189,7 +2156,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task RemoveApplicationTargetFromAdministratorRoleForUserAsync(string userId, string roleId, string appName, string applicationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Unassign an Application Instance Target to Application Administrator Role
         /// </summary>
@@ -2217,7 +2183,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task RemoveApplicationTargetFromApplicationAdministratorRoleForUserAsync(string userId, string roleId, string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Unassign an Application Target from Application Administrator Role
         /// </summary>
@@ -2244,7 +2209,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task RemoveGroupTargetFromRoleAsync(string userId, string roleId, string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Unassign a Group Target from Role
         /// </summary>
@@ -2270,7 +2234,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task RemoveLinkedObjectForUserAsync(string userId, string relationshipName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete a Linked Object
         /// </summary>
@@ -2295,7 +2258,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task RemoveRoleFromUserAsync(string userId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete a Role
         /// </summary>
@@ -2319,7 +2281,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task ResetFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Reset all Factors
         /// </summary>
@@ -2343,7 +2304,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResetPasswordToken</returns>
         System.Threading.Tasks.Task<ResetPasswordToken> ResetPasswordAsync(string userId, bool sendEmail, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Reset Password
         /// </summary>
@@ -2368,7 +2328,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task RevokeGrantsForUserAndClientAsync(string userId, string clientId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Revoke all Grants for a Client
         /// </summary>
@@ -2394,7 +2353,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task RevokeTokenForUserAndClientAsync(string userId, string clientId, string tokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Revoke a Token for a Client
         /// </summary>
@@ -2420,7 +2378,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task RevokeTokensForUserAndClientAsync(string userId, string clientId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Revoke all Refresh Tokens for a Client
         /// </summary>
@@ -2445,7 +2402,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task RevokeUserGrantAsync(string userId, string grantId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Revoke a User Grant
         /// </summary>
@@ -2469,7 +2425,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task RevokeUserGrantsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Revoke all User Grants
         /// </summary>
@@ -2494,7 +2449,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task SetLinkedObjectForUserAsync(string associatedUserId, string primaryRelationshipName, string primaryUserId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Create a Linked Object for two User
         /// </summary>
@@ -2519,7 +2473,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task SuspendUserAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Suspend a User
         /// </summary>
@@ -2542,7 +2495,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task UnlockUserAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Unlock a User
         /// </summary>
@@ -2565,7 +2517,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task UnsuspendUserAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Unsuspend a User
         /// </summary>
@@ -2590,7 +2541,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
         System.Threading.Tasks.Task<User> UpdateUserAsync(string userId, UpdateUserRequest user, bool? strict = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Replace a User
         /// </summary>
@@ -2702,7 +2652,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+         
         /// <summary>
         /// Activate a User Activates a user.  This operation can only be performed on users with a &#x60;STAGED&#x60; status.  Activation of a user is an asynchronous operation. The user will have the &#x60;transitioningToStatus&#x60; property with a value of &#x60;ACTIVE&#x60; during activation to indicate that the user hasn&#39;t completed the asynchronous operation.  The user will have a status of &#x60;ACTIVE&#x60; when the activation process is complete.
         /// </summary>
@@ -2795,7 +2745,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserActivationToken> localVarResponse = await ActivateUserWithHttpInfoAsync(userId, sendEmail, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Activate a User Activates a user.  This operation can only be performed on users with a &#x60;STAGED&#x60; status.  Activation of a user is an asynchronous operation. The user will have the &#x60;transitioningToStatus&#x60; property with a value of &#x60;ACTIVE&#x60; during activation to indicate that the user hasn&#39;t completed the asynchronous operation.  The user will have a status of &#x60;ACTIVE&#x60; when the activation process is complete.
         /// </summary>
@@ -2961,7 +2910,6 @@ namespace Okta.Sdk.Api
         {
             await AddAllAppsAsTargetToRoleWithHttpInfoAsync(userId, roleId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Assign all Apps as Target to Role Assign all Apps as Target to Role
         /// </summary>
@@ -3143,7 +3091,6 @@ namespace Okta.Sdk.Api
         {
             await AddApplicationTargetToAdminRoleForUserWithHttpInfoAsync(userId, roleId, appName, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Assign an Application Target to Administrator Role Success
         /// </summary>
@@ -3343,7 +3290,6 @@ namespace Okta.Sdk.Api
         {
             await AddApplicationTargetToAppAdminRoleForUserWithHttpInfoAsync(userId, roleId, appName, applicationId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Assign an Application Instance Target to an Application Administrator Role Add App Instance Target to App Administrator Role given to a User
         /// </summary>
@@ -3541,7 +3487,6 @@ namespace Okta.Sdk.Api
         {
             await AddGroupTargetToRoleWithHttpInfoAsync(userId, roleId, groupId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Assign a Group Target to Role Assign a Group Target to Role
         /// </summary>
@@ -3731,7 +3676,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Role> localVarResponse = await AssignRoleToUserWithHttpInfoAsync(userId, assignRoleRequest, disableNotifications, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Assign a Role Assigns a role to a user.
         /// </summary>
@@ -3919,7 +3863,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserCredentials> localVarResponse = await ChangePasswordWithHttpInfoAsync(userId, changePasswordRequest, strict, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Change Password Changes a user&#39;s password by validating the user&#39;s current password. This operation can only be performed on users in &#x60;STAGED&#x60;, &#x60;ACTIVE&#x60;, &#x60;PASSWORD_EXPIRED&#x60;, or &#x60;RECOVERY&#x60; status that have a valid password credential
         /// </summary>
@@ -4100,7 +4043,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserCredentials> localVarResponse = await ChangeRecoveryQuestionWithHttpInfoAsync(userId, userCredentials, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Change Recovery Question Changes a user&#39;s recovery question &amp; answer credential by validating the user&#39;s current password.  This operation can only be performed on users in **STAGED**, **ACTIVE** or **RECOVERY** &#x60;status&#x60; that have a valid password credential
         /// </summary>
@@ -4270,7 +4212,6 @@ namespace Okta.Sdk.Api
         {
             await ClearUserSessionsWithHttpInfoAsync(userId, oauthTokens, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete all User Sessions Removes all active identity provider sessions. This forces the user to authenticate on the next operation. Optionally revokes OpenID Connect and OAuth refresh and access tokens issued to the user.
         /// </summary>
@@ -4453,7 +4394,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<User> localVarResponse = await CreateUserWithHttpInfoAsync(body, activate, provider, nextLogin, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Create a User Creates a new user in your Okta organization with or without credentials.
         /// </summary>
@@ -4630,7 +4570,6 @@ namespace Okta.Sdk.Api
         {
             await DeactivateOrDeleteUserWithHttpInfoAsync(userId, sendEmail, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete a User Deletes a user permanently.  This operation can only be performed on users that have a &#x60;DEPROVISIONED&#x60; status.  **This action cannot be recovered!**
         /// </summary>
@@ -4796,7 +4735,6 @@ namespace Okta.Sdk.Api
         {
             await DeactivateUserWithHttpInfoAsync(userId, sendEmail, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Deactivate a User Deactivates a user. This operation can only be performed on users that do not have a &#x60;DEPROVISIONED&#x60; status. While the asynchronous operation (triggered by HTTP header &#x60;Prefer: respond-async&#x60;) is proceeding the user&#39;s &#x60;transitioningToStatus&#x60; property is &#x60;DEPROVISIONED&#x60;. The user&#39;s status is &#x60;DEPROVISIONED&#x60; when the deactivation process is complete.
         /// </summary>
@@ -4957,7 +4895,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<User> localVarResponse = await ExpirePasswordWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Expire Password This operation transitions the user to the status of &#x60;PASSWORD_EXPIRED&#x60; so that the user is required to change their password at their next login.
         /// </summary>
@@ -5113,7 +5050,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<TempPassword> localVarResponse = await ExpirePasswordAndGetTemporaryPasswordWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Expire Password and Set Temporary Password This operation transitions the user to the status of &#x60;PASSWORD_EXPIRED&#x60; so that the user is required to change their password at their next login, and also sets the user&#39;s password to a temporary password returned in the response.
         /// </summary>
@@ -5276,7 +5212,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<ForgotPasswordResponse> localVarResponse = await ForgotPasswordWithHttpInfoAsync(userId, sendEmail, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Initiate Forgot Password Initiate forgot password flow. Generates a one-time token (OTT) that can be used to reset a user&#39;s password.
         /// </summary>
@@ -5455,7 +5390,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserCredentials> localVarResponse = await ForgotPasswordSetNewPasswordWithHttpInfoAsync(userId, userCredentials, sendEmail, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Reset Password with Recovery Question Resets the user&#39;s password to the specified password if the provided answer to the recovery question is correct.
         /// </summary>
@@ -5644,12 +5578,68 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Object&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Object>> GetLinkedObjectsForUserAsync(string userId, string relationshipName, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Object> GetLinkedObjectsForUserAsync(string userId, string relationshipName, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Object>> localVarResponse = await GetLinkedObjectsForUserWithHttpInfoAsync(userId, relationshipName, after, limit, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserApi->GetLinkedObjectsForUser");
+            }
 
+            // verify the required parameter 'relationshipName' is set
+            if (relationshipName == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'relationshipName' when calling UserApi->GetLinkedObjectsForUser");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("relationshipName", Okta.Sdk.Client.ClientUtils.ParameterToString(relationshipName)); // path parameter
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<Object>(localVarRequestOptions, "/api/v1/users/{userId}/linkedObjects/{relationshipName}", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Linked Objects Get linked objects for a user, relationshipName can be a primary or associated relationship name
         /// </summary>
@@ -5864,7 +5854,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OAuth2RefreshToken> localVarResponse = await GetRefreshTokenForUserAndClientWithHttpInfoAsync(userId, clientId, tokenId, expand, limit, after, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a Refresh Token for a Client Gets a refresh token issued for the specified User and Client.
         /// </summary>
@@ -6051,7 +6040,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<User> localVarResponse = await GetUserWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a User Fetches a user from your Okta organization.
         /// </summary>
@@ -6224,7 +6212,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<OAuth2ScopeConsentGrant> localVarResponse = await GetUserGrantWithHttpInfoAsync(userId, grantId, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a User Grant Gets a grant for the specified user
         /// </summary>
@@ -6403,7 +6390,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Role> localVarResponse = await GetUserRoleWithHttpInfoAsync(userId, roleId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a Role Gets role that is assigned to user.
         /// </summary>
@@ -6562,12 +6548,53 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AppLink&gt;</returns>
-        public async System.Threading.Tasks.Task<List<AppLink>> ListAppLinksAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<AppLink> ListAppLinksAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<AppLink>> localVarResponse = await ListAppLinksWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserApi->ListAppLinks");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<AppLink>(localVarRequestOptions, "/api/v1/users/{userId}/appLinks", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Assigned Application Links Fetches appLinks for all direct or indirect (via group membership) assigned applications.
         /// </summary>
@@ -6742,12 +6769,68 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;CatalogApplication&gt;</returns>
-        public async System.Threading.Tasks.Task<List<CatalogApplication>> ListApplicationTargetsForApplicationAdministratorRoleForUserAsync(string userId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<CatalogApplication> ListApplicationTargetsForApplicationAdministratorRoleForUserAsync(string userId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<CatalogApplication>> localVarResponse = await ListApplicationTargetsForApplicationAdministratorRoleForUserWithHttpInfoAsync(userId, roleId, after, limit, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserApi->ListApplicationTargetsForApplicationAdministratorRoleForUser");
+            }
 
+            // verify the required parameter 'roleId' is set
+            if (roleId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleId' when calling UserApi->ListApplicationTargetsForApplicationAdministratorRoleForUser");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<CatalogApplication>(localVarRequestOptions, "/api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Application Targets for Application Administrator Role Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a User. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
         /// </summary>
@@ -6923,12 +7006,57 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Role&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Role>> ListAssignedRolesForUserAsync(string userId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Role> ListAssignedRolesForUserAsync(string userId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Role>> localVarResponse = await ListAssignedRolesForUserWithHttpInfoAsync(userId, expand, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserApi->ListAssignedRolesForUser");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            if (expand != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<Role>(localVarRequestOptions, "/api/v1/users/{userId}/roles", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Assigned Roles Lists all roles assigned to a user.
         /// </summary>
@@ -7115,12 +7243,72 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2ScopeConsentGrant&gt;</returns>
-        public async System.Threading.Tasks.Task<List<OAuth2ScopeConsentGrant>> ListGrantsForUserAndClientAsync(string userId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<OAuth2ScopeConsentGrant> ListGrantsForUserAndClientAsync(string userId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<OAuth2ScopeConsentGrant>> localVarResponse = await ListGrantsForUserAndClientWithHttpInfoAsync(userId, clientId, expand, after, limit, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserApi->ListGrantsForUserAndClient");
+            }
 
+            // verify the required parameter 'clientId' is set
+            if (clientId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'clientId' when calling UserApi->ListGrantsForUserAndClient");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("clientId", Okta.Sdk.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+            if (expand != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
+            }
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<OAuth2ScopeConsentGrant>(localVarRequestOptions, "/api/v1/users/{userId}/clients/{clientId}/grants", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Grants for a Client Lists all grants for a specified user and client
         /// </summary>
@@ -7318,12 +7506,68 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Group&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Group>> ListGroupTargetsForRoleAsync(string userId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Group> ListGroupTargetsForRoleAsync(string userId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Group>> localVarResponse = await ListGroupTargetsForRoleWithHttpInfoAsync(userId, roleId, after, limit, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserApi->ListGroupTargetsForRole");
+            }
 
+            // verify the required parameter 'roleId' is set
+            if (roleId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleId' when calling UserApi->ListGroupTargetsForRole");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<Group>(localVarRequestOptions, "/api/v1/users/{userId}/roles/{roleId}/targets/groups", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Group Targets for Role Success
         /// </summary>
@@ -7523,12 +7767,72 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2RefreshToken&gt;</returns>
-        public async System.Threading.Tasks.Task<List<OAuth2RefreshToken>> ListRefreshTokensForUserAndClientAsync(string userId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<OAuth2RefreshToken> ListRefreshTokensForUserAndClientAsync(string userId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<OAuth2RefreshToken>> localVarResponse = await ListRefreshTokensForUserAndClientWithHttpInfoAsync(userId, clientId, expand, after, limit, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserApi->ListRefreshTokensForUserAndClient");
+            }
 
+            // verify the required parameter 'clientId' is set
+            if (clientId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'clientId' when calling UserApi->ListRefreshTokensForUserAndClient");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("clientId", Okta.Sdk.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+            if (expand != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
+            }
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<OAuth2RefreshToken>(localVarRequestOptions, "/api/v1/users/{userId}/clients/{clientId}/tokens", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Refresh Tokens for a Client Lists all refresh tokens issued for the specified User and Client.
         /// </summary>
@@ -7702,12 +8006,53 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2Client&gt;</returns>
-        public async System.Threading.Tasks.Task<List<OAuth2Client>> ListUserClientsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<OAuth2Client> ListUserClientsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<OAuth2Client>> localVarResponse = await ListUserClientsWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserApi->ListUserClients");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<OAuth2Client>(localVarRequestOptions, "/api/v1/users/{userId}/clients", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Clients Lists all client resources for which the specified user has grants or tokens.
         /// </summary>
@@ -7886,12 +8231,69 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2ScopeConsentGrant&gt;</returns>
-        public async System.Threading.Tasks.Task<List<OAuth2ScopeConsentGrant>> ListUserGrantsAsync(string userId, string scopeId = default(string), string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<OAuth2ScopeConsentGrant> ListUserGrantsAsync(string userId, string scopeId = default(string), string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<OAuth2ScopeConsentGrant>> localVarResponse = await ListUserGrantsWithHttpInfoAsync(userId, scopeId, expand, after, limit, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserApi->ListUserGrants");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            if (scopeId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scopeId", scopeId));
+            }
+            if (expand != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
+            }
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<OAuth2ScopeConsentGrant>(localVarRequestOptions, "/api/v1/users/{userId}/grants", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all User Grants Lists all grants for the specified user
         /// </summary>
@@ -8062,12 +8464,53 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Group&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Group>> ListUserGroupsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Group> ListUserGroupsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Group>> localVarResponse = await ListUserGroupsWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserApi->ListUserGroups");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<Group>(localVarRequestOptions, "/api/v1/users/{userId}/groups", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Groups Fetches the groups of which the user is a member.
         /// </summary>
@@ -8218,12 +8661,53 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;IdentityProvider&gt;</returns>
-        public async System.Threading.Tasks.Task<List<IdentityProvider>> ListUserIdentityProvidersAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<IdentityProvider> ListUserIdentityProvidersAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<IdentityProvider>> localVarResponse = await ListUserIdentityProvidersWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserApi->ListUserIdentityProviders");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<IdentityProvider>(localVarRequestOptions, "/api/v1/users/{userId}/idps", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Identity Providers Lists the IdPs associated with the user.
         /// </summary>
@@ -8413,12 +8897,74 @@ namespace Okta.Sdk.Api
         /// <param name="sortOrder"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;User&gt;</returns>
-        public async System.Threading.Tasks.Task<List<User>> ListUsersAsync(string after = default(string), string q = default(string), int? limit = default(int?), string filter = default(string), string search = default(string), string sortBy = default(string), string sortOrder = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<User> ListUsersAsync(string after = default(string), string q = default(string), int? limit = default(int?), string filter = default(string), string search = default(string), string sortBy = default(string), string sortOrder = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<User>> localVarResponse = await ListUsersWithHttpInfoAsync(after, q, limit, filter, search, sortBy, sortOrder, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
 
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (q != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "q", q));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<User>(localVarRequestOptions, "/api/v1/users", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Users Lists users in your organization with pagination in most cases.  A subset of users can be returned that match a supported filter expression or search criteria.
         /// </summary>
@@ -8619,7 +9165,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<User> localVarResponse = await PartialUpdateUserWithHttpInfoAsync(userId, user, strict, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Update a User Fetch a user by &#x60;id&#x60;, &#x60;login&#x60;, or &#x60;login shortname&#x60; if the short name is unambiguous.
         /// </summary>
@@ -8796,7 +9341,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserActivationToken> localVarResponse = await ReactivateUserWithHttpInfoAsync(userId, sendEmail, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Reactivate a User Reactivates a user.  This operation can only be performed on users with a &#x60;PROVISIONED&#x60; status.  This operation restarts the activation workflow if for some reason the user activation was not completed when using the activationToken from [Activate User](#activate-user).
         /// </summary>
@@ -8985,7 +9529,6 @@ namespace Okta.Sdk.Api
         {
             await RemoveApplicationTargetFromAdministratorRoleForUserWithHttpInfoAsync(userId, roleId, appName, applicationId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Unassign an Application Instance Target to Application Administrator Role Remove App Instance Target to App Administrator Role given to a User
         /// </summary>
@@ -9183,7 +9726,6 @@ namespace Okta.Sdk.Api
         {
             await RemoveApplicationTargetFromApplicationAdministratorRoleForUserWithHttpInfoAsync(userId, roleId, appName, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Unassign an Application Target from Application Administrator Role Success
         /// </summary>
@@ -9373,7 +9915,6 @@ namespace Okta.Sdk.Api
         {
             await RemoveGroupTargetFromRoleWithHttpInfoAsync(userId, roleId, groupId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Unassign a Group Target from Role Unassign a Group Target from Role
         /// </summary>
@@ -9553,7 +10094,6 @@ namespace Okta.Sdk.Api
         {
             await RemoveLinkedObjectForUserWithHttpInfoAsync(userId, relationshipName, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete a Linked Object Delete linked objects for a user, relationshipName can be ONLY a primary relationship name
         /// </summary>
@@ -9725,7 +10265,6 @@ namespace Okta.Sdk.Api
         {
             await RemoveRoleFromUserWithHttpInfoAsync(userId, roleId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete a Role Unassigns a role from a user.
         /// </summary>
@@ -9887,7 +10426,6 @@ namespace Okta.Sdk.Api
         {
             await ResetFactorsWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Reset all Factors This operation resets all factors for the specified user. All MFA factor enrollments returned to the unenrolled state. The user&#39;s status remains ACTIVE. This link is present only if the user is currently enrolled in one or more MFA factors.
         /// </summary>
@@ -10047,7 +10585,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<ResetPasswordToken> localVarResponse = await ResetPasswordWithHttpInfoAsync(userId, sendEmail, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Reset Password Generates a one-time token (OTT) that can be used to reset a user&#39;s password.  The OTT link can be automatically emailed to the user or returned to the API caller and distributed using a custom flow.
         /// </summary>
@@ -10213,7 +10750,6 @@ namespace Okta.Sdk.Api
         {
             await RevokeGrantsForUserAndClientWithHttpInfoAsync(userId, clientId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Revoke all Grants for a Client Revokes all grants for the specified user and client
         /// </summary>
@@ -10395,7 +10931,6 @@ namespace Okta.Sdk.Api
         {
             await RevokeTokenForUserAndClientWithHttpInfoAsync(userId, clientId, tokenId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Revoke a Token for a Client Revokes the specified refresh token.
         /// </summary>
@@ -10575,7 +11110,6 @@ namespace Okta.Sdk.Api
         {
             await RevokeTokensForUserAndClientWithHttpInfoAsync(userId, clientId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Revoke all Refresh Tokens for a Client Revokes all refresh tokens issued for the specified User and Client.
         /// </summary>
@@ -10747,7 +11281,6 @@ namespace Okta.Sdk.Api
         {
             await RevokeUserGrantWithHttpInfoAsync(userId, grantId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Revoke a User Grant Revokes one grant for a specified user
         /// </summary>
@@ -10909,7 +11442,6 @@ namespace Okta.Sdk.Api
         {
             await RevokeUserGrantsWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Revoke all User Grants Revokes all grants for a specified user
         /// </summary>
@@ -11078,7 +11610,6 @@ namespace Okta.Sdk.Api
         {
             await SetLinkedObjectForUserWithHttpInfoAsync(associatedUserId, primaryRelationshipName, primaryUserId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Create a Linked Object for two User Sets a linked object for two users.
         /// </summary>
@@ -11243,7 +11774,6 @@ namespace Okta.Sdk.Api
         {
             await SuspendUserWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Suspend a User Suspends a user.  This operation can only be performed on users with an &#x60;ACTIVE&#x60; status.  The user will have a status of &#x60;SUSPENDED&#x60; when the process is complete.
         /// </summary>
@@ -11397,7 +11927,6 @@ namespace Okta.Sdk.Api
         {
             await UnlockUserWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Unlock a User Unlocks a user with a &#x60;LOCKED_OUT&#x60; status and returns them to &#x60;ACTIVE&#x60; status.  Users will be able to login with their current password.
         /// </summary>
@@ -11551,7 +12080,6 @@ namespace Okta.Sdk.Api
         {
             await UnsuspendUserWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Unsuspend a User Unsuspends a user and returns them to the &#x60;ACTIVE&#x60; state.  This operation can only be performed on users that have a &#x60;SUSPENDED&#x60; status.
         /// </summary>
@@ -11725,7 +12253,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<User> localVarResponse = await UpdateUserWithHttpInfoAsync(userId, user, strict, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Replace a User Update a user&#39;s profile and/or credentials using strict-update semantics.
         /// </summary>

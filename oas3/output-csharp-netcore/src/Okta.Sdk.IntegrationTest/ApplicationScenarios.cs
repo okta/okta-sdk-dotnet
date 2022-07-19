@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -296,6 +297,130 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
+
+        private async Task CreateRandomApp(ConcurrentBag<Application> createdApps)
+        {
+            var guid = Guid.NewGuid();
+
+            var app = new BasicAuthApplication
+            {
+                Name = "template_basic_auth",
+                Label = $"dotnet-sdk: CreateRandomApp {guid}",
+                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                Settings = new BasicApplicationSettings
+                {
+                    App = new BasicApplicationSettingsApplication
+                    {
+                        Url = "https://example.com/login.html",
+                        AuthURL = "https://example.com/auth.html",
+                    },
+                },
+            };
+
+           var createdApp = await _applicationApi.CreateApplicationAsync(app);
+           createdApps.Add(createdApp);
+
+        }
+
+        [Fact]
+        public async Task EnumerateCollectionManually()
+        {
+            var successful = true;
+            var createdApps = new ConcurrentBag<Application>();
+
+            try
+            {
+                // Create 10 users (in parallel)
+                var tasks = new List<Task>();
+                for (var i = 0; i < 2; i++)
+                {
+                    tasks.Add(CreateRandomApp(createdApps));
+                }
+
+                await Task.WhenAll(tasks);
+
+                // Alright, all set up. Try enumerating users by pages of 2:
+                var retrievedApps = new List<Application>();
+                
+                var appsCollectionClient = _applicationApi.ListApplicationsAsync(limit: 1/*, q: "label startsWith \"dotnet-sdk: CreateRandomApp\""*/);
+
+                var enumerator = appsCollectionClient.GetAsyncEnumerator();
+
+                while (await enumerator.MoveNextAsync())
+                {
+                    if (enumerator.Current.Label.Contains("CreateRandomApp", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        retrievedApps.Add(enumerator.Current);
+                    }
+                }
+
+                retrievedApps.Count.Should().Be(2);
+            }
+            catch (Exception e)
+            {
+                successful = false;
+            }
+            finally
+            {
+                foreach (var app in createdApps)
+                {
+                    await _applicationApi.DeactivateApplicationAsync(app.Id);
+                    await _applicationApi.DeleteApplicationAsync(app.Id);
+                }
+            }
+
+            successful.Should().BeTrue();
+        }
+
+        [Fact]
+        public async Task EnumerateCollectionPageManually()
+        {
+            var successful = true;
+            var createdApps = new ConcurrentBag<Application>();
+
+            try
+            {
+                // Create 10 users (in parallel)
+                var tasks = new List<Task>();
+                for (var i = 0; i < 2; i++)
+                {
+                    tasks.Add(CreateRandomApp(createdApps));
+                }
+
+                await Task.WhenAll(tasks);
+
+                // Alright, all set up. Try enumerating users by pages of 2:
+                var retrievedApps = new List<Application>();
+
+                var appsCollectionClient = _applicationApi.ListApplicationsAsync(limit: 1/*, q: "label startsWith \"dotnet-sdk: CreateRandomApp\""*/);
+
+                var enumerator = appsCollectionClient.GetPagedEnumerator();
+
+                while (await enumerator.MoveNextAsync())
+                {
+                    
+                    retrievedApps.AddRange(enumerator.CurrentPage.Items.Where(x => x.Label.Contains("CreateRandomApp", StringComparison.InvariantCultureIgnoreCase)).ToList());
+                    
+                }
+
+                retrievedApps.Count.Should().Be(2);
+            }
+            catch (Exception e)
+            {
+                successful = false;
+            }
+            finally
+            {
+                foreach (var app in createdApps)
+                {
+                    await _applicationApi.DeactivateApplicationAsync(app.Id);
+                    await _applicationApi.DeleteApplicationAsync(app.Id);
+                }
+            }
+
+            successful.Should().BeTrue();
+        }
+
         [Fact]
         public async Task ListApplications()
         {
@@ -321,7 +446,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var appList = await _applicationApi.ListApplicationsAsync();
+                var appList = await _applicationApi.ListApplicationsAsync(limit:1).ToListAsync();
                 appList.Any(a => a.Id == createdApp.Id).Should().BeTrue();
             }
             finally
@@ -867,7 +992,7 @@ namespace Okta.Sdk.IntegrationTest
                 var createdAppUser1 = await _applicationApi.AssignUserToApplicationAsync(createdApp.Id, appUser1);
                 var createdAppUser2 = await _applicationApi.AssignUserToApplicationAsync(createdApp.Id, appUser2);
 
-                var appUserList = await _applicationApi.ListApplicationUsersAsync(createdApp.Id);
+                var appUserList = await _applicationApi.ListApplicationUsersAsync(createdApp.Id).ToListAsync();
 
                 appUserList.Should().NotBeNullOrEmpty();
                 appUserList.Should().HaveCount(2);
@@ -1045,7 +1170,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 await _applicationApi.DeleteApplicationUserAsync(createdApp.Id, createdUser.Id);
 
-                var appUserList = await _applicationApi.ListApplicationUsersAsync(createdApp.Id);
+                var appUserList = await _applicationApi.ListApplicationUsersAsync(createdApp.Id).ToListAsync();
                 appUserList.Should().BeNullOrEmpty();
             }
             finally
@@ -1234,7 +1359,7 @@ namespace Okta.Sdk.IntegrationTest
                     await _applicationApi.CreateApplicationGroupAssignmentAsync(createdApp.Id, createdGroup2.Id,
                         groupAssignment);
 
-                var groupAssignmentList = await _applicationApi.ListApplicationGroupAssignmentsAsync(createdApp.Id);
+                var groupAssignmentList = await _applicationApi.ListApplicationGroupAssignmentsAsync(createdApp.Id).ToListAsync();
 
                 groupAssignmentList.Should().NotBeNullOrEmpty();
                 groupAssignmentList.Should().HaveCount(2);
@@ -1300,7 +1425,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 await _applicationApi.DeleteApplicationGroupAssignmentAsync(createdApp.Id, createdGroup.Id);
 
-                var assignments = await _applicationApi.ListApplicationGroupAssignmentsAsync(createdApp.Id);
+                var assignments = await _applicationApi.ListApplicationGroupAssignmentsAsync(createdApp.Id).ToListAsync();
                 assignments.Should().BeNullOrEmpty();
             }
             finally
@@ -1338,7 +1463,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var appKeys = await _applicationApi.ListApplicationKeysAsync(createdApp.Id);
+                var appKeys = await _applicationApi.ListApplicationKeysAsync(createdApp.Id).ToListAsync();
 
                 // A key is created by default
                 appKeys.Should().NotBeNull();
@@ -1375,7 +1500,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var appKeys = await _applicationApi.ListApplicationKeysAsync(createdApp.Id);
+                var appKeys = await _applicationApi.ListApplicationKeysAsync(createdApp.Id).ToListAsync();
                 var defaultAppKey = appKeys.First();
                 var retrievedAppKey = await _applicationApi.GetApplicationKeyAsync(createdApp.Id, defaultAppKey.Kid);
 
@@ -1643,12 +1768,12 @@ namespace Okta.Sdk.IntegrationTest
 
                 var generatedCsr = await _applicationApi.GenerateCsrForApplicationAsync(createdApp.Id, csrMetadata);
 
-                var csrList = await _applicationApi.ListCsrsForApplicationAsync(createdApp.Id);
+                var csrList = await _applicationApi.ListCsrsForApplicationAsync(createdApp.Id).ToListAsync();
                 csrList.Any(x => x.Id == generatedCsr.Id).Should().BeTrue();
 
                 await _applicationApi.RevokeCsrFromApplicationAsync(createdApp.Id, generatedCsr.Id);
 
-                csrList = await _applicationApi.ListCsrsForApplicationAsync(createdApp.Id);
+                csrList = await _applicationApi.ListCsrsForApplicationAsync(createdApp.Id).ToListAsync();
                 csrList.Any(x => x.Id == generatedCsr.Id).Should().BeFalse();
             }
             finally
@@ -1727,7 +1852,7 @@ namespace Okta.Sdk.IntegrationTest
                     ScopeId = "okta.users.read",
                 });
                 
-                var appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id);
+                var appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id).ToListAsync();
                 appConsentGrants.Should().NotBeNull();
 
                 var retrievedConsent = appConsentGrants.FirstOrDefault(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
@@ -1810,13 +1935,13 @@ namespace Okta.Sdk.IntegrationTest
                     ScopeId = "okta.users.read",
                 });
 
-                var appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id);
+                var appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id).ToListAsync();
                 var retrievedConsent = appConsentGrants.FirstOrDefault(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
                 retrievedConsent.Should().NotBeNull();
 
                 await _applicationApi.RevokeScopeConsentGrantAsync(createdApp.Id, retrievedConsent.Id);
 
-                appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id);
+                appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id).ToListAsync();
                 retrievedConsent = appConsentGrants.FirstOrDefault(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
                 retrievedConsent.Should().BeNull();
             }
@@ -1896,7 +2021,7 @@ namespace Okta.Sdk.IntegrationTest
                     ScopeId = "okta.users.read",
                 });
 
-                var appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id);
+                var appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id).ToListAsync();
                 var retrievedConsent = appConsentGrants.FirstOrDefault(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
                 retrievedConsent.Should().NotBeNull();
 

@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -154,7 +155,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Feature</returns>
         System.Threading.Tasks.Task<Feature> GetFeatureAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a Feature
         /// </summary>
@@ -176,8 +176,7 @@ namespace Okta.Sdk.Api
         /// <param name="featureId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feature&gt;</returns>
-        System.Threading.Tasks.Task<List<Feature>> ListFeatureDependenciesAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<Feature> ListFeatureDependenciesAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Dependencies
         /// </summary>
@@ -199,8 +198,7 @@ namespace Okta.Sdk.Api
         /// <param name="featureId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feature&gt;</returns>
-        System.Threading.Tasks.Task<List<Feature>> ListFeatureDependentsAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<Feature> ListFeatureDependentsAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Dependents
         /// </summary>
@@ -221,8 +219,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feature&gt;</returns>
-        System.Threading.Tasks.Task<List<Feature>> ListFeaturesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<Feature> ListFeaturesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Features
         /// </summary>
@@ -246,7 +243,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Feature</returns>
         System.Threading.Tasks.Task<Feature> UpdateFeatureLifecycleAsync(string featureId, string lifecycle, string mode = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Update a Feature Lifecycle
         /// </summary>
@@ -358,7 +354,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+         
         /// <summary>
         /// Retrieve a Feature Success
         /// </summary>
@@ -447,7 +443,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Feature> localVarResponse = await GetFeatureWithHttpInfoAsync(featureId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a Feature Success
         /// </summary>
@@ -598,12 +593,53 @@ namespace Okta.Sdk.Api
         /// <param name="featureId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feature&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Feature>> ListFeatureDependenciesAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Feature> ListFeatureDependenciesAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Feature>> localVarResponse = await ListFeatureDependenciesWithHttpInfoAsync(featureId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'featureId' is set
+            if (featureId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'featureId' when calling FeatureApi->ListFeatureDependencies");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<Feature>(localVarRequestOptions, "/api/v1/features/{featureId}/dependencies", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Dependencies Success
         /// </summary>
@@ -754,12 +790,53 @@ namespace Okta.Sdk.Api
         /// <param name="featureId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feature&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Feature>> ListFeatureDependentsAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Feature> ListFeatureDependentsAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Feature>> localVarResponse = await ListFeatureDependentsWithHttpInfoAsync(featureId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'featureId' is set
+            if (featureId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'featureId' when calling FeatureApi->ListFeatureDependents");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<Feature>(localVarRequestOptions, "/api/v1/features/{featureId}/dependents", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Dependents Success
         /// </summary>
@@ -900,12 +977,46 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feature&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Feature>> ListFeaturesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Feature> ListFeaturesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Feature>> localVarResponse = await ListFeaturesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
 
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<Feature>(localVarRequestOptions, "/api/v1/features", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Features Success
         /// </summary>
@@ -1070,7 +1181,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Feature> localVarResponse = await UpdateFeatureLifecycleWithHttpInfoAsync(featureId, lifecycle, mode, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Update a Feature Lifecycle Success
         /// </summary>

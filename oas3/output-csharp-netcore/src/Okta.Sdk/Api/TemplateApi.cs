@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -177,7 +178,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmsTemplate</returns>
         System.Threading.Tasks.Task<SmsTemplate> CreateSmsTemplateAsync(SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Create an SMS Template
         /// </summary>
@@ -200,7 +200,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteSmsTemplateAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete an SMS Template
         /// </summary>
@@ -223,7 +222,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmsTemplate</returns>
         System.Threading.Tasks.Task<SmsTemplate> GetSmsTemplateAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve an SMS Template
         /// </summary>
@@ -245,8 +243,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateType"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SmsTemplate&gt;</returns>
-        System.Threading.Tasks.Task<List<SmsTemplate>> ListSmsTemplatesAsync(SmsTemplateType? templateType = default(SmsTemplateType?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<SmsTemplate> ListSmsTemplatesAsync(SmsTemplateType? templateType = default(SmsTemplateType?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all SMS Templates
         /// </summary>
@@ -270,7 +267,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmsTemplate</returns>
         System.Threading.Tasks.Task<SmsTemplate> PartialUpdateSmsTemplateAsync(string templateId, SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Update an SMS Template
         /// </summary>
@@ -295,7 +291,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmsTemplate</returns>
         System.Threading.Tasks.Task<SmsTemplate> UpdateSmsTemplateAsync(string templateId, SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Replace an SMS Template
         /// </summary>
@@ -406,7 +401,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+         
         /// <summary>
         /// Create an SMS Template Adds a new custom SMS template to your organization.
         /// </summary>
@@ -496,7 +491,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<SmsTemplate> localVarResponse = await CreateSmsTemplateWithHttpInfoAsync(smsTemplate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Create an SMS Template Adds a new custom SMS template to your organization.
         /// </summary>
@@ -651,7 +645,6 @@ namespace Okta.Sdk.Api
         {
             await DeleteSmsTemplateWithHttpInfoAsync(templateId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete an SMS Template Removes an SMS template.
         /// </summary>
@@ -807,7 +800,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<SmsTemplate> localVarResponse = await GetSmsTemplateWithHttpInfoAsync(templateId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve an SMS Template Fetches a specific template by &#x60;id&#x60;
         /// </summary>
@@ -955,12 +947,50 @@ namespace Okta.Sdk.Api
         /// <param name="templateType"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SmsTemplate&gt;</returns>
-        public async System.Threading.Tasks.Task<List<SmsTemplate>> ListSmsTemplatesAsync(SmsTemplateType? templateType = default(SmsTemplateType?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<SmsTemplate> ListSmsTemplatesAsync(SmsTemplateType? templateType = default(SmsTemplateType?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<SmsTemplate>> localVarResponse = await ListSmsTemplatesWithHttpInfoAsync(templateType, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
 
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (templateType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "templateType", templateType));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<SmsTemplate>(localVarRequestOptions, "/api/v1/templates/sms", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all SMS Templates Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
         /// </summary>
@@ -1124,7 +1154,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<SmsTemplate> localVarResponse = await PartialUpdateSmsTemplateWithHttpInfoAsync(templateId, smsTemplate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Update an SMS Template Updates only some of the SMS template properties:
         /// </summary>
@@ -1300,7 +1329,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<SmsTemplate> localVarResponse = await UpdateSmsTemplateWithHttpInfoAsync(templateId, smsTemplate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Replace an SMS Template Updates the SMS template.
         /// </summary>

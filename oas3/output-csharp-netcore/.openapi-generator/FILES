@@ -666,9 +666,14 @@ src/Okta.Sdk/Client/IAsynchronousClient.cs
 src/Okta.Sdk/Client/IReadableConfiguration.cs
 src/Okta.Sdk/Client/ISynchronousClient.cs
 src/Okta.Sdk/Client/Multimap.cs
+src/Okta.Sdk/Client/OktaCollectionAsyncEnumerator.cs
+src/Okta.Sdk/Client/OktaCollectionClient.cs
+src/Okta.Sdk/Client/OktaCollectionPage.cs
+src/Okta.Sdk/Client/OktaPagedCollectionEnumerator.cs
 src/Okta.Sdk/Client/OpenAPIDateConverter.cs
 src/Okta.Sdk/Client/RequestOptions.cs
 src/Okta.Sdk/Client/RetryConfiguration.cs
+src/Okta.Sdk/Client/WebLink.cs
 src/Okta.Sdk/Model/AbstractOpenAPISchema.cs
 src/Okta.Sdk/Model/AccessPolicy.cs
 src/Okta.Sdk/Model/AccessPolicyAllOf.cs

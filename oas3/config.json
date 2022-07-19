@@ -9,5 +9,32 @@
     "globalProperties": {
         "apiTests": false,
         "modelTests": false
+    },
+    "files": {
+        "WebLink.mustache":{
+            "destinationFilename": "WebLink.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "OktaCollectionClient.mustache":{
+            "destinationFilename": "OktaCollectionClient.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "OktaCollectionPage.mustache":{
+            "destinationFilename": "OktaCollectionPage.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "OktaPagedCollectionEnumerator.mustache":{
+            "destinationFilename": "OktaPagedCollectionEnumerator.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "OktaCollectionAsyncEnumerator.mustache":{
+            "destinationFilename": "OktaCollectionAsyncEnumerator.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        }
     }
 }

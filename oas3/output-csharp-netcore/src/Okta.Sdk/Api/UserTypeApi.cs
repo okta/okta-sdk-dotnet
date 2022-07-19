@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -175,7 +176,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserType</returns>
         System.Threading.Tasks.Task<UserType> CreateUserTypeAsync(UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Create a User Type
         /// </summary>
@@ -198,7 +198,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteUserTypeAsync(string typeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete a User Type
         /// </summary>
@@ -221,7 +220,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserType</returns>
         System.Threading.Tasks.Task<UserType> GetUserTypeAsync(string typeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a User Type
         /// </summary>
@@ -242,8 +240,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserType&gt;</returns>
-        System.Threading.Tasks.Task<List<UserType>> ListUserTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<UserType> ListUserTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all User Types
         /// </summary>
@@ -266,7 +263,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserType</returns>
         System.Threading.Tasks.Task<UserType> ReplaceUserTypeAsync(string typeId, UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Replace a User Type
         /// </summary>
@@ -291,7 +287,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserType</returns>
         System.Threading.Tasks.Task<UserType> UpdateUserTypeAsync(string typeId, UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Update a User Type
         /// </summary>
@@ -402,7 +397,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+         
         /// <summary>
         /// Create a User Type Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
         /// </summary>
@@ -492,7 +487,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserType> localVarResponse = await CreateUserTypeWithHttpInfoAsync(userType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Create a User Type Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
         /// </summary>
@@ -647,7 +641,6 @@ namespace Okta.Sdk.Api
         {
             await DeleteUserTypeWithHttpInfoAsync(typeId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete a User Type Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
         /// </summary>
@@ -803,7 +796,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserType> localVarResponse = await GetUserTypeWithHttpInfoAsync(typeId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a User Type Fetches a User Type by ID. The special identifier &#x60;default&#x60; may be used to fetch the default User Type.
         /// </summary>
@@ -944,12 +936,46 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserType&gt;</returns>
-        public async System.Threading.Tasks.Task<List<UserType>> ListUserTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<UserType> ListUserTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<UserType>> localVarResponse = await ListUserTypesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
 
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<UserType>(localVarRequestOptions, "/api/v1/meta/types/user", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all User Types Fetches all User Types in your org
         /// </summary>
@@ -1108,7 +1134,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserType> localVarResponse = await ReplaceUserTypeWithHttpInfoAsync(typeId, userType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Replace a User Type Replace an existing User Type
         /// </summary>
@@ -1284,7 +1309,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserType> localVarResponse = await UpdateUserTypeWithHttpInfoAsync(typeId, userType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Update a User Type Updates an existing User Type
         /// </summary>

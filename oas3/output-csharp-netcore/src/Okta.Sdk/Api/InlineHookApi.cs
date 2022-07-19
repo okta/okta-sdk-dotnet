@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -219,7 +220,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
         System.Threading.Tasks.Task<InlineHook> ActivateInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Activate an Inline Hook
         /// </summary>
@@ -242,7 +242,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
         System.Threading.Tasks.Task<InlineHook> CreateInlineHookAsync(InlineHook inlineHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Create an Inline Hook
         /// </summary>
@@ -265,7 +264,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
         System.Threading.Tasks.Task<InlineHook> DeactivateInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Deactivate an Inline Hook
         /// </summary>
@@ -288,7 +286,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete an Inline Hook
         /// </summary>
@@ -312,7 +309,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHookResponse</returns>
         System.Threading.Tasks.Task<InlineHookResponse> ExecuteInlineHookAsync(string inlineHookId, Object payloadData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Execute an Inline Hook
         /// </summary>
@@ -336,7 +332,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
         System.Threading.Tasks.Task<InlineHook> GetInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve an Inline Hook
         /// </summary>
@@ -358,8 +353,7 @@ namespace Okta.Sdk.Api
         /// <param name="type"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InlineHook&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineHook>> ListInlineHooksAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<InlineHook> ListInlineHooksAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Inline Hooks
         /// </summary>
@@ -383,7 +377,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
         System.Threading.Tasks.Task<InlineHook> UpdateInlineHookAsync(string inlineHookId, InlineHook inlineHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Replace an Inline Hook
         /// </summary>
@@ -494,7 +487,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+         
         /// <summary>
         /// Activate an Inline Hook Activates the Inline Hook matching the provided id
         /// </summary>
@@ -572,7 +565,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<InlineHook> localVarResponse = await ActivateInlineHookWithHttpInfoAsync(inlineHookId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Activate an Inline Hook Activates the Inline Hook matching the provided id
         /// </summary>
@@ -718,7 +710,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<InlineHook> localVarResponse = await CreateInlineHookWithHttpInfoAsync(inlineHook, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Create an Inline Hook Success
         /// </summary>
@@ -864,7 +855,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<InlineHook> localVarResponse = await DeactivateInlineHookWithHttpInfoAsync(inlineHookId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Deactivate an Inline Hook Deactivates the Inline Hook matching the provided id
         /// </summary>
@@ -1007,7 +997,6 @@ namespace Okta.Sdk.Api
         {
             await DeleteInlineHookWithHttpInfoAsync(inlineHookId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete an Inline Hook Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
         /// </summary>
@@ -1174,7 +1163,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<InlineHookResponse> localVarResponse = await ExecuteInlineHookWithHttpInfoAsync(inlineHookId, payloadData, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Execute an Inline Hook Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
         /// </summary>
@@ -1339,7 +1327,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<InlineHook> localVarResponse = await GetInlineHookWithHttpInfoAsync(inlineHookId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve an Inline Hook Gets an inline hook by ID
         /// </summary>
@@ -1487,12 +1474,50 @@ namespace Okta.Sdk.Api
         /// <param name="type"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InlineHook&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InlineHook>> ListInlineHooksAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<InlineHook> ListInlineHooksAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<InlineHook>> localVarResponse = await ListInlineHooksWithHttpInfoAsync(type, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
 
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<InlineHook>(localVarRequestOptions, "/api/v1/inlineHooks", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Inline Hooks Success
         /// </summary>
@@ -1656,7 +1681,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<InlineHook> localVarResponse = await UpdateInlineHookWithHttpInfoAsync(inlineHookId, inlineHook, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Replace an Inline Hook Updates an inline hook by ID
         /// </summary>

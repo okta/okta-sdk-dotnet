@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -174,7 +175,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task CreateCertificateAsync(string domainId, DomainCertificate certificate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Replace the Certificate
         /// </summary>
@@ -198,7 +198,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DomainResponse</returns>
         System.Threading.Tasks.Task<DomainResponse> CreateDomainAsync(Domain domain, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Create a Domain
         /// </summary>
@@ -221,7 +220,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteDomainAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete a Domain
         /// </summary>
@@ -244,7 +242,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DomainResponse</returns>
         System.Threading.Tasks.Task<DomainResponse> GetDomainAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a Domain
         /// </summary>
@@ -266,7 +263,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DomainListResponse</returns>
         System.Threading.Tasks.Task<DomainListResponse> ListDomainsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// List all Domains
         /// </summary>
@@ -288,7 +284,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DomainResponse</returns>
         System.Threading.Tasks.Task<DomainResponse> VerifyDomainAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Verify a Domain
         /// </summary>
@@ -398,7 +393,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+         
         /// <summary>
         /// Replace the Certificate Creates the Certificate for the Domain.
         /// </summary>
@@ -496,7 +491,6 @@ namespace Okta.Sdk.Api
         {
             await CreateCertificateWithHttpInfoAsync(domainId, certificate, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Replace the Certificate Creates the Certificate for the Domain.
         /// </summary>
@@ -662,7 +656,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<DomainResponse> localVarResponse = await CreateDomainWithHttpInfoAsync(domain, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Create a Domain Creates your domain.
         /// </summary>
@@ -817,7 +810,6 @@ namespace Okta.Sdk.Api
         {
             await DeleteDomainWithHttpInfoAsync(domainId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete a Domain Deletes a Domain by &#x60;id&#x60;.
         /// </summary>
@@ -973,7 +965,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<DomainResponse> localVarResponse = await GetDomainWithHttpInfoAsync(domainId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a Domain Fetches a Domain by &#x60;id&#x60;.
         /// </summary>
@@ -1119,7 +1110,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<DomainListResponse> localVarResponse = await ListDomainsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// List all Domains List all verified custom Domains for the org.
         /// </summary>
@@ -1267,7 +1257,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<DomainResponse> localVarResponse = await VerifyDomainWithHttpInfoAsync(domainId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Verify a Domain Verifies the Domain by &#x60;id&#x60;.
         /// </summary>

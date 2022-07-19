@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -202,7 +203,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
         System.Threading.Tasks.Task<TrustedOrigin> ActivateOriginAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Activate a Trusted Origin
         /// </summary>
@@ -225,7 +225,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
         System.Threading.Tasks.Task<TrustedOrigin> CreateOriginAsync(TrustedOrigin trustedOrigin, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Create a Trusted Origin
         /// </summary>
@@ -248,7 +247,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
         System.Threading.Tasks.Task<TrustedOrigin> DeactivateOriginAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Deactivate a Trusted Origin
         /// </summary>
@@ -271,7 +269,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteOriginAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete a Trusted Origin
         /// </summary>
@@ -294,7 +291,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
         System.Threading.Tasks.Task<TrustedOrigin> GetOriginAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a Trusted Origin
         /// </summary>
@@ -319,8 +315,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;TrustedOrigin&gt;</returns>
-        System.Threading.Tasks.Task<List<TrustedOrigin>> ListOriginsAsync(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<TrustedOrigin> ListOriginsAsync(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Trusted Origins
         /// </summary>
@@ -347,7 +342,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
         System.Threading.Tasks.Task<TrustedOrigin> UpdateOriginAsync(string trustedOriginId, TrustedOrigin trustedOrigin, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Replace a Trusted Origin
         /// </summary>
@@ -458,7 +452,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+         
         /// <summary>
         /// Activate a Trusted Origin Success
         /// </summary>
@@ -547,7 +541,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = await ActivateOriginWithHttpInfoAsync(trustedOriginId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Activate a Trusted Origin Success
         /// </summary>
@@ -704,7 +697,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = await CreateOriginWithHttpInfoAsync(trustedOrigin, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Create a Trusted Origin Success
         /// </summary>
@@ -861,7 +853,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = await DeactivateOriginWithHttpInfoAsync(trustedOriginId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Deactivate a Trusted Origin Success
         /// </summary>
@@ -1015,7 +1006,6 @@ namespace Okta.Sdk.Api
         {
             await DeleteOriginWithHttpInfoAsync(trustedOriginId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete a Trusted Origin Success
         /// </summary>
@@ -1171,7 +1161,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = await GetOriginWithHttpInfoAsync(trustedOriginId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a Trusted Origin Success
         /// </summary>
@@ -1340,12 +1329,62 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;TrustedOrigin&gt;</returns>
-        public async System.Threading.Tasks.Task<List<TrustedOrigin>> ListOriginsAsync(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<TrustedOrigin> ListOriginsAsync(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<TrustedOrigin>> localVarResponse = await ListOriginsWithHttpInfoAsync(q, filter, after, limit, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
 
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (q != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "q", q));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<TrustedOrigin>(localVarRequestOptions, "/api/v1/trustedOrigins", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Trusted Origins Success
         /// </summary>
@@ -1524,7 +1563,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = await UpdateOriginWithHttpInfoAsync(trustedOriginId, trustedOrigin, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Replace a Trusted Origin Success
         /// </summary>

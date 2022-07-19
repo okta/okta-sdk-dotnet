@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -372,7 +373,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AgentPoolUpdate</returns>
         System.Threading.Tasks.Task<AgentPoolUpdate> ActivateAgentPoolsUpdateAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Activate an Agent Pool update
         /// </summary>
@@ -397,7 +397,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AgentPoolUpdate</returns>
         System.Threading.Tasks.Task<AgentPoolUpdate> CreateAgentPoolsUpdateAsync(string poolId, AgentPoolUpdate agentPoolUpdate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Create an Agent Pool update
         /// </summary>
@@ -422,7 +421,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AgentPoolUpdate</returns>
         System.Threading.Tasks.Task<AgentPoolUpdate> DeactivateAgentPoolsUpdateAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Deactivate an Agent Pool update
         /// </summary>
@@ -447,7 +445,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteAgentPoolsUpdateAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete an Agent Pool update
         /// </summary>
@@ -472,8 +469,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AgentPool&gt;</returns>
-        System.Threading.Tasks.Task<List<AgentPool>> GetAgentPoolsAsync(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<AgentPool> GetAgentPoolsAsync(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Agent Pools
         /// </summary>
@@ -499,7 +495,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AgentPoolUpdate</returns>
         System.Threading.Tasks.Task<AgentPoolUpdate> GetAgentPoolsUpdateInstanceAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve an Agent Pool update by id
         /// </summary>
@@ -523,7 +518,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AgentPoolUpdateSetting</returns>
         System.Threading.Tasks.Task<AgentPoolUpdateSetting> GetAgentPoolsUpdateSettingsAsync(string poolId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve an Agent Pool update&#39;s settings
         /// </summary>
@@ -546,8 +540,7 @@ namespace Okta.Sdk.Api
         /// <param name="scheduled">Scope the list only to scheduled or ad-hoc updates. If the parameter is not provided we will return the whole list of updates. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AgentPoolUpdate&gt;</returns>
-        System.Threading.Tasks.Task<List<AgentPoolUpdate>> GetAgentPoolsUpdatesAsync(string poolId, bool? scheduled = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<AgentPoolUpdate> GetAgentPoolsUpdatesAsync(string poolId, bool? scheduled = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Agent Pool updates
         /// </summary>
@@ -572,7 +565,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AgentPoolUpdate</returns>
         System.Threading.Tasks.Task<AgentPoolUpdate> PauseAgentPoolsUpdateAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Pause an Agent Pool update
         /// </summary>
@@ -597,7 +589,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AgentPoolUpdate</returns>
         System.Threading.Tasks.Task<AgentPoolUpdate> ResumeAgentPoolsUpdateAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Resume an Agent Pool update
         /// </summary>
@@ -622,7 +613,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AgentPoolUpdate</returns>
         System.Threading.Tasks.Task<AgentPoolUpdate> RetryAgentPoolsUpdateAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retry an Agent Pool update
         /// </summary>
@@ -647,7 +637,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AgentPoolUpdateSetting</returns>
         System.Threading.Tasks.Task<AgentPoolUpdateSetting> SetAgentPoolsUpdateSettingsAsync(string poolId, AgentPoolUpdateSetting agentPoolUpdateSetting, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Update an Agent pool update settings
         /// </summary>
@@ -672,7 +661,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AgentPoolUpdate</returns>
         System.Threading.Tasks.Task<AgentPoolUpdate> StopAgentPoolsUpdateAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Stop an Agent Pool update
         /// </summary>
@@ -698,7 +686,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AgentPoolUpdate</returns>
         System.Threading.Tasks.Task<AgentPoolUpdate> UpdateAgentPoolsUpdateAsync(string poolId, string updateId, AgentPoolUpdate agentPoolUpdate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Update an Agent Pool update by id
         /// </summary>
@@ -810,7 +797,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+         
         /// <summary>
         /// Activate an Agent Pool update Activates scheduled Agent pool update
         /// </summary>
@@ -909,7 +896,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<AgentPoolUpdate> localVarResponse = await ActivateAgentPoolsUpdateWithHttpInfoAsync(poolId, updateId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Activate an Agent Pool update Activates scheduled Agent pool update
         /// </summary>
@@ -1084,7 +1070,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<AgentPoolUpdate> localVarResponse = await CreateAgentPoolsUpdateWithHttpInfoAsync(poolId, agentPoolUpdate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Create an Agent Pool update Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
         /// </summary>
@@ -1259,7 +1244,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<AgentPoolUpdate> localVarResponse = await DeactivateAgentPoolsUpdateWithHttpInfoAsync(poolId, updateId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Deactivate an Agent Pool update Deactivates scheduled Agent pool update
         /// </summary>
@@ -1431,7 +1415,6 @@ namespace Okta.Sdk.Api
         {
             await DeleteAgentPoolsUpdateWithHttpInfoAsync(poolId, updateId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete an Agent Pool update Deletes Agent pool update
         /// </summary>
@@ -1601,12 +1584,58 @@ namespace Okta.Sdk.Api
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AgentPool&gt;</returns>
-        public async System.Threading.Tasks.Task<List<AgentPool>> GetAgentPoolsAsync(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<AgentPool> GetAgentPoolsAsync(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<AgentPool>> localVarResponse = await GetAgentPoolsWithHttpInfoAsync(limitPerPoolType, poolType, after, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
 
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (limitPerPoolType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limitPerPoolType", limitPerPoolType));
+            }
+            if (poolType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "poolType", poolType));
+            }
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<AgentPool>(localVarRequestOptions, "/api/v1/agentPools", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Agent Pools Fetches AgentPools based on request parameters for a given org
         /// </summary>
@@ -1779,7 +1808,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<AgentPoolUpdate> localVarResponse = await GetAgentPoolsUpdateInstanceWithHttpInfoAsync(poolId, updateId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve an Agent Pool update by id Gets Agent pool update from updateId
         /// </summary>
@@ -1943,7 +1971,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<AgentPoolUpdateSetting> localVarResponse = await GetAgentPoolsUpdateSettingsWithHttpInfoAsync(poolId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve an Agent Pool update&#39;s settings Gets the current state of the agent pool update instance settings
         /// </summary>
@@ -2101,12 +2128,57 @@ namespace Okta.Sdk.Api
         /// <param name="scheduled">Scope the list only to scheduled or ad-hoc updates. If the parameter is not provided we will return the whole list of updates. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AgentPoolUpdate&gt;</returns>
-        public async System.Threading.Tasks.Task<List<AgentPoolUpdate>> GetAgentPoolsUpdatesAsync(string poolId, bool? scheduled = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<AgentPoolUpdate> GetAgentPoolsUpdatesAsync(string poolId, bool? scheduled = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<AgentPoolUpdate>> localVarResponse = await GetAgentPoolsUpdatesWithHttpInfoAsync(poolId, scheduled, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'poolId' is set
+            if (poolId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'poolId' when calling AgentPoolsApi->GetAgentPoolsUpdates");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
+            if (scheduled != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scheduled", scheduled));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<AgentPoolUpdate>(localVarRequestOptions, "/api/v1/agentPools/{poolId}/updates", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Agent Pool updates Gets List of Agent pool updates
         /// </summary>
@@ -2277,7 +2349,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<AgentPoolUpdate> localVarResponse = await PauseAgentPoolsUpdateWithHttpInfoAsync(poolId, updateId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Pause an Agent Pool update Pauses running or queued Agent pool update
         /// </summary>
@@ -2451,7 +2522,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<AgentPoolUpdate> localVarResponse = await ResumeAgentPoolsUpdateWithHttpInfoAsync(poolId, updateId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Resume an Agent Pool update Resumes running or queued Agent pool update
         /// </summary>
@@ -2625,7 +2695,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<AgentPoolUpdate> localVarResponse = await RetryAgentPoolsUpdateWithHttpInfoAsync(poolId, updateId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retry an Agent Pool update Retries Agent pool update
         /// </summary>
@@ -2800,7 +2869,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<AgentPoolUpdateSetting> localVarResponse = await SetAgentPoolsUpdateSettingsWithHttpInfoAsync(poolId, agentPoolUpdateSetting, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Update an Agent pool update settings Updates Agent pool update settings
         /// </summary>
@@ -2975,7 +3043,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<AgentPoolUpdate> localVarResponse = await StopAgentPoolsUpdateWithHttpInfoAsync(poolId, updateId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Stop an Agent Pool update Stops Agent pool update
         /// </summary>
@@ -3160,7 +3227,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<AgentPoolUpdate> localVarResponse = await UpdateAgentPoolsUpdateWithHttpInfoAsync(poolId, updateId, agentPoolUpdate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Update an Agent Pool update by id Updates Agent pool update and return latest agent pool update
         /// </summary>

@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -200,7 +201,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
         System.Threading.Tasks.Task<NetworkZone> ActivateNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Activate a Network Zone
         /// </summary>
@@ -223,7 +223,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
         System.Threading.Tasks.Task<NetworkZone> CreateNetworkZoneAsync(NetworkZone zone, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Create a Network Zone
         /// </summary>
@@ -246,7 +245,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
         System.Threading.Tasks.Task<NetworkZone> DeactivateNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Deactivate a Network Zone
         /// </summary>
@@ -269,7 +267,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete a Network Zone
         /// </summary>
@@ -292,7 +289,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
         System.Threading.Tasks.Task<NetworkZone> GetNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a Network Zone
         /// </summary>
@@ -316,8 +312,7 @@ namespace Okta.Sdk.Api
         /// <param name="filter">Filters zones by usage or id expression (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;NetworkZone&gt;</returns>
-        System.Threading.Tasks.Task<List<NetworkZone>> ListNetworkZonesAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<NetworkZone> ListNetworkZonesAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Network Zones
         /// </summary>
@@ -343,7 +338,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
         System.Threading.Tasks.Task<NetworkZone> UpdateNetworkZoneAsync(string zoneId, NetworkZone zone, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Replace a Network Zone
         /// </summary>
@@ -454,7 +448,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+         
         /// <summary>
         /// Activate a Network Zone Activate Network Zone
         /// </summary>
@@ -543,7 +537,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = await ActivateNetworkZoneWithHttpInfoAsync(zoneId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Activate a Network Zone Activate Network Zone
         /// </summary>
@@ -700,7 +693,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = await CreateNetworkZoneWithHttpInfoAsync(zone, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Create a Network Zone Adds a new network zone to your Okta organization.
         /// </summary>
@@ -857,7 +849,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = await DeactivateNetworkZoneWithHttpInfoAsync(zoneId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Deactivate a Network Zone Deactivates a network zone.
         /// </summary>
@@ -1011,7 +1002,6 @@ namespace Okta.Sdk.Api
         {
             await DeleteNetworkZoneWithHttpInfoAsync(zoneId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete a Network Zone Removes network zone.
         /// </summary>
@@ -1167,7 +1157,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = await GetNetworkZoneWithHttpInfoAsync(zoneId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a Network Zone Fetches a network zone from your Okta organization by &#x60;id&#x60;.
         /// </summary>
@@ -1329,12 +1318,58 @@ namespace Okta.Sdk.Api
         /// <param name="filter">Filters zones by usage or id expression (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;NetworkZone&gt;</returns>
-        public async System.Threading.Tasks.Task<List<NetworkZone>> ListNetworkZonesAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<NetworkZone> ListNetworkZonesAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<NetworkZone>> localVarResponse = await ListNetworkZonesWithHttpInfoAsync(after, limit, filter, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
 
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<NetworkZone>(localVarRequestOptions, "/api/v1/zones", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Network Zones Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
         /// </summary>
@@ -1508,7 +1543,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = await UpdateNetworkZoneWithHttpInfoAsync(zoneId, zone, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Replace a Network Zone Updates a network zone in your organization.
         /// </summary>
