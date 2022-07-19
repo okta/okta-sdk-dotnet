@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "OrgContactTypeObj")]
     public partial class OrgContactTypeObj : IEquatable<OrgContactTypeObj>
     {
-
+        
         /// <summary>
         /// Gets or Sets ContactType
         /// </summary>
         [DataMember(Name = "contactType", EmitDefaultValue = false)]
-        public OrgContactType? ContactType { get; set; }
-        
+        public string ContactType { get; set; }
+
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
@@ -92,7 +92,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.ContactType == input.ContactType ||
-                    this.ContactType.Equals(input.ContactType)
+                    (this.ContactType != null &&
+                    this.ContactType.Equals(input.ContactType))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -111,7 +112,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.ContactType.GetHashCode();
+                if (this.ContactType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContactType.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

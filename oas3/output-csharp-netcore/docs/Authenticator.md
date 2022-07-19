@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **Name** | **string** |  | [optional] 
 **Provider** | [**AuthenticatorProvider**](AuthenticatorProvider.md) |  | [optional] 
 **Settings** | [**AuthenticatorSettings**](AuthenticatorSettings.md) |  | [optional] 
-**Status** | **AuthenticatorStatus** |  | [optional] 
-**Type** | **AuthenticatorType** |  | [optional] 
+**Status** | **string** |  | [optional] 
+**Type** | **string** |  | [optional] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

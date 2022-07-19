@@ -100,7 +100,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateType"> (optional)</param>
         /// <returns>List&lt;SmsTemplate&gt;</returns>
-        List<SmsTemplate> ListSmsTemplates(SmsTemplateType? templateType = default(SmsTemplateType?));
+        List<SmsTemplate> ListSmsTemplates(string templateType = default(string));
 
         /// <summary>
         /// List all SMS Templates
@@ -111,7 +111,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateType"> (optional)</param>
         /// <returns>ApiResponse of List&lt;SmsTemplate&gt;</returns>
-        ApiResponse<List<SmsTemplate>> ListSmsTemplatesWithHttpInfo(SmsTemplateType? templateType = default(SmsTemplateType?));
+        ApiResponse<List<SmsTemplate>> ListSmsTemplatesWithHttpInfo(string templateType = default(string));
         /// <summary>
         /// Update an SMS Template
         /// </summary>
@@ -243,7 +243,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateType"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SmsTemplate&gt;</returns>
-        IOktaCollectionClient<SmsTemplate> ListSmsTemplatesAsync(SmsTemplateType? templateType = default(SmsTemplateType?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<SmsTemplate> ListSmsTemplatesAsync(string templateType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all SMS Templates
         /// </summary>
@@ -254,7 +254,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateType"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SmsTemplate&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<SmsTemplate>>> ListSmsTemplatesWithHttpInfoAsync(SmsTemplateType? templateType = default(SmsTemplateType?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<SmsTemplate>>> ListSmsTemplatesWithHttpInfoAsync(string templateType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update an SMS Template
         /// </summary>
@@ -873,7 +873,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateType"> (optional)</param>
         /// <returns>List&lt;SmsTemplate&gt;</returns>
-        public List<SmsTemplate> ListSmsTemplates(SmsTemplateType? templateType = default(SmsTemplateType?))
+        public List<SmsTemplate> ListSmsTemplates(string templateType = default(string))
         {
             Okta.Sdk.Client.ApiResponse<List<SmsTemplate>> localVarResponse = ListSmsTemplatesWithHttpInfo(templateType);
             return localVarResponse.Data;
@@ -885,7 +885,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateType"> (optional)</param>
         /// <returns>ApiResponse of List&lt;SmsTemplate&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<SmsTemplate>> ListSmsTemplatesWithHttpInfo(SmsTemplateType? templateType = default(SmsTemplateType?))
+        public Okta.Sdk.Client.ApiResponse<List<SmsTemplate>> ListSmsTemplatesWithHttpInfo(string templateType = default(string))
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -947,7 +947,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateType"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SmsTemplate&gt;</returns>
-        public IOktaCollectionClient<SmsTemplate> ListSmsTemplatesAsync(SmsTemplateType? templateType = default(SmsTemplateType?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<SmsTemplate> ListSmsTemplatesAsync(string templateType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -998,7 +998,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateType"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SmsTemplate&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<SmsTemplate>>> ListSmsTemplatesWithHttpInfoAsync(SmsTemplateType? templateType = default(SmsTemplateType?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<SmsTemplate>>> ListSmsTemplatesWithHttpInfoAsync(string templateType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

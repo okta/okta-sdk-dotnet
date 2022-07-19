@@ -354,7 +354,7 @@ void (empty response body)
 
 <a name="getagentpools"></a>
 # **GetAgentPools**
-> List&lt;AgentPool&gt; GetAgentPools (int? limitPerPoolType = null, AgentType? poolType = null, string after = null)
+> List&lt;AgentPool&gt; GetAgentPools (int? limitPerPoolType = null, string poolType = null, string after = null)
 
 List all Agent Pools
 
@@ -385,7 +385,7 @@ namespace Example
 
             var apiInstance = new AgentPoolsApi(config);
             var limitPerPoolType = 5;  // int? | Maximum number of AgentPools being returned (optional)  (default to 5)
-            var poolType = (AgentType) "AD";  // AgentType? | Agent type to search for (optional) 
+            var poolType = "poolType_example";  // string | Agent type to search for (optional) 
             var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional) 
 
             try
@@ -410,7 +410,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limitPerPoolType** | **int?**| Maximum number of AgentPools being returned | [optional] [default to 5]
- **poolType** | **AgentType?**| Agent type to search for | [optional] 
+ **poolType** | **string**| Agent type to search for | [optional] 
  **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. | [optional] 
 
 ### Return type

@@ -73,6 +73,27 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ActivatePolicyRuleWithHttpInfo(string policyId, string ruleId);
         /// <summary>
+        /// Clone an existing policy
+        /// </summary>
+        /// <remarks>
+        /// Clones an existing policy.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="policyId"></param>
+        /// <returns>Policy</returns>
+        Policy ClonePolicy(string policyId);
+
+        /// <summary>
+        /// Clone an existing policy
+        /// </summary>
+        /// <remarks>
+        /// Clones an existing policy.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="policyId"></param>
+        /// <returns>ApiResponse of Policy</returns>
+        ApiResponse<Policy> ClonePolicyWithHttpInfo(string policyId);
+        /// <summary>
         /// Create a Policy
         /// </summary>
         /// <remarks>
@@ -401,6 +422,28 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ActivatePolicyRuleWithHttpInfoAsync(string policyId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Clone an existing policy
+        /// </summary>
+        /// <remarks>
+        /// Clones an existing policy.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="policyId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Policy</returns>
+        System.Threading.Tasks.Task<Policy> ClonePolicyAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Clone an existing policy
+        /// </summary>
+        /// <remarks>
+        /// Clones an existing policy.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="policyId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Policy)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Policy>> ClonePolicyWithHttpInfoAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Policy
         /// </summary>
@@ -1101,6 +1144,161 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ActivatePolicyRule", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Clone an existing policy Clones an existing policy.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="policyId"></param>
+        /// <returns>Policy</returns>
+        public Policy ClonePolicy(string policyId)
+        {
+            Okta.Sdk.Client.ApiResponse<Policy> localVarResponse = ClonePolicyWithHttpInfo(policyId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Clone an existing policy Clones an existing policy.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="policyId"></param>
+        /// <returns>ApiResponse of Policy</returns>
+        public Okta.Sdk.Client.ApiResponse<Policy> ClonePolicyWithHttpInfo(string policyId)
+        {
+            // verify the required parameter 'policyId' is set
+            if (policyId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'policyId' when calling PolicyApi->ClonePolicy");
+            }
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Policy>("/api/v1/policies/{policyId}/clone", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ClonePolicy", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Clone an existing policy Clones an existing policy.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="policyId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Policy</returns>
+        public async System.Threading.Tasks.Task<Policy> ClonePolicyAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<Policy> localVarResponse = await ClonePolicyWithHttpInfoAsync(policyId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Clone an existing policy Clones an existing policy.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="policyId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Policy)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Policy>> ClonePolicyWithHttpInfoAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'policyId' is set
+            if (policyId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'policyId' when calling PolicyApi->ClonePolicy");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Policy>("/api/v1/policies/{policyId}/clone", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ClonePolicy", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **RelayState** | [**ProtocolRelayState**](ProtocolRelayState.md) |  | [optional] 
 **Scopes** | **List&lt;string&gt;** |  | [optional] 
 **Settings** | [**ProtocolSettings**](ProtocolSettings.md) |  | [optional] 
-**Type** | **ProtocolType** |  | [optional] 
+**Type** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

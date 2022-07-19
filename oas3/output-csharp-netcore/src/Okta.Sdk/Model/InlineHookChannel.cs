@@ -32,18 +32,18 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "InlineHookChannel")]
     public partial class InlineHookChannel : IEquatable<InlineHookChannel>
     {
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public InlineHookChannelType? Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Config
         /// </summary>
         [DataMember(Name = "config", EmitDefaultValue = false)]
         public InlineHookChannelConfig Config { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets _Version
@@ -104,7 +104,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
                     this._Version == input._Version ||
@@ -126,7 +127,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Config.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();

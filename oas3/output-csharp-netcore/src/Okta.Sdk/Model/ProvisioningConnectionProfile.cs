@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "ProvisioningConnectionProfile")]
     public partial class ProvisioningConnectionProfile : IEquatable<ProvisioningConnectionProfile>
     {
-
+        
         /// <summary>
         /// Gets or Sets AuthScheme
         /// </summary>
         [DataMember(Name = "authScheme", EmitDefaultValue = false)]
-        public ProvisioningConnectionAuthScheme? AuthScheme { get; set; }
-        
+        public string AuthScheme { get; set; }
+
         /// <summary>
         /// Gets or Sets Token
         /// </summary>
@@ -92,7 +92,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
+                    (this.AuthScheme != null &&
+                    this.AuthScheme.Equals(input.AuthScheme))
                 ) && 
                 (
                     this.Token == input.Token ||
@@ -110,7 +111,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                if (this.AuthScheme != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                }
                 if (this.Token != null)
                 {
                     hashCode = (hashCode * 59) + this.Token.GetHashCode();

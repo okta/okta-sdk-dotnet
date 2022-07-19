@@ -1265,7 +1265,7 @@ Name | Type | Description  | Notes
 
 <a name="updateorglogo"></a>
 # **UpdateOrgLogo**
-> void UpdateOrgLogo ()
+> void UpdateOrgLogo (System.IO.Stream file)
 
 Upload the Org Logo
 
@@ -1295,11 +1295,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
             try
             {
                 // Upload the Org Logo
-                apiInstance.UpdateOrgLogo();
+                apiInstance.UpdateOrgLogo(file);
             }
             catch (ApiException  e)
             {
@@ -1313,7 +1314,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **System.IO.Stream****System.IO.Stream**|  | 
 
 ### Return type
 

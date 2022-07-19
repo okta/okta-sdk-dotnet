@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "PolicyRuleAuthContextCondition")]
     public partial class PolicyRuleAuthContextCondition : IEquatable<PolicyRuleAuthContextCondition>
     {
-
+        
         /// <summary>
         /// Gets or Sets AuthType
         /// </summary>
         [DataMember(Name = "authType", EmitDefaultValue = false)]
-        public PolicyRuleAuthContextType? AuthType { get; set; }
-        
+        public string AuthType { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,7 +85,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.AuthType == input.AuthType ||
-                    this.AuthType.Equals(input.AuthType)
+                    (this.AuthType != null &&
+                    this.AuthType.Equals(input.AuthType))
                 );
         }
 
@@ -98,7 +99,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.AuthType.GetHashCode();
+                if (this.AuthType != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthType.GetHashCode();
+                }
                 return hashCode;
             }
         }

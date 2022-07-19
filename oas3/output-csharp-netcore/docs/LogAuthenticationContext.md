@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthenticationProvider** | **LogAuthenticationProvider** |  | [optional] 
+**AuthenticationProvider** | **string** |  | [optional] 
 **AuthenticationStep** | **int** |  | [optional] [readonly] 
-**CredentialProvider** | **LogCredentialProvider** |  | [optional] 
-**CredentialType** | **LogCredentialType** |  | [optional] 
+**CredentialProvider** | **string** |  | [optional] 
+**CredentialType** | **string** |  | [optional] 
 **ExternalSessionId** | **string** |  | [optional] [readonly] 
 **Interface** | **string** |  | [optional] [readonly] 
 **Issuer** | [**LogIssuer**](LogIssuer.md) |  | [optional] 

@@ -59,24 +59,6 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(WebAuthnUserFactor), "webauthn")]
     public partial class UserFactor : IEquatable<UserFactor>
     {
-
-        /// <summary>
-        /// Gets or Sets FactorType
-        /// </summary>
-        [DataMember(Name = "factorType", EmitDefaultValue = false)]
-        public FactorType? FactorType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Provider
-        /// </summary>
-        [DataMember(Name = "provider", EmitDefaultValue = false)]
-        public FactorProvider? Provider { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public FactorStatus? Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Created
@@ -92,6 +74,12 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
+        /// <summary>
+        /// Gets or Sets FactorType
+        /// </summary>
+        [DataMember(Name = "factorType", EmitDefaultValue = false)]
+        public string FactorType { get; set; }
+
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
@@ -120,6 +108,18 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
+        /// <summary>
+        /// Gets or Sets Provider
+        /// </summary>
+        [DataMember(Name = "provider", EmitDefaultValue = false)]
+        public string Provider { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public string Status { get; set; }
+
         /// <summary>
         /// Gets or Sets Verify
         /// </summary>
@@ -213,7 +213,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.FactorType == input.FactorType ||
-                    this.FactorType.Equals(input.FactorType)
+                    (this.FactorType != null &&
+                    this.FactorType.Equals(input.FactorType))
                 ) && 
                 (
                     this.Id == input.Id ||
@@ -227,11 +228,13 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Provider == input.Provider ||
-                    this.Provider.Equals(input.Provider)
+                    (this.Provider != null &&
+                    this.Provider.Equals(input.Provider))
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.Verify == input.Verify ||
@@ -265,7 +268,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.FactorType.GetHashCode();
+                if (this.FactorType != null)
+                {
+                    hashCode = (hashCode * 59) + this.FactorType.GetHashCode();
+                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
@@ -274,8 +280,14 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.LastUpdated.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Provider != null)
+                {
+                    hashCode = (hashCode * 59) + this.Provider.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.Verify != null)
                 {
                     hashCode = (hashCode * 59) + this.Verify.GetHashCode();

@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "ProvisioningDeprovisionedCondition")]
     public partial class ProvisioningDeprovisionedCondition : IEquatable<ProvisioningDeprovisionedCondition>
     {
-
+        
         /// <summary>
         /// Gets or Sets Action
         /// </summary>
         [DataMember(Name = "action", EmitDefaultValue = false)]
-        public ProvisioningDeprovisionedAction? Action { get; set; }
-        
+        public string Action { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,7 +85,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Action == input.Action ||
-                    this.Action.Equals(input.Action)
+                    (this.Action != null &&
+                    this.Action.Equals(input.Action))
                 );
         }
 
@@ -98,7 +99,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Action.GetHashCode();
+                if (this.Action != null)
+                {
+                    hashCode = (hashCode * 59) + this.Action.GetHashCode();
+                }
                 return hashCode;
             }
         }

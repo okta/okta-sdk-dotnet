@@ -29,6 +29,27 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Retrieve the UI Layout for an Application
+        /// </summary>
+        /// <remarks>
+        /// Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appName"></param>
+        /// <returns>ApplicationLayout</returns>
+        ApplicationLayout GetApplicationLayout(string appName);
+
+        /// <summary>
+        /// Retrieve the UI Layout for an Application
+        /// </summary>
+        /// <remarks>
+        /// Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appName"></param>
+        /// <returns>ApiResponse of ApplicationLayout</returns>
+        ApiResponse<ApplicationLayout> GetApplicationLayoutWithHttpInfo(string appName);
+        /// <summary>
         /// Retrieve the default Application User Schema for an Application
         /// </summary>
         /// <remarks>
@@ -165,6 +186,28 @@ namespace Okta.Sdk.Api
     public interface ISchemaApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Retrieve the UI Layout for an Application
+        /// </summary>
+        /// <remarks>
+        /// Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appName"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApplicationLayout</returns>
+        System.Threading.Tasks.Task<ApplicationLayout> GetApplicationLayoutAsync(string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve the UI Layout for an Application
+        /// </summary>
+        /// <remarks>
+        /// Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appName"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ApplicationLayout)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApplicationLayout>> GetApplicationLayoutWithHttpInfoAsync(string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the default Application User Schema for an Application
         /// </summary>
@@ -398,6 +441,161 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
+        /// <summary>
+        /// Retrieve the UI Layout for an Application Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appName"></param>
+        /// <returns>ApplicationLayout</returns>
+        public ApplicationLayout GetApplicationLayout(string appName)
+        {
+            Okta.Sdk.Client.ApiResponse<ApplicationLayout> localVarResponse = GetApplicationLayoutWithHttpInfo(appName);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve the UI Layout for an Application Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appName"></param>
+        /// <returns>ApiResponse of ApplicationLayout</returns>
+        public Okta.Sdk.Client.ApiResponse<ApplicationLayout> GetApplicationLayoutWithHttpInfo(string appName)
+        {
+            // verify the required parameter 'appName' is set
+            if (appName == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appName' when calling SchemaApi->GetApplicationLayout");
+            }
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ApplicationLayout>("/api/v1/meta/layouts/apps/{appName}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetApplicationLayout", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve the UI Layout for an Application Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appName"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApplicationLayout</returns>
+        public async System.Threading.Tasks.Task<ApplicationLayout> GetApplicationLayoutAsync(string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<ApplicationLayout> localVarResponse = await GetApplicationLayoutWithHttpInfoAsync(appName, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Retrieve the UI Layout for an Application Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appName"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ApplicationLayout)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ApplicationLayout>> GetApplicationLayoutWithHttpInfoAsync(string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appName' is set
+            if (appName == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appName' when calling SchemaApi->GetApplicationLayout");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ApplicationLayout>("/api/v1/meta/layouts/apps/{appName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetApplicationLayout", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
         /// <summary>
         /// Retrieve the default Application User Schema for an Application Fetches the Schema for an App User
         /// </summary>

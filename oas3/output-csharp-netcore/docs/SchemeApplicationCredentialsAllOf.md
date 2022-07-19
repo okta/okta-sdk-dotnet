@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Password** | [**PasswordCredential**](PasswordCredential.md) |  | [optional] 
 **RevealPassword** | **bool** |  | [optional] 
-**Scheme** | **ApplicationCredentialsScheme** |  | [optional] 
+**Scheme** | **string** |  | [optional] 
 **Signing** | [**ApplicationCredentialsSigning**](ApplicationCredentialsSigning.md) |  | [optional] 
 **UserName** | **string** |  | [optional] 
 

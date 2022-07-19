@@ -32,19 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "DomainResponse")]
     public partial class DomainResponse : IEquatable<DomainResponse>
     {
-
+        
         /// <summary>
         /// Gets or Sets CertificateSourceType
         /// </summary>
         [DataMember(Name = "certificateSourceType", EmitDefaultValue = false)]
-        public DomainCertificateSourceType? CertificateSourceType { get; set; }
+        public string CertificateSourceType { get; set; }
 
-        /// <summary>
-        /// Gets or Sets ValidationStatus
-        /// </summary>
-        [DataMember(Name = "validationStatus", EmitDefaultValue = false)]
-        public DomainValidationStatus? ValidationStatus { get; set; }
-        
         /// <summary>
         /// Gets or Sets DnsRecords
         /// </summary>
@@ -68,6 +62,12 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "publicCertificate", EmitDefaultValue = false)]
         public DomainCertificateMetadata PublicCertificate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ValidationStatus
+        /// </summary>
+        [DataMember(Name = "validationStatus", EmitDefaultValue = false)]
+        public string ValidationStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -127,7 +127,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.CertificateSourceType == input.CertificateSourceType ||
-                    this.CertificateSourceType.Equals(input.CertificateSourceType)
+                    (this.CertificateSourceType != null &&
+                    this.CertificateSourceType.Equals(input.CertificateSourceType))
                 ) && 
                 (
                     this.DnsRecords == input.DnsRecords ||
@@ -152,7 +153,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.ValidationStatus == input.ValidationStatus ||
-                    this.ValidationStatus.Equals(input.ValidationStatus)
+                    (this.ValidationStatus != null &&
+                    this.ValidationStatus.Equals(input.ValidationStatus))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -170,7 +172,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.CertificateSourceType.GetHashCode();
+                if (this.CertificateSourceType != null)
+                {
+                    hashCode = (hashCode * 59) + this.CertificateSourceType.GetHashCode();
+                }
                 if (this.DnsRecords != null)
                 {
                     hashCode = (hashCode * 59) + this.DnsRecords.GetHashCode();
@@ -187,7 +192,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PublicCertificate.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ValidationStatus.GetHashCode();
+                if (this.ValidationStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValidationStatus.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

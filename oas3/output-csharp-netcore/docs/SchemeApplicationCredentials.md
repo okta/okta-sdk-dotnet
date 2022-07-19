@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **UserNameTemplate** | [**ApplicationCredentialsUsernameTemplate**](ApplicationCredentialsUsernameTemplate.md) |  | [optional] 
 **Password** | [**PasswordCredential**](PasswordCredential.md) |  | [optional] 
 **RevealPassword** | **bool** |  | [optional] 
-**Scheme** | **ApplicationCredentialsScheme** |  | [optional] 
+**Scheme** | **string** |  | [optional] 
 **UserName** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

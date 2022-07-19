@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationType** | **OpenIdConnectApplicationType** |  | [optional] 
+**ApplicationType** | **string** |  | [optional] 
 **ClientUri** | **string** |  | [optional] 
-**ConsentMethod** | **OpenIdConnectApplicationConsentMethod** |  | [optional] 
-**GrantTypes** | [**List&lt;OAuthGrantType&gt;**](OAuthGrantType.md) |  | [optional] 
+**ConsentMethod** | **string** |  | [optional] 
+**GrantTypes** | **List&lt;string&gt;** |  | [optional] 
 **IdpInitiatedLogin** | [**OpenIdConnectApplicationIdpInitiatedLogin**](OpenIdConnectApplicationIdpInitiatedLogin.md) |  | [optional] 
 **InitiateLoginUri** | **string** |  | [optional] 
-**IssuerMode** | **OpenIdConnectApplicationIssuerMode** |  | [optional] 
+**IssuerMode** | **string** |  | [optional] 
 **Jwks** | [**OpenIdConnectApplicationSettingsClientKeys**](OpenIdConnectApplicationSettingsClientKeys.md) |  | [optional] 
 **LogoUri** | **string** |  | [optional] 
 **PolicyUri** | **string** |  | [optional] 
 **PostLogoutRedirectUris** | **List&lt;string&gt;** |  | [optional] 
 **RedirectUris** | **List&lt;string&gt;** |  | [optional] 
 **RefreshToken** | [**OpenIdConnectApplicationSettingsRefreshToken**](OpenIdConnectApplicationSettingsRefreshToken.md) |  | [optional] 
-**ResponseTypes** | [**List&lt;OAuthResponseType&gt;**](OAuthResponseType.md) |  | [optional] 
+**ResponseTypes** | **List&lt;string&gt;** |  | [optional] 
 **TosUri** | **string** |  | [optional] 
 **WildcardRedirect** | **string** |  | [optional] 
 

@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "PolicyAccountLink")]
     public partial class PolicyAccountLink : IEquatable<PolicyAccountLink>
     {
-
+        
         /// <summary>
         /// Gets or Sets Action
         /// </summary>
         [DataMember(Name = "action", EmitDefaultValue = false)]
-        public PolicyAccountLinkAction? Action { get; set; }
-        
+        public string Action { get; set; }
+
         /// <summary>
         /// Gets or Sets Filter
         /// </summary>
@@ -92,7 +92,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Action == input.Action ||
-                    this.Action.Equals(input.Action)
+                    (this.Action != null &&
+                    this.Action.Equals(input.Action))
                 ) && 
                 (
                     this.Filter == input.Filter ||
@@ -110,7 +111,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Action.GetHashCode();
+                if (this.Action != null)
+                {
+                    hashCode = (hashCode * 59) + this.Action.GetHashCode();
+                }
                 if (this.Filter != null)
                 {
                     hashCode = (hashCode * 59) + this.Filter.GetHashCode();

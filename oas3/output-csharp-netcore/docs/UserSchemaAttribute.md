@@ -17,10 +17,10 @@ Name | Type | Description | Notes
 **Pattern** | **string** |  | [optional] 
 **Permissions** | [**List&lt;UserSchemaAttributePermission&gt;**](UserSchemaAttributePermission.md) |  | [optional] 
 **Required** | **bool** |  | [optional] 
-**Scope** | **UserSchemaAttributeScope** |  | [optional] 
+**Scope** | **string** |  | [optional] 
 **Title** | **string** |  | [optional] 
-**Type** | **UserSchemaAttributeType** |  | [optional] 
-**Union** | **UserSchemaAttributeUnion** |  | [optional] 
+**Type** | **string** |  | [optional] 
+**Union** | **string** |  | [optional] 
 **Unique** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

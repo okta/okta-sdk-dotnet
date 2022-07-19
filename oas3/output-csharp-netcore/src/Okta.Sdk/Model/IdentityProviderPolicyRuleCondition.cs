@@ -32,18 +32,18 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "IdentityProviderPolicyRuleCondition")]
     public partial class IdentityProviderPolicyRuleCondition : IEquatable<IdentityProviderPolicyRuleCondition>
     {
-
-        /// <summary>
-        /// Gets or Sets Provider
-        /// </summary>
-        [DataMember(Name = "provider", EmitDefaultValue = false)]
-        public IdentityProviderPolicyProvider? Provider { get; set; }
         
         /// <summary>
         /// Gets or Sets IdpIds
         /// </summary>
         [DataMember(Name = "idpIds", EmitDefaultValue = false)]
         public List<string> IdpIds { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Provider
+        /// </summary>
+        [DataMember(Name = "provider", EmitDefaultValue = false)]
+        public string Provider { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -98,7 +98,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Provider == input.Provider ||
-                    this.Provider.Equals(input.Provider)
+                    (this.Provider != null &&
+                    this.Provider.Equals(input.Provider))
                 );
         }
 
@@ -115,7 +116,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.IdpIds.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
+                if (this.Provider != null)
+                {
+                    hashCode = (hashCode * 59) + this.Provider.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -55,7 +55,7 @@ namespace Okta.Sdk.IntegrationTest
                             Signature = new ProtocolAlgorithmTypeSignature()
                             {
                                 Algorithm = "SHA-256",
-                                Scope = ProtocolAlgorithmTypeSignatureScope.REQUEST,
+                                Scope = "REQUEST",
                             },
                         },
                         Response = new ProtocolAlgorithmType()
@@ -63,7 +63,7 @@ namespace Okta.Sdk.IntegrationTest
                             Signature = new ProtocolAlgorithmTypeSignature()
                             {
                                 Algorithm = "SHA-256",
-                                Scope = ProtocolAlgorithmTypeSignatureScope.ANY,
+                                Scope = "ANY",
                             },
                         },
                     },
@@ -71,32 +71,32 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         Acs = new ProtocolEndpoint()
                         {
-                            Binding = ProtocolEndpointBinding.POST,
-                            Type = ProtocolEndpointType.INSTANCE,
+                            Binding = "HTTP-POST",
+                            Type = "INSTANCE",
                         },
                         Authorization = new ProtocolEndpoint()
                         {
-                            Binding = ProtocolEndpointBinding.REDIRECT,
+                            Binding = "HTTP-REDIRECT",
                             Url = "https://idp.example.com/authorize",
                         },
                         Token = new ProtocolEndpoint()
                         {
-                            Binding = ProtocolEndpointBinding.POST,
+                            Binding = "HTTP-POST",
                             Url = "https://idp.example.com/token",
                         },
                         UserInfo = new ProtocolEndpoint()
                         {
-                            Binding = ProtocolEndpointBinding.REDIRECT,
+                            Binding = "HTTP-REDIRECT",
                             Url = "https://idp.example.com/userinfo",
                         },
                         Jwks = new ProtocolEndpoint()
                         {
-                            Binding = ProtocolEndpointBinding.REDIRECT,
+                            Binding = "HTTP-REDIRECT",
                             Url = "https://idp.example.com/keys",
                         },
                     },
                     Scopes = new List<string>() { "openid", "profile", "email" },
-                    Type = ProtocolType.OAUTH2,
+                    Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
                         _Client = new IdentityProviderCredentialsClient()
@@ -114,26 +114,26 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     AccountLink = new PolicyAccountLink()
                     {
-                        Action = PolicyAccountLinkAction.AUTO,
+                        Action = "AUTO",
                         Filter = null,
                     },
                     Provisioning = new Provisioning()
                     {
-                        Action = ProvisioningAction.AUTO,
+                        Action = "AUTO",
                         Conditions = new ProvisioningConditions()
                         {
                             Deprovisioned = new ProvisioningDeprovisionedCondition()
                             {
-                                Action = ProvisioningDeprovisionedAction.NONE,
+                                Action = "NONE",
                             },
                             Suspended = new ProvisioningSuspendedCondition()
                             {
-                                Action = ProvisioningSuspendedAction.NONE,
+                                Action = "NONE",
                             },
                         },
                         Groups = new ProvisioningGroups()
                         {
-                            Action = ProvisioningGroupsAction.NONE,
+                            Action = "NONE",
                         },
                     },
                     MaxClockSkew = 120000,
@@ -143,7 +143,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Template = "idpuser.email",
                         },
-                        MatchType = PolicySubjectMatchType.USERNAME,
+                        MatchType = "USERNAME",
                     },
                 },
             };
@@ -155,29 +155,29 @@ namespace Okta.Sdk.IntegrationTest
                 createdIdp.Should().NotBeNull();
                 createdIdp.Name.Should().Be($"dotnet-sdk:AddGeneric{randomSuffix}");
                 createdIdp.Type.Should().Be("OIDC");
-                createdIdp.Status.Should().Be(LifecycleStatus.ACTIVE);
-                createdIdp.Protocol.Type.Should().Be(ProtocolType.OIDC);
+                createdIdp.Status.Should().Be("ACTIVE");
+                createdIdp.Protocol.Type.Should().Be("OIDC");
                 createdIdp.Protocol.Endpoints.Authorization.Url.Should().Be("https://idp.example.com/authorize");
-                createdIdp.Protocol.Endpoints.Authorization.Binding.Should().Be(ProtocolEndpointBinding.REDIRECT);
+                createdIdp.Protocol.Endpoints.Authorization.Binding.Should().Be("HTTP-REDIRECT");
                 createdIdp.Protocol.Endpoints.Token.Url.Should().Be("https://idp.example.com/token");
-                createdIdp.Protocol.Endpoints.Token.Binding.Should().Be(ProtocolEndpointBinding.POST);
+                createdIdp.Protocol.Endpoints.Token.Binding.Should().Be("HTTP-POST");
                 createdIdp.Protocol.Endpoints.UserInfo.Url.Should().Be("https://idp.example.com/userinfo");
-                createdIdp.Protocol.Endpoints.UserInfo.Binding.Should().Be(ProtocolEndpointBinding.REDIRECT);
+                createdIdp.Protocol.Endpoints.UserInfo.Binding.Should().Be("HTTP-REDIRECT");
                 createdIdp.Protocol.Endpoints.Jwks.Url.Should().Be("https://idp.example.com/keys");
-                createdIdp.Protocol.Endpoints.Jwks.Binding.Should().Be(ProtocolEndpointBinding.REDIRECT);
+                createdIdp.Protocol.Endpoints.Jwks.Binding.Should().Be("HTTP-REDIRECT");
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("openid", "profile", "email");
                 createdIdp.Protocol.Issuer.Url.Should().Be("https://idp.example.com");
                 createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
                 createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
-                createdIdp.Policy.Provisioning.Action.Should().Be(ProvisioningAction.AUTO);
+                createdIdp.Policy.Provisioning.Action.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeFalse();
-                createdIdp.Policy.Provisioning.Groups.Action.Should().Be(ProvisioningGroupsAction.NONE);
-                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be(ProvisioningDeprovisionedAction.NONE);
-                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be(ProvisioningSuspendedAction.NONE);
-                createdIdp.Policy.AccountLink.Action.Should().Be(PolicyAccountLinkAction.AUTO);
+                createdIdp.Policy.Provisioning.Groups.Action.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
+                createdIdp.Policy.AccountLink.Action.Should().Be("AUTO");
                 createdIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.email");
                 createdIdp.Policy.Subject.Filter.Should().BeNull();
-                createdIdp.Policy.Subject.MatchType.Value.Should().Be(PolicySubjectMatchType.USERNAME);
+                createdIdp.Policy.Subject.MatchType.Should().Be("USERNAME");
                 createdIdp.Policy.Subject.MatchAttribute.Should().BeNull();
             }
             finally
@@ -199,7 +199,7 @@ namespace Okta.Sdk.IntegrationTest
                 Protocol = new Protocol()
                 {
                     Scopes = new List<string>() { "public_profile", "email" },
-                    Type = ProtocolType.OAUTH2,
+                    Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
                         _Client = new IdentityProviderCredentialsClient()
@@ -213,27 +213,27 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     AccountLink = new PolicyAccountLink()
                     {
-                        Action = PolicyAccountLinkAction.AUTO,
+                        Action = "AUTO",
                         Filter = null,
                     },
                     Provisioning = new Provisioning()
                     {
-                        Action = ProvisioningAction.AUTO,
+                        Action = "AUTO",
                         ProfileMaster = true,
                         Conditions = new ProvisioningConditions()
                         {
                             Deprovisioned = new ProvisioningDeprovisionedCondition()
                             {
-                                Action = ProvisioningDeprovisionedAction.NONE,
+                                Action = "NONE",
                             },
                             Suspended = new ProvisioningSuspendedCondition()
                             {
-                                Action = ProvisioningSuspendedAction.NONE,
+                                Action = "NONE",
                             },
                         },
                         Groups = new ProvisioningGroups()
                         {
-                            Action = ProvisioningGroupsAction.NONE,
+                            Action = "NONE",
                         },
                     },
                     MaxClockSkew = 0,
@@ -243,7 +243,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Template = "idpuser.email",
                         },
-                        MatchType = PolicySubjectMatchType.USERNAME,
+                        MatchType = "USERNAME",
                         Filter = null,
                     },
                 },
@@ -256,20 +256,20 @@ namespace Okta.Sdk.IntegrationTest
                 createdIdp.Should().NotBeNull();
                 createdIdp.Name.Should().Be($"dotnet-sdk:AddFacebook{randomSuffix}");
                 createdIdp.Type.Should().Be("FACEBOOK");
-                createdIdp.Status.Should().Be(LifecycleStatus.ACTIVE);
-                createdIdp.Protocol.Type.Should().Be(ProtocolType.OAUTH2);
+                createdIdp.Status.Should().Be("ACTIVE");
+                createdIdp.Protocol.Type.Should().Be("OAUTH2");
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("public_profile", "email");
                 createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
                 createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
-                createdIdp.Policy.Provisioning.Action.Should().Be(ProvisioningAction.AUTO);
+                createdIdp.Policy.Provisioning.Action.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
-                createdIdp.Policy.Provisioning.Groups.Action.Should().Be(ProvisioningGroupsAction.NONE);
-                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be(ProvisioningDeprovisionedAction.NONE);
-                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be(ProvisioningSuspendedAction.NONE);
-                createdIdp.Policy.AccountLink.Action.Should().Be(PolicyAccountLinkAction.AUTO);
+                createdIdp.Policy.Provisioning.Groups.Action.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
+                createdIdp.Policy.AccountLink.Action.Should().Be("AUTO");
                 createdIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.email");
                 createdIdp.Policy.Subject.Filter.Should().BeNull();
-                createdIdp.Policy.Subject.MatchType.Value.Should().Be(PolicySubjectMatchType.USERNAME);
+                createdIdp.Policy.Subject.MatchType.Should().Be("USERNAME");
             }
             finally
             {
@@ -290,7 +290,7 @@ namespace Okta.Sdk.IntegrationTest
                 Protocol = new Protocol()
                 {
                     Scopes = new List<string>() { "public_profile", "email", "openid" },
-                    Type = ProtocolType.OIDC,
+                    Type = "OIDC",
                     Credentials = new IdentityProviderCredentials()
                     {
                         _Client = new IdentityProviderCredentialsClient()
@@ -304,27 +304,27 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     AccountLink = new PolicyAccountLink()
                     {
-                        Action = PolicyAccountLinkAction.AUTO,
+                        Action = "AUTO",
                         Filter = null,
                     },
                     Provisioning = new Provisioning()
                     {
-                        Action = ProvisioningAction.AUTO,
+                        Action = "AUTO",
                         ProfileMaster = true,
                         Conditions = new ProvisioningConditions()
                         {
                             Deprovisioned = new ProvisioningDeprovisionedCondition()
                             {
-                                Action = ProvisioningDeprovisionedAction.NONE,
+                                Action = "NONE",
                             },
                             Suspended = new ProvisioningSuspendedCondition()
                             {
-                                Action = ProvisioningSuspendedAction.NONE,
+                                Action = "NONE",
                             },
                         },
                         Groups = new ProvisioningGroups()
                         {
-                            Action = ProvisioningGroupsAction.NONE,
+                            Action = "NONE",
                         },
                     },
                     MaxClockSkew = 0,
@@ -334,7 +334,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Template = "idpuser.email",
                         },
-                        MatchType = PolicySubjectMatchType.USERNAME,
+                        MatchType = "USERNAME",
                         Filter = null,
                     },
                 },
@@ -347,20 +347,20 @@ namespace Okta.Sdk.IntegrationTest
                 createdIdp.Should().NotBeNull();
                 createdIdp.Name.Should().Be($"dotnet-sdk:AddGoogleIdp{randomSuffix}");
                 createdIdp.Type.Should().Be("GOOGLE");
-                createdIdp.Status.Should().Be(LifecycleStatus.ACTIVE);
-                createdIdp.Protocol.Type.Should().Be(ProtocolType.OIDC);
+                createdIdp.Status.Should().Be("ACTIVE");
+                createdIdp.Protocol.Type.Should().Be("OIDC");
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("public_profile", "email", "openid");
                 createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
                 createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
-                createdIdp.Policy.Provisioning.Action.Should().Be(ProvisioningAction.AUTO);
+                createdIdp.Policy.Provisioning.Action.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
-                createdIdp.Policy.Provisioning.Groups.Action.Should().Be(ProvisioningGroupsAction.NONE);
-                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be(ProvisioningDeprovisionedAction.NONE);
-                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be(ProvisioningSuspendedAction.NONE);
-                createdIdp.Policy.AccountLink.Action.Should().Be(PolicyAccountLinkAction.AUTO);
+                createdIdp.Policy.Provisioning.Groups.Action.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
+                createdIdp.Policy.AccountLink.Action.Should().Be("AUTO");
                 createdIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.email");
                 createdIdp.Policy.Subject.Filter.Should().BeNull();
-                createdIdp.Policy.Subject.MatchType.Value.Should().Be(PolicySubjectMatchType.USERNAME);
+                createdIdp.Policy.Subject.MatchType.Should().Be("USERNAME");
             }
             finally
             {
@@ -381,7 +381,7 @@ namespace Okta.Sdk.IntegrationTest
                 Protocol = new Protocol()
                 {
                     Scopes = new List<string>() { "r_basicprofile", "r_emailaddress" },
-                    Type = ProtocolType.OAUTH2,
+                    Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
                         _Client = new IdentityProviderCredentialsClient()
@@ -395,27 +395,27 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     AccountLink = new PolicyAccountLink()
                     {
-                        Action = PolicyAccountLinkAction.AUTO,
+                        Action = "AUTO",
                         Filter = null,
                     },
                     Provisioning = new Provisioning()
                     {
-                        Action = ProvisioningAction.AUTO,
+                        Action = "AUTO",
                         ProfileMaster = true,
                         Conditions = new ProvisioningConditions()
                         {
                             Deprovisioned = new ProvisioningDeprovisionedCondition()
                             {
-                                Action = ProvisioningDeprovisionedAction.NONE,
+                                Action = "NONE",
                             },
                             Suspended = new ProvisioningSuspendedCondition()
                             {
-                                Action = ProvisioningSuspendedAction.NONE,
+                                Action = "NONE",
                             },
                         },
                         Groups = new ProvisioningGroups()
                         {
-                            Action = ProvisioningGroupsAction.NONE,
+                            Action = "NONE",
                         },
                     },
                     MaxClockSkew = 0,
@@ -425,7 +425,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Template = "idpuser.email",
                         },
-                        MatchType = PolicySubjectMatchType.USERNAME,
+                        MatchType = "USERNAME",
                         Filter = null,
                     },
                 },
@@ -438,20 +438,20 @@ namespace Okta.Sdk.IntegrationTest
                 createdIdp.Should().NotBeNull();
                 createdIdp.Name.Should().Be($"dotnet-sdk:AddLinkedInIdp{randomSuffix}");
                 createdIdp.Type.Should().Be("LINKEDIN");
-                createdIdp.Status.Should().Be(LifecycleStatus.ACTIVE);
-                createdIdp.Protocol.Type.Should().Be(ProtocolType.OAUTH2);
+                createdIdp.Status.Should().Be("ACTIVE");
+                createdIdp.Protocol.Type.Should().Be("OAUTH2");
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("r_basicprofile", "r_emailaddress");
                 createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
                 createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
-                createdIdp.Policy.Provisioning.Action.Should().Be(ProvisioningAction.AUTO);
+                createdIdp.Policy.Provisioning.Action.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
-                createdIdp.Policy.Provisioning.Groups.Action.Should().Be(ProvisioningGroupsAction.NONE);
-                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be(ProvisioningDeprovisionedAction.NONE);
-                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be(ProvisioningSuspendedAction.NONE);
-                createdIdp.Policy.AccountLink.Action.Should().Be(PolicyAccountLinkAction.AUTO);
+                createdIdp.Policy.Provisioning.Groups.Action.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
+                createdIdp.Policy.AccountLink.Action.Should().Be("AUTO");
                 createdIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.email");
                 createdIdp.Policy.Subject.Filter.Should().BeNull();
-                createdIdp.Policy.Subject.MatchType.Value.Should().Be(PolicySubjectMatchType.USERNAME);
+                createdIdp.Policy.Subject.MatchType.Should().Be("USERNAME");
             }
             finally
             {
@@ -472,7 +472,7 @@ namespace Okta.Sdk.IntegrationTest
                 Protocol = new Protocol()
                 {
                     Scopes = new List<string>() { "openid", "email", "profile", "https://graph.microsoft.com/User.Read" },
-                    Type = ProtocolType.OIDC,
+                    Type = "OIDC",
                     Credentials = new IdentityProviderCredentials()
                     {
                         _Client = new IdentityProviderCredentialsClient()
@@ -486,27 +486,27 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     AccountLink = new PolicyAccountLink()
                     {
-                        Action = PolicyAccountLinkAction.AUTO,
+                        Action = "AUTO",
                         Filter = null,
                     },
                     Provisioning = new Provisioning()
                     {
-                        Action = ProvisioningAction.AUTO,
+                        Action = "AUTO",
                         ProfileMaster = true,
                         Conditions = new ProvisioningConditions()
                         {
                             Deprovisioned = new ProvisioningDeprovisionedCondition()
                             {
-                                Action = ProvisioningDeprovisionedAction.NONE,
+                                Action = "NONE",
                             },
                             Suspended = new ProvisioningSuspendedCondition()
                             {
-                                Action = ProvisioningSuspendedAction.NONE,
+                                Action = "NONE",
                             },
                         },
                         Groups = new ProvisioningGroups()
                         {
-                            Action = ProvisioningGroupsAction.NONE,
+                            Action = "NONE",
                         },
                     },
                     MaxClockSkew = 0,
@@ -516,7 +516,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Template = "idpuser.userPrincipalName",
                         },
-                        MatchType = PolicySubjectMatchType.USERNAME,
+                        MatchType = "USERNAME",
                         Filter = null,
                     },
                 },
@@ -529,20 +529,20 @@ namespace Okta.Sdk.IntegrationTest
                 createdIdp.Should().NotBeNull();
                 createdIdp.Name.Should().Be($"dotnet-sdk:AddMicrosoftIdp{randomSuffix}");
                 createdIdp.Type.Should().Be("MICROSOFT");
-                createdIdp.Status.Should().Be(LifecycleStatus.ACTIVE);
-                createdIdp.Protocol.Type.Should().Be(ProtocolType.OIDC);
+                createdIdp.Status.Should().Be("ACTIVE");
+                createdIdp.Protocol.Type.Should().Be("OIDC");
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("openid", "email", "profile", "https://graph.microsoft.com/User.Read");
                 createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
                 createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
-                createdIdp.Policy.Provisioning.Action.Should().Be(ProvisioningAction.AUTO);
+                createdIdp.Policy.Provisioning.Action.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
-                createdIdp.Policy.Provisioning.Groups.Action.Should().Be(ProvisioningGroupsAction.NONE);
-                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be(ProvisioningDeprovisionedAction.NONE);
-                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be(ProvisioningSuspendedAction.NONE);
-                createdIdp.Policy.AccountLink.Action.Should().Be(PolicyAccountLinkAction.AUTO);
+                createdIdp.Policy.Provisioning.Groups.Action.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
+                createdIdp.Policy.AccountLink.Action.Should().Be("AUTO");
                 createdIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.userPrincipalName");
                 createdIdp.Policy.Subject.Filter.Should().BeNull();
-                createdIdp.Policy.Subject.MatchType.Value.Should().Be(PolicySubjectMatchType.USERNAME);
+                createdIdp.Policy.Subject.MatchType.Should().Be("USERNAME");
             }
             finally
             {
@@ -563,7 +563,7 @@ namespace Okta.Sdk.IntegrationTest
                 Protocol = new Protocol()
                 {
                     Scopes = new List<string>() { "r_basicprofile", "r_emailaddress" },
-                    Type = ProtocolType.OAUTH2,
+                    Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
                         _Client = new IdentityProviderCredentialsClient()
@@ -577,27 +577,27 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     AccountLink = new PolicyAccountLink()
                     {
-                        Action = PolicyAccountLinkAction.AUTO,
+                        Action = "AUTO",
                         Filter = null,
                     },
                     Provisioning = new Provisioning()
                     {
-                        Action = ProvisioningAction.AUTO,
+                        Action = "AUTO",
                         ProfileMaster = true,
                         Conditions = new ProvisioningConditions()
                         {
                             Deprovisioned = new ProvisioningDeprovisionedCondition()
                             {
-                                Action = ProvisioningDeprovisionedAction.NONE,
+                                Action = "NONE",
                             },
                             Suspended = new ProvisioningSuspendedCondition()
                             {
-                                Action = ProvisioningSuspendedAction.NONE,
+                                Action = "NONE",
                             },
                         },
                         Groups = new ProvisioningGroups()
                         {
-                            Action = ProvisioningGroupsAction.NONE,
+                            Action = "NONE",
                         },
                     },
                     MaxClockSkew = 0,
@@ -607,7 +607,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Template = "idpuser.email",
                         },
-                        MatchType = PolicySubjectMatchType.USERNAME,
+                        MatchType = "USERNAME",
                         Filter = null,
                     },
                 },
@@ -621,20 +621,20 @@ namespace Okta.Sdk.IntegrationTest
                 retrievedIdp.Should().NotBeNull();
                 retrievedIdp.Name.Should().Be($"dotnet-sdk:GetIdp{randomSuffix}");
                 retrievedIdp.Type.Should().Be("LINKEDIN");
-                retrievedIdp.Status.Should().Be(LifecycleStatus.ACTIVE);
-                retrievedIdp.Protocol.Type.Should().Be(ProtocolType.OAUTH2);
+                retrievedIdp.Status.Should().Be("ACTIVE");
+                retrievedIdp.Protocol.Type.Should().Be("OAUTH2");
                 retrievedIdp.Protocol.Scopes.Should().ContainInOrder("r_basicprofile", "r_emailaddress");
                 retrievedIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
                 retrievedIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
-                retrievedIdp.Policy.Provisioning.Action.Should().Be(ProvisioningAction.AUTO);
+                retrievedIdp.Policy.Provisioning.Action.Should().Be("AUTO");
                 retrievedIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
-                retrievedIdp.Policy.Provisioning.Groups.Action.Should().Be(ProvisioningGroupsAction.NONE);
-                retrievedIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be(ProvisioningDeprovisionedAction.NONE);
-                retrievedIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be(ProvisioningSuspendedAction.NONE);
-                retrievedIdp.Policy.AccountLink.Action.Should().Be(PolicyAccountLinkAction.AUTO);
+                retrievedIdp.Policy.Provisioning.Groups.Action.Should().Be("NONE");
+                retrievedIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be("NONE");
+                retrievedIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
+                retrievedIdp.Policy.AccountLink.Action.Should().Be("AUTO");
                 retrievedIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.email");
                 retrievedIdp.Policy.Subject.Filter.Should().BeNull();
-                retrievedIdp.Policy.Subject.MatchType.Value.Should().Be(PolicySubjectMatchType.USERNAME);
+                retrievedIdp.Policy.Subject.MatchType.Should().Be("USERNAME");
             }
             finally
             {
@@ -655,7 +655,7 @@ namespace Okta.Sdk.IntegrationTest
                 Protocol = new Protocol()
                 {
                     Scopes = new List<string>() { "r_basicprofile", "r_emailaddress" },
-                    Type = ProtocolType.OAUTH2,
+                    Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
                         _Client = new IdentityProviderCredentialsClient()
@@ -669,27 +669,27 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     AccountLink = new PolicyAccountLink()
                     {
-                        Action = PolicyAccountLinkAction.AUTO,
+                        Action = "AUTO",
                         Filter = null,
                     },
                     Provisioning = new Provisioning()
                     {
-                        Action = ProvisioningAction.AUTO,
+                        Action = "AUTO",
                         ProfileMaster = true,
                         Conditions = new ProvisioningConditions()
                         {
                             Deprovisioned = new ProvisioningDeprovisionedCondition()
                             {
-                                Action = ProvisioningDeprovisionedAction.NONE,
+                                Action = "NONE",
                             },
                             Suspended = new ProvisioningSuspendedCondition()
                             {
-                                Action = ProvisioningSuspendedAction.NONE,
+                                Action = "NONE",
                             },
                         },
                         Groups = new ProvisioningGroups()
                         {
-                            Action = ProvisioningGroupsAction.NONE,
+                            Action = "NONE",
                         },
                     },
                     MaxClockSkew = 0,
@@ -699,7 +699,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Template = "idpuser.email",
                         },
-                        MatchType = PolicySubjectMatchType.USERNAME,
+                        MatchType = "USERNAME",
                         Filter = null,
                     },
                 },
@@ -732,7 +732,7 @@ namespace Okta.Sdk.IntegrationTest
                 Protocol = new Protocol()
                 {
                     Scopes = new List<string>() { "r_basicprofile", "r_emailaddress" },
-                    Type = ProtocolType.OAUTH2,
+                    Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
                         _Client = new IdentityProviderCredentialsClient()
@@ -746,27 +746,27 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     AccountLink = new PolicyAccountLink()
                     {
-                        Action = PolicyAccountLinkAction.AUTO,
+                        Action = "AUTO",
                         Filter = null,
                     },
                     Provisioning = new Provisioning()
                     {
-                        Action = ProvisioningAction.AUTO,
+                        Action = "AUTO",
                         ProfileMaster = true,
                         Conditions = new ProvisioningConditions()
                         {
                             Deprovisioned = new ProvisioningDeprovisionedCondition()
                             {
-                                Action = ProvisioningDeprovisionedAction.NONE,
+                                Action = "NONE",
                             },
                             Suspended = new ProvisioningSuspendedCondition()
                             {
-                                Action = ProvisioningSuspendedAction.NONE,
+                                Action = "NONE",
                             },
                         },
                         Groups = new ProvisioningGroups()
                         {
-                            Action = ProvisioningGroupsAction.NONE,
+                            Action = "NONE",
                         },
                     },
                     MaxClockSkew = 0,
@@ -776,7 +776,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Template = "idpuser.email",
                         },
-                        MatchType = PolicySubjectMatchType.USERNAME,
+                        MatchType = "USERNAME",
                         Filter = null,
                     },
                 },
@@ -786,10 +786,10 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                createdIdp.Status.Should().Be(LifecycleStatus.ACTIVE);
+                createdIdp.Status.Should().Be("ACTIVE");
                 await _idpApi.DeactivateIdentityProviderAsync(createdIdp.Id);
                 var retrievedIdp = await _idpApi.GetIdentityProviderAsync(createdIdp.Id);
-                retrievedIdp.Status.Should().Be(LifecycleStatus.INACTIVE);
+                retrievedIdp.Status.Should().Be("INACTIVE");
             }
             finally
             {
@@ -810,7 +810,7 @@ namespace Okta.Sdk.IntegrationTest
                 Protocol = new Protocol()
                 {
                     Scopes = new List<string>() { "r_basicprofile", "r_emailaddress" },
-                    Type = ProtocolType.OAUTH2,
+                    Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
                         _Client = new IdentityProviderCredentialsClient()
@@ -824,27 +824,27 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     AccountLink = new PolicyAccountLink()
                     {
-                        Action = PolicyAccountLinkAction.AUTO,
+                        Action = "AUTO",
                         Filter = null,
                     },
                     Provisioning = new Provisioning()
                     {
-                        Action = ProvisioningAction.AUTO,
+                        Action = "AUTO",
                         ProfileMaster = true,
                         Conditions = new ProvisioningConditions()
                         {
                             Deprovisioned = new ProvisioningDeprovisionedCondition()
                             {
-                                Action = ProvisioningDeprovisionedAction.NONE,
+                                Action = "NONE",
                             },
                             Suspended = new ProvisioningSuspendedCondition()
                             {
-                                Action = ProvisioningSuspendedAction.NONE,
+                                Action = "NONE",
                             },
                         },
                         Groups = new ProvisioningGroups()
                         {
-                            Action = ProvisioningGroupsAction.NONE,
+                            Action = "NONE",
                         },
                     },
                     MaxClockSkew = 0,
@@ -854,7 +854,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Template = "idpuser.email",
                         },
-                        MatchType = PolicySubjectMatchType.USERNAME,
+                        MatchType = "USERNAME",
                         Filter = null,
                     },
                 },
@@ -864,14 +864,14 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                createdIdp.Status.Should().Be(LifecycleStatus.ACTIVE);
+                createdIdp.Status.Should().Be("ACTIVE");
                 await _idpApi.DeactivateIdentityProviderAsync(createdIdp.Id);
                 var retrievedIdp = await _idpApi.GetIdentityProviderAsync(createdIdp.Id);
-                retrievedIdp.Status.Should().Be(LifecycleStatus.INACTIVE);
+                retrievedIdp.Status.Should().Be("INACTIVE");
 
                 await _idpApi.ActivateIdentityProviderAsync(createdIdp.Id);
                 retrievedIdp = await _idpApi.GetIdentityProviderAsync(createdIdp.Id);
-                retrievedIdp.Status.Should().Be(LifecycleStatus.ACTIVE);
+                retrievedIdp.Status.Should().Be("ACTIVE");
             }
             finally
             {
@@ -892,7 +892,7 @@ namespace Okta.Sdk.IntegrationTest
                 Protocol = new Protocol()
                 {
                     Scopes = new List<string>() { "r_basicprofile", "r_emailaddress" },
-                    Type = ProtocolType.OAUTH2,
+                    Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
                         _Client = new IdentityProviderCredentialsClient()
@@ -906,27 +906,27 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     AccountLink = new PolicyAccountLink()
                     {
-                        Action = PolicyAccountLinkAction.AUTO,
+                        Action = "AUTO",
                         Filter = null,
                     },
                     Provisioning = new Provisioning()
                     {
-                        Action = ProvisioningAction.AUTO,
+                        Action = "AUTO",
                         ProfileMaster = true,
                         Conditions = new ProvisioningConditions()
                         {
                             Deprovisioned = new ProvisioningDeprovisionedCondition()
                             {
-                                Action = ProvisioningDeprovisionedAction.NONE,
+                                Action = "NONE",
                             },
                             Suspended = new ProvisioningSuspendedCondition()
                             {
-                                Action = ProvisioningSuspendedAction.NONE,
+                                Action = "NONE",
                             },
                         },
                         Groups = new ProvisioningGroups()
                         {
-                            Action = ProvisioningGroupsAction.NONE,
+                            Action = "NONE",
                         },
                     },
                     MaxClockSkew = 0,
@@ -936,7 +936,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Template = "idpuser.email",
                         },
-                        MatchType = PolicySubjectMatchType.USERNAME,
+                        MatchType = "USERNAME",
                         Filter = null,
                     },
                 },
@@ -972,7 +972,7 @@ namespace Okta.Sdk.IntegrationTest
                 Protocol = new Protocol()
                 {
                     Scopes = new List<string>() { "r_basicprofile", "r_emailaddress" },
-                    Type = ProtocolType.OAUTH2,
+                    Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
                         _Client = new IdentityProviderCredentialsClient()
@@ -986,27 +986,27 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     AccountLink = new PolicyAccountLink()
                     {
-                        Action = PolicyAccountLinkAction.AUTO,
+                        Action = "AUTO",
                         Filter = null,
                     },
                     Provisioning = new Provisioning()
                     {
-                        Action = ProvisioningAction.AUTO,
+                        Action = "AUTO",
                         ProfileMaster = true,
                         Conditions = new ProvisioningConditions()
                         {
                             Deprovisioned = new ProvisioningDeprovisionedCondition()
                             {
-                                Action = ProvisioningDeprovisionedAction.NONE,
+                                Action = "NONE",
                             },
                             Suspended = new ProvisioningSuspendedCondition()
                             {
-                                Action = ProvisioningSuspendedAction.NONE,
+                                Action = "NONE",
                             },
                         },
                         Groups = new ProvisioningGroups()
                         {
-                            Action = ProvisioningGroupsAction.NONE,
+                            Action = "NONE",
                         },
                     },
                     MaxClockSkew = 0,
@@ -1016,7 +1016,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Template = "idpuser.email",
                         },
-                        MatchType = PolicySubjectMatchType.USERNAME,
+                        MatchType = "USERNAME",
                         Filter = null,
                     },
                 },
@@ -1427,7 +1427,7 @@ namespace Okta.Sdk.IntegrationTest
                             Signature = new ProtocolAlgorithmTypeSignature()
                             {
                                 Algorithm = "SHA-256",
-                                Scope = ProtocolAlgorithmTypeSignatureScope.REQUEST,
+                                Scope = "REQUEST",
                             },
                         },
                         Response = new ProtocolAlgorithmType()
@@ -1435,7 +1435,7 @@ namespace Okta.Sdk.IntegrationTest
                             Signature = new ProtocolAlgorithmTypeSignature()
                             {
                                 Algorithm = "SHA-256",
-                                Scope = ProtocolAlgorithmTypeSignatureScope.ANY,
+                                Scope = "ANY",
                             },
                         },
                     },
@@ -1443,18 +1443,18 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         Acs = new ProtocolEndpoint()
                         {
-                            Binding = ProtocolEndpointBinding.POST,
-                            Type = ProtocolEndpointType.INSTANCE,
+                            Binding = "HTTP-POST",
+                            Type = "INSTANCE",
                         },
                         Sso = new ProtocolEndpoint()
                         {
                             Url = "https://idp.example.com",
-                            Binding = ProtocolEndpointBinding.POST,
+                            Binding = "HTTP-POST",
                             Destination = "https://idp.example.com",
                         },
                     },
                     Scopes = new List<string>() { "openid", "profile", "email" },
-                    Type = ProtocolType.SAML2,
+                    Type = "SAML2",
                     Credentials = new IdentityProviderCredentials()
                     {
                         Trust = new IdentityProviderCredentialsTrust()
@@ -1473,27 +1473,27 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     AccountLink = new PolicyAccountLink()
                     {
-                        Action = PolicyAccountLinkAction.AUTO,
+                        Action = "AUTO",
                         Filter = null,
                     },
                     Provisioning = new Provisioning()
                     {
-                        Action = ProvisioningAction.AUTO,
+                        Action = "AUTO",
                         ProfileMaster = true,
                         Conditions = new ProvisioningConditions()
                         {
                             Deprovisioned = new ProvisioningDeprovisionedCondition()
                             {
-                                Action = ProvisioningDeprovisionedAction.NONE,
+                                Action = "NONE",
                             },
                             Suspended = new ProvisioningSuspendedCondition()
                             {
-                                Action = ProvisioningSuspendedAction.NONE,
+                                Action = "NONE",
                             },
                         },
                         Groups = new ProvisioningGroups()
                         {
-                            Action = ProvisioningGroupsAction.NONE,
+                            Action = "NONE",
                         },
                     },
                     Subject = new PolicySubject()
@@ -1504,7 +1504,7 @@ namespace Okta.Sdk.IntegrationTest
                         },
                         Format = new List<string>() { "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified" },
                         Filter = "(\\S+@example\\.com)",
-                        MatchType = PolicySubjectMatchType.USERNAME,
+                        MatchType = "USERNAME",
                     },
                 },
             };
@@ -1516,26 +1516,26 @@ namespace Okta.Sdk.IntegrationTest
                 createdIdp.Should().NotBeNull();
                 createdIdp.Name.Should().Be($"dotnet-sdk:AddSAML{randomSuffix}");
                 createdIdp.Type.Should().Be("SAML2");
-                createdIdp.Status.Should().Be(LifecycleStatus.ACTIVE);
-                createdIdp.Protocol.Type.Should().Be(ProtocolType.SAML2);
+                createdIdp.Status.Should().Be("ACTIVE");
+                createdIdp.Protocol.Type.Should().Be("SAML2");
                 createdIdp.Protocol.Endpoints.Sso.Url.Should().Be("https://idp.example.com");
-                createdIdp.Protocol.Endpoints.Sso.Binding.Should().Be(ProtocolEndpointBinding.POST);
+                createdIdp.Protocol.Endpoints.Sso.Binding.Should().Be("HTTP-POST");
                 createdIdp.Protocol.Endpoints.Sso.Destination.Should().Be("https://idp.example.com");
-                createdIdp.Protocol.Endpoints.Acs.Type.Should().Be(ProtocolEndpointType.INSTANCE);
-                createdIdp.Protocol.Endpoints.Acs.Binding.Should().Be(ProtocolEndpointBinding.POST);
+                createdIdp.Protocol.Endpoints.Acs.Type.Should().Be("INSTANCE");
+                createdIdp.Protocol.Endpoints.Acs.Binding.Should().Be("HTTP-POST");
                 createdIdp.Protocol.Settings.NameFormat.Should().Be("urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified");
                 createdIdp.Protocol.Credentials.Trust.Issuer.Should().Be("https://idp.example.com");
                 createdIdp.Protocol.Credentials.Trust.Audience.Should().Be("http://www.okta.com/123");
-                createdIdp.Policy.Provisioning.Action.Should().Be(ProvisioningAction.AUTO);
+                createdIdp.Policy.Provisioning.Action.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
-                createdIdp.Policy.Provisioning.Groups.Action.Should().Be(ProvisioningGroupsAction.NONE);
-                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be(ProvisioningDeprovisionedAction.NONE);
-                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be(ProvisioningSuspendedAction.NONE);
+                createdIdp.Policy.Provisioning.Groups.Action.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
 
-                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be(ProvisioningSuspendedAction.NONE);
-                createdIdp.Policy.AccountLink.Action.Should().Be(PolicyAccountLinkAction.AUTO);
+                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
+                createdIdp.Policy.AccountLink.Action.Should().Be("AUTO");
                 createdIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.subjectNameId");
-                createdIdp.Policy.Subject.MatchType.Value.Should().Be(PolicySubjectMatchType.USERNAME);
+                createdIdp.Policy.Subject.MatchType.Should().Be("USERNAME");
                 createdIdp.Policy.Subject.MatchAttribute.Should().BeNull();
             }
             finally
@@ -1566,7 +1566,7 @@ namespace Okta.Sdk.IntegrationTest
                 Protocol = new Protocol()
                 {
                     Scopes = new List<string>() { "r_basicprofile", "r_emailaddress" },
-                    Type = ProtocolType.OAUTH2,
+                    Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
                         _Client = new IdentityProviderCredentialsClient()
@@ -1580,27 +1580,27 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     AccountLink = new PolicyAccountLink()
                     {
-                        Action = PolicyAccountLinkAction.AUTO,
+                        Action = "AUTO",
                         Filter = null,
                     },
                     Provisioning = new Provisioning()
                     {
-                        Action = ProvisioningAction.AUTO,
+                        Action = "AUTO",
                         ProfileMaster = true,
                         Conditions = new ProvisioningConditions()
                         {
                             Deprovisioned = new ProvisioningDeprovisionedCondition()
                             {
-                                Action = ProvisioningDeprovisionedAction.NONE,
+                                Action = "NONE",
                             },
                             Suspended = new ProvisioningSuspendedCondition()
                             {
-                                Action = ProvisioningSuspendedAction.NONE,
+                                Action = "NONE",
                             },
                         },
                         Groups = new ProvisioningGroups()
                         {
-                            Action = ProvisioningGroupsAction.NONE,
+                            Action = "NONE",
                         },
                     },
                     MaxClockSkew = 0,
@@ -1610,7 +1610,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Template = "idpuser.email",
                         },
-                        MatchType = PolicySubjectMatchType.USERNAME,
+                        MatchType = "USERNAME",
                         Filter = null,
                     },
                 },

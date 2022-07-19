@@ -32,19 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "AuthenticatorSettings")]
     public partial class AuthenticatorSettings : IEquatable<AuthenticatorSettings>
     {
-
+        
         /// <summary>
         /// Gets or Sets AllowedFor
         /// </summary>
         [DataMember(Name = "allowedFor", EmitDefaultValue = false)]
-        public AllowedForEnum? AllowedFor { get; set; }
+        public string AllowedFor { get; set; }
 
-        /// <summary>
-        /// Gets or Sets UserVerification
-        /// </summary>
-        [DataMember(Name = "userVerification", EmitDefaultValue = false)]
-        public UserVerificationEnum? UserVerification { get; set; }
-        
         /// <summary>
         /// Gets or Sets AppInstanceId
         /// </summary>
@@ -68,6 +62,12 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "tokenLifetimeInMinutes", EmitDefaultValue = false)]
         public int TokenLifetimeInMinutes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UserVerification
+        /// </summary>
+        [DataMember(Name = "userVerification", EmitDefaultValue = false)]
+        public string UserVerification { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -120,7 +120,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.AllowedFor == input.AllowedFor ||
-                    this.AllowedFor.Equals(input.AllowedFor)
+                    (this.AllowedFor != null &&
+                    this.AllowedFor.Equals(input.AllowedFor))
                 ) && 
                 (
                     this.AppInstanceId == input.AppInstanceId ||
@@ -143,7 +144,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.UserVerification == input.UserVerification ||
-                    this.UserVerification.Equals(input.UserVerification)
+                    (this.UserVerification != null &&
+                    this.UserVerification.Equals(input.UserVerification))
                 );
         }
 
@@ -156,7 +158,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.AllowedFor.GetHashCode();
+                if (this.AllowedFor != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllowedFor.GetHashCode();
+                }
                 if (this.AppInstanceId != null)
                 {
                     hashCode = (hashCode * 59) + this.AppInstanceId.GetHashCode();
@@ -170,7 +175,10 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Compliance.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.TokenLifetimeInMinutes.GetHashCode();
-                hashCode = (hashCode * 59) + this.UserVerification.GetHashCode();
+                if (this.UserVerification != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserVerification.GetHashCode();
+                }
                 return hashCode;
             }
         }

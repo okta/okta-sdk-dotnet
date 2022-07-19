@@ -22,6 +22,16 @@ Method | HTTP request | Description
 [**ListBrands**](CustomizationApi.md#listbrands) | **GET** /api/v1/brands | List all Brands
 [**ListEmailCustomizations**](CustomizationApi.md#listemailcustomizations) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | List all Email Customizations
 [**ListEmailTemplates**](CustomizationApi.md#listemailtemplates) | **GET** /api/v1/brands/{brandId}/templates/email | List all Email Templates
+[**PreviewErrorPage**](CustomizationApi.md#previewerrorpage) | **POST** /api/v1/brands/{brandId}/pages/error/preview | Preview the Error Page
+[**PreviewSignInPage**](CustomizationApi.md#previewsigninpage) | **POST** /api/v1/brands/{brandId}/pages/sign-in/preview | Preview the Sign-in Page.
+[**ReplaceErrorPage**](CustomizationApi.md#replaceerrorpage) | **PUT** /api/v1/brands/{brandId}/pages/error | Replace the Error Page
+[**ReplaceSignInPage**](CustomizationApi.md#replacesigninpage) | **PUT** /api/v1/brands/{brandId}/pages/sign-in | Replace the Sign-in Page
+[**ReplaceSignOutPageSettings**](CustomizationApi.md#replacesignoutpagesettings) | **PUT** /api/v1/brands/{brandId}/pages/sign-out | Replace the Sign-out Page Settings
+[**ResetErrorPage**](CustomizationApi.md#reseterrorpage) | **DELETE** /api/v1/brands/{brandId}/pages/error | Reset the Error Page
+[**ResetSignInPage**](CustomizationApi.md#resetsigninpage) | **DELETE** /api/v1/brands/{brandId}/pages/sign-in | Reset the Sign-in Page
+[**RetrieveErrorPage**](CustomizationApi.md#retrieveerrorpage) | **GET** /api/v1/brands/{brandId}/pages/error | Retrieve the Error Page
+[**RetrieveSignInPage**](CustomizationApi.md#retrievesigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in | Retrieve the Sign-in Page
+[**RetrieveSignOutPageSettings**](CustomizationApi.md#retrievesignoutpagesettings) | **GET** /api/v1/brands/{brandId}/pages/sign-out | Retrieve the Sign-out Page Settings
 [**SendTestEmail**](CustomizationApi.md#sendtestemail) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/test | Send a Test Email
 [**UpdateBrand**](CustomizationApi.md#updatebrand) | **PUT** /api/v1/brands/{brandId} | Replace a Brand
 [**UpdateBrandTheme**](CustomizationApi.md#updatebrandtheme) | **PUT** /api/v1/brands/{brandId}/themes/{themeId} | Replace a Theme
@@ -1535,6 +1545,819 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="previewerrorpage"></a>
+# **PreviewErrorPage**
+> string PreviewErrorPage (string brandId, CustomizablePage customizablePage)
+
+Preview the Error Page
+
+Previews the error page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class PreviewErrorPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth_2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var customizablePage = new CustomizablePage(); // CustomizablePage | 
+
+            try
+            {
+                // Preview the Error Page
+                string result = apiInstance.PreviewErrorPage(brandId, customizablePage);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.PreviewErrorPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+ **customizablePage** | [**CustomizablePage**](CustomizablePage.md)|  | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: text/html, application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully previewed the error page. |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="previewsigninpage"></a>
+# **PreviewSignInPage**
+> string PreviewSignInPage (string brandId, SignInPage signInPage)
+
+Preview the Sign-in Page.
+
+Preview the sign-in page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class PreviewSignInPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth_2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var signInPage = new SignInPage(); // SignInPage | 
+
+            try
+            {
+                // Preview the Sign-in Page.
+                string result = apiInstance.PreviewSignInPage(brandId, signInPage);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.PreviewSignInPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+ **signInPage** | [**SignInPage**](SignInPage.md)|  | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: text/html, application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully previewed the sign-in page. |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="replaceerrorpage"></a>
+# **ReplaceErrorPage**
+> CustomizablePage ReplaceErrorPage (string brandId, CustomizablePage customizablePage)
+
+Replace the Error Page
+
+Replaces the error page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplaceErrorPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth_2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var customizablePage = new CustomizablePage(); // CustomizablePage | 
+
+            try
+            {
+                // Replace the Error Page
+                CustomizablePage result = apiInstance.ReplaceErrorPage(brandId, customizablePage);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.ReplaceErrorPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+ **customizablePage** | [**CustomizablePage**](CustomizablePage.md)|  | 
+
+### Return type
+
+[**CustomizablePage**](CustomizablePage.md)
+
+### Authorization
+
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully replaced the error page. |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="replacesigninpage"></a>
+# **ReplaceSignInPage**
+> SignInPage ReplaceSignInPage (string brandId, SignInPage signInPage)
+
+Replace the Sign-in Page
+
+Replaces the sign-in page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplaceSignInPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth_2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var signInPage = new SignInPage(); // SignInPage | 
+
+            try
+            {
+                // Replace the Sign-in Page
+                SignInPage result = apiInstance.ReplaceSignInPage(brandId, signInPage);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.ReplaceSignInPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+ **signInPage** | [**SignInPage**](SignInPage.md)|  | 
+
+### Return type
+
+[**SignInPage**](SignInPage.md)
+
+### Authorization
+
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully replaced the sign-in page. |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="replacesignoutpagesettings"></a>
+# **ReplaceSignOutPageSettings**
+> HostedPage ReplaceSignOutPageSettings (string brandId, HostedPage hostedPage)
+
+Replace the Sign-out Page Settings
+
+Replaces the sign-out page settings.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplaceSignOutPageSettingsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth_2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var hostedPage = new HostedPage(); // HostedPage | 
+
+            try
+            {
+                // Replace the Sign-out Page Settings
+                HostedPage result = apiInstance.ReplaceSignOutPageSettings(brandId, hostedPage);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.ReplaceSignOutPageSettings: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+ **hostedPage** | [**HostedPage**](HostedPage.md)|  | 
+
+### Return type
+
+[**HostedPage**](HostedPage.md)
+
+### Authorization
+
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully replaced the sign-out page settings. |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="reseterrorpage"></a>
+# **ResetErrorPage**
+> void ResetErrorPage (string brandId)
+
+Reset the Error Page
+
+Resets the error page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ResetErrorPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth_2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+
+            try
+            {
+                // Reset the Error Page
+                apiInstance.ResetErrorPage(brandId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.ResetErrorPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Successfully reset the error page. |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="resetsigninpage"></a>
+# **ResetSignInPage**
+> void ResetSignInPage (string brandId)
+
+Reset the Sign-in Page
+
+Reset the sign-in page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ResetSignInPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth_2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+
+            try
+            {
+                // Reset the Sign-in Page
+                apiInstance.ResetSignInPage(brandId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.ResetSignInPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Successfully reset the sign-in page. |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="retrieveerrorpage"></a>
+# **RetrieveErrorPage**
+> CustomizablePage RetrieveErrorPage (string brandId)
+
+Retrieve the Error Page
+
+Retrieves the error page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class RetrieveErrorPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth_2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+
+            try
+            {
+                // Retrieve the Error Page
+                CustomizablePage result = apiInstance.RetrieveErrorPage(brandId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.RetrieveErrorPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+
+### Return type
+
+[**CustomizablePage**](CustomizablePage.md)
+
+### Authorization
+
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved the error page. |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="retrievesigninpage"></a>
+# **RetrieveSignInPage**
+> SignInPage RetrieveSignInPage (string brandId)
+
+Retrieve the Sign-in Page
+
+Retrieves the sign-in page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class RetrieveSignInPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth_2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+
+            try
+            {
+                // Retrieve the Sign-in Page
+                SignInPage result = apiInstance.RetrieveSignInPage(brandId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.RetrieveSignInPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+
+### Return type
+
+[**SignInPage**](SignInPage.md)
+
+### Authorization
+
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved the sign-in page. |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="retrievesignoutpagesettings"></a>
+# **RetrieveSignOutPageSettings**
+> HostedPage RetrieveSignOutPageSettings (string brandId)
+
+Retrieve the Sign-out Page Settings
+
+Retrieves the sign-out page settings.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class RetrieveSignOutPageSettingsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth_2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+
+            try
+            {
+                // Retrieve the Sign-out Page Settings
+                HostedPage result = apiInstance.RetrieveSignOutPageSettings(brandId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.RetrieveSignOutPageSettings: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+
+### Return type
+
+[**HostedPage**](HostedPage.md)
+
+### Authorization
+
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved the sign-out page settings. |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="sendtestemail"></a>
 # **SendTestEmail**
 > void SendTestEmail (string brandId, string templateName, string language = null)
@@ -1966,7 +2789,7 @@ void (empty response body)
 
 <a name="uploadbrandthemebackgroundimage"></a>
 # **UploadBrandThemeBackgroundImage**
-> ImageUploadResponse UploadBrandThemeBackgroundImage (string brandId, string themeId)
+> ImageUploadResponse UploadBrandThemeBackgroundImage (string brandId, string themeId, System.IO.Stream file)
 
 Upload the Background Image
 
@@ -1998,11 +2821,12 @@ namespace Example
             var apiInstance = new CustomizationApi(config);
             var brandId = "brandId_example";  // string | 
             var themeId = "themeId_example";  // string | 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
             try
             {
                 // Upload the Background Image
-                ImageUploadResponse result = apiInstance.UploadBrandThemeBackgroundImage(brandId, themeId);
+                ImageUploadResponse result = apiInstance.UploadBrandThemeBackgroundImage(brandId, themeId, file);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2022,6 +2846,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **brandId** | **string**|  | 
  **themeId** | **string**|  | 
+ **file** | **System.IO.Stream****System.IO.Stream**|  | 
 
 ### Return type
 
@@ -2050,7 +2875,7 @@ Name | Type | Description  | Notes
 
 <a name="uploadbrandthemefavicon"></a>
 # **UploadBrandThemeFavicon**
-> ImageUploadResponse UploadBrandThemeFavicon (string brandId, string themeId)
+> ImageUploadResponse UploadBrandThemeFavicon (string brandId, string themeId, System.IO.Stream file)
 
 Upload the Favicon
 
@@ -2082,11 +2907,12 @@ namespace Example
             var apiInstance = new CustomizationApi(config);
             var brandId = "brandId_example";  // string | 
             var themeId = "themeId_example";  // string | 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
             try
             {
                 // Upload the Favicon
-                ImageUploadResponse result = apiInstance.UploadBrandThemeFavicon(brandId, themeId);
+                ImageUploadResponse result = apiInstance.UploadBrandThemeFavicon(brandId, themeId, file);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2106,6 +2932,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **brandId** | **string**|  | 
  **themeId** | **string**|  | 
+ **file** | **System.IO.Stream****System.IO.Stream**|  | 
 
 ### Return type
 
@@ -2134,7 +2961,7 @@ Name | Type | Description  | Notes
 
 <a name="uploadbrandthemelogo"></a>
 # **UploadBrandThemeLogo**
-> ImageUploadResponse UploadBrandThemeLogo (string brandId, string themeId)
+> ImageUploadResponse UploadBrandThemeLogo (string brandId, string themeId, System.IO.Stream file)
 
 Upload the Logo
 
@@ -2166,11 +2993,12 @@ namespace Example
             var apiInstance = new CustomizationApi(config);
             var brandId = "brandId_example";  // string | 
             var themeId = "themeId_example";  // string | 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
             try
             {
                 // Upload the Logo
-                ImageUploadResponse result = apiInstance.UploadBrandThemeLogo(brandId, themeId);
+                ImageUploadResponse result = apiInstance.UploadBrandThemeLogo(brandId, themeId, file);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2190,6 +3018,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **brandId** | **string**|  | 
  **themeId** | **string**|  | 
+ **file** | **System.IO.Stream****System.IO.Stream**|  | 
 
 ### Return type
 

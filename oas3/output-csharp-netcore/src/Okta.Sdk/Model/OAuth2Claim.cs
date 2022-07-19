@@ -32,30 +32,6 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "OAuth2Claim")]
     public partial class OAuth2Claim : IEquatable<OAuth2Claim>
     {
-
-        /// <summary>
-        /// Gets or Sets ClaimType
-        /// </summary>
-        [DataMember(Name = "claimType", EmitDefaultValue = false)]
-        public OAuth2ClaimType? ClaimType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets GroupFilterType
-        /// </summary>
-        [DataMember(Name = "group_filter_type", EmitDefaultValue = false)]
-        public OAuth2ClaimGroupFilterType? GroupFilterType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public LifecycleStatus? Status { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ValueType
-        /// </summary>
-        [DataMember(Name = "valueType", EmitDefaultValue = false)]
-        public OAuth2ClaimValueType? ValueType { get; set; }
         
         /// <summary>
         /// Gets or Sets AlwaysIncludeInToken
@@ -64,10 +40,22 @@ namespace Okta.Sdk.Model
         public bool AlwaysIncludeInToken { get; set; }
 
         /// <summary>
+        /// Gets or Sets ClaimType
+        /// </summary>
+        [DataMember(Name = "claimType", EmitDefaultValue = false)]
+        public string ClaimType { get; set; }
+
+        /// <summary>
         /// Gets or Sets Conditions
         /// </summary>
         [DataMember(Name = "conditions", EmitDefaultValue = false)]
         public OAuth2ClaimConditions Conditions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets GroupFilterType
+        /// </summary>
+        [DataMember(Name = "group_filter_type", EmitDefaultValue = false)]
+        public string GroupFilterType { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -90,6 +78,12 @@ namespace Okta.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public string Status { get; set; }
+
+        /// <summary>
         /// Gets or Sets System
         /// </summary>
         [DataMember(Name = "system", EmitDefaultValue = true)]
@@ -100,6 +94,12 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ValueType
+        /// </summary>
+        [DataMember(Name = "valueType", EmitDefaultValue = false)]
+        public string ValueType { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -175,7 +175,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.ClaimType == input.ClaimType ||
-                    this.ClaimType.Equals(input.ClaimType)
+                    (this.ClaimType != null &&
+                    this.ClaimType.Equals(input.ClaimType))
                 ) && 
                 (
                     this.Conditions == input.Conditions ||
@@ -184,7 +185,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.GroupFilterType == input.GroupFilterType ||
-                    this.GroupFilterType.Equals(input.GroupFilterType)
+                    (this.GroupFilterType != null &&
+                    this.GroupFilterType.Equals(input.GroupFilterType))
                 ) && 
                 (
                     this.Id == input.Id ||
@@ -198,7 +200,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.System == input.System ||
@@ -211,7 +214,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.ValueType == input.ValueType ||
-                    this.ValueType.Equals(input.ValueType)
+                    (this.ValueType != null &&
+                    this.ValueType.Equals(input.ValueType))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -231,12 +235,18 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.AlwaysIncludeInToken.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClaimType.GetHashCode();
+                if (this.ClaimType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClaimType.GetHashCode();
+                }
                 if (this.Conditions != null)
                 {
                     hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.GroupFilterType.GetHashCode();
+                if (this.GroupFilterType != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupFilterType.GetHashCode();
+                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
@@ -245,13 +255,19 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.System.GetHashCode();
                 if (this.Value != null)
                 {
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ValueType.GetHashCode();
+                if (this.ValueType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValueType.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

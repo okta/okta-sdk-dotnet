@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Agents** | [**List&lt;Agent&gt;**](Agent.md) |  | [optional] 
 **Id** | **string** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
-**OperationalStatus** | **OperationalStatus** |  | [optional] 
-**Type** | **AgentType** |  | [optional] 
+**OperationalStatus** | **string** | Operational status of a given agent | [optional] 
+**Type** | **string** | Agent types that are being monitored | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -32,18 +32,18 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "PushUserFactor_allOf")]
     public partial class PushUserFactorAllOf : IEquatable<PushUserFactorAllOf>
     {
-
-        /// <summary>
-        /// Gets or Sets FactorResult
-        /// </summary>
-        [DataMember(Name = "factorResult", EmitDefaultValue = false)]
-        public FactorResultType? FactorResult { get; set; }
         
         /// <summary>
         /// Gets or Sets ExpiresAt
         /// </summary>
         [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
         public DateTimeOffset ExpiresAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FactorResult
+        /// </summary>
+        [DataMember(Name = "factorResult", EmitDefaultValue = false)]
+        public string FactorResult { get; set; }
 
         /// <summary>
         /// Gets or Sets Profile
@@ -104,7 +104,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.FactorResult == input.FactorResult ||
-                    this.FactorResult.Equals(input.FactorResult)
+                    (this.FactorResult != null &&
+                    this.FactorResult.Equals(input.FactorResult))
                 ) && 
                 (
                     this.Profile == input.Profile ||
@@ -126,7 +127,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ExpiresAt.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.FactorResult.GetHashCode();
+                if (this.FactorResult != null)
+                {
+                    hashCode = (hashCode * 59) + this.FactorResult.GetHashCode();
+                }
                 if (this.Profile != null)
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();

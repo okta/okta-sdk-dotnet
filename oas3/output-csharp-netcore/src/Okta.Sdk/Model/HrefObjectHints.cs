@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Allow
         /// </summary>
         [DataMember(Name = "allow", EmitDefaultValue = false)]
-        public List<HttpMethod> Allow { get; set; }
+        public List<string> Allow { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

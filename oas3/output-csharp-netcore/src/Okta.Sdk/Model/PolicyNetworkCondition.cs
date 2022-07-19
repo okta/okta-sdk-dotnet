@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "PolicyNetworkCondition")]
     public partial class PolicyNetworkCondition : IEquatable<PolicyNetworkCondition>
     {
-
+        
         /// <summary>
         /// Gets or Sets Connection
         /// </summary>
         [DataMember(Name = "connection", EmitDefaultValue = false)]
-        public PolicyNetworkConnection? Connection { get; set; }
-        
+        public string Connection { get; set; }
+
         /// <summary>
         /// Gets or Sets Exclude
         /// </summary>
@@ -99,7 +99,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Connection == input.Connection ||
-                    this.Connection.Equals(input.Connection)
+                    (this.Connection != null &&
+                    this.Connection.Equals(input.Connection))
                 ) && 
                 (
                     this.Exclude == input.Exclude ||
@@ -124,7 +125,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Connection.GetHashCode();
+                if (this.Connection != null)
+                {
+                    hashCode = (hashCode * 59) + this.Connection.GetHashCode();
+                }
                 if (this.Exclude != null)
                 {
                     hashCode = (hashCode * 59) + this.Exclude.GetHashCode();

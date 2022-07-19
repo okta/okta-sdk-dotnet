@@ -349,8 +349,9 @@ namespace Okta.Sdk.Api
         /// Updates the logo for your organization.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file"></param>
         /// <returns></returns>
-        void UpdateOrgLogo();
+        void UpdateOrgLogo(System.IO.Stream file);
 
         /// <summary>
         /// Upload the Org Logo
@@ -359,8 +360,9 @@ namespace Okta.Sdk.Api
         /// Updates the logo for your organization.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateOrgLogoWithHttpInfo();
+        ApiResponse<Object> UpdateOrgLogoWithHttpInfo(System.IO.Stream file);
         /// <summary>
         /// Replace the Org Settings
         /// </summary>
@@ -728,9 +730,10 @@ namespace Okta.Sdk.Api
         /// Updates the logo for your organization.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateOrgLogoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UpdateOrgLogoAsync(System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Upload the Org Logo
         /// </summary>
@@ -738,9 +741,10 @@ namespace Okta.Sdk.Api
         /// Updates the logo for your organization.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateOrgLogoWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateOrgLogoWithHttpInfoAsync(System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace the Org Settings
         /// </summary>
@@ -3165,19 +3169,27 @@ namespace Okta.Sdk.Api
         /// Upload the Org Logo Updates the logo for your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file"></param>
         /// <returns></returns>
-        public void UpdateOrgLogo()
+        public void UpdateOrgLogo(System.IO.Stream file)
         {
-            UpdateOrgLogoWithHttpInfo();
+            UpdateOrgLogoWithHttpInfo(file);
         }
 
         /// <summary>
         /// Upload the Org Logo Updates the logo for your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> UpdateOrgLogoWithHttpInfo()
+        public Okta.Sdk.Client.ApiResponse<Object> UpdateOrgLogoWithHttpInfo(System.IO.Stream file)
         {
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'file' when calling OrgSettingApi->UpdateOrgLogo");
+            }
+
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -3201,6 +3213,7 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.FileParameters.Add("file", file);
 
             // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -3232,20 +3245,28 @@ namespace Okta.Sdk.Api
         /// Upload the Org Logo Updates the logo for your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateOrgLogoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateOrgLogoAsync(System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await UpdateOrgLogoWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            await UpdateOrgLogoWithHttpInfoAsync(file, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Upload the Org Logo Updates the logo for your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> UpdateOrgLogoWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> UpdateOrgLogoWithHttpInfoAsync(System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'file' when calling OrgSettingApi->UpdateOrgLogo");
+            }
+
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -3270,6 +3291,7 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.FileParameters.Add("file", file);
 
             // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))

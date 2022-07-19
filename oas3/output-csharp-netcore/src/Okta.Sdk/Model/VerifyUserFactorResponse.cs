@@ -32,12 +32,6 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "VerifyUserFactorResponse")]
     public partial class VerifyUserFactorResponse : IEquatable<VerifyUserFactorResponse>
     {
-
-        /// <summary>
-        /// Gets or Sets FactorResult
-        /// </summary>
-        [DataMember(Name = "factorResult", EmitDefaultValue = false)]
-        public VerifyUserFactorResult? FactorResult { get; set; }
         
         /// <summary>
         /// Gets or Sets ExpiresAt
@@ -53,6 +47,12 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
+        /// <summary>
+        /// Gets or Sets FactorResult
+        /// </summary>
+        [DataMember(Name = "factorResult", EmitDefaultValue = false)]
+        public string FactorResult { get; set; }
+
         /// <summary>
         /// Gets or Sets FactorResultMessage
         /// </summary>
@@ -142,7 +142,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.FactorResult == input.FactorResult ||
-                    this.FactorResult.Equals(input.FactorResult)
+                    (this.FactorResult != null &&
+                    this.FactorResult.Equals(input.FactorResult))
                 ) && 
                 (
                     this.FactorResultMessage == input.FactorResultMessage ||
@@ -176,7 +177,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ExpiresAt.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.FactorResult.GetHashCode();
+                if (this.FactorResult != null)
+                {
+                    hashCode = (hashCode * 59) + this.FactorResult.GetHashCode();
+                }
                 if (this.FactorResultMessage != null)
                 {
                     hashCode = (hashCode * 59) + this.FactorResultMessage.GetHashCode();

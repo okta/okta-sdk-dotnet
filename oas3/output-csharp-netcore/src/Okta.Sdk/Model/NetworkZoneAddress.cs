@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "NetworkZoneAddress")]
     public partial class NetworkZoneAddress : IEquatable<NetworkZoneAddress>
     {
-
+        
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public NetworkZoneAddressType? Type { get; set; }
-        
+        public string Type { get; set; }
+
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
@@ -92,7 +92,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
                     this.Value == input.Value ||
@@ -110,7 +111,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.Value != null)
                 {
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();

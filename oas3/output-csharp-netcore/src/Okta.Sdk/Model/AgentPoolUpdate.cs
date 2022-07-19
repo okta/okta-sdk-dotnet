@@ -32,24 +32,19 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "AgentPoolUpdate")]
     public partial class AgentPoolUpdate : IEquatable<AgentPoolUpdate>
     {
-
-        /// <summary>
-        /// Gets or Sets AgentType
-        /// </summary>
-        [DataMember(Name = "agentType", EmitDefaultValue = false)]
-        public AgentType? AgentType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public AgentUpdateJobStatus? Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Agents
         /// </summary>
         [DataMember(Name = "agents", EmitDefaultValue = false)]
         public List<Agent> Agents { get; set; }
+
+        /// <summary>
+        /// Agent types that are being monitored
+        /// </summary>
+        /// <value>Agent types that are being monitored</value>
+        [DataMember(Name = "agentType", EmitDefaultValue = false)]
+        public string AgentType { get; set; }
 
         /// <summary>
         /// Gets or Sets Enabled
@@ -100,6 +95,13 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "sortOrder", EmitDefaultValue = false)]
         public int SortOrder { get; set; }
+
+        /// <summary>
+        /// Overall state for the auto-update job from admin perspective
+        /// </summary>
+        /// <value>Overall state for the auto-update job from admin perspective</value>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public string Status { get; set; }
 
         /// <summary>
         /// Gets or Sets TargetVersion
@@ -176,7 +178,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.AgentType == input.AgentType ||
-                    this.AgentType.Equals(input.AgentType)
+                    (this.AgentType != null &&
+                    this.AgentType.Equals(input.AgentType))
                 ) && 
                 (
                     this.Enabled == input.Enabled ||
@@ -212,7 +215,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.TargetVersion == input.TargetVersion ||
@@ -239,7 +243,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Agents.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.AgentType.GetHashCode();
+                if (this.AgentType != null)
+                {
+                    hashCode = (hashCode * 59) + this.AgentType.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
                 if (this.Id != null)
                 {
@@ -259,7 +266,10 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Schedule.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.SortOrder.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.TargetVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.TargetVersion.GetHashCode();

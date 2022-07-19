@@ -34,7 +34,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "bookmark",
                 Label = $"dotnet-sdk: AddBookmarkApp {guid}",
-                SignOnMode = ApplicationSignOnMode.BOOKMARK,
+                SignOnMode = "BOOKMARK",
                 Settings = new BookmarkApplicationSettings
                 {
                     App = new BookmarkApplicationSettingsApplication
@@ -52,7 +52,7 @@ namespace Okta.Sdk.IntegrationTest
                 var retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id) as BookmarkApplication;
                 retrievedApp.Name.Should().Be("bookmark");
                 retrievedApp.Label.Should().Be($"dotnet-sdk: AddBookmarkApp {guid}");
-                retrievedApp.SignOnMode.Should().Be(ApplicationSignOnMode.BOOKMARK);
+                retrievedApp.SignOnMode.Should().Be("BOOKMARK");
                 retrievedApp.Settings.App.RequestIntegration.Should().Be(false);
                 retrievedApp.Settings.App.Url.Should().Be("https://example.com/bookmark.htm");
             }
@@ -72,7 +72,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "bookmark",
                 Label = $"dotnet-sdk: UploadLogo {guid}",
-                SignOnMode = ApplicationSignOnMode.BOOKMARK,
+                SignOnMode = "BOOKMARK",
                 Settings = new BookmarkApplicationSettings
                 {
                     App = new BookmarkApplicationSettingsApplication
@@ -114,7 +114,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: AddBasicAuthenticationApp {guid}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASIC_AUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -131,7 +131,7 @@ namespace Okta.Sdk.IntegrationTest
                 var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as BasicAuthApplication;
                 retrieved.Name.Should().Be("template_basic_auth");
                 retrieved.Label.Should().Be($"dotnet-sdk: AddBasicAuthenticationApp {guid}");
-                retrieved.SignOnMode.Should().Be(ApplicationSignOnMode.BASICAUTH);
+                retrieved.SignOnMode.Should().Be("BASIC_AUTH");
 
                 retrieved.Settings.App.AuthURL.Should().Be("https://example.com/auth.html");
                 retrieved.Settings.App.Url.Should().Be("https://example.com/login.html");
@@ -163,14 +163,14 @@ namespace Okta.Sdk.IntegrationTest
             var app = new OpenIdConnectApplication
             {
                 Name = "oidc_client",
-                SignOnMode = ApplicationSignOnMode.OPENIDCONNECT,
+                SignOnMode = "OPENID_CONNECT",
                 Label = $"dotnet-sdk: AddOpenIdConnectApp {guid}",
                 Credentials = new OAuthApplicationCredentials()
                 {
                     OauthClient = new ApplicationCredentialsOAuthClient()
                     {
                         ClientId = testClientId,
-                        TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
+                        TokenEndpointAuthMethod = "client_secret_post",
                         AutoKeyRotation = true,
                     },
                 },
@@ -180,11 +180,11 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         ClientUri = "https://example.com/client",
                         LogoUri = "https://example.com/assets/images/logo-new.png",
-                        ResponseTypes = new List<OAuthResponseType>
+                        ResponseTypes = new List<string>
                         {
-                            OAuthResponseType.Token,
-                            OAuthResponseType.IdToken,
-                            OAuthResponseType.Code,
+                            "token",
+                            "id_token",
+                            "code",
                         },
                         RedirectUris = new List<string>
                         {
@@ -196,12 +196,12 @@ namespace Okta.Sdk.IntegrationTest
                             "https://example.com/postlogout",
                             "myapp://postlogoutcallback",
                         },
-                        GrantTypes = new List<OAuthGrantType>
+                        GrantTypes = new List<string>
                         {
-                            OAuthGrantType.Implicit,
-                            OAuthGrantType.AuthorizationCode,
+                            "implicit",
+                            "authorization_code",
                         },
-                        ApplicationType = OpenIdConnectApplicationType.Native,
+                        ApplicationType = "native",
 
                         TosUri = "https://example.com/client/tos",
                         PolicyUri = "https://example.com/client/policy",
@@ -222,11 +222,11 @@ namespace Okta.Sdk.IntegrationTest
 
                 retrieved.Name.Should().Be("oidc_client");
                 retrieved.Label.Should().Be($"dotnet-sdk: AddOpenIdConnectApp {guid}");
-                retrieved.SignOnMode.Should().Be(ApplicationSignOnMode.OPENIDCONNECT);
+                retrieved.SignOnMode.Should().Be("OPENID_CONNECT");
                 retrieved.Credentials.OauthClient.ClientId.Should().Be(testClientId);
                 retrieved.Credentials.OauthClient.AutoKeyRotation.Should().BeTrue();
                 retrieved.Credentials.OauthClient.TokenEndpointAuthMethod.Should()
-                    .Be(OAuthEndpointAuthenticationMethod.ClientSecretPost);
+                    .Be("client_secret_post");
 
                 retrieved.Settings.OauthClient.ClientUri.Should().Be("https://example.com/client");
                 retrieved.Settings.OauthClient.LogoUri.Should().Be("https://example.com/assets/images/logo-new.png");
@@ -239,14 +239,14 @@ namespace Okta.Sdk.IntegrationTest
                 retrieved.Settings.OauthClient.PostLogoutRedirectUris.Last().Should().Be("myapp://postlogoutcallback");
 
                 retrieved.Settings.OauthClient.ResponseTypes.Should().HaveCount(3);
-                retrieved.Settings.OauthClient.ResponseTypes.First().Should().Be(OAuthResponseType.Token);
-                retrieved.Settings.OauthClient.ResponseTypes.Should().Contain(OAuthResponseType.IdToken);
-                retrieved.Settings.OauthClient.ResponseTypes.Should().Contain(OAuthResponseType.Code);
+                retrieved.Settings.OauthClient.ResponseTypes.First().Should().Be("token");
+                retrieved.Settings.OauthClient.ResponseTypes.Should().Contain("id_token");
+                retrieved.Settings.OauthClient.ResponseTypes.Should().Contain("code");
 
                 retrieved.Settings.OauthClient.GrantTypes.Should().HaveCount(2);
-                retrieved.Settings.OauthClient.GrantTypes.First().Should().Be(OAuthGrantType.Implicit);
-                retrieved.Settings.OauthClient.GrantTypes.Last().Should().Be(OAuthGrantType.AuthorizationCode);
-                retrieved.Settings.OauthClient.ApplicationType.Should().Be(OpenIdConnectApplicationType.Native);
+                retrieved.Settings.OauthClient.GrantTypes.First().Should().Be("implicit");
+                retrieved.Settings.OauthClient.GrantTypes.Last().Should().Be("authorization_code");
+                retrieved.Settings.OauthClient.ApplicationType.Should().Be("native");
                 retrieved.Settings.OauthClient.TosUri.Should().Be("https://example.com/client/tos");
 
                 retrieved.Settings.OauthClient.Jwks.Keys.Should().NotBeNullOrEmpty();
@@ -272,7 +272,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: GetBasicAuthenticationApp {guid}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -306,7 +306,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: CreateRandomApp {guid}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -431,7 +431,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: ListApps {guid}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -462,7 +462,7 @@ namespace Okta.Sdk.IntegrationTest
             var app = new BrowserPluginApplication
             {
                 Label = $"dotnet-sdk: UpdateSWAApplicationAdminSetUsernameAndPassword {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BROWSERPLUGIN,
+                SignOnMode = "BROWSER_PLUGIN",
                 Name = "template_swa",
                 Settings = new SwaApplicationSettings
                 {
@@ -484,13 +484,13 @@ namespace Okta.Sdk.IntegrationTest
                 var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as BrowserPluginApplication ;
 
                 // Checking defaults
-                retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.EDITUSERNAMEANDPASSWORD);
+                retrieved.Credentials.Scheme.Should().Be("EDIT_USERNAME_AND_PASSWORD");
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
                 retrieved.Credentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
 
                 var schemeAppCredentials = new SchemeApplicationCredentials()
                 {
-                    Scheme = ApplicationCredentialsScheme.ADMINSETSCREDENTIALS,
+                    Scheme = "ADMIN_SETS_CREDENTIALS",
                     UserNameTemplate = new ApplicationCredentialsUsernameTemplate()
                     {
                         Template = "${source.login}",
@@ -498,13 +498,13 @@ namespace Okta.Sdk.IntegrationTest
                     },
                 };
 
-                retrieved.Credentials.Scheme = ApplicationCredentialsScheme.ADMINSETSCREDENTIALS;
+                retrieved.Credentials.Scheme = "ADMIN_SETS_CREDENTIALS";
                 retrieved.Credentials.UserNameTemplate.Template = "${source.login}";
                 retrieved.Credentials.UserNameTemplate.Type = "BUILT_IN";
 
                 retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
 
-                retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.ADMINSETSCREDENTIALS);
+                retrieved.Credentials.Scheme.Should().Be("ADMIN_SETS_CREDENTIALS");
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
                 retrieved.Credentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
             }
@@ -521,7 +521,7 @@ namespace Okta.Sdk.IntegrationTest
             var app = new BrowserPluginApplication
             {
                 Label = $"dotnet-sdk: UpdateSWAApplicationSetUserEditablePassword {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BROWSERPLUGIN,
+                SignOnMode = "BROWSER_PLUGIN",
                 Name = "template_swa",
                 Settings = new SwaApplicationSettings
                 {
@@ -543,17 +543,17 @@ namespace Okta.Sdk.IntegrationTest
                 var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as BrowserPluginApplication;
 
                 // Checking defaults
-                retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.EDITUSERNAMEANDPASSWORD);
+                retrieved.Credentials.Scheme.Should().Be("EDIT_USERNAME_AND_PASSWORD");
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
                 retrieved.Credentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
 
-                retrieved.Credentials.Scheme = ApplicationCredentialsScheme.EDITPASSWORDONLY;
+                retrieved.Credentials.Scheme = "EDIT_PASSWORD_ONLY";
                 retrieved.Credentials.UserNameTemplate.Template = "${source.login}";
                 retrieved.Credentials.UserNameTemplate.Type = "BUILT_IN";
 
                 retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
 
-                retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.EDITPASSWORDONLY);
+                retrieved.Credentials.Scheme.Should().Be("EDIT_PASSWORD_ONLY");
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
                 retrieved.Credentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
             }
@@ -571,7 +571,7 @@ namespace Okta.Sdk.IntegrationTest
             var app = new BrowserPluginApplication
             {
                 Label = $"dotnet-sdk: UpdateSWAApplicationSetSharedCredentials {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BROWSERPLUGIN,
+                SignOnMode = "BROWSER_PLUGIN",
                 Name = "template_swa",
                 Settings = new SwaApplicationSettings
                 {
@@ -593,11 +593,11 @@ namespace Okta.Sdk.IntegrationTest
                 var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as BrowserPluginApplication;
 
                 // Checking defaults
-                retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.EDITUSERNAMEANDPASSWORD);
+                retrieved.Credentials.Scheme.Should().Be("EDIT_USERNAME_AND_PASSWORD");
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
                 retrieved.Credentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
 
-                retrieved.Credentials.Scheme = ApplicationCredentialsScheme.SHAREDUSERNAMEANDPASSWORD;
+                retrieved.Credentials.Scheme = "SHARED_USERNAME_AND_PASSWORD";
                 retrieved.Credentials.UserNameTemplate.Template = "${source.login}";
                 retrieved.Credentials.UserNameTemplate.Type = "BUILT_IN";
                 retrieved.Credentials.UserName = "sharedusername";
@@ -605,7 +605,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
 
-                retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.SHAREDUSERNAMEANDPASSWORD);
+                retrieved.Credentials.Scheme.Should().Be("SHARED_USERNAME_AND_PASSWORD");
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
                 retrieved.Credentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
                 retrieved.Credentials.UserName.Should().Be("sharedusername");
@@ -626,7 +626,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: NotDeleteActiveApplication {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -659,7 +659,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: DeleteDeactivatedApplication {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -688,7 +688,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: ActivateApplication {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -703,11 +703,11 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 var retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
-                retrievedApp.Status.Should().Be(ApplicationLifecycleStatus.INACTIVE);
+                retrievedApp.Status.Should().Be("INACTIVE");
 
                 await _applicationApi.ActivateApplicationAsync(createdApp.Id);
                 retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
-                retrievedApp.Status.Should().Be(ApplicationLifecycleStatus.ACTIVE);
+                retrievedApp.Status.Should().Be("ACTIVE");
             }
             finally
             {
@@ -723,7 +723,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: CreateActiveApplication {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -739,7 +739,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 var retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
-                retrievedApp.Status.Should().Be(ApplicationLifecycleStatus.ACTIVE);
+                retrievedApp.Status.Should().Be("ACTIVE");
             }
             finally
             {
@@ -779,7 +779,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: CreateAssignUserForSSOApplication {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -855,7 +855,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: CreateAssignUserForSSOApplication {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -952,7 +952,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: ListUsersForApplication {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1046,7 +1046,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: CreateAssignUserForSSOApplication {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1134,7 +1134,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: RemoveUserForApplication {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1205,7 +1205,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: AssignGroupForApplication {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1262,7 +1262,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: AssignGroupForApplication {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1332,7 +1332,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: AssignGroupForApplication {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1398,7 +1398,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: RemoveGroupForApplication {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1448,7 +1448,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: ListApplicationKeyCredentials {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1485,7 +1485,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: GetApplicationKeyCredentials {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1526,7 +1526,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: GenerateApplicationKey {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1567,7 +1567,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: CloneApplicationKey1 {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1584,7 +1584,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: CloneApplicationKey1 {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1626,7 +1626,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: GenerateCsr {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1681,7 +1681,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: GetCsr {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1734,7 +1734,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: RevokeCsr {Guid.NewGuid()}",
-                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                SignOnMode = "BASICAUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -1792,14 +1792,14 @@ namespace Okta.Sdk.IntegrationTest
             var app = new OpenIdConnectApplication
             {
                 Name = "oidc_client",
-                SignOnMode = ApplicationSignOnMode.OPENIDCONNECT,
+                SignOnMode = "OPENID_CONNECT",
                 Label = $"dotnet-sdk: AddOpenIdConnectApp {guid}",
                 Credentials = new OAuthApplicationCredentials()
                 {
                     OauthClient = new ApplicationCredentialsOAuthClient()
                     {
                         ClientId = testClientId,
-                        TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
+                        TokenEndpointAuthMethod = "client_secret_post",
                         AutoKeyRotation = true,
                     },
                 },
@@ -1809,11 +1809,11 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         ClientUri = "https://example.com/client",
                         LogoUri = "https://example.com/assets/images/logo-new.png",
-                        ResponseTypes = new List<OAuthResponseType>
+                        ResponseTypes = new List<string>
                         {
-                            OAuthResponseType.Token,
-                            OAuthResponseType.IdToken,
-                            OAuthResponseType.Code,
+                            "token",
+                            "id_token",
+                            "code",
                         },
                         RedirectUris = new List<string>
                         {
@@ -1825,12 +1825,12 @@ namespace Okta.Sdk.IntegrationTest
                             "https://example.com/postlogout",
                             "myapp://postlogoutcallback",
                         },
-                        GrantTypes = new List<OAuthGrantType>
+                        GrantTypes = new List<string>
                         {
-                            OAuthGrantType.Implicit,
-                            OAuthGrantType.AuthorizationCode,
+                            "implicit",
+                            "authorization_code",
                         },
-                        ApplicationType = OpenIdConnectApplicationType.Native,
+                        ApplicationType = "native",
 
                         TosUri = "https://example.com/client/tos",
                         PolicyUri = "https://example.com/client/policy",
@@ -1874,14 +1874,14 @@ namespace Okta.Sdk.IntegrationTest
             var app = new OpenIdConnectApplication
             {
                 Name = "oidc_client",
-                SignOnMode = ApplicationSignOnMode.OPENIDCONNECT,
+                SignOnMode = "OPENID_CONNECT",
                 Label = $"dotnet-sdk: RevokeConsentGrant {guid}",
                 Credentials = new OAuthApplicationCredentials()
                 {
                     OauthClient = new ApplicationCredentialsOAuthClient()
                     {
                         ClientId = testClientId,
-                        TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
+                        TokenEndpointAuthMethod = "client_secret_post",
                         AutoKeyRotation = true,
                     },
                 },
@@ -1891,11 +1891,11 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         ClientUri = "https://example.com/client",
                         LogoUri = "https://example.com/assets/images/logo-new.png",
-                        ResponseTypes = new List<OAuthResponseType>
+                        ResponseTypes = new List<string>
                         {
-                            OAuthResponseType.Token,
-                            OAuthResponseType.IdToken,
-                            OAuthResponseType.Code,
+                            "token",
+                            "id_token",
+                            "code",
                         },
                         RedirectUris = new List<string>
                         {
@@ -1907,12 +1907,12 @@ namespace Okta.Sdk.IntegrationTest
                             "https://example.com/postlogout",
                             "myapp://postlogoutcallback",
                         },
-                        GrantTypes = new List<OAuthGrantType>
+                        GrantTypes = new List<string>
                         {
-                            OAuthGrantType.Implicit,
-                            OAuthGrantType.AuthorizationCode,
+                            "implicit",
+                            "authorization_code",
                         },
-                        ApplicationType = OpenIdConnectApplicationType.Native,
+                        ApplicationType = "native",
 
                         TosUri = "https://example.com/client/tos",
                         PolicyUri = "https://example.com/client/policy",
@@ -1961,14 +1961,14 @@ namespace Okta.Sdk.IntegrationTest
             var app = new OpenIdConnectApplication
             {
                 Name = "oidc_client",
-                SignOnMode = ApplicationSignOnMode.OPENIDCONNECT,
+                SignOnMode = "OPENID_CONNECT",
                 Label = $"dotnet-sdk: GetConsentGrant {guid}",
                 Credentials = new OAuthApplicationCredentials()
                 {
                     OauthClient = new ApplicationCredentialsOAuthClient()
                     {
                         ClientId = testClientId,
-                        TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
+                        TokenEndpointAuthMethod = "client_secret_post",
                         AutoKeyRotation = true,
                     },
                 },
@@ -1978,11 +1978,11 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         ClientUri = "https://example.com/client",
                         LogoUri = "https://example.com/assets/images/logo-new.png",
-                        ResponseTypes = new List<OAuthResponseType>
+                        ResponseTypes = new List<string>
                         {
-                            OAuthResponseType.Token,
-                            OAuthResponseType.IdToken,
-                            OAuthResponseType.Code,
+                            "token",
+                            "id_token",
+                            "code",
                         },
                         RedirectUris = new List<string>
                         {
@@ -1994,12 +1994,12 @@ namespace Okta.Sdk.IntegrationTest
                             "https://example.com/postlogout",
                             "myapp://postlogoutcallback",
                         },
-                        GrantTypes = new List<OAuthGrantType>
+                        GrantTypes = new List<string>
                         {
-                            OAuthGrantType.Implicit,
-                            OAuthGrantType.AuthorizationCode,
+                            "implicit",
+                            "authorization_code",
                         },
-                        ApplicationType = OpenIdConnectApplicationType.Native,
+                        ApplicationType = "native",
 
                         TosUri = "https://example.com/client/tos",
                         PolicyUri = "https://example.com/client/policy",
@@ -2044,7 +2044,7 @@ namespace Okta.Sdk.IntegrationTest
             var app = new OpenIdConnectApplication
             {
                 Name = "oidc_client",
-                SignOnMode = ApplicationSignOnMode.OPENIDCONNECT,
+                SignOnMode = "OPENID_CONNECT",
                 Label = $"dotnet-sdk: UpdateApplicationProfile {guid}",
                 Settings = new OpenIdConnectApplicationSettings
                 {
@@ -2052,9 +2052,9 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         ClientUri = "https://example.com/client",
                         LogoUri = "https://example.com/assets/images/logo-new.png",
-                        ResponseTypes = new List<OAuthResponseType>
+                        ResponseTypes = new List<string>
                         {
-                            OAuthResponseType.Code,
+                            "code",
                         },
                         RedirectUris = new List<string>
                         {
@@ -2062,12 +2062,12 @@ namespace Okta.Sdk.IntegrationTest
                             "myapp://callback",
                         },
                         
-                        GrantTypes = new List<OAuthGrantType>
+                        GrantTypes = new List<string>
                         {
-                            OAuthGrantType.AuthorizationCode,
-                            OAuthGrantType.ClientCredentials,
+                            "authorization_code",
+                            "client_credentials",
                         },
-                        ApplicationType = OpenIdConnectApplicationType.Service,
+                        ApplicationType = "service",
 
                     },
                 }
@@ -2104,7 +2104,7 @@ namespace Okta.Sdk.IntegrationTest
             var app = new OpenIdConnectApplication
             {
                 Name = "oidc_client",
-                SignOnMode = ApplicationSignOnMode.OPENIDCONNECT,
+                SignOnMode = "OPENID_CONNECT",
                 Label = $"dotnet-sdk: UpdateApplicationProfile {guid}",
                 Settings = new OpenIdConnectApplicationSettings
                 {
@@ -2112,9 +2112,9 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         ClientUri = "https://example.com/client",
                         LogoUri = "https://example.com/assets/images/logo-new.png",
-                        ResponseTypes = new List<OAuthResponseType>
+                        ResponseTypes = new List<string>
                         {
-                            OAuthResponseType.Code,
+                            "code",
                         },
                         RedirectUris = new List<string>
                         {
@@ -2122,12 +2122,12 @@ namespace Okta.Sdk.IntegrationTest
                             "myapp://callback",
                         },
 
-                        GrantTypes = new List<OAuthGrantType>
+                        GrantTypes = new List<string>
                         {
-                            OAuthGrantType.AuthorizationCode,
-                            OAuthGrantType.ClientCredentials,
+                            "authorization_code",
+                            "client_credentials",
                         },
-                        ApplicationType = OpenIdConnectApplicationType.Service,
+                        ApplicationType = "service",
 
                     },
                 }
@@ -2139,8 +2139,8 @@ namespace Okta.Sdk.IntegrationTest
             {
 
                 var connection = await _applicationApi.GetDefaultProvisioningConnectionForApplicationAsync(createdApp.Id);
-                connection.AuthScheme.Should().Be(ProvisioningConnectionAuthScheme.UNKNOWN);
-                connection.Status.Should().Be(ProvisioningConnectionStatus.UNKNOWN);
+                connection.AuthScheme.Should().Be("UNKNOWN");
+                connection.Status.Should().Be("UNKNOWN");
 
             }
             finally
@@ -2158,7 +2158,7 @@ namespace Okta.Sdk.IntegrationTest
             var org2orgApp = new SamlApplication
             {
                 Label = $"dotnet-sdk: okta_org2org {guid}",
-                SignOnMode = ApplicationSignOnMode.SAML20,
+                SignOnMode = "SAML_2_0",
                 Name = "okta_org2org",
                 Settings = new SamlApplicationSettings()
                 {
@@ -2182,7 +2182,7 @@ namespace Okta.Sdk.IntegrationTest
             {
 
                 newApp.Id.Should().NotBeNullOrEmpty();
-                newApp.SignOnMode.Should().Be(ApplicationSignOnMode.SAML20);
+                newApp.SignOnMode.Should().Be("SAML_2_0");
                 ((SamlApplication)newApp).Name.Should().Be(org2orgApp.Name);
                 newApp.Label.Should().Be(org2orgApp.Label);
 

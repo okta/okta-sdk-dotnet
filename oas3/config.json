@@ -5,7 +5,7 @@
     "templateDir" : "./csharp-netcore-custom-templates",
     "packageName" : "Okta.Sdk",
     "outputDir" : "./output-csharp-netcore",
-    "inputSpec" : "C:/source/okta-oas3/dist/codegen/management-codegen.yaml",
+    "inputSpec" : "C:/source/okta-oas3/dist/codegen/management-noEnums.yaml",
     "globalProperties": {
         "apiTests": false,
         "modelTests": false

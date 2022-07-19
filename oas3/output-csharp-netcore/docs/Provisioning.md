@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Action** | **ProvisioningAction** |  | [optional] 
+**Action** | **string** |  | [optional] 
 **Conditions** | [**ProvisioningConditions**](ProvisioningConditions.md) |  | [optional] 
 **Groups** | [**ProvisioningGroups**](ProvisioningGroups.md) |  | [optional] 
 **ProfileMaster** | **bool** |  | [optional] 

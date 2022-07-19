@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AssignmentType** | **RoleAssignmentType** |  | [optional] 
+**AssignmentType** | **string** |  | [optional] 
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
 **Description** | **string** |  | [optional] 
 **Id** | **string** |  | [optional] [readonly] 
 **Label** | **string** |  | [optional] [readonly] 
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
-**Status** | **LifecycleStatus** |  | [optional] 
-**Type** | **RoleType** |  | [optional] 
+**Status** | **string** |  | [optional] 
+**Type** | **string** |  | [optional] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 

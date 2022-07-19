@@ -51,18 +51,6 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(WsFederationApplication), "WsFederationApplication")]
     public partial class Application : IEquatable<Application>
     {
-
-        /// <summary>
-        /// Gets or Sets SignOnMode
-        /// </summary>
-        [DataMember(Name = "signOnMode", EmitDefaultValue = false)]
-        public ApplicationSignOnMode? SignOnMode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public ApplicationLifecycleStatus? Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Accessibility
@@ -136,6 +124,26 @@ namespace Okta.Sdk.Model
         [DataMember(Name = "profile", EmitDefaultValue = false)]
         public Dictionary<string, Object> Profile { get; set; }
 
+        /// <summary>
+        /// Gets or Sets SignOnMode
+        /// </summary>
+        [DataMember(Name = "signOnMode", EmitDefaultValue = false)]
+        public string SignOnMode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public string Status { get; private set; }
+
+        /// <summary>
+        /// Returns false as Status should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeStatus()
+        {
+            return false;
+        }
         /// <summary>
         /// Gets or Sets Visibility
         /// </summary>
@@ -270,11 +278,13 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.SignOnMode == input.SignOnMode ||
-                    this.SignOnMode.Equals(input.SignOnMode)
+                    (this.SignOnMode != null &&
+                    this.SignOnMode.Equals(input.SignOnMode))
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.Visibility == input.Visibility ||
@@ -336,8 +346,14 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.SignOnMode.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.SignOnMode != null)
+                {
+                    hashCode = (hashCode * 59) + this.SignOnMode.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.Visibility != null)
                 {
                     hashCode = (hashCode * 59) + this.Visibility.GetHashCode();

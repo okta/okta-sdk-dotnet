@@ -32,18 +32,12 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "Session")]
     public partial class Session : IEquatable<Session>
     {
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public SessionStatus? Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Amr
         /// </summary>
         [DataMember(Name = "amr", EmitDefaultValue = false)]
-        public List<SessionAuthenticationMethod> Amr { get; private set; }
+        public List<string> Amr { get; private set; }
 
         /// <summary>
         /// Returns false as Amr should not be serialized given that it's read-only.
@@ -143,6 +137,12 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public string Status { get; set; }
+
         /// <summary>
         /// Gets or Sets UserId
         /// </summary>
@@ -268,7 +268,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.UserId == input.UserId ||
@@ -324,7 +325,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Login.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.UserId != null)
                 {
                     hashCode = (hashCode * 59) + this.UserId.GetHashCode();

@@ -32,12 +32,6 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "SchemeApplicationCredentials_allOf")]
     public partial class SchemeApplicationCredentialsAllOf : IEquatable<SchemeApplicationCredentialsAllOf>
     {
-
-        /// <summary>
-        /// Gets or Sets Scheme
-        /// </summary>
-        [DataMember(Name = "scheme", EmitDefaultValue = false)]
-        public ApplicationCredentialsScheme? Scheme { get; set; }
         
         /// <summary>
         /// Gets or Sets Password
@@ -50,6 +44,12 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "revealPassword", EmitDefaultValue = true)]
         public bool RevealPassword { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Scheme
+        /// </summary>
+        [DataMember(Name = "scheme", EmitDefaultValue = false)]
+        public string Scheme { get; set; }
 
         /// <summary>
         /// Gets or Sets Signing
@@ -122,7 +122,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Scheme == input.Scheme ||
-                    this.Scheme.Equals(input.Scheme)
+                    (this.Scheme != null &&
+                    this.Scheme.Equals(input.Scheme))
                 ) && 
                 (
                     this.Signing == input.Signing ||
@@ -150,7 +151,10 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Password.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.RevealPassword.GetHashCode();
-                hashCode = (hashCode * 59) + this.Scheme.GetHashCode();
+                if (this.Scheme != null)
+                {
+                    hashCode = (hashCode * 59) + this.Scheme.GetHashCode();
+                }
                 if (this.Signing != null)
                 {
                     hashCode = (hashCode * 59) + this.Signing.GetHashCode();

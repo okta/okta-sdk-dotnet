@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "Compliance")]
     public partial class Compliance : IEquatable<Compliance>
     {
-
+        
         /// <summary>
         /// Gets or Sets Fips
         /// </summary>
         [DataMember(Name = "fips", EmitDefaultValue = false)]
-        public FipsEnum? Fips { get; set; }
-        
+        public string Fips { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,7 +85,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Fips == input.Fips ||
-                    this.Fips.Equals(input.Fips)
+                    (this.Fips != null &&
+                    this.Fips.Equals(input.Fips))
                 );
         }
 
@@ -98,7 +99,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Fips.GetHashCode();
+                if (this.Fips != null)
+                {
+                    hashCode = (hashCode * 59) + this.Fips.GetHashCode();
+                }
                 return hashCode;
             }
         }

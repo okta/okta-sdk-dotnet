@@ -32,25 +32,25 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "PasswordSettingObject")]
     public partial class PasswordSettingObject : IEquatable<PasswordSettingObject>
     {
-
+        
         /// <summary>
         /// Gets or Sets Change
         /// </summary>
         [DataMember(Name = "change", EmitDefaultValue = false)]
-        public ChangeEnum? Change { get; set; }
+        public string Change { get; set; }
 
         /// <summary>
         /// Gets or Sets Seed
         /// </summary>
         [DataMember(Name = "seed", EmitDefaultValue = false)]
-        public SeedEnum? Seed { get; set; }
+        public string Seed { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public EnabledStatus? Status { get; set; }
-        
+        public string Status { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -99,15 +99,18 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Change == input.Change ||
-                    this.Change.Equals(input.Change)
+                    (this.Change != null &&
+                    this.Change.Equals(input.Change))
                 ) && 
                 (
                     this.Seed == input.Seed ||
-                    this.Seed.Equals(input.Seed)
+                    (this.Seed != null &&
+                    this.Seed.Equals(input.Seed))
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -120,9 +123,18 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Change.GetHashCode();
-                hashCode = (hashCode * 59) + this.Seed.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Change != null)
+                {
+                    hashCode = (hashCode * 59) + this.Change.GetHashCode();
+                }
+                if (this.Seed != null)
+                {
+                    hashCode = (hashCode * 59) + this.Seed.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 return hashCode;
             }
         }

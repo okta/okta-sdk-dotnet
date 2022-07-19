@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Access** | **PolicyAccess** |  | [optional] 
+**Access** | **string** |  | [optional] 
 **FactorLifetime** | **int** |  | [optional] 
-**FactorPromptMode** | **OktaSignOnPolicyFactorPromptMode** |  | [optional] 
+**FactorPromptMode** | **string** |  | [optional] 
 **RememberDeviceByDefault** | **bool** |  | [optional] [default to false]
 **RequireFactor** | **bool** |  | [optional] [default to false]
 **Session** | [**OktaSignOnPolicyRuleSignonSessionActions**](OktaSignOnPolicyRuleSignonSessionActions.md) |  | [optional] 

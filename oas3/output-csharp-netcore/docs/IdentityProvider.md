@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Created** | **DateTimeOffset?** |  | [optional] [readonly] 
 **Id** | **string** |  | [optional] [readonly] 
-**IssuerMode** | **IssuerMode** |  | [optional] 
+**IssuerMode** | **string** |  | [optional] 
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
 **Policy** | [**IdentityProviderPolicy**](IdentityProviderPolicy.md) |  | [optional] 
 **Protocol** | [**Protocol**](Protocol.md) |  | [optional] 
-**Status** | **LifecycleStatus** |  | [optional] 
+**Status** | **string** |  | [optional] 
 **Type** | **string** |  | [optional] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 
