@@ -490,7 +490,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var appList = await client.Applications.ToArrayAsync();
+                var appList = await client.Applications.ListApplications().ToListAsync();
                 appList.SingleOrDefault(a => a.Id == createdApp.Id).Should().NotBeNull();
             }
             finally
