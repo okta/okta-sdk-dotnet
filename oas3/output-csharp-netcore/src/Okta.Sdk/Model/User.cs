@@ -125,7 +125,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets PasswordChanged
         /// </summary>
         [DataMember(Name = "passwordChanged", EmitDefaultValue = false)]
-        public DateTimeOffset PasswordChanged { get; private set; }
+        public DateTimeOffset? PasswordChanged { get; private set; }
 
         /// <summary>
         /// Returns false as PasswordChanged should not be serialized given that it's read-only.
