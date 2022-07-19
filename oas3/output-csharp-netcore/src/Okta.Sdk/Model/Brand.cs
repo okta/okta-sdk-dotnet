@@ -46,6 +46,13 @@ namespace Okta.Sdk.Model
         public string CustomPrivacyPolicyUrl { get; set; }
 
         /// <summary>
+        /// The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646).
+        /// </summary>
+        /// <value>The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646).</value>
+        [DataMember(Name = "displayLanguage", EmitDefaultValue = false)]
+        public string DisplayLanguage { get; set; }
+
+        /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
@@ -59,6 +66,12 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
+        /// <summary>
+        /// Gets or Sets OptOutOfUserCommunications
+        /// </summary>
+        [DataMember(Name = "optOutOfUserCommunications", EmitDefaultValue = true)]
+        public bool OptOutOfUserCommunications { get; set; }
+
         /// <summary>
         /// Gets or Sets RemovePoweredByOkta
         /// </summary>
@@ -89,7 +102,9 @@ namespace Okta.Sdk.Model
             sb.Append("class Brand {\n");
             sb.Append("  AgreeToCustomPrivacyPolicy: ").Append(AgreeToCustomPrivacyPolicy).Append("\n");
             sb.Append("  CustomPrivacyPolicyUrl: ").Append(CustomPrivacyPolicyUrl).Append("\n");
+            sb.Append("  DisplayLanguage: ").Append(DisplayLanguage).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  OptOutOfUserCommunications: ").Append(OptOutOfUserCommunications).Append("\n");
             sb.Append("  RemovePoweredByOkta: ").Append(RemovePoweredByOkta).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -137,9 +152,18 @@ namespace Okta.Sdk.Model
                     this.CustomPrivacyPolicyUrl.Equals(input.CustomPrivacyPolicyUrl))
                 ) && 
                 (
+                    this.DisplayLanguage == input.DisplayLanguage ||
+                    (this.DisplayLanguage != null &&
+                    this.DisplayLanguage.Equals(input.DisplayLanguage))
+                ) && 
+                (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.OptOutOfUserCommunications == input.OptOutOfUserCommunications ||
+                    this.OptOutOfUserCommunications.Equals(input.OptOutOfUserCommunications)
                 ) && 
                 (
                     this.RemovePoweredByOkta == input.RemovePoweredByOkta ||
@@ -167,10 +191,15 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.CustomPrivacyPolicyUrl.GetHashCode();
                 }
+                if (this.DisplayLanguage != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayLanguage.GetHashCode();
+                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.OptOutOfUserCommunications.GetHashCode();
                 hashCode = (hashCode * 59) + this.RemovePoweredByOkta.GetHashCode();
                 if (this.Links != null)
                 {

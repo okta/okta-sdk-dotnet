@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
 **Priority** | **int** |  | [optional] 
-**Status** | [**LifecycleStatus**](LifecycleStatus.md) |  | [optional] 
+**Status** | **string** |  | [optional] 
 **System** | **bool** |  | [optional] [default to false]
-**Type** | [**PolicyRuleType**](PolicyRuleType.md) |  | [optional] 
+**Type** | **string** |  | [optional] 
 **Actions** | [**AuthorizationServerPolicyRuleActions**](AuthorizationServerPolicyRuleActions.md) |  | [optional] 
 **Conditions** | [**AuthorizationServerPolicyRuleConditions**](AuthorizationServerPolicyRuleConditions.md) |  | [optional] 
 

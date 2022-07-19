@@ -32,12 +32,6 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "Protocol")]
     public partial class Protocol : IEquatable<Protocol>
     {
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public ProtocolType? Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Algorithms
@@ -80,6 +74,12 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "settings", EmitDefaultValue = false)]
         public ProtocolSettings Settings { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -170,7 +170,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -211,7 +212,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Settings.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -32,12 +32,6 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "ApplicationFeature")]
     public partial class ApplicationFeature : IEquatable<ApplicationFeature>
     {
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public EnabledStatus? Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Capabilities
@@ -56,6 +50,12 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public string Status { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -136,7 +136,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -167,7 +168,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

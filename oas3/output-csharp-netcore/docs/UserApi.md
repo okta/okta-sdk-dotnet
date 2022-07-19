@@ -299,7 +299,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **204** | No Content |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
@@ -469,7 +469,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **204** | No Content |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
@@ -816,7 +816,7 @@ void (empty response body)
 
 <a name="createuser"></a>
 # **CreateUser**
-> User CreateUser (CreateUserRequest body, bool? activate = null, bool? provider = null, UserNextLogin? nextLogin = null)
+> User CreateUser (CreateUserRequest body, bool? activate = null, bool? provider = null, string nextLogin = null)
 
 Create a User
 
@@ -849,7 +849,7 @@ namespace Example
             var body = new CreateUserRequest(); // CreateUserRequest | 
             var activate = true;  // bool? | Executes activation lifecycle operation when creating the user (optional)  (default to true)
             var provider = false;  // bool? | Indicates whether to create a user with a specified authentication provider (optional)  (default to false)
-            var nextLogin = (UserNextLogin) "changePassword";  // UserNextLogin? | With activate=true, set nextLogin to \"changePassword\" to have the password be EXPIRED, so user must change it the next time they log in. (optional) 
+            var nextLogin = "nextLogin_example";  // string | With activate=true, set nextLogin to \"changePassword\" to have the password be EXPIRED, so user must change it the next time they log in. (optional) 
 
             try
             {
@@ -875,7 +875,7 @@ Name | Type | Description  | Notes
  **body** | [**CreateUserRequest**](CreateUserRequest.md)|  | 
  **activate** | **bool?**| Executes activation lifecycle operation when creating the user | [optional] [default to true]
  **provider** | **bool?**| Indicates whether to create a user with a specified authentication provider | [optional] [default to false]
- **nextLogin** | **UserNextLogin?**| With activate&#x3D;true, set nextLogin to \&quot;changePassword\&quot; to have the password be EXPIRED, so user must change it the next time they log in. | [optional] 
+ **nextLogin** | **string**| With activate&#x3D;true, set nextLogin to \&quot;changePassword\&quot; to have the password be EXPIRED, so user must change it the next time they log in. | [optional] 
 
 ### Return type
 
@@ -976,7 +976,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | ACCEPTED |  -  |
+| **204** | No Content |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |

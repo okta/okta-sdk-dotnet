@@ -259,7 +259,7 @@ namespace Okta.Sdk.Api
         /// <param name="provider">Indicates whether to create a user with a specified authentication provider (optional, default to false)</param>
         /// <param name="nextLogin">With activate&#x3D;true, set nextLogin to \&quot;changePassword\&quot; to have the password be EXPIRED, so user must change it the next time they log in. (optional)</param>
         /// <returns>User</returns>
-        User CreateUser(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), UserNextLogin? nextLogin = default(UserNextLogin?));
+        User CreateUser(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), string nextLogin = default(string));
 
         /// <summary>
         /// Create a User
@@ -273,7 +273,7 @@ namespace Okta.Sdk.Api
         /// <param name="provider">Indicates whether to create a user with a specified authentication provider (optional, default to false)</param>
         /// <param name="nextLogin">With activate&#x3D;true, set nextLogin to \&quot;changePassword\&quot; to have the password be EXPIRED, so user must change it the next time they log in. (optional)</param>
         /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> CreateUserWithHttpInfo(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), UserNextLogin? nextLogin = default(UserNextLogin?));
+        ApiResponse<User> CreateUserWithHttpInfo(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), string nextLogin = default(string));
         /// <summary>
         /// Delete a User
         /// </summary>
@@ -1511,7 +1511,7 @@ namespace Okta.Sdk.Api
         /// <param name="nextLogin">With activate&#x3D;true, set nextLogin to \&quot;changePassword\&quot; to have the password be EXPIRED, so user must change it the next time they log in. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> CreateUserAsync(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), UserNextLogin? nextLogin = default(UserNextLogin?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<User> CreateUserAsync(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), string nextLogin = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a User
         /// </summary>
@@ -1525,7 +1525,7 @@ namespace Okta.Sdk.Api
         /// <param name="nextLogin">With activate&#x3D;true, set nextLogin to \&quot;changePassword\&quot; to have the password be EXPIRED, so user must change it the next time they log in. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> CreateUserWithHttpInfoAsync(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), UserNextLogin? nextLogin = default(UserNextLogin?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<User>> CreateUserWithHttpInfoAsync(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), string nextLogin = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a User
         /// </summary>
@@ -4293,7 +4293,7 @@ namespace Okta.Sdk.Api
         /// <param name="provider">Indicates whether to create a user with a specified authentication provider (optional, default to false)</param>
         /// <param name="nextLogin">With activate&#x3D;true, set nextLogin to \&quot;changePassword\&quot; to have the password be EXPIRED, so user must change it the next time they log in. (optional)</param>
         /// <returns>User</returns>
-        public User CreateUser(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), UserNextLogin? nextLogin = default(UserNextLogin?))
+        public User CreateUser(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), string nextLogin = default(string))
         {
             Okta.Sdk.Client.ApiResponse<User> localVarResponse = CreateUserWithHttpInfo(body, activate, provider, nextLogin);
             return localVarResponse.Data;
@@ -4308,7 +4308,7 @@ namespace Okta.Sdk.Api
         /// <param name="provider">Indicates whether to create a user with a specified authentication provider (optional, default to false)</param>
         /// <param name="nextLogin">With activate&#x3D;true, set nextLogin to \&quot;changePassword\&quot; to have the password be EXPIRED, so user must change it the next time they log in. (optional)</param>
         /// <returns>ApiResponse of User</returns>
-        public Okta.Sdk.Client.ApiResponse<User> CreateUserWithHttpInfo(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), UserNextLogin? nextLogin = default(UserNextLogin?))
+        public Okta.Sdk.Client.ApiResponse<User> CreateUserWithHttpInfo(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), string nextLogin = default(string))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -4389,7 +4389,7 @@ namespace Okta.Sdk.Api
         /// <param name="nextLogin">With activate&#x3D;true, set nextLogin to \&quot;changePassword\&quot; to have the password be EXPIRED, so user must change it the next time they log in. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> CreateUserAsync(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), UserNextLogin? nextLogin = default(UserNextLogin?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User> CreateUserAsync(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), string nextLogin = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<User> localVarResponse = await CreateUserWithHttpInfoAsync(body, activate, provider, nextLogin, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4404,7 +4404,7 @@ namespace Okta.Sdk.Api
         /// <param name="nextLogin">With activate&#x3D;true, set nextLogin to \&quot;changePassword\&quot; to have the password be EXPIRED, so user must change it the next time they log in. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<User>> CreateUserWithHttpInfoAsync(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), UserNextLogin? nextLogin = default(UserNextLogin?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<User>> CreateUserWithHttpInfoAsync(CreateUserRequest body, bool? activate = default(bool?), bool? provider = default(bool?), string nextLogin = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)

@@ -160,7 +160,7 @@ namespace Okta.Sdk.IntegrationTest
                 var userRetrievedById = await _userApi.GetUserAsync(createdUser.Id);
                 userRetrievedById.Profile.FirstName.Should().Be("John");
                 userRetrievedById.Profile.LastName.Should().Be(nameof(CreateUserWithPasswordImportInlineHookOptions));
-                userRetrievedById.Credentials.Provider.Type.Should().Be(AuthenticationProviderType.IMPORT);
+                userRetrievedById.Credentials.Provider.Type.Should().Be("IMPORT");
                 userRetrievedById.Credentials.Provider.Name.Should().Be("IMPORT");
             }
             finally
@@ -193,7 +193,7 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         Hash = new PasswordCredentialHash
                         {
-                            Algorithm = PasswordCredentialHashAlgorithm.BCRYPT,
+                            Algorithm = "BCRYPT",
                             WorkFactor = 10,
                             Salt = "rwh3vH166HCH/NT9XV5FYu",
                             Value = "qaMqvAPULkbiQzkTCWo5XDcvzpk8Tna",
@@ -210,7 +210,7 @@ namespace Okta.Sdk.IntegrationTest
                 var userRetrievedById = await _userApi.GetUserAsync(createdUser.Id);
                 userRetrievedById.Profile.FirstName.Should().Be("John");
                 userRetrievedById.Profile.LastName.Should().Be(userLastName);
-                userRetrievedById.Credentials.Provider.Type.Should().Be(AuthenticationProviderType.IMPORT);
+                userRetrievedById.Credentials.Provider.Type.Should().Be("IMPORT");
                 userRetrievedById.Credentials.Provider.Name.Should().Be("IMPORT");
             }
             finally
@@ -254,14 +254,14 @@ namespace Okta.Sdk.IntegrationTest
 
                 // Verify user does not exist in list of active users
                 var retrievedUser = await _userApi.GetUserAsync(createdUser.Id);
-                retrievedUser.Status.Should().Be(UserStatus.DEPROVISIONED);
+                retrievedUser.Status.Should().Be("DEPROVISIONED");
 
                 // Activate the user
                 await _userApi.ActivateUserAsync(createdUser.Id, false);
 
                 // Verify user exists in list of active users
                 retrievedUser = await _userApi.GetUserAsync(createdUser.Id);
-                retrievedUser.Status.Should().Be(UserStatus.PROVISIONED);
+                retrievedUser.Status.Should().Be("PROVISIONED");
             }
             finally
             {
@@ -394,13 +394,13 @@ namespace Okta.Sdk.IntegrationTest
 
                 var retrievedUser = await _userApi.GetUserAsync(createdUser.Id);
 
-                retrievedUser.Status.Should().Be(UserStatus.SUSPENDED);
+                retrievedUser.Status.Should().Be("SUSPENDED");
 
                 await _userApi.UnsuspendUserAsync(createdUser.Id);
 
                 retrievedUser = await _userApi.GetUserAsync(createdUser.Id);
 
-                retrievedUser.Status.Should().Be(UserStatus.ACTIVE);
+                retrievedUser.Status.Should().Be("ACTIVE");
             }
             finally
             {
@@ -578,7 +578,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Provider = new AuthenticationProvider
                     {
-                        Type = AuthenticationProviderType.FEDERATION,
+                        Type = "FEDERATION",
                         Name = "FEDERATION",
                     }
                 }
@@ -591,7 +591,7 @@ namespace Okta.Sdk.IntegrationTest
                 // Retrieve by ID
                 var retrievedById = await _userApi.GetUserAsync(createdUser.Id);
                 retrievedById.Profile.LastName.Should().Be(nameof(CreateUserWithProvider));
-                retrievedById.Credentials.Provider.Type.Should().Be(AuthenticationProviderType.FEDERATION);
+                retrievedById.Credentials.Provider.Type.Should().Be("FEDERATION");
                 retrievedById.Credentials.Provider.Name.Should().Be("FEDERATION");
             }
             finally
@@ -632,12 +632,12 @@ namespace Okta.Sdk.IntegrationTest
             {
                 var assignRoleRequest = new AssignRoleRequest
                 {
-                    Type = RoleType.SUPERADMIN
+                    Type = "SUPER_ADMIN"
                 };
 
                 await _userApi.AssignRoleToUserAsync(createdUser.Id, assignRoleRequest);
                 var roles = await _userApi.ListAssignedRolesForUserAsync(createdUser.Id).ToListAsync();
-                roles.Any(role => role.Type == RoleType.SUPERADMIN).Should().BeTrue();
+                roles.Any(role => role.Type == "SUPER_ADMIN").Should().BeTrue();
             }
             finally
             {
@@ -677,23 +677,23 @@ namespace Okta.Sdk.IntegrationTest
             {
                 await _userApi.AssignRoleToUserAsync(createdUser.Id, new AssignRoleRequest
                 {
-                    Type = RoleType.SUPERADMIN
+                    Type = "SUPER_ADMIN"
                 });
                 await _userApi.AssignRoleToUserAsync(createdUser.Id, new AssignRoleRequest
                 {
-                    Type = RoleType.APPADMIN
+                    Type = "APP_ADMIN"
                 });
                 await _userApi.AssignRoleToUserAsync(createdUser.Id, new AssignRoleRequest
                 {
-                    Type = RoleType.ORGADMIN
+                    Type = "ORG_ADMIN"
                 });
 
                 await Task.Delay(5000);
                 var roles = await _userApi.ListAssignedRolesForUserAsync(createdUser.Id).ToListAsync();
 
-                roles.FirstOrDefault(x => x.Type == RoleType.SUPERADMIN).Should().NotBeNull();
-                roles.FirstOrDefault(x => x.Type == RoleType.APPADMIN).Should().NotBeNull();
-                roles.FirstOrDefault(x => x.Type == RoleType.ORGADMIN).Should().NotBeNull();
+                roles.FirstOrDefault(x => x.Type == "SUPER_ADMIN").Should().NotBeNull();
+                roles.FirstOrDefault(x => x.Type == "APP_ADMIN").Should().NotBeNull();
+                roles.FirstOrDefault(x => x.Type == "ORG_ADMIN").Should().NotBeNull();
             }
             finally
             {
@@ -733,29 +733,29 @@ namespace Okta.Sdk.IntegrationTest
             {
                 await _userApi.AssignRoleToUserAsync(createdUser.Id, new AssignRoleRequest
                 {
-                    Type = RoleType.SUPERADMIN
+                    Type = "SUPER_ADMIN"
                 });
 
                 await _userApi.AssignRoleToUserAsync(createdUser.Id, new AssignRoleRequest
                 {
-                    Type = RoleType.ORGADMIN
+                    Type = "ORG_ADMIN"
                 });
 
                 await Task.Delay(5000);
 
                 var roles = await _userApi.ListAssignedRolesForUserAsync(createdUser.Id).ToListAsync();
-                roles.Any(x => x.Type == RoleType.SUPERADMIN).Should().BeTrue();
-                roles.Any(x => x.Type == RoleType.ORGADMIN).Should().BeTrue();
+                roles.Any(x => x.Type == "SUPER_ADMIN").Should().BeTrue();
+                roles.Any(x => x.Type == "ORG_ADMIN").Should().BeTrue();
 
-                var role1 = roles.FirstOrDefault(x => x.Type == RoleType.SUPERADMIN);
-                var role2 = roles.FirstOrDefault(x => x.Type == RoleType.ORGADMIN);
+                var role1 = roles.FirstOrDefault(x => x.Type == "SUPER_ADMIN");
+                var role2 = roles.FirstOrDefault(x => x.Type == "ORG_ADMIN");
 
                 await _userApi.RemoveRoleFromUserAsync(createdUser.Id, role1.Id);
                 await _userApi.RemoveRoleFromUserAsync(createdUser.Id, role2.Id);
 
                 roles = await _userApi.ListAssignedRolesForUserAsync(createdUser.Id).ToListAsync();
-                roles.Any(x => x.Type == RoleType.SUPERADMIN).Should().BeFalse();
-                roles.Any(x => x.Type == RoleType.ORGADMIN).Should().BeFalse();
+                roles.Any(x => x.Type == "SUPER_ADMIN").Should().BeFalse();
+                roles.Any(x => x.Type == "ORG_ADMIN").Should().BeFalse();
             }
             finally
             {
@@ -804,7 +804,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 var role = await _userApi.AssignRoleToUserAsync(createdUser.Id, new AssignRoleRequest
                 {
-                    Type = RoleType.USERADMIN
+                    Type = "USER_ADMIN"
                 });
                 _userApi.AddGroupTargetToRole(createdUser.Id, role.Id, createdGroup.Id);
 
@@ -869,7 +869,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 var role = await _userApi.AssignRoleToUserAsync(createdUser.Id, new AssignRoleRequest
                 {
-                    Type = RoleType.USERADMIN,
+                    Type = "USER_ADMIN",
                 });
 
                 // Need 2 groups, because if you remove the last one it throws an (expected) exception.
@@ -1110,14 +1110,14 @@ namespace Okta.Sdk.IntegrationTest
                     Name = primaryRelationshipName,
                     Title = "Primary",
                     Description = "Primary link property",
-                    Type = LinkedObjectDetailsType.USER,
+                    Type = "USER",
                 },
                 Associated = new LinkedObjectDetails
                 {
                     Name = associatedRelationshipName,
                     Title = "Associated",
                     Description = "Associated link property",
-                    Type = LinkedObjectDetailsType.USER,
+                    Type = "USER",
                 }
             });
 
@@ -1204,14 +1204,14 @@ namespace Okta.Sdk.IntegrationTest
                     Name = primaryRelationshipName,
                     Title = "Primary",
                     Description = "Primary link property",
-                    Type = LinkedObjectDetailsType.USER,
+                    Type = "USER",
                 },
                 Associated = new LinkedObjectDetails
                 {
                     Name = associatedRelationshipName,
                     Title = "Associated",
                     Description = "Associated link property",
-                    Type = LinkedObjectDetailsType.USER,
+                    Type = "USER",
                 }
             });
 
@@ -1282,13 +1282,13 @@ namespace Okta.Sdk.IntegrationTest
                 assignedRoles.Count.Should().Be(0);
                 await _userApi.AssignRoleToUserAsync(createdUser.Id, new AssignRoleRequest
                 {
-                    Type = RoleType.ORGADMIN,
+                    Type = "ORG_ADMIN",
                 });
 
                 assignedRoles = await _userApi.ListAssignedRolesForUserAsync(createdUser.Id).ToListAsync();
                 assignedRoles.Should().NotBeNull();
                 assignedRoles.Count.Should().Be(1);
-                assignedRoles[0].Type.Should().Be(RoleType.ORGADMIN);
+                assignedRoles[0].Type.Should().Be("ORG_ADMIN");
             }
             finally
             {

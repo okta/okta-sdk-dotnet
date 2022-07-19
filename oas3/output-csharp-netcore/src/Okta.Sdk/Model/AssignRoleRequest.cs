@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "AssignRoleRequest")]
     public partial class AssignRoleRequest : IEquatable<AssignRoleRequest>
     {
-
+        
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public RoleType? Type { get; set; }
-        
+        public string Type { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,7 +85,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -98,7 +99,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "PasswordPolicyRuleAction")]
     public partial class PasswordPolicyRuleAction : IEquatable<PasswordPolicyRuleAction>
     {
-
+        
         /// <summary>
         /// Gets or Sets Access
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
-        public PolicyAccess? Access { get; set; }
-        
+        public string Access { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,7 +85,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Access == input.Access ||
-                    this.Access.Equals(input.Access)
+                    (this.Access != null &&
+                    this.Access.Equals(input.Access))
                 );
         }
 
@@ -98,7 +99,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Access.GetHashCode();
+                if (this.Access != null)
+                {
+                    hashCode = (hashCode * 59) + this.Access.GetHashCode();
+                }
                 return hashCode;
             }
         }

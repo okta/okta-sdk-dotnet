@@ -32,12 +32,6 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "Group")]
     public partial class Group : IEquatable<Group>
     {
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public GroupType? Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Created
@@ -114,6 +108,12 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "profile", EmitDefaultValue = false)]
         public GroupProfile Profile { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Embedded
@@ -228,7 +228,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
                     this.Embedded == input.Embedded ||
@@ -277,7 +278,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.Embedded != null)
                 {
                     hashCode = (hashCode * 59) + this.Embedded.GetHashCode();

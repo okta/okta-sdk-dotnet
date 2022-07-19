@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "ScheduledUserLifecycleAction")]
     public partial class ScheduledUserLifecycleAction : IEquatable<ScheduledUserLifecycleAction>
     {
-
+        
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public PolicyUserStatus? Status { get; set; }
-        
+        public string Status { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,7 +85,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -98,7 +99,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 return hashCode;
             }
         }

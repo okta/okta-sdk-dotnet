@@ -32,24 +32,24 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "Subscription")]
     public partial class Subscription : IEquatable<Subscription>
     {
-
-        /// <summary>
-        /// Gets or Sets NotificationType
-        /// </summary>
-        [DataMember(Name = "notificationType", EmitDefaultValue = false)]
-        public NotificationType? NotificationType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public SubscriptionStatus? Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Channels
         /// </summary>
         [DataMember(Name = "channels", EmitDefaultValue = false)]
         public List<string> Channels { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NotificationType
+        /// </summary>
+        [DataMember(Name = "notificationType", EmitDefaultValue = false)]
+        public string NotificationType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public string Status { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -120,11 +120,13 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.NotificationType == input.NotificationType ||
-                    this.NotificationType.Equals(input.NotificationType)
+                    (this.NotificationType != null &&
+                    this.NotificationType.Equals(input.NotificationType))
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -147,8 +149,14 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Channels.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.NotificationType.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.NotificationType != null)
+                {
+                    hashCode = (hashCode * 59) + this.NotificationType.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

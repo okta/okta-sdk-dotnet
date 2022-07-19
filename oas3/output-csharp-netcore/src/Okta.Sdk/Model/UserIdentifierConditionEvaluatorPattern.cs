@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "UserIdentifierConditionEvaluatorPattern")]
     public partial class UserIdentifierConditionEvaluatorPattern : IEquatable<UserIdentifierConditionEvaluatorPattern>
     {
-
+        
         /// <summary>
         /// Gets or Sets MatchType
         /// </summary>
         [DataMember(Name = "matchType", EmitDefaultValue = false)]
-        public UserIdentifierMatchType? MatchType { get; set; }
-        
+        public string MatchType { get; set; }
+
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
@@ -92,7 +92,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.MatchType == input.MatchType ||
-                    this.MatchType.Equals(input.MatchType)
+                    (this.MatchType != null &&
+                    this.MatchType.Equals(input.MatchType))
                 ) && 
                 (
                     this.Value == input.Value ||
@@ -110,7 +111,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.MatchType.GetHashCode();
+                if (this.MatchType != null)
+                {
+                    hashCode = (hashCode * 59) + this.MatchType.GetHashCode();
+                }
                 if (this.Value != null)
                 {
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();

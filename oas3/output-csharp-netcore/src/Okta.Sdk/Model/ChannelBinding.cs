@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "ChannelBinding")]
     public partial class ChannelBinding : IEquatable<ChannelBinding>
     {
-
+        
         /// <summary>
         /// Gets or Sets Required
         /// </summary>
         [DataMember(Name = "required", EmitDefaultValue = false)]
-        public RequiredEnum? Required { get; set; }
-        
+        public string Required { get; set; }
+
         /// <summary>
         /// Gets or Sets Style
         /// </summary>
@@ -92,7 +92,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Required == input.Required ||
-                    this.Required.Equals(input.Required)
+                    (this.Required != null &&
+                    this.Required.Equals(input.Required))
                 ) && 
                 (
                     this.Style == input.Style ||
@@ -110,7 +111,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Required.GetHashCode();
+                if (this.Required != null)
+                {
+                    hashCode = (hashCode * 59) + this.Required.GetHashCode();
+                }
                 if (this.Style != null)
                 {
                     hashCode = (hashCode * 59) + this.Style.GetHashCode();

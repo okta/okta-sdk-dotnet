@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 <a name="listsmstemplates"></a>
 # **ListSmsTemplates**
-> List&lt;SmsTemplate&gt; ListSmsTemplates (SmsTemplateType? templateType = null)
+> List&lt;SmsTemplate&gt; ListSmsTemplates (string templateType = null)
 
 List all SMS Templates
 
@@ -286,7 +286,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
-            var templateType = (SmsTemplateType) "SMS_VERIFY_CODE";  // SmsTemplateType? |  (optional) 
+            var templateType = "templateType_example";  // string |  (optional) 
 
             try
             {
@@ -309,7 +309,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **templateType** | **SmsTemplateType?**|  | [optional] 
+ **templateType** | **string**|  | [optional] 
 
 ### Return type
 

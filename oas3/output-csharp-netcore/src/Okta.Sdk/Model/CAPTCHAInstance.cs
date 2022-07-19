@@ -32,12 +32,6 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "CAPTCHAInstance")]
     public partial class CAPTCHAInstance : IEquatable<CAPTCHAInstance>
     {
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public CAPTCHAType? Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Id
@@ -70,6 +64,12 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "siteKey", EmitDefaultValue = false)]
         public string SiteKey { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Link
@@ -148,7 +148,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
                     this.Link == input.Link ||
@@ -182,7 +183,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.SiteKey.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.Link != null)
                 {
                     hashCode = (hashCode * 59) + this.Link.GetHashCode();

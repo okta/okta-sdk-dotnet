@@ -457,6 +457,226 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;EmailTemplate&gt;</returns>
         ApiResponse<List<EmailTemplate>> ListEmailTemplatesWithHttpInfo(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>));
         /// <summary>
+        /// Preview the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Previews the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <returns>string</returns>
+        string PreviewErrorPage(string brandId, CustomizablePage customizablePage);
+
+        /// <summary>
+        /// Preview the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Previews the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> PreviewErrorPageWithHttpInfo(string brandId, CustomizablePage customizablePage);
+        /// <summary>
+        /// Preview the Sign-in Page.
+        /// </summary>
+        /// <remarks>
+        /// Preview the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <returns>string</returns>
+        string PreviewSignInPage(string brandId, SignInPage signInPage);
+
+        /// <summary>
+        /// Preview the Sign-in Page.
+        /// </summary>
+        /// <remarks>
+        /// Preview the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> PreviewSignInPageWithHttpInfo(string brandId, SignInPage signInPage);
+        /// <summary>
+        /// Replace the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Replaces the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <returns>CustomizablePage</returns>
+        CustomizablePage ReplaceErrorPage(string brandId, CustomizablePage customizablePage);
+
+        /// <summary>
+        /// Replace the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Replaces the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <returns>ApiResponse of CustomizablePage</returns>
+        ApiResponse<CustomizablePage> ReplaceErrorPageWithHttpInfo(string brandId, CustomizablePage customizablePage);
+        /// <summary>
+        /// Replace the Sign-in Page
+        /// </summary>
+        /// <remarks>
+        /// Replaces the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <returns>SignInPage</returns>
+        SignInPage ReplaceSignInPage(string brandId, SignInPage signInPage);
+
+        /// <summary>
+        /// Replace the Sign-in Page
+        /// </summary>
+        /// <remarks>
+        /// Replaces the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <returns>ApiResponse of SignInPage</returns>
+        ApiResponse<SignInPage> ReplaceSignInPageWithHttpInfo(string brandId, SignInPage signInPage);
+        /// <summary>
+        /// Replace the Sign-out Page Settings
+        /// </summary>
+        /// <remarks>
+        /// Replaces the sign-out page settings.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="hostedPage"></param>
+        /// <returns>HostedPage</returns>
+        HostedPage ReplaceSignOutPageSettings(string brandId, HostedPage hostedPage);
+
+        /// <summary>
+        /// Replace the Sign-out Page Settings
+        /// </summary>
+        /// <remarks>
+        /// Replaces the sign-out page settings.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="hostedPage"></param>
+        /// <returns>ApiResponse of HostedPage</returns>
+        ApiResponse<HostedPage> ReplaceSignOutPageSettingsWithHttpInfo(string brandId, HostedPage hostedPage);
+        /// <summary>
+        /// Reset the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Resets the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns></returns>
+        void ResetErrorPage(string brandId);
+
+        /// <summary>
+        /// Reset the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Resets the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> ResetErrorPageWithHttpInfo(string brandId);
+        /// <summary>
+        /// Reset the Sign-in Page
+        /// </summary>
+        /// <remarks>
+        /// Reset the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns></returns>
+        void ResetSignInPage(string brandId);
+
+        /// <summary>
+        /// Reset the Sign-in Page
+        /// </summary>
+        /// <remarks>
+        /// Reset the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> ResetSignInPageWithHttpInfo(string brandId);
+        /// <summary>
+        /// Retrieve the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>CustomizablePage</returns>
+        CustomizablePage RetrieveErrorPage(string brandId);
+
+        /// <summary>
+        /// Retrieve the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>ApiResponse of CustomizablePage</returns>
+        ApiResponse<CustomizablePage> RetrieveErrorPageWithHttpInfo(string brandId);
+        /// <summary>
+        /// Retrieve the Sign-in Page
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>SignInPage</returns>
+        SignInPage RetrieveSignInPage(string brandId);
+
+        /// <summary>
+        /// Retrieve the Sign-in Page
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>ApiResponse of SignInPage</returns>
+        ApiResponse<SignInPage> RetrieveSignInPageWithHttpInfo(string brandId);
+        /// <summary>
+        /// Retrieve the Sign-out Page Settings
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the sign-out page settings.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>HostedPage</returns>
+        HostedPage RetrieveSignOutPageSettings(string brandId);
+
+        /// <summary>
+        /// Retrieve the Sign-out Page Settings
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the sign-out page settings.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>ApiResponse of HostedPage</returns>
+        ApiResponse<HostedPage> RetrieveSignOutPageSettingsWithHttpInfo(string brandId);
+        /// <summary>
         /// Send a Test Email
         /// </summary>
         /// <remarks>
@@ -590,8 +810,9 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <returns>ImageUploadResponse</returns>
-        ImageUploadResponse UploadBrandThemeBackgroundImage(string brandId, string themeId);
+        ImageUploadResponse UploadBrandThemeBackgroundImage(string brandId, string themeId, System.IO.Stream file);
 
         /// <summary>
         /// Upload the Background Image
@@ -602,8 +823,9 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <returns>ApiResponse of ImageUploadResponse</returns>
-        ApiResponse<ImageUploadResponse> UploadBrandThemeBackgroundImageWithHttpInfo(string brandId, string themeId);
+        ApiResponse<ImageUploadResponse> UploadBrandThemeBackgroundImageWithHttpInfo(string brandId, string themeId, System.IO.Stream file);
         /// <summary>
         /// Upload the Favicon
         /// </summary>
@@ -613,8 +835,9 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <returns>ImageUploadResponse</returns>
-        ImageUploadResponse UploadBrandThemeFavicon(string brandId, string themeId);
+        ImageUploadResponse UploadBrandThemeFavicon(string brandId, string themeId, System.IO.Stream file);
 
         /// <summary>
         /// Upload the Favicon
@@ -625,8 +848,9 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <returns>ApiResponse of ImageUploadResponse</returns>
-        ApiResponse<ImageUploadResponse> UploadBrandThemeFaviconWithHttpInfo(string brandId, string themeId);
+        ApiResponse<ImageUploadResponse> UploadBrandThemeFaviconWithHttpInfo(string brandId, string themeId, System.IO.Stream file);
         /// <summary>
         /// Upload the Logo
         /// </summary>
@@ -636,8 +860,9 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <returns>ImageUploadResponse</returns>
-        ImageUploadResponse UploadBrandThemeLogo(string brandId, string themeId);
+        ImageUploadResponse UploadBrandThemeLogo(string brandId, string themeId, System.IO.Stream file);
 
         /// <summary>
         /// Upload the Logo
@@ -648,8 +873,9 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <returns>ApiResponse of ImageUploadResponse</returns>
-        ApiResponse<ImageUploadResponse> UploadBrandThemeLogoWithHttpInfo(string brandId, string themeId);
+        ApiResponse<ImageUploadResponse> UploadBrandThemeLogoWithHttpInfo(string brandId, string themeId, System.IO.Stream file);
         #endregion Synchronous Operations
     }
 
@@ -1106,6 +1332,236 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;EmailTemplate&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<EmailTemplate>>> ListEmailTemplatesWithHttpInfoAsync(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Preview the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Previews the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> PreviewErrorPageAsync(string brandId, CustomizablePage customizablePage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Preview the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Previews the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> PreviewErrorPageWithHttpInfoAsync(string brandId, CustomizablePage customizablePage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Preview the Sign-in Page.
+        /// </summary>
+        /// <remarks>
+        /// Preview the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> PreviewSignInPageAsync(string brandId, SignInPage signInPage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Preview the Sign-in Page.
+        /// </summary>
+        /// <remarks>
+        /// Preview the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> PreviewSignInPageWithHttpInfoAsync(string brandId, SignInPage signInPage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Replace the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Replaces the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CustomizablePage</returns>
+        System.Threading.Tasks.Task<CustomizablePage> ReplaceErrorPageAsync(string brandId, CustomizablePage customizablePage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Replace the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Replaces the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CustomizablePage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomizablePage>> ReplaceErrorPageWithHttpInfoAsync(string brandId, CustomizablePage customizablePage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Replace the Sign-in Page
+        /// </summary>
+        /// <remarks>
+        /// Replaces the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SignInPage</returns>
+        System.Threading.Tasks.Task<SignInPage> ReplaceSignInPageAsync(string brandId, SignInPage signInPage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Replace the Sign-in Page
+        /// </summary>
+        /// <remarks>
+        /// Replaces the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SignInPage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SignInPage>> ReplaceSignInPageWithHttpInfoAsync(string brandId, SignInPage signInPage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Replace the Sign-out Page Settings
+        /// </summary>
+        /// <remarks>
+        /// Replaces the sign-out page settings.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="hostedPage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of HostedPage</returns>
+        System.Threading.Tasks.Task<HostedPage> ReplaceSignOutPageSettingsAsync(string brandId, HostedPage hostedPage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Replace the Sign-out Page Settings
+        /// </summary>
+        /// <remarks>
+        /// Replaces the sign-out page settings.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="hostedPage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (HostedPage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<HostedPage>> ReplaceSignOutPageSettingsWithHttpInfoAsync(string brandId, HostedPage hostedPage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Reset the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Resets the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task ResetErrorPageAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Reset the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Resets the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> ResetErrorPageWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Reset the Sign-in Page
+        /// </summary>
+        /// <remarks>
+        /// Reset the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task ResetSignInPageAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Reset the Sign-in Page
+        /// </summary>
+        /// <remarks>
+        /// Reset the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> ResetSignInPageWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CustomizablePage</returns>
+        System.Threading.Tasks.Task<CustomizablePage> RetrieveErrorPageAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve the Error Page
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the error page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CustomizablePage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomizablePage>> RetrieveErrorPageWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve the Sign-in Page
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SignInPage</returns>
+        System.Threading.Tasks.Task<SignInPage> RetrieveSignInPageAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve the Sign-in Page
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the sign-in page.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SignInPage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SignInPage>> RetrieveSignInPageWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve the Sign-out Page Settings
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the sign-out page settings.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of HostedPage</returns>
+        System.Threading.Tasks.Task<HostedPage> RetrieveSignOutPageSettingsAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve the Sign-out Page Settings
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the sign-out page settings.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (HostedPage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<HostedPage>> RetrieveSignOutPageSettingsWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Send a Test Email
         /// </summary>
         /// <remarks>
@@ -1244,9 +1700,10 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ImageUploadResponse</returns>
-        System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeBackgroundImageAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeBackgroundImageAsync(string brandId, string themeId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Upload the Background Image
         /// </summary>
@@ -1256,9 +1713,10 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ImageUploadResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ImageUploadResponse>> UploadBrandThemeBackgroundImageWithHttpInfoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ImageUploadResponse>> UploadBrandThemeBackgroundImageWithHttpInfoAsync(string brandId, string themeId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Upload the Favicon
         /// </summary>
@@ -1268,9 +1726,10 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ImageUploadResponse</returns>
-        System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeFaviconAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeFaviconAsync(string brandId, string themeId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Upload the Favicon
         /// </summary>
@@ -1280,9 +1739,10 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ImageUploadResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ImageUploadResponse>> UploadBrandThemeFaviconWithHttpInfoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ImageUploadResponse>> UploadBrandThemeFaviconWithHttpInfoAsync(string brandId, string themeId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Upload the Logo
         /// </summary>
@@ -1292,9 +1752,10 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ImageUploadResponse</returns>
-        System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeLogoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeLogoAsync(string brandId, string themeId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Upload the Logo
         /// </summary>
@@ -1304,9 +1765,10 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ImageUploadResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ImageUploadResponse>> UploadBrandThemeLogoWithHttpInfoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ImageUploadResponse>> UploadBrandThemeLogoWithHttpInfoAsync(string brandId, string themeId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -4767,6 +5229,1656 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
+        /// Preview the Error Page Previews the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <returns>string</returns>
+        public string PreviewErrorPage(string brandId, CustomizablePage customizablePage)
+        {
+            Okta.Sdk.Client.ApiResponse<string> localVarResponse = PreviewErrorPageWithHttpInfo(brandId, customizablePage);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Preview the Error Page Previews the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <returns>ApiResponse of string</returns>
+        public Okta.Sdk.Client.ApiResponse<string> PreviewErrorPageWithHttpInfo(string brandId, CustomizablePage customizablePage)
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->PreviewErrorPage");
+            }
+
+            // verify the required parameter 'customizablePage' is set
+            if (customizablePage == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'customizablePage' when calling CustomizationApi->PreviewErrorPage");
+            }
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/html",
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+            localVarRequestOptions.Data = customizablePage;
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<string>("/api/v1/brands/{brandId}/pages/error/preview", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PreviewErrorPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Preview the Error Page Previews the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> PreviewErrorPageAsync(string brandId, CustomizablePage customizablePage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<string> localVarResponse = await PreviewErrorPageWithHttpInfoAsync(brandId, customizablePage, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Preview the Error Page Previews the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<string>> PreviewErrorPageWithHttpInfoAsync(string brandId, CustomizablePage customizablePage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->PreviewErrorPage");
+            }
+
+            // verify the required parameter 'customizablePage' is set
+            if (customizablePage == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'customizablePage' when calling CustomizationApi->PreviewErrorPage");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/html",
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+            localVarRequestOptions.Data = customizablePage;
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<string>("/api/v1/brands/{brandId}/pages/error/preview", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PreviewErrorPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Preview the Sign-in Page. Preview the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <returns>string</returns>
+        public string PreviewSignInPage(string brandId, SignInPage signInPage)
+        {
+            Okta.Sdk.Client.ApiResponse<string> localVarResponse = PreviewSignInPageWithHttpInfo(brandId, signInPage);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Preview the Sign-in Page. Preview the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <returns>ApiResponse of string</returns>
+        public Okta.Sdk.Client.ApiResponse<string> PreviewSignInPageWithHttpInfo(string brandId, SignInPage signInPage)
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->PreviewSignInPage");
+            }
+
+            // verify the required parameter 'signInPage' is set
+            if (signInPage == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'signInPage' when calling CustomizationApi->PreviewSignInPage");
+            }
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/html",
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+            localVarRequestOptions.Data = signInPage;
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<string>("/api/v1/brands/{brandId}/pages/sign-in/preview", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PreviewSignInPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Preview the Sign-in Page. Preview the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> PreviewSignInPageAsync(string brandId, SignInPage signInPage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<string> localVarResponse = await PreviewSignInPageWithHttpInfoAsync(brandId, signInPage, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Preview the Sign-in Page. Preview the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<string>> PreviewSignInPageWithHttpInfoAsync(string brandId, SignInPage signInPage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->PreviewSignInPage");
+            }
+
+            // verify the required parameter 'signInPage' is set
+            if (signInPage == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'signInPage' when calling CustomizationApi->PreviewSignInPage");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/html",
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+            localVarRequestOptions.Data = signInPage;
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<string>("/api/v1/brands/{brandId}/pages/sign-in/preview", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PreviewSignInPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Replace the Error Page Replaces the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <returns>CustomizablePage</returns>
+        public CustomizablePage ReplaceErrorPage(string brandId, CustomizablePage customizablePage)
+        {
+            Okta.Sdk.Client.ApiResponse<CustomizablePage> localVarResponse = ReplaceErrorPageWithHttpInfo(brandId, customizablePage);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Replace the Error Page Replaces the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <returns>ApiResponse of CustomizablePage</returns>
+        public Okta.Sdk.Client.ApiResponse<CustomizablePage> ReplaceErrorPageWithHttpInfo(string brandId, CustomizablePage customizablePage)
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->ReplaceErrorPage");
+            }
+
+            // verify the required parameter 'customizablePage' is set
+            if (customizablePage == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'customizablePage' when calling CustomizationApi->ReplaceErrorPage");
+            }
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+            localVarRequestOptions.Data = customizablePage;
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<CustomizablePage>("/api/v1/brands/{brandId}/pages/error", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReplaceErrorPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Replace the Error Page Replaces the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CustomizablePage</returns>
+        public async System.Threading.Tasks.Task<CustomizablePage> ReplaceErrorPageAsync(string brandId, CustomizablePage customizablePage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<CustomizablePage> localVarResponse = await ReplaceErrorPageWithHttpInfoAsync(brandId, customizablePage, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Replace the Error Page Replaces the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="customizablePage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CustomizablePage)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<CustomizablePage>> ReplaceErrorPageWithHttpInfoAsync(string brandId, CustomizablePage customizablePage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->ReplaceErrorPage");
+            }
+
+            // verify the required parameter 'customizablePage' is set
+            if (customizablePage == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'customizablePage' when calling CustomizationApi->ReplaceErrorPage");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+            localVarRequestOptions.Data = customizablePage;
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<CustomizablePage>("/api/v1/brands/{brandId}/pages/error", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReplaceErrorPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Replace the Sign-in Page Replaces the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <returns>SignInPage</returns>
+        public SignInPage ReplaceSignInPage(string brandId, SignInPage signInPage)
+        {
+            Okta.Sdk.Client.ApiResponse<SignInPage> localVarResponse = ReplaceSignInPageWithHttpInfo(brandId, signInPage);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Replace the Sign-in Page Replaces the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <returns>ApiResponse of SignInPage</returns>
+        public Okta.Sdk.Client.ApiResponse<SignInPage> ReplaceSignInPageWithHttpInfo(string brandId, SignInPage signInPage)
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->ReplaceSignInPage");
+            }
+
+            // verify the required parameter 'signInPage' is set
+            if (signInPage == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'signInPage' when calling CustomizationApi->ReplaceSignInPage");
+            }
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+            localVarRequestOptions.Data = signInPage;
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<SignInPage>("/api/v1/brands/{brandId}/pages/sign-in", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReplaceSignInPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Replace the Sign-in Page Replaces the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SignInPage</returns>
+        public async System.Threading.Tasks.Task<SignInPage> ReplaceSignInPageAsync(string brandId, SignInPage signInPage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<SignInPage> localVarResponse = await ReplaceSignInPageWithHttpInfoAsync(brandId, signInPage, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Replace the Sign-in Page Replaces the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="signInPage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SignInPage)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<SignInPage>> ReplaceSignInPageWithHttpInfoAsync(string brandId, SignInPage signInPage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->ReplaceSignInPage");
+            }
+
+            // verify the required parameter 'signInPage' is set
+            if (signInPage == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'signInPage' when calling CustomizationApi->ReplaceSignInPage");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+            localVarRequestOptions.Data = signInPage;
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<SignInPage>("/api/v1/brands/{brandId}/pages/sign-in", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReplaceSignInPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Replace the Sign-out Page Settings Replaces the sign-out page settings.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="hostedPage"></param>
+        /// <returns>HostedPage</returns>
+        public HostedPage ReplaceSignOutPageSettings(string brandId, HostedPage hostedPage)
+        {
+            Okta.Sdk.Client.ApiResponse<HostedPage> localVarResponse = ReplaceSignOutPageSettingsWithHttpInfo(brandId, hostedPage);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Replace the Sign-out Page Settings Replaces the sign-out page settings.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="hostedPage"></param>
+        /// <returns>ApiResponse of HostedPage</returns>
+        public Okta.Sdk.Client.ApiResponse<HostedPage> ReplaceSignOutPageSettingsWithHttpInfo(string brandId, HostedPage hostedPage)
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->ReplaceSignOutPageSettings");
+            }
+
+            // verify the required parameter 'hostedPage' is set
+            if (hostedPage == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'hostedPage' when calling CustomizationApi->ReplaceSignOutPageSettings");
+            }
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+            localVarRequestOptions.Data = hostedPage;
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<HostedPage>("/api/v1/brands/{brandId}/pages/sign-out", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReplaceSignOutPageSettings", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Replace the Sign-out Page Settings Replaces the sign-out page settings.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="hostedPage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of HostedPage</returns>
+        public async System.Threading.Tasks.Task<HostedPage> ReplaceSignOutPageSettingsAsync(string brandId, HostedPage hostedPage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<HostedPage> localVarResponse = await ReplaceSignOutPageSettingsWithHttpInfoAsync(brandId, hostedPage, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Replace the Sign-out Page Settings Replaces the sign-out page settings.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="hostedPage"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (HostedPage)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<HostedPage>> ReplaceSignOutPageSettingsWithHttpInfoAsync(string brandId, HostedPage hostedPage, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->ReplaceSignOutPageSettings");
+            }
+
+            // verify the required parameter 'hostedPage' is set
+            if (hostedPage == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'hostedPage' when calling CustomizationApi->ReplaceSignOutPageSettings");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+            localVarRequestOptions.Data = hostedPage;
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<HostedPage>("/api/v1/brands/{brandId}/pages/sign-out", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReplaceSignOutPageSettings", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Reset the Error Page Resets the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns></returns>
+        public void ResetErrorPage(string brandId)
+        {
+            ResetErrorPageWithHttpInfo(brandId);
+        }
+
+        /// <summary>
+        /// Reset the Error Page Resets the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public Okta.Sdk.Client.ApiResponse<Object> ResetErrorPageWithHttpInfo(string brandId)
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->ResetErrorPage");
+            }
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<Object>("/api/v1/brands/{brandId}/pages/error", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResetErrorPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Reset the Error Page Resets the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task ResetErrorPageAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await ResetErrorPageWithHttpInfoAsync(brandId, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Reset the Error Page Resets the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> ResetErrorPageWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->ResetErrorPage");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/api/v1/brands/{brandId}/pages/error", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResetErrorPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Reset the Sign-in Page Reset the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns></returns>
+        public void ResetSignInPage(string brandId)
+        {
+            ResetSignInPageWithHttpInfo(brandId);
+        }
+
+        /// <summary>
+        /// Reset the Sign-in Page Reset the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public Okta.Sdk.Client.ApiResponse<Object> ResetSignInPageWithHttpInfo(string brandId)
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->ResetSignInPage");
+            }
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<Object>("/api/v1/brands/{brandId}/pages/sign-in", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResetSignInPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Reset the Sign-in Page Reset the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task ResetSignInPageAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await ResetSignInPageWithHttpInfoAsync(brandId, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Reset the Sign-in Page Reset the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> ResetSignInPageWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->ResetSignInPage");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/api/v1/brands/{brandId}/pages/sign-in", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResetSignInPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve the Error Page Retrieves the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>CustomizablePage</returns>
+        public CustomizablePage RetrieveErrorPage(string brandId)
+        {
+            Okta.Sdk.Client.ApiResponse<CustomizablePage> localVarResponse = RetrieveErrorPageWithHttpInfo(brandId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve the Error Page Retrieves the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>ApiResponse of CustomizablePage</returns>
+        public Okta.Sdk.Client.ApiResponse<CustomizablePage> RetrieveErrorPageWithHttpInfo(string brandId)
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->RetrieveErrorPage");
+            }
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<CustomizablePage>("/api/v1/brands/{brandId}/pages/error", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RetrieveErrorPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve the Error Page Retrieves the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CustomizablePage</returns>
+        public async System.Threading.Tasks.Task<CustomizablePage> RetrieveErrorPageAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<CustomizablePage> localVarResponse = await RetrieveErrorPageWithHttpInfoAsync(brandId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Retrieve the Error Page Retrieves the error page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CustomizablePage)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<CustomizablePage>> RetrieveErrorPageWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->RetrieveErrorPage");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CustomizablePage>("/api/v1/brands/{brandId}/pages/error", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RetrieveErrorPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve the Sign-in Page Retrieves the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>SignInPage</returns>
+        public SignInPage RetrieveSignInPage(string brandId)
+        {
+            Okta.Sdk.Client.ApiResponse<SignInPage> localVarResponse = RetrieveSignInPageWithHttpInfo(brandId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve the Sign-in Page Retrieves the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>ApiResponse of SignInPage</returns>
+        public Okta.Sdk.Client.ApiResponse<SignInPage> RetrieveSignInPageWithHttpInfo(string brandId)
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->RetrieveSignInPage");
+            }
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<SignInPage>("/api/v1/brands/{brandId}/pages/sign-in", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RetrieveSignInPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve the Sign-in Page Retrieves the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SignInPage</returns>
+        public async System.Threading.Tasks.Task<SignInPage> RetrieveSignInPageAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<SignInPage> localVarResponse = await RetrieveSignInPageWithHttpInfoAsync(brandId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Retrieve the Sign-in Page Retrieves the sign-in page.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SignInPage)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<SignInPage>> RetrieveSignInPageWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->RetrieveSignInPage");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SignInPage>("/api/v1/brands/{brandId}/pages/sign-in", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RetrieveSignInPage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve the Sign-out Page Settings Retrieves the sign-out page settings.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>HostedPage</returns>
+        public HostedPage RetrieveSignOutPageSettings(string brandId)
+        {
+            Okta.Sdk.Client.ApiResponse<HostedPage> localVarResponse = RetrieveSignOutPageSettingsWithHttpInfo(brandId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve the Sign-out Page Settings Retrieves the sign-out page settings.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <returns>ApiResponse of HostedPage</returns>
+        public Okta.Sdk.Client.ApiResponse<HostedPage> RetrieveSignOutPageSettingsWithHttpInfo(string brandId)
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->RetrieveSignOutPageSettings");
+            }
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<HostedPage>("/api/v1/brands/{brandId}/pages/sign-out", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RetrieveSignOutPageSettings", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve the Sign-out Page Settings Retrieves the sign-out page settings.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of HostedPage</returns>
+        public async System.Threading.Tasks.Task<HostedPage> RetrieveSignOutPageSettingsAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<HostedPage> localVarResponse = await RetrieveSignOutPageSettingsWithHttpInfoAsync(brandId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Retrieve the Sign-out Page Settings Retrieves the sign-out page settings.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="brandId">The ID of the brand.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (HostedPage)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<HostedPage>> RetrieveSignOutPageSettingsWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->RetrieveSignOutPageSettings");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<HostedPage>("/api/v1/brands/{brandId}/pages/sign-out", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RetrieveSignOutPageSettings", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Send a Test Email Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the &#x60;language&#x60; query parameter. 2. The email template&#39;s default customization. 3. The email template’s default content, translated to the current user&#39;s language.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5701,10 +7813,11 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <returns>ImageUploadResponse</returns>
-        public ImageUploadResponse UploadBrandThemeBackgroundImage(string brandId, string themeId)
+        public ImageUploadResponse UploadBrandThemeBackgroundImage(string brandId, string themeId, System.IO.Stream file)
         {
-            Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = UploadBrandThemeBackgroundImageWithHttpInfo(brandId, themeId);
+            Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = UploadBrandThemeBackgroundImageWithHttpInfo(brandId, themeId, file);
             return localVarResponse.Data;
         }
 
@@ -5714,8 +7827,9 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <returns>ApiResponse of ImageUploadResponse</returns>
-        public Okta.Sdk.Client.ApiResponse<ImageUploadResponse> UploadBrandThemeBackgroundImageWithHttpInfo(string brandId, string themeId)
+        public Okta.Sdk.Client.ApiResponse<ImageUploadResponse> UploadBrandThemeBackgroundImageWithHttpInfo(string brandId, string themeId, System.IO.Stream file)
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)
@@ -5727,6 +7841,12 @@ namespace Okta.Sdk.Api
             if (themeId == null)
             {
                 throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'themeId' when calling CustomizationApi->UploadBrandThemeBackgroundImage");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'file' when calling CustomizationApi->UploadBrandThemeBackgroundImage");
             }
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -5754,6 +7874,7 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
+            localVarRequestOptions.FileParameters.Add("file", file);
 
             // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -5787,11 +7908,12 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ImageUploadResponse</returns>
-        public async System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeBackgroundImageAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeBackgroundImageAsync(string brandId, string themeId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = await UploadBrandThemeBackgroundImageWithHttpInfoAsync(brandId, themeId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = await UploadBrandThemeBackgroundImageWithHttpInfoAsync(brandId, themeId, file, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
@@ -5800,9 +7922,10 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ImageUploadResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ImageUploadResponse>> UploadBrandThemeBackgroundImageWithHttpInfoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ImageUploadResponse>> UploadBrandThemeBackgroundImageWithHttpInfoAsync(string brandId, string themeId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)
@@ -5814,6 +7937,12 @@ namespace Okta.Sdk.Api
             if (themeId == null)
             {
                 throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'themeId' when calling CustomizationApi->UploadBrandThemeBackgroundImage");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'file' when calling CustomizationApi->UploadBrandThemeBackgroundImage");
             }
 
 
@@ -5842,6 +7971,7 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
+            localVarRequestOptions.FileParameters.Add("file", file);
 
             // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -5876,10 +8006,11 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <returns>ImageUploadResponse</returns>
-        public ImageUploadResponse UploadBrandThemeFavicon(string brandId, string themeId)
+        public ImageUploadResponse UploadBrandThemeFavicon(string brandId, string themeId, System.IO.Stream file)
         {
-            Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = UploadBrandThemeFaviconWithHttpInfo(brandId, themeId);
+            Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = UploadBrandThemeFaviconWithHttpInfo(brandId, themeId, file);
             return localVarResponse.Data;
         }
 
@@ -5889,8 +8020,9 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <returns>ApiResponse of ImageUploadResponse</returns>
-        public Okta.Sdk.Client.ApiResponse<ImageUploadResponse> UploadBrandThemeFaviconWithHttpInfo(string brandId, string themeId)
+        public Okta.Sdk.Client.ApiResponse<ImageUploadResponse> UploadBrandThemeFaviconWithHttpInfo(string brandId, string themeId, System.IO.Stream file)
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)
@@ -5902,6 +8034,12 @@ namespace Okta.Sdk.Api
             if (themeId == null)
             {
                 throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'themeId' when calling CustomizationApi->UploadBrandThemeFavicon");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'file' when calling CustomizationApi->UploadBrandThemeFavicon");
             }
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -5929,6 +8067,7 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
+            localVarRequestOptions.FileParameters.Add("file", file);
 
             // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -5962,11 +8101,12 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ImageUploadResponse</returns>
-        public async System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeFaviconAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeFaviconAsync(string brandId, string themeId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = await UploadBrandThemeFaviconWithHttpInfoAsync(brandId, themeId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = await UploadBrandThemeFaviconWithHttpInfoAsync(brandId, themeId, file, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
@@ -5975,9 +8115,10 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ImageUploadResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ImageUploadResponse>> UploadBrandThemeFaviconWithHttpInfoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ImageUploadResponse>> UploadBrandThemeFaviconWithHttpInfoAsync(string brandId, string themeId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)
@@ -5989,6 +8130,12 @@ namespace Okta.Sdk.Api
             if (themeId == null)
             {
                 throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'themeId' when calling CustomizationApi->UploadBrandThemeFavicon");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'file' when calling CustomizationApi->UploadBrandThemeFavicon");
             }
 
 
@@ -6017,6 +8164,7 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
+            localVarRequestOptions.FileParameters.Add("file", file);
 
             // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -6051,10 +8199,11 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <returns>ImageUploadResponse</returns>
-        public ImageUploadResponse UploadBrandThemeLogo(string brandId, string themeId)
+        public ImageUploadResponse UploadBrandThemeLogo(string brandId, string themeId, System.IO.Stream file)
         {
-            Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = UploadBrandThemeLogoWithHttpInfo(brandId, themeId);
+            Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = UploadBrandThemeLogoWithHttpInfo(brandId, themeId, file);
             return localVarResponse.Data;
         }
 
@@ -6064,8 +8213,9 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <returns>ApiResponse of ImageUploadResponse</returns>
-        public Okta.Sdk.Client.ApiResponse<ImageUploadResponse> UploadBrandThemeLogoWithHttpInfo(string brandId, string themeId)
+        public Okta.Sdk.Client.ApiResponse<ImageUploadResponse> UploadBrandThemeLogoWithHttpInfo(string brandId, string themeId, System.IO.Stream file)
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)
@@ -6077,6 +8227,12 @@ namespace Okta.Sdk.Api
             if (themeId == null)
             {
                 throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'themeId' when calling CustomizationApi->UploadBrandThemeLogo");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'file' when calling CustomizationApi->UploadBrandThemeLogo");
             }
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -6104,6 +8260,7 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
+            localVarRequestOptions.FileParameters.Add("file", file);
 
             // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -6137,11 +8294,12 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ImageUploadResponse</returns>
-        public async System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeLogoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeLogoAsync(string brandId, string themeId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = await UploadBrandThemeLogoWithHttpInfoAsync(brandId, themeId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = await UploadBrandThemeLogoWithHttpInfoAsync(brandId, themeId, file, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
@@ -6150,9 +8308,10 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <param name="themeId"></param>
+        /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ImageUploadResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ImageUploadResponse>> UploadBrandThemeLogoWithHttpInfoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ImageUploadResponse>> UploadBrandThemeLogoWithHttpInfoAsync(string brandId, string themeId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)
@@ -6164,6 +8323,12 @@ namespace Okta.Sdk.Api
             if (themeId == null)
             {
                 throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'themeId' when calling CustomizationApi->UploadBrandThemeLogo");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'file' when calling CustomizationApi->UploadBrandThemeLogo");
             }
 
 
@@ -6192,6 +8357,7 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
+            localVarRequestOptions.FileParameters.Add("file", file);
 
             // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))

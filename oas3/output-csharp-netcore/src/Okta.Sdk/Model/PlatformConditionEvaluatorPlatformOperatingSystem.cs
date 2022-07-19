@@ -32,18 +32,18 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "PlatformConditionEvaluatorPlatformOperatingSystem")]
     public partial class PlatformConditionEvaluatorPlatformOperatingSystem : IEquatable<PlatformConditionEvaluatorPlatformOperatingSystem>
     {
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public PolicyPlatformOperatingSystemType? Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Expression
         /// </summary>
         [DataMember(Name = "expression", EmitDefaultValue = false)]
         public string Expression { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets _Version
@@ -104,7 +104,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
                     this._Version == input._Version ||
@@ -126,7 +127,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Expression.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();

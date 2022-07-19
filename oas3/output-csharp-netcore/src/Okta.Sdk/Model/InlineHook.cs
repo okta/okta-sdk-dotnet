@@ -32,18 +32,6 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "InlineHook")]
     public partial class InlineHook : IEquatable<InlineHook>
     {
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public InlineHookStatus? Status { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public InlineHookType? Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Channel
@@ -98,6 +86,18 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public string Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets _Version
@@ -198,11 +198,13 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
                     this._Version == input._Version ||
@@ -246,8 +248,14 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();

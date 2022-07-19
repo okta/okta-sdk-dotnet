@@ -32,18 +32,18 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "PasswordPolicyRecoveryQuestion")]
     public partial class PasswordPolicyRecoveryQuestion : IEquatable<PasswordPolicyRecoveryQuestion>
     {
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public LifecycleStatus? Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Properties
         /// </summary>
         [DataMember(Name = "properties", EmitDefaultValue = false)]
         public PasswordPolicyRecoveryQuestionProperties Properties { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public string Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,7 +97,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -114,7 +115,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 return hashCode;
             }
         }

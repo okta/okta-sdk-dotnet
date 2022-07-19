@@ -32,12 +32,6 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "DNSRecord")]
     public partial class DNSRecord : IEquatable<DNSRecord>
     {
-
-        /// <summary>
-        /// Gets or Sets RecordType
-        /// </summary>
-        [DataMember(Name = "recordType", EmitDefaultValue = false)]
-        public DNSRecordType? RecordType { get; set; }
         
         /// <summary>
         /// Gets or Sets Expiration
@@ -50,6 +44,12 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "fqdn", EmitDefaultValue = false)]
         public string Fqdn { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RecordType
+        /// </summary>
+        [DataMember(Name = "recordType", EmitDefaultValue = false)]
+        public string RecordType { get; set; }
 
         /// <summary>
         /// Gets or Sets Values
@@ -116,7 +116,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.RecordType == input.RecordType ||
-                    this.RecordType.Equals(input.RecordType)
+                    (this.RecordType != null &&
+                    this.RecordType.Equals(input.RecordType))
                 ) && 
                 (
                     this.Values == input.Values ||
@@ -143,7 +144,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Fqdn.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.RecordType.GetHashCode();
+                if (this.RecordType != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecordType.GetHashCode();
+                }
                 if (this.Values != null)
                 {
                     hashCode = (hashCode * 59) + this.Values.GetHashCode();

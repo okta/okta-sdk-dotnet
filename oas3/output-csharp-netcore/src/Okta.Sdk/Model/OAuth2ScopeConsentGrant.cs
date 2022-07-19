@@ -32,18 +32,6 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "OAuth2ScopeConsentGrant")]
     public partial class OAuth2ScopeConsentGrant : IEquatable<OAuth2ScopeConsentGrant>
     {
-
-        /// <summary>
-        /// Gets or Sets Source
-        /// </summary>
-        [DataMember(Name = "source", EmitDefaultValue = false)]
-        public OAuth2ScopeConsentGrantSource? Source { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public GrantOrTokenStatus? Status { get; set; }
         
         /// <summary>
         /// Gets or Sets ClientId
@@ -110,6 +98,18 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "scopeId", EmitDefaultValue = false)]
         public string ScopeId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name = "source", EmitDefaultValue = false)]
+        public string Source { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public string Status { get; set; }
 
         /// <summary>
         /// Gets or Sets UserId
@@ -237,11 +237,13 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Source == input.Source ||
-                    this.Source.Equals(input.Source)
+                    (this.Source != null &&
+                    this.Source.Equals(input.Source))
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.UserId == input.UserId ||
@@ -299,8 +301,14 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ScopeId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Source.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Source != null)
+                {
+                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.UserId != null)
                 {
                     hashCode = (hashCode * 59) + this.UserId.GetHashCode();

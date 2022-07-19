@@ -32,24 +32,24 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "ProtocolEndpoint")]
     public partial class ProtocolEndpoint : IEquatable<ProtocolEndpoint>
     {
-
+        
         /// <summary>
         /// Gets or Sets Binding
         /// </summary>
         [DataMember(Name = "binding", EmitDefaultValue = false)]
-        public ProtocolEndpointBinding? Binding { get; set; }
+        public string Binding { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public ProtocolEndpointType? Type { get; set; }
-        
         /// <summary>
         /// Gets or Sets Destination
         /// </summary>
         [DataMember(Name = "destination", EmitDefaultValue = false)]
         public string Destination { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Url
@@ -106,7 +106,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Binding == input.Binding ||
-                    this.Binding.Equals(input.Binding)
+                    (this.Binding != null &&
+                    this.Binding.Equals(input.Binding))
                 ) && 
                 (
                     this.Destination == input.Destination ||
@@ -115,7 +116,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
                     this.Url == input.Url ||
@@ -133,12 +135,18 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Binding.GetHashCode();
+                if (this.Binding != null)
+                {
+                    hashCode = (hashCode * 59) + this.Binding.GetHashCode();
+                }
                 if (this.Destination != null)
                 {
                     hashCode = (hashCode * 59) + this.Destination.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.Url != null)
                 {
                     hashCode = (hashCode * 59) + this.Url.GetHashCode();

@@ -32,24 +32,24 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "OktaSignOnPolicyRuleSignonActions")]
     public partial class OktaSignOnPolicyRuleSignonActions : IEquatable<OktaSignOnPolicyRuleSignonActions>
     {
-
+        
         /// <summary>
         /// Gets or Sets Access
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
-        public PolicyAccess? Access { get; set; }
+        public string Access { get; set; }
 
-        /// <summary>
-        /// Gets or Sets FactorPromptMode
-        /// </summary>
-        [DataMember(Name = "factorPromptMode", EmitDefaultValue = false)]
-        public OktaSignOnPolicyFactorPromptMode? FactorPromptMode { get; set; }
-        
         /// <summary>
         /// Gets or Sets FactorLifetime
         /// </summary>
         [DataMember(Name = "factorLifetime", EmitDefaultValue = false)]
         public int FactorLifetime { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FactorPromptMode
+        /// </summary>
+        [DataMember(Name = "factorPromptMode", EmitDefaultValue = false)]
+        public string FactorPromptMode { get; set; }
 
         /// <summary>
         /// Gets or Sets RememberDeviceByDefault
@@ -120,7 +120,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Access == input.Access ||
-                    this.Access.Equals(input.Access)
+                    (this.Access != null &&
+                    this.Access.Equals(input.Access))
                 ) && 
                 (
                     this.FactorLifetime == input.FactorLifetime ||
@@ -128,7 +129,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.FactorPromptMode == input.FactorPromptMode ||
-                    this.FactorPromptMode.Equals(input.FactorPromptMode)
+                    (this.FactorPromptMode != null &&
+                    this.FactorPromptMode.Equals(input.FactorPromptMode))
                 ) && 
                 (
                     this.RememberDeviceByDefault == input.RememberDeviceByDefault ||
@@ -154,9 +156,15 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Access.GetHashCode();
+                if (this.Access != null)
+                {
+                    hashCode = (hashCode * 59) + this.Access.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.FactorLifetime.GetHashCode();
-                hashCode = (hashCode * 59) + this.FactorPromptMode.GetHashCode();
+                if (this.FactorPromptMode != null)
+                {
+                    hashCode = (hashCode * 59) + this.FactorPromptMode.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.RememberDeviceByDefault.GetHashCode();
                 hashCode = (hashCode * 59) + this.RequireFactor.GetHashCode();
                 if (this.Session != null)

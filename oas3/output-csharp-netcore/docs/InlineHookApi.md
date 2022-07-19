@@ -38,6 +38,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth_2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new InlineHookApi(config);
             var inlineHookId = "inlineHookId_example";  // string | 
 
@@ -70,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -192,6 +199,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth_2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new InlineHookApi(config);
             var inlineHookId = "inlineHookId_example";  // string | 
 
@@ -224,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

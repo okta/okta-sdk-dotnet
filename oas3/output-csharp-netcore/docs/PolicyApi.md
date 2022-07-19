@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ActivatePolicy**](PolicyApi.md#activatepolicy) | **POST** /api/v1/policies/{policyId}/lifecycle/activate | Activate a Policy
 [**ActivatePolicyRule**](PolicyApi.md#activatepolicyrule) | **POST** /api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/activate | Activate a Policy Rule
+[**ClonePolicy**](PolicyApi.md#clonepolicy) | **POST** /api/v1/policies/{policyId}/clone | Clone an existing policy
 [**CreatePolicy**](PolicyApi.md#createpolicy) | **POST** /api/v1/policies | Create a Policy
 [**CreatePolicyRule**](PolicyApi.md#createpolicyrule) | **POST** /api/v1/policies/{policyId}/rules | Create a Policy Rule
 [**DeactivatePolicy**](PolicyApi.md#deactivatepolicy) | **POST** /api/v1/policies/{policyId}/lifecycle/deactivate | Deactivate a Policy
@@ -176,6 +177,88 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="clonepolicy"></a>
+# **ClonePolicy**
+> Policy ClonePolicy (string policyId)
+
+Clone an existing policy
+
+Clones an existing policy.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ClonePolicyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth_2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new PolicyApi(config);
+            var policyId = "policyId_example";  // string | 
+
+            try
+            {
+                // Clone an existing policy
+                Policy result = apiInstance.ClonePolicy(policyId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PolicyApi.ClonePolicy: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyId** | **string**|  | 
+
+### Return type
+
+[**Policy**](Policy.md)
+
+### Authorization
+
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |

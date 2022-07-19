@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "PasswordCredentialHash")]
     public partial class PasswordCredentialHash : IEquatable<PasswordCredentialHash>
     {
-
+        
         /// <summary>
         /// Gets or Sets Algorithm
         /// </summary>
         [DataMember(Name = "algorithm", EmitDefaultValue = false)]
-        public PasswordCredentialHashAlgorithm? Algorithm { get; set; }
-        
+        public string Algorithm { get; set; }
+
         /// <summary>
         /// Gets or Sets Salt
         /// </summary>
@@ -113,7 +113,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Algorithm == input.Algorithm ||
-                    this.Algorithm.Equals(input.Algorithm)
+                    (this.Algorithm != null &&
+                    this.Algorithm.Equals(input.Algorithm))
                 ) && 
                 (
                     this.Salt == input.Salt ||
@@ -145,7 +146,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Algorithm.GetHashCode();
+                if (this.Algorithm != null)
+                {
+                    hashCode = (hashCode * 59) + this.Algorithm.GetHashCode();
+                }
                 if (this.Salt != null)
                 {
                     hashCode = (hashCode * 59) + this.Salt.GetHashCode();

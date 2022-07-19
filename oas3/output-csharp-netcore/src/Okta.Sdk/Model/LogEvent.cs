@@ -32,12 +32,6 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "LogEvent")]
     public partial class LogEvent : IEquatable<LogEvent>
     {
-
-        /// <summary>
-        /// Gets or Sets Severity
-        /// </summary>
-        [DataMember(Name = "severity", EmitDefaultValue = false)]
-        public LogSeverity? Severity { get; set; }
         
         /// <summary>
         /// Gets or Sets Actor
@@ -136,6 +130,12 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "securityContext", EmitDefaultValue = false)]
         public LogSecurityContext SecurityContext { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Severity
+        /// </summary>
+        [DataMember(Name = "severity", EmitDefaultValue = false)]
+        public string Severity { get; set; }
 
         /// <summary>
         /// Gets or Sets Target
@@ -301,7 +301,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Severity == input.Severity ||
-                    this.Severity.Equals(input.Severity)
+                    (this.Severity != null &&
+                    this.Severity.Equals(input.Severity))
                 ) && 
                 (
                     this.Target == input.Target ||
@@ -379,7 +380,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.SecurityContext.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Severity.GetHashCode();
+                if (this.Severity != null)
+                {
+                    hashCode = (hashCode * 59) + this.Severity.GetHashCode();
+                }
                 if (this.Target != null)
                 {
                     hashCode = (hashCode * 59) + this.Target.GetHashCode();

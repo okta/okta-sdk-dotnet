@@ -32,19 +32,19 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "ProvisioningConnection")]
     public partial class ProvisioningConnection : IEquatable<ProvisioningConnection>
     {
-
+        
         /// <summary>
         /// Gets or Sets AuthScheme
         /// </summary>
         [DataMember(Name = "authScheme", EmitDefaultValue = false)]
-        public ProvisioningConnectionAuthScheme? AuthScheme { get; set; }
+        public string AuthScheme { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public ProvisioningConnectionStatus? Status { get; set; }
-        
+        public string Status { get; set; }
+
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
@@ -107,11 +107,13 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
+                    (this.AuthScheme != null &&
+                    this.AuthScheme.Equals(input.AuthScheme))
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -130,8 +132,14 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.AuthScheme != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

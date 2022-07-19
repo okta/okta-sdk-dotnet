@@ -32,12 +32,6 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "DeviceAccessPolicyRuleCondition")]
     public partial class DeviceAccessPolicyRuleCondition : IEquatable<DeviceAccessPolicyRuleCondition>
     {
-
-        /// <summary>
-        /// Gets or Sets TrustLevel
-        /// </summary>
-        [DataMember(Name = "trustLevel", EmitDefaultValue = false)]
-        public DevicePolicyTrustLevel? TrustLevel { get; set; }
         
         /// <summary>
         /// Gets or Sets Migrated
@@ -56,6 +50,12 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "rooted", EmitDefaultValue = true)]
         public bool Rooted { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TrustLevel
+        /// </summary>
+        [DataMember(Name = "trustLevel", EmitDefaultValue = false)]
+        public string TrustLevel { get; set; }
 
         /// <summary>
         /// Gets or Sets Managed
@@ -133,7 +133,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.TrustLevel == input.TrustLevel ||
-                    this.TrustLevel.Equals(input.TrustLevel)
+                    (this.TrustLevel != null &&
+                    this.TrustLevel.Equals(input.TrustLevel))
                 ) && 
                 (
                     this.Managed == input.Managed ||
@@ -160,7 +161,10 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Platform.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Rooted.GetHashCode();
-                hashCode = (hashCode * 59) + this.TrustLevel.GetHashCode();
+                if (this.TrustLevel != null)
+                {
+                    hashCode = (hashCode * 59) + this.TrustLevel.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Managed.GetHashCode();
                 hashCode = (hashCode * 59) + this.Registered.GetHashCode();
                 return hashCode;

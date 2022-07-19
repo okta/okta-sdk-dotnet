@@ -46,18 +46,6 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(ProfileEnrollmentPolicy), "ProfileEnrollmentPolicy")]
     public partial class Policy : IEquatable<Policy>
     {
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public LifecycleStatus? Status { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public PolicyType? Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Created
@@ -120,10 +108,22 @@ namespace Okta.Sdk.Model
         public int Priority { get; set; }
 
         /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public string Status { get; set; }
+
+        /// <summary>
         /// Gets or Sets System
         /// </summary>
         [DataMember(Name = "system", EmitDefaultValue = true)]
         public bool System { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Embedded
@@ -238,7 +238,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.System == input.System ||
@@ -246,7 +247,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
                     this.Embedded == input.Embedded ||
@@ -292,9 +294,15 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Priority.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.System.GetHashCode();
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.Embedded != null)
                 {
                     hashCode = (hashCode * 59) + this.Embedded.GetHashCode();

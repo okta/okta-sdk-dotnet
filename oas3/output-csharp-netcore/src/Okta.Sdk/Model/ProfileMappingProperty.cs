@@ -32,18 +32,18 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "ProfileMappingProperty")]
     public partial class ProfileMappingProperty : IEquatable<ProfileMappingProperty>
     {
-
-        /// <summary>
-        /// Gets or Sets PushStatus
-        /// </summary>
-        [DataMember(Name = "pushStatus", EmitDefaultValue = false)]
-        public ProfileMappingPropertyPushStatus? PushStatus { get; set; }
         
         /// <summary>
         /// Gets or Sets Expression
         /// </summary>
         [DataMember(Name = "expression", EmitDefaultValue = false)]
         public string Expression { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PushStatus
+        /// </summary>
+        [DataMember(Name = "pushStatus", EmitDefaultValue = false)]
+        public string PushStatus { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,7 +97,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.PushStatus == input.PushStatus ||
-                    this.PushStatus.Equals(input.PushStatus)
+                    (this.PushStatus != null &&
+                    this.PushStatus.Equals(input.PushStatus))
                 );
         }
 
@@ -114,7 +115,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Expression.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PushStatus.GetHashCode();
+                if (this.PushStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.PushStatus.GetHashCode();
+                }
                 return hashCode;
             }
         }

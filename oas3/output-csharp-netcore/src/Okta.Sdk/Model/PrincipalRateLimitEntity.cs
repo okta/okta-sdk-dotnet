@@ -32,12 +32,6 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "PrincipalRateLimitEntity")]
     public partial class PrincipalRateLimitEntity : IEquatable<PrincipalRateLimitEntity>
     {
-
-        /// <summary>
-        /// Gets or Sets PrincipalType
-        /// </summary>
-        [DataMember(Name = "principalType", IsRequired = true, EmitDefaultValue = false)]
-        public PrincipalType PrincipalType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PrincipalRateLimitEntity" /> class.
         /// </summary>
@@ -163,6 +157,12 @@ namespace Okta.Sdk.Model
         public string PrincipalId { get; set; }
 
         /// <summary>
+        /// Gets or Sets PrincipalType
+        /// </summary>
+        [DataMember(Name = "principalType", IsRequired = true, EmitDefaultValue = false)]
+        public string PrincipalType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -260,7 +260,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.PrincipalType == input.PrincipalType ||
-                    this.PrincipalType.Equals(input.PrincipalType)
+                    (this.PrincipalType != null &&
+                    this.PrincipalType.Equals(input.PrincipalType))
                 );
         }
 
@@ -303,7 +304,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PrincipalId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PrincipalType.GetHashCode();
+                if (this.PrincipalType != null)
+                {
+                    hashCode = (hashCode * 59) + this.PrincipalType.GetHashCode();
+                }
                 return hashCode;
             }
         }

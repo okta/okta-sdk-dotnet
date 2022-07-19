@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "JwkUse")]
     public partial class JwkUse : IEquatable<JwkUse>
     {
-
+        
         /// <summary>
         /// Gets or Sets Use
         /// </summary>
         [DataMember(Name = "use", EmitDefaultValue = false)]
-        public JwkUseType? Use { get; set; }
-        
+        public string Use { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,7 +85,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Use == input.Use ||
-                    this.Use.Equals(input.Use)
+                    (this.Use != null &&
+                    this.Use.Equals(input.Use))
                 );
         }
 
@@ -98,7 +99,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Use.GetHashCode();
+                if (this.Use != null)
+                {
+                    hashCode = (hashCode * 59) + this.Use.GetHashCode();
+                }
                 return hashCode;
             }
         }

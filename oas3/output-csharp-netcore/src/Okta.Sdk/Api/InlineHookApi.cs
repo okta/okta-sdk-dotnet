@@ -538,6 +538,17 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
 
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<InlineHook>("/api/v1/inlineHooks/{inlineHookId}/lifecycle/activate", localVarRequestOptions, this.Configuration);
@@ -605,6 +616,17 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
 
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineHook>("/api/v1/inlineHooks/{inlineHookId}/lifecycle/activate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
@@ -828,6 +850,17 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
 
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<InlineHook>("/api/v1/inlineHooks/{inlineHookId}/lifecycle/deactivate", localVarRequestOptions, this.Configuration);
@@ -895,6 +928,17 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
 
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineHook>("/api/v1/inlineHooks/{inlineHookId}/lifecycle/deactivate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);

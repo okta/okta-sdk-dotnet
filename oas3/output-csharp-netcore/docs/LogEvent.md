@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Published** | **DateTimeOffset** |  | [optional] [readonly] 
 **Request** | [**LogRequest**](LogRequest.md) |  | [optional] 
 **SecurityContext** | [**LogSecurityContext**](LogSecurityContext.md) |  | [optional] 
-**Severity** | **LogSeverity** |  | [optional] 
+**Severity** | **string** |  | [optional] 
 **Target** | [**List&lt;LogTarget&gt;**](LogTarget.md) |  | [optional] [readonly] 
 **Transaction** | [**LogTransaction**](LogTransaction.md) |  | [optional] 
 **Uuid** | **string** |  | [optional] [readonly] 

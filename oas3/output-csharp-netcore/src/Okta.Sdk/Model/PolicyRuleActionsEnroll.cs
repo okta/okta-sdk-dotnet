@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "PolicyRuleActionsEnroll")]
     public partial class PolicyRuleActionsEnroll : IEquatable<PolicyRuleActionsEnroll>
     {
-
+        
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
         [DataMember(Name = "self", EmitDefaultValue = false)]
-        public PolicyRuleActionsEnrollSelf? Self { get; set; }
-        
+        public string Self { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,7 +85,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Self == input.Self ||
-                    this.Self.Equals(input.Self)
+                    (this.Self != null &&
+                    this.Self.Equals(input.Self))
                 );
         }
 
@@ -98,7 +99,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Self.GetHashCode();
+                if (this.Self != null)
+                {
+                    hashCode = (hashCode * 59) + this.Self.GetHashCode();
+                }
                 return hashCode;
             }
         }

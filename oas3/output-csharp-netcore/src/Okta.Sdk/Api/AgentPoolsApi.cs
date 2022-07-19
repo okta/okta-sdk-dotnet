@@ -131,7 +131,7 @@ namespace Okta.Sdk.Api
         /// <param name="poolType">Agent type to search for (optional)</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
         /// <returns>List&lt;AgentPool&gt;</returns>
-        List<AgentPool> GetAgentPools(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string));
+        List<AgentPool> GetAgentPools(int? limitPerPoolType = default(int?), string poolType = default(string), string after = default(string));
 
         /// <summary>
         /// List all Agent Pools
@@ -144,7 +144,7 @@ namespace Okta.Sdk.Api
         /// <param name="poolType">Agent type to search for (optional)</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
         /// <returns>ApiResponse of List&lt;AgentPool&gt;</returns>
-        ApiResponse<List<AgentPool>> GetAgentPoolsWithHttpInfo(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string));
+        ApiResponse<List<AgentPool>> GetAgentPoolsWithHttpInfo(int? limitPerPoolType = default(int?), string poolType = default(string), string after = default(string));
         /// <summary>
         /// Retrieve an Agent Pool update by id
         /// </summary>
@@ -469,7 +469,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AgentPool&gt;</returns>
-        IOktaCollectionClient<AgentPool> GetAgentPoolsAsync(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<AgentPool> GetAgentPoolsAsync(int? limitPerPoolType = default(int?), string poolType = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Agent Pools
         /// </summary>
@@ -482,7 +482,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;AgentPool&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<AgentPool>>> GetAgentPoolsWithHttpInfoAsync(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<AgentPool>>> GetAgentPoolsWithHttpInfoAsync(int? limitPerPoolType = default(int?), string poolType = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve an Agent Pool update by id
         /// </summary>
@@ -1498,7 +1498,7 @@ namespace Okta.Sdk.Api
         /// <param name="poolType">Agent type to search for (optional)</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
         /// <returns>List&lt;AgentPool&gt;</returns>
-        public List<AgentPool> GetAgentPools(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string))
+        public List<AgentPool> GetAgentPools(int? limitPerPoolType = default(int?), string poolType = default(string), string after = default(string))
         {
             Okta.Sdk.Client.ApiResponse<List<AgentPool>> localVarResponse = GetAgentPoolsWithHttpInfo(limitPerPoolType, poolType, after);
             return localVarResponse.Data;
@@ -1512,7 +1512,7 @@ namespace Okta.Sdk.Api
         /// <param name="poolType">Agent type to search for (optional)</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
         /// <returns>ApiResponse of List&lt;AgentPool&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<AgentPool>> GetAgentPoolsWithHttpInfo(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string))
+        public Okta.Sdk.Client.ApiResponse<List<AgentPool>> GetAgentPoolsWithHttpInfo(int? limitPerPoolType = default(int?), string poolType = default(string), string after = default(string))
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -1584,7 +1584,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AgentPool&gt;</returns>
-        public IOktaCollectionClient<AgentPool> GetAgentPoolsAsync(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<AgentPool> GetAgentPoolsAsync(int? limitPerPoolType = default(int?), string poolType = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -1645,7 +1645,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;AgentPool&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<AgentPool>>> GetAgentPoolsWithHttpInfoAsync(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<AgentPool>>> GetAgentPoolsWithHttpInfoAsync(int? limitPerPoolType = default(int?), string poolType = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

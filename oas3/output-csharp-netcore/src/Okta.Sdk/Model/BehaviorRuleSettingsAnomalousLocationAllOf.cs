@@ -32,18 +32,18 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "BehaviorRuleSettingsAnomalousLocation_allOf")]
     public partial class BehaviorRuleSettingsAnomalousLocationAllOf : IEquatable<BehaviorRuleSettingsAnomalousLocationAllOf>
     {
-
-        /// <summary>
-        /// Gets or Sets Granularity
-        /// </summary>
-        [DataMember(Name = "granularity", IsRequired = true, EmitDefaultValue = false)]
-        public LocationGranularity Granularity { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="BehaviorRuleSettingsAnomalousLocationAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         public BehaviorRuleSettingsAnomalousLocationAllOf() { }
         
+        /// <summary>
+        /// Gets or Sets Granularity
+        /// </summary>
+        [DataMember(Name = "granularity", IsRequired = true, EmitDefaultValue = false)]
+        public string Granularity { get; set; }
+
         /// <summary>
         /// Required when &#x60;granularity&#x60; is &#x60;LAT_LONG&#x60;. Radius from the provided coordinates in kilometers.
         /// </summary>
@@ -98,7 +98,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Granularity == input.Granularity ||
-                    this.Granularity.Equals(input.Granularity)
+                    (this.Granularity != null &&
+                    this.Granularity.Equals(input.Granularity))
                 ) && 
                 (
                     this.RadiusKilometers == input.RadiusKilometers ||
@@ -115,7 +116,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Granularity.GetHashCode();
+                if (this.Granularity != null)
+                {
+                    hashCode = (hashCode * 59) + this.Granularity.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.RadiusKilometers.GetHashCode();
                 return hashCode;
             }

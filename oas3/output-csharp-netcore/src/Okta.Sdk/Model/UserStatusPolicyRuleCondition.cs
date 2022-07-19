@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "UserStatusPolicyRuleCondition")]
     public partial class UserStatusPolicyRuleCondition : IEquatable<UserStatusPolicyRuleCondition>
     {
-
+        
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
         [DataMember(Name = "value", EmitDefaultValue = false)]
-        public PolicyUserStatus? Value { get; set; }
-        
+        public string Value { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,7 +85,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Value == input.Value ||
-                    this.Value.Equals(input.Value)
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -98,7 +99,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                if (this.Value != null)
+                {
+                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                }
                 return hashCode;
             }
         }

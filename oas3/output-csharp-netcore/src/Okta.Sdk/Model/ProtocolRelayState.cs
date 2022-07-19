@@ -32,13 +32,13 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "ProtocolRelayState")]
     public partial class ProtocolRelayState : IEquatable<ProtocolRelayState>
     {
-
+        
         /// <summary>
         /// Gets or Sets Format
         /// </summary>
         [DataMember(Name = "format", EmitDefaultValue = false)]
-        public ProtocolRelayStateFormat? Format { get; set; }
-        
+        public string Format { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,7 +85,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Format == input.Format ||
-                    this.Format.Equals(input.Format)
+                    (this.Format != null &&
+                    this.Format.Equals(input.Format))
                 );
         }
 
@@ -98,7 +99,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Format.GetHashCode();
+                if (this.Format != null)
+                {
+                    hashCode = (hashCode * 59) + this.Format.GetHashCode();
+                }
                 return hashCode;
             }
         }

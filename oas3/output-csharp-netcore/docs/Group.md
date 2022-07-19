@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
 **ObjectClass** | **List&lt;string&gt;** |  | [optional] [readonly] 
 **Profile** | [**GroupProfile**](GroupProfile.md) |  | [optional] 
-**Type** | **GroupType** |  | [optional] 
+**Type** | **string** |  | [optional] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 

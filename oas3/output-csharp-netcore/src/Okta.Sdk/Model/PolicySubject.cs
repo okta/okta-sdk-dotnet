@@ -32,12 +32,6 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "PolicySubject")]
     public partial class PolicySubject : IEquatable<PolicySubject>
     {
-
-        /// <summary>
-        /// Gets or Sets MatchType
-        /// </summary>
-        [DataMember(Name = "matchType", EmitDefaultValue = false)]
-        public PolicySubjectMatchType? MatchType { get; set; }
         
         /// <summary>
         /// Gets or Sets Filter
@@ -56,6 +50,12 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "matchAttribute", EmitDefaultValue = false)]
         public string MatchAttribute { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MatchType
+        /// </summary>
+        [DataMember(Name = "matchType", EmitDefaultValue = false)]
+        public string MatchType { get; set; }
 
         /// <summary>
         /// Gets or Sets UserNameTemplate
@@ -129,7 +129,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.MatchType == input.MatchType ||
-                    this.MatchType.Equals(input.MatchType)
+                    (this.MatchType != null &&
+                    this.MatchType.Equals(input.MatchType))
                 ) && 
                 (
                     this.UserNameTemplate == input.UserNameTemplate ||
@@ -159,7 +160,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.MatchAttribute.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.MatchType.GetHashCode();
+                if (this.MatchType != null)
+                {
+                    hashCode = (hashCode * 59) + this.MatchType.GetHashCode();
+                }
                 if (this.UserNameTemplate != null)
                 {
                     hashCode = (hashCode * 59) + this.UserNameTemplate.GetHashCode();
