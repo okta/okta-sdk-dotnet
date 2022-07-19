@@ -114,7 +114,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: AddBasicAuthenticationApp {guid}",
-                SignOnMode = "BASICAUTH",
+                SignOnMode = "BASIC_AUTH",
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -131,7 +131,7 @@ namespace Okta.Sdk.IntegrationTest
                 var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as BasicAuthApplication;
                 retrieved.Name.Should().Be("template_basic_auth");
                 retrieved.Label.Should().Be($"dotnet-sdk: AddBasicAuthenticationApp {guid}");
-                retrieved.SignOnMode.Should().Be("BASICAUTH");
+                retrieved.SignOnMode.Should().Be("BASIC_AUTH");
 
                 retrieved.Settings.App.AuthURL.Should().Be("https://example.com/auth.html");
                 retrieved.Settings.App.Url.Should().Be("https://example.com/login.html");
@@ -163,7 +163,7 @@ namespace Okta.Sdk.IntegrationTest
             var app = new OpenIdConnectApplication
             {
                 Name = "oidc_client",
-                SignOnMode = "OPENIDCONNECT",
+                SignOnMode = "OPENID_CONNECT",
                 Label = $"dotnet-sdk: AddOpenIdConnectApp {guid}",
                 Credentials = new OAuthApplicationCredentials()
                 {
@@ -222,7 +222,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 retrieved.Name.Should().Be("oidc_client");
                 retrieved.Label.Should().Be($"dotnet-sdk: AddOpenIdConnectApp {guid}");
-                retrieved.SignOnMode.Should().Be("OPENIDCONNECT");
+                retrieved.SignOnMode.Should().Be("OPENID_CONNECT");
                 retrieved.Credentials.OauthClient.ClientId.Should().Be(testClientId);
                 retrieved.Credentials.OauthClient.AutoKeyRotation.Should().BeTrue();
                 retrieved.Credentials.OauthClient.TokenEndpointAuthMethod.Should()
@@ -1792,7 +1792,7 @@ namespace Okta.Sdk.IntegrationTest
             var app = new OpenIdConnectApplication
             {
                 Name = "oidc_client",
-                SignOnMode = "OPENIDCONNECT",
+                SignOnMode = "OPENID_CONNECT",
                 Label = $"dotnet-sdk: AddOpenIdConnectApp {guid}",
                 Credentials = new OAuthApplicationCredentials()
                 {
@@ -1874,7 +1874,7 @@ namespace Okta.Sdk.IntegrationTest
             var app = new OpenIdConnectApplication
             {
                 Name = "oidc_client",
-                SignOnMode = "OPENIDCONNECT",
+                SignOnMode = "OPENID_CONNECT",
                 Label = $"dotnet-sdk: RevokeConsentGrant {guid}",
                 Credentials = new OAuthApplicationCredentials()
                 {
@@ -1961,7 +1961,7 @@ namespace Okta.Sdk.IntegrationTest
             var app = new OpenIdConnectApplication
             {
                 Name = "oidc_client",
-                SignOnMode = "OPENIDCONNECT",
+                SignOnMode = "OPENID_CONNECT",
                 Label = $"dotnet-sdk: GetConsentGrant {guid}",
                 Credentials = new OAuthApplicationCredentials()
                 {
@@ -2044,7 +2044,7 @@ namespace Okta.Sdk.IntegrationTest
             var app = new OpenIdConnectApplication
             {
                 Name = "oidc_client",
-                SignOnMode = "OPENIDCONNECT",
+                SignOnMode = "OPENID_CONNECT",
                 Label = $"dotnet-sdk: UpdateApplicationProfile {guid}",
                 Settings = new OpenIdConnectApplicationSettings
                 {
@@ -2104,7 +2104,7 @@ namespace Okta.Sdk.IntegrationTest
             var app = new OpenIdConnectApplication
             {
                 Name = "oidc_client",
-                SignOnMode = "OPENIDCONNECT",
+                SignOnMode = "OPENID_CONNECT",
                 Label = $"dotnet-sdk: UpdateApplicationProfile {guid}",
                 Settings = new OpenIdConnectApplicationSettings
                 {

@@ -71,27 +71,27 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         Acs = new ProtocolEndpoint()
                         {
-                            Binding = "POST",
+                            Binding = "HTTP-POST",
                             Type = "INSTANCE",
                         },
                         Authorization = new ProtocolEndpoint()
                         {
-                            Binding = "REDIRECT",
+                            Binding = "HTTP-REDIRECT",
                             Url = "https://idp.example.com/authorize",
                         },
                         Token = new ProtocolEndpoint()
                         {
-                            Binding = "POST",
+                            Binding = "HTTP-POST",
                             Url = "https://idp.example.com/token",
                         },
                         UserInfo = new ProtocolEndpoint()
                         {
-                            Binding = "REDIRECT",
+                            Binding = "HTTP-REDIRECT",
                             Url = "https://idp.example.com/userinfo",
                         },
                         Jwks = new ProtocolEndpoint()
                         {
-                            Binding = "REDIRECT",
+                            Binding = "HTTP-REDIRECT",
                             Url = "https://idp.example.com/keys",
                         },
                     },
@@ -158,13 +158,13 @@ namespace Okta.Sdk.IntegrationTest
                 createdIdp.Status.Should().Be("ACTIVE");
                 createdIdp.Protocol.Type.Should().Be("OIDC");
                 createdIdp.Protocol.Endpoints.Authorization.Url.Should().Be("https://idp.example.com/authorize");
-                createdIdp.Protocol.Endpoints.Authorization.Binding.Should().Be("REDIRECT");
+                createdIdp.Protocol.Endpoints.Authorization.Binding.Should().Be("HTTP-REDIRECT");
                 createdIdp.Protocol.Endpoints.Token.Url.Should().Be("https://idp.example.com/token");
-                createdIdp.Protocol.Endpoints.Token.Binding.Should().Be("POST");
+                createdIdp.Protocol.Endpoints.Token.Binding.Should().Be("HTTP-POST");
                 createdIdp.Protocol.Endpoints.UserInfo.Url.Should().Be("https://idp.example.com/userinfo");
-                createdIdp.Protocol.Endpoints.UserInfo.Binding.Should().Be("REDIRECT");
+                createdIdp.Protocol.Endpoints.UserInfo.Binding.Should().Be("HTTP-REDIRECT");
                 createdIdp.Protocol.Endpoints.Jwks.Url.Should().Be("https://idp.example.com/keys");
-                createdIdp.Protocol.Endpoints.Jwks.Binding.Should().Be("REDIRECT");
+                createdIdp.Protocol.Endpoints.Jwks.Binding.Should().Be("HTTP-REDIRECT");
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("openid", "profile", "email");
                 createdIdp.Protocol.Issuer.Url.Should().Be("https://idp.example.com");
                 createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
@@ -1443,13 +1443,13 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         Acs = new ProtocolEndpoint()
                         {
-                            Binding = "POST",
+                            Binding = "HTTP-POST",
                             Type = "INSTANCE",
                         },
                         Sso = new ProtocolEndpoint()
                         {
                             Url = "https://idp.example.com",
-                            Binding = "POST",
+                            Binding = "HTTP-POST",
                             Destination = "https://idp.example.com",
                         },
                     },
@@ -1519,10 +1519,10 @@ namespace Okta.Sdk.IntegrationTest
                 createdIdp.Status.Should().Be("ACTIVE");
                 createdIdp.Protocol.Type.Should().Be("SAML2");
                 createdIdp.Protocol.Endpoints.Sso.Url.Should().Be("https://idp.example.com");
-                createdIdp.Protocol.Endpoints.Sso.Binding.Should().Be("POST");
+                createdIdp.Protocol.Endpoints.Sso.Binding.Should().Be("HTTP-POST");
                 createdIdp.Protocol.Endpoints.Sso.Destination.Should().Be("https://idp.example.com");
                 createdIdp.Protocol.Endpoints.Acs.Type.Should().Be("INSTANCE");
-                createdIdp.Protocol.Endpoints.Acs.Binding.Should().Be("POST");
+                createdIdp.Protocol.Endpoints.Acs.Binding.Should().Be("HTTP-POST");
                 createdIdp.Protocol.Settings.NameFormat.Should().Be("urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified");
                 createdIdp.Protocol.Credentials.Trust.Issuer.Should().Be("https://idp.example.com");
                 createdIdp.Protocol.Credentials.Trust.Audience.Should().Be("http://www.okta.com/123");
