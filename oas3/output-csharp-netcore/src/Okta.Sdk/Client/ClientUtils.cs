@@ -263,5 +263,6 @@ namespace Okta.Sdk.Client
         /// </returns>
         public static IEnumerable<WebLink> Parse(IEnumerable<string> headerValues)
             => Parse(headerValues?.ToArray() ?? new string[0]);
+
     }
 }

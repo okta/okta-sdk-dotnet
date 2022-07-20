@@ -1,22 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Okta.Sdk</AssemblyName>
     <PackageId>Okta.Sdk</PackageId>
     <OutputType>Library</OutputType>
-    <Authors>OpenAPI</Authors>
-    <Company>OpenAPI</Company>
-    <AssemblyTitle>OpenAPI Library</AssemblyTitle>
-    <Description>A library generated from a OpenAPI doc</Description>
-    <Copyright>No Copyright</Copyright>
+    <Authors>Okta, Inc.</Authors>
+    <Company>Okta, Inc.</Company>
+    <AssemblyTitle>Official .NET SDK for the Okta API</AssemblyTitle>
+    <Description>Official .NET SDK for the Okta API</Description>
+    <Copyright>Okta, Inc.</Copyright>
     <RootNamespace>Okta.Sdk</RootNamespace>
-    <Version>1.0.0</Version>
+    <Version>6.0.0-beta01</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Okta.Sdk.xml</DocumentationFile>
-    <RepositoryUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/okta/okta-sdk-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Minor update</PackageReleaseNotes>
+    <PackageTags>okta api authentication identity management</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
