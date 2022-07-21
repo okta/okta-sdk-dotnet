@@ -17,6 +17,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters;
 using System.Text;
@@ -25,12 +26,14 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Okta.Sdk.Abstractions;
 using ErrorEventArgs = Newtonsoft.Json.Serialization.ErrorEventArgs;
 using RestSharp;
 using RestSharp.Deserializers;
 using RestSharpMethod = RestSharp.Method;
 using Polly;
 
+[assembly: InternalsVisibleTo("Okta.Sdk.UnitTest")]
 namespace Okta.Sdk.Client
 {
     /// <summary>
@@ -549,12 +552,13 @@ namespace Okta.Sdk.Client
             return result;
         }
 
-        private async Task<ApiResponse<T>> ExecAsync<T>(RestRequest req, IReadableConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        
+        internal RestClient GetConfiguredClient(IReadableConfiguration configuration, IDeserializer serializer)
         {
             RestClient client = new RestClient(_baseUrl);
 
             client.ClearHandlers();
-            var existingDeserializer = req.JsonSerializer as IDeserializer;
+            var existingDeserializer = serializer;
             if (existingDeserializer != null)
             {
                 client.AddHandler("application/json", () => existingDeserializer);
@@ -586,15 +590,25 @@ namespace Okta.Sdk.Client
                 client.Proxy = configuration.Proxy;
             }
 
+            client.UserAgent = new UserAgentBuilder("Okta.Sdk",
+                typeof(ApiClient).GetTypeInfo().Assembly.GetName().Version).GetUserAgent();
+
             if (configuration.UserAgent != null)
             {
-                client.UserAgent = configuration.UserAgent;
+                client.UserAgent = $"{client.UserAgent} {configuration.UserAgent}";
             }
 
             if (configuration.ClientCertificates != null)
             {
                 client.ClientCertificates = configuration.ClientCertificates;
             }
+
+            return client;
+        }
+        
+        private async Task<ApiResponse<T>> ExecAsync<T>(RestRequest req, IReadableConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var client = GetConfiguredClient(configuration, (IDeserializer)req.JsonSerializer);
 
             InterceptRequest(req);
 

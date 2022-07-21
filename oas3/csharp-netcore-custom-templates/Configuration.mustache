@@ -288,7 +288,7 @@ namespace {{packageName}}.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "{{httpUserAgent}}{{^httpUserAgent}}OpenAPI-Generator/{{packageVersion}}/csharp{{/httpUserAgent}}";
+            UserAgent = "{{httpUserAgent}}{{^httpUserAgent}}/{{{gitRepoId}}}/csharp/oasv3{{/httpUserAgent}}";
             OktaDomain = "{{{basePath}}}";
             DefaultHeaders = new {{^net35}}Concurrent{{/net35}}Dictionary<string, string>();
             ApiKey = new {{^net35}}Concurrent{{/net35}}Dictionary<string, string>();

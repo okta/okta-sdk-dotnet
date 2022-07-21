@@ -73,7 +73,7 @@ namespace Okta.Sdk.UnitTest
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
             var idpApi = new IdentityProviderApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com"});
 
-            var users = await idpApi.ListIdentityProviderApplicationUsersAsync("0oa4lb6lbtmH355Hx0h7");
+            var users = await idpApi.ListIdentityProviderApplicationUsersAsync("0oa4lb6lbtmH355Hx0h7").ToListAsync();
 
           
 
@@ -210,7 +210,7 @@ namespace Okta.Sdk.UnitTest
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
             var idpApi = new IdentityProviderApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com" });
 
-            var tokens = await idpApi.ListSocialAuthTokensAsync("0oa62b57p7c8PaGpU0h7", "00ub0oNGTSWTBKOLGLNR");
+            var tokens = await idpApi.ListSocialAuthTokensAsync("0oa62b57p7c8PaGpU0h7", "00ub0oNGTSWTBKOLGLNR").ToListAsync();
 
             mockClient.ReceivedPath.Should().StartWith("/api/v1/idps/{idpId}/users/{userId}/credentials/tokens");
             mockClient.ReceivedPathParams["idpId"].Should().Be("0oa62b57p7c8PaGpU0h7");

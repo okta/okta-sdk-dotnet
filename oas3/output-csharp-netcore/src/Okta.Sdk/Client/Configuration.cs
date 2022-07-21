@@ -41,7 +41,7 @@ namespace Okta.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.0.0";
+        public const string Version = "6.0.0-beta01";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -279,7 +279,7 @@ namespace Okta.Sdk.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "OpenAPI-Generator/1.0.0/csharp";
+            UserAgent = "/okta-sdk-dotnet/csharp";
             OktaDomain = "https://your-subdomain.okta.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -681,7 +681,7 @@ namespace Okta.Sdk.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 3.0.0\n";
-            report += "    SDK Package Version: 1.0.0\n";
+            report += "    SDK Package Version: 6.0.0-beta01\n";
 
             return report;
         }
