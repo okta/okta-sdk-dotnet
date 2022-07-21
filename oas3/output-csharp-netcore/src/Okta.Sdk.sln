@@ -2,11 +2,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32413.511
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk", "src\Okta.Sdk\Okta.Sdk.csproj", "{0A22C763-10B4-4805-A285-96940F61A6FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk", "Okta.Sdk\Okta.Sdk.csproj", "{0A22C763-10B4-4805-A285-96940F61A6FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk.IntegrationTest", "src\Okta.Sdk.IntegrationTest\Okta.Sdk.IntegrationTest.csproj", "{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk.IntegrationTest", "Okta.Sdk.IntegrationTest\Okta.Sdk.IntegrationTest.csproj", "{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk.UnitTest", "src\Okta.Sdk.UnitTest\Okta.Sdk.UnitTest.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk.UnitTest", "Okta.Sdk.UnitTest\Okta.Sdk.UnitTest.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
