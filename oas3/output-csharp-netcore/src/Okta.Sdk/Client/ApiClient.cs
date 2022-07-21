@@ -552,6 +552,7 @@ namespace Okta.Sdk.Client
             return result;
         }
 
+        
         internal RestClient GetConfiguredClient(IReadableConfiguration configuration, IDeserializer serializer)
         {
             RestClient client = new RestClient(_baseUrl);
@@ -589,7 +590,7 @@ namespace Okta.Sdk.Client
                 client.Proxy = configuration.Proxy;
             }
 
-            client.UserAgent = new UserAgentBuilder("okta-sdk-dotnet",
+            client.UserAgent = new UserAgentBuilder("Okta.Sdk",
                 typeof(ApiClient).GetTypeInfo().Assembly.GetName().Version).GetUserAgent();
 
             if (configuration.UserAgent != null)
@@ -604,7 +605,7 @@ namespace Okta.Sdk.Client
 
             return client;
         }
-
+        
         private async Task<ApiResponse<T>> ExecAsync<T>(RestRequest req, IReadableConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var client = GetConfiguredClient(configuration, (IDeserializer)req.JsonSerializer);

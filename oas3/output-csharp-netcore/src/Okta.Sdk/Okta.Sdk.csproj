@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <GenerateAssemblyInfo>true</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Okta.Sdk</AssemblyName>
     <PackageId>Okta.Sdk</PackageId>
@@ -16,7 +16,6 @@
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Okta.Sdk.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/okta/okta-sdk-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>Minor update</PackageReleaseNotes>
     <PackageTags>okta api authentication identity management</PackageTags>
   </PropertyGroup>
 
