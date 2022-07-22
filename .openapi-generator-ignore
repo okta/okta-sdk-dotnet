@@ -9,9 +9,9 @@
 #ApiClient.cs
 appveyor.yml
 **/*AllOf.cs
-**/*AllOf.md
 *.sln
 git_push.sh
+.gitignore
 
 # You can match any string of characters against a directory, file or extension with a single asterisk (*):
 #foo/*/qux
@@ -24,5 +24,6 @@ git_push.sh
 # You can also negate patterns with an exclamation (!).
 # For example, you can ignore all files in a docs folder with the file extension .md:
 #docs/*.md
+**/*AllOf.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
