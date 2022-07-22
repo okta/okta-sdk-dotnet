@@ -11,6 +11,7 @@ appveyor.yml
 **/*AllOf.cs
 **/*AllOf.md
 *.sln
+git_push.sh
 
 # You can match any string of characters against a directory, file or extension with a single asterisk (*):
 #foo/*/qux
