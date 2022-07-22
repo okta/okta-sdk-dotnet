@@ -82,7 +82,7 @@ Task("Test")
 .IsDependentOn("Build")
 .Does(() =>
 {
-    var testProjects = new[] { "Okta.Sdk.UnitTests" };
+    var testProjects = new[] { "Okta.Sdk.UnitTest" };
     // For now, we won't run integration tests in CI
 
     foreach (var name in testProjects)
@@ -96,7 +96,7 @@ Task("IntegrationTest")
 .IsDependentOn("Build")
 .Does(() =>
 {
-    var testProjects = new[] { "Okta.Sdk.IntegrationTests" };
+    var testProjects = new[] { "Okta.Sdk.IntegrationTest" };
     // Run integration tests in nightly travis cron job
 
     foreach (var name in testProjects)

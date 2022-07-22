@@ -1,6 +1,12 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 6.0.0-beta01
+
+- Update Open API spec to 3.0.0
+- Migrate from Okta-custom generator to [openapi-generator.tech/](https://openapi-generator.tech/) 
+- Check out the [MIGRATING guide](./MIGRATING.md) for more details about migrating to 6.0.0
+
 ## 5.6.0
 
 - Update Open API spec to 2.12.0
