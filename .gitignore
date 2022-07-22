@@ -360,3 +360,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/tools/Addins
+/tools/Cake
+/tools/docfx.console.2.51.0
+/tools/nuget.exe
+/tools/packages.config.md5sum
