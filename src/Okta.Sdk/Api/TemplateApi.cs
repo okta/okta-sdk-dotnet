@@ -21,146 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface ITemplateApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Create an SMS Template
-        /// </summary>
-        /// <remarks>
-        /// Adds a new custom SMS template to your organization.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smsTemplate"></param>
-        /// <returns>SmsTemplate</returns>
-        SmsTemplate CreateSmsTemplate(SmsTemplate smsTemplate);
-
-        /// <summary>
-        /// Create an SMS Template
-        /// </summary>
-        /// <remarks>
-        /// Adds a new custom SMS template to your organization.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smsTemplate"></param>
-        /// <returns>ApiResponse of SmsTemplate</returns>
-        ApiResponse<SmsTemplate> CreateSmsTemplateWithHttpInfo(SmsTemplate smsTemplate);
-        /// <summary>
-        /// Delete an SMS Template
-        /// </summary>
-        /// <remarks>
-        /// Removes an SMS template.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <returns></returns>
-        void DeleteSmsTemplate(string templateId);
-
-        /// <summary>
-        /// Delete an SMS Template
-        /// </summary>
-        /// <remarks>
-        /// Removes an SMS template.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteSmsTemplateWithHttpInfo(string templateId);
-        /// <summary>
-        /// Retrieve an SMS Template
-        /// </summary>
-        /// <remarks>
-        /// Fetches a specific template by &#x60;id&#x60;
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <returns>SmsTemplate</returns>
-        SmsTemplate GetSmsTemplate(string templateId);
-
-        /// <summary>
-        /// Retrieve an SMS Template
-        /// </summary>
-        /// <remarks>
-        /// Fetches a specific template by &#x60;id&#x60;
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <returns>ApiResponse of SmsTemplate</returns>
-        ApiResponse<SmsTemplate> GetSmsTemplateWithHttpInfo(string templateId);
-        /// <summary>
-        /// List all SMS Templates
-        /// </summary>
-        /// <remarks>
-        /// Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateType"> (optional)</param>
-        /// <returns>List&lt;SmsTemplate&gt;</returns>
-        List<SmsTemplate> ListSmsTemplates(string templateType = default(string));
-
-        /// <summary>
-        /// List all SMS Templates
-        /// </summary>
-        /// <remarks>
-        /// Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateType"> (optional)</param>
-        /// <returns>ApiResponse of List&lt;SmsTemplate&gt;</returns>
-        ApiResponse<List<SmsTemplate>> ListSmsTemplatesWithHttpInfo(string templateType = default(string));
-        /// <summary>
-        /// Update an SMS Template
-        /// </summary>
-        /// <remarks>
-        /// Updates only some of the SMS template properties:
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <param name="smsTemplate"></param>
-        /// <returns>SmsTemplate</returns>
-        SmsTemplate PartialUpdateSmsTemplate(string templateId, SmsTemplate smsTemplate);
-
-        /// <summary>
-        /// Update an SMS Template
-        /// </summary>
-        /// <remarks>
-        /// Updates only some of the SMS template properties:
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <param name="smsTemplate"></param>
-        /// <returns>ApiResponse of SmsTemplate</returns>
-        ApiResponse<SmsTemplate> PartialUpdateSmsTemplateWithHttpInfo(string templateId, SmsTemplate smsTemplate);
-        /// <summary>
-        /// Replace an SMS Template
-        /// </summary>
-        /// <remarks>
-        /// Updates the SMS template.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <param name="smsTemplate"></param>
-        /// <returns>SmsTemplate</returns>
-        SmsTemplate UpdateSmsTemplate(string templateId, SmsTemplate smsTemplate);
-
-        /// <summary>
-        /// Replace an SMS Template
-        /// </summary>
-        /// <remarks>
-        /// Updates the SMS template.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <param name="smsTemplate"></param>
-        /// <returns>ApiResponse of SmsTemplate</returns>
-        ApiResponse<SmsTemplate> UpdateSmsTemplateWithHttpInfo(string templateId, SmsTemplate smsTemplate);
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -309,7 +169,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITemplateApi : ITemplateApiSync, ITemplateApiAsync
+    public interface ITemplateApi :  ITemplateApiAsync
     {
 
     }
@@ -337,7 +197,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -349,13 +208,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public TemplateApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public TemplateApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -365,11 +222,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -402,83 +254,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// Create an SMS Template Adds a new custom SMS template to your organization.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smsTemplate"></param>
-        /// <returns>SmsTemplate</returns>
-        public SmsTemplate CreateSmsTemplate(SmsTemplate smsTemplate)
-        {
-            Okta.Sdk.Client.ApiResponse<SmsTemplate> localVarResponse = CreateSmsTemplateWithHttpInfo(smsTemplate);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create an SMS Template Adds a new custom SMS template to your organization.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smsTemplate"></param>
-        /// <returns>ApiResponse of SmsTemplate</returns>
-        public Okta.Sdk.Client.ApiResponse<SmsTemplate> CreateSmsTemplateWithHttpInfo(SmsTemplate smsTemplate)
-        {
-            // verify the required parameter 'smsTemplate' is set
-            if (smsTemplate == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'smsTemplate' when calling TemplateApi->CreateSmsTemplate");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = smsTemplate;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<SmsTemplate>("/api/v1/templates/sms", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateSmsTemplate", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// Create an SMS Template Adds a new custom SMS template to your organization.
         /// </summary>
@@ -550,81 +325,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateSmsTemplate", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Delete an SMS Template Removes an SMS template.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <returns></returns>
-        public void DeleteSmsTemplate(string templateId)
-        {
-            DeleteSmsTemplateWithHttpInfo(templateId);
-        }
-
-        /// <summary>
-        /// Delete an SMS Template Removes an SMS template.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> DeleteSmsTemplateWithHttpInfo(string templateId)
-        {
-            // verify the required parameter 'templateId' is set
-            if (templateId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->DeleteSmsTemplate");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/api/v1/templates/sms/{templateId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeleteSmsTemplate", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -717,82 +417,6 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
-        /// <returns>SmsTemplate</returns>
-        public SmsTemplate GetSmsTemplate(string templateId)
-        {
-            Okta.Sdk.Client.ApiResponse<SmsTemplate> localVarResponse = GetSmsTemplateWithHttpInfo(templateId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve an SMS Template Fetches a specific template by &#x60;id&#x60;
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <returns>ApiResponse of SmsTemplate</returns>
-        public Okta.Sdk.Client.ApiResponse<SmsTemplate> GetSmsTemplateWithHttpInfo(string templateId)
-        {
-            // verify the required parameter 'templateId' is set
-            if (templateId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->GetSmsTemplate");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<SmsTemplate>("/api/v1/templates/sms/{templateId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetSmsTemplate", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve an SMS Template Fetches a specific template by &#x60;id&#x60;
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmsTemplate</returns>
         public async System.Threading.Tasks.Task<SmsTemplate> GetSmsTemplateAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -858,79 +482,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSmsTemplate", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all SMS Templates Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateType"> (optional)</param>
-        /// <returns>List&lt;SmsTemplate&gt;</returns>
-        public List<SmsTemplate> ListSmsTemplates(string templateType = default(string))
-        {
-            Okta.Sdk.Client.ApiResponse<List<SmsTemplate>> localVarResponse = ListSmsTemplatesWithHttpInfo(templateType);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all SMS Templates Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateType"> (optional)</param>
-        /// <returns>ApiResponse of List&lt;SmsTemplate&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<SmsTemplate>> ListSmsTemplatesWithHttpInfo(string templateType = default(string))
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (templateType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "templateType", templateType));
-            }
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<SmsTemplate>>("/api/v1/templates/sms", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListSmsTemplates", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1061,92 +612,6 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
         /// <param name="smsTemplate"></param>
-        /// <returns>SmsTemplate</returns>
-        public SmsTemplate PartialUpdateSmsTemplate(string templateId, SmsTemplate smsTemplate)
-        {
-            Okta.Sdk.Client.ApiResponse<SmsTemplate> localVarResponse = PartialUpdateSmsTemplateWithHttpInfo(templateId, smsTemplate);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update an SMS Template Updates only some of the SMS template properties:
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <param name="smsTemplate"></param>
-        /// <returns>ApiResponse of SmsTemplate</returns>
-        public Okta.Sdk.Client.ApiResponse<SmsTemplate> PartialUpdateSmsTemplateWithHttpInfo(string templateId, SmsTemplate smsTemplate)
-        {
-            // verify the required parameter 'templateId' is set
-            if (templateId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->PartialUpdateSmsTemplate");
-            }
-
-            // verify the required parameter 'smsTemplate' is set
-            if (smsTemplate == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'smsTemplate' when calling TemplateApi->PartialUpdateSmsTemplate");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
-            localVarRequestOptions.Data = smsTemplate;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<SmsTemplate>("/api/v1/templates/sms/{templateId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PartialUpdateSmsTemplate", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update an SMS Template Updates only some of the SMS template properties:
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <param name="smsTemplate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmsTemplate</returns>
         public async System.Threading.Tasks.Task<SmsTemplate> PartialUpdateSmsTemplateAsync(string templateId, SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1221,92 +686,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PartialUpdateSmsTemplate", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Replace an SMS Template Updates the SMS template.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <param name="smsTemplate"></param>
-        /// <returns>SmsTemplate</returns>
-        public SmsTemplate UpdateSmsTemplate(string templateId, SmsTemplate smsTemplate)
-        {
-            Okta.Sdk.Client.ApiResponse<SmsTemplate> localVarResponse = UpdateSmsTemplateWithHttpInfo(templateId, smsTemplate);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Replace an SMS Template Updates the SMS template.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId"></param>
-        /// <param name="smsTemplate"></param>
-        /// <returns>ApiResponse of SmsTemplate</returns>
-        public Okta.Sdk.Client.ApiResponse<SmsTemplate> UpdateSmsTemplateWithHttpInfo(string templateId, SmsTemplate smsTemplate)
-        {
-            // verify the required parameter 'templateId' is set
-            if (templateId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->UpdateSmsTemplate");
-            }
-
-            // verify the required parameter 'smsTemplate' is set
-            if (smsTemplate == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'smsTemplate' when calling TemplateApi->UpdateSmsTemplate");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
-            localVarRequestOptions.Data = smsTemplate;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<SmsTemplate>("/api/v1/templates/sms/{templateId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateSmsTemplate", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

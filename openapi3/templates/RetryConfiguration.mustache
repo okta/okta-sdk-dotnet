@@ -21,21 +21,11 @@ namespace {{packageName}}.Client
     {
 {{#useRestSharp}}
         /// <summary>
-        /// Retry policy
-        /// </summary>
-        public static Policy<IRestResponse> RetryPolicy { get; set; }
-
-        /// <summary>
         /// Async retry policy
         /// </summary>
         public static AsyncPolicy<IRestResponse> AsyncRetryPolicy { get; set; }
 {{/useRestSharp}}
 {{#useHttpClient}}
-        /// <summary>
-        /// Retry policy
-        /// </summary>
-        public static Policy<HttpResponseMessage> RetryPolicy { get; set; }
-
         /// <summary>
         /// Async retry policy
         /// </summary>

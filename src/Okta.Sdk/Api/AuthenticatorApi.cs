@@ -21,121 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface IAuthenticatorApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Activate an Authenticator
-        /// </summary>
-        /// <remarks>
-        /// Activates an authenticator by &#x60;authenticatorId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <returns>Authenticator</returns>
-        Authenticator ActivateAuthenticator(string authenticatorId);
-
-        /// <summary>
-        /// Activate an Authenticator
-        /// </summary>
-        /// <remarks>
-        /// Activates an authenticator by &#x60;authenticatorId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <returns>ApiResponse of Authenticator</returns>
-        ApiResponse<Authenticator> ActivateAuthenticatorWithHttpInfo(string authenticatorId);
-        /// <summary>
-        /// Deactivate an Authenticator
-        /// </summary>
-        /// <remarks>
-        /// Deactivates an authenticator by &#x60;authenticatorId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <returns>Authenticator</returns>
-        Authenticator DeactivateAuthenticator(string authenticatorId);
-
-        /// <summary>
-        /// Deactivate an Authenticator
-        /// </summary>
-        /// <remarks>
-        /// Deactivates an authenticator by &#x60;authenticatorId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <returns>ApiResponse of Authenticator</returns>
-        ApiResponse<Authenticator> DeactivateAuthenticatorWithHttpInfo(string authenticatorId);
-        /// <summary>
-        /// Retrieve an Authenticator
-        /// </summary>
-        /// <remarks>
-        /// Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <returns>Authenticator</returns>
-        Authenticator GetAuthenticator(string authenticatorId);
-
-        /// <summary>
-        /// Retrieve an Authenticator
-        /// </summary>
-        /// <remarks>
-        /// Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <returns>ApiResponse of Authenticator</returns>
-        ApiResponse<Authenticator> GetAuthenticatorWithHttpInfo(string authenticatorId);
-        /// <summary>
-        /// List all Authenticators
-        /// </summary>
-        /// <remarks>
-        /// Enumerates authenticators in your organization.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;Authenticator&gt;</returns>
-        List<Authenticator> ListAuthenticators();
-
-        /// <summary>
-        /// List all Authenticators
-        /// </summary>
-        /// <remarks>
-        /// Enumerates authenticators in your organization.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;Authenticator&gt;</returns>
-        ApiResponse<List<Authenticator>> ListAuthenticatorsWithHttpInfo();
-        /// <summary>
-        /// Replace an Authenticator
-        /// </summary>
-        /// <remarks>
-        /// Updates an authenticator
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <param name="authenticator"></param>
-        /// <returns>Authenticator</returns>
-        Authenticator UpdateAuthenticator(string authenticatorId, Authenticator authenticator);
-
-        /// <summary>
-        /// Replace an Authenticator
-        /// </summary>
-        /// <remarks>
-        /// Updates an authenticator
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <param name="authenticator"></param>
-        /// <returns>ApiResponse of Authenticator</returns>
-        ApiResponse<Authenticator> UpdateAuthenticatorWithHttpInfo(string authenticatorId, Authenticator authenticator);
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -258,7 +143,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IAuthenticatorApi : IAuthenticatorApiSync, IAuthenticatorApiAsync
+    public interface IAuthenticatorApi :  IAuthenticatorApiAsync
     {
 
     }
@@ -286,7 +171,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -298,13 +182,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public AuthenticatorApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public AuthenticatorApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -314,11 +196,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -351,82 +228,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// Activate an Authenticator Activates an authenticator by &#x60;authenticatorId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <returns>Authenticator</returns>
-        public Authenticator ActivateAuthenticator(string authenticatorId)
-        {
-            Okta.Sdk.Client.ApiResponse<Authenticator> localVarResponse = ActivateAuthenticatorWithHttpInfo(authenticatorId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Activate an Authenticator Activates an authenticator by &#x60;authenticatorId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <returns>ApiResponse of Authenticator</returns>
-        public Okta.Sdk.Client.ApiResponse<Authenticator> ActivateAuthenticatorWithHttpInfo(string authenticatorId)
-        {
-            // verify the required parameter 'authenticatorId' is set
-            if (authenticatorId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'authenticatorId' when calling AuthenticatorApi->ActivateAuthenticator");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Authenticator>("/api/v1/authenticators/{authenticatorId}/lifecycle/activate", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ActivateAuthenticator", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// Activate an Authenticator Activates an authenticator by &#x60;authenticatorId&#x60;.
         /// </summary>
@@ -497,82 +298,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ActivateAuthenticator", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Deactivate an Authenticator Deactivates an authenticator by &#x60;authenticatorId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <returns>Authenticator</returns>
-        public Authenticator DeactivateAuthenticator(string authenticatorId)
-        {
-            Okta.Sdk.Client.ApiResponse<Authenticator> localVarResponse = DeactivateAuthenticatorWithHttpInfo(authenticatorId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Deactivate an Authenticator Deactivates an authenticator by &#x60;authenticatorId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <returns>ApiResponse of Authenticator</returns>
-        public Okta.Sdk.Client.ApiResponse<Authenticator> DeactivateAuthenticatorWithHttpInfo(string authenticatorId)
-        {
-            // verify the required parameter 'authenticatorId' is set
-            if (authenticatorId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'authenticatorId' when calling AuthenticatorApi->DeactivateAuthenticator");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Authenticator>("/api/v1/authenticators/{authenticatorId}/lifecycle/deactivate", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeactivateAuthenticator", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -666,82 +391,6 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
-        /// <returns>Authenticator</returns>
-        public Authenticator GetAuthenticator(string authenticatorId)
-        {
-            Okta.Sdk.Client.ApiResponse<Authenticator> localVarResponse = GetAuthenticatorWithHttpInfo(authenticatorId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve an Authenticator Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <returns>ApiResponse of Authenticator</returns>
-        public Okta.Sdk.Client.ApiResponse<Authenticator> GetAuthenticatorWithHttpInfo(string authenticatorId)
-        {
-            // verify the required parameter 'authenticatorId' is set
-            if (authenticatorId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'authenticatorId' when calling AuthenticatorApi->GetAuthenticator");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Authenticator>("/api/v1/authenticators/{authenticatorId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetAuthenticator", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve an Authenticator Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Authenticator</returns>
         public async System.Threading.Tasks.Task<Authenticator> GetAuthenticatorAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -807,73 +456,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAuthenticator", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all Authenticators Enumerates authenticators in your organization.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;Authenticator&gt;</returns>
-        public List<Authenticator> ListAuthenticators()
-        {
-            Okta.Sdk.Client.ApiResponse<List<Authenticator>> localVarResponse = ListAuthenticatorsWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all Authenticators Enumerates authenticators in your organization.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;Authenticator&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Authenticator>> ListAuthenticatorsWithHttpInfo()
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Authenticator>>("/api/v1/authenticators", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListAuthenticators", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -979,92 +561,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListAuthenticators", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Replace an Authenticator Updates an authenticator
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <param name="authenticator"></param>
-        /// <returns>Authenticator</returns>
-        public Authenticator UpdateAuthenticator(string authenticatorId, Authenticator authenticator)
-        {
-            Okta.Sdk.Client.ApiResponse<Authenticator> localVarResponse = UpdateAuthenticatorWithHttpInfo(authenticatorId, authenticator);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Replace an Authenticator Updates an authenticator
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authenticatorId"></param>
-        /// <param name="authenticator"></param>
-        /// <returns>ApiResponse of Authenticator</returns>
-        public Okta.Sdk.Client.ApiResponse<Authenticator> UpdateAuthenticatorWithHttpInfo(string authenticatorId, Authenticator authenticator)
-        {
-            // verify the required parameter 'authenticatorId' is set
-            if (authenticatorId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'authenticatorId' when calling AuthenticatorApi->UpdateAuthenticator");
-            }
-
-            // verify the required parameter 'authenticator' is set
-            if (authenticator == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'authenticator' when calling AuthenticatorApi->UpdateAuthenticator");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
-            localVarRequestOptions.Data = authenticator;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<Authenticator>("/api/v1/authenticators/{authenticatorId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateAuthenticator", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

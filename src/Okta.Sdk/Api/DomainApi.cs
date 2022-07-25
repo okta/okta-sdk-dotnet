@@ -21,142 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface IDomainApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Replace the Certificate
-        /// </summary>
-        /// <remarks>
-        /// Creates the Certificate for the Domain.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <param name="certificate"></param>
-        /// <returns></returns>
-        void CreateCertificate(string domainId, DomainCertificate certificate);
-
-        /// <summary>
-        /// Replace the Certificate
-        /// </summary>
-        /// <remarks>
-        /// Creates the Certificate for the Domain.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <param name="certificate"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateCertificateWithHttpInfo(string domainId, DomainCertificate certificate);
-        /// <summary>
-        /// Create a Domain
-        /// </summary>
-        /// <remarks>
-        /// Creates your domain.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain"></param>
-        /// <returns>DomainResponse</returns>
-        DomainResponse CreateDomain(Domain domain);
-
-        /// <summary>
-        /// Create a Domain
-        /// </summary>
-        /// <remarks>
-        /// Creates your domain.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain"></param>
-        /// <returns>ApiResponse of DomainResponse</returns>
-        ApiResponse<DomainResponse> CreateDomainWithHttpInfo(Domain domain);
-        /// <summary>
-        /// Delete a Domain
-        /// </summary>
-        /// <remarks>
-        /// Deletes a Domain by &#x60;id&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <returns></returns>
-        void DeleteDomain(string domainId);
-
-        /// <summary>
-        /// Delete a Domain
-        /// </summary>
-        /// <remarks>
-        /// Deletes a Domain by &#x60;id&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteDomainWithHttpInfo(string domainId);
-        /// <summary>
-        /// Retrieve a Domain
-        /// </summary>
-        /// <remarks>
-        /// Fetches a Domain by &#x60;id&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <returns>DomainResponse</returns>
-        DomainResponse GetDomain(string domainId);
-
-        /// <summary>
-        /// Retrieve a Domain
-        /// </summary>
-        /// <remarks>
-        /// Fetches a Domain by &#x60;id&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <returns>ApiResponse of DomainResponse</returns>
-        ApiResponse<DomainResponse> GetDomainWithHttpInfo(string domainId);
-        /// <summary>
-        /// List all Domains
-        /// </summary>
-        /// <remarks>
-        /// List all verified custom Domains for the org.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>DomainListResponse</returns>
-        DomainListResponse ListDomains();
-
-        /// <summary>
-        /// List all Domains
-        /// </summary>
-        /// <remarks>
-        /// List all verified custom Domains for the org.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of DomainListResponse</returns>
-        ApiResponse<DomainListResponse> ListDomainsWithHttpInfo();
-        /// <summary>
-        /// Verify a Domain
-        /// </summary>
-        /// <remarks>
-        /// Verifies the Domain by &#x60;id&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <returns>DomainResponse</returns>
-        DomainResponse VerifyDomain(string domainId);
-
-        /// <summary>
-        /// Verify a Domain
-        /// </summary>
-        /// <remarks>
-        /// Verifies the Domain by &#x60;id&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <returns>ApiResponse of DomainResponse</returns>
-        ApiResponse<DomainResponse> VerifyDomainWithHttpInfo(string domainId);
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -301,7 +165,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IDomainApi : IDomainApiSync, IDomainApiAsync
+    public interface IDomainApi :  IDomainApiAsync
     {
 
     }
@@ -329,7 +193,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -341,13 +204,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public DomainApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public DomainApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -357,11 +218,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -394,91 +250,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// Replace the Certificate Creates the Certificate for the Domain.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <param name="certificate"></param>
-        /// <returns></returns>
-        public void CreateCertificate(string domainId, DomainCertificate certificate)
-        {
-            CreateCertificateWithHttpInfo(domainId, certificate);
-        }
-
-        /// <summary>
-        /// Replace the Certificate Creates the Certificate for the Domain.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <param name="certificate"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> CreateCertificateWithHttpInfo(string domainId, DomainCertificate certificate)
-        {
-            // verify the required parameter 'domainId' is set
-            if (domainId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'domainId' when calling DomainApi->CreateCertificate");
-            }
-
-            // verify the required parameter 'certificate' is set
-            if (certificate == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'certificate' when calling DomainApi->CreateCertificate");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("domainId", Okta.Sdk.Client.ClientUtils.ParameterToString(domainId)); // path parameter
-            localVarRequestOptions.Data = certificate;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/api/v1/domains/{domainId}/certificate", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateCertificate", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// Replace the Certificate Creates the Certificate for the Domain.
         /// </summary>
@@ -558,83 +329,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateCertificate", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Create a Domain Creates your domain.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain"></param>
-        /// <returns>DomainResponse</returns>
-        public DomainResponse CreateDomain(Domain domain)
-        {
-            Okta.Sdk.Client.ApiResponse<DomainResponse> localVarResponse = CreateDomainWithHttpInfo(domain);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create a Domain Creates your domain.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain"></param>
-        /// <returns>ApiResponse of DomainResponse</returns>
-        public Okta.Sdk.Client.ApiResponse<DomainResponse> CreateDomainWithHttpInfo(Domain domain)
-        {
-            // verify the required parameter 'domain' is set
-            if (domain == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'domain' when calling DomainApi->CreateDomain");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = domain;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<DomainResponse>("/api/v1/domains", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateDomain", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -729,81 +423,6 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainId"></param>
-        /// <returns></returns>
-        public void DeleteDomain(string domainId)
-        {
-            DeleteDomainWithHttpInfo(domainId);
-        }
-
-        /// <summary>
-        /// Delete a Domain Deletes a Domain by &#x60;id&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> DeleteDomainWithHttpInfo(string domainId)
-        {
-            // verify the required parameter 'domainId' is set
-            if (domainId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'domainId' when calling DomainApi->DeleteDomain");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("domainId", Okta.Sdk.Client.ClientUtils.ParameterToString(domainId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/api/v1/domains/{domainId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeleteDomain", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Delete a Domain Deletes a Domain by &#x60;id&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteDomainAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -868,82 +487,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteDomain", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve a Domain Fetches a Domain by &#x60;id&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <returns>DomainResponse</returns>
-        public DomainResponse GetDomain(string domainId)
-        {
-            Okta.Sdk.Client.ApiResponse<DomainResponse> localVarResponse = GetDomainWithHttpInfo(domainId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve a Domain Fetches a Domain by &#x60;id&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <returns>ApiResponse of DomainResponse</returns>
-        public Okta.Sdk.Client.ApiResponse<DomainResponse> GetDomainWithHttpInfo(string domainId)
-        {
-            // verify the required parameter 'domainId' is set
-            if (domainId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'domainId' when calling DomainApi->GetDomain");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("domainId", Okta.Sdk.Client.ClientUtils.ParameterToString(domainId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<DomainResponse>("/api/v1/domains/{domainId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetDomain", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1036,73 +579,6 @@ namespace Okta.Sdk.Api
         /// List all Domains List all verified custom Domains for the org.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>DomainListResponse</returns>
-        public DomainListResponse ListDomains()
-        {
-            Okta.Sdk.Client.ApiResponse<DomainListResponse> localVarResponse = ListDomainsWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all Domains List all verified custom Domains for the org.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of DomainListResponse</returns>
-        public Okta.Sdk.Client.ApiResponse<DomainListResponse> ListDomainsWithHttpInfo()
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<DomainListResponse>("/api/v1/domains", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListDomains", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all Domains List all verified custom Domains for the org.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DomainListResponse</returns>
         public async System.Threading.Tasks.Task<DomainListResponse> ListDomainsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1160,82 +636,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListDomains", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Verify a Domain Verifies the Domain by &#x60;id&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <returns>DomainResponse</returns>
-        public DomainResponse VerifyDomain(string domainId)
-        {
-            Okta.Sdk.Client.ApiResponse<DomainResponse> localVarResponse = VerifyDomainWithHttpInfo(domainId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Verify a Domain Verifies the Domain by &#x60;id&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainId"></param>
-        /// <returns>ApiResponse of DomainResponse</returns>
-        public Okta.Sdk.Client.ApiResponse<DomainResponse> VerifyDomainWithHttpInfo(string domainId)
-        {
-            // verify the required parameter 'domainId' is set
-            if (domainId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'domainId' when calling DomainApi->VerifyDomain");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("domainId", Okta.Sdk.Client.ClientUtils.ParameterToString(domainId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<DomainResponse>("/api/v1/domains/{domainId}/verify", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("VerifyDomain", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

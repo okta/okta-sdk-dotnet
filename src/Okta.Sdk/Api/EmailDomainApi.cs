@@ -21,163 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface IEmailDomainApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Create an Email Domain
-        /// </summary>
-        /// <remarks>
-        /// Creates a custom email domain.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomain"></param>
-        /// <returns>EmailDomainResponse</returns>
-        EmailDomainResponse CreateEmailDomain(EmailDomain emailDomain);
-
-        /// <summary>
-        /// Create an Email Domain
-        /// </summary>
-        /// <remarks>
-        /// Creates a custom email domain.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomain"></param>
-        /// <returns>ApiResponse of EmailDomainResponse</returns>
-        ApiResponse<EmailDomainResponse> CreateEmailDomainWithHttpInfo(EmailDomain emailDomain);
-        /// <summary>
-        /// Delete an Email Domain
-        /// </summary>
-        /// <remarks>
-        /// Deletes an Email Domain by &#x60;emailDomainId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns></returns>
-        void DeleteEmailDomain(string emailDomainId);
-
-        /// <summary>
-        /// Delete an Email Domain
-        /// </summary>
-        /// <remarks>
-        /// Deletes an Email Domain by &#x60;emailDomainId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteEmailDomainWithHttpInfo(string emailDomainId);
-        /// <summary>
-        /// Retrieve a Email Domain
-        /// </summary>
-        /// <remarks>
-        /// Fetches an Email Domain by &#x60;emailDomainId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns>EmailDomainResponse</returns>
-        EmailDomainResponse GetEmailDomain(string emailDomainId);
-
-        /// <summary>
-        /// Retrieve a Email Domain
-        /// </summary>
-        /// <remarks>
-        /// Fetches an Email Domain by &#x60;emailDomainId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns>ApiResponse of EmailDomainResponse</returns>
-        ApiResponse<EmailDomainResponse> GetEmailDomainWithHttpInfo(string emailDomainId);
-        /// <summary>
-        /// List all brands linked to an email domain
-        /// </summary>
-        /// <remarks>
-        /// List all brands linked to an email domain.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns>List&lt;Brand&gt;</returns>
-        List<Brand> ListEmailDomainBrands(string emailDomainId);
-
-        /// <summary>
-        /// List all brands linked to an email domain
-        /// </summary>
-        /// <remarks>
-        /// List all brands linked to an email domain.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns>ApiResponse of List&lt;Brand&gt;</returns>
-        ApiResponse<List<Brand>> ListEmailDomainBrandsWithHttpInfo(string emailDomainId);
-        /// <summary>
-        /// List all email domains
-        /// </summary>
-        /// <remarks>
-        /// List all the email domains in your org.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>EmailDomainListResponse</returns>
-        EmailDomainListResponse ListEmailDomains();
-
-        /// <summary>
-        /// List all email domains
-        /// </summary>
-        /// <remarks>
-        /// List all the email domains in your org.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of EmailDomainListResponse</returns>
-        ApiResponse<EmailDomainListResponse> ListEmailDomainsWithHttpInfo();
-        /// <summary>
-        /// Update an Email Domain
-        /// </summary>
-        /// <remarks>
-        /// Updates an email domain by &#x60;emailDomainId&#x60;
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <param name="updateEmailDomain"></param>
-        /// <returns>EmailDomainResponse</returns>
-        EmailDomainResponse UpdateEmailDomain(string emailDomainId, UpdateEmailDomain updateEmailDomain);
-
-        /// <summary>
-        /// Update an Email Domain
-        /// </summary>
-        /// <remarks>
-        /// Updates an email domain by &#x60;emailDomainId&#x60;
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <param name="updateEmailDomain"></param>
-        /// <returns>ApiResponse of EmailDomainResponse</returns>
-        ApiResponse<EmailDomainResponse> UpdateEmailDomainWithHttpInfo(string emailDomainId, UpdateEmailDomain updateEmailDomain);
-        /// <summary>
-        /// Verify Email Domain
-        /// </summary>
-        /// <remarks>
-        /// Verifies the Email Domain by &#x60;id&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns>EmailDomainResponse</returns>
-        EmailDomainResponse VerifyEmailDomain(string emailDomainId);
-
-        /// <summary>
-        /// Verify Email Domain
-        /// </summary>
-        /// <remarks>
-        /// Verifies the Email Domain by &#x60;id&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns>ApiResponse of EmailDomainResponse</returns>
-        ApiResponse<EmailDomainResponse> VerifyEmailDomainWithHttpInfo(string emailDomainId);
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -344,7 +187,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IEmailDomainApi : IEmailDomainApiSync, IEmailDomainApiAsync
+    public interface IEmailDomainApi :  IEmailDomainApiAsync
     {
 
     }
@@ -372,7 +215,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -384,13 +226,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public EmailDomainApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public EmailDomainApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -400,11 +240,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -437,83 +272,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// Create an Email Domain Creates a custom email domain.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomain"></param>
-        /// <returns>EmailDomainResponse</returns>
-        public EmailDomainResponse CreateEmailDomain(EmailDomain emailDomain)
-        {
-            Okta.Sdk.Client.ApiResponse<EmailDomainResponse> localVarResponse = CreateEmailDomainWithHttpInfo(emailDomain);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create an Email Domain Creates a custom email domain.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomain"></param>
-        /// <returns>ApiResponse of EmailDomainResponse</returns>
-        public Okta.Sdk.Client.ApiResponse<EmailDomainResponse> CreateEmailDomainWithHttpInfo(EmailDomain emailDomain)
-        {
-            // verify the required parameter 'emailDomain' is set
-            if (emailDomain == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'emailDomain' when calling EmailDomainApi->CreateEmailDomain");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = emailDomain;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<EmailDomainResponse>("/api/v1/email-domains", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateEmailDomain", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// Create an Email Domain Creates a custom email domain.
         /// </summary>
@@ -585,81 +343,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateEmailDomain", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Delete an Email Domain Deletes an Email Domain by &#x60;emailDomainId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns></returns>
-        public void DeleteEmailDomain(string emailDomainId)
-        {
-            DeleteEmailDomainWithHttpInfo(emailDomainId);
-        }
-
-        /// <summary>
-        /// Delete an Email Domain Deletes an Email Domain by &#x60;emailDomainId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> DeleteEmailDomainWithHttpInfo(string emailDomainId)
-        {
-            // verify the required parameter 'emailDomainId' is set
-            if (emailDomainId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'emailDomainId' when calling EmailDomainApi->DeleteEmailDomain");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("emailDomainId", Okta.Sdk.Client.ClientUtils.ParameterToString(emailDomainId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/api/v1/email-domains/{emailDomainId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeleteEmailDomain", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -752,82 +435,6 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailDomainId"></param>
-        /// <returns>EmailDomainResponse</returns>
-        public EmailDomainResponse GetEmailDomain(string emailDomainId)
-        {
-            Okta.Sdk.Client.ApiResponse<EmailDomainResponse> localVarResponse = GetEmailDomainWithHttpInfo(emailDomainId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve a Email Domain Fetches an Email Domain by &#x60;emailDomainId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns>ApiResponse of EmailDomainResponse</returns>
-        public Okta.Sdk.Client.ApiResponse<EmailDomainResponse> GetEmailDomainWithHttpInfo(string emailDomainId)
-        {
-            // verify the required parameter 'emailDomainId' is set
-            if (emailDomainId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'emailDomainId' when calling EmailDomainApi->GetEmailDomain");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("emailDomainId", Okta.Sdk.Client.ClientUtils.ParameterToString(emailDomainId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<EmailDomainResponse>("/api/v1/email-domains/{emailDomainId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetEmailDomain", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve a Email Domain Fetches an Email Domain by &#x60;emailDomainId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailDomainResponse</returns>
         public async System.Threading.Tasks.Task<EmailDomainResponse> GetEmailDomainAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -893,82 +500,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEmailDomain", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all brands linked to an email domain List all brands linked to an email domain.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns>List&lt;Brand&gt;</returns>
-        public List<Brand> ListEmailDomainBrands(string emailDomainId)
-        {
-            Okta.Sdk.Client.ApiResponse<List<Brand>> localVarResponse = ListEmailDomainBrandsWithHttpInfo(emailDomainId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all brands linked to an email domain List all brands linked to an email domain.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns>ApiResponse of List&lt;Brand&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Brand>> ListEmailDomainBrandsWithHttpInfo(string emailDomainId)
-        {
-            // verify the required parameter 'emailDomainId' is set
-            if (emailDomainId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'emailDomainId' when calling EmailDomainApi->ListEmailDomainBrands");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("emailDomainId", Okta.Sdk.Client.ClientUtils.ParameterToString(emailDomainId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Brand>>("/api/v1/email-domains/{emailDomainId}/brands", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListEmailDomainBrands", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1103,73 +634,6 @@ namespace Okta.Sdk.Api
         /// List all email domains List all the email domains in your org.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>EmailDomainListResponse</returns>
-        public EmailDomainListResponse ListEmailDomains()
-        {
-            Okta.Sdk.Client.ApiResponse<EmailDomainListResponse> localVarResponse = ListEmailDomainsWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all email domains List all the email domains in your org.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of EmailDomainListResponse</returns>
-        public Okta.Sdk.Client.ApiResponse<EmailDomainListResponse> ListEmailDomainsWithHttpInfo()
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<EmailDomainListResponse>("/api/v1/email-domains", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListEmailDomains", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all email domains List all the email domains in your org.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailDomainListResponse</returns>
         public async System.Threading.Tasks.Task<EmailDomainListResponse> ListEmailDomainsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1227,92 +691,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListEmailDomains", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update an Email Domain Updates an email domain by &#x60;emailDomainId&#x60;
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <param name="updateEmailDomain"></param>
-        /// <returns>EmailDomainResponse</returns>
-        public EmailDomainResponse UpdateEmailDomain(string emailDomainId, UpdateEmailDomain updateEmailDomain)
-        {
-            Okta.Sdk.Client.ApiResponse<EmailDomainResponse> localVarResponse = UpdateEmailDomainWithHttpInfo(emailDomainId, updateEmailDomain);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update an Email Domain Updates an email domain by &#x60;emailDomainId&#x60;
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <param name="updateEmailDomain"></param>
-        /// <returns>ApiResponse of EmailDomainResponse</returns>
-        public Okta.Sdk.Client.ApiResponse<EmailDomainResponse> UpdateEmailDomainWithHttpInfo(string emailDomainId, UpdateEmailDomain updateEmailDomain)
-        {
-            // verify the required parameter 'emailDomainId' is set
-            if (emailDomainId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'emailDomainId' when calling EmailDomainApi->UpdateEmailDomain");
-            }
-
-            // verify the required parameter 'updateEmailDomain' is set
-            if (updateEmailDomain == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'updateEmailDomain' when calling EmailDomainApi->UpdateEmailDomain");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("emailDomainId", Okta.Sdk.Client.ClientUtils.ParameterToString(emailDomainId)); // path parameter
-            localVarRequestOptions.Data = updateEmailDomain;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<EmailDomainResponse>("/api/v1/email-domains/{emailDomainId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateEmailDomain", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1402,82 +780,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateEmailDomain", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Verify Email Domain Verifies the Email Domain by &#x60;id&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns>EmailDomainResponse</returns>
-        public EmailDomainResponse VerifyEmailDomain(string emailDomainId)
-        {
-            Okta.Sdk.Client.ApiResponse<EmailDomainResponse> localVarResponse = VerifyEmailDomainWithHttpInfo(emailDomainId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Verify Email Domain Verifies the Email Domain by &#x60;id&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailDomainId"></param>
-        /// <returns>ApiResponse of EmailDomainResponse</returns>
-        public Okta.Sdk.Client.ApiResponse<EmailDomainResponse> VerifyEmailDomainWithHttpInfo(string emailDomainId)
-        {
-            // verify the required parameter 'emailDomainId' is set
-            if (emailDomainId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'emailDomainId' when calling EmailDomainApi->VerifyEmailDomain");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("emailDomainId", Okta.Sdk.Client.ClientUtils.ParameterToString(emailDomainId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<EmailDomainResponse>("/api/v1/email-domains/{emailDomainId}/verify", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("VerifyEmailDomain", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

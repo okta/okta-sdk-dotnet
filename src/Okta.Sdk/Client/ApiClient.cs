@@ -164,7 +164,7 @@ namespace Okta.Sdk.Client
     /// Provides a default implementation of an Api client (both synchronous and asynchronous implementations),
     /// encapsulating general REST accessor use cases.
     /// </summary>
-    public partial class ApiClient : IAsynchronousClient
+    public partial class ApiClient :  IAsynchronousClient
     {
         private readonly string _baseUrl;
 
@@ -432,6 +432,7 @@ namespace Okta.Sdk.Client
 
             return transformed;
         }
+
         
         internal RestClient GetConfiguredClient(IReadableConfiguration configuration, IDeserializer serializer)
         {
@@ -493,7 +494,7 @@ namespace Okta.Sdk.Client
             InterceptRequest(req);
 
             IRestResponse<T> response;
-           if (RetryConfiguration.RetryPolicy != null || configuration.MaxRetries.HasValue && configuration.MaxRetries > 0)
+           if (RetryConfiguration.AsyncRetryPolicy != null || configuration.MaxRetries.HasValue && configuration.MaxRetries > 0)
             {
                 var policy = RetryConfiguration.AsyncRetryPolicy ?? DefaultRetryStrategy.GetRetryPolicy(configuration);
                 var policyResult = await policy.ExecuteAndCaptureAsync(action: (ctx) => ExecuteAsyncWithRetryHeaders(ctx, req, client), new Context()).ConfigureAwait(false);
@@ -668,6 +669,5 @@ namespace Okta.Sdk.Client
             return ExecAsync<T>(NewRequest(HttpMethod.Patch, path, options, config), config, cancellationToken);
         }
         #endregion IAsynchronousClient
-
     }
 }

@@ -21,196 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface ISubscriptionApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// List all Subscriptions of a Custom Role with a specific notification type
-        /// </summary>
-        /// <remarks>
-        /// When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>Subscription</returns>
-        Subscription GetRoleSubscriptionByNotificationType(string roleTypeOrRoleId, string notificationType);
-
-        /// <summary>
-        /// List all Subscriptions of a Custom Role with a specific notification type
-        /// </summary>
-        /// <remarks>
-        /// When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>ApiResponse of Subscription</returns>
-        ApiResponse<Subscription> GetRoleSubscriptionByNotificationTypeWithHttpInfo(string roleTypeOrRoleId, string notificationType);
-        /// <summary>
-        /// List all Subscriptions by type
-        /// </summary>
-        /// <remarks>
-        /// Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>Subscription</returns>
-        Subscription GetUserSubscriptionByNotificationType(string userId, string notificationType);
-
-        /// <summary>
-        /// List all Subscriptions by type
-        /// </summary>
-        /// <remarks>
-        /// Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>ApiResponse of Subscription</returns>
-        ApiResponse<Subscription> GetUserSubscriptionByNotificationTypeWithHttpInfo(string userId, string notificationType);
-        /// <summary>
-        /// List all Subscriptions of a Custom Role
-        /// </summary>
-        /// <remarks>
-        /// When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <returns>List&lt;Subscription&gt;</returns>
-        List<Subscription> ListRoleSubscriptions(string roleTypeOrRoleId);
-
-        /// <summary>
-        /// List all Subscriptions of a Custom Role
-        /// </summary>
-        /// <remarks>
-        /// When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <returns>ApiResponse of List&lt;Subscription&gt;</returns>
-        ApiResponse<List<Subscription>> ListRoleSubscriptionsWithHttpInfo(string roleTypeOrRoleId);
-        /// <summary>
-        /// List all Subscriptions
-        /// </summary>
-        /// <remarks>
-        /// List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <returns>List&lt;Subscription&gt;</returns>
-        List<Subscription> ListUserSubscriptions(string userId);
-
-        /// <summary>
-        /// List all Subscriptions
-        /// </summary>
-        /// <remarks>
-        /// List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <returns>ApiResponse of List&lt;Subscription&gt;</returns>
-        ApiResponse<List<Subscription>> ListUserSubscriptionsWithHttpInfo(string userId);
-        /// <summary>
-        /// Subscribe a Custom Role to a specific notification type
-        /// </summary>
-        /// <remarks>
-        /// When roleType Subscribes a Role to a specific notification type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role. Else when roleId Subscribes a Custom Role to a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns></returns>
-        void SubscribeRoleSubscriptionByNotificationType(string roleTypeOrRoleId, string notificationType);
-
-        /// <summary>
-        /// Subscribe a Custom Role to a specific notification type
-        /// </summary>
-        /// <remarks>
-        /// When roleType Subscribes a Role to a specific notification type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role. Else when roleId Subscribes a Custom Role to a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SubscribeRoleSubscriptionByNotificationTypeWithHttpInfo(string roleTypeOrRoleId, string notificationType);
-        /// <summary>
-        /// Subscribe to a specific notification type
-        /// </summary>
-        /// <remarks>
-        /// Subscribes a User to a specific notification type. Only the current User can subscribe to a specific notification type. An AccessDeniedException message is sent if requests are made from other users.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns></returns>
-        void SubscribeUserSubscriptionByNotificationType(string userId, string notificationType);
-
-        /// <summary>
-        /// Subscribe to a specific notification type
-        /// </summary>
-        /// <remarks>
-        /// Subscribes a User to a specific notification type. Only the current User can subscribe to a specific notification type. An AccessDeniedException message is sent if requests are made from other users.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SubscribeUserSubscriptionByNotificationTypeWithHttpInfo(string userId, string notificationType);
-        /// <summary>
-        /// Unsubscribe a Custom Role from a specific notification type
-        /// </summary>
-        /// <remarks>
-        /// When roleType Unsubscribes a Role from a specific notification type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role. Else when roleId Unsubscribes a Custom Role from a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns></returns>
-        void UnsubscribeRoleSubscriptionByNotificationType(string roleTypeOrRoleId, string notificationType);
-
-        /// <summary>
-        /// Unsubscribe a Custom Role from a specific notification type
-        /// </summary>
-        /// <remarks>
-        /// When roleType Unsubscribes a Role from a specific notification type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role. Else when roleId Unsubscribes a Custom Role from a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UnsubscribeRoleSubscriptionByNotificationTypeWithHttpInfo(string roleTypeOrRoleId, string notificationType);
-        /// <summary>
-        /// Unsubscribe from a specific notification type
-        /// </summary>
-        /// <remarks>
-        /// Unsubscribes a User from a specific notification type. Only the current User can unsubscribe from a specific notification type. An AccessDeniedException message is sent if requests are made from other users.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns></returns>
-        void UnsubscribeUserSubscriptionByNotificationType(string userId, string notificationType);
-
-        /// <summary>
-        /// Unsubscribe from a specific notification type
-        /// </summary>
-        /// <remarks>
-        /// Unsubscribes a User from a specific notification type. Only the current User can unsubscribe from a specific notification type. An AccessDeniedException message is sent if requests are made from other users.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UnsubscribeUserSubscriptionByNotificationTypeWithHttpInfo(string userId, string notificationType);
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -411,7 +221,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ISubscriptionApi : ISubscriptionApiSync, ISubscriptionApiAsync
+    public interface ISubscriptionApi :  ISubscriptionApiAsync
     {
 
     }
@@ -439,7 +249,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -451,13 +260,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public SubscriptionApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public SubscriptionApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -467,11 +274,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -504,91 +306,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// List all Subscriptions of a Custom Role with a specific notification type When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>Subscription</returns>
-        public Subscription GetRoleSubscriptionByNotificationType(string roleTypeOrRoleId, string notificationType)
-        {
-            Okta.Sdk.Client.ApiResponse<Subscription> localVarResponse = GetRoleSubscriptionByNotificationTypeWithHttpInfo(roleTypeOrRoleId, notificationType);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all Subscriptions of a Custom Role with a specific notification type When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>ApiResponse of Subscription</returns>
-        public Okta.Sdk.Client.ApiResponse<Subscription> GetRoleSubscriptionByNotificationTypeWithHttpInfo(string roleTypeOrRoleId, string notificationType)
-        {
-            // verify the required parameter 'roleTypeOrRoleId' is set
-            if (roleTypeOrRoleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleTypeOrRoleId' when calling SubscriptionApi->GetRoleSubscriptionByNotificationType");
-            }
-
-            // verify the required parameter 'notificationType' is set
-            if (notificationType == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'notificationType' when calling SubscriptionApi->GetRoleSubscriptionByNotificationType");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("roleTypeOrRoleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleTypeOrRoleId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Subscription>("/api/v1/roles/{roleTypeOrRoleId}/subscriptions/{notificationType}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetRoleSubscriptionByNotificationType", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// List all Subscriptions of a Custom Role with a specific notification type When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
         /// </summary>
@@ -683,91 +400,6 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="notificationType"></param>
-        /// <returns>Subscription</returns>
-        public Subscription GetUserSubscriptionByNotificationType(string userId, string notificationType)
-        {
-            Okta.Sdk.Client.ApiResponse<Subscription> localVarResponse = GetUserSubscriptionByNotificationTypeWithHttpInfo(userId, notificationType);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all Subscriptions by type Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>ApiResponse of Subscription</returns>
-        public Okta.Sdk.Client.ApiResponse<Subscription> GetUserSubscriptionByNotificationTypeWithHttpInfo(string userId, string notificationType)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling SubscriptionApi->GetUserSubscriptionByNotificationType");
-            }
-
-            // verify the required parameter 'notificationType' is set
-            if (notificationType == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'notificationType' when calling SubscriptionApi->GetUserSubscriptionByNotificationType");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Subscription>("/api/v1/users/{userId}/subscriptions/{notificationType}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetUserSubscriptionByNotificationType", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all Subscriptions by type Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="notificationType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Subscription</returns>
         public async System.Threading.Tasks.Task<Subscription> GetUserSubscriptionByNotificationTypeAsync(string userId, string notificationType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -841,82 +473,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUserSubscriptionByNotificationType", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all Subscriptions of a Custom Role When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <returns>List&lt;Subscription&gt;</returns>
-        public List<Subscription> ListRoleSubscriptions(string roleTypeOrRoleId)
-        {
-            Okta.Sdk.Client.ApiResponse<List<Subscription>> localVarResponse = ListRoleSubscriptionsWithHttpInfo(roleTypeOrRoleId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all Subscriptions of a Custom Role When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <returns>ApiResponse of List&lt;Subscription&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Subscription>> ListRoleSubscriptionsWithHttpInfo(string roleTypeOrRoleId)
-        {
-            // verify the required parameter 'roleTypeOrRoleId' is set
-            if (roleTypeOrRoleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleTypeOrRoleId' when calling SubscriptionApi->ListRoleSubscriptions");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("roleTypeOrRoleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleTypeOrRoleId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Subscription>>("/api/v1/roles/{roleTypeOrRoleId}/subscriptions", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListRoleSubscriptions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1038,82 +594,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListRoleSubscriptions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all Subscriptions List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <returns>List&lt;Subscription&gt;</returns>
-        public List<Subscription> ListUserSubscriptions(string userId)
-        {
-            Okta.Sdk.Client.ApiResponse<List<Subscription>> localVarResponse = ListUserSubscriptionsWithHttpInfo(userId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all Subscriptions List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <returns>ApiResponse of List&lt;Subscription&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Subscription>> ListUserSubscriptionsWithHttpInfo(string userId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling SubscriptionApi->ListUserSubscriptions");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Subscription>>("/api/v1/users/{userId}/subscriptions", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListUserSubscriptions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1250,90 +730,6 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleTypeOrRoleId"></param>
         /// <param name="notificationType"></param>
-        /// <returns></returns>
-        public void SubscribeRoleSubscriptionByNotificationType(string roleTypeOrRoleId, string notificationType)
-        {
-            SubscribeRoleSubscriptionByNotificationTypeWithHttpInfo(roleTypeOrRoleId, notificationType);
-        }
-
-        /// <summary>
-        /// Subscribe a Custom Role to a specific notification type When roleType Subscribes a Role to a specific notification type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role. Else when roleId Subscribes a Custom Role to a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> SubscribeRoleSubscriptionByNotificationTypeWithHttpInfo(string roleTypeOrRoleId, string notificationType)
-        {
-            // verify the required parameter 'roleTypeOrRoleId' is set
-            if (roleTypeOrRoleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleTypeOrRoleId' when calling SubscriptionApi->SubscribeRoleSubscriptionByNotificationType");
-            }
-
-            // verify the required parameter 'notificationType' is set
-            if (notificationType == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'notificationType' when calling SubscriptionApi->SubscribeRoleSubscriptionByNotificationType");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("roleTypeOrRoleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleTypeOrRoleId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/api/v1/roles/{roleTypeOrRoleId}/subscriptions/{notificationType}/subscribe", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("SubscribeRoleSubscriptionByNotificationType", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Subscribe a Custom Role to a specific notification type When roleType Subscribes a Role to a specific notification type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role. Else when roleId Subscribes a Custom Role to a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <param name="notificationType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task SubscribeRoleSubscriptionByNotificationTypeAsync(string roleTypeOrRoleId, string notificationType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1406,90 +802,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubscribeRoleSubscriptionByNotificationType", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Subscribe to a specific notification type Subscribes a User to a specific notification type. Only the current User can subscribe to a specific notification type. An AccessDeniedException message is sent if requests are made from other users.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns></returns>
-        public void SubscribeUserSubscriptionByNotificationType(string userId, string notificationType)
-        {
-            SubscribeUserSubscriptionByNotificationTypeWithHttpInfo(userId, notificationType);
-        }
-
-        /// <summary>
-        /// Subscribe to a specific notification type Subscribes a User to a specific notification type. Only the current User can subscribe to a specific notification type. An AccessDeniedException message is sent if requests are made from other users.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> SubscribeUserSubscriptionByNotificationTypeWithHttpInfo(string userId, string notificationType)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling SubscriptionApi->SubscribeUserSubscriptionByNotificationType");
-            }
-
-            // verify the required parameter 'notificationType' is set
-            if (notificationType == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'notificationType' when calling SubscriptionApi->SubscribeUserSubscriptionByNotificationType");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/api/v1/users/{userId}/subscriptions/{notificationType}/subscribe", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("SubscribeUserSubscriptionByNotificationType", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1592,90 +904,6 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleTypeOrRoleId"></param>
         /// <param name="notificationType"></param>
-        /// <returns></returns>
-        public void UnsubscribeRoleSubscriptionByNotificationType(string roleTypeOrRoleId, string notificationType)
-        {
-            UnsubscribeRoleSubscriptionByNotificationTypeWithHttpInfo(roleTypeOrRoleId, notificationType);
-        }
-
-        /// <summary>
-        /// Unsubscribe a Custom Role from a specific notification type When roleType Unsubscribes a Role from a specific notification type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role. Else when roleId Unsubscribes a Custom Role from a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> UnsubscribeRoleSubscriptionByNotificationTypeWithHttpInfo(string roleTypeOrRoleId, string notificationType)
-        {
-            // verify the required parameter 'roleTypeOrRoleId' is set
-            if (roleTypeOrRoleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleTypeOrRoleId' when calling SubscriptionApi->UnsubscribeRoleSubscriptionByNotificationType");
-            }
-
-            // verify the required parameter 'notificationType' is set
-            if (notificationType == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'notificationType' when calling SubscriptionApi->UnsubscribeRoleSubscriptionByNotificationType");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("roleTypeOrRoleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleTypeOrRoleId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/api/v1/roles/{roleTypeOrRoleId}/subscriptions/{notificationType}/unsubscribe", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UnsubscribeRoleSubscriptionByNotificationType", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Unsubscribe a Custom Role from a specific notification type When roleType Unsubscribes a Role from a specific notification type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role. Else when roleId Unsubscribes a Custom Role from a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleTypeOrRoleId"></param>
-        /// <param name="notificationType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task UnsubscribeRoleSubscriptionByNotificationTypeAsync(string roleTypeOrRoleId, string notificationType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1748,90 +976,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UnsubscribeRoleSubscriptionByNotificationType", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Unsubscribe from a specific notification type Unsubscribes a User from a specific notification type. Only the current User can unsubscribe from a specific notification type. An AccessDeniedException message is sent if requests are made from other users.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns></returns>
-        public void UnsubscribeUserSubscriptionByNotificationType(string userId, string notificationType)
-        {
-            UnsubscribeUserSubscriptionByNotificationTypeWithHttpInfo(userId, notificationType);
-        }
-
-        /// <summary>
-        /// Unsubscribe from a specific notification type Unsubscribes a User from a specific notification type. Only the current User can unsubscribe from a specific notification type. An AccessDeniedException message is sent if requests are made from other users.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="notificationType"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> UnsubscribeUserSubscriptionByNotificationTypeWithHttpInfo(string userId, string notificationType)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling SubscriptionApi->UnsubscribeUserSubscriptionByNotificationType");
-            }
-
-            // verify the required parameter 'notificationType' is set
-            if (notificationType == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'notificationType' when calling SubscriptionApi->UnsubscribeUserSubscriptionByNotificationType");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/api/v1/users/{userId}/subscriptions/{notificationType}/unsubscribe", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UnsubscribeUserSubscriptionByNotificationType", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -481,7 +481,6 @@ src/Okta.Sdk/Client/HttpMethod.cs
 src/Okta.Sdk/Client/IApiAccessor.cs
 src/Okta.Sdk/Client/IAsynchronousClient.cs
 src/Okta.Sdk/Client/IReadableConfiguration.cs
-src/Okta.Sdk/Client/ISynchronousClient.cs
 src/Okta.Sdk/Client/Multimap.cs
 src/Okta.Sdk/Client/OktaCollectionAsyncEnumerator.cs
 src/Okta.Sdk/Client/OktaCollectionClient.cs

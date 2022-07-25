@@ -21,144 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface ICAPTCHAApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Create a CAPTCHA instance
-        /// </summary>
-        /// <remarks>
-        /// Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instance"></param>
-        /// <returns>CAPTCHAInstance</returns>
-        CAPTCHAInstance CreateCaptchaInstance(CAPTCHAInstance instance);
-
-        /// <summary>
-        /// Create a CAPTCHA instance
-        /// </summary>
-        /// <remarks>
-        /// Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instance"></param>
-        /// <returns>ApiResponse of CAPTCHAInstance</returns>
-        ApiResponse<CAPTCHAInstance> CreateCaptchaInstanceWithHttpInfo(CAPTCHAInstance instance);
-        /// <summary>
-        /// Delete a CAPTCHA Instance
-        /// </summary>
-        /// <remarks>
-        /// Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <returns></returns>
-        void DeleteCaptchaInstance(string captchaId);
-
-        /// <summary>
-        /// Delete a CAPTCHA Instance
-        /// </summary>
-        /// <remarks>
-        /// Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteCaptchaInstanceWithHttpInfo(string captchaId);
-        /// <summary>
-        /// Retrieve a CAPTCHA Instance
-        /// </summary>
-        /// <remarks>
-        /// Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <returns>CAPTCHAInstance</returns>
-        CAPTCHAInstance GetCaptchaInstance(string captchaId);
-
-        /// <summary>
-        /// Retrieve a CAPTCHA Instance
-        /// </summary>
-        /// <remarks>
-        /// Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <returns>ApiResponse of CAPTCHAInstance</returns>
-        ApiResponse<CAPTCHAInstance> GetCaptchaInstanceWithHttpInfo(string captchaId);
-        /// <summary>
-        /// List all CAPTCHA instances
-        /// </summary>
-        /// <remarks>
-        /// Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;CAPTCHAInstance&gt;</returns>
-        List<CAPTCHAInstance> ListCaptchaInstances();
-
-        /// <summary>
-        /// List all CAPTCHA instances
-        /// </summary>
-        /// <remarks>
-        /// Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;CAPTCHAInstance&gt;</returns>
-        ApiResponse<List<CAPTCHAInstance>> ListCaptchaInstancesWithHttpInfo();
-        /// <summary>
-        /// Update a CAPTCHA instance
-        /// </summary>
-        /// <remarks>
-        /// Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <param name="instance"></param>
-        /// <returns>CAPTCHAInstance</returns>
-        CAPTCHAInstance PartialUpdateCaptchaInstance(string captchaId, CAPTCHAInstance instance);
-
-        /// <summary>
-        /// Update a CAPTCHA instance
-        /// </summary>
-        /// <remarks>
-        /// Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <param name="instance"></param>
-        /// <returns>ApiResponse of CAPTCHAInstance</returns>
-        ApiResponse<CAPTCHAInstance> PartialUpdateCaptchaInstanceWithHttpInfo(string captchaId, CAPTCHAInstance instance);
-        /// <summary>
-        /// Replace a CAPTCHA instance
-        /// </summary>
-        /// <remarks>
-        /// Update a CAPTCHA instance by &#x60;captchaId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <param name="instance"></param>
-        /// <returns>CAPTCHAInstance</returns>
-        CAPTCHAInstance UpdateCaptchaInstance(string captchaId, CAPTCHAInstance instance);
-
-        /// <summary>
-        /// Replace a CAPTCHA instance
-        /// </summary>
-        /// <remarks>
-        /// Update a CAPTCHA instance by &#x60;captchaId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <param name="instance"></param>
-        /// <returns>ApiResponse of CAPTCHAInstance</returns>
-        ApiResponse<CAPTCHAInstance> UpdateCaptchaInstanceWithHttpInfo(string captchaId, CAPTCHAInstance instance);
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -305,7 +167,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ICAPTCHAApi : ICAPTCHAApiSync, ICAPTCHAApiAsync
+    public interface ICAPTCHAApi :  ICAPTCHAApiAsync
     {
 
     }
@@ -333,7 +195,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -345,13 +206,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public CAPTCHAApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public CAPTCHAApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -361,11 +220,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -398,83 +252,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// Create a CAPTCHA instance Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instance"></param>
-        /// <returns>CAPTCHAInstance</returns>
-        public CAPTCHAInstance CreateCaptchaInstance(CAPTCHAInstance instance)
-        {
-            Okta.Sdk.Client.ApiResponse<CAPTCHAInstance> localVarResponse = CreateCaptchaInstanceWithHttpInfo(instance);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create a CAPTCHA instance Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instance"></param>
-        /// <returns>ApiResponse of CAPTCHAInstance</returns>
-        public Okta.Sdk.Client.ApiResponse<CAPTCHAInstance> CreateCaptchaInstanceWithHttpInfo(CAPTCHAInstance instance)
-        {
-            // verify the required parameter 'instance' is set
-            if (instance == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'instance' when calling CAPTCHAApi->CreateCaptchaInstance");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = instance;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<CAPTCHAInstance>("/api/v1/captchas", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateCaptchaInstance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// Create a CAPTCHA instance Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
         /// </summary>
@@ -546,81 +323,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateCaptchaInstance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Delete a CAPTCHA Instance Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <returns></returns>
-        public void DeleteCaptchaInstance(string captchaId)
-        {
-            DeleteCaptchaInstanceWithHttpInfo(captchaId);
-        }
-
-        /// <summary>
-        /// Delete a CAPTCHA Instance Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> DeleteCaptchaInstanceWithHttpInfo(string captchaId)
-        {
-            // verify the required parameter 'captchaId' is set
-            if (captchaId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'captchaId' when calling CAPTCHAApi->DeleteCaptchaInstance");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/api/v1/captchas/{captchaId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeleteCaptchaInstance", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -713,82 +415,6 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <returns>CAPTCHAInstance</returns>
-        public CAPTCHAInstance GetCaptchaInstance(string captchaId)
-        {
-            Okta.Sdk.Client.ApiResponse<CAPTCHAInstance> localVarResponse = GetCaptchaInstanceWithHttpInfo(captchaId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve a CAPTCHA Instance Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <returns>ApiResponse of CAPTCHAInstance</returns>
-        public Okta.Sdk.Client.ApiResponse<CAPTCHAInstance> GetCaptchaInstanceWithHttpInfo(string captchaId)
-        {
-            // verify the required parameter 'captchaId' is set
-            if (captchaId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'captchaId' when calling CAPTCHAApi->GetCaptchaInstance");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CAPTCHAInstance>("/api/v1/captchas/{captchaId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetCaptchaInstance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve a CAPTCHA Instance Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CAPTCHAInstance</returns>
         public async System.Threading.Tasks.Task<CAPTCHAInstance> GetCaptchaInstanceAsync(string captchaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -854,73 +480,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCaptchaInstance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all CAPTCHA instances Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;CAPTCHAInstance&gt;</returns>
-        public List<CAPTCHAInstance> ListCaptchaInstances()
-        {
-            Okta.Sdk.Client.ApiResponse<List<CAPTCHAInstance>> localVarResponse = ListCaptchaInstancesWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all CAPTCHA instances Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;CAPTCHAInstance&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<CAPTCHAInstance>> ListCaptchaInstancesWithHttpInfo()
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<CAPTCHAInstance>>("/api/v1/captchas", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListCaptchaInstances", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1041,92 +600,6 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
         /// <param name="instance"></param>
-        /// <returns>CAPTCHAInstance</returns>
-        public CAPTCHAInstance PartialUpdateCaptchaInstance(string captchaId, CAPTCHAInstance instance)
-        {
-            Okta.Sdk.Client.ApiResponse<CAPTCHAInstance> localVarResponse = PartialUpdateCaptchaInstanceWithHttpInfo(captchaId, instance);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update a CAPTCHA instance Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <param name="instance"></param>
-        /// <returns>ApiResponse of CAPTCHAInstance</returns>
-        public Okta.Sdk.Client.ApiResponse<CAPTCHAInstance> PartialUpdateCaptchaInstanceWithHttpInfo(string captchaId, CAPTCHAInstance instance)
-        {
-            // verify the required parameter 'captchaId' is set
-            if (captchaId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'captchaId' when calling CAPTCHAApi->PartialUpdateCaptchaInstance");
-            }
-
-            // verify the required parameter 'instance' is set
-            if (instance == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'instance' when calling CAPTCHAApi->PartialUpdateCaptchaInstance");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
-            localVarRequestOptions.Data = instance;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<CAPTCHAInstance>("/api/v1/captchas/{captchaId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PartialUpdateCaptchaInstance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update a CAPTCHA instance Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CAPTCHAInstance</returns>
         public async System.Threading.Tasks.Task<CAPTCHAInstance> PartialUpdateCaptchaInstanceAsync(string captchaId, CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1201,92 +674,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PartialUpdateCaptchaInstance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Replace a CAPTCHA instance Update a CAPTCHA instance by &#x60;captchaId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <param name="instance"></param>
-        /// <returns>CAPTCHAInstance</returns>
-        public CAPTCHAInstance UpdateCaptchaInstance(string captchaId, CAPTCHAInstance instance)
-        {
-            Okta.Sdk.Client.ApiResponse<CAPTCHAInstance> localVarResponse = UpdateCaptchaInstanceWithHttpInfo(captchaId, instance);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Replace a CAPTCHA instance Update a CAPTCHA instance by &#x60;captchaId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="captchaId">id of the CAPTCHA</param>
-        /// <param name="instance"></param>
-        /// <returns>ApiResponse of CAPTCHAInstance</returns>
-        public Okta.Sdk.Client.ApiResponse<CAPTCHAInstance> UpdateCaptchaInstanceWithHttpInfo(string captchaId, CAPTCHAInstance instance)
-        {
-            // verify the required parameter 'captchaId' is set
-            if (captchaId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'captchaId' when calling CAPTCHAApi->UpdateCaptchaInstance");
-            }
-
-            // verify the required parameter 'instance' is set
-            if (instance == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'instance' when calling CAPTCHAApi->UpdateCaptchaInstance");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
-            localVarRequestOptions.Data = instance;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<CAPTCHAInstance>("/api/v1/captchas/{captchaId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateCaptchaInstance", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

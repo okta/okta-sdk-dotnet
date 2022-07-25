@@ -21,106 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface IPrincipalRateLimitApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Create a Principal Rate Limit
-        /// </summary>
-        /// <remarks>
-        /// Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entity"></param>
-        /// <returns>PrincipalRateLimitEntity</returns>
-        PrincipalRateLimitEntity CreatePrincipalRateLimitEntity(PrincipalRateLimitEntity entity);
-
-        /// <summary>
-        /// Create a Principal Rate Limit
-        /// </summary>
-        /// <remarks>
-        /// Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entity"></param>
-        /// <returns>ApiResponse of PrincipalRateLimitEntity</returns>
-        ApiResponse<PrincipalRateLimitEntity> CreatePrincipalRateLimitEntityWithHttpInfo(PrincipalRateLimitEntity entity);
-        /// <summary>
-        /// Retrieve a Principal Rate Limit
-        /// </summary>
-        /// <remarks>
-        /// Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
-        /// <returns>PrincipalRateLimitEntity</returns>
-        PrincipalRateLimitEntity GetPrincipalRateLimitEntity(string principalRateLimitId);
-
-        /// <summary>
-        /// Retrieve a Principal Rate Limit
-        /// </summary>
-        /// <remarks>
-        /// Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
-        /// <returns>ApiResponse of PrincipalRateLimitEntity</returns>
-        ApiResponse<PrincipalRateLimitEntity> GetPrincipalRateLimitEntityWithHttpInfo(string principalRateLimitId);
-        /// <summary>
-        /// List all Principal Rate Limits
-        /// </summary>
-        /// <remarks>
-        /// Lists all Principal Rate Limit entities considering the provided parameters.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter"> (optional)</param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to 20)</param>
-        /// <returns>List&lt;PrincipalRateLimitEntity&gt;</returns>
-        List<PrincipalRateLimitEntity> ListPrincipalRateLimitEntities(string filter = default(string), string after = default(string), int? limit = default(int?));
-
-        /// <summary>
-        /// List all Principal Rate Limits
-        /// </summary>
-        /// <remarks>
-        /// Lists all Principal Rate Limit entities considering the provided parameters.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter"> (optional)</param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to 20)</param>
-        /// <returns>ApiResponse of List&lt;PrincipalRateLimitEntity&gt;</returns>
-        ApiResponse<List<PrincipalRateLimitEntity>> ListPrincipalRateLimitEntitiesWithHttpInfo(string filter = default(string), string after = default(string), int? limit = default(int?));
-        /// <summary>
-        /// Replace a Principal Rate Limit
-        /// </summary>
-        /// <remarks>
-        /// Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
-        /// <param name="entity"></param>
-        /// <returns>PrincipalRateLimitEntity</returns>
-        PrincipalRateLimitEntity UpdatePrincipalRateLimitEntity(string principalRateLimitId, PrincipalRateLimitEntity entity);
-
-        /// <summary>
-        /// Replace a Principal Rate Limit
-        /// </summary>
-        /// <remarks>
-        /// Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
-        /// <param name="entity"></param>
-        /// <returns>ApiResponse of PrincipalRateLimitEntity</returns>
-        ApiResponse<PrincipalRateLimitEntity> UpdatePrincipalRateLimitEntityWithHttpInfo(string principalRateLimitId, PrincipalRateLimitEntity entity);
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -227,7 +127,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IPrincipalRateLimitApi : IPrincipalRateLimitApiSync, IPrincipalRateLimitApiAsync
+    public interface IPrincipalRateLimitApi :  IPrincipalRateLimitApiAsync
     {
 
     }
@@ -255,7 +155,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -267,13 +166,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public PrincipalRateLimitApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public PrincipalRateLimitApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -283,11 +180,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -320,83 +212,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// Create a Principal Rate Limit Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entity"></param>
-        /// <returns>PrincipalRateLimitEntity</returns>
-        public PrincipalRateLimitEntity CreatePrincipalRateLimitEntity(PrincipalRateLimitEntity entity)
-        {
-            Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity> localVarResponse = CreatePrincipalRateLimitEntityWithHttpInfo(entity);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create a Principal Rate Limit Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entity"></param>
-        /// <returns>ApiResponse of PrincipalRateLimitEntity</returns>
-        public Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity> CreatePrincipalRateLimitEntityWithHttpInfo(PrincipalRateLimitEntity entity)
-        {
-            // verify the required parameter 'entity' is set
-            if (entity == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'entity' when calling PrincipalRateLimitApi->CreatePrincipalRateLimitEntity");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = entity;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<PrincipalRateLimitEntity>("/api/v1/principal-rate-limits", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreatePrincipalRateLimitEntity", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// Create a Principal Rate Limit Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
         /// </summary>
@@ -482,82 +297,6 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
-        /// <returns>PrincipalRateLimitEntity</returns>
-        public PrincipalRateLimitEntity GetPrincipalRateLimitEntity(string principalRateLimitId)
-        {
-            Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity> localVarResponse = GetPrincipalRateLimitEntityWithHttpInfo(principalRateLimitId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve a Principal Rate Limit Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
-        /// <returns>ApiResponse of PrincipalRateLimitEntity</returns>
-        public Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity> GetPrincipalRateLimitEntityWithHttpInfo(string principalRateLimitId)
-        {
-            // verify the required parameter 'principalRateLimitId' is set
-            if (principalRateLimitId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'principalRateLimitId' when calling PrincipalRateLimitApi->GetPrincipalRateLimitEntity");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("principalRateLimitId", Okta.Sdk.Client.ClientUtils.ParameterToString(principalRateLimitId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<PrincipalRateLimitEntity>("/api/v1/principal-rate-limits/{principalRateLimitId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetPrincipalRateLimitEntity", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve a Principal Rate Limit Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PrincipalRateLimitEntity</returns>
         public async System.Threading.Tasks.Task<PrincipalRateLimitEntity> GetPrincipalRateLimitEntityAsync(string principalRateLimitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -623,91 +362,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPrincipalRateLimitEntity", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all Principal Rate Limits Lists all Principal Rate Limit entities considering the provided parameters.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter"> (optional)</param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to 20)</param>
-        /// <returns>List&lt;PrincipalRateLimitEntity&gt;</returns>
-        public List<PrincipalRateLimitEntity> ListPrincipalRateLimitEntities(string filter = default(string), string after = default(string), int? limit = default(int?))
-        {
-            Okta.Sdk.Client.ApiResponse<List<PrincipalRateLimitEntity>> localVarResponse = ListPrincipalRateLimitEntitiesWithHttpInfo(filter, after, limit);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all Principal Rate Limits Lists all Principal Rate Limit entities considering the provided parameters.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter"> (optional)</param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to 20)</param>
-        /// <returns>ApiResponse of List&lt;PrincipalRateLimitEntity&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<PrincipalRateLimitEntity>> ListPrincipalRateLimitEntitiesWithHttpInfo(string filter = default(string), string after = default(string), int? limit = default(int?))
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (filter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-            if (after != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<PrincipalRateLimitEntity>>("/api/v1/principal-rate-limits", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListPrincipalRateLimitEntities", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -843,92 +497,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListPrincipalRateLimitEntities", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Replace a Principal Rate Limit Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
-        /// <param name="entity"></param>
-        /// <returns>PrincipalRateLimitEntity</returns>
-        public PrincipalRateLimitEntity UpdatePrincipalRateLimitEntity(string principalRateLimitId, PrincipalRateLimitEntity entity)
-        {
-            Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity> localVarResponse = UpdatePrincipalRateLimitEntityWithHttpInfo(principalRateLimitId, entity);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Replace a Principal Rate Limit Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
-        /// <param name="entity"></param>
-        /// <returns>ApiResponse of PrincipalRateLimitEntity</returns>
-        public Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity> UpdatePrincipalRateLimitEntityWithHttpInfo(string principalRateLimitId, PrincipalRateLimitEntity entity)
-        {
-            // verify the required parameter 'principalRateLimitId' is set
-            if (principalRateLimitId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'principalRateLimitId' when calling PrincipalRateLimitApi->UpdatePrincipalRateLimitEntity");
-            }
-
-            // verify the required parameter 'entity' is set
-            if (entity == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'entity' when calling PrincipalRateLimitApi->UpdatePrincipalRateLimitEntity");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("principalRateLimitId", Okta.Sdk.Client.ClientUtils.ParameterToString(principalRateLimitId)); // path parameter
-            localVarRequestOptions.Data = entity;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<PrincipalRateLimitEntity>("/api/v1/principal-rate-limits/{principalRateLimitId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdatePrincipalRateLimitEntity", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
