@@ -21,123 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface IFeatureApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Retrieve a Feature
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <returns>Feature</returns>
-        Feature GetFeature(string featureId);
-
-        /// <summary>
-        /// Retrieve a Feature
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <returns>ApiResponse of Feature</returns>
-        ApiResponse<Feature> GetFeatureWithHttpInfo(string featureId);
-        /// <summary>
-        /// List all Dependencies
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <returns>List&lt;Feature&gt;</returns>
-        List<Feature> ListFeatureDependencies(string featureId);
-
-        /// <summary>
-        /// List all Dependencies
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <returns>ApiResponse of List&lt;Feature&gt;</returns>
-        ApiResponse<List<Feature>> ListFeatureDependenciesWithHttpInfo(string featureId);
-        /// <summary>
-        /// List all Dependents
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <returns>List&lt;Feature&gt;</returns>
-        List<Feature> ListFeatureDependents(string featureId);
-
-        /// <summary>
-        /// List all Dependents
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <returns>ApiResponse of List&lt;Feature&gt;</returns>
-        ApiResponse<List<Feature>> ListFeatureDependentsWithHttpInfo(string featureId);
-        /// <summary>
-        /// List all Features
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;Feature&gt;</returns>
-        List<Feature> ListFeatures();
-
-        /// <summary>
-        /// List all Features
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;Feature&gt;</returns>
-        ApiResponse<List<Feature>> ListFeaturesWithHttpInfo();
-        /// <summary>
-        /// Update a Feature Lifecycle
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <param name="lifecycle"></param>
-        /// <param name="mode"> (optional)</param>
-        /// <returns>Feature</returns>
-        Feature UpdateFeatureLifecycle(string featureId, string lifecycle, string mode = default(string));
-
-        /// <summary>
-        /// Update a Feature Lifecycle
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <param name="lifecycle"></param>
-        /// <param name="mode"> (optional)</param>
-        /// <returns>ApiResponse of Feature</returns>
-        ApiResponse<Feature> UpdateFeatureLifecycleWithHttpInfo(string featureId, string lifecycle, string mode = default(string));
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -262,7 +145,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IFeatureApi : IFeatureApiSync, IFeatureApiAsync
+    public interface IFeatureApi :  IFeatureApiAsync
     {
 
     }
@@ -290,7 +173,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -302,13 +184,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public FeatureApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public FeatureApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -318,11 +198,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -355,82 +230,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// Retrieve a Feature Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <returns>Feature</returns>
-        public Feature GetFeature(string featureId)
-        {
-            Okta.Sdk.Client.ApiResponse<Feature> localVarResponse = GetFeatureWithHttpInfo(featureId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve a Feature Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <returns>ApiResponse of Feature</returns>
-        public Okta.Sdk.Client.ApiResponse<Feature> GetFeatureWithHttpInfo(string featureId)
-        {
-            // verify the required parameter 'featureId' is set
-            if (featureId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'featureId' when calling FeatureApi->GetFeature");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Feature>("/api/v1/features/{featureId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetFeature", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// Retrieve a Feature Success
         /// </summary>
@@ -501,82 +300,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFeature", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all Dependencies Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <returns>List&lt;Feature&gt;</returns>
-        public List<Feature> ListFeatureDependencies(string featureId)
-        {
-            Okta.Sdk.Client.ApiResponse<List<Feature>> localVarResponse = ListFeatureDependenciesWithHttpInfo(featureId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all Dependencies Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <returns>ApiResponse of List&lt;Feature&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Feature>> ListFeatureDependenciesWithHttpInfo(string featureId)
-        {
-            // verify the required parameter 'featureId' is set
-            if (featureId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'featureId' when calling FeatureApi->ListFeatureDependencies");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Feature>>("/api/v1/features/{featureId}/dependencies", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListFeatureDependencies", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -712,82 +435,6 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
-        /// <returns>List&lt;Feature&gt;</returns>
-        public List<Feature> ListFeatureDependents(string featureId)
-        {
-            Okta.Sdk.Client.ApiResponse<List<Feature>> localVarResponse = ListFeatureDependentsWithHttpInfo(featureId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all Dependents Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <returns>ApiResponse of List&lt;Feature&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Feature>> ListFeatureDependentsWithHttpInfo(string featureId)
-        {
-            // verify the required parameter 'featureId' is set
-            if (featureId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'featureId' when calling FeatureApi->ListFeatureDependents");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Feature>>("/api/v1/features/{featureId}/dependents", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListFeatureDependents", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all Dependents Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feature&gt;</returns>
         public IOktaCollectionClient<Feature> ListFeatureDependentsAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -908,73 +555,6 @@ namespace Okta.Sdk.Api
         /// List all Features Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;Feature&gt;</returns>
-        public List<Feature> ListFeatures()
-        {
-            Okta.Sdk.Client.ApiResponse<List<Feature>> localVarResponse = ListFeaturesWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all Features Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;Feature&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Feature>> ListFeaturesWithHttpInfo()
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Feature>>("/api/v1/features", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListFeatures", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all Features Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feature&gt;</returns>
         public IOktaCollectionClient<Feature> ListFeaturesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1067,97 +647,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListFeatures", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update a Feature Lifecycle Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <param name="lifecycle"></param>
-        /// <param name="mode"> (optional)</param>
-        /// <returns>Feature</returns>
-        public Feature UpdateFeatureLifecycle(string featureId, string lifecycle, string mode = default(string))
-        {
-            Okta.Sdk.Client.ApiResponse<Feature> localVarResponse = UpdateFeatureLifecycleWithHttpInfo(featureId, lifecycle, mode);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update a Feature Lifecycle Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="featureId"></param>
-        /// <param name="lifecycle"></param>
-        /// <param name="mode"> (optional)</param>
-        /// <returns>ApiResponse of Feature</returns>
-        public Okta.Sdk.Client.ApiResponse<Feature> UpdateFeatureLifecycleWithHttpInfo(string featureId, string lifecycle, string mode = default(string))
-        {
-            // verify the required parameter 'featureId' is set
-            if (featureId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'featureId' when calling FeatureApi->UpdateFeatureLifecycle");
-            }
-
-            // verify the required parameter 'lifecycle' is set
-            if (lifecycle == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'lifecycle' when calling FeatureApi->UpdateFeatureLifecycle");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("lifecycle", Okta.Sdk.Client.ClientUtils.ParameterToString(lifecycle)); // path parameter
-            if (mode != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "mode", mode));
-            }
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Feature>("/api/v1/features/{featureId}/{lifecycle}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateFeatureLifecycle", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

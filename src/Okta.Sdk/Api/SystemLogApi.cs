@@ -21,49 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface ISystemLogApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// List all System Log Events
-        /// </summary>
-        /// <remarks>
-        /// The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="since"> (optional)</param>
-        /// <param name="until"> (optional)</param>
-        /// <param name="filter"> (optional)</param>
-        /// <param name="q"> (optional)</param>
-        /// <param name="limit"> (optional, default to 100)</param>
-        /// <param name="sortOrder"> (optional, default to &quot;ASCENDING&quot;)</param>
-        /// <param name="after"> (optional)</param>
-        /// <returns>List&lt;LogEvent&gt;</returns>
-        List<LogEvent> GetLogs(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string));
-
-        /// <summary>
-        /// List all System Log Events
-        /// </summary>
-        /// <remarks>
-        /// The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="since"> (optional)</param>
-        /// <param name="until"> (optional)</param>
-        /// <param name="filter"> (optional)</param>
-        /// <param name="q"> (optional)</param>
-        /// <param name="limit"> (optional, default to 100)</param>
-        /// <param name="sortOrder"> (optional, default to &quot;ASCENDING&quot;)</param>
-        /// <param name="after"> (optional)</param>
-        /// <returns>ApiResponse of List&lt;LogEvent&gt;</returns>
-        ApiResponse<List<LogEvent>> GetLogsWithHttpInfo(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string));
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -110,7 +67,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ISystemLogApi : ISystemLogApiSync, ISystemLogApiAsync
+    public interface ISystemLogApi :  ISystemLogApiAsync
     {
 
     }
@@ -138,7 +95,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -150,13 +106,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public SystemLogApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public SystemLogApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -166,11 +120,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -203,115 +152,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// List all System Log Events The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="since"> (optional)</param>
-        /// <param name="until"> (optional)</param>
-        /// <param name="filter"> (optional)</param>
-        /// <param name="q"> (optional)</param>
-        /// <param name="limit"> (optional, default to 100)</param>
-        /// <param name="sortOrder"> (optional, default to &quot;ASCENDING&quot;)</param>
-        /// <param name="after"> (optional)</param>
-        /// <returns>List&lt;LogEvent&gt;</returns>
-        public List<LogEvent> GetLogs(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string))
-        {
-            Okta.Sdk.Client.ApiResponse<List<LogEvent>> localVarResponse = GetLogsWithHttpInfo(since, until, filter, q, limit, sortOrder, after);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all System Log Events The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="since"> (optional)</param>
-        /// <param name="until"> (optional)</param>
-        /// <param name="filter"> (optional)</param>
-        /// <param name="q"> (optional)</param>
-        /// <param name="limit"> (optional, default to 100)</param>
-        /// <param name="sortOrder"> (optional, default to &quot;ASCENDING&quot;)</param>
-        /// <param name="after"> (optional)</param>
-        /// <returns>ApiResponse of List&lt;LogEvent&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<LogEvent>> GetLogsWithHttpInfo(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string))
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (since != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "since", since));
-            }
-            if (until != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "until", until));
-            }
-            if (filter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-            if (q != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "q", q));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (sortOrder != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
-            }
-            if (after != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
-            }
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<LogEvent>>("/api/v1/logs", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetLogs", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// List all System Log Events The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
         /// </summary>

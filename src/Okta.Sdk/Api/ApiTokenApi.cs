@@ -21,102 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface IApiTokenApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Retrieve an API Token&#39;s Metadata
-        /// </summary>
-        /// <remarks>
-        /// Get the metadata for an active API token by id.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="apiTokenId">id of the API Token</param>
-        /// <returns>ApiToken</returns>
-        ApiToken GetApiToken(string apiTokenId);
-
-        /// <summary>
-        /// Retrieve an API Token&#39;s Metadata
-        /// </summary>
-        /// <remarks>
-        /// Get the metadata for an active API token by id.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="apiTokenId">id of the API Token</param>
-        /// <returns>ApiResponse of ApiToken</returns>
-        ApiResponse<ApiToken> GetApiTokenWithHttpInfo(string apiTokenId);
-        /// <summary>
-        /// List all API Token Metadata
-        /// </summary>
-        /// <remarks>
-        /// Enumerates the metadata of the active API tokens in your organization.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
-        /// <param name="limit">A limit on the number of objects to return. (optional, default to 20)</param>
-        /// <param name="q">Finds a token that matches the name or clientName. (optional)</param>
-        /// <returns>List&lt;ApiToken&gt;</returns>
-        List<ApiToken> ListApiTokens(string after = default(string), int? limit = default(int?), string q = default(string));
-
-        /// <summary>
-        /// List all API Token Metadata
-        /// </summary>
-        /// <remarks>
-        /// Enumerates the metadata of the active API tokens in your organization.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
-        /// <param name="limit">A limit on the number of objects to return. (optional, default to 20)</param>
-        /// <param name="q">Finds a token that matches the name or clientName. (optional)</param>
-        /// <returns>ApiResponse of List&lt;ApiToken&gt;</returns>
-        ApiResponse<List<ApiToken>> ListApiTokensWithHttpInfo(string after = default(string), int? limit = default(int?), string q = default(string));
-        /// <summary>
-        /// Revoke an API Token
-        /// </summary>
-        /// <remarks>
-        /// Revoke an API token by id.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="apiTokenId">id of the API Token</param>
-        /// <returns></returns>
-        void RevokeApiToken(string apiTokenId);
-
-        /// <summary>
-        /// Revoke an API Token
-        /// </summary>
-        /// <remarks>
-        /// Revoke an API token by id.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="apiTokenId">id of the API Token</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> RevokeApiTokenWithHttpInfo(string apiTokenId);
-        /// <summary>
-        /// Revoke the Current API Token
-        /// </summary>
-        /// <remarks>
-        /// Revokes the API token provided in the Authorization header.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns></returns>
-        void RevokeCurrentApiToken();
-
-        /// <summary>
-        /// Revoke the Current API Token
-        /// </summary>
-        /// <remarks>
-        /// Revokes the API token provided in the Authorization header.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> RevokeCurrentApiTokenWithHttpInfo();
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -219,7 +123,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IApiTokenApi : IApiTokenApiSync, IApiTokenApiAsync
+    public interface IApiTokenApi :  IApiTokenApiAsync
     {
 
     }
@@ -247,7 +151,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -259,13 +162,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public ApiTokenApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public ApiTokenApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -275,11 +176,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -312,82 +208,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// Retrieve an API Token&#39;s Metadata Get the metadata for an active API token by id.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="apiTokenId">id of the API Token</param>
-        /// <returns>ApiToken</returns>
-        public ApiToken GetApiToken(string apiTokenId)
-        {
-            Okta.Sdk.Client.ApiResponse<ApiToken> localVarResponse = GetApiTokenWithHttpInfo(apiTokenId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve an API Token&#39;s Metadata Get the metadata for an active API token by id.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="apiTokenId">id of the API Token</param>
-        /// <returns>ApiResponse of ApiToken</returns>
-        public Okta.Sdk.Client.ApiResponse<ApiToken> GetApiTokenWithHttpInfo(string apiTokenId)
-        {
-            // verify the required parameter 'apiTokenId' is set
-            if (apiTokenId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'apiTokenId' when calling ApiTokenApi->GetApiToken");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("apiTokenId", Okta.Sdk.Client.ClientUtils.ParameterToString(apiTokenId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ApiToken>("/api/v1/api-tokens/{apiTokenId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetApiToken", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// Retrieve an API Token&#39;s Metadata Get the metadata for an active API token by id.
         /// </summary>
@@ -458,91 +278,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetApiToken", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all API Token Metadata Enumerates the metadata of the active API tokens in your organization.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
-        /// <param name="limit">A limit on the number of objects to return. (optional, default to 20)</param>
-        /// <param name="q">Finds a token that matches the name or clientName. (optional)</param>
-        /// <returns>List&lt;ApiToken&gt;</returns>
-        public List<ApiToken> ListApiTokens(string after = default(string), int? limit = default(int?), string q = default(string))
-        {
-            Okta.Sdk.Client.ApiResponse<List<ApiToken>> localVarResponse = ListApiTokensWithHttpInfo(after, limit, q);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all API Token Metadata Enumerates the metadata of the active API tokens in your organization.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
-        /// <param name="limit">A limit on the number of objects to return. (optional, default to 20)</param>
-        /// <param name="q">Finds a token that matches the name or clientName. (optional)</param>
-        /// <returns>ApiResponse of List&lt;ApiToken&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<ApiToken>> ListApiTokensWithHttpInfo(string after = default(string), int? limit = default(int?), string q = default(string))
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (after != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (q != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "q", q));
-            }
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<ApiToken>>("/api/v1/api-tokens", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListApiTokens", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -692,81 +427,6 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiTokenId">id of the API Token</param>
-        /// <returns></returns>
-        public void RevokeApiToken(string apiTokenId)
-        {
-            RevokeApiTokenWithHttpInfo(apiTokenId);
-        }
-
-        /// <summary>
-        /// Revoke an API Token Revoke an API token by id.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="apiTokenId">id of the API Token</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> RevokeApiTokenWithHttpInfo(string apiTokenId)
-        {
-            // verify the required parameter 'apiTokenId' is set
-            if (apiTokenId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'apiTokenId' when calling ApiTokenApi->RevokeApiToken");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("apiTokenId", Okta.Sdk.Client.ClientUtils.ParameterToString(apiTokenId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/api/v1/api-tokens/{apiTokenId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("RevokeApiToken", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Revoke an API Token Revoke an API token by id.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="apiTokenId">id of the API Token</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task RevokeApiTokenAsync(string apiTokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -831,66 +491,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RevokeApiToken", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Revoke the Current API Token Revokes the API token provided in the Authorization header.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns></returns>
-        public void RevokeCurrentApiToken()
-        {
-            RevokeCurrentApiTokenWithHttpInfo();
-        }
-
-        /// <summary>
-        /// Revoke the Current API Token Revokes the API token provided in the Authorization header.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> RevokeCurrentApiTokenWithHttpInfo()
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/api/v1/api-tokens/current", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("RevokeCurrentApiToken", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

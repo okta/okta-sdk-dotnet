@@ -164,7 +164,7 @@ namespace Okta.Sdk.Client
     /// Provides a default implementation of an Api client (both synchronous and asynchronous implementations),
     /// encapsulating general REST accessor use cases.
     /// </summary>
-    public partial class ApiClient : ISynchronousClient, IAsynchronousClient
+    public partial class ApiClient :  IAsynchronousClient
     {
         private readonly string _baseUrl;
 
@@ -433,125 +433,6 @@ namespace Okta.Sdk.Client
             return transformed;
         }
 
-        private ApiResponse<T> Exec<T>(RestRequest req, IReadableConfiguration configuration)
-        {
-            RestClient client = new RestClient(_baseUrl);
-
-            client.ClearHandlers();
-            var existingDeserializer = req.JsonSerializer as IDeserializer;
-            if (existingDeserializer != null)
-            {
-                client.AddHandler("application/json", () => existingDeserializer);
-                client.AddHandler("text/json", () => existingDeserializer);
-                client.AddHandler("text/x-json", () => existingDeserializer);
-                client.AddHandler("text/javascript", () => existingDeserializer);
-                client.AddHandler("*+json", () => existingDeserializer);
-            }
-            else
-            {
-                var customDeserializer = new CustomJsonCodec(SerializerSettings, configuration);
-                client.AddHandler("application/json", () => customDeserializer);
-                client.AddHandler("text/json", () => customDeserializer);
-                client.AddHandler("text/x-json", () => customDeserializer);
-                client.AddHandler("text/javascript", () => customDeserializer);
-                client.AddHandler("*+json", () => customDeserializer);
-            }
-
-            var xmlDeserializer = new XmlDeserializer();
-            client.AddHandler("application/xml", () => xmlDeserializer);
-            client.AddHandler("text/xml", () => xmlDeserializer);
-            client.AddHandler("*+xml", () => xmlDeserializer);
-            client.AddHandler("*", () => xmlDeserializer);
-
-            client.Timeout = configuration.ConnectionTimeout ?? Configuration.DefaultConnectionTimeout;
-
-            if (configuration.Proxy != null)
-            {
-                client.Proxy = configuration.Proxy;
-            }
-
-            if (configuration.UserAgent != null)
-            {
-                client.UserAgent = configuration.UserAgent;
-            }
-
-            if (configuration.ClientCertificates != null)
-            {
-                client.ClientCertificates = configuration.ClientCertificates;
-            }
-
-            InterceptRequest(req);
-
-            IRestResponse<T> response;
-            if (RetryConfiguration.RetryPolicy != null)
-            {
-                var policy = RetryConfiguration.RetryPolicy;
-                var policyResult = policy.ExecuteAndCapture(() => client.Execute(req));
-                response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>
-                {
-                    Request = req,
-                    ErrorException = policyResult.FinalException
-                };
-            }
-            else
-            {
-                response = client.Execute<T>(req);
-            }
-
-            // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
-            if (typeof(Okta.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
-            {
-                try
-                {
-                    response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
-                }
-                catch (Exception ex)
-                {
-                    throw ex.InnerException != null ? ex.InnerException : ex;
-                }
-            }
-            else if (typeof(T).Name == "Stream") // for binary response
-            {
-                response.Data = (T)(object)new MemoryStream(response.RawBytes);
-            }
-
-            InterceptResponse(req, response);
-
-            var result = ToApiResponse(response);
-            if (response.ErrorMessage != null)
-            {
-                result.ErrorText = response.ErrorMessage;
-            }
-
-            if (response.Cookies != null && response.Cookies.Count > 0)
-            {
-                if (result.Cookies == null) result.Cookies = new List<Cookie>();
-                foreach (var restResponseCookie in response.Cookies)
-                {
-                    var cookie = new Cookie(
-                        restResponseCookie.Name,
-                        restResponseCookie.Value,
-                        restResponseCookie.Path,
-                        restResponseCookie.Domain
-                    )
-                    {
-                        Comment = restResponseCookie.Comment,
-                        CommentUri = restResponseCookie.CommentUri,
-                        Discard = restResponseCookie.Discard,
-                        Expired = restResponseCookie.Expired,
-                        Expires = restResponseCookie.Expires,
-                        HttpOnly = restResponseCookie.HttpOnly,
-                        Port = restResponseCookie.Port,
-                        Secure = restResponseCookie.Secure,
-                        Version = restResponseCookie.Version
-                    };
-
-                    result.Cookies.Add(cookie);
-                }
-            }
-            return result;
-        }
-
         
         internal RestClient GetConfiguredClient(IReadableConfiguration configuration, IDeserializer serializer)
         {
@@ -613,7 +494,7 @@ namespace Okta.Sdk.Client
             InterceptRequest(req);
 
             IRestResponse<T> response;
-           if (RetryConfiguration.RetryPolicy != null || configuration.MaxRetries.HasValue && configuration.MaxRetries > 0)
+           if (RetryConfiguration.AsyncRetryPolicy != null || configuration.MaxRetries.HasValue && configuration.MaxRetries > 0)
             {
                 var policy = RetryConfiguration.AsyncRetryPolicy ?? DefaultRetryStrategy.GetRetryPolicy(configuration);
                 var policyResult = await policy.ExecuteAndCaptureAsync(action: (ctx) => ExecuteAsyncWithRetryHeaders(ctx, req, client), new Context()).ConfigureAwait(false);
@@ -788,105 +669,5 @@ namespace Okta.Sdk.Client
             return ExecAsync<T>(NewRequest(HttpMethod.Patch, path, options, config), config, cancellationToken);
         }
         #endregion IAsynchronousClient
-
-        #region ISynchronousClient
-        /// <summary>
-        /// Make a HTTP GET request (synchronous).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Get<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Get, path, options, config), config);
-        }
-
-        /// <summary>
-        /// Make a HTTP POST request (synchronous).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Post<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Post, path, options, config), config);
-        }
-
-        /// <summary>
-        /// Make a HTTP PUT request (synchronous).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Put<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Put, path, options, config), config);
-        }
-
-        /// <summary>
-        /// Make a HTTP DELETE request (synchronous).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Delete<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Delete, path, options, config), config);
-        }
-
-        /// <summary>
-        /// Make a HTTP HEAD request (synchronous).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Head<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Head, path, options, config), config);
-        }
-
-        /// <summary>
-        /// Make a HTTP OPTION request (synchronous).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Options<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Options, path, options, config), config);
-        }
-
-        /// <summary>
-        /// Make a HTTP PATCH request (synchronous).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Patch<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Patch, path, options, config), config);
-        }
-        #endregion ISynchronousClient
     }
 }

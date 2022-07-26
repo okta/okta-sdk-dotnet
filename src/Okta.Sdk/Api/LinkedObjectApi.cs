@@ -21,98 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface ILinkedObjectApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Create a Linked Object Definition
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkedObject"></param>
-        /// <returns>LinkedObject</returns>
-        LinkedObject AddLinkedObjectDefinition(LinkedObject linkedObject);
-
-        /// <summary>
-        /// Create a Linked Object Definition
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkedObject"></param>
-        /// <returns>ApiResponse of LinkedObject</returns>
-        ApiResponse<LinkedObject> AddLinkedObjectDefinitionWithHttpInfo(LinkedObject linkedObject);
-        /// <summary>
-        /// Delete a Linked Object Definition
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkedObjectName"></param>
-        /// <returns></returns>
-        void DeleteLinkedObjectDefinition(string linkedObjectName);
-
-        /// <summary>
-        /// Delete a Linked Object Definition
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkedObjectName"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteLinkedObjectDefinitionWithHttpInfo(string linkedObjectName);
-        /// <summary>
-        /// Retrieve a Linked Object Definition
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkedObjectName"></param>
-        /// <returns>LinkedObject</returns>
-        LinkedObject GetLinkedObjectDefinition(string linkedObjectName);
-
-        /// <summary>
-        /// Retrieve a Linked Object Definition
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkedObjectName"></param>
-        /// <returns>ApiResponse of LinkedObject</returns>
-        ApiResponse<LinkedObject> GetLinkedObjectDefinitionWithHttpInfo(string linkedObjectName);
-        /// <summary>
-        /// List all Linked Object Definitions
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;LinkedObject&gt;</returns>
-        List<LinkedObject> ListLinkedObjectDefinitions();
-
-        /// <summary>
-        /// List all Linked Object Definitions
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;LinkedObject&gt;</returns>
-        ApiResponse<List<LinkedObject>> ListLinkedObjectDefinitionsWithHttpInfo();
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -211,7 +119,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ILinkedObjectApi : ILinkedObjectApiSync, ILinkedObjectApiAsync
+    public interface ILinkedObjectApi :  ILinkedObjectApiAsync
     {
 
     }
@@ -239,7 +147,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -251,13 +158,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public LinkedObjectApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public LinkedObjectApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -267,11 +172,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -304,83 +204,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// Create a Linked Object Definition Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkedObject"></param>
-        /// <returns>LinkedObject</returns>
-        public LinkedObject AddLinkedObjectDefinition(LinkedObject linkedObject)
-        {
-            Okta.Sdk.Client.ApiResponse<LinkedObject> localVarResponse = AddLinkedObjectDefinitionWithHttpInfo(linkedObject);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create a Linked Object Definition Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkedObject"></param>
-        /// <returns>ApiResponse of LinkedObject</returns>
-        public Okta.Sdk.Client.ApiResponse<LinkedObject> AddLinkedObjectDefinitionWithHttpInfo(LinkedObject linkedObject)
-        {
-            // verify the required parameter 'linkedObject' is set
-            if (linkedObject == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'linkedObject' when calling LinkedObjectApi->AddLinkedObjectDefinition");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = linkedObject;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<LinkedObject>("/api/v1/meta/schemas/user/linkedObjects", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("AddLinkedObjectDefinition", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// Create a Linked Object Definition Success
         /// </summary>
@@ -452,81 +275,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AddLinkedObjectDefinition", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Delete a Linked Object Definition Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkedObjectName"></param>
-        /// <returns></returns>
-        public void DeleteLinkedObjectDefinition(string linkedObjectName)
-        {
-            DeleteLinkedObjectDefinitionWithHttpInfo(linkedObjectName);
-        }
-
-        /// <summary>
-        /// Delete a Linked Object Definition Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkedObjectName"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> DeleteLinkedObjectDefinitionWithHttpInfo(string linkedObjectName)
-        {
-            // verify the required parameter 'linkedObjectName' is set
-            if (linkedObjectName == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'linkedObjectName' when calling LinkedObjectApi->DeleteLinkedObjectDefinition");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("linkedObjectName", Okta.Sdk.Client.ClientUtils.ParameterToString(linkedObjectName)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/api/v1/meta/schemas/user/linkedObjects/{linkedObjectName}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeleteLinkedObjectDefinition", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -619,82 +367,6 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedObjectName"></param>
-        /// <returns>LinkedObject</returns>
-        public LinkedObject GetLinkedObjectDefinition(string linkedObjectName)
-        {
-            Okta.Sdk.Client.ApiResponse<LinkedObject> localVarResponse = GetLinkedObjectDefinitionWithHttpInfo(linkedObjectName);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve a Linked Object Definition Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkedObjectName"></param>
-        /// <returns>ApiResponse of LinkedObject</returns>
-        public Okta.Sdk.Client.ApiResponse<LinkedObject> GetLinkedObjectDefinitionWithHttpInfo(string linkedObjectName)
-        {
-            // verify the required parameter 'linkedObjectName' is set
-            if (linkedObjectName == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'linkedObjectName' when calling LinkedObjectApi->GetLinkedObjectDefinition");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("linkedObjectName", Okta.Sdk.Client.ClientUtils.ParameterToString(linkedObjectName)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<LinkedObject>("/api/v1/meta/schemas/user/linkedObjects/{linkedObjectName}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetLinkedObjectDefinition", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve a Linked Object Definition Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkedObjectName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LinkedObject</returns>
         public async System.Threading.Tasks.Task<LinkedObject> GetLinkedObjectDefinitionAsync(string linkedObjectName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -760,73 +432,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLinkedObjectDefinition", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all Linked Object Definitions Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;LinkedObject&gt;</returns>
-        public List<LinkedObject> ListLinkedObjectDefinitions()
-        {
-            Okta.Sdk.Client.ApiResponse<List<LinkedObject>> localVarResponse = ListLinkedObjectDefinitionsWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all Linked Object Definitions Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;LinkedObject&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<LinkedObject>> ListLinkedObjectDefinitionsWithHttpInfo()
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<LinkedObject>>("/api/v1/meta/schemas/user/linkedObjects", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListLinkedObjectDefinitions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

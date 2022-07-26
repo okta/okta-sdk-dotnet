@@ -21,169 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface INetworkZoneApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Activate a Network Zone
-        /// </summary>
-        /// <remarks>
-        /// Activate Network Zone
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <returns>NetworkZone</returns>
-        NetworkZone ActivateNetworkZone(string zoneId);
-
-        /// <summary>
-        /// Activate a Network Zone
-        /// </summary>
-        /// <remarks>
-        /// Activate Network Zone
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <returns>ApiResponse of NetworkZone</returns>
-        ApiResponse<NetworkZone> ActivateNetworkZoneWithHttpInfo(string zoneId);
-        /// <summary>
-        /// Create a Network Zone
-        /// </summary>
-        /// <remarks>
-        /// Adds a new network zone to your Okta organization.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zone"></param>
-        /// <returns>NetworkZone</returns>
-        NetworkZone CreateNetworkZone(NetworkZone zone);
-
-        /// <summary>
-        /// Create a Network Zone
-        /// </summary>
-        /// <remarks>
-        /// Adds a new network zone to your Okta organization.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zone"></param>
-        /// <returns>ApiResponse of NetworkZone</returns>
-        ApiResponse<NetworkZone> CreateNetworkZoneWithHttpInfo(NetworkZone zone);
-        /// <summary>
-        /// Deactivate a Network Zone
-        /// </summary>
-        /// <remarks>
-        /// Deactivates a network zone.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <returns>NetworkZone</returns>
-        NetworkZone DeactivateNetworkZone(string zoneId);
-
-        /// <summary>
-        /// Deactivate a Network Zone
-        /// </summary>
-        /// <remarks>
-        /// Deactivates a network zone.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <returns>ApiResponse of NetworkZone</returns>
-        ApiResponse<NetworkZone> DeactivateNetworkZoneWithHttpInfo(string zoneId);
-        /// <summary>
-        /// Delete a Network Zone
-        /// </summary>
-        /// <remarks>
-        /// Removes network zone.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <returns></returns>
-        void DeleteNetworkZone(string zoneId);
-
-        /// <summary>
-        /// Delete a Network Zone
-        /// </summary>
-        /// <remarks>
-        /// Removes network zone.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteNetworkZoneWithHttpInfo(string zoneId);
-        /// <summary>
-        /// Retrieve a Network Zone
-        /// </summary>
-        /// <remarks>
-        /// Fetches a network zone from your Okta organization by &#x60;id&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <returns>NetworkZone</returns>
-        NetworkZone GetNetworkZone(string zoneId);
-
-        /// <summary>
-        /// Retrieve a Network Zone
-        /// </summary>
-        /// <remarks>
-        /// Fetches a network zone from your Okta organization by &#x60;id&#x60;.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <returns>ApiResponse of NetworkZone</returns>
-        ApiResponse<NetworkZone> GetNetworkZoneWithHttpInfo(string zoneId);
-        /// <summary>
-        /// List all Network Zones
-        /// </summary>
-        /// <remarks>
-        /// Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="after">Specifies the pagination cursor for the next page of network zones (optional)</param>
-        /// <param name="limit">Specifies the number of results for a page (optional, default to -1)</param>
-        /// <param name="filter">Filters zones by usage or id expression (optional)</param>
-        /// <returns>List&lt;NetworkZone&gt;</returns>
-        List<NetworkZone> ListNetworkZones(string after = default(string), int? limit = default(int?), string filter = default(string));
-
-        /// <summary>
-        /// List all Network Zones
-        /// </summary>
-        /// <remarks>
-        /// Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="after">Specifies the pagination cursor for the next page of network zones (optional)</param>
-        /// <param name="limit">Specifies the number of results for a page (optional, default to -1)</param>
-        /// <param name="filter">Filters zones by usage or id expression (optional)</param>
-        /// <returns>ApiResponse of List&lt;NetworkZone&gt;</returns>
-        ApiResponse<List<NetworkZone>> ListNetworkZonesWithHttpInfo(string after = default(string), int? limit = default(int?), string filter = default(string));
-        /// <summary>
-        /// Replace a Network Zone
-        /// </summary>
-        /// <remarks>
-        /// Updates a network zone in your organization.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <param name="zone"></param>
-        /// <returns>NetworkZone</returns>
-        NetworkZone UpdateNetworkZone(string zoneId, NetworkZone zone);
-
-        /// <summary>
-        /// Replace a Network Zone
-        /// </summary>
-        /// <remarks>
-        /// Updates a network zone in your organization.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <param name="zone"></param>
-        /// <returns>ApiResponse of NetworkZone</returns>
-        ApiResponse<NetworkZone> UpdateNetworkZoneWithHttpInfo(string zoneId, NetworkZone zone);
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -356,7 +193,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface INetworkZoneApi : INetworkZoneApiSync, INetworkZoneApiAsync
+    public interface INetworkZoneApi :  INetworkZoneApiAsync
     {
 
     }
@@ -384,7 +221,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -396,13 +232,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public NetworkZoneApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public NetworkZoneApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -412,11 +246,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -449,82 +278,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// Activate a Network Zone Activate Network Zone
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <returns>NetworkZone</returns>
-        public NetworkZone ActivateNetworkZone(string zoneId)
-        {
-            Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = ActivateNetworkZoneWithHttpInfo(zoneId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Activate a Network Zone Activate Network Zone
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <returns>ApiResponse of NetworkZone</returns>
-        public Okta.Sdk.Client.ApiResponse<NetworkZone> ActivateNetworkZoneWithHttpInfo(string zoneId)
-        {
-            // verify the required parameter 'zoneId' is set
-            if (zoneId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'zoneId' when calling NetworkZoneApi->ActivateNetworkZone");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<NetworkZone>("/api/v1/zones/{zoneId}/lifecycle/activate", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ActivateNetworkZone", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// Activate a Network Zone Activate Network Zone
         /// </summary>
@@ -595,83 +348,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ActivateNetworkZone", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Create a Network Zone Adds a new network zone to your Okta organization.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zone"></param>
-        /// <returns>NetworkZone</returns>
-        public NetworkZone CreateNetworkZone(NetworkZone zone)
-        {
-            Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = CreateNetworkZoneWithHttpInfo(zone);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create a Network Zone Adds a new network zone to your Okta organization.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zone"></param>
-        /// <returns>ApiResponse of NetworkZone</returns>
-        public Okta.Sdk.Client.ApiResponse<NetworkZone> CreateNetworkZoneWithHttpInfo(NetworkZone zone)
-        {
-            // verify the required parameter 'zone' is set
-            if (zone == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'zone' when calling NetworkZoneApi->CreateNetworkZone");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = zone;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<NetworkZone>("/api/v1/zones", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateNetworkZone", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -766,82 +442,6 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
-        /// <returns>NetworkZone</returns>
-        public NetworkZone DeactivateNetworkZone(string zoneId)
-        {
-            Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = DeactivateNetworkZoneWithHttpInfo(zoneId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Deactivate a Network Zone Deactivates a network zone.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <returns>ApiResponse of NetworkZone</returns>
-        public Okta.Sdk.Client.ApiResponse<NetworkZone> DeactivateNetworkZoneWithHttpInfo(string zoneId)
-        {
-            // verify the required parameter 'zoneId' is set
-            if (zoneId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'zoneId' when calling NetworkZoneApi->DeactivateNetworkZone");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<NetworkZone>("/api/v1/zones/{zoneId}/lifecycle/deactivate", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeactivateNetworkZone", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Deactivate a Network Zone Deactivates a network zone.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
         public async System.Threading.Tasks.Task<NetworkZone> DeactivateNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -907,81 +507,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeactivateNetworkZone", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Delete a Network Zone Removes network zone.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <returns></returns>
-        public void DeleteNetworkZone(string zoneId)
-        {
-            DeleteNetworkZoneWithHttpInfo(zoneId);
-        }
-
-        /// <summary>
-        /// Delete a Network Zone Removes network zone.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> DeleteNetworkZoneWithHttpInfo(string zoneId)
-        {
-            // verify the required parameter 'zoneId' is set
-            if (zoneId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'zoneId' when calling NetworkZoneApi->DeleteNetworkZone");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/api/v1/zones/{zoneId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeleteNetworkZone", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1074,82 +599,6 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
-        /// <returns>NetworkZone</returns>
-        public NetworkZone GetNetworkZone(string zoneId)
-        {
-            Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = GetNetworkZoneWithHttpInfo(zoneId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve a Network Zone Fetches a network zone from your Okta organization by &#x60;id&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <returns>ApiResponse of NetworkZone</returns>
-        public Okta.Sdk.Client.ApiResponse<NetworkZone> GetNetworkZoneWithHttpInfo(string zoneId)
-        {
-            // verify the required parameter 'zoneId' is set
-            if (zoneId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'zoneId' when calling NetworkZoneApi->GetNetworkZone");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<NetworkZone>("/api/v1/zones/{zoneId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetNetworkZone", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve a Network Zone Fetches a network zone from your Okta organization by &#x60;id&#x60;.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
         public async System.Threading.Tasks.Task<NetworkZone> GetNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1215,91 +664,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNetworkZone", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all Network Zones Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="after">Specifies the pagination cursor for the next page of network zones (optional)</param>
-        /// <param name="limit">Specifies the number of results for a page (optional, default to -1)</param>
-        /// <param name="filter">Filters zones by usage or id expression (optional)</param>
-        /// <returns>List&lt;NetworkZone&gt;</returns>
-        public List<NetworkZone> ListNetworkZones(string after = default(string), int? limit = default(int?), string filter = default(string))
-        {
-            Okta.Sdk.Client.ApiResponse<List<NetworkZone>> localVarResponse = ListNetworkZonesWithHttpInfo(after, limit, filter);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all Network Zones Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="after">Specifies the pagination cursor for the next page of network zones (optional)</param>
-        /// <param name="limit">Specifies the number of results for a page (optional, default to -1)</param>
-        /// <param name="filter">Filters zones by usage or id expression (optional)</param>
-        /// <returns>ApiResponse of List&lt;NetworkZone&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<NetworkZone>> ListNetworkZonesWithHttpInfo(string after = default(string), int? limit = default(int?), string filter = default(string))
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (after != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (filter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<NetworkZone>>("/api/v1/zones", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListNetworkZones", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1435,92 +799,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListNetworkZones", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Replace a Network Zone Updates a network zone in your organization.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <param name="zone"></param>
-        /// <returns>NetworkZone</returns>
-        public NetworkZone UpdateNetworkZone(string zoneId, NetworkZone zone)
-        {
-            Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = UpdateNetworkZoneWithHttpInfo(zoneId, zone);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Replace a Network Zone Updates a network zone in your organization.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="zoneId"></param>
-        /// <param name="zone"></param>
-        /// <returns>ApiResponse of NetworkZone</returns>
-        public Okta.Sdk.Client.ApiResponse<NetworkZone> UpdateNetworkZoneWithHttpInfo(string zoneId, NetworkZone zone)
-        {
-            // verify the required parameter 'zoneId' is set
-            if (zoneId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'zoneId' when calling NetworkZoneApi->UpdateNetworkZone");
-            }
-
-            // verify the required parameter 'zone' is set
-            if (zone == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'zone' when calling NetworkZoneApi->UpdateNetworkZone");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
-            localVarRequestOptions.Data = zone;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<NetworkZone>("/api/v1/zones/{zoneId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateNetworkZone", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

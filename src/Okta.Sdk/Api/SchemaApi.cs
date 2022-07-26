@@ -21,165 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface ISchemaApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Retrieve the UI Layout for an Application
-        /// </summary>
-        /// <remarks>
-        /// Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appName"></param>
-        /// <returns>ApplicationLayout</returns>
-        ApplicationLayout GetApplicationLayout(string appName);
-
-        /// <summary>
-        /// Retrieve the UI Layout for an Application
-        /// </summary>
-        /// <remarks>
-        /// Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appName"></param>
-        /// <returns>ApiResponse of ApplicationLayout</returns>
-        ApiResponse<ApplicationLayout> GetApplicationLayoutWithHttpInfo(string appName);
-        /// <summary>
-        /// Retrieve the default Application User Schema for an Application
-        /// </summary>
-        /// <remarks>
-        /// Fetches the Schema for an App User
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appInstanceId"></param>
-        /// <returns>UserSchema</returns>
-        UserSchema GetApplicationUserSchema(string appInstanceId);
-
-        /// <summary>
-        /// Retrieve the default Application User Schema for an Application
-        /// </summary>
-        /// <remarks>
-        /// Fetches the Schema for an App User
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appInstanceId"></param>
-        /// <returns>ApiResponse of UserSchema</returns>
-        ApiResponse<UserSchema> GetApplicationUserSchemaWithHttpInfo(string appInstanceId);
-        /// <summary>
-        /// Retrieve the default Group Schema
-        /// </summary>
-        /// <remarks>
-        /// Fetches the group schema
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>GroupSchema</returns>
-        GroupSchema GetGroupSchema();
-
-        /// <summary>
-        /// Retrieve the default Group Schema
-        /// </summary>
-        /// <remarks>
-        /// Fetches the group schema
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of GroupSchema</returns>
-        ApiResponse<GroupSchema> GetGroupSchemaWithHttpInfo();
-        /// <summary>
-        /// Retrieve a User Schema
-        /// </summary>
-        /// <remarks>
-        /// Fetches the schema for a Schema Id.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schemaId"></param>
-        /// <returns>UserSchema</returns>
-        UserSchema GetUserSchema(string schemaId);
-
-        /// <summary>
-        /// Retrieve a User Schema
-        /// </summary>
-        /// <remarks>
-        /// Fetches the schema for a Schema Id.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schemaId"></param>
-        /// <returns>ApiResponse of UserSchema</returns>
-        ApiResponse<UserSchema> GetUserSchemaWithHttpInfo(string schemaId);
-        /// <summary>
-        /// Update the default Application User Schema for an Application
-        /// </summary>
-        /// <remarks>
-        /// Partial updates on the User Profile properties of the Application User Schema.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appInstanceId"></param>
-        /// <param name="body"> (optional)</param>
-        /// <returns>UserSchema</returns>
-        UserSchema UpdateApplicationUserProfile(string appInstanceId, UserSchema body = default(UserSchema));
-
-        /// <summary>
-        /// Update the default Application User Schema for an Application
-        /// </summary>
-        /// <remarks>
-        /// Partial updates on the User Profile properties of the Application User Schema.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appInstanceId"></param>
-        /// <param name="body"> (optional)</param>
-        /// <returns>ApiResponse of UserSchema</returns>
-        ApiResponse<UserSchema> UpdateApplicationUserProfileWithHttpInfo(string appInstanceId, UserSchema body = default(UserSchema));
-        /// <summary>
-        /// Update the default Group Schema
-        /// </summary>
-        /// <remarks>
-        /// Updates, adds or removes one or more custom Group Profile properties in the schema
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupSchema"> (optional)</param>
-        /// <returns>GroupSchema</returns>
-        GroupSchema UpdateGroupSchema(GroupSchema groupSchema = default(GroupSchema));
-
-        /// <summary>
-        /// Update the default Group Schema
-        /// </summary>
-        /// <remarks>
-        /// Updates, adds or removes one or more custom Group Profile properties in the schema
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupSchema"> (optional)</param>
-        /// <returns>ApiResponse of GroupSchema</returns>
-        ApiResponse<GroupSchema> UpdateGroupSchemaWithHttpInfo(GroupSchema groupSchema = default(GroupSchema));
-        /// <summary>
-        /// Update a User Schema
-        /// </summary>
-        /// <remarks>
-        /// Partial updates on the User Profile properties of the user schema.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schemaId"></param>
-        /// <param name="userSchema"></param>
-        /// <returns>UserSchema</returns>
-        UserSchema UpdateUserProfile(string schemaId, UserSchema userSchema);
-
-        /// <summary>
-        /// Update a User Schema
-        /// </summary>
-        /// <remarks>
-        /// Partial updates on the User Profile properties of the user schema.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schemaId"></param>
-        /// <param name="userSchema"></param>
-        /// <returns>ApiResponse of UserSchema</returns>
-        ApiResponse<UserSchema> UpdateUserProfileWithHttpInfo(string schemaId, UserSchema userSchema);
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -348,7 +189,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ISchemaApi : ISchemaApiSync, ISchemaApiAsync
+    public interface ISchemaApi :  ISchemaApiAsync
     {
 
     }
@@ -376,7 +217,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -388,13 +228,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public SchemaApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public SchemaApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -404,11 +242,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -441,82 +274,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// Retrieve the UI Layout for an Application Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appName"></param>
-        /// <returns>ApplicationLayout</returns>
-        public ApplicationLayout GetApplicationLayout(string appName)
-        {
-            Okta.Sdk.Client.ApiResponse<ApplicationLayout> localVarResponse = GetApplicationLayoutWithHttpInfo(appName);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve the UI Layout for an Application Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appName"></param>
-        /// <returns>ApiResponse of ApplicationLayout</returns>
-        public Okta.Sdk.Client.ApiResponse<ApplicationLayout> GetApplicationLayoutWithHttpInfo(string appName)
-        {
-            // verify the required parameter 'appName' is set
-            if (appName == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appName' when calling SchemaApi->GetApplicationLayout");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ApplicationLayout>("/api/v1/meta/layouts/apps/{appName}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetApplicationLayout", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// Retrieve the UI Layout for an Application Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
         /// </summary>
@@ -587,82 +344,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetApplicationLayout", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve the default Application User Schema for an Application Fetches the Schema for an App User
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appInstanceId"></param>
-        /// <returns>UserSchema</returns>
-        public UserSchema GetApplicationUserSchema(string appInstanceId)
-        {
-            Okta.Sdk.Client.ApiResponse<UserSchema> localVarResponse = GetApplicationUserSchemaWithHttpInfo(appInstanceId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve the default Application User Schema for an Application Fetches the Schema for an App User
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appInstanceId"></param>
-        /// <returns>ApiResponse of UserSchema</returns>
-        public Okta.Sdk.Client.ApiResponse<UserSchema> GetApplicationUserSchemaWithHttpInfo(string appInstanceId)
-        {
-            // verify the required parameter 'appInstanceId' is set
-            if (appInstanceId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appInstanceId' when calling SchemaApi->GetApplicationUserSchema");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("appInstanceId", Okta.Sdk.Client.ClientUtils.ParameterToString(appInstanceId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<UserSchema>("/api/v1/meta/schemas/apps/{appInstanceId}/default", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetApplicationUserSchema", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -755,73 +436,6 @@ namespace Okta.Sdk.Api
         /// Retrieve the default Group Schema Fetches the group schema
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>GroupSchema</returns>
-        public GroupSchema GetGroupSchema()
-        {
-            Okta.Sdk.Client.ApiResponse<GroupSchema> localVarResponse = GetGroupSchemaWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve the default Group Schema Fetches the group schema
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of GroupSchema</returns>
-        public Okta.Sdk.Client.ApiResponse<GroupSchema> GetGroupSchemaWithHttpInfo()
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<GroupSchema>("/api/v1/meta/schemas/group/default", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetGroupSchema", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve the default Group Schema Fetches the group schema
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupSchema</returns>
         public async System.Threading.Tasks.Task<GroupSchema> GetGroupSchemaAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -879,82 +493,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupSchema", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve a User Schema Fetches the schema for a Schema Id.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schemaId"></param>
-        /// <returns>UserSchema</returns>
-        public UserSchema GetUserSchema(string schemaId)
-        {
-            Okta.Sdk.Client.ApiResponse<UserSchema> localVarResponse = GetUserSchemaWithHttpInfo(schemaId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve a User Schema Fetches the schema for a Schema Id.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schemaId"></param>
-        /// <returns>ApiResponse of UserSchema</returns>
-        public Okta.Sdk.Client.ApiResponse<UserSchema> GetUserSchemaWithHttpInfo(string schemaId)
-        {
-            // verify the required parameter 'schemaId' is set
-            if (schemaId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'schemaId' when calling SchemaApi->GetUserSchema");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("schemaId", Okta.Sdk.Client.ClientUtils.ParameterToString(schemaId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<UserSchema>("/api/v1/meta/schemas/user/{schemaId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetUserSchema", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1034,86 +572,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUserSchema", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update the default Application User Schema for an Application Partial updates on the User Profile properties of the Application User Schema.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appInstanceId"></param>
-        /// <param name="body"> (optional)</param>
-        /// <returns>UserSchema</returns>
-        public UserSchema UpdateApplicationUserProfile(string appInstanceId, UserSchema body = default(UserSchema))
-        {
-            Okta.Sdk.Client.ApiResponse<UserSchema> localVarResponse = UpdateApplicationUserProfileWithHttpInfo(appInstanceId, body);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update the default Application User Schema for an Application Partial updates on the User Profile properties of the Application User Schema.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appInstanceId"></param>
-        /// <param name="body"> (optional)</param>
-        /// <returns>ApiResponse of UserSchema</returns>
-        public Okta.Sdk.Client.ApiResponse<UserSchema> UpdateApplicationUserProfileWithHttpInfo(string appInstanceId, UserSchema body = default(UserSchema))
-        {
-            // verify the required parameter 'appInstanceId' is set
-            if (appInstanceId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appInstanceId' when calling SchemaApi->UpdateApplicationUserProfile");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("appInstanceId", Okta.Sdk.Client.ClientUtils.ParameterToString(appInstanceId)); // path parameter
-            localVarRequestOptions.Data = body;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<UserSchema>("/api/v1/meta/schemas/apps/{appInstanceId}/default", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateApplicationUserProfile", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1211,77 +669,6 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupSchema"> (optional)</param>
-        /// <returns>GroupSchema</returns>
-        public GroupSchema UpdateGroupSchema(GroupSchema groupSchema = default(GroupSchema))
-        {
-            Okta.Sdk.Client.ApiResponse<GroupSchema> localVarResponse = UpdateGroupSchemaWithHttpInfo(groupSchema);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update the default Group Schema Updates, adds or removes one or more custom Group Profile properties in the schema
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupSchema"> (optional)</param>
-        /// <returns>ApiResponse of GroupSchema</returns>
-        public Okta.Sdk.Client.ApiResponse<GroupSchema> UpdateGroupSchemaWithHttpInfo(GroupSchema groupSchema = default(GroupSchema))
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = groupSchema;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<GroupSchema>("/api/v1/meta/schemas/group/default", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateGroupSchema", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update the default Group Schema Updates, adds or removes one or more custom Group Profile properties in the schema
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupSchema"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupSchema</returns>
         public async System.Threading.Tasks.Task<GroupSchema> UpdateGroupSchemaAsync(GroupSchema groupSchema = default(GroupSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1342,92 +729,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroupSchema", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update a User Schema Partial updates on the User Profile properties of the user schema.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schemaId"></param>
-        /// <param name="userSchema"></param>
-        /// <returns>UserSchema</returns>
-        public UserSchema UpdateUserProfile(string schemaId, UserSchema userSchema)
-        {
-            Okta.Sdk.Client.ApiResponse<UserSchema> localVarResponse = UpdateUserProfileWithHttpInfo(schemaId, userSchema);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update a User Schema Partial updates on the User Profile properties of the user schema.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schemaId"></param>
-        /// <param name="userSchema"></param>
-        /// <returns>ApiResponse of UserSchema</returns>
-        public Okta.Sdk.Client.ApiResponse<UserSchema> UpdateUserProfileWithHttpInfo(string schemaId, UserSchema userSchema)
-        {
-            // verify the required parameter 'schemaId' is set
-            if (schemaId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'schemaId' when calling SchemaApi->UpdateUserProfile");
-            }
-
-            // verify the required parameter 'userSchema' is set
-            if (userSchema == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userSchema' when calling SchemaApi->UpdateUserProfile");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("schemaId", Okta.Sdk.Client.ClientUtils.ParameterToString(schemaId)); // path parameter
-            localVarRequestOptions.Data = userSchema;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<UserSchema>("/api/v1/meta/schemas/user/{schemaId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateUserProfile", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

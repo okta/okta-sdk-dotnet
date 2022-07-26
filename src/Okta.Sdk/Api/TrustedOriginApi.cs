@@ -21,171 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface ITrustedOriginApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Activate a Trusted Origin
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <returns>TrustedOrigin</returns>
-        TrustedOrigin ActivateOrigin(string trustedOriginId);
-
-        /// <summary>
-        /// Activate a Trusted Origin
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <returns>ApiResponse of TrustedOrigin</returns>
-        ApiResponse<TrustedOrigin> ActivateOriginWithHttpInfo(string trustedOriginId);
-        /// <summary>
-        /// Create a Trusted Origin
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOrigin"></param>
-        /// <returns>TrustedOrigin</returns>
-        TrustedOrigin CreateOrigin(TrustedOrigin trustedOrigin);
-
-        /// <summary>
-        /// Create a Trusted Origin
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOrigin"></param>
-        /// <returns>ApiResponse of TrustedOrigin</returns>
-        ApiResponse<TrustedOrigin> CreateOriginWithHttpInfo(TrustedOrigin trustedOrigin);
-        /// <summary>
-        /// Deactivate a Trusted Origin
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <returns>TrustedOrigin</returns>
-        TrustedOrigin DeactivateOrigin(string trustedOriginId);
-
-        /// <summary>
-        /// Deactivate a Trusted Origin
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <returns>ApiResponse of TrustedOrigin</returns>
-        ApiResponse<TrustedOrigin> DeactivateOriginWithHttpInfo(string trustedOriginId);
-        /// <summary>
-        /// Delete a Trusted Origin
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <returns></returns>
-        void DeleteOrigin(string trustedOriginId);
-
-        /// <summary>
-        /// Delete a Trusted Origin
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteOriginWithHttpInfo(string trustedOriginId);
-        /// <summary>
-        /// Retrieve a Trusted Origin
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <returns>TrustedOrigin</returns>
-        TrustedOrigin GetOrigin(string trustedOriginId);
-
-        /// <summary>
-        /// Retrieve a Trusted Origin
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <returns>ApiResponse of TrustedOrigin</returns>
-        ApiResponse<TrustedOrigin> GetOriginWithHttpInfo(string trustedOriginId);
-        /// <summary>
-        /// List all Trusted Origins
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q"> (optional)</param>
-        /// <param name="filter"> (optional)</param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to -1)</param>
-        /// <returns>List&lt;TrustedOrigin&gt;</returns>
-        List<TrustedOrigin> ListOrigins(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?));
-
-        /// <summary>
-        /// List all Trusted Origins
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q"> (optional)</param>
-        /// <param name="filter"> (optional)</param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to -1)</param>
-        /// <returns>ApiResponse of List&lt;TrustedOrigin&gt;</returns>
-        ApiResponse<List<TrustedOrigin>> ListOriginsWithHttpInfo(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?));
-        /// <summary>
-        /// Replace a Trusted Origin
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <param name="trustedOrigin"></param>
-        /// <returns>TrustedOrigin</returns>
-        TrustedOrigin UpdateOrigin(string trustedOriginId, TrustedOrigin trustedOrigin);
-
-        /// <summary>
-        /// Replace a Trusted Origin
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <param name="trustedOrigin"></param>
-        /// <returns>ApiResponse of TrustedOrigin</returns>
-        ApiResponse<TrustedOrigin> UpdateOriginWithHttpInfo(string trustedOriginId, TrustedOrigin trustedOrigin);
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -360,7 +195,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITrustedOriginApi : ITrustedOriginApiSync, ITrustedOriginApiAsync
+    public interface ITrustedOriginApi :  ITrustedOriginApiAsync
     {
 
     }
@@ -388,7 +223,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -400,13 +234,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public TrustedOriginApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public TrustedOriginApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -416,11 +248,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -453,82 +280,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// Activate a Trusted Origin Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <returns>TrustedOrigin</returns>
-        public TrustedOrigin ActivateOrigin(string trustedOriginId)
-        {
-            Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = ActivateOriginWithHttpInfo(trustedOriginId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Activate a Trusted Origin Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <returns>ApiResponse of TrustedOrigin</returns>
-        public Okta.Sdk.Client.ApiResponse<TrustedOrigin> ActivateOriginWithHttpInfo(string trustedOriginId)
-        {
-            // verify the required parameter 'trustedOriginId' is set
-            if (trustedOriginId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'trustedOriginId' when calling TrustedOriginApi->ActivateOrigin");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("trustedOriginId", Okta.Sdk.Client.ClientUtils.ParameterToString(trustedOriginId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<TrustedOrigin>("/api/v1/trustedOrigins/{trustedOriginId}/lifecycle/activate", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ActivateOrigin", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// Activate a Trusted Origin Success
         /// </summary>
@@ -599,83 +350,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ActivateOrigin", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Create a Trusted Origin Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOrigin"></param>
-        /// <returns>TrustedOrigin</returns>
-        public TrustedOrigin CreateOrigin(TrustedOrigin trustedOrigin)
-        {
-            Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = CreateOriginWithHttpInfo(trustedOrigin);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create a Trusted Origin Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOrigin"></param>
-        /// <returns>ApiResponse of TrustedOrigin</returns>
-        public Okta.Sdk.Client.ApiResponse<TrustedOrigin> CreateOriginWithHttpInfo(TrustedOrigin trustedOrigin)
-        {
-            // verify the required parameter 'trustedOrigin' is set
-            if (trustedOrigin == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'trustedOrigin' when calling TrustedOriginApi->CreateOrigin");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = trustedOrigin;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<TrustedOrigin>("/api/v1/trustedOrigins", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateOrigin", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -770,82 +444,6 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
-        /// <returns>TrustedOrigin</returns>
-        public TrustedOrigin DeactivateOrigin(string trustedOriginId)
-        {
-            Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = DeactivateOriginWithHttpInfo(trustedOriginId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Deactivate a Trusted Origin Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <returns>ApiResponse of TrustedOrigin</returns>
-        public Okta.Sdk.Client.ApiResponse<TrustedOrigin> DeactivateOriginWithHttpInfo(string trustedOriginId)
-        {
-            // verify the required parameter 'trustedOriginId' is set
-            if (trustedOriginId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'trustedOriginId' when calling TrustedOriginApi->DeactivateOrigin");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("trustedOriginId", Okta.Sdk.Client.ClientUtils.ParameterToString(trustedOriginId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<TrustedOrigin>("/api/v1/trustedOrigins/{trustedOriginId}/lifecycle/deactivate", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeactivateOrigin", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Deactivate a Trusted Origin Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
         public async System.Threading.Tasks.Task<TrustedOrigin> DeactivateOriginAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -911,81 +509,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeactivateOrigin", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Delete a Trusted Origin Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <returns></returns>
-        public void DeleteOrigin(string trustedOriginId)
-        {
-            DeleteOriginWithHttpInfo(trustedOriginId);
-        }
-
-        /// <summary>
-        /// Delete a Trusted Origin Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Okta.Sdk.Client.ApiResponse<Object> DeleteOriginWithHttpInfo(string trustedOriginId)
-        {
-            // verify the required parameter 'trustedOriginId' is set
-            if (trustedOriginId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'trustedOriginId' when calling TrustedOriginApi->DeleteOrigin");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("trustedOriginId", Okta.Sdk.Client.ClientUtils.ParameterToString(trustedOriginId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/api/v1/trustedOrigins/{trustedOriginId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeleteOrigin", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1078,82 +601,6 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
-        /// <returns>TrustedOrigin</returns>
-        public TrustedOrigin GetOrigin(string trustedOriginId)
-        {
-            Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = GetOriginWithHttpInfo(trustedOriginId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve a Trusted Origin Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <returns>ApiResponse of TrustedOrigin</returns>
-        public Okta.Sdk.Client.ApiResponse<TrustedOrigin> GetOriginWithHttpInfo(string trustedOriginId)
-        {
-            // verify the required parameter 'trustedOriginId' is set
-            if (trustedOriginId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'trustedOriginId' when calling TrustedOriginApi->GetOrigin");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("trustedOriginId", Okta.Sdk.Client.ClientUtils.ParameterToString(trustedOriginId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<TrustedOrigin>("/api/v1/trustedOrigins/{trustedOriginId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetOrigin", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve a Trusted Origin Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
         public async System.Threading.Tasks.Task<TrustedOrigin> GetOriginAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1219,97 +666,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOrigin", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all Trusted Origins Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q"> (optional)</param>
-        /// <param name="filter"> (optional)</param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to -1)</param>
-        /// <returns>List&lt;TrustedOrigin&gt;</returns>
-        public List<TrustedOrigin> ListOrigins(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?))
-        {
-            Okta.Sdk.Client.ApiResponse<List<TrustedOrigin>> localVarResponse = ListOriginsWithHttpInfo(q, filter, after, limit);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all Trusted Origins Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q"> (optional)</param>
-        /// <param name="filter"> (optional)</param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to -1)</param>
-        /// <returns>ApiResponse of List&lt;TrustedOrigin&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<TrustedOrigin>> ListOriginsWithHttpInfo(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?))
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (q != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "q", q));
-            }
-            if (filter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-            if (after != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<TrustedOrigin>>("/api/v1/trustedOrigins", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListOrigins", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1455,92 +811,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListOrigins", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Replace a Trusted Origin Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <param name="trustedOrigin"></param>
-        /// <returns>TrustedOrigin</returns>
-        public TrustedOrigin UpdateOrigin(string trustedOriginId, TrustedOrigin trustedOrigin)
-        {
-            Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = UpdateOriginWithHttpInfo(trustedOriginId, trustedOrigin);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Replace a Trusted Origin Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="trustedOriginId"></param>
-        /// <param name="trustedOrigin"></param>
-        /// <returns>ApiResponse of TrustedOrigin</returns>
-        public Okta.Sdk.Client.ApiResponse<TrustedOrigin> UpdateOriginWithHttpInfo(string trustedOriginId, TrustedOrigin trustedOrigin)
-        {
-            // verify the required parameter 'trustedOriginId' is set
-            if (trustedOriginId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'trustedOriginId' when calling TrustedOriginApi->UpdateOrigin");
-            }
-
-            // verify the required parameter 'trustedOrigin' is set
-            if (trustedOrigin == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'trustedOrigin' when calling TrustedOriginApi->UpdateOrigin");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("trustedOriginId", Okta.Sdk.Client.ClientUtils.ParameterToString(trustedOriginId)); // path parameter
-            localVarRequestOptions.Data = trustedOrigin;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<TrustedOrigin>("/api/v1/trustedOrigins/{trustedOriginId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateOrigin", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

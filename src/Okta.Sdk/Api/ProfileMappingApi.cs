@@ -21,87 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface IProfileMappingApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Retrieve a Profile Mapping
-        /// </summary>
-        /// <remarks>
-        /// Fetches a single Profile Mapping referenced by its ID.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mappingId"></param>
-        /// <returns>ProfileMapping</returns>
-        ProfileMapping GetProfileMapping(string mappingId);
-
-        /// <summary>
-        /// Retrieve a Profile Mapping
-        /// </summary>
-        /// <remarks>
-        /// Fetches a single Profile Mapping referenced by its ID.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mappingId"></param>
-        /// <returns>ApiResponse of ProfileMapping</returns>
-        ApiResponse<ProfileMapping> GetProfileMappingWithHttpInfo(string mappingId);
-        /// <summary>
-        /// List all Profile Mappings
-        /// </summary>
-        /// <remarks>
-        /// Enumerates Profile Mappings in your organization with pagination.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to -1)</param>
-        /// <param name="sourceId"> (optional)</param>
-        /// <param name="targetId"> (optional, default to &quot;&quot;)</param>
-        /// <returns>List&lt;ProfileMapping&gt;</returns>
-        List<ProfileMapping> ListProfileMappings(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string));
-
-        /// <summary>
-        /// List all Profile Mappings
-        /// </summary>
-        /// <remarks>
-        /// Enumerates Profile Mappings in your organization with pagination.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to -1)</param>
-        /// <param name="sourceId"> (optional)</param>
-        /// <param name="targetId"> (optional, default to &quot;&quot;)</param>
-        /// <returns>ApiResponse of List&lt;ProfileMapping&gt;</returns>
-        ApiResponse<List<ProfileMapping>> ListProfileMappingsWithHttpInfo(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string));
-        /// <summary>
-        /// Update a Profile Mapping
-        /// </summary>
-        /// <remarks>
-        /// Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mappingId"></param>
-        /// <param name="profileMapping"></param>
-        /// <returns>ProfileMapping</returns>
-        ProfileMapping UpdateProfileMapping(string mappingId, ProfileMapping profileMapping);
-
-        /// <summary>
-        /// Update a Profile Mapping
-        /// </summary>
-        /// <remarks>
-        /// Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mappingId"></param>
-        /// <param name="profileMapping"></param>
-        /// <returns>ApiResponse of ProfileMapping</returns>
-        ApiResponse<ProfileMapping> UpdateProfileMappingWithHttpInfo(string mappingId, ProfileMapping profileMapping);
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -188,7 +107,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IProfileMappingApi : IProfileMappingApiSync, IProfileMappingApiAsync
+    public interface IProfileMappingApi :  IProfileMappingApiAsync
     {
 
     }
@@ -216,7 +135,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -228,13 +146,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public ProfileMappingApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public ProfileMappingApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -244,11 +160,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -281,82 +192,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// Retrieve a Profile Mapping Fetches a single Profile Mapping referenced by its ID.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mappingId"></param>
-        /// <returns>ProfileMapping</returns>
-        public ProfileMapping GetProfileMapping(string mappingId)
-        {
-            Okta.Sdk.Client.ApiResponse<ProfileMapping> localVarResponse = GetProfileMappingWithHttpInfo(mappingId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve a Profile Mapping Fetches a single Profile Mapping referenced by its ID.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mappingId"></param>
-        /// <returns>ApiResponse of ProfileMapping</returns>
-        public Okta.Sdk.Client.ApiResponse<ProfileMapping> GetProfileMappingWithHttpInfo(string mappingId)
-        {
-            // verify the required parameter 'mappingId' is set
-            if (mappingId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'mappingId' when calling ProfileMappingApi->GetProfileMapping");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("mappingId", Okta.Sdk.Client.ClientUtils.ParameterToString(mappingId)); // path parameter
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ProfileMapping>("/api/v1/mappings/{mappingId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetProfileMapping", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// Retrieve a Profile Mapping Fetches a single Profile Mapping referenced by its ID.
         /// </summary>
@@ -427,97 +262,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetProfileMapping", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all Profile Mappings Enumerates Profile Mappings in your organization with pagination.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to -1)</param>
-        /// <param name="sourceId"> (optional)</param>
-        /// <param name="targetId"> (optional, default to &quot;&quot;)</param>
-        /// <returns>List&lt;ProfileMapping&gt;</returns>
-        public List<ProfileMapping> ListProfileMappings(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string))
-        {
-            Okta.Sdk.Client.ApiResponse<List<ProfileMapping>> localVarResponse = ListProfileMappingsWithHttpInfo(after, limit, sourceId, targetId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all Profile Mappings Enumerates Profile Mappings in your organization with pagination.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to -1)</param>
-        /// <param name="sourceId"> (optional)</param>
-        /// <param name="targetId"> (optional, default to &quot;&quot;)</param>
-        /// <returns>ApiResponse of List&lt;ProfileMapping&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<ProfileMapping>> ListProfileMappingsWithHttpInfo(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string))
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (after != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (sourceId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sourceId", sourceId));
-            }
-            if (targetId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "targetId", targetId));
-            }
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<ProfileMapping>>("/api/v1/mappings", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListProfileMappings", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -663,92 +407,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListProfileMappings", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update a Profile Mapping Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mappingId"></param>
-        /// <param name="profileMapping"></param>
-        /// <returns>ProfileMapping</returns>
-        public ProfileMapping UpdateProfileMapping(string mappingId, ProfileMapping profileMapping)
-        {
-            Okta.Sdk.Client.ApiResponse<ProfileMapping> localVarResponse = UpdateProfileMappingWithHttpInfo(mappingId, profileMapping);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update a Profile Mapping Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mappingId"></param>
-        /// <param name="profileMapping"></param>
-        /// <returns>ApiResponse of ProfileMapping</returns>
-        public Okta.Sdk.Client.ApiResponse<ProfileMapping> UpdateProfileMappingWithHttpInfo(string mappingId, ProfileMapping profileMapping)
-        {
-            // verify the required parameter 'mappingId' is set
-            if (mappingId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'mappingId' when calling ProfileMappingApi->UpdateProfileMapping");
-            }
-
-            // verify the required parameter 'profileMapping' is set
-            if (profileMapping == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'profileMapping' when calling ProfileMappingApi->UpdateProfileMapping");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("mappingId", Okta.Sdk.Client.ClientUtils.ParameterToString(mappingId)); // path parameter
-            localVarRequestOptions.Data = profileMapping;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<ProfileMapping>("/api/v1/mappings/{mappingId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateProfileMapping", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

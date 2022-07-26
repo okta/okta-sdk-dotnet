@@ -21,56 +21,6 @@ using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface IThreatInsightApiSync : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Retrieve the ThreatInsight Configuration
-        /// </summary>
-        /// <remarks>
-        /// Gets current ThreatInsight configuration
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ThreatInsightConfiguration</returns>
-        ThreatInsightConfiguration GetCurrentConfiguration();
-
-        /// <summary>
-        /// Retrieve the ThreatInsight Configuration
-        /// </summary>
-        /// <remarks>
-        /// Gets current ThreatInsight configuration
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ThreatInsightConfiguration</returns>
-        ApiResponse<ThreatInsightConfiguration> GetCurrentConfigurationWithHttpInfo();
-        /// <summary>
-        /// Update the ThreatInsight Configuration
-        /// </summary>
-        /// <remarks>
-        /// Updates ThreatInsight configuration
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threatInsightConfiguration"></param>
-        /// <returns>ThreatInsightConfiguration</returns>
-        ThreatInsightConfiguration UpdateConfiguration(ThreatInsightConfiguration threatInsightConfiguration);
-
-        /// <summary>
-        /// Update the ThreatInsight Configuration
-        /// </summary>
-        /// <remarks>
-        /// Updates ThreatInsight configuration
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threatInsightConfiguration"></param>
-        /// <returns>ApiResponse of ThreatInsightConfiguration</returns>
-        ApiResponse<ThreatInsightConfiguration> UpdateConfigurationWithHttpInfo(ThreatInsightConfiguration threatInsightConfiguration);
-        #endregion Synchronous Operations
-    }
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -125,7 +75,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IThreatInsightApi : IThreatInsightApiSync, IThreatInsightApiAsync
+    public interface IThreatInsightApi :  IThreatInsightApiAsync
     {
 
     }
@@ -153,7 +103,6 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -165,13 +114,11 @@ namespace Okta.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public ThreatInsightApi(Okta.Sdk.Client.ISynchronousClient client, Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
+        public ThreatInsightApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
         {
-            if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
@@ -181,11 +128,6 @@ namespace Okta.Sdk.Api
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
         public Okta.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Okta.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -218,73 +160,6 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
          
-        /// <summary>
-        /// Retrieve the ThreatInsight Configuration Gets current ThreatInsight configuration
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ThreatInsightConfiguration</returns>
-        public ThreatInsightConfiguration GetCurrentConfiguration()
-        {
-            Okta.Sdk.Client.ApiResponse<ThreatInsightConfiguration> localVarResponse = GetCurrentConfigurationWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve the ThreatInsight Configuration Gets current ThreatInsight configuration
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ThreatInsightConfiguration</returns>
-        public Okta.Sdk.Client.ApiResponse<ThreatInsightConfiguration> GetCurrentConfigurationWithHttpInfo()
-        {
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ThreatInsightConfiguration>("/api/v1/threats/configuration", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetCurrentConfiguration", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
         /// <summary>
         /// Retrieve the ThreatInsight Configuration Gets current ThreatInsight configuration
         /// </summary>
@@ -346,83 +221,6 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCurrentConfiguration", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update the ThreatInsight Configuration Updates ThreatInsight configuration
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threatInsightConfiguration"></param>
-        /// <returns>ThreatInsightConfiguration</returns>
-        public ThreatInsightConfiguration UpdateConfiguration(ThreatInsightConfiguration threatInsightConfiguration)
-        {
-            Okta.Sdk.Client.ApiResponse<ThreatInsightConfiguration> localVarResponse = UpdateConfigurationWithHttpInfo(threatInsightConfiguration);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update the ThreatInsight Configuration Updates ThreatInsight configuration
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threatInsightConfiguration"></param>
-        /// <returns>ApiResponse of ThreatInsightConfiguration</returns>
-        public Okta.Sdk.Client.ApiResponse<ThreatInsightConfiguration> UpdateConfigurationWithHttpInfo(ThreatInsightConfiguration threatInsightConfiguration)
-        {
-            // verify the required parameter 'threatInsightConfiguration' is set
-            if (threatInsightConfiguration == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'threatInsightConfiguration' when calling ThreatInsightApi->UpdateConfiguration");
-            }
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = threatInsightConfiguration;
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<ThreatInsightConfiguration>("/api/v1/threats/configuration", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateConfiguration", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

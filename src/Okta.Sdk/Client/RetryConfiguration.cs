@@ -24,11 +24,6 @@ namespace Okta.Sdk.Client
     public static class RetryConfiguration
     {
         /// <summary>
-        /// Retry policy
-        /// </summary>
-        public static Policy<IRestResponse> RetryPolicy { get; set; }
-
-        /// <summary>
         /// Async retry policy
         /// </summary>
         public static AsyncPolicy<IRestResponse> AsyncRetryPolicy { get; set; }

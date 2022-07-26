@@ -494,7 +494,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 // Expire the user password
-                var user = _userApi.ExpirePassword(createdUser.Id);
+                var user = await _userApi.ExpirePasswordAsync(createdUser.Id);
 
                 user.Id.Should().Be(createdUser.Id);
             }
@@ -806,7 +806,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Type = "USER_ADMIN"
                 });
-                _userApi.AddGroupTargetToRole(createdUser.Id, role.Id, createdGroup.Id);
+                await _userApi.AddGroupTargetToRoleAsync(createdUser.Id, role.Id, createdGroup.Id);
 
                 var retrievedGroupsForRole = await _userApi.ListGroupTargetsForRoleAsync(createdUser.Id, role.Id).ToListAsync();
                 retrievedGroupsForRole.Should().Contain(x => x.Id == createdGroup.Id);
