@@ -64,7 +64,7 @@ namespace Okta.Sdk.UnitTest
             var mockClient = new MockAsyncClient(GetListOAuthTokensStubResponse(), HttpStatusCode.OK);
             var appApi = new ApplicationApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
-            var tokens = await appApi.ListOAuth2TokensForApplicationAsync("foo").ToListAsync();
+            var tokens = await appApi.ListOAuth2TokensForApplication("foo").ToListAsync();
 
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/tokens");
             mockClient.ReceivedPathParams["appId"].Should().Contain("foo");
@@ -213,7 +213,7 @@ namespace Okta.Sdk.UnitTest
                                     }]";
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
             var appApi = new ApplicationApi(mockClient, new Configuration { BasePath = "https://foo.com" });
-            var features = await appApi.ListFeaturesForApplicationAsync("foo").ToListAsync();
+            var features = await appApi.ListFeaturesForApplication("foo").ToListAsync();
 
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/features");
             mockClient.ReceivedPathParams["appId"].Should().Contain("foo");

@@ -45,12 +45,6 @@ namespace Okta.Sdk.Model
         public string PageContent { get; set; }
 
         /// <summary>
-        /// Gets or Sets DefaultApp
-        /// </summary>
-        [DataMember(Name = "defaultApp", EmitDefaultValue = false)]
-        public SignInPageAllOfDefaultApp DefaultApp { get; set; }
-
-        /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
@@ -84,7 +78,6 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class SignInPage {\n");
             sb.Append("  PageContent: ").Append(PageContent).Append("\n");
-            sb.Append("  DefaultApp: ").Append(DefaultApp).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  WidgetCustomizations: ").Append(WidgetCustomizations).Append("\n");
@@ -130,11 +123,6 @@ namespace Okta.Sdk.Model
                     this.PageContent.Equals(input.PageContent))
                 ) && 
                 (
-                    this.DefaultApp == input.DefaultApp ||
-                    (this.DefaultApp != null &&
-                    this.DefaultApp.Equals(input.DefaultApp))
-                ) && 
-                (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
@@ -168,10 +156,6 @@ namespace Okta.Sdk.Model
                 if (this.PageContent != null)
                 {
                     hashCode = (hashCode * 59) + this.PageContent.GetHashCode();
-                }
-                if (this.DefaultApp != null)
-                {
-                    hashCode = (hashCode * 59) + this.DefaultApp.GetHashCode();
                 }
                 if (this.Type != null)
                 {

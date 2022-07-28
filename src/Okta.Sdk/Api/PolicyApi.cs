@@ -295,7 +295,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional, default to &quot;&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Policy&gt;</returns>
-        IOktaCollectionClient<Policy> ListPoliciesAsync(string type, string status = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Policy> ListPolicies(string type, string status = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Policies
         /// </summary>
@@ -319,7 +319,7 @@ namespace Okta.Sdk.Api
         /// <param name="policyId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;PolicyRule&gt;</returns>
-        IOktaCollectionClient<PolicyRule> ListPolicyRulesAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<PolicyRule> ListPolicyRules(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Policy Rules
         /// </summary>
@@ -1403,7 +1403,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional, default to &quot;&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Policy&gt;</returns>
-        public IOktaCollectionClient<Policy> ListPoliciesAsync(string type, string status = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Policy> ListPolicies(string type, string status = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -1542,7 +1542,7 @@ namespace Okta.Sdk.Api
         /// <param name="policyId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;PolicyRule&gt;</returns>
-        public IOktaCollectionClient<PolicyRule> ListPolicyRulesAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<PolicyRule> ListPolicyRules(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'policyId' is set
             if (policyId == null)

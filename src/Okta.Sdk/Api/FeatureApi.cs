@@ -59,7 +59,7 @@ namespace Okta.Sdk.Api
         /// <param name="featureId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feature&gt;</returns>
-        IOktaCollectionClient<Feature> ListFeatureDependenciesAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Feature> ListFeatureDependencies(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Dependencies
         /// </summary>
@@ -81,7 +81,7 @@ namespace Okta.Sdk.Api
         /// <param name="featureId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feature&gt;</returns>
-        IOktaCollectionClient<Feature> ListFeatureDependentsAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Feature> ListFeatureDependents(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Dependents
         /// </summary>
@@ -102,7 +102,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feature&gt;</returns>
-        IOktaCollectionClient<Feature> ListFeaturesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Feature> ListFeatures(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Features
         /// </summary>
@@ -316,7 +316,7 @@ namespace Okta.Sdk.Api
         /// <param name="featureId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feature&gt;</returns>
-        public IOktaCollectionClient<Feature> ListFeatureDependenciesAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Feature> ListFeatureDependencies(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'featureId' is set
             if (featureId == null)
@@ -437,7 +437,7 @@ namespace Okta.Sdk.Api
         /// <param name="featureId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feature&gt;</returns>
-        public IOktaCollectionClient<Feature> ListFeatureDependentsAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Feature> ListFeatureDependents(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'featureId' is set
             if (featureId == null)
@@ -557,7 +557,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feature&gt;</returns>
-        public IOktaCollectionClient<Feature> ListFeaturesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Feature> ListFeatures(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

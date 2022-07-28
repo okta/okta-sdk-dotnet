@@ -18,7 +18,9 @@
     "gitRepoId" : "okta-sdk-dotnet", 
     "globalProperties": {
         "apiTests": false,
-        "modelTests": false
+        "modelTests": false,
+        "isOAuth": false
+        
     },
     "files": {
         "WebLink.mustache":{
@@ -45,6 +47,11 @@
             "destinationFilename": "OktaCollectionAsyncEnumerator.cs",
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Client"
+        },
+        "api_README.mustache":{
+            "destinationFilename":"API_README.md",
+            "templateType": "SupportingFiles",
+            "folder": "/"
         }
     }
 }

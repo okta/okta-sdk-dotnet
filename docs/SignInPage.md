@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PageContent** | **string** |  | 
-**DefaultApp** | [**SignInPageAllOfDefaultApp**](SignInPageAllOfDefaultApp.md) |  | [optional] 
 **Type** | **string** |  | 
 **Url** | **string** |  | [optional] 
 **WidgetCustomizations** | [**SignInPageAllOfWidgetCustomizations**](SignInPageAllOfWidgetCustomizations.md) |  | [optional] 

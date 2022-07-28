@@ -27,7 +27,7 @@ namespace Okta.Sdk.IntegrationTest
 
         private async Task DeleteAllIdps()
         {
-            var idps = await _idpApi.ListIdentityProvidersAsync().ToListAsync();
+            var idps = await _idpApi.ListIdentityProviders().ToListAsync();
 
             // Deactivate idps.
             foreach (var idp in idps)
@@ -709,7 +709,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var idps = await _idpApi.ListIdentityProvidersAsync().ToListAsync();
+                var idps = await _idpApi.ListIdentityProviders().ToListAsync();
                 idps.Should().NotBeNullOrEmpty();
                 idps.FirstOrDefault(x => x.Id == createdIdp.Id).Should().NotBeNull();
             }
@@ -1124,7 +1124,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var idpKeys = await _idpApi.ListIdentityProviderKeysAsync().ToListAsync();
+                var idpKeys = await _idpApi.ListIdentityProviderKeys().ToListAsync();
                 idpKeys.Should().NotBeNullOrEmpty();
                 idpKeys.FirstOrDefault(x => x.Kid == createdKey.Kid).Should().NotBeNull();
             }
@@ -1198,7 +1198,7 @@ namespace Okta.Sdk.IntegrationTest
                 var generatedKey1 = await _idpApi.GenerateIdentityProviderSigningKeyAsync(createdIdp.Id, 2);
                 var generatedKey2 = await _idpApi.GenerateIdentityProviderSigningKeyAsync(createdIdp.Id, 2);
 
-                var keys = await _idpApi.ListIdentityProviderSigningKeysAsync(createdIdp.Id).ToListAsync();
+                var keys = await _idpApi.ListIdentityProviderSigningKeys(createdIdp.Id).ToListAsync();
                 
                 keys.Should().NotBeNullOrEmpty();
                 keys.FirstOrDefault(x => x.Kid == generatedKey1.Kid).Should().NotBeNull();
@@ -1334,12 +1334,12 @@ namespace Okta.Sdk.IntegrationTest
 
                 var generatedCsr = await _idpApi.GenerateCsrForIdentityProviderAsync(createdIdp.Id, csrMetadata);
 
-                var retrievedCsrs = await _idpApi.ListCsrsForIdentityProviderAsync(createdIdp.Id).ToListAsync();
+                var retrievedCsrs = await _idpApi.ListCsrsForIdentityProvider(createdIdp.Id).ToListAsync();
                 retrievedCsrs.Any(x => x.Id == generatedCsr.Id).Should().BeTrue();
 
                 await _idpApi.RevokeCsrForIdentityProviderAsync(createdIdp.Id, generatedCsr.Id);
 
-                retrievedCsrs = await _idpApi.ListCsrsForIdentityProviderAsync(createdIdp.Id).ToListAsync();
+                retrievedCsrs = await _idpApi.ListCsrsForIdentityProvider(createdIdp.Id).ToListAsync();
                 retrievedCsrs.Any(x => x.Id == generatedCsr.Id).Should().BeFalse();
             }
             finally

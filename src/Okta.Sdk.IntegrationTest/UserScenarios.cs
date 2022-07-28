@@ -59,7 +59,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 async Task UserShouldExist()
                 {
-                    var foundUsers = await _userApi.ListUsersAsync(search: $"profile.nickName eq \"{createdUser.Profile.NickName}\"").ToArrayAsync();
+                    var foundUsers = await _userApi.ListUsers(search: $"profile.nickName eq \"{createdUser.Profile.NickName}\"").ToArrayAsync();
 
                     foundUsers.Length.Should().Be(1);
                     foundUsers.Single().Id.Should().Be(createdUser.Id);
@@ -312,7 +312,7 @@ namespace Okta.Sdk.IntegrationTest
                 updatedUser.Profile.NickName.Should().Be(nickName);
 
                 var retrievedUser = await _userApi.GetUserAsync(createdUser.Id);
-                retrievedUser.Profile.NickName.Should().Be(nickName);                
+                retrievedUser.Profile.NickName.Should().Be(nickName);
             }
             finally
             {
@@ -636,7 +636,7 @@ namespace Okta.Sdk.IntegrationTest
                 };
 
                 await _userApi.AssignRoleToUserAsync(createdUser.Id, assignRoleRequest);
-                var roles = await _userApi.ListAssignedRolesForUserAsync(createdUser.Id).ToListAsync();
+                var roles = await _userApi.ListAssignedRolesForUser(createdUser.Id).ToListAsync();
                 roles.Any(role => role.Type == "SUPER_ADMIN").Should().BeTrue();
             }
             finally
@@ -689,7 +689,7 @@ namespace Okta.Sdk.IntegrationTest
                 });
 
                 await Task.Delay(5000);
-                var roles = await _userApi.ListAssignedRolesForUserAsync(createdUser.Id).ToListAsync();
+                var roles = await _userApi.ListAssignedRolesForUser(createdUser.Id).ToListAsync();
 
                 roles.FirstOrDefault(x => x.Type == "SUPER_ADMIN").Should().NotBeNull();
                 roles.FirstOrDefault(x => x.Type == "APP_ADMIN").Should().NotBeNull();
@@ -743,7 +743,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 await Task.Delay(5000);
 
-                var roles = await _userApi.ListAssignedRolesForUserAsync(createdUser.Id).ToListAsync();
+                var roles = await _userApi.ListAssignedRolesForUser(createdUser.Id).ToListAsync();
                 roles.Any(x => x.Type == "SUPER_ADMIN").Should().BeTrue();
                 roles.Any(x => x.Type == "ORG_ADMIN").Should().BeTrue();
 
@@ -753,7 +753,7 @@ namespace Okta.Sdk.IntegrationTest
                 await _userApi.RemoveRoleFromUserAsync(createdUser.Id, role1.Id);
                 await _userApi.RemoveRoleFromUserAsync(createdUser.Id, role2.Id);
 
-                roles = await _userApi.ListAssignedRolesForUserAsync(createdUser.Id).ToListAsync();
+                roles = await _userApi.ListAssignedRolesForUser(createdUser.Id).ToListAsync();
                 roles.Any(x => x.Type == "SUPER_ADMIN").Should().BeFalse();
                 roles.Any(x => x.Type == "ORG_ADMIN").Should().BeFalse();
             }
@@ -808,7 +808,7 @@ namespace Okta.Sdk.IntegrationTest
                 });
                 await _userApi.AddGroupTargetToRoleAsync(createdUser.Id, role.Id, createdGroup.Id);
 
-                var retrievedGroupsForRole = await _userApi.ListGroupTargetsForRoleAsync(createdUser.Id, role.Id).ToListAsync();
+                var retrievedGroupsForRole = await _userApi.ListGroupTargetsForRole(createdUser.Id, role.Id).ToListAsync();
                 retrievedGroupsForRole.Should().Contain(x => x.Id == createdGroup.Id);
             }
             finally
@@ -876,13 +876,13 @@ namespace Okta.Sdk.IntegrationTest
                 await _userApi.AddGroupTargetToRoleAsync(createdUser.Id, role.Id, createdGroup1.Id);
                 await _userApi.AddGroupTargetToRoleAsync(createdUser.Id, role.Id, createdGroup2.Id);
 
-                var retrievedGroupsForRole = await _userApi.ListGroupTargetsForRoleAsync(createdUser.Id, role.Id).ToListAsync();
+                var retrievedGroupsForRole = await _userApi.ListGroupTargetsForRole(createdUser.Id, role.Id).ToListAsync();
                 retrievedGroupsForRole.Should().Contain(x => x.Id == createdGroup1.Id);
                 retrievedGroupsForRole.Should().Contain(x => x.Id == createdGroup2.Id);
 
                 await _userApi.RemoveGroupTargetFromRoleAsync(createdUser.Id, role.Id, createdGroup1.Id);
 
-                retrievedGroupsForRole = await _userApi.ListGroupTargetsForRoleAsync(createdUser.Id, role.Id).ToListAsync(); 
+                retrievedGroupsForRole = await _userApi.ListGroupTargetsForRole(createdUser.Id, role.Id).ToListAsync(); 
                 retrievedGroupsForRole.Should().NotContain(x => x.Id == createdGroup1.Id);
             }
             finally
@@ -1127,7 +1127,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 await _userApi.SetLinkedObjectForUserAsync(createdAssociatedUser.Id, primaryRelationshipName, createdPrimaryUser.Id);
 
-                var links = await _userApi.GetLinkedObjectsForUserAsync(createdAssociatedUser.Id, primaryRelationshipName).ToListAsync();
+                var links = await _userApi.GetLinkedObjectsForUser(createdAssociatedUser.Id, primaryRelationshipName).ToListAsync();
                 links.Should().NotBeNull();
                 links.Count.Should().Be(1);
             }
@@ -1221,12 +1221,12 @@ namespace Okta.Sdk.IntegrationTest
             {
                 await _userApi.SetLinkedObjectForUserAsync(createdAssociatedUser.Id, primaryRelationshipName, createdPrimaryUser.Id);
 
-                var links = await _userApi.GetLinkedObjectsForUserAsync(createdAssociatedUser.Id, primaryRelationshipName).ToListAsync();
+                var links = await _userApi.GetLinkedObjectsForUser(createdAssociatedUser.Id, primaryRelationshipName).ToListAsync();
                 links.Should().NotBeNull();
                 links.Count.Should().Be(1);
 
                 await _userApi.RemoveLinkedObjectForUserAsync(createdAssociatedUser.Id, primaryRelationshipName);//await createdAssociatedUser.RemoveLinkedObjectAsync(primaryRelationshipName);
-                links = await _userApi.GetLinkedObjectsForUserAsync(createdAssociatedUser.Id, primaryRelationshipName).ToListAsync();
+                links = await _userApi.GetLinkedObjectsForUser(createdAssociatedUser.Id, primaryRelationshipName).ToListAsync();
                 links.Should().NotBeNull();
                 links.Count.Should().Be(0);
             }
@@ -1277,7 +1277,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var assignedRoles = await _userApi.ListAssignedRolesForUserAsync(createdUser.Id).ToListAsync();
+                var assignedRoles = await _userApi.ListAssignedRolesForUser(createdUser.Id).ToListAsync();
                 assignedRoles.Should().NotBeNull();
                 assignedRoles.Count.Should().Be(0);
                 await _userApi.AssignRoleToUserAsync(createdUser.Id, new AssignRoleRequest
@@ -1285,7 +1285,7 @@ namespace Okta.Sdk.IntegrationTest
                     Type = "ORG_ADMIN",
                 });
 
-                assignedRoles = await _userApi.ListAssignedRolesForUserAsync(createdUser.Id).ToListAsync();
+                assignedRoles = await _userApi.ListAssignedRolesForUser(createdUser.Id).ToListAsync();
                 assignedRoles.Should().NotBeNull();
                 assignedRoles.Count.Should().Be(1);
                 assignedRoles[0].Type.Should().Be("ORG_ADMIN");

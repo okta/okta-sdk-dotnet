@@ -150,7 +150,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;TrustedOrigin&gt;</returns>
-        IOktaCollectionClient<TrustedOrigin> ListOriginsAsync(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<TrustedOrigin> ListOrigins(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Trusted Origins
         /// </summary>
@@ -685,7 +685,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;TrustedOrigin&gt;</returns>
-        public IOktaCollectionClient<TrustedOrigin> ListOriginsAsync(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<TrustedOrigin> ListOrigins(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

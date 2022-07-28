@@ -62,7 +62,7 @@ namespace Okta.Sdk.Api
         /// <param name="targetId"> (optional, default to &quot;&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ProfileMapping&gt;</returns>
-        IOktaCollectionClient<ProfileMapping> ListProfileMappingsAsync(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<ProfileMapping> ListProfileMappings(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Profile Mappings
         /// </summary>
@@ -281,7 +281,7 @@ namespace Okta.Sdk.Api
         /// <param name="targetId"> (optional, default to &quot;&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ProfileMapping&gt;</returns>
-        public IOktaCollectionClient<ProfileMapping> ListProfileMappingsAsync(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<ProfileMapping> ListProfileMappings(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

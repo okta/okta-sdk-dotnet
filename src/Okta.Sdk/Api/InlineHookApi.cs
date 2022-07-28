@@ -171,7 +171,7 @@ namespace Okta.Sdk.Api
         /// <param name="type"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InlineHook&gt;</returns>
-        IOktaCollectionClient<InlineHook> ListInlineHooksAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<InlineHook> ListInlineHooks(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Inline Hooks
         /// </summary>
@@ -789,7 +789,7 @@ namespace Okta.Sdk.Api
         /// <param name="type"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InlineHook&gt;</returns>
-        public IOktaCollectionClient<InlineHook> ListInlineHooksAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<InlineHook> ListInlineHooks(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
