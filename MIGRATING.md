@@ -2,6 +2,34 @@
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/). In short, we don't make breaking changes unless the major version changes!
 
+## Migrating from 5.x to 6.x-beta
+
+In previous versions we use an Open API v2 specification for the management APIs, and an Okta custom client generator to partially generate our SDK. A new version of the Open API specification (V3) has been released, and new well-known generators are now available and well received by the communitity. Planning the future of this SDK, we consider this as a good opportunity to modernize it by aligning with waht seems to be the direction of the API's client generation. 
+
+### OktaClient vs API clients
+
+In older series, you would instantiate a global `OktaClient` and access to the specific API clients via the Okta client's properties. Now, each API has its own specific client and you will only instantiate those clients you are interested in:
+
+_Before:_
+
+```csharp
+
+var oktaClient = new OktaClient();
+var apps = await oktaClient.Applications.ListApplications().ToListAsync();
+
+```
+
+_Now:_
+
+```csharp
+var appApiClient = new ApplicationApi();
+var apps = await appApiClient.ListApplications().ToListAsync();
+```
+
+### Enums
+
+TBD
+
 ## Migrating from 4.x to 5.x
 
 In previous versions, null resource properties would result in a resource object with all its properties set to `null`. Now, null resource properties will result in `null` property value.
