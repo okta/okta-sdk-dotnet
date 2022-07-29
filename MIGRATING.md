@@ -28,7 +28,25 @@ var apps = await appApiClient.ListApplications().ToListAsync();
 
 ### Enums
 
-TBD
+In this initial beta version, enums are not supported and they were converted to strings. This is because if in the future the API adds a new value for that enum the SDK will fail in runtime until a new version is released with the latest changes. We will continue iterating this feature in order to provide the best experience possible. 
+
+### Features parity
+
+In this first beta version we ported some of the existent features to the new SDK:
+
+* Iniline configuration, configuration via environment variables, appsettings.json or YAML files
+* Manual Pagination for collections
+* Default retry strategy for 429 HTTP responses and ability to provide your own strategy
+* Web Proxy is only available via inline configuration
+
+#### What's next?
+
+In the future releases we will provide support the following features:
+
+* OAuth for Okta
+* Extend Proxy configuration to env vars, appsettings.json and YAML files
+* Call other API endpoints
+
 
 ## Migrating from 4.x to 5.x
 
