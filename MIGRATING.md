@@ -37,7 +37,7 @@ In this first beta version we ported some of the existent features to the new SD
 * Iniline configuration, configuration via environment variables, appsettings.json or YAML files
 * Manual pagination for collections
 * Default retry strategy for 429 HTTP responses and ability to provide your own strategy
-* Web Proxy is only available via inline configuration
+* Web proxy is only available via inline configuration
 
 #### What's next?
 
