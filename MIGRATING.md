@@ -8,7 +8,7 @@ In previous versions we use an Open API v2 specification for the management APIs
 
 ### OktaClient vs API clients
 
-In older series, you would instantiate a global `OktaClient` and access to the specific API clients via the Okta client's properties. Now, each API has its own specific client and you will only instantiate those clients you are interested in:
+In releases prior to version 6, you would instantiate a global `OktaClient` and access specific API clients via its properties. Now, each API has its own client and you only instantiate those clients you are interested in:
 
 _Before:_
 
