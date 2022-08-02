@@ -37,6 +37,8 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(AuthorizationServerPolicy), "AuthorizationServerPolicy")]
     [JsonSubtypes.KnownSubType(typeof(IdentityProviderPolicy), "IDP_DISCOVERY")]
     [JsonSubtypes.KnownSubType(typeof(IdentityProviderPolicy), "IdentityProviderPolicy")]
+    [JsonSubtypes.KnownSubType(typeof(MultifactorEnrollmentPolicy), "MFA_ENROLL")]
+    [JsonSubtypes.KnownSubType(typeof(MultifactorEnrollmentPolicy), "MultifactorEnrollmentPolicy")]
     [JsonSubtypes.KnownSubType(typeof(AuthorizationServerPolicy), "OAUTH_AUTHORIZATION_POLICY")]
     [JsonSubtypes.KnownSubType(typeof(OktaSignOnPolicy), "OKTA_SIGN_ON")]
     [JsonSubtypes.KnownSubType(typeof(OktaSignOnPolicy), "OktaSignOnPolicy")]

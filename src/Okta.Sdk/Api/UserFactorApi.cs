@@ -171,7 +171,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserFactor&gt;</returns>
-        IOktaCollectionClient<UserFactor> ListFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<UserFactor> ListFactors(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Factors
         /// </summary>
@@ -193,7 +193,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserFactor&gt;</returns>
-        IOktaCollectionClient<UserFactor> ListSupportedFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<UserFactor> ListSupportedFactors(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Supported Factors
         /// </summary>
@@ -215,7 +215,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SecurityQuestion&gt;</returns>
-        IOktaCollectionClient<SecurityQuestion> ListSupportedSecurityQuestionsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<SecurityQuestion> ListSupportedSecurityQuestions(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Supported Security Questions
         /// </summary>
@@ -844,7 +844,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserFactor&gt;</returns>
-        public IOktaCollectionClient<UserFactor> ListFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<UserFactor> ListFactors(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -965,7 +965,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserFactor&gt;</returns>
-        public IOktaCollectionClient<UserFactor> ListSupportedFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<UserFactor> ListSupportedFactors(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1086,7 +1086,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SecurityQuestion&gt;</returns>
-        public IOktaCollectionClient<SecurityQuestion> ListSupportedSecurityQuestionsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<SecurityQuestion> ListSupportedSecurityQuestions(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)

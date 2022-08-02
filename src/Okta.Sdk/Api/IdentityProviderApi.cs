@@ -385,7 +385,7 @@ namespace Okta.Sdk.Api
         /// <param name="idpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Csr&gt;</returns>
-        IOktaCollectionClient<Csr> ListCsrsForIdentityProviderAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Csr> ListCsrsForIdentityProvider(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Certificate Signing Requests
         /// </summary>
@@ -407,7 +407,7 @@ namespace Okta.Sdk.Api
         /// <param name="idpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;IdentityProviderApplicationUser&gt;</returns>
-        IOktaCollectionClient<IdentityProviderApplicationUser> ListIdentityProviderApplicationUsersAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<IdentityProviderApplicationUser> ListIdentityProviderApplicationUsers(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Users
         /// </summary>
@@ -430,7 +430,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of key results in a page (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;JsonWebKey&gt;</returns>
-        IOktaCollectionClient<JsonWebKey> ListIdentityProviderKeysAsync(string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<JsonWebKey> ListIdentityProviderKeys(string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Credential Keys
         /// </summary>
@@ -453,7 +453,7 @@ namespace Okta.Sdk.Api
         /// <param name="idpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;JsonWebKey&gt;</returns>
-        IOktaCollectionClient<JsonWebKey> ListIdentityProviderSigningKeysAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<JsonWebKey> ListIdentityProviderSigningKeys(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Signing Credential Keys
         /// </summary>
@@ -478,7 +478,7 @@ namespace Okta.Sdk.Api
         /// <param name="type">Filters IdPs by type (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;IdentityProvider&gt;</returns>
-        IOktaCollectionClient<IdentityProvider> ListIdentityProvidersAsync(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<IdentityProvider> ListIdentityProviders(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Identity Providers
         /// </summary>
@@ -504,7 +504,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SocialAuthToken&gt;</returns>
-        IOktaCollectionClient<SocialAuthToken> ListSocialAuthTokensAsync(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<SocialAuthToken> ListSocialAuthTokens(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Tokens from a OIDC Identity Provider
         /// </summary>
@@ -1975,7 +1975,7 @@ namespace Okta.Sdk.Api
         /// <param name="idpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Csr&gt;</returns>
-        public IOktaCollectionClient<Csr> ListCsrsForIdentityProviderAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Csr> ListCsrsForIdentityProvider(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)
@@ -2096,7 +2096,7 @@ namespace Okta.Sdk.Api
         /// <param name="idpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;IdentityProviderApplicationUser&gt;</returns>
-        public IOktaCollectionClient<IdentityProviderApplicationUser> ListIdentityProviderApplicationUsersAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<IdentityProviderApplicationUser> ListIdentityProviderApplicationUsers(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)
@@ -2218,7 +2218,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of key results in a page (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;JsonWebKey&gt;</returns>
-        public IOktaCollectionClient<JsonWebKey> ListIdentityProviderKeysAsync(string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<JsonWebKey> ListIdentityProviderKeys(string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -2342,7 +2342,7 @@ namespace Okta.Sdk.Api
         /// <param name="idpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;JsonWebKey&gt;</returns>
-        public IOktaCollectionClient<JsonWebKey> ListIdentityProviderSigningKeysAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<JsonWebKey> ListIdentityProviderSigningKeys(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)
@@ -2466,7 +2466,7 @@ namespace Okta.Sdk.Api
         /// <param name="type">Filters IdPs by type (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;IdentityProvider&gt;</returns>
-        public IOktaCollectionClient<IdentityProvider> ListIdentityProvidersAsync(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<IdentityProvider> ListIdentityProviders(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -2609,7 +2609,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SocialAuthToken&gt;</returns>
-        public IOktaCollectionClient<SocialAuthToken> ListSocialAuthTokensAsync(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<SocialAuthToken> ListSocialAuthTokens(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)

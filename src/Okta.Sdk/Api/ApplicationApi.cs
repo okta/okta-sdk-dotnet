@@ -597,7 +597,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ApplicationGroupAssignment&gt;</returns>
-        IOktaCollectionClient<ApplicationGroupAssignment> ListApplicationGroupAssignmentsAsync(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<ApplicationGroupAssignment> ListApplicationGroupAssignments(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Assigned Groups
         /// </summary>
@@ -623,7 +623,7 @@ namespace Okta.Sdk.Api
         /// <param name="appId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;JsonWebKey&gt;</returns>
-        IOktaCollectionClient<JsonWebKey> ListApplicationKeysAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<JsonWebKey> ListApplicationKeys(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Key Credentials
         /// </summary>
@@ -651,7 +651,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AppUser&gt;</returns>
-        IOktaCollectionClient<AppUser> ListApplicationUsersAsync(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<AppUser> ListApplicationUsers(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Assigned Users
         /// </summary>
@@ -684,7 +684,7 @@ namespace Okta.Sdk.Api
         /// <param name="includeNonDeleted"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Application&gt;</returns>
-        IOktaCollectionClient<Application> ListApplicationsAsync(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Application> ListApplications(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Applications
         /// </summary>
@@ -711,7 +711,7 @@ namespace Okta.Sdk.Api
         /// <param name="appId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Csr&gt;</returns>
-        IOktaCollectionClient<Csr> ListCsrsForApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Csr> ListCsrsForApplication(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Certificate Signing Requests
         /// </summary>
@@ -733,7 +733,7 @@ namespace Okta.Sdk.Api
         /// <param name="appId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ApplicationFeature&gt;</returns>
-        IOktaCollectionClient<ApplicationFeature> ListFeaturesForApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<ApplicationFeature> ListFeaturesForApplication(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Features
         /// </summary>
@@ -758,7 +758,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2Token&gt;</returns>
-        IOktaCollectionClient<OAuth2Token> ListOAuth2TokensForApplicationAsync(string appId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<OAuth2Token> ListOAuth2TokensForApplication(string appId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all OAuth 2.0 Tokens
         /// </summary>
@@ -784,7 +784,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2ScopeConsentGrant&gt;</returns>
-        IOktaCollectionClient<OAuth2ScopeConsentGrant> ListScopeConsentGrantsAsync(string appId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<OAuth2ScopeConsentGrant> ListScopeConsentGrants(string appId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Scope Consent Grants
         /// </summary>
@@ -3140,7 +3140,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ApplicationGroupAssignment&gt;</returns>
-        public IOktaCollectionClient<ApplicationGroupAssignment> ListApplicationGroupAssignmentsAsync(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<ApplicationGroupAssignment> ListApplicationGroupAssignments(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -3297,7 +3297,7 @@ namespace Okta.Sdk.Api
         /// <param name="appId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;JsonWebKey&gt;</returns>
-        public IOktaCollectionClient<JsonWebKey> ListApplicationKeysAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<JsonWebKey> ListApplicationKeys(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -3424,7 +3424,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AppUser&gt;</returns>
-        public IOktaCollectionClient<AppUser> ListApplicationUsersAsync(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<AppUser> ListApplicationUsers(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -3604,7 +3604,7 @@ namespace Okta.Sdk.Api
         /// <param name="includeNonDeleted"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Application&gt;</returns>
-        public IOktaCollectionClient<Application> ListApplicationsAsync(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Application> ListApplications(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -3764,7 +3764,7 @@ namespace Okta.Sdk.Api
         /// <param name="appId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Csr&gt;</returns>
-        public IOktaCollectionClient<Csr> ListCsrsForApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Csr> ListCsrsForApplication(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -3885,7 +3885,7 @@ namespace Okta.Sdk.Api
         /// <param name="appId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ApplicationFeature&gt;</returns>
-        public IOktaCollectionClient<ApplicationFeature> ListFeaturesForApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<ApplicationFeature> ListFeaturesForApplication(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -4009,7 +4009,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2Token&gt;</returns>
-        public IOktaCollectionClient<OAuth2Token> ListOAuth2TokensForApplicationAsync(string appId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<OAuth2Token> ListOAuth2TokensForApplication(string appId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -4158,7 +4158,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2ScopeConsentGrant&gt;</returns>
-        public IOktaCollectionClient<OAuth2ScopeConsentGrant> ListScopeConsentGrantsAsync(string appId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<OAuth2ScopeConsentGrant> ListScopeConsentGrants(string appId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)

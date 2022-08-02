@@ -2,6 +2,52 @@
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/). In short, we don't make breaking changes unless the major version changes!
 
+## Migrating from 5.x to 6.x-beta
+
+In releases prior to version 6 we use an Open API v2 specification, and an Okta custom client generator to partially generate our SDK. A new version of the Open API specification (V3) has been released, and new well-known generators are now available and well received by the community. Planning the future of this SDK, we consider this a good opportunity to modernize by aligning with established standards for API client generation. 
+
+### OktaClient vs API clients
+
+In releases prior to version 6, you would instantiate a global `OktaClient` and access specific API clients via its properties. Now, each API has its own client and you only instantiate those clients you are interested in:
+
+_Before:_
+
+```csharp
+
+var oktaClient = new OktaClient();
+var apps = await oktaClient.Applications.ListApplications().ToListAsync();
+
+```
+
+_Now:_
+
+```csharp
+var appApiClient = new ApplicationApi();
+var apps = await appApiClient.ListApplications().ToListAsync();
+```
+
+### Enums
+
+In the initial beta version, enums are not supported and have been converted to strings.  This is due to the potential for the future introduction of new values that cause runtime failures which would require the release of a new version.  We will continue iterating in order to provide the best experience possible. 
+
+### Features parity
+
+In the first beta version we ported some of the existent features to the new SDK:
+
+* Iniline configuration, configuration via environment variables, appsettings.json or YAML files
+* Manual pagination for collections
+* Default retry strategy for 429 HTTP responses and ability to provide your own strategy
+* Web proxy is only available via inline configuration
+
+#### What's next?
+
+In future releases we will provide support for the following features:
+
+* OAuth for Okta
+* Extend proxy configuration to env vars, appsettings.json and YAML files
+* Call other API endpoints
+
+
 ## Migrating from 4.x to 5.x
 
 In previous versions, null resource properties would result in a resource object with all its properties set to `null`. Now, null resource properties will result in `null` property value.

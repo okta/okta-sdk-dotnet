@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AgreeToCustomPrivacyPolicy** | **bool** |  | [optional] 
 **CustomPrivacyPolicyUrl** | **string** |  | [optional] 
+**DefaultApp** | [**BrandDefaultApp**](BrandDefaultApp.md) |  | [optional] 
 **DisplayLanguage** | **string** | The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646). | [optional] 
 **Id** | **string** |  | [optional] [readonly] 
 **OptOutOfUserCommunications** | **bool** |  | [optional] 

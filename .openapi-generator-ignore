@@ -12,6 +12,7 @@ appveyor.yml
 **/*AllOf.cs
 *.sln
 git_push.sh
+README.md
 .gitignore
 
 # You can match any string of characters against a directory, file or extension with a single asterisk (*):

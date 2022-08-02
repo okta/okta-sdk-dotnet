@@ -98,7 +98,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OrgContactTypeObj&gt;</returns>
-        IOktaCollectionClient<OrgContactTypeObj> GetOrgContactTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<OrgContactTypeObj> GetOrgContactTypes(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the Org Contact Types
         /// </summary>
@@ -712,7 +712,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OrgContactTypeObj&gt;</returns>
-        public IOktaCollectionClient<OrgContactTypeObj> GetOrgContactTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<OrgContactTypeObj> GetOrgContactTypes(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

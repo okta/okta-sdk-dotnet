@@ -103,7 +103,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Brand&gt;</returns>
-        IOktaCollectionClient<Brand> ListEmailDomainBrandsAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Brand> ListEmailDomainBrands(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all brands linked to an email domain
         /// </summary>
@@ -516,7 +516,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Brand&gt;</returns>
-        public IOktaCollectionClient<Brand> ListEmailDomainBrandsAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Brand> ListEmailDomainBrands(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'emailDomainId' is set
             if (emailDomainId == null)

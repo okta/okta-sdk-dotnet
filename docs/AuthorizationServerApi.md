@@ -67,11 +67,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -147,11 +145,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -229,11 +225,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -313,11 +307,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -394,11 +386,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -478,11 +468,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -564,11 +552,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -648,11 +634,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -732,11 +716,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -812,11 +794,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -894,11 +874,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -978,11 +956,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1058,11 +1034,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1140,11 +1114,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1224,11 +1196,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1306,11 +1276,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1388,11 +1356,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1469,11 +1435,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1552,11 +1516,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1637,11 +1599,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1720,11 +1680,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1803,11 +1761,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1890,11 +1846,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1904,7 +1858,7 @@ namespace Example
             try
             {
                 // List all Credential Keys
-                List<JsonWebKey> result = apiInstance.ListAuthorizationServerKeys(authServerId);
+                List<JsonWebKey> result = apiInstance.ListAuthorizationServerKeys(authServerId).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1971,11 +1925,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1985,7 +1937,7 @@ namespace Example
             try
             {
                 // List all Policies
-                List<AuthorizationServerPolicy> result = apiInstance.ListAuthorizationServerPolicies(authServerId);
+                List<AuthorizationServerPolicy> result = apiInstance.ListAuthorizationServerPolicies(authServerId).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2052,11 +2004,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -2067,7 +2017,7 @@ namespace Example
             try
             {
                 // List all Policy Rules
-                List<AuthorizationServerPolicyRule> result = apiInstance.ListAuthorizationServerPolicyRules(policyId, authServerId);
+                List<AuthorizationServerPolicyRule> result = apiInstance.ListAuthorizationServerPolicyRules(policyId, authServerId).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2135,11 +2085,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -2151,7 +2099,7 @@ namespace Example
             try
             {
                 // List all Authorization Servers
-                List<AuthorizationServer> result = apiInstance.ListAuthorizationServers(q, limit, after);
+                List<AuthorizationServer> result = apiInstance.ListAuthorizationServers(q, limit, after).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2219,11 +2167,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -2233,7 +2179,7 @@ namespace Example
             try
             {
                 // List all Custom Token Claims
-                List<OAuth2Claim> result = apiInstance.ListOAuth2Claims(authServerId);
+                List<OAuth2Claim> result = apiInstance.ListOAuth2Claims(authServerId).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2300,11 +2246,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -2314,7 +2258,7 @@ namespace Example
             try
             {
                 // List all Clients
-                List<OAuth2Client> result = apiInstance.ListOAuth2ClientsForAuthorizationServer(authServerId);
+                List<OAuth2Client> result = apiInstance.ListOAuth2ClientsForAuthorizationServer(authServerId).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2381,11 +2325,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -2399,7 +2341,7 @@ namespace Example
             try
             {
                 // List all Custom Token Scopes
-                List<OAuth2Scope> result = apiInstance.ListOAuth2Scopes(authServerId, q, filter, cursor, limit);
+                List<OAuth2Scope> result = apiInstance.ListOAuth2Scopes(authServerId, q, filter, cursor, limit).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2470,11 +2412,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -2488,7 +2428,7 @@ namespace Example
             try
             {
                 // List all Refresh Tokens for a Client
-                List<OAuth2RefreshToken> result = apiInstance.ListRefreshTokensForAuthorizationServerAndClient(authServerId, clientId, expand, after, limit);
+                List<OAuth2RefreshToken> result = apiInstance.ListRefreshTokensForAuthorizationServerAndClient(authServerId, clientId, expand, after, limit).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2559,11 +2499,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -2643,11 +2581,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -2725,11 +2661,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -2740,7 +2674,7 @@ namespace Example
             try
             {
                 // Rotate all Credential Keys
-                List<JsonWebKey> result = apiInstance.RotateAuthorizationServerKeys(authServerId, use);
+                List<JsonWebKey> result = apiInstance.RotateAuthorizationServerKeys(authServerId, use).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2809,11 +2743,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -2893,11 +2825,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -2979,11 +2909,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -3067,11 +2995,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -3153,11 +3079,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://your-subdomain.okta.com";
+            config.OktaDomain = "https://your-subdomain.okta.com";
             // Configure API key authorization: API_Token
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 

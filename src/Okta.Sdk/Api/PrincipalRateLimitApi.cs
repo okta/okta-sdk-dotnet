@@ -83,7 +83,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;PrincipalRateLimitEntity&gt;</returns>
-        IOktaCollectionClient<PrincipalRateLimitEntity> ListPrincipalRateLimitEntitiesAsync(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<PrincipalRateLimitEntity> ListPrincipalRateLimitEntities(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Principal Rate Limits
         /// </summary>
@@ -380,7 +380,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;PrincipalRateLimitEntity&gt;</returns>
-        public IOktaCollectionClient<PrincipalRateLimitEntity> ListPrincipalRateLimitEntitiesAsync(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<PrincipalRateLimitEntity> ListPrincipalRateLimitEntities(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

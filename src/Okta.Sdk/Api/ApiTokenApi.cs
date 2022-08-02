@@ -61,7 +61,7 @@ namespace Okta.Sdk.Api
         /// <param name="q">Finds a token that matches the name or clientName. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ApiToken&gt;</returns>
-        IOktaCollectionClient<ApiToken> ListApiTokensAsync(string after = default(string), int? limit = default(int?), string q = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<ApiToken> ListApiTokens(string after = default(string), int? limit = default(int?), string q = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all API Token Metadata
         /// </summary>
@@ -296,7 +296,7 @@ namespace Okta.Sdk.Api
         /// <param name="q">Finds a token that matches the name or clientName. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ApiToken&gt;</returns>
-        public IOktaCollectionClient<ApiToken> ListApiTokensAsync(string after = default(string), int? limit = default(int?), string q = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<ApiToken> ListApiTokens(string after = default(string), int? limit = default(int?), string q = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

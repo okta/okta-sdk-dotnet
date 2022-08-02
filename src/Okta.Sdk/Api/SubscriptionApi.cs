@@ -85,7 +85,7 @@ namespace Okta.Sdk.Api
         /// <param name="roleTypeOrRoleId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Subscription&gt;</returns>
-        IOktaCollectionClient<Subscription> ListRoleSubscriptionsAsync(string roleTypeOrRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Subscription> ListRoleSubscriptions(string roleTypeOrRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Subscriptions of a Custom Role
         /// </summary>
@@ -107,7 +107,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Subscription&gt;</returns>
-        IOktaCollectionClient<Subscription> ListUserSubscriptionsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Subscription> ListUserSubscriptions(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Subscriptions
         /// </summary>
@@ -489,7 +489,7 @@ namespace Okta.Sdk.Api
         /// <param name="roleTypeOrRoleId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Subscription&gt;</returns>
-        public IOktaCollectionClient<Subscription> ListRoleSubscriptionsAsync(string roleTypeOrRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Subscription> ListRoleSubscriptions(string roleTypeOrRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'roleTypeOrRoleId' is set
             if (roleTypeOrRoleId == null)
@@ -610,7 +610,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Subscription&gt;</returns>
-        public IOktaCollectionClient<Subscription> ListUserSubscriptionsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Subscription> ListUserSubscriptions(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)

@@ -135,7 +135,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AgentPool&gt;</returns>
-        IOktaCollectionClient<AgentPool> GetAgentPoolsAsync(int? limitPerPoolType = default(int?), string poolType = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<AgentPool> GetAgentPools(int? limitPerPoolType = default(int?), string poolType = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Agent Pools
         /// </summary>
@@ -206,7 +206,7 @@ namespace Okta.Sdk.Api
         /// <param name="scheduled">Scope the list only to scheduled or ad-hoc updates. If the parameter is not provided we will return the whole list of updates. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AgentPoolUpdate&gt;</returns>
-        IOktaCollectionClient<AgentPoolUpdate> GetAgentPoolsUpdatesAsync(string poolId, bool? scheduled = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<AgentPoolUpdate> GetAgentPoolsUpdates(string poolId, bool? scheduled = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Agent Pool updates
         /// </summary>
@@ -817,7 +817,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AgentPool&gt;</returns>
-        public IOktaCollectionClient<AgentPool> GetAgentPoolsAsync(int? limitPerPoolType = default(int?), string poolType = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<AgentPool> GetAgentPools(int? limitPerPoolType = default(int?), string poolType = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -1118,7 +1118,7 @@ namespace Okta.Sdk.Api
         /// <param name="scheduled">Scope the list only to scheduled or ad-hoc updates. If the parameter is not provided we will return the whole list of updates. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AgentPoolUpdate&gt;</returns>
-        public IOktaCollectionClient<AgentPoolUpdate> GetAgentPoolsUpdatesAsync(string poolId, bool? scheduled = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<AgentPoolUpdate> GetAgentPoolsUpdates(string poolId, bool? scheduled = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'poolId' is set
             if (poolId == null)

@@ -1,4 +1,6 @@
-README.md
+API_README.md
+docs/APNSConfiguration.md
+docs/APNSPushProvider.md
 docs/AccessPolicy.md
 docs/AccessPolicyConstraint.md
 docs/AccessPolicyConstraints.md
@@ -89,6 +91,7 @@ docs/BouncesRemoveListError.md
 docs/BouncesRemoveListObj.md
 docs/BouncesRemoveListResult.md
 docs/Brand.md
+docs/BrandDefaultApp.md
 docs/BrowserPluginApplication.md
 docs/CAPTCHAApi.md
 docs/CAPTCHAInstance.md
@@ -115,6 +118,10 @@ docs/CustomizablePage.md
 docs/CustomizationApi.md
 docs/DNSRecord.md
 docs/DeviceAccessPolicyRuleCondition.md
+docs/DeviceAssurance.md
+docs/DeviceAssuranceApi.md
+docs/DeviceAssuranceDiskEncryptionType.md
+docs/DeviceAssuranceScreenLockType.md
 docs/DevicePolicyRuleCondition.md
 docs/DevicePolicyRuleConditionPlatform.md
 docs/Domain.md
@@ -151,6 +158,8 @@ docs/EventHookChannelConfig.md
 docs/EventHookChannelConfigAuthScheme.md
 docs/EventHookChannelConfigHeader.md
 docs/EventSubscriptions.md
+docs/FCMConfiguration.md
+docs/FCMPushProvider.md
 docs/Feature.md
 docs/FeatureApi.md
 docs/FeatureStage.md
@@ -227,6 +236,10 @@ docs/LogTarget.md
 docs/LogTransaction.md
 docs/LogUserAgent.md
 docs/MDMEnrollmentPolicyRuleCondition.md
+docs/MultifactorEnrollmentPolicy.md
+docs/MultifactorEnrollmentPolicyAuthenticatorSettings.md
+docs/MultifactorEnrollmentPolicyAuthenticatorSettingsEnroll.md
+docs/MultifactorEnrollmentPolicySettings.md
 docs/NetworkZone.md
 docs/NetworkZoneAddress.md
 docs/NetworkZoneApi.md
@@ -340,6 +353,8 @@ docs/ProvisioningConnectionRequest.md
 docs/ProvisioningDeprovisionedCondition.md
 docs/ProvisioningGroups.md
 docs/ProvisioningSuspendedCondition.md
+docs/PushProvider.md
+docs/PushProviderApi.md
 docs/PushUserFactor.md
 docs/PushUserFactorProfile.md
 docs/RecoveryQuestionCredential.md
@@ -365,7 +380,6 @@ docs/Session.md
 docs/SessionApi.md
 docs/SessionIdentityProvider.md
 docs/SignInPage.md
-docs/SignInPageAllOfDefaultApp.md
 docs/SignInPageAllOfWidgetCustomizations.md
 docs/SignOnInlineHook.md
 docs/SingleLogout.md
@@ -432,6 +446,7 @@ docs/UserTypeCondition.md
 docs/VerificationMethod.md
 docs/VerifyFactorRequest.md
 docs/VerifyUserFactorResponse.md
+docs/VersionObject.md
 docs/WebAuthnUserFactor.md
 docs/WebAuthnUserFactorProfile.md
 docs/WebUserFactor.md
@@ -447,6 +462,7 @@ src/Okta.Sdk/Api/AuthorizationServerApi.cs
 src/Okta.Sdk/Api/BehaviorApi.cs
 src/Okta.Sdk/Api/CAPTCHAApi.cs
 src/Okta.Sdk/Api/CustomizationApi.cs
+src/Okta.Sdk/Api/DeviceAssuranceApi.cs
 src/Okta.Sdk/Api/DomainApi.cs
 src/Okta.Sdk/Api/EmailDomainApi.cs
 src/Okta.Sdk/Api/EventHookApi.cs
@@ -460,6 +476,7 @@ src/Okta.Sdk/Api/OrgSettingApi.cs
 src/Okta.Sdk/Api/PolicyApi.cs
 src/Okta.Sdk/Api/PrincipalRateLimitApi.cs
 src/Okta.Sdk/Api/ProfileMappingApi.cs
+src/Okta.Sdk/Api/PushProviderApi.cs
 src/Okta.Sdk/Api/SchemaApi.cs
 src/Okta.Sdk/Api/SessionApi.cs
 src/Okta.Sdk/Api/SubscriptionApi.cs
@@ -490,6 +507,8 @@ src/Okta.Sdk/Client/OpenAPIDateConverter.cs
 src/Okta.Sdk/Client/RequestOptions.cs
 src/Okta.Sdk/Client/RetryConfiguration.cs
 src/Okta.Sdk/Client/WebLink.cs
+src/Okta.Sdk/Model/APNSConfiguration.cs
+src/Okta.Sdk/Model/APNSPushProvider.cs
 src/Okta.Sdk/Model/AbstractOpenAPISchema.cs
 src/Okta.Sdk/Model/AccessPolicy.cs
 src/Okta.Sdk/Model/AccessPolicyConstraint.cs
@@ -575,6 +594,7 @@ src/Okta.Sdk/Model/BouncesRemoveListError.cs
 src/Okta.Sdk/Model/BouncesRemoveListObj.cs
 src/Okta.Sdk/Model/BouncesRemoveListResult.cs
 src/Okta.Sdk/Model/Brand.cs
+src/Okta.Sdk/Model/BrandDefaultApp.cs
 src/Okta.Sdk/Model/BrowserPluginApplication.cs
 src/Okta.Sdk/Model/CAPTCHAInstance.cs
 src/Okta.Sdk/Model/CallUserFactor.cs
@@ -599,6 +619,9 @@ src/Okta.Sdk/Model/CustomHotpUserFactorProfile.cs
 src/Okta.Sdk/Model/CustomizablePage.cs
 src/Okta.Sdk/Model/DNSRecord.cs
 src/Okta.Sdk/Model/DeviceAccessPolicyRuleCondition.cs
+src/Okta.Sdk/Model/DeviceAssurance.cs
+src/Okta.Sdk/Model/DeviceAssuranceDiskEncryptionType.cs
+src/Okta.Sdk/Model/DeviceAssuranceScreenLockType.cs
 src/Okta.Sdk/Model/DevicePolicyRuleCondition.cs
 src/Okta.Sdk/Model/DevicePolicyRuleConditionPlatform.cs
 src/Okta.Sdk/Model/Domain.cs
@@ -632,6 +655,8 @@ src/Okta.Sdk/Model/EventHookChannelConfig.cs
 src/Okta.Sdk/Model/EventHookChannelConfigAuthScheme.cs
 src/Okta.Sdk/Model/EventHookChannelConfigHeader.cs
 src/Okta.Sdk/Model/EventSubscriptions.cs
+src/Okta.Sdk/Model/FCMConfiguration.cs
+src/Okta.Sdk/Model/FCMPushProvider.cs
 src/Okta.Sdk/Model/Feature.cs
 src/Okta.Sdk/Model/FeatureStage.cs
 src/Okta.Sdk/Model/ForgotPasswordResponse.cs
@@ -703,6 +728,10 @@ src/Okta.Sdk/Model/LogTarget.cs
 src/Okta.Sdk/Model/LogTransaction.cs
 src/Okta.Sdk/Model/LogUserAgent.cs
 src/Okta.Sdk/Model/MDMEnrollmentPolicyRuleCondition.cs
+src/Okta.Sdk/Model/MultifactorEnrollmentPolicy.cs
+src/Okta.Sdk/Model/MultifactorEnrollmentPolicyAuthenticatorSettings.cs
+src/Okta.Sdk/Model/MultifactorEnrollmentPolicyAuthenticatorSettingsEnroll.cs
+src/Okta.Sdk/Model/MultifactorEnrollmentPolicySettings.cs
 src/Okta.Sdk/Model/NetworkZone.cs
 src/Okta.Sdk/Model/NetworkZoneAddress.cs
 src/Okta.Sdk/Model/NetworkZoneLocation.cs
@@ -811,6 +840,7 @@ src/Okta.Sdk/Model/ProvisioningConnectionRequest.cs
 src/Okta.Sdk/Model/ProvisioningDeprovisionedCondition.cs
 src/Okta.Sdk/Model/ProvisioningGroups.cs
 src/Okta.Sdk/Model/ProvisioningSuspendedCondition.cs
+src/Okta.Sdk/Model/PushProvider.cs
 src/Okta.Sdk/Model/PushUserFactor.cs
 src/Okta.Sdk/Model/PushUserFactorProfile.cs
 src/Okta.Sdk/Model/RecoveryQuestionCredential.cs
@@ -834,7 +864,6 @@ src/Okta.Sdk/Model/SecurityQuestionUserFactorProfile.cs
 src/Okta.Sdk/Model/Session.cs
 src/Okta.Sdk/Model/SessionIdentityProvider.cs
 src/Okta.Sdk/Model/SignInPage.cs
-src/Okta.Sdk/Model/SignInPageAllOfDefaultApp.cs
 src/Okta.Sdk/Model/SignInPageAllOfWidgetCustomizations.cs
 src/Okta.Sdk/Model/SignOnInlineHook.cs
 src/Okta.Sdk/Model/SingleLogout.cs
@@ -893,6 +922,7 @@ src/Okta.Sdk/Model/UserTypeCondition.cs
 src/Okta.Sdk/Model/VerificationMethod.cs
 src/Okta.Sdk/Model/VerifyFactorRequest.cs
 src/Okta.Sdk/Model/VerifyUserFactorResponse.cs
+src/Okta.Sdk/Model/VersionObject.cs
 src/Okta.Sdk/Model/WebAuthnUserFactor.cs
 src/Okta.Sdk/Model/WebAuthnUserFactorProfile.cs
 src/Okta.Sdk/Model/WebUserFactor.cs

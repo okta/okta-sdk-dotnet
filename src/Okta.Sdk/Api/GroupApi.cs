@@ -374,7 +374,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;CatalogApplication&gt;</returns>
-        IOktaCollectionClient<CatalogApplication> ListApplicationTargetsForApplicationAdministratorRoleForGroupAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<CatalogApplication> ListApplicationTargetsForApplicationAdministratorRoleForGroup(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Application Targets for an Application Administrator Role
         /// </summary>
@@ -401,7 +401,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of app results for a page (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Application&gt;</returns>
-        IOktaCollectionClient<Application> ListAssignedApplicationsForGroupAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Application> ListAssignedApplicationsForGroup(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Assigned Applications
         /// </summary>
@@ -426,7 +426,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Role&gt;</returns>
-        IOktaCollectionClient<Role> ListGroupAssignedRolesAsync(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Role> ListGroupAssignedRoles(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Assigned Roles
         /// </summary>
@@ -452,7 +452,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">If specified as &#x60;groupIdToGroupNameMap&#x60;, then show group names (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupRule&gt;</returns>
-        IOktaCollectionClient<GroupRule> ListGroupRulesAsync(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<GroupRule> ListGroupRules(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Group Rules
         /// </summary>
@@ -480,7 +480,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Group&gt;</returns>
-        IOktaCollectionClient<Group> ListGroupTargetsForGroupRoleAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Group> ListGroupTargetsForGroupRole(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Group Targets for a Group Role
         /// </summary>
@@ -507,7 +507,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of user results in a page (optional, default to 1000)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;User&gt;</returns>
-        IOktaCollectionClient<User> ListGroupUsersAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<User> ListGroupUsers(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Member Users
         /// </summary>
@@ -535,7 +535,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">If specified, it causes additional metadata to be included in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Group&gt;</returns>
-        IOktaCollectionClient<Group> ListGroupsAsync(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Group> ListGroups(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Groups
         /// </summary>
@@ -2032,7 +2032,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;CatalogApplication&gt;</returns>
-        public IOktaCollectionClient<CatalogApplication> ListApplicationTargetsForApplicationAdministratorRoleForGroupAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<CatalogApplication> ListApplicationTargetsForApplicationAdministratorRoleForGroup(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -2188,7 +2188,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of app results for a page (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Application&gt;</returns>
-        public IOktaCollectionClient<Application> ListAssignedApplicationsForGroupAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Application> ListAssignedApplicationsForGroup(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -2328,7 +2328,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Role&gt;</returns>
-        public IOktaCollectionClient<Role> ListGroupAssignedRolesAsync(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Role> ListGroupAssignedRoles(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -2461,7 +2461,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">If specified as &#x60;groupIdToGroupNameMap&#x60;, then show group names (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupRule&gt;</returns>
-        public IOktaCollectionClient<GroupRule> ListGroupRulesAsync(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<GroupRule> ListGroupRules(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -2606,7 +2606,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Group&gt;</returns>
-        public IOktaCollectionClient<Group> ListGroupTargetsForGroupRoleAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Group> ListGroupTargetsForGroupRole(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -2762,7 +2762,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of user results in a page (optional, default to 1000)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;User&gt;</returns>
-        public IOktaCollectionClient<User> ListGroupUsersAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<User> ListGroupUsers(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -2905,7 +2905,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">If specified, it causes additional metadata to be included in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Group&gt;</returns>
-        public IOktaCollectionClient<Group> ListGroupsAsync(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Group> ListGroups(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

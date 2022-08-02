@@ -149,7 +149,7 @@ namespace Okta.Sdk.Api
         /// <param name="filter">Filters zones by usage or id expression (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;NetworkZone&gt;</returns>
-        IOktaCollectionClient<NetworkZone> ListNetworkZonesAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<NetworkZone> ListNetworkZones(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Network Zones
         /// </summary>
@@ -682,7 +682,7 @@ namespace Okta.Sdk.Api
         /// <param name="filter">Filters zones by usage or id expression (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;NetworkZone&gt;</returns>
-        public IOktaCollectionClient<NetworkZone> ListNetworkZonesAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<NetworkZone> ListNetworkZones(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

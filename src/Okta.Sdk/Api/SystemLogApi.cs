@@ -43,7 +43,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LogEvent&gt;</returns>
-        IOktaCollectionClient<LogEvent> GetLogsAsync(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<LogEvent> GetLogs(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all System Log Events
         /// </summary>
@@ -165,7 +165,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LogEvent&gt;</returns>
-        public IOktaCollectionClient<LogEvent> GetLogsAsync(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<LogEvent> GetLogs(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

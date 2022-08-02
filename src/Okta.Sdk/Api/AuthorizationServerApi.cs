@@ -569,7 +569,7 @@ namespace Okta.Sdk.Api
         /// <param name="authServerId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;JsonWebKey&gt;</returns>
-        IOktaCollectionClient<JsonWebKey> ListAuthorizationServerKeysAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<JsonWebKey> ListAuthorizationServerKeys(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Credential Keys
         /// </summary>
@@ -591,7 +591,7 @@ namespace Okta.Sdk.Api
         /// <param name="authServerId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AuthorizationServerPolicy&gt;</returns>
-        IOktaCollectionClient<AuthorizationServerPolicy> ListAuthorizationServerPoliciesAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<AuthorizationServerPolicy> ListAuthorizationServerPolicies(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Policies
         /// </summary>
@@ -614,7 +614,7 @@ namespace Okta.Sdk.Api
         /// <param name="authServerId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AuthorizationServerPolicyRule&gt;</returns>
-        IOktaCollectionClient<AuthorizationServerPolicyRule> ListAuthorizationServerPolicyRulesAsync(string policyId, string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<AuthorizationServerPolicyRule> ListAuthorizationServerPolicyRules(string policyId, string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Policy Rules
         /// </summary>
@@ -639,7 +639,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AuthorizationServer&gt;</returns>
-        IOktaCollectionClient<AuthorizationServer> ListAuthorizationServersAsync(string q = default(string), string limit = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<AuthorizationServer> ListAuthorizationServers(string q = default(string), string limit = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Authorization Servers
         /// </summary>
@@ -663,7 +663,7 @@ namespace Okta.Sdk.Api
         /// <param name="authServerId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2Claim&gt;</returns>
-        IOktaCollectionClient<OAuth2Claim> ListOAuth2ClaimsAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<OAuth2Claim> ListOAuth2Claims(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Custom Token Claims
         /// </summary>
@@ -685,7 +685,7 @@ namespace Okta.Sdk.Api
         /// <param name="authServerId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2Client&gt;</returns>
-        IOktaCollectionClient<OAuth2Client> ListOAuth2ClientsForAuthorizationServerAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<OAuth2Client> ListOAuth2ClientsForAuthorizationServer(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Clients
         /// </summary>
@@ -711,7 +711,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2Scope&gt;</returns>
-        IOktaCollectionClient<OAuth2Scope> ListOAuth2ScopesAsync(string authServerId, string q = default(string), string filter = default(string), string cursor = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<OAuth2Scope> ListOAuth2Scopes(string authServerId, string q = default(string), string filter = default(string), string cursor = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Custom Token Scopes
         /// </summary>
@@ -741,7 +741,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2RefreshToken&gt;</returns>
-        IOktaCollectionClient<OAuth2RefreshToken> ListRefreshTokensForAuthorizationServerAndClientAsync(string authServerId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<OAuth2RefreshToken> ListRefreshTokensForAuthorizationServerAndClient(string authServerId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Refresh Tokens for a Client
         /// </summary>
@@ -818,7 +818,7 @@ namespace Okta.Sdk.Api
         /// <param name="use"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;JsonWebKey&gt;</returns>
-        IOktaCollectionClient<JsonWebKey> RotateAuthorizationServerKeysAsync(string authServerId, JwkUse use, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<JsonWebKey> RotateAuthorizationServerKeys(string authServerId, JwkUse use, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Rotate all Credential Keys
         /// </summary>
@@ -3004,7 +3004,7 @@ namespace Okta.Sdk.Api
         /// <param name="authServerId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;JsonWebKey&gt;</returns>
-        public IOktaCollectionClient<JsonWebKey> ListAuthorizationServerKeysAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<JsonWebKey> ListAuthorizationServerKeys(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authServerId' is set
             if (authServerId == null)
@@ -3125,7 +3125,7 @@ namespace Okta.Sdk.Api
         /// <param name="authServerId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AuthorizationServerPolicy&gt;</returns>
-        public IOktaCollectionClient<AuthorizationServerPolicy> ListAuthorizationServerPoliciesAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<AuthorizationServerPolicy> ListAuthorizationServerPolicies(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authServerId' is set
             if (authServerId == null)
@@ -3247,7 +3247,7 @@ namespace Okta.Sdk.Api
         /// <param name="authServerId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AuthorizationServerPolicyRule&gt;</returns>
-        public IOktaCollectionClient<AuthorizationServerPolicyRule> ListAuthorizationServerPolicyRulesAsync(string policyId, string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<AuthorizationServerPolicyRule> ListAuthorizationServerPolicyRules(string policyId, string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'policyId' is set
             if (policyId == null)
@@ -3385,7 +3385,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AuthorizationServer&gt;</returns>
-        public IOktaCollectionClient<AuthorizationServer> ListAuthorizationServersAsync(string q = default(string), string limit = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<AuthorizationServer> ListAuthorizationServers(string q = default(string), string limit = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -3518,7 +3518,7 @@ namespace Okta.Sdk.Api
         /// <param name="authServerId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2Claim&gt;</returns>
-        public IOktaCollectionClient<OAuth2Claim> ListOAuth2ClaimsAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<OAuth2Claim> ListOAuth2Claims(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authServerId' is set
             if (authServerId == null)
@@ -3639,7 +3639,7 @@ namespace Okta.Sdk.Api
         /// <param name="authServerId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2Client&gt;</returns>
-        public IOktaCollectionClient<OAuth2Client> ListOAuth2ClientsForAuthorizationServerAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<OAuth2Client> ListOAuth2ClientsForAuthorizationServer(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authServerId' is set
             if (authServerId == null)
@@ -3764,7 +3764,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2Scope&gt;</returns>
-        public IOktaCollectionClient<OAuth2Scope> ListOAuth2ScopesAsync(string authServerId, string q = default(string), string filter = default(string), string cursor = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<OAuth2Scope> ListOAuth2Scopes(string authServerId, string q = default(string), string filter = default(string), string cursor = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authServerId' is set
             if (authServerId == null)
@@ -3925,7 +3925,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2RefreshToken&gt;</returns>
-        public IOktaCollectionClient<OAuth2RefreshToken> ListRefreshTokensForAuthorizationServerAndClientAsync(string authServerId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<OAuth2RefreshToken> ListRefreshTokensForAuthorizationServerAndClient(string authServerId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authServerId' is set
             if (authServerId == null)
@@ -4272,7 +4272,7 @@ namespace Okta.Sdk.Api
         /// <param name="use"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;JsonWebKey&gt;</returns>
-        public IOktaCollectionClient<JsonWebKey> RotateAuthorizationServerKeysAsync(string authServerId, JwkUse use, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<JsonWebKey> RotateAuthorizationServerKeys(string authServerId, JwkUse use, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authServerId' is set
             if (authServerId == null)

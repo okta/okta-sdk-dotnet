@@ -46,6 +46,12 @@ namespace Okta.Sdk.Model
         public string CustomPrivacyPolicyUrl { get; set; }
 
         /// <summary>
+        /// Gets or Sets DefaultApp
+        /// </summary>
+        [DataMember(Name = "defaultApp", EmitDefaultValue = false)]
+        public BrandDefaultApp DefaultApp { get; set; }
+
+        /// <summary>
         /// The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646).
         /// </summary>
         /// <value>The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646).</value>
@@ -102,6 +108,7 @@ namespace Okta.Sdk.Model
             sb.Append("class Brand {\n");
             sb.Append("  AgreeToCustomPrivacyPolicy: ").Append(AgreeToCustomPrivacyPolicy).Append("\n");
             sb.Append("  CustomPrivacyPolicyUrl: ").Append(CustomPrivacyPolicyUrl).Append("\n");
+            sb.Append("  DefaultApp: ").Append(DefaultApp).Append("\n");
             sb.Append("  DisplayLanguage: ").Append(DisplayLanguage).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  OptOutOfUserCommunications: ").Append(OptOutOfUserCommunications).Append("\n");
@@ -152,6 +159,11 @@ namespace Okta.Sdk.Model
                     this.CustomPrivacyPolicyUrl.Equals(input.CustomPrivacyPolicyUrl))
                 ) && 
                 (
+                    this.DefaultApp == input.DefaultApp ||
+                    (this.DefaultApp != null &&
+                    this.DefaultApp.Equals(input.DefaultApp))
+                ) && 
+                (
                     this.DisplayLanguage == input.DisplayLanguage ||
                     (this.DisplayLanguage != null &&
                     this.DisplayLanguage.Equals(input.DisplayLanguage))
@@ -190,6 +202,10 @@ namespace Okta.Sdk.Model
                 if (this.CustomPrivacyPolicyUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.CustomPrivacyPolicyUrl.GetHashCode();
+                }
+                if (this.DefaultApp != null)
+                {
+                    hashCode = (hashCode * 59) + this.DefaultApp.GetHashCode();
                 }
                 if (this.DisplayLanguage != null)
                 {
