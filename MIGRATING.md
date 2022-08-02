@@ -32,7 +32,7 @@ In the initial beta version, enums are not supported and have been converted to 
 
 ### Features parity
 
-In this first beta version we ported some of the existent features to the new SDK:
+In the first beta version we ported some of the existent features to the new SDK:
 
 * Iniline configuration, configuration via environment variables, appsettings.json or YAML files
 * Manual pagination for collections
