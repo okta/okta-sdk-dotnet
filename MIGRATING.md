@@ -28,7 +28,7 @@ var apps = await appApiClient.ListApplications().ToListAsync();
 
 ### Enums
 
-In this initial beta version, enums are not supported and they were converted to strings. This is because if in the future the API adds a new value for that enum the SDK will fail in runtime until a new version is released with the latest changes. We will continue iterating this feature in order to provide the best experience possible. 
+In the initial beta version, enums are not supported and have been converted to strings.  This is due to the potential for the future introduction of new values that cause runtime failures which would require the release of a new version.  We will continue iterating in order to provide the best experience possible. 
 
 ### Features parity
 
