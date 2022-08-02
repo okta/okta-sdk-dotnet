@@ -17,9 +17,15 @@ namespace Okta.Sdk
     {
         int? AuthPort { get; set; }
 
+        string Host { get; set; }
+
         string HostName { get; set; }
 
         string InstanceId { get; set; }
+
+        string IntegrationKey { get; set; }
+
+        string SecretKey { get; set; }
 
         string SharedSecret { get; set; }
 

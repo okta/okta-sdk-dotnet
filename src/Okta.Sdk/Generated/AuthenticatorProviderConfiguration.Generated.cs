@@ -24,6 +24,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public string Host 
+        {
+            get => GetStringProperty("host");
+            set => this["host"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string HostName 
         {
             get => GetStringProperty("hostName");
@@ -35,6 +42,20 @@ namespace Okta.Sdk
         {
             get => GetStringProperty("instanceId");
             set => this["instanceId"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string IntegrationKey 
+        {
+            get => GetStringProperty("integrationKey");
+            set => this["integrationKey"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string SecretKey 
+        {
+            get => GetStringProperty("secretKey");
+            set => this["secretKey"] = value;
         }
         
         /// <inheritdoc/>
