@@ -4,7 +4,7 @@ This library uses semantic versioning and follows Okta's [library version policy
 
 ## Migrating from 5.x to 6.x-beta
 
-In previous versions we use an Open API v2 specification for the management APIs, and an Okta custom client generator to partially generate our SDK. A new version of the Open API specification (V3) has been released, and new well-known generators are now available and well received by the communitity. Planning the future of this SDK, we consider this as a good opportunity to modernize it by aligning with what seems to be the direction of the API's client generation. 
+In releases prior to version 6 we use an Open API v2 specification, and an Okta custom client generator to partially generate our SDK. A new version of the Open API specification (V3) has been released, and new well-known generators are now available and well received by the community. Planning the future of this SDK, we consider this a good opportunity to modernize by aligning with established standards for API client generation. 
 
 ### OktaClient vs API clients
 
