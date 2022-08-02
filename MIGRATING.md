@@ -41,7 +41,7 @@ In this first beta version we ported some of the existent features to the new SD
 
 #### What's next?
 
-In the future releases we will provide support the following features:
+In future releases we will provide support for the following features:
 
 * OAuth for Okta
 * Extend proxy configuration to env vars, appsettings.json and YAML files
