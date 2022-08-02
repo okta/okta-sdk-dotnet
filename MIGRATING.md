@@ -35,7 +35,7 @@ In the initial beta version, enums are not supported and have been converted to 
 In this first beta version we ported some of the existent features to the new SDK:
 
 * Iniline configuration, configuration via environment variables, appsettings.json or YAML files
-* Manual Pagination for collections
+* Manual pagination for collections
 * Default retry strategy for 429 HTTP responses and ability to provide your own strategy
 * Web Proxy is only available via inline configuration
 
