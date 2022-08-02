@@ -44,7 +44,7 @@ In this first beta version we ported some of the existent features to the new SD
 In the future releases we will provide support the following features:
 
 * OAuth for Okta
-* Extend Proxy configuration to env vars, appsettings.json and YAML files
+* Extend proxy configuration to env vars, appsettings.json and YAML files
 * Call other API endpoints
 
 
