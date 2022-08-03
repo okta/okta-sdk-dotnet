@@ -65,7 +65,7 @@ namespace Okta.Sdk
                                         Configuration.Proxy,
                                         logger);
 
-            var tokenProvider = GetTokenProvider(Configuration, logger, resourceFactory, oAuthTokenProvider);
+            var tokenProvider = GetTokenProvider(Configuration, logger, resourceFactory, oAuthTokenProvider, defaultHttpClient);
             var requestExecutor = new DefaultRequestExecutor(Configuration, defaultHttpClient, logger, retryStrategy, tokenProvider);
 
             _dataStore = new DefaultDataStore(
@@ -97,12 +97,12 @@ namespace Okta.Sdk
         {
         }
 
-        private IOAuthTokenProvider GetTokenProvider(OktaClientConfiguration configuration, ILogger logger, ResourceFactory resourceFactory, IOAuthTokenProvider customTokenProvider)
+        private IOAuthTokenProvider GetTokenProvider(OktaClientConfiguration configuration, ILogger logger, ResourceFactory resourceFactory, IOAuthTokenProvider customTokenProvider, HttpClient httpClient)
         {
             switch (configuration.AuthorizationMode)
             {
                 case AuthorizationMode.PrivateKey:
-                    return new DefaultOAuthTokenProvider(configuration, resourceFactory, logger: logger);
+                    return new DefaultOAuthTokenProvider(configuration, resourceFactory, logger: logger, httpClient: httpClient);
                 case AuthorizationMode.SSWS:
                     return NullOAuthTokenProvider.Instance;
                 case AuthorizationMode.BearerToken:
