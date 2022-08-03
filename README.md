@@ -488,6 +488,17 @@ await client.PostAsync(new Okta.Sdk.HttpRequest
 
 In this case, there is no benefit to using `PostAsync` instead of `user.ActivateAsync`. However, this approach can be used to call any endpoints that are not represented by methods in the SDK.
 
+## Get data from `_links`
+
+All models inherit from [Resource](https://github.com/okta/okta-sdk-dotnet/blob/master/src/Okta.Sdk/Resource.cs) which provides convenience methods to access the raw data. You can access `_links` and any other properties by using the `GetResource<T>` method:
+
+```csharp
+var identityProvider = await client.IdentityProviders.CreateOktaIDPAsync(idp);
+var links = identityProvider.GetProperty<Resource>("_links");
+var acs = links.GetProperty<Resource>("acs"); // Use Resource when what you'retriving is an object
+var acsType = acs.GetProperty<string>("type"); // Use the specific type for primitive types
+```
+
 ## Rate Limiting
 
 The Okta API will return 429 responses if too many requests are made within a given time. Please see [Rate Limiting at Okta] for a complete list of which endpoints are rate limited.  When a 429 error is received, the `X-Rate-Limit-Reset` header will tell you the time at which you can retry. This section discusses  methods for handling rate limiting with this SDK.
