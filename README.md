@@ -56,6 +56,7 @@ This library uses semantic versioning and follows Okta's [library version policy
 | 3.x | :warning: Retiring on 2021-08-11 ([migration guide](MIGRATING.md)) |
 | 4.x | :warning: Retiring on 2021-12-25 ([migration guide](MIGRATING.md)) |
 | 5.x | :heavy_check_mark: Stable |
+| 6.x | :warning: Beta ([branch oasv3](https://github.com/okta/okta-sdk-dotnet/blob/oasv3)) |
 
  
 The latest release can always be found on the [releases page][github-releases].
