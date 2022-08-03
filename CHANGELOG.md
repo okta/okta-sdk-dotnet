@@ -1,6 +1,13 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 5.6.1
+
+### Bug Fixes
+
+- Pass `HttpClient` to `DefaultOAuthTokenProvider` (#571)
+
+
 ## 5.6.0
 
 - Update Open API spec to 2.12.0
