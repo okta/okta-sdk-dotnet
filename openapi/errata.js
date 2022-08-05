@@ -350,7 +350,8 @@ const operationSkipList = [
   { id: 'uploadBrandThemeBackgroundImage', reason: 'Operation defined manually'},
   { id: 'uploadBrandThemeFavicon', reason: 'Operation defined manually'},
   { id: 'uploadBrandThemeLogo', reason: 'Operation defined manually'},
-  { id: 'updateOrgLogo', reason: 'Operation defined manually'}
+  { id: 'updateOrgLogo', reason: 'Operation defined manually'},
+  { id: 'listGroups', reason: 'Operation defined manually'}
 ];
 
 function shouldSkipOperation(operationId) {

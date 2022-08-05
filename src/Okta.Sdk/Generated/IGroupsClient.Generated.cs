@@ -16,18 +16,6 @@ namespace Okta.Sdk
     public partial interface IGroupsClient
     {
         /// <summary>
-        /// Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
-        /// </summary>
-        /// <param name="q">Searches the name property of groups for matching value</param>
-        /// <param name="filter">Filter expression for groups</param>
-        /// <param name="after">Specifies the pagination cursor for the next page of groups</param>
-        /// <param name="limit">Specifies the number of group results in a page</param>
-        /// <param name="expand">If specified, it causes additional metadata to be included in the response.</param>
-        /// <param name="search">Searches for groups with a supported filtering expression for all attributes except for _embedded, _links, and objectClass</param>
-        /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IGroup> ListGroups(string q = null, string filter = null, string after = null, int? limit = 10000, string expand = null, string search = null);
-
-        /// <summary>
         /// Adds a new group with `OKTA_GROUP` type to your organization.
         /// </summary>
         /// <param name="group">The <see cref="IGroup"/> resource.</param>

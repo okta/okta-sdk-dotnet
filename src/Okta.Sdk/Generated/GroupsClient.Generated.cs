@@ -29,24 +29,6 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<IGroup> ListGroups(string q = null, string filter = null, string after = null, int? limit = 10000, string expand = null, string search = null)
-            => GetCollectionClient<IGroup>(new HttpRequest
-            {
-                Uri = "/api/v1/groups",
-                Verb = HttpVerb.Get,
-                
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["q"] = q,
-                    ["filter"] = filter,
-                    ["after"] = after,
-                    ["limit"] = limit,
-                    ["expand"] = expand,
-                    ["search"] = search,
-                },
-            });
-                    
-        /// <inheritdoc />
         public async Task<IGroup> CreateGroupAsync(IGroup group, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<Group>(new HttpRequest
             {
