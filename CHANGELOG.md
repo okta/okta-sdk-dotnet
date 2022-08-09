@@ -1,6 +1,12 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 5.6.2
+
+### Bug Fixes
+
+- Add `search` parameter to `GroupsClient.ListGroups` to align with [documentation](https://developer.okta.com/docs/reference/api/groups/#list-groups)
+
 ## 5.6.1
 
 ### Bug Fixes
