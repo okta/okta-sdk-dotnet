@@ -58,6 +58,12 @@ namespace Okta.Sdk.Model
         public List<string> UserLockoutNotificationChannels { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -69,6 +75,7 @@ namespace Okta.Sdk.Model
             sb.Append("  MaxAttempts: ").Append(MaxAttempts).Append("\n");
             sb.Append("  ShowLockoutFailures: ").Append(ShowLockoutFailures).Append("\n");
             sb.Append("  UserLockoutNotificationChannels: ").Append(UserLockoutNotificationChannels).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,7 +128,8 @@ namespace Okta.Sdk.Model
                     this.UserLockoutNotificationChannels != null &&
                     input.UserLockoutNotificationChannels != null &&
                     this.UserLockoutNotificationChannels.SequenceEqual(input.UserLockoutNotificationChannels)
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -139,6 +147,10 @@ namespace Okta.Sdk.Model
                 if (this.UserLockoutNotificationChannels != null)
                 {
                     hashCode = (hashCode * 59) + this.UserLockoutNotificationChannels.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

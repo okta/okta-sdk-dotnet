@@ -70,6 +70,12 @@ namespace Okta.Sdk.Model
         public OpenIdConnectApplicationSettingsClient OauthClient { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +89,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("  Notifications: ").Append(Notifications).Append("\n");
             sb.Append("  OauthClient: ").Append(OauthClient).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -146,7 +153,8 @@ namespace Okta.Sdk.Model
                     this.OauthClient == input.OauthClient ||
                     (this.OauthClient != null &&
                     this.OauthClient.Equals(input.OauthClient))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -178,6 +186,10 @@ namespace Okta.Sdk.Model
                 if (this.OauthClient != null)
                 {
                     hashCode = (hashCode * 59) + this.OauthClient.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

@@ -68,8 +68,17 @@ namespace Okta.Sdk.Model
         /// Initializes a new instance of the <see cref="EmailSettings" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public EmailSettings() { }
+        public EmailSettings()
+        {
+            this.AdditionalProperties = new Dictionary<string, object>();
+        }
         
+        /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -79,6 +88,7 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class EmailSettings {\n");
             sb.Append("  Recipients: ").Append(Recipients).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,7 +127,8 @@ namespace Okta.Sdk.Model
                 (
                     this.Recipients == input.Recipients ||
                     this.Recipients.Equals(input.Recipients)
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -130,6 +141,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Recipients.GetHashCode();
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
+                }
                 return hashCode;
             }
         }

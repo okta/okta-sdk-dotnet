@@ -68,6 +68,12 @@ namespace Okta.Sdk.Model
         public string ErrorSummary { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -80,6 +86,7 @@ namespace Okta.Sdk.Model
             sb.Append("  ErrorId: ").Append(ErrorId).Append("\n");
             sb.Append("  ErrorLink: ").Append(ErrorLink).Append("\n");
             sb.Append("  ErrorSummary: ").Append(ErrorSummary).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,7 +147,8 @@ namespace Okta.Sdk.Model
                     this.ErrorSummary == input.ErrorSummary ||
                     (this.ErrorSummary != null &&
                     this.ErrorSummary.Equals(input.ErrorSummary))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -171,6 +179,10 @@ namespace Okta.Sdk.Model
                 if (this.ErrorSummary != null)
                 {
                     hashCode = (hashCode * 59) + this.ErrorSummary.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

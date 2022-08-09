@@ -52,6 +52,12 @@ namespace Okta.Sdk.Model
         public List<string> Types { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,6 +68,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Methods: ").Append(Methods).Append("\n");
             sb.Append("  ReauthenticateIn: ").Append(ReauthenticateIn).Append("\n");
             sb.Append("  Types: ").Append(Types).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -113,7 +120,8 @@ namespace Okta.Sdk.Model
                     this.Types != null &&
                     input.Types != null &&
                     this.Types.SequenceEqual(input.Types)
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -136,6 +144,10 @@ namespace Okta.Sdk.Model
                 if (this.Types != null)
                 {
                     hashCode = (hashCode * 59) + this.Types.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

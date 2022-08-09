@@ -48,6 +48,12 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -56,6 +62,7 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TempPassword {\n");
             sb.Append("  _TempPassword: ").Append(_TempPassword).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,7 +102,8 @@ namespace Okta.Sdk.Model
                     this._TempPassword == input._TempPassword ||
                     (this._TempPassword != null &&
                     this._TempPassword.Equals(input._TempPassword))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -110,6 +118,10 @@ namespace Okta.Sdk.Model
                 if (this._TempPassword != null)
                 {
                     hashCode = (hashCode * 59) + this._TempPassword.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

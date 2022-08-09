@@ -46,6 +46,12 @@ namespace Okta.Sdk.Model
         public GroupRuleUserCondition Users { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +61,7 @@ namespace Okta.Sdk.Model
             sb.Append("class GroupRulePeopleCondition {\n");
             sb.Append("  Groups: ").Append(Groups).Append("\n");
             sb.Append("  Users: ").Append(Users).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,7 +106,8 @@ namespace Okta.Sdk.Model
                     this.Users == input.Users ||
                     (this.Users != null &&
                     this.Users.Equals(input.Users))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -118,6 +126,10 @@ namespace Okta.Sdk.Model
                 if (this.Users != null)
                 {
                     hashCode = (hashCode * 59) + this.Users.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

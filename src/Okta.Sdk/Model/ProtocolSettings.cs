@@ -40,6 +40,12 @@ namespace Okta.Sdk.Model
         public string NameFormat { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -48,6 +54,7 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProtocolSettings {\n");
             sb.Append("  NameFormat: ").Append(NameFormat).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,7 +94,8 @@ namespace Okta.Sdk.Model
                     this.NameFormat == input.NameFormat ||
                     (this.NameFormat != null &&
                     this.NameFormat.Equals(input.NameFormat))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -102,6 +110,10 @@ namespace Okta.Sdk.Model
                 if (this.NameFormat != null)
                 {
                     hashCode = (hashCode * 59) + this.NameFormat.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

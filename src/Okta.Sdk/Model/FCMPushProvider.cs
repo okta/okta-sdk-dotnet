@@ -44,6 +44,12 @@ namespace Okta.Sdk.Model
         public FCMConfiguration _Configuration { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -53,6 +59,7 @@ namespace Okta.Sdk.Model
             sb.Append("class FCMPushProvider {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  _Configuration: ").Append(_Configuration).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,7 +99,8 @@ namespace Okta.Sdk.Model
                     this._Configuration == input._Configuration ||
                     (this._Configuration != null &&
                     this._Configuration.Equals(input._Configuration))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -107,6 +115,10 @@ namespace Okta.Sdk.Model
                 if (this._Configuration != null)
                 {
                     hashCode = (hashCode * 59) + this._Configuration.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

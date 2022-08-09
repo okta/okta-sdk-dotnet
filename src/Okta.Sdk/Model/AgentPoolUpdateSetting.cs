@@ -86,6 +86,12 @@ namespace Okta.Sdk.Model
         public string ReleaseChannel { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -100,6 +106,7 @@ namespace Okta.Sdk.Model
             sb.Append("  PoolId: ").Append(PoolId).Append("\n");
             sb.Append("  PoolName: ").Append(PoolName).Append("\n");
             sb.Append("  ReleaseChannel: ").Append(ReleaseChannel).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -168,7 +175,8 @@ namespace Okta.Sdk.Model
                     this.ReleaseChannel == input.ReleaseChannel ||
                     (this.ReleaseChannel != null &&
                     this.ReleaseChannel.Equals(input.ReleaseChannel))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -204,6 +212,10 @@ namespace Okta.Sdk.Model
                 if (this.ReleaseChannel != null)
                 {
                     hashCode = (hashCode * 59) + this.ReleaseChannel.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

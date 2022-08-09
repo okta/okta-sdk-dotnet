@@ -46,6 +46,12 @@ namespace Okta.Sdk.Model
         public string PushStatus { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +61,7 @@ namespace Okta.Sdk.Model
             sb.Append("class ProfileMappingProperty {\n");
             sb.Append("  Expression: ").Append(Expression).Append("\n");
             sb.Append("  PushStatus: ").Append(PushStatus).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,7 +106,8 @@ namespace Okta.Sdk.Model
                     this.PushStatus == input.PushStatus ||
                     (this.PushStatus != null &&
                     this.PushStatus.Equals(input.PushStatus))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -118,6 +126,10 @@ namespace Okta.Sdk.Model
                 if (this.PushStatus != null)
                 {
                     hashCode = (hashCode * 59) + this.PushStatus.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

@@ -52,6 +52,12 @@ namespace Okta.Sdk.Model
         public string LogoutUrl { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,6 +68,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  Issuer: ").Append(Issuer).Append("\n");
             sb.Append("  LogoutUrl: ").Append(LogoutUrl).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,7 +117,8 @@ namespace Okta.Sdk.Model
                     this.LogoutUrl == input.LogoutUrl ||
                     (this.LogoutUrl != null &&
                     this.LogoutUrl.Equals(input.LogoutUrl))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -130,6 +138,10 @@ namespace Okta.Sdk.Model
                 if (this.LogoutUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.LogoutUrl.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

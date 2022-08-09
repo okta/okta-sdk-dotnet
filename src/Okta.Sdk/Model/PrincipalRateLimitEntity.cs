@@ -36,7 +36,10 @@ namespace Okta.Sdk.Model
         /// Initializes a new instance of the <see cref="PrincipalRateLimitEntity" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public PrincipalRateLimitEntity() { }
+        public PrincipalRateLimitEntity()
+        {
+            this.AdditionalProperties = new Dictionary<string, object>();
+        }
         
         /// <summary>
         /// Gets or Sets CreatedBy
@@ -163,6 +166,12 @@ namespace Okta.Sdk.Model
         public string PrincipalType { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -180,6 +189,7 @@ namespace Okta.Sdk.Model
             sb.Append("  OrgId: ").Append(OrgId).Append("\n");
             sb.Append("  PrincipalId: ").Append(PrincipalId).Append("\n");
             sb.Append("  PrincipalType: ").Append(PrincipalType).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -262,7 +272,8 @@ namespace Okta.Sdk.Model
                     this.PrincipalType == input.PrincipalType ||
                     (this.PrincipalType != null &&
                     this.PrincipalType.Equals(input.PrincipalType))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -307,6 +318,10 @@ namespace Okta.Sdk.Model
                 if (this.PrincipalType != null)
                 {
                     hashCode = (hashCode * 59) + this.PrincipalType.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

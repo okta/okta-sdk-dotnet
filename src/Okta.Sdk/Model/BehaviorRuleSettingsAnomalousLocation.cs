@@ -36,7 +36,10 @@ namespace Okta.Sdk.Model
         /// Initializes a new instance of the <see cref="BehaviorRuleSettingsAnomalousLocation" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public BehaviorRuleSettingsAnomalousLocation() { }
+        public BehaviorRuleSettingsAnomalousLocation()
+        {
+            this.AdditionalProperties = new Dictionary<string, object>();
+        }
         
         /// <summary>
         /// Gets or Sets MaxEventsUsedForEvaluation
@@ -64,6 +67,12 @@ namespace Okta.Sdk.Model
         public int RadiusKilometers { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +84,7 @@ namespace Okta.Sdk.Model
             sb.Append("  MinEventsNeededForEvaluation: ").Append(MinEventsNeededForEvaluation).Append("\n");
             sb.Append("  Granularity: ").Append(Granularity).Append("\n");
             sb.Append("  RadiusKilometers: ").Append(RadiusKilometers).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,7 +136,8 @@ namespace Okta.Sdk.Model
                 (
                     this.RadiusKilometers == input.RadiusKilometers ||
                     this.RadiusKilometers.Equals(input.RadiusKilometers)
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -145,6 +156,10 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Granularity.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.RadiusKilometers.GetHashCode();
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
+                }
                 return hashCode;
             }
         }

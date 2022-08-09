@@ -70,6 +70,12 @@ namespace Okta.Sdk.Model
         public string UserVerification { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +89,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Compliance: ").Append(Compliance).Append("\n");
             sb.Append("  TokenLifetimeInMinutes: ").Append(TokenLifetimeInMinutes).Append("\n");
             sb.Append("  UserVerification: ").Append(UserVerification).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -146,7 +153,8 @@ namespace Okta.Sdk.Model
                     this.UserVerification == input.UserVerification ||
                     (this.UserVerification != null &&
                     this.UserVerification.Equals(input.UserVerification))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -178,6 +186,10 @@ namespace Okta.Sdk.Model
                 if (this.UserVerification != null)
                 {
                     hashCode = (hashCode * 59) + this.UserVerification.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

@@ -40,6 +40,12 @@ namespace Okta.Sdk.Model
         public int TokenLifetimeMinutes { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -48,6 +54,7 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PasswordPolicyRecoveryEmailRecoveryToken {\n");
             sb.Append("  TokenLifetimeMinutes: ").Append(TokenLifetimeMinutes).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,7 +93,8 @@ namespace Okta.Sdk.Model
                 (
                     this.TokenLifetimeMinutes == input.TokenLifetimeMinutes ||
                     this.TokenLifetimeMinutes.Equals(input.TokenLifetimeMinutes)
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -99,6 +107,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.TokenLifetimeMinutes.GetHashCode();
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
+                }
                 return hashCode;
             }
         }

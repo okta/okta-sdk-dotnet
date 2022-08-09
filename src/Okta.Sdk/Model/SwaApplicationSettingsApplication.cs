@@ -112,6 +112,12 @@ namespace Okta.Sdk.Model
         public string UserNameSelector { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -132,6 +138,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  UsernameField: ").Append(UsernameField).Append("\n");
             sb.Append("  UserNameSelector: ").Append(UserNameSelector).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -231,7 +238,8 @@ namespace Okta.Sdk.Model
                     this.UserNameSelector == input.UserNameSelector ||
                     (this.UserNameSelector != null &&
                     this.UserNameSelector.Equals(input.UserNameSelector))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -294,6 +302,10 @@ namespace Okta.Sdk.Model
                 if (this.UserNameSelector != null)
                 {
                     hashCode = (hashCode * 59) + this.UserNameSelector.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

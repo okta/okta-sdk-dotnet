@@ -52,6 +52,12 @@ namespace Okta.Sdk.Model
         public bool SelfService { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,6 +68,7 @@ namespace Okta.Sdk.Model
             sb.Append("  ErrorRedirectUrl: ").Append(ErrorRedirectUrl).Append("\n");
             sb.Append("  LoginRedirectUrl: ").Append(LoginRedirectUrl).Append("\n");
             sb.Append("  SelfService: ").Append(SelfService).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,7 +117,8 @@ namespace Okta.Sdk.Model
                 (
                     this.SelfService == input.SelfService ||
                     this.SelfService.Equals(input.SelfService)
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -131,6 +139,10 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.LoginRedirectUrl.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.SelfService.GetHashCode();
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
+                }
                 return hashCode;
             }
         }

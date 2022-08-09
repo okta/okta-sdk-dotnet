@@ -64,6 +64,12 @@ namespace Okta.Sdk.Model
         public int RevocationCacheLifetime { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +82,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Kid: ").Append(Kid).Append("\n");
             sb.Append("  Revocation: ").Append(Revocation).Append("\n");
             sb.Append("  RevocationCacheLifetime: ").Append(RevocationCacheLifetime).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,7 +141,8 @@ namespace Okta.Sdk.Model
                 (
                     this.RevocationCacheLifetime == input.RevocationCacheLifetime ||
                     this.RevocationCacheLifetime.Equals(input.RevocationCacheLifetime)
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -163,6 +171,10 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Revocation.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.RevocationCacheLifetime.GetHashCode();
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
+                }
                 return hashCode;
             }
         }

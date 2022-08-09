@@ -52,6 +52,12 @@ namespace Okta.Sdk.Model
         public RecoveryQuestionCredential RecoveryQuestion { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,6 +68,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("  RecoveryQuestion: ").Append(RecoveryQuestion).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,7 +118,8 @@ namespace Okta.Sdk.Model
                     this.RecoveryQuestion == input.RecoveryQuestion ||
                     (this.RecoveryQuestion != null &&
                     this.RecoveryQuestion.Equals(input.RecoveryQuestion))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -134,6 +142,10 @@ namespace Okta.Sdk.Model
                 if (this.RecoveryQuestion != null)
                 {
                     hashCode = (hashCode * 59) + this.RecoveryQuestion.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

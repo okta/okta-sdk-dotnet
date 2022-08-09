@@ -36,13 +36,22 @@ namespace Okta.Sdk.Model
         /// Initializes a new instance of the <see cref="CustomizablePage" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public CustomizablePage() { }
+        public CustomizablePage()
+        {
+            this.AdditionalProperties = new Dictionary<string, object>();
+        }
         
         /// <summary>
         /// Gets or Sets PageContent
         /// </summary>
         [DataMember(Name = "pageContent", IsRequired = true, EmitDefaultValue = false)]
         public string PageContent { get; set; }
+
+        /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,6 +62,7 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class CustomizablePage {\n");
             sb.Append("  PageContent: ").Append(PageContent).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,7 +102,8 @@ namespace Okta.Sdk.Model
                     this.PageContent == input.PageContent ||
                     (this.PageContent != null &&
                     this.PageContent.Equals(input.PageContent))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -107,6 +118,10 @@ namespace Okta.Sdk.Model
                 if (this.PageContent != null)
                 {
                     hashCode = (hashCode * 59) + this.PageContent.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

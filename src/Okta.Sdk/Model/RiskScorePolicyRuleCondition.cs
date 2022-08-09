@@ -40,6 +40,12 @@ namespace Okta.Sdk.Model
         public string Level { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -48,6 +54,7 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class RiskScorePolicyRuleCondition {\n");
             sb.Append("  Level: ").Append(Level).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,7 +94,8 @@ namespace Okta.Sdk.Model
                     this.Level == input.Level ||
                     (this.Level != null &&
                     this.Level.Equals(input.Level))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -102,6 +110,10 @@ namespace Okta.Sdk.Model
                 if (this.Level != null)
                 {
                     hashCode = (hashCode * 59) + this.Level.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

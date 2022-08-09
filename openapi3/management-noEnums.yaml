@@ -20747,7 +20747,6 @@ components:
           type: string
           maxLength: 50
           nullable: true
-      x-okta-extensible: true
     UserSchema:
       type: object
       properties:

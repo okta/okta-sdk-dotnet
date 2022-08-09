@@ -90,6 +90,12 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -101,6 +107,7 @@ namespace Okta.Sdk.Model
             sb.Append("  _Csr: ").Append(_Csr).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Kty: ").Append(Kty).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,7 +162,8 @@ namespace Okta.Sdk.Model
                     this.Kty == input.Kty ||
                     (this.Kty != null &&
                     this.Kty.Equals(input.Kty))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -182,6 +190,10 @@ namespace Okta.Sdk.Model
                 if (this.Kty != null)
                 {
                     hashCode = (hashCode * 59) + this.Kty.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

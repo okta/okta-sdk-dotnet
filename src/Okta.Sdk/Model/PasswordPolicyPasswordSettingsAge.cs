@@ -58,6 +58,12 @@ namespace Okta.Sdk.Model
         public int MinAgeMinutes { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -69,6 +75,7 @@ namespace Okta.Sdk.Model
             sb.Append("  HistoryCount: ").Append(HistoryCount).Append("\n");
             sb.Append("  MaxAgeDays: ").Append(MaxAgeDays).Append("\n");
             sb.Append("  MinAgeMinutes: ").Append(MinAgeMinutes).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,7 +126,8 @@ namespace Okta.Sdk.Model
                 (
                     this.MinAgeMinutes == input.MinAgeMinutes ||
                     this.MinAgeMinutes.Equals(input.MinAgeMinutes)
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -135,6 +143,10 @@ namespace Okta.Sdk.Model
                 hashCode = (hashCode * 59) + this.HistoryCount.GetHashCode();
                 hashCode = (hashCode * 59) + this.MaxAgeDays.GetHashCode();
                 hashCode = (hashCode * 59) + this.MinAgeMinutes.GetHashCode();
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
+                }
                 return hashCode;
             }
         }

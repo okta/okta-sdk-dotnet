@@ -40,6 +40,12 @@ namespace Okta.Sdk.Model
         public List<string> X5c { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -48,6 +54,7 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class SpCertificate {\n");
             sb.Append("  X5c: ").Append(X5c).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,7 +95,8 @@ namespace Okta.Sdk.Model
                     this.X5c != null &&
                     input.X5c != null &&
                     this.X5c.SequenceEqual(input.X5c)
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -103,6 +111,10 @@ namespace Okta.Sdk.Model
                 if (this.X5c != null)
                 {
                     hashCode = (hashCode * 59) + this.X5c.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

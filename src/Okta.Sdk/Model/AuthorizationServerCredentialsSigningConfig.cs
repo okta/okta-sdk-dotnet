@@ -80,6 +80,12 @@ namespace Okta.Sdk.Model
         public string Use { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +98,7 @@ namespace Okta.Sdk.Model
             sb.Append("  NextRotation: ").Append(NextRotation).Append("\n");
             sb.Append("  RotationMode: ").Append(RotationMode).Append("\n");
             sb.Append("  Use: ").Append(Use).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,7 +158,8 @@ namespace Okta.Sdk.Model
                     this.Use == input.Use ||
                     (this.Use != null &&
                     this.Use.Equals(input.Use))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -182,6 +190,10 @@ namespace Okta.Sdk.Model
                 if (this.Use != null)
                 {
                     hashCode = (hashCode * 59) + this.Use.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

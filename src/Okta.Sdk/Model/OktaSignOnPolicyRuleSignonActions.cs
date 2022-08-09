@@ -70,6 +70,12 @@ namespace Okta.Sdk.Model
         public OktaSignOnPolicyRuleSignonSessionActions Session { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +89,7 @@ namespace Okta.Sdk.Model
             sb.Append("  RememberDeviceByDefault: ").Append(RememberDeviceByDefault).Append("\n");
             sb.Append("  RequireFactor: ").Append(RequireFactor).Append("\n");
             sb.Append("  Session: ").Append(Session).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -144,7 +151,8 @@ namespace Okta.Sdk.Model
                     this.Session == input.Session ||
                     (this.Session != null &&
                     this.Session.Equals(input.Session))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -170,6 +178,10 @@ namespace Okta.Sdk.Model
                 if (this.Session != null)
                 {
                     hashCode = (hashCode * 59) + this.Session.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }
