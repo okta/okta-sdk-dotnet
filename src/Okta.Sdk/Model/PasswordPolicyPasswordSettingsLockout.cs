@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PasswordPolicyPasswordSettingsLockout
     /// </summary>
     [DataContract(Name = "PasswordPolicyPasswordSettingsLockout")]
+    
     public partial class PasswordPolicyPasswordSettingsLockout : IEquatable<PasswordPolicyPasswordSettingsLockout>
     {
         
@@ -58,12 +59,6 @@ namespace Okta.Sdk.Model
         public List<string> UserLockoutNotificationChannels { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,7 +70,6 @@ namespace Okta.Sdk.Model
             sb.Append("  MaxAttempts: ").Append(MaxAttempts).Append("\n");
             sb.Append("  ShowLockoutFailures: ").Append(ShowLockoutFailures).Append("\n");
             sb.Append("  UserLockoutNotificationChannels: ").Append(UserLockoutNotificationChannels).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -128,8 +122,7 @@ namespace Okta.Sdk.Model
                     this.UserLockoutNotificationChannels != null &&
                     input.UserLockoutNotificationChannels != null &&
                     this.UserLockoutNotificationChannels.SequenceEqual(input.UserLockoutNotificationChannels)
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -141,16 +134,13 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.AutoUnlockMinutes.GetHashCode();
                 hashCode = (hashCode * 59) + this.MaxAttempts.GetHashCode();
                 hashCode = (hashCode * 59) + this.ShowLockoutFailures.GetHashCode();
                 if (this.UserLockoutNotificationChannels != null)
                 {
                     hashCode = (hashCode * 59) + this.UserLockoutNotificationChannels.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

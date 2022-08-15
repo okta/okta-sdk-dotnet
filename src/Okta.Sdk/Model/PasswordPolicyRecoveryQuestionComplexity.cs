@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PasswordPolicyRecoveryQuestionComplexity
     /// </summary>
     [DataContract(Name = "PasswordPolicyRecoveryQuestionComplexity")]
+    
     public partial class PasswordPolicyRecoveryQuestionComplexity : IEquatable<PasswordPolicyRecoveryQuestionComplexity>
     {
         
@@ -48,12 +49,6 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,7 +57,6 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PasswordPolicyRecoveryQuestionComplexity {\n");
             sb.Append("  MinLength: ").Append(MinLength).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,8 +95,7 @@ namespace Okta.Sdk.Model
                 (
                     this.MinLength == input.MinLength ||
                     this.MinLength.Equals(input.MinLength)
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -114,11 +107,8 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.MinLength.GetHashCode();
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
-                }
                 return hashCode;
             }
         }

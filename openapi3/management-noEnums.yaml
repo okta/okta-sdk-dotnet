@@ -20654,6 +20654,7 @@ components:
           $ref: '#/components/schemas/UserLifecycleAttributePolicyRuleCondition'
     UserProfile:
       type: object
+      additionalProperties: true
       properties:
         city:
           type: string

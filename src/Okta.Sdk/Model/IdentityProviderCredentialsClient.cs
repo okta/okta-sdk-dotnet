@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// IdentityProviderCredentialsClient
     /// </summary>
     [DataContract(Name = "IdentityProviderCredentialsClient")]
+    
     public partial class IdentityProviderCredentialsClient : IEquatable<IdentityProviderCredentialsClient>
     {
         
@@ -46,12 +47,6 @@ namespace Okta.Sdk.Model
         public string ClientSecret { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,7 +56,6 @@ namespace Okta.Sdk.Model
             sb.Append("class IdentityProviderCredentialsClient {\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  ClientSecret: ").Append(ClientSecret).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,8 +100,7 @@ namespace Okta.Sdk.Model
                     this.ClientSecret == input.ClientSecret ||
                     (this.ClientSecret != null &&
                     this.ClientSecret.Equals(input.ClientSecret))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -119,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ClientId != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
@@ -126,10 +120,6 @@ namespace Okta.Sdk.Model
                 if (this.ClientSecret != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientSecret.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

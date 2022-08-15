@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Various information about agent auto update configuration
     /// </summary>
     [DataContract(Name = "AgentPoolUpdate")]
+    
     public partial class AgentPoolUpdate : IEquatable<AgentPoolUpdate>
     {
         
@@ -116,12 +117,6 @@ namespace Okta.Sdk.Model
         public HrefObject Links { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -141,7 +136,6 @@ namespace Okta.Sdk.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  TargetVersion: ").Append(TargetVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -234,8 +228,7 @@ namespace Okta.Sdk.Model
                     this.Links == input.Links ||
                     (this.Links != null &&
                     this.Links.Equals(input.Links))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -247,6 +240,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Agents != null)
                 {
                     hashCode = (hashCode * 59) + this.Agents.GetHashCode();
@@ -285,10 +279,6 @@ namespace Okta.Sdk.Model
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

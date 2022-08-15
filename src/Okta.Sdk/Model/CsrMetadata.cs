@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// CsrMetadata
     /// </summary>
     [DataContract(Name = "CsrMetadata")]
+    
     public partial class CsrMetadata : IEquatable<CsrMetadata>
     {
         
@@ -46,12 +47,6 @@ namespace Okta.Sdk.Model
         public CsrMetadataSubjectAltNames SubjectAltNames { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,7 +56,6 @@ namespace Okta.Sdk.Model
             sb.Append("class CsrMetadata {\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  SubjectAltNames: ").Append(SubjectAltNames).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,8 +100,7 @@ namespace Okta.Sdk.Model
                     this.SubjectAltNames == input.SubjectAltNames ||
                     (this.SubjectAltNames != null &&
                     this.SubjectAltNames.Equals(input.SubjectAltNames))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -119,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Subject != null)
                 {
                     hashCode = (hashCode * 59) + this.Subject.GetHashCode();
@@ -126,10 +120,6 @@ namespace Okta.Sdk.Model
                 if (this.SubjectAltNames != null)
                 {
                     hashCode = (hashCode * 59) + this.SubjectAltNames.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

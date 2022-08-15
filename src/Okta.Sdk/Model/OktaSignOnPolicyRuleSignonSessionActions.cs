@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OktaSignOnPolicyRuleSignonSessionActions
     /// </summary>
     [DataContract(Name = "OktaSignOnPolicyRuleSignonSessionActions")]
+    
     public partial class OktaSignOnPolicyRuleSignonSessionActions : IEquatable<OktaSignOnPolicyRuleSignonSessionActions>
     {
         
@@ -52,12 +53,6 @@ namespace Okta.Sdk.Model
         public bool UsePersistentCookie { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,7 +63,6 @@ namespace Okta.Sdk.Model
             sb.Append("  MaxSessionIdleMinutes: ").Append(MaxSessionIdleMinutes).Append("\n");
             sb.Append("  MaxSessionLifetimeMinutes: ").Append(MaxSessionLifetimeMinutes).Append("\n");
             sb.Append("  UsePersistentCookie: ").Append(UsePersistentCookie).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,8 +109,7 @@ namespace Okta.Sdk.Model
                 (
                     this.UsePersistentCookie == input.UsePersistentCookie ||
                     this.UsePersistentCookie.Equals(input.UsePersistentCookie)
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -128,13 +121,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.MaxSessionIdleMinutes.GetHashCode();
                 hashCode = (hashCode * 59) + this.MaxSessionLifetimeMinutes.GetHashCode();
                 hashCode = (hashCode * 59) + this.UsePersistentCookie.GetHashCode();
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
-                }
                 return hashCode;
             }
         }

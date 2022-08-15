@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// LogGeolocation
     /// </summary>
     [DataContract(Name = "LogGeolocation")]
+    
     public partial class LogGeolocation : IEquatable<LogGeolocation>
     {
         
@@ -62,12 +63,6 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,7 +72,6 @@ namespace Okta.Sdk.Model
             sb.Append("class LogGeolocation {\n");
             sb.Append("  Lat: ").Append(Lat).Append("\n");
             sb.Append("  Lon: ").Append(Lon).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,8 +114,7 @@ namespace Okta.Sdk.Model
                 (
                     this.Lon == input.Lon ||
                     this.Lon.Equals(input.Lon)
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -133,12 +126,9 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.Lat.GetHashCode();
                 hashCode = (hashCode * 59) + this.Lon.GetHashCode();
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
-                }
                 return hashCode;
             }
         }

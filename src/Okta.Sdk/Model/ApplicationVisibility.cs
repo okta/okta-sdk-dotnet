@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationVisibility
     /// </summary>
     [DataContract(Name = "ApplicationVisibility")]
+    
     public partial class ApplicationVisibility : IEquatable<ApplicationVisibility>
     {
         
@@ -58,12 +59,6 @@ namespace Okta.Sdk.Model
         public ApplicationVisibilityHide Hide { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,7 +70,6 @@ namespace Okta.Sdk.Model
             sb.Append("  AutoLaunch: ").Append(AutoLaunch).Append("\n");
             sb.Append("  AutoSubmitToolbar: ").Append(AutoSubmitToolbar).Append("\n");
             sb.Append("  Hide: ").Append(Hide).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -129,8 +123,7 @@ namespace Okta.Sdk.Model
                     this.Hide == input.Hide ||
                     (this.Hide != null &&
                     this.Hide.Equals(input.Hide))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -142,6 +135,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.AppLinks != null)
                 {
                     hashCode = (hashCode * 59) + this.AppLinks.GetHashCode();
@@ -151,10 +145,6 @@ namespace Okta.Sdk.Model
                 if (this.Hide != null)
                 {
                     hashCode = (hashCode * 59) + this.Hide.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

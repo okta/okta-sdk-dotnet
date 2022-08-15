@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// AutoLoginApplicationSettings
     /// </summary>
     [DataContract(Name = "AutoLoginApplicationSettings")]
+    
     public partial class AutoLoginApplicationSettings : IEquatable<AutoLoginApplicationSettings>
     {
         
@@ -70,12 +71,6 @@ namespace Okta.Sdk.Model
         public AutoLoginApplicationSettingsSignOn SignOn { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -89,7 +84,6 @@ namespace Okta.Sdk.Model
             sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("  Notifications: ").Append(Notifications).Append("\n");
             sb.Append("  SignOn: ").Append(SignOn).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,8 +147,7 @@ namespace Okta.Sdk.Model
                     this.SignOn == input.SignOn ||
                     (this.SignOn != null &&
                     this.SignOn.Equals(input.SignOn))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -166,6 +159,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.IdentityStoreId != null)
                 {
                     hashCode = (hashCode * 59) + this.IdentityStoreId.GetHashCode();
@@ -186,10 +180,6 @@ namespace Okta.Sdk.Model
                 if (this.SignOn != null)
                 {
                     hashCode = (hashCode * 59) + this.SignOn.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

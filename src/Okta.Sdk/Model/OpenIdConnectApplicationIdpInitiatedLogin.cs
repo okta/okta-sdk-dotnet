@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OpenIdConnectApplicationIdpInitiatedLogin
     /// </summary>
     [DataContract(Name = "OpenIdConnectApplicationIdpInitiatedLogin")]
+    
     public partial class OpenIdConnectApplicationIdpInitiatedLogin : IEquatable<OpenIdConnectApplicationIdpInitiatedLogin>
     {
         
@@ -46,12 +47,6 @@ namespace Okta.Sdk.Model
         public string Mode { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,7 +56,6 @@ namespace Okta.Sdk.Model
             sb.Append("class OpenIdConnectApplicationIdpInitiatedLogin {\n");
             sb.Append("  DefaultScope: ").Append(DefaultScope).Append("\n");
             sb.Append("  Mode: ").Append(Mode).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,8 +101,7 @@ namespace Okta.Sdk.Model
                     this.Mode == input.Mode ||
                     (this.Mode != null &&
                     this.Mode.Equals(input.Mode))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -120,6 +113,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.DefaultScope != null)
                 {
                     hashCode = (hashCode * 59) + this.DefaultScope.GetHashCode();
@@ -127,10 +121,6 @@ namespace Okta.Sdk.Model
                 if (this.Mode != null)
                 {
                     hashCode = (hashCode * 59) + this.Mode.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

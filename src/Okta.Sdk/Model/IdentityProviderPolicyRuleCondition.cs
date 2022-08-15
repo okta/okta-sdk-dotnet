@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// IdentityProviderPolicyRuleCondition
     /// </summary>
     [DataContract(Name = "IdentityProviderPolicyRuleCondition")]
+    
     public partial class IdentityProviderPolicyRuleCondition : IEquatable<IdentityProviderPolicyRuleCondition>
     {
         
@@ -46,12 +47,6 @@ namespace Okta.Sdk.Model
         public string Provider { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,7 +56,6 @@ namespace Okta.Sdk.Model
             sb.Append("class IdentityProviderPolicyRuleCondition {\n");
             sb.Append("  IdpIds: ").Append(IdpIds).Append("\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,8 +101,7 @@ namespace Okta.Sdk.Model
                     this.Provider == input.Provider ||
                     (this.Provider != null &&
                     this.Provider.Equals(input.Provider))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -120,6 +113,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.IdpIds != null)
                 {
                     hashCode = (hashCode * 59) + this.IdpIds.GetHashCode();
@@ -127,10 +121,6 @@ namespace Okta.Sdk.Model
                 if (this.Provider != null)
                 {
                     hashCode = (hashCode * 59) + this.Provider.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

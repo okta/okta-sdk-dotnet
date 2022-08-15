@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// APNSConfiguration
     /// </summary>
     [DataContract(Name = "APNSConfiguration")]
+    
     public partial class APNSConfiguration : IEquatable<APNSConfiguration>
     {
         
@@ -62,12 +63,6 @@ namespace Okta.Sdk.Model
         public string TokenSigningKey { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -79,7 +74,6 @@ namespace Okta.Sdk.Model
             sb.Append("  KeyId: ").Append(KeyId).Append("\n");
             sb.Append("  TeamId: ").Append(TeamId).Append("\n");
             sb.Append("  TokenSigningKey: ").Append(TokenSigningKey).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,8 +128,7 @@ namespace Okta.Sdk.Model
                     this.TokenSigningKey == input.TokenSigningKey ||
                     (this.TokenSigningKey != null &&
                     this.TokenSigningKey.Equals(input.TokenSigningKey))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -147,6 +140,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.FileName != null)
                 {
                     hashCode = (hashCode * 59) + this.FileName.GetHashCode();
@@ -162,10 +156,6 @@ namespace Okta.Sdk.Model
                 if (this.TokenSigningKey != null)
                 {
                     hashCode = (hashCode * 59) + this.TokenSigningKey.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

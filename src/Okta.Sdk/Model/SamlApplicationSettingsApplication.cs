@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// SamlApplicationSettingsApplication
     /// </summary>
     [DataContract(Name = "SamlApplicationSettingsApplication")]
+    
     public partial class SamlApplicationSettingsApplication : IEquatable<SamlApplicationSettingsApplication>
     {
         
@@ -52,12 +53,6 @@ namespace Okta.Sdk.Model
         public string BaseUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,7 +63,6 @@ namespace Okta.Sdk.Model
             sb.Append("  AcsUrl: ").Append(AcsUrl).Append("\n");
             sb.Append("  AudRestriction: ").Append(AudRestriction).Append("\n");
             sb.Append("  BaseUrl: ").Append(BaseUrl).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,8 +112,7 @@ namespace Okta.Sdk.Model
                     this.BaseUrl == input.BaseUrl ||
                     (this.BaseUrl != null &&
                     this.BaseUrl.Equals(input.BaseUrl))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -131,6 +124,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.AcsUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.AcsUrl.GetHashCode();
@@ -142,10 +136,6 @@ namespace Okta.Sdk.Model
                 if (this.BaseUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.BaseUrl.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

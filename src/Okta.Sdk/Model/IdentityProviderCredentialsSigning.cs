@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// IdentityProviderCredentialsSigning
     /// </summary>
     [DataContract(Name = "IdentityProviderCredentialsSigning")]
+    
     public partial class IdentityProviderCredentialsSigning : IEquatable<IdentityProviderCredentialsSigning>
     {
         
@@ -40,12 +41,6 @@ namespace Okta.Sdk.Model
         public string Kid { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -54,7 +49,6 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class IdentityProviderCredentialsSigning {\n");
             sb.Append("  Kid: ").Append(Kid).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,8 +88,7 @@ namespace Okta.Sdk.Model
                     this.Kid == input.Kid ||
                     (this.Kid != null &&
                     this.Kid.Equals(input.Kid))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -107,13 +100,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Kid != null)
                 {
                     hashCode = (hashCode * 59) + this.Kid.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

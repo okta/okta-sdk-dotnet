@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// TokenAuthorizationServerPolicyRuleAction
     /// </summary>
     [DataContract(Name = "TokenAuthorizationServerPolicyRuleAction")]
+    
     public partial class TokenAuthorizationServerPolicyRuleAction : IEquatable<TokenAuthorizationServerPolicyRuleAction>
     {
         
@@ -58,12 +59,6 @@ namespace Okta.Sdk.Model
         public int RefreshTokenWindowMinutes { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,7 +70,6 @@ namespace Okta.Sdk.Model
             sb.Append("  InlineHook: ").Append(InlineHook).Append("\n");
             sb.Append("  RefreshTokenLifetimeMinutes: ").Append(RefreshTokenLifetimeMinutes).Append("\n");
             sb.Append("  RefreshTokenWindowMinutes: ").Append(RefreshTokenWindowMinutes).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,8 +121,7 @@ namespace Okta.Sdk.Model
                 (
                     this.RefreshTokenWindowMinutes == input.RefreshTokenWindowMinutes ||
                     this.RefreshTokenWindowMinutes.Equals(input.RefreshTokenWindowMinutes)
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -140,6 +133,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.AccessTokenLifetimeMinutes.GetHashCode();
                 if (this.InlineHook != null)
                 {
@@ -147,10 +141,6 @@ namespace Okta.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.RefreshTokenLifetimeMinutes.GetHashCode();
                 hashCode = (hashCode * 59) + this.RefreshTokenWindowMinutes.GetHashCode();
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
-                }
                 return hashCode;
             }
         }

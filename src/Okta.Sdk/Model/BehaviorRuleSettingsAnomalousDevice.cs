@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// BehaviorRuleSettingsAnomalousDevice
     /// </summary>
     [DataContract(Name = "BehaviorRuleSettingsAnomalousDevice")]
+    
     public partial class BehaviorRuleSettingsAnomalousDevice : IEquatable<BehaviorRuleSettingsAnomalousDevice>
     {
         
@@ -46,12 +47,6 @@ namespace Okta.Sdk.Model
         public int MinEventsNeededForEvaluation { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,7 +56,6 @@ namespace Okta.Sdk.Model
             sb.Append("class BehaviorRuleSettingsAnomalousDevice {\n");
             sb.Append("  MaxEventsUsedForEvaluation: ").Append(MaxEventsUsedForEvaluation).Append("\n");
             sb.Append("  MinEventsNeededForEvaluation: ").Append(MinEventsNeededForEvaluation).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,8 +98,7 @@ namespace Okta.Sdk.Model
                 (
                     this.MinEventsNeededForEvaluation == input.MinEventsNeededForEvaluation ||
                     this.MinEventsNeededForEvaluation.Equals(input.MinEventsNeededForEvaluation)
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -117,12 +110,9 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.MaxEventsUsedForEvaluation.GetHashCode();
                 hashCode = (hashCode * 59) + this.MinEventsNeededForEvaluation.GetHashCode();
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
-                }
                 return hashCode;
             }
         }

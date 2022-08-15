@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OktaSignOnPolicyRuleConditions
     /// </summary>
     [DataContract(Name = "OktaSignOnPolicyRuleConditions")]
+    
     public partial class OktaSignOnPolicyRuleConditions : IEquatable<OktaSignOnPolicyRuleConditions>
     {
         
@@ -160,12 +161,6 @@ namespace Okta.Sdk.Model
         public UserStatusPolicyRuleCondition UserStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -194,7 +189,6 @@ namespace Okta.Sdk.Model
             sb.Append("  UserIdentifier: ").Append(UserIdentifier).Append("\n");
             sb.Append("  Users: ").Append(Users).Append("\n");
             sb.Append("  UserStatus: ").Append(UserStatus).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -334,8 +328,7 @@ namespace Okta.Sdk.Model
                     this.UserStatus == input.UserStatus ||
                     (this.UserStatus != null &&
                     this.UserStatus.Equals(input.UserStatus))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -347,6 +340,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.App != null)
                 {
                     hashCode = (hashCode * 59) + this.App.GetHashCode();
@@ -430,10 +424,6 @@ namespace Okta.Sdk.Model
                 if (this.UserStatus != null)
                 {
                     hashCode = (hashCode * 59) + this.UserStatus.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

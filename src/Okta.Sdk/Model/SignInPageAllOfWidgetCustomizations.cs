@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// SignInPageAllOfWidgetCustomizations
     /// </summary>
     [DataContract(Name = "SignInPage_allOf_widgetCustomizations")]
+    
     public partial class SignInPageAllOfWidgetCustomizations : IEquatable<SignInPageAllOfWidgetCustomizations>
     {
         
@@ -154,12 +155,6 @@ namespace Okta.Sdk.Model
         public string ClassicRecoveryFlowEmailOrUsernameLabel { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -187,7 +182,6 @@ namespace Okta.Sdk.Model
             sb.Append("  AuthenticatorPageCustomLinkLabel: ").Append(AuthenticatorPageCustomLinkLabel).Append("\n");
             sb.Append("  AuthenticatorPageCustomLinkUrl: ").Append(AuthenticatorPageCustomLinkUrl).Append("\n");
             sb.Append("  ClassicRecoveryFlowEmailOrUsernameLabel: ").Append(ClassicRecoveryFlowEmailOrUsernameLabel).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -320,8 +314,7 @@ namespace Okta.Sdk.Model
                     this.ClassicRecoveryFlowEmailOrUsernameLabel == input.ClassicRecoveryFlowEmailOrUsernameLabel ||
                     (this.ClassicRecoveryFlowEmailOrUsernameLabel != null &&
                     this.ClassicRecoveryFlowEmailOrUsernameLabel.Equals(input.ClassicRecoveryFlowEmailOrUsernameLabel))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -333,6 +326,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.SignInLabel != null)
                 {
                     hashCode = (hashCode * 59) + this.SignInLabel.GetHashCode();
@@ -406,10 +400,6 @@ namespace Okta.Sdk.Model
                 if (this.ClassicRecoveryFlowEmailOrUsernameLabel != null)
                 {
                     hashCode = (hashCode * 59) + this.ClassicRecoveryFlowEmailOrUsernameLabel.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

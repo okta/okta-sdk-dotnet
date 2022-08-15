@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// An AgentPool is a collection of agents that serve a common purpose. An AgentPool has a unique ID within an org, and contains a collection of agents disjoint to every other AgentPool (i.e. no two AgentPools share an Agent).
     /// </summary>
     [DataContract(Name = "AgentPool")]
+    
     public partial class AgentPool : IEquatable<AgentPool>
     {
         
@@ -74,12 +75,6 @@ namespace Okta.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,7 +87,6 @@ namespace Okta.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  OperationalStatus: ").Append(OperationalStatus).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,8 +147,7 @@ namespace Okta.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -166,6 +159,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Agents != null)
                 {
                     hashCode = (hashCode * 59) + this.Agents.GetHashCode();
@@ -185,10 +179,6 @@ namespace Okta.Sdk.Model
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

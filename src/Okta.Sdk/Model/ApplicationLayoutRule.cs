@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationLayoutRule
     /// </summary>
     [DataContract(Name = "ApplicationLayout_rule")]
+    
     public partial class ApplicationLayoutRule : IEquatable<ApplicationLayoutRule>
     {
         
@@ -46,12 +47,6 @@ namespace Okta.Sdk.Model
         public ApplicationLayoutRuleCondition Condition { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,7 +56,6 @@ namespace Okta.Sdk.Model
             sb.Append("class ApplicationLayoutRule {\n");
             sb.Append("  Effect: ").Append(Effect).Append("\n");
             sb.Append("  Condition: ").Append(Condition).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,8 +100,7 @@ namespace Okta.Sdk.Model
                     this.Condition == input.Condition ||
                     (this.Condition != null &&
                     this.Condition.Equals(input.Condition))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -119,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Effect != null)
                 {
                     hashCode = (hashCode * 59) + this.Effect.GetHashCode();
@@ -126,10 +120,6 @@ namespace Okta.Sdk.Model
                 if (this.Condition != null)
                 {
                     hashCode = (hashCode * 59) + this.Condition.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

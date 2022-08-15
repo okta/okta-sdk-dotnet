@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PasswordPolicyPasswordSettingsComplexity
     /// </summary>
     [DataContract(Name = "PasswordPolicyPasswordSettingsComplexity")]
+    
     public partial class PasswordPolicyPasswordSettingsComplexity : IEquatable<PasswordPolicyPasswordSettingsComplexity>
     {
         
@@ -82,12 +83,6 @@ namespace Okta.Sdk.Model
         public int MinUpperCase { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -103,7 +98,6 @@ namespace Okta.Sdk.Model
             sb.Append("  MinNumber: ").Append(MinNumber).Append("\n");
             sb.Append("  MinSymbol: ").Append(MinSymbol).Append("\n");
             sb.Append("  MinUpperCase: ").Append(MinUpperCase).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,8 +167,7 @@ namespace Okta.Sdk.Model
                 (
                     this.MinUpperCase == input.MinUpperCase ||
                     this.MinUpperCase.Equals(input.MinUpperCase)
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -186,6 +179,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Dictionary != null)
                 {
                     hashCode = (hashCode * 59) + this.Dictionary.GetHashCode();
@@ -200,10 +194,6 @@ namespace Okta.Sdk.Model
                 hashCode = (hashCode * 59) + this.MinNumber.GetHashCode();
                 hashCode = (hashCode * 59) + this.MinSymbol.GetHashCode();
                 hashCode = (hashCode * 59) + this.MinUpperCase.GetHashCode();
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
-                }
                 return hashCode;
             }
         }

@@ -30,16 +30,14 @@ namespace Okta.Sdk.Model
     /// An API token for an Okta User. This token is NOT scoped any further and can be used for any API the user has permissions to call.
     /// </summary>
     [DataContract(Name = "ApiToken")]
+    
     public partial class ApiToken : IEquatable<ApiToken>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiToken" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ApiToken()
-        {
-            this.AdditionalProperties = new Dictionary<string, object>();
-        }
+        public ApiToken() { }
         
         /// <summary>
         /// Gets or Sets ClientName
@@ -137,12 +135,6 @@ namespace Okta.Sdk.Model
         public ApiTokenLink Link { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -159,7 +151,6 @@ namespace Okta.Sdk.Model
             sb.Append("  TokenWindow: ").Append(TokenWindow).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  Link: ").Append(Link).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -239,8 +230,7 @@ namespace Okta.Sdk.Model
                     this.Link == input.Link ||
                     (this.Link != null &&
                     this.Link.Equals(input.Link))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -252,6 +242,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ClientName != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientName.GetHashCode();
@@ -287,10 +278,6 @@ namespace Okta.Sdk.Model
                 if (this.Link != null)
                 {
                     hashCode = (hashCode * 59) + this.Link.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

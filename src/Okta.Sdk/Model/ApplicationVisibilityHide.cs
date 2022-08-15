@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationVisibilityHide
     /// </summary>
     [DataContract(Name = "ApplicationVisibilityHide")]
+    
     public partial class ApplicationVisibilityHide : IEquatable<ApplicationVisibilityHide>
     {
         
@@ -46,12 +47,6 @@ namespace Okta.Sdk.Model
         public bool Web { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,7 +56,6 @@ namespace Okta.Sdk.Model
             sb.Append("class ApplicationVisibilityHide {\n");
             sb.Append("  IOS: ").Append(IOS).Append("\n");
             sb.Append("  Web: ").Append(Web).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,8 +98,7 @@ namespace Okta.Sdk.Model
                 (
                     this.Web == input.Web ||
                     this.Web.Equals(input.Web)
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -117,12 +110,9 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.IOS.GetHashCode();
                 hashCode = (hashCode * 59) + this.Web.GetHashCode();
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
-                }
                 return hashCode;
             }
         }

@@ -30,16 +30,14 @@ namespace Okta.Sdk.Model
     /// EmailContent
     /// </summary>
     [DataContract(Name = "EmailContent")]
+    
     public partial class EmailContent : IEquatable<EmailContent>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailContent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public EmailContent()
-        {
-            this.AdditionalProperties = new Dictionary<string, object>();
-        }
+        public EmailContent() { }
         
         /// <summary>
         /// The email&#39;s HTML body. May contain [variable references](https://velocity.apache.org/engine/1.7/user-guide.html#references).
@@ -56,12 +54,6 @@ namespace Okta.Sdk.Model
         public string Subject { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -71,7 +63,6 @@ namespace Okta.Sdk.Model
             sb.Append("class EmailContent {\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -116,8 +107,7 @@ namespace Okta.Sdk.Model
                     this.Subject == input.Subject ||
                     (this.Subject != null &&
                     this.Subject.Equals(input.Subject))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -129,6 +119,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Body != null)
                 {
                     hashCode = (hashCode * 59) + this.Body.GetHashCode();
@@ -136,10 +127,6 @@ namespace Okta.Sdk.Model
                 if (this.Subject != null)
                 {
                     hashCode = (hashCode * 59) + this.Subject.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

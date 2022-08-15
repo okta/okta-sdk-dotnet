@@ -30,16 +30,14 @@ namespace Okta.Sdk.Model
     /// HostedPage
     /// </summary>
     [DataContract(Name = "HostedPage")]
+    
     public partial class HostedPage : IEquatable<HostedPage>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="HostedPage" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public HostedPage()
-        {
-            this.AdditionalProperties = new Dictionary<string, object>();
-        }
+        public HostedPage() { }
         
         /// <summary>
         /// Gets or Sets Type
@@ -54,12 +52,6 @@ namespace Okta.Sdk.Model
         public string Url { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -69,7 +61,6 @@ namespace Okta.Sdk.Model
             sb.Append("class HostedPage {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,8 +105,7 @@ namespace Okta.Sdk.Model
                     this.Url == input.Url ||
                     (this.Url != null &&
                     this.Url.Equals(input.Url))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -127,6 +117,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
@@ -134,10 +125,6 @@ namespace Okta.Sdk.Model
                 if (this.Url != null)
                 {
                     hashCode = (hashCode * 59) + this.Url.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

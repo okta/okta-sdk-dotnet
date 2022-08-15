@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// UserPolicyRuleCondition
     /// </summary>
     [DataContract(Name = "UserPolicyRuleCondition")]
+    
     public partial class UserPolicyRuleCondition : IEquatable<UserPolicyRuleCondition>
     {
         
@@ -70,12 +71,6 @@ namespace Okta.Sdk.Model
         public UserLifecycleAttributePolicyRuleCondition UserLifecycleAttribute { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -89,7 +84,6 @@ namespace Okta.Sdk.Model
             sb.Append("  LifecycleExpiration: ").Append(LifecycleExpiration).Append("\n");
             sb.Append("  PasswordExpiration: ").Append(PasswordExpiration).Append("\n");
             sb.Append("  UserLifecycleAttribute: ").Append(UserLifecycleAttribute).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -156,8 +150,7 @@ namespace Okta.Sdk.Model
                     this.UserLifecycleAttribute == input.UserLifecycleAttribute ||
                     (this.UserLifecycleAttribute != null &&
                     this.UserLifecycleAttribute.Equals(input.UserLifecycleAttribute))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -169,6 +162,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Exclude != null)
                 {
                     hashCode = (hashCode * 59) + this.Exclude.GetHashCode();
@@ -192,10 +186,6 @@ namespace Okta.Sdk.Model
                 if (this.UserLifecycleAttribute != null)
                 {
                     hashCode = (hashCode * 59) + this.UserLifecycleAttribute.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

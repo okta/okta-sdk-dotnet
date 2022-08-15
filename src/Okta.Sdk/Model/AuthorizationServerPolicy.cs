@@ -39,6 +39,7 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(OktaSignOnPolicy), "OKTA_SIGN_ON")]
     [JsonSubtypes.KnownSubType(typeof(PasswordPolicy), "PASSWORD")]
     [JsonSubtypes.KnownSubType(typeof(ProfileEnrollmentPolicy), "PROFILE_ENROLLMENT")]
+    
     public partial class AuthorizationServerPolicy : Policy, IEquatable<AuthorizationServerPolicy>
     {
         
@@ -47,12 +48,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "conditions", EmitDefaultValue = false)]
         public PolicyRuleConditions Conditions { get; set; }
-
-        /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,7 +59,6 @@ namespace Okta.Sdk.Model
             sb.Append("class AuthorizationServerPolicy {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Conditions: ").Append(Conditions).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,8 +98,7 @@ namespace Okta.Sdk.Model
                     this.Conditions == input.Conditions ||
                     (this.Conditions != null &&
                     this.Conditions.Equals(input.Conditions))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -117,13 +110,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
+                
                 if (this.Conditions != null)
                 {
                     hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

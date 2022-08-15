@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Links to resources related to this email customization.
     /// </summary>
     [DataContract(Name = "EmailCustomization_allOf__links")]
+    
     public partial class EmailCustomizationAllOfLinks : IEquatable<EmailCustomizationAllOfLinks>
     {
         
@@ -58,12 +59,6 @@ namespace Okta.Sdk.Model
         public HrefObject Test { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,7 +70,6 @@ namespace Okta.Sdk.Model
             sb.Append("  Template: ").Append(Template).Append("\n");
             sb.Append("  Preview: ").Append(Preview).Append("\n");
             sb.Append("  Test: ").Append(Test).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,8 +124,7 @@ namespace Okta.Sdk.Model
                     this.Test == input.Test ||
                     (this.Test != null &&
                     this.Test.Equals(input.Test))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -143,6 +136,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Self != null)
                 {
                     hashCode = (hashCode * 59) + this.Self.GetHashCode();
@@ -158,10 +152,6 @@ namespace Okta.Sdk.Model
                 if (this.Test != null)
                 {
                     hashCode = (hashCode * 59) + this.Test.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

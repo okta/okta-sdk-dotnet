@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationCredentials
     /// </summary>
     [DataContract(Name = "ApplicationCredentials")]
+    
     public partial class ApplicationCredentials : IEquatable<ApplicationCredentials>
     {
         
@@ -46,12 +47,6 @@ namespace Okta.Sdk.Model
         public ApplicationCredentialsUsernameTemplate UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,7 +56,6 @@ namespace Okta.Sdk.Model
             sb.Append("class ApplicationCredentials {\n");
             sb.Append("  Signing: ").Append(Signing).Append("\n");
             sb.Append("  UserNameTemplate: ").Append(UserNameTemplate).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,8 +100,7 @@ namespace Okta.Sdk.Model
                     this.UserNameTemplate == input.UserNameTemplate ||
                     (this.UserNameTemplate != null &&
                     this.UserNameTemplate.Equals(input.UserNameTemplate))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -119,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Signing != null)
                 {
                     hashCode = (hashCode * 59) + this.Signing.GetHashCode();
@@ -126,10 +120,6 @@ namespace Okta.Sdk.Model
                 if (this.UserNameTemplate != null)
                 {
                     hashCode = (hashCode * 59) + this.UserNameTemplate.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

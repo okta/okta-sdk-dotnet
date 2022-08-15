@@ -31,6 +31,7 @@ namespace Okta.Sdk.Model
     /// </summary>
     [DataContract(Name = "UserProfile")]
     public partial class UserProfile : IEquatable<UserProfile>
+    
     {
         
         /// <summary>
@@ -274,7 +275,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -468,6 +469,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.City != null)
                 {
                     hashCode = (hashCode * 59) + this.City.GetHashCode();

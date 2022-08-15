@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ChangePasswordRequest
     /// </summary>
     [DataContract(Name = "ChangePasswordRequest")]
+    
     public partial class ChangePasswordRequest : IEquatable<ChangePasswordRequest>
     {
         
@@ -46,12 +47,6 @@ namespace Okta.Sdk.Model
         public PasswordCredential OldPassword { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,7 +56,6 @@ namespace Okta.Sdk.Model
             sb.Append("class ChangePasswordRequest {\n");
             sb.Append("  NewPassword: ").Append(NewPassword).Append("\n");
             sb.Append("  OldPassword: ").Append(OldPassword).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,8 +100,7 @@ namespace Okta.Sdk.Model
                     this.OldPassword == input.OldPassword ||
                     (this.OldPassword != null &&
                     this.OldPassword.Equals(input.OldPassword))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -119,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.NewPassword != null)
                 {
                     hashCode = (hashCode * 59) + this.NewPassword.GetHashCode();
@@ -126,10 +120,6 @@ namespace Okta.Sdk.Model
                 if (this.OldPassword != null)
                 {
                     hashCode = (hashCode * 59) + this.OldPassword.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

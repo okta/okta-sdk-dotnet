@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// UserActivationToken
     /// </summary>
     [DataContract(Name = "UserActivationToken")]
+    
     public partial class UserActivationToken : IEquatable<UserActivationToken>
     {
         
@@ -62,12 +63,6 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,7 +72,6 @@ namespace Okta.Sdk.Model
             sb.Append("class UserActivationToken {\n");
             sb.Append("  ActivationToken: ").Append(ActivationToken).Append("\n");
             sb.Append("  ActivationUrl: ").Append(ActivationUrl).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,8 +116,7 @@ namespace Okta.Sdk.Model
                     this.ActivationUrl == input.ActivationUrl ||
                     (this.ActivationUrl != null &&
                     this.ActivationUrl.Equals(input.ActivationUrl))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -135,6 +128,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ActivationToken != null)
                 {
                     hashCode = (hashCode * 59) + this.ActivationToken.GetHashCode();
@@ -142,10 +136,6 @@ namespace Okta.Sdk.Model
                 if (this.ActivationUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.ActivationUrl.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

@@ -30,16 +30,14 @@ namespace Okta.Sdk.Model
     /// EmailDomainResponse
     /// </summary>
     [DataContract(Name = "EmailDomainResponse")]
+    
     public partial class EmailDomainResponse : IEquatable<EmailDomainResponse>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailDomainResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public EmailDomainResponse()
-        {
-            this.AdditionalProperties = new Dictionary<string, object>();
-        }
+        public EmailDomainResponse() { }
         
         /// <summary>
         /// Gets or Sets DnsValidationRecords
@@ -78,12 +76,6 @@ namespace Okta.Sdk.Model
         public string UserName { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -97,7 +89,6 @@ namespace Okta.Sdk.Model
             sb.Append("  ValidationStatus: ").Append(ValidationStatus).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  UserName: ").Append(UserName).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -163,8 +154,7 @@ namespace Okta.Sdk.Model
                     this.UserName == input.UserName ||
                     (this.UserName != null &&
                     this.UserName.Equals(input.UserName))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -176,6 +166,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.DnsValidationRecords != null)
                 {
                     hashCode = (hashCode * 59) + this.DnsValidationRecords.GetHashCode();
@@ -199,10 +190,6 @@ namespace Okta.Sdk.Model
                 if (this.UserName != null)
                 {
                     hashCode = (hashCode * 59) + this.UserName.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

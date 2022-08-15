@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// GroupSchema
     /// </summary>
     [DataContract(Name = "GroupSchema")]
+    
     public partial class GroupSchema : IEquatable<GroupSchema>
     {
         
@@ -156,12 +157,6 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -180,7 +175,6 @@ namespace Okta.Sdk.Model
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -271,8 +265,7 @@ namespace Okta.Sdk.Model
                     this.Links != null &&
                     input.Links != null &&
                     this.Links.SequenceEqual(input.Links)
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -284,6 +277,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Schema != null)
                 {
                     hashCode = (hashCode * 59) + this.Schema.GetHashCode();
@@ -327,10 +321,6 @@ namespace Okta.Sdk.Model
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

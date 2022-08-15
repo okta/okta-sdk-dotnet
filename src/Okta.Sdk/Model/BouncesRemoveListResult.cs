@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// BouncesRemoveListResult
     /// </summary>
     [DataContract(Name = "BouncesRemoveListResult")]
+    
     public partial class BouncesRemoveListResult : IEquatable<BouncesRemoveListResult>
     {
         
@@ -40,12 +41,6 @@ namespace Okta.Sdk.Model
         public List<BouncesRemoveListError> Errors { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -54,7 +49,6 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class BouncesRemoveListResult {\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,8 +89,7 @@ namespace Okta.Sdk.Model
                     this.Errors != null &&
                     input.Errors != null &&
                     this.Errors.SequenceEqual(input.Errors)
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -108,13 +101,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Errors != null)
                 {
                     hashCode = (hashCode * 59) + this.Errors.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

@@ -30,28 +30,20 @@ namespace Okta.Sdk.Model
     /// BehaviorDetectionRuleSettingsBasedOnDeviceVelocityInKilometersPerHour
     /// </summary>
     [DataContract(Name = "Behavior_Detection_Rule_Settings_based_on_device_velocity_in_kilometers_per_hour_")]
+    
     public partial class BehaviorDetectionRuleSettingsBasedOnDeviceVelocityInKilometersPerHour : IEquatable<BehaviorDetectionRuleSettingsBasedOnDeviceVelocityInKilometersPerHour>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BehaviorDetectionRuleSettingsBasedOnDeviceVelocityInKilometersPerHour" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public BehaviorDetectionRuleSettingsBasedOnDeviceVelocityInKilometersPerHour()
-        {
-            this.AdditionalProperties = new Dictionary<string, object>();
-        }
+        public BehaviorDetectionRuleSettingsBasedOnDeviceVelocityInKilometersPerHour() { }
         
         /// <summary>
         /// Gets or Sets VelocityKph
         /// </summary>
         [DataMember(Name = "velocityKph", IsRequired = true, EmitDefaultValue = false)]
         public int VelocityKph { get; set; }
-
-        /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,7 +54,6 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class BehaviorDetectionRuleSettingsBasedOnDeviceVelocityInKilometersPerHour {\n");
             sb.Append("  VelocityKph: ").Append(VelocityKph).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,8 +92,7 @@ namespace Okta.Sdk.Model
                 (
                     this.VelocityKph == input.VelocityKph ||
                     this.VelocityKph.Equals(input.VelocityKph)
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -114,11 +104,8 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.VelocityKph.GetHashCode();
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
-                }
                 return hashCode;
             }
         }

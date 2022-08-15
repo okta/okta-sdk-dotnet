@@ -37,6 +37,7 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(ProfileEnrollmentPolicyRule), "PROFILE_ENROLLMENT")]
     [JsonSubtypes.KnownSubType(typeof(AuthorizationServerPolicyRule), "RESOURCE_ACCESS")]
     [JsonSubtypes.KnownSubType(typeof(OktaSignOnPolicyRule), "SIGN_ON")]
+    
     public partial class PasswordPolicyRule : PolicyRule, IEquatable<PasswordPolicyRule>
     {
         
@@ -53,12 +54,6 @@ namespace Okta.Sdk.Model
         public PasswordPolicyRuleConditions Conditions { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -69,7 +64,6 @@ namespace Okta.Sdk.Model
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Actions: ").Append(Actions).Append("\n");
             sb.Append("  Conditions: ").Append(Conditions).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,8 +108,7 @@ namespace Okta.Sdk.Model
                     this.Conditions == input.Conditions ||
                     (this.Conditions != null &&
                     this.Conditions.Equals(input.Conditions))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -127,6 +120,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
+                
                 if (this.Actions != null)
                 {
                     hashCode = (hashCode * 59) + this.Actions.GetHashCode();
@@ -134,10 +128,6 @@ namespace Okta.Sdk.Model
                 if (this.Conditions != null)
                 {
                     hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

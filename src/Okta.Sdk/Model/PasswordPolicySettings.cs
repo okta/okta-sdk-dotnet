@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PasswordPolicySettings
     /// </summary>
     [DataContract(Name = "PasswordPolicySettings")]
+    
     public partial class PasswordPolicySettings : IEquatable<PasswordPolicySettings>
     {
         
@@ -52,12 +53,6 @@ namespace Okta.Sdk.Model
         public PasswordPolicyRecoverySettings Recovery { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,7 +63,6 @@ namespace Okta.Sdk.Model
             sb.Append("  Delegation: ").Append(Delegation).Append("\n");
             sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("  Recovery: ").Append(Recovery).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,8 +112,7 @@ namespace Okta.Sdk.Model
                     this.Recovery == input.Recovery ||
                     (this.Recovery != null &&
                     this.Recovery.Equals(input.Recovery))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -131,6 +124,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Delegation != null)
                 {
                     hashCode = (hashCode * 59) + this.Delegation.GetHashCode();
@@ -142,10 +136,6 @@ namespace Okta.Sdk.Model
                 if (this.Recovery != null)
                 {
                     hashCode = (hashCode * 59) + this.Recovery.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

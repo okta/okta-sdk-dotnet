@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OpenIdConnectApplicationSettingsClient
     /// </summary>
     [DataContract(Name = "OpenIdConnectApplicationSettingsClient")]
+    
     public partial class OpenIdConnectApplicationSettingsClient : IEquatable<OpenIdConnectApplicationSettingsClient>
     {
         
@@ -130,12 +131,6 @@ namespace Okta.Sdk.Model
         public string WildcardRedirect { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -159,7 +154,6 @@ namespace Okta.Sdk.Model
             sb.Append("  ResponseTypes: ").Append(ResponseTypes).Append("\n");
             sb.Append("  TosUri: ").Append(TosUri).Append("\n");
             sb.Append("  WildcardRedirect: ").Append(WildcardRedirect).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -278,8 +272,7 @@ namespace Okta.Sdk.Model
                     this.WildcardRedirect == input.WildcardRedirect ||
                     (this.WildcardRedirect != null &&
                     this.WildcardRedirect.Equals(input.WildcardRedirect))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -291,6 +284,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ApplicationType != null)
                 {
                     hashCode = (hashCode * 59) + this.ApplicationType.GetHashCode();
@@ -354,10 +348,6 @@ namespace Okta.Sdk.Model
                 if (this.WildcardRedirect != null)
                 {
                     hashCode = (hashCode * 59) + this.WildcardRedirect.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// DevicePolicyRuleCondition
     /// </summary>
     [DataContract(Name = "DevicePolicyRuleCondition")]
+    
     public partial class DevicePolicyRuleCondition : IEquatable<DevicePolicyRuleCondition>
     {
         
@@ -58,12 +59,6 @@ namespace Okta.Sdk.Model
         public string TrustLevel { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,7 +70,6 @@ namespace Okta.Sdk.Model
             sb.Append("  Platform: ").Append(Platform).Append("\n");
             sb.Append("  Rooted: ").Append(Rooted).Append("\n");
             sb.Append("  TrustLevel: ").Append(TrustLevel).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -128,8 +122,7 @@ namespace Okta.Sdk.Model
                     this.TrustLevel == input.TrustLevel ||
                     (this.TrustLevel != null &&
                     this.TrustLevel.Equals(input.TrustLevel))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -141,6 +134,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.Migrated.GetHashCode();
                 if (this.Platform != null)
                 {
@@ -150,10 +144,6 @@ namespace Okta.Sdk.Model
                 if (this.TrustLevel != null)
                 {
                     hashCode = (hashCode * 59) + this.TrustLevel.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// AccessPolicyRuleConditions
     /// </summary>
     [DataContract(Name = "AccessPolicyRuleConditions")]
+    
     public partial class AccessPolicyRuleConditions : IEquatable<AccessPolicyRuleConditions>
     {
         
@@ -172,12 +173,6 @@ namespace Okta.Sdk.Model
         public UserTypeCondition UserType { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -208,7 +203,6 @@ namespace Okta.Sdk.Model
             sb.Append("  UserStatus: ").Append(UserStatus).Append("\n");
             sb.Append("  ElCondition: ").Append(ElCondition).Append("\n");
             sb.Append("  UserType: ").Append(UserType).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -358,8 +352,7 @@ namespace Okta.Sdk.Model
                     this.UserType == input.UserType ||
                     (this.UserType != null &&
                     this.UserType.Equals(input.UserType))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -371,6 +364,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.App != null)
                 {
                     hashCode = (hashCode * 59) + this.App.GetHashCode();
@@ -462,10 +456,6 @@ namespace Okta.Sdk.Model
                 if (this.UserType != null)
                 {
                     hashCode = (hashCode * 59) + this.UserType.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

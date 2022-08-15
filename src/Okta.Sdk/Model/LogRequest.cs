@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// LogRequest
     /// </summary>
     [DataContract(Name = "LogRequest")]
+    
     public partial class LogRequest : IEquatable<LogRequest>
     {
         
@@ -48,12 +49,6 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,7 +57,6 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class LogRequest {\n");
             sb.Append("  IpChain: ").Append(IpChain).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -103,8 +97,7 @@ namespace Okta.Sdk.Model
                     this.IpChain != null &&
                     input.IpChain != null &&
                     this.IpChain.SequenceEqual(input.IpChain)
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -116,13 +109,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.IpChain != null)
                 {
                     hashCode = (hashCode * 59) + this.IpChain.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

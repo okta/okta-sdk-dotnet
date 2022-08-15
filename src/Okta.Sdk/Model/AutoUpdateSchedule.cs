@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// The schedule of auto-update configured by admin.
     /// </summary>
     [DataContract(Name = "AutoUpdateSchedule")]
+    
     public partial class AutoUpdateSchedule : IEquatable<AutoUpdateSchedule>
     {
         
@@ -67,12 +68,6 @@ namespace Okta.Sdk.Model
         public string Timezone { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,7 +80,6 @@ namespace Okta.Sdk.Model
             sb.Append("  Duration: ").Append(Duration).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -143,8 +137,7 @@ namespace Okta.Sdk.Model
                     this.Timezone == input.Timezone ||
                     (this.Timezone != null &&
                     this.Timezone.Equals(input.Timezone))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -156,6 +149,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Cron != null)
                 {
                     hashCode = (hashCode * 59) + this.Cron.GetHashCode();
@@ -169,10 +163,6 @@ namespace Okta.Sdk.Model
                 if (this.Timezone != null)
                 {
                     hashCode = (hashCode * 59) + this.Timezone.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

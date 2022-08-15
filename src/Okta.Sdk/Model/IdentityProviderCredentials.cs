@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// IdentityProviderCredentials
     /// </summary>
     [DataContract(Name = "IdentityProviderCredentials")]
+    
     public partial class IdentityProviderCredentials : IEquatable<IdentityProviderCredentials>
     {
         
@@ -52,12 +53,6 @@ namespace Okta.Sdk.Model
         public IdentityProviderCredentialsTrust Trust { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,7 +63,6 @@ namespace Okta.Sdk.Model
             sb.Append("  _Client: ").Append(_Client).Append("\n");
             sb.Append("  Signing: ").Append(Signing).Append("\n");
             sb.Append("  Trust: ").Append(Trust).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,8 +112,7 @@ namespace Okta.Sdk.Model
                     this.Trust == input.Trust ||
                     (this.Trust != null &&
                     this.Trust.Equals(input.Trust))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -131,6 +124,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this._Client != null)
                 {
                     hashCode = (hashCode * 59) + this._Client.GetHashCode();
@@ -142,10 +136,6 @@ namespace Okta.Sdk.Model
                 if (this.Trust != null)
                 {
                     hashCode = (hashCode * 59) + this.Trust.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

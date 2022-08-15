@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// GroupRuleConditions
     /// </summary>
     [DataContract(Name = "GroupRuleConditions")]
+    
     public partial class GroupRuleConditions : IEquatable<GroupRuleConditions>
     {
         
@@ -46,12 +47,6 @@ namespace Okta.Sdk.Model
         public GroupRulePeopleCondition People { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,7 +56,6 @@ namespace Okta.Sdk.Model
             sb.Append("class GroupRuleConditions {\n");
             sb.Append("  Expression: ").Append(Expression).Append("\n");
             sb.Append("  People: ").Append(People).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,8 +100,7 @@ namespace Okta.Sdk.Model
                     this.People == input.People ||
                     (this.People != null &&
                     this.People.Equals(input.People))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -119,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Expression != null)
                 {
                     hashCode = (hashCode * 59) + this.Expression.GetHashCode();
@@ -126,10 +120,6 @@ namespace Okta.Sdk.Model
                 if (this.People != null)
                 {
                     hashCode = (hashCode * 59) + this.People.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

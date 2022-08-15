@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// WsFederationApplicationSettingsApplication
     /// </summary>
     [DataContract(Name = "WsFederationApplicationSettingsApplication")]
+    
     public partial class WsFederationApplicationSettingsApplication : IEquatable<WsFederationApplicationSettingsApplication>
     {
         
@@ -106,12 +107,6 @@ namespace Okta.Sdk.Model
         public string WReplyURL { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -131,7 +126,6 @@ namespace Okta.Sdk.Model
             sb.Append("  UsernameAttribute: ").Append(UsernameAttribute).Append("\n");
             sb.Append("  WReplyOverride: ").Append(WReplyOverride).Append("\n");
             sb.Append("  WReplyURL: ").Append(WReplyURL).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -225,8 +219,7 @@ namespace Okta.Sdk.Model
                     this.WReplyURL == input.WReplyURL ||
                     (this.WReplyURL != null &&
                     this.WReplyURL.Equals(input.WReplyURL))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -238,6 +231,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.AttributeStatements != null)
                 {
                     hashCode = (hashCode * 59) + this.AttributeStatements.GetHashCode();
@@ -282,10 +276,6 @@ namespace Okta.Sdk.Model
                 if (this.WReplyURL != null)
                 {
                     hashCode = (hashCode * 59) + this.WReplyURL.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

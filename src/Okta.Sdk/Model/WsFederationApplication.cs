@@ -41,6 +41,7 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(SamlApplication), "SAML_2_0")]
     [JsonSubtypes.KnownSubType(typeof(SecurePasswordStoreApplication), "SECURE_PASSWORD_STORE")]
     [JsonSubtypes.KnownSubType(typeof(WsFederationApplication), "WS_FEDERATION")]
+    
     public partial class WsFederationApplication : Application, IEquatable<WsFederationApplication>
     {
         
@@ -57,12 +58,6 @@ namespace Okta.Sdk.Model
         public WsFederationApplicationSettings Settings { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,7 +68,6 @@ namespace Okta.Sdk.Model
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Settings: ").Append(Settings).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,8 +112,7 @@ namespace Okta.Sdk.Model
                     this.Settings == input.Settings ||
                     (this.Settings != null &&
                     this.Settings.Equals(input.Settings))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -131,6 +124,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
+                
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
@@ -138,10 +132,6 @@ namespace Okta.Sdk.Model
                 if (this.Settings != null)
                 {
                     hashCode = (hashCode * 59) + this.Settings.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

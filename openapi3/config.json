@@ -16,9 +16,6 @@
     "gitHost": "github.com",
     "gitUserId" : "okta",
     "gitRepoId" : "okta-sdk-dotnet", 
-    "additionalProperties": {
-      "disallowAdditionalPropertiesIfNotPresent": false  
-    },
     "globalProperties": {
         "apiTests": false,
         "modelTests": false,

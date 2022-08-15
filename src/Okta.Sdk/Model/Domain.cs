@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Domain
     /// </summary>
     [DataContract(Name = "Domain")]
+    
     public partial class Domain : IEquatable<Domain>
     {
         
@@ -70,12 +71,6 @@ namespace Okta.Sdk.Model
         public string ValidationStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -89,7 +84,6 @@ namespace Okta.Sdk.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  PublicCertificate: ").Append(PublicCertificate).Append("\n");
             sb.Append("  ValidationStatus: ").Append(ValidationStatus).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,8 +149,7 @@ namespace Okta.Sdk.Model
                     this.ValidationStatus == input.ValidationStatus ||
                     (this.ValidationStatus != null &&
                     this.ValidationStatus.Equals(input.ValidationStatus))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -168,6 +161,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.CertificateSourceType != null)
                 {
                     hashCode = (hashCode * 59) + this.CertificateSourceType.GetHashCode();
@@ -191,10 +185,6 @@ namespace Okta.Sdk.Model
                 if (this.ValidationStatus != null)
                 {
                     hashCode = (hashCode * 59) + this.ValidationStatus.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Provisioning
     /// </summary>
     [DataContract(Name = "Provisioning")]
+    
     public partial class Provisioning : IEquatable<Provisioning>
     {
         
@@ -58,12 +59,6 @@ namespace Okta.Sdk.Model
         public bool ProfileMaster { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,7 +70,6 @@ namespace Okta.Sdk.Model
             sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("  Groups: ").Append(Groups).Append("\n");
             sb.Append("  ProfileMaster: ").Append(ProfileMaster).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -129,8 +123,7 @@ namespace Okta.Sdk.Model
                 (
                     this.ProfileMaster == input.ProfileMaster ||
                     this.ProfileMaster.Equals(input.ProfileMaster)
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -142,6 +135,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Action != null)
                 {
                     hashCode = (hashCode * 59) + this.Action.GetHashCode();
@@ -155,10 +149,6 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Groups.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ProfileMaster.GetHashCode();
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
-                }
                 return hashCode;
             }
         }

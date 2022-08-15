@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ProfileEnrollmentPolicyRuleActions
     /// </summary>
     [DataContract(Name = "ProfileEnrollmentPolicyRuleActions")]
+    
     public partial class ProfileEnrollmentPolicyRuleActions : IEquatable<ProfileEnrollmentPolicyRuleActions>
     {
         
@@ -76,12 +77,6 @@ namespace Okta.Sdk.Model
         public ProfileEnrollmentPolicyRuleAction ProfileEnrollment { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -96,7 +91,6 @@ namespace Okta.Sdk.Model
             sb.Append("  SelfServiceUnlock: ").Append(SelfServiceUnlock).Append("\n");
             sb.Append("  Signon: ").Append(Signon).Append("\n");
             sb.Append("  ProfileEnrollment: ").Append(ProfileEnrollment).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -166,8 +160,7 @@ namespace Okta.Sdk.Model
                     this.ProfileEnrollment == input.ProfileEnrollment ||
                     (this.ProfileEnrollment != null &&
                     this.ProfileEnrollment.Equals(input.ProfileEnrollment))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -179,6 +172,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Enroll != null)
                 {
                     hashCode = (hashCode * 59) + this.Enroll.GetHashCode();
@@ -206,10 +200,6 @@ namespace Okta.Sdk.Model
                 if (this.ProfileEnrollment != null)
                 {
                     hashCode = (hashCode * 59) + this.ProfileEnrollment.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

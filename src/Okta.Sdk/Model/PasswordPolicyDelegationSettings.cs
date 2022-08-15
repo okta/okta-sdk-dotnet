@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PasswordPolicyDelegationSettings
     /// </summary>
     [DataContract(Name = "PasswordPolicyDelegationSettings")]
+    
     public partial class PasswordPolicyDelegationSettings : IEquatable<PasswordPolicyDelegationSettings>
     {
         
@@ -40,12 +41,6 @@ namespace Okta.Sdk.Model
         public PasswordPolicyDelegationSettingsOptions Options { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -54,7 +49,6 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PasswordPolicyDelegationSettings {\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,8 +88,7 @@ namespace Okta.Sdk.Model
                     this.Options == input.Options ||
                     (this.Options != null &&
                     this.Options.Equals(input.Options))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -107,13 +100,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Options != null)
                 {
                     hashCode = (hashCode * 59) + this.Options.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }
