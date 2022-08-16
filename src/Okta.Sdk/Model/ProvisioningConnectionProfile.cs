@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ProvisioningConnectionProfile
     /// </summary>
     [DataContract(Name = "ProvisioningConnectionProfile")]
+    
     public partial class ProvisioningConnectionProfile : IEquatable<ProvisioningConnectionProfile>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.AuthScheme != null)
                 {
                     hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();

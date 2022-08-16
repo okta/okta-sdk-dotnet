@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OAuth2Client
     /// </summary>
     [DataContract(Name = "OAuth2Client")]
+    
     public partial class OAuth2Client : IEquatable<OAuth2Client>
     {
         
@@ -188,6 +189,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ClientId != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientId.GetHashCode();

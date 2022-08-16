@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PasswordDictionary
     /// </summary>
     [DataContract(Name = "PasswordDictionary")]
+    
     public partial class PasswordDictionary : IEquatable<PasswordDictionary>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Common != null)
                 {
                     hashCode = (hashCode * 59) + this.Common.GetHashCode();

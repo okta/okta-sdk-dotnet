@@ -45,6 +45,7 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(U2fUserFactor), "u2f")]
     [JsonSubtypes.KnownSubType(typeof(WebUserFactor), "web")]
     [JsonSubtypes.KnownSubType(typeof(WebAuthnUserFactor), "webauthn")]
+    
     public partial class WebAuthnUserFactor : UserFactor, IEquatable<WebAuthnUserFactor>
     {
         
@@ -115,6 +116,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
+                
                 if (this.Profile != null)
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();

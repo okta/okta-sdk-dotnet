@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PasswordPolicyAuthenticationProviderCondition
     /// </summary>
     [DataContract(Name = "PasswordPolicyAuthenticationProviderCondition")]
+    
     public partial class PasswordPolicyAuthenticationProviderCondition : IEquatable<PasswordPolicyAuthenticationProviderCondition>
     {
         
@@ -112,6 +113,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Include != null)
                 {
                     hashCode = (hashCode * 59) + this.Include.GetHashCode();

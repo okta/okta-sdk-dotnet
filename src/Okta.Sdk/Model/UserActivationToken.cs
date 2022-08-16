@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// UserActivationToken
     /// </summary>
     [DataContract(Name = "UserActivationToken")]
+    
     public partial class UserActivationToken : IEquatable<UserActivationToken>
     {
         
@@ -127,6 +128,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ActivationToken != null)
                 {
                     hashCode = (hashCode * 59) + this.ActivationToken.GetHashCode();

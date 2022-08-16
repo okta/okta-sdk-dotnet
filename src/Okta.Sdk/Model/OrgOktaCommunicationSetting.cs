@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OrgOktaCommunicationSetting
     /// </summary>
     [DataContract(Name = "OrgOktaCommunicationSetting")]
+    
     public partial class OrgOktaCommunicationSetting : IEquatable<OrgOktaCommunicationSetting>
     {
         
@@ -119,6 +120,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.OptOutEmailUsers.GetHashCode();
                 if (this.Links != null)
                 {

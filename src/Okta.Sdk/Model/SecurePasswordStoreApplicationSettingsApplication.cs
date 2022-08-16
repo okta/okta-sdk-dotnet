@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// SecurePasswordStoreApplicationSettingsApplication
     /// </summary>
     [DataContract(Name = "SecurePasswordStoreApplicationSettingsApplication")]
+    
     public partial class SecurePasswordStoreApplicationSettingsApplication : IEquatable<SecurePasswordStoreApplicationSettingsApplication>
     {
         
@@ -195,6 +196,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.OptionalField1 != null)
                 {
                     hashCode = (hashCode * 59) + this.OptionalField1.GetHashCode();

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// IdentityProviderCredentialsSigning
     /// </summary>
     [DataContract(Name = "IdentityProviderCredentialsSigning")]
+    
     public partial class IdentityProviderCredentialsSigning : IEquatable<IdentityProviderCredentialsSigning>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Kid != null)
                 {
                     hashCode = (hashCode * 59) + this.Kid.GetHashCode();

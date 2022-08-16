@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PasswordPolicyRecoveryQuestionProperties
     /// </summary>
     [DataContract(Name = "PasswordPolicyRecoveryQuestionProperties")]
+    
     public partial class PasswordPolicyRecoveryQuestionProperties : IEquatable<PasswordPolicyRecoveryQuestionProperties>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Complexity != null)
                 {
                     hashCode = (hashCode * 59) + this.Complexity.GetHashCode();

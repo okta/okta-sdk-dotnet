@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// BrandDefaultApp
     /// </summary>
     [DataContract(Name = "Brand_defaultApp")]
+    
     public partial class BrandDefaultApp : IEquatable<BrandDefaultApp>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.AppInstanceId != null)
                 {
                     hashCode = (hashCode * 59) + this.AppInstanceId.GetHashCode();

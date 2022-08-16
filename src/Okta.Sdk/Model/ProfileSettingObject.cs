@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ProfileSettingObject
     /// </summary>
     [DataContract(Name = "ProfileSettingObject")]
+    
     public partial class ProfileSettingObject : IEquatable<ProfileSettingObject>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Status != null)
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();

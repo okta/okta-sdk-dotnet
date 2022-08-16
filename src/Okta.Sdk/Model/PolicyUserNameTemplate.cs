@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PolicyUserNameTemplate
     /// </summary>
     [DataContract(Name = "PolicyUserNameTemplate")]
+    
     public partial class PolicyUserNameTemplate : IEquatable<PolicyUserNameTemplate>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Template != null)
                 {
                     hashCode = (hashCode * 59) + this.Template.GetHashCode();

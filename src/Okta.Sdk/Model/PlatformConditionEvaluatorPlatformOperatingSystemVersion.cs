@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PlatformConditionEvaluatorPlatformOperatingSystemVersion
     /// </summary>
     [DataContract(Name = "PlatformConditionEvaluatorPlatformOperatingSystemVersion")]
+    
     public partial class PlatformConditionEvaluatorPlatformOperatingSystemVersion : IEquatable<PlatformConditionEvaluatorPlatformOperatingSystemVersion>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.MatchType != null)
                 {
                     hashCode = (hashCode * 59) + this.MatchType.GetHashCode();

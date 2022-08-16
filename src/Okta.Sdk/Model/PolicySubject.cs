@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PolicySubject
     /// </summary>
     [DataContract(Name = "PolicySubject")]
+    
     public partial class PolicySubject : IEquatable<PolicySubject>
     {
         
@@ -148,6 +149,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Filter != null)
                 {
                     hashCode = (hashCode * 59) + this.Filter.GetHashCode();

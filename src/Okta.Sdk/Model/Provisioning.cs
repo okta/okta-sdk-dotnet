@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Provisioning
     /// </summary>
     [DataContract(Name = "Provisioning")]
+    
     public partial class Provisioning : IEquatable<Provisioning>
     {
         
@@ -134,6 +135,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Action != null)
                 {
                     hashCode = (hashCode * 59) + this.Action.GetHashCode();

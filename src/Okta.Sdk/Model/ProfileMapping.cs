@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ProfileMapping
     /// </summary>
     [DataContract(Name = "ProfileMapping")]
+    
     public partial class ProfileMapping : IEquatable<ProfileMapping>
     {
         
@@ -173,6 +174,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();

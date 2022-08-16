@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// IdpPolicyRuleAction
     /// </summary>
     [DataContract(Name = "IdpPolicyRuleAction")]
+    
     public partial class IdpPolicyRuleAction : IEquatable<IdpPolicyRuleAction>
     {
         
@@ -100,6 +101,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Providers != null)
                 {
                     hashCode = (hashCode * 59) + this.Providers.GetHashCode();

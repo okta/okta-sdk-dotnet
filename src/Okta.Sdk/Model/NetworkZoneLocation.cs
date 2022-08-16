@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// NetworkZoneLocation
     /// </summary>
     [DataContract(Name = "NetworkZoneLocation")]
+    
     public partial class NetworkZoneLocation : IEquatable<NetworkZoneLocation>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Country != null)
                 {
                     hashCode = (hashCode * 59) + this.Country.GetHashCode();

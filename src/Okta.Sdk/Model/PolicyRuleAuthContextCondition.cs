@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PolicyRuleAuthContextCondition
     /// </summary>
     [DataContract(Name = "PolicyRuleAuthContextCondition")]
+    
     public partial class PolicyRuleAuthContextCondition : IEquatable<PolicyRuleAuthContextCondition>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.AuthType != null)
                 {
                     hashCode = (hashCode * 59) + this.AuthType.GetHashCode();

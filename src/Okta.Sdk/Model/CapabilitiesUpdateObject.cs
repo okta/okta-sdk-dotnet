@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// CapabilitiesUpdateObject
     /// </summary>
     [DataContract(Name = "CapabilitiesUpdateObject")]
+    
     public partial class CapabilitiesUpdateObject : IEquatable<CapabilitiesUpdateObject>
     {
         
@@ -123,6 +124,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.LifecycleDeactivate != null)
                 {
                     hashCode = (hashCode * 59) + this.LifecycleDeactivate.GetHashCode();

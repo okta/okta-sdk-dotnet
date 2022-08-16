@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// JsonWebKey
     /// </summary>
     [DataContract(Name = "JsonWebKey")]
+    
     public partial class JsonWebKey : IEquatable<JsonWebKey>
     {
         
@@ -290,6 +291,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Alg != null)
                 {
                     hashCode = (hashCode * 59) + this.Alg.GetHashCode();

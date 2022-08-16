@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Compliance
     /// </summary>
     [DataContract(Name = "Compliance")]
+    
     public partial class Compliance : IEquatable<Compliance>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Fips != null)
                 {
                     hashCode = (hashCode * 59) + this.Fips.GetHashCode();

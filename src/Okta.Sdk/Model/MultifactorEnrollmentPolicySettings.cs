@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// MultifactorEnrollmentPolicySettings
     /// </summary>
     [DataContract(Name = "MultifactorEnrollmentPolicySettings")]
+    
     public partial class MultifactorEnrollmentPolicySettings : IEquatable<MultifactorEnrollmentPolicySettings>
     {
         
@@ -112,6 +113,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Authenticators != null)
                 {
                     hashCode = (hashCode * 59) + this.Authenticators.GetHashCode();

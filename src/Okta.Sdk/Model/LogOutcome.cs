@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// LogOutcome
     /// </summary>
     [DataContract(Name = "LogOutcome")]
+    
     public partial class LogOutcome : IEquatable<LogOutcome>
     {
         
@@ -127,6 +128,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Reason != null)
                 {
                     hashCode = (hashCode * 59) + this.Reason.GetHashCode();

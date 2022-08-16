@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// RiskScorePolicyRuleCondition
     /// </summary>
     [DataContract(Name = "RiskScorePolicyRuleCondition")]
+    
     public partial class RiskScorePolicyRuleCondition : IEquatable<RiskScorePolicyRuleCondition>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Level != null)
                 {
                     hashCode = (hashCode * 59) + this.Level.GetHashCode();

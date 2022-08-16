@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PrincipalRateLimitEntity
     /// </summary>
     [DataContract(Name = "PrincipalRateLimitEntity")]
+    
     public partial class PrincipalRateLimitEntity : IEquatable<PrincipalRateLimitEntity>
     {
         /// <summary>
@@ -274,6 +275,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.CreatedBy != null)
                 {
                     hashCode = (hashCode * 59) + this.CreatedBy.GetHashCode();

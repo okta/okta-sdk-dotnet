@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OpenIdConnectApplicationSettingsClientKeys
     /// </summary>
     [DataContract(Name = "OpenIdConnectApplicationSettingsClientKeys")]
+    
     public partial class OpenIdConnectApplicationSettingsClientKeys : IEquatable<OpenIdConnectApplicationSettingsClientKeys>
     {
         
@@ -100,6 +101,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Keys != null)
                 {
                     hashCode = (hashCode * 59) + this.Keys.GetHashCode();

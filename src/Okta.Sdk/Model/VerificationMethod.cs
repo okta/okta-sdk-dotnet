@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// VerificationMethod
     /// </summary>
     [DataContract(Name = "VerificationMethod")]
+    
     public partial class VerificationMethod : IEquatable<VerificationMethod>
     {
         
@@ -136,6 +137,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Constraints != null)
                 {
                     hashCode = (hashCode * 59) + this.Constraints.GetHashCode();

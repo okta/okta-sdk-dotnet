@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PasswordPolicyRecoveryEmailRecoveryToken
     /// </summary>
     [DataContract(Name = "PasswordPolicyRecoveryEmailRecoveryToken")]
+    
     public partial class PasswordPolicyRecoveryEmailRecoveryToken : IEquatable<PasswordPolicyRecoveryEmailRecoveryToken>
     {
         
@@ -98,6 +99,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.TokenLifetimeMinutes.GetHashCode();
                 return hashCode;
             }

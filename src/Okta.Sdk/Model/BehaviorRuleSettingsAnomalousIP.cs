@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// BehaviorRuleSettingsAnomalousIP
     /// </summary>
     [DataContract(Name = "BehaviorRuleSettingsAnomalousIP")]
+    
     public partial class BehaviorRuleSettingsAnomalousIP : IEquatable<BehaviorRuleSettingsAnomalousIP>
     {
         
@@ -109,6 +110,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.MaxEventsUsedForEvaluation.GetHashCode();
                 hashCode = (hashCode * 59) + this.MinEventsNeededForEvaluation.GetHashCode();
                 return hashCode;

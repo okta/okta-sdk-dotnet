@@ -229,7 +229,21 @@ var updatedUser = await _userApi.UpdateUserAsync(createdUser.Id, updateUserReque
 
 ### Get and set custom attributes
 
-This feature is not available yet, and it will be released in the next beta release.
+You can't create attributes via code right now, but you can get and set their values. To create them you have to use the Profile Editor in the Developer Console web UI. Once you have created them, you can use the code below:
+
+```csharp
+user.Profile.AdditionalProperties = new Dictionary<string, object>();
+user.Profile.AdditionalProperties["homeworld"] = "Planet Earth";
+
+var updateUserRequest = new UpdateUserRequest
+{
+    Profile = user.Profile
+};
+
+var updatedUser = await _userApi.UpdateUserAsync(createdUser.Id, updateUserRequest);
+
+var userHomeworld= updatedUser.Profile.AdditionalProperties["homeworld"];
+```
 
 ### Remove a User
 ``` csharp

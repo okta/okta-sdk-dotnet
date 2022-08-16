@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// GroupRuleGroupAssignment
     /// </summary>
     [DataContract(Name = "GroupRuleGroupAssignment")]
+    
     public partial class GroupRuleGroupAssignment : IEquatable<GroupRuleGroupAssignment>
     {
         
@@ -100,6 +101,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.GroupIds != null)
                 {
                     hashCode = (hashCode * 59) + this.GroupIds.GetHashCode();

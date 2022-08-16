@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// TrustedOrigin
     /// </summary>
     [DataContract(Name = "TrustedOrigin")]
+    
     public partial class TrustedOrigin : IEquatable<TrustedOrigin>
     {
         
@@ -241,6 +242,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Created != null)
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();

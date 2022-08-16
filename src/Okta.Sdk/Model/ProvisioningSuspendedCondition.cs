@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ProvisioningSuspendedCondition
     /// </summary>
     [DataContract(Name = "ProvisioningSuspendedCondition")]
+    
     public partial class ProvisioningSuspendedCondition : IEquatable<ProvisioningSuspendedCondition>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Action != null)
                 {
                     hashCode = (hashCode * 59) + this.Action.GetHashCode();

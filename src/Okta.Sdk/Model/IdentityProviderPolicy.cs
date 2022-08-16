@@ -39,6 +39,7 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(OktaSignOnPolicy), "OKTA_SIGN_ON")]
     [JsonSubtypes.KnownSubType(typeof(PasswordPolicy), "PASSWORD")]
     [JsonSubtypes.KnownSubType(typeof(ProfileEnrollmentPolicy), "PROFILE_ENROLLMENT")]
+    
     public partial class IdentityProviderPolicy : Policy, IEquatable<IdentityProviderPolicy>
     {
         
@@ -156,6 +157,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
+                
                 if (this.AccountLink != null)
                 {
                     hashCode = (hashCode * 59) + this.AccountLink.GetHashCode();

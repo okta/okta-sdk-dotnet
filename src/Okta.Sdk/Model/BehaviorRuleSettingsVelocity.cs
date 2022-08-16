@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// BehaviorRuleSettingsVelocity
     /// </summary>
     [DataContract(Name = "BehaviorRuleSettingsVelocity")]
+    
     public partial class BehaviorRuleSettingsVelocity : IEquatable<BehaviorRuleSettingsVelocity>
     {
         /// <summary>
@@ -103,6 +104,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.VelocityKph.GetHashCode();
                 return hashCode;
             }

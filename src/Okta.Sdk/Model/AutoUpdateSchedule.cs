@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// The schedule of auto-update configured by admin.
     /// </summary>
     [DataContract(Name = "AutoUpdateSchedule")]
+    
     public partial class AutoUpdateSchedule : IEquatable<AutoUpdateSchedule>
     {
         
@@ -148,6 +149,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Cron != null)
                 {
                     hashCode = (hashCode * 59) + this.Cron.GetHashCode();

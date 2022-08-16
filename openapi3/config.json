@@ -20,7 +20,6 @@
         "apiTests": false,
         "modelTests": false,
         "isOAuth": false
-        
     },
     "files": {
         "WebLink.mustache":{

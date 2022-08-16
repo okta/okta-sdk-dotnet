@@ -303,6 +303,8 @@ namespace Okta.Sdk.IntegrationTest
             {
                 // Update profile
                 createdUser.Profile.NickName = nickName;
+                createdUser.Profile.AdditionalProperties = new Dictionary<string, object>();
+                createdUser.Profile.AdditionalProperties["homeworld"] = "Planet Earth";
                 var updateUserRequest = new UpdateUserRequest
                 {
                     Profile = createdUser.Profile
@@ -310,9 +312,11 @@ namespace Okta.Sdk.IntegrationTest
 
                 var updatedUser = await _userApi.UpdateUserAsync(createdUser.Id, updateUserRequest);
                 updatedUser.Profile.NickName.Should().Be(nickName);
+                updatedUser.Profile.AdditionalProperties["homeworld"].Should().Be("Planet Earth");
 
                 var retrievedUser = await _userApi.GetUserAsync(createdUser.Id);
                 retrievedUser.Profile.NickName.Should().Be(nickName);
+                retrievedUser.Profile.AdditionalProperties["homeworld"].Should().Be("Planet Earth");
             }
             finally
             {

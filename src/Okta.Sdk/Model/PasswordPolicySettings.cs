@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PasswordPolicySettings
     /// </summary>
     [DataContract(Name = "PasswordPolicySettings")]
+    
     public partial class PasswordPolicySettings : IEquatable<PasswordPolicySettings>
     {
         
@@ -123,6 +124,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Delegation != null)
                 {
                     hashCode = (hashCode * 59) + this.Delegation.GetHashCode();

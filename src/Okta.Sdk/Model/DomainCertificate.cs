@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// DomainCertificate
     /// </summary>
     [DataContract(Name = "DomainCertificate")]
+    
     public partial class DomainCertificate : IEquatable<DomainCertificate>
     {
         
@@ -135,6 +136,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Certificate != null)
                 {
                     hashCode = (hashCode * 59) + this.Certificate.GetHashCode();

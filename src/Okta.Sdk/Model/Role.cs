@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Role
     /// </summary>
     [DataContract(Name = "Role")]
+    
     public partial class Role : IEquatable<Role>
     {
         
@@ -257,6 +258,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.AssignmentType != null)
                 {
                     hashCode = (hashCode * 59) + this.AssignmentType.GetHashCode();

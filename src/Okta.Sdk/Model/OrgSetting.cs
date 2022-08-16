@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OrgSetting
     /// </summary>
     [DataContract(Name = "OrgSetting")]
+    
     public partial class OrgSetting : IEquatable<OrgSetting>
     {
         
@@ -352,6 +353,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Address1 != null)
                 {
                     hashCode = (hashCode * 59) + this.Address1.GetHashCode();

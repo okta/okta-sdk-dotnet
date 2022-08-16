@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// CAPTCHAInstance
     /// </summary>
     [DataContract(Name = "CAPTCHAInstance")]
+    
     public partial class CAPTCHAInstance : IEquatable<CAPTCHAInstance>
     {
         
@@ -167,6 +168,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OAuth2Scope
     /// </summary>
     [DataContract(Name = "OAuth2Scope")]
+    
     public partial class OAuth2Scope : IEquatable<OAuth2Scope>
     {
         
@@ -189,6 +190,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Consent != null)
                 {
                     hashCode = (hashCode * 59) + this.Consent.GetHashCode();

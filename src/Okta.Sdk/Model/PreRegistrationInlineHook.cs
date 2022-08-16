@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PreRegistrationInlineHook
     /// </summary>
     [DataContract(Name = "PreRegistrationInlineHook")]
+    
     public partial class PreRegistrationInlineHook : IEquatable<PreRegistrationInlineHook>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.InlineHookId != null)
                 {
                     hashCode = (hashCode * 59) + this.InlineHookId.GetHashCode();

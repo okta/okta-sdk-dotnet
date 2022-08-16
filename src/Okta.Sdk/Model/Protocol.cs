@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Protocol
     /// </summary>
     [DataContract(Name = "Protocol")]
+    
     public partial class Protocol : IEquatable<Protocol>
     {
         
@@ -184,6 +185,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Algorithms != null)
                 {
                     hashCode = (hashCode * 59) + this.Algorithms.GetHashCode();

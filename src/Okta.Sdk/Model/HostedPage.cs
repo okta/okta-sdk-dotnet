@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// HostedPage
     /// </summary>
     [DataContract(Name = "HostedPage")]
+    
     public partial class HostedPage : IEquatable<HostedPage>
     {
         /// <summary>
@@ -116,6 +117,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();

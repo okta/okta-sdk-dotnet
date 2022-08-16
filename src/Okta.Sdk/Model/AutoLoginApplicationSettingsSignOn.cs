@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// AutoLoginApplicationSettingsSignOn
     /// </summary>
     [DataContract(Name = "AutoLoginApplicationSettingsSignOn")]
+    
     public partial class AutoLoginApplicationSettingsSignOn : IEquatable<AutoLoginApplicationSettingsSignOn>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.LoginUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.LoginUrl.GetHashCode();

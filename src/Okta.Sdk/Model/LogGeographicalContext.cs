@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// LogGeographicalContext
     /// </summary>
     [DataContract(Name = "LogGeographicalContext")]
+    
     public partial class LogGeographicalContext : IEquatable<LogGeographicalContext>
     {
         
@@ -179,6 +180,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.City != null)
                 {
                     hashCode = (hashCode * 59) + this.City.GetHashCode();

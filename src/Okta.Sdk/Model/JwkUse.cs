@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// JwkUse
     /// </summary>
     [DataContract(Name = "JwkUse")]
+    
     public partial class JwkUse : IEquatable<JwkUse>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Use != null)
                 {
                     hashCode = (hashCode * 59) + this.Use.GetHashCode();

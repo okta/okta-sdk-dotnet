@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// TempPassword
     /// </summary>
     [DataContract(Name = "TempPassword")]
+    
     public partial class TempPassword : IEquatable<TempPassword>
     {
         
@@ -107,6 +108,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this._TempPassword != null)
                 {
                     hashCode = (hashCode * 59) + this._TempPassword.GetHashCode();

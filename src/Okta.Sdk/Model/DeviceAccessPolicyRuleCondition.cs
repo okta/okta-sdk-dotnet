@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// DeviceAccessPolicyRuleCondition
     /// </summary>
     [DataContract(Name = "DeviceAccessPolicyRuleCondition")]
+    
     public partial class DeviceAccessPolicyRuleCondition : IEquatable<DeviceAccessPolicyRuleCondition>
     {
         
@@ -155,6 +156,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.Migrated.GetHashCode();
                 if (this.Platform != null)
                 {

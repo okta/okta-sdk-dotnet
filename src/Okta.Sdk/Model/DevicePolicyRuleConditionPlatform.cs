@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// DevicePolicyRuleConditionPlatform
     /// </summary>
     [DataContract(Name = "DevicePolicyRuleConditionPlatform")]
+    
     public partial class DevicePolicyRuleConditionPlatform : IEquatable<DevicePolicyRuleConditionPlatform>
     {
         
@@ -113,6 +114,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.SupportedMDMFrameworks != null)
                 {
                     hashCode = (hashCode * 59) + this.SupportedMDMFrameworks.GetHashCode();

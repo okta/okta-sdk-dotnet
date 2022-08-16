@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// InactivityPolicyRuleCondition
     /// </summary>
     [DataContract(Name = "InactivityPolicyRuleCondition")]
+    
     public partial class InactivityPolicyRuleCondition : IEquatable<InactivityPolicyRuleCondition>
     {
         
@@ -110,6 +111,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.Number.GetHashCode();
                 if (this.Unit != null)
                 {

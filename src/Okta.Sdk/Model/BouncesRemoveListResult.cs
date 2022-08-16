@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// BouncesRemoveListResult
     /// </summary>
     [DataContract(Name = "BouncesRemoveListResult")]
+    
     public partial class BouncesRemoveListResult : IEquatable<BouncesRemoveListResult>
     {
         
@@ -100,6 +101,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Errors != null)
                 {
                     hashCode = (hashCode * 59) + this.Errors.GetHashCode();

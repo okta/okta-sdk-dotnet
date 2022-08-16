@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// CustomizablePage
     /// </summary>
     [DataContract(Name = "CustomizablePage")]
+    
     public partial class CustomizablePage : IEquatable<CustomizablePage>
     {
         /// <summary>
@@ -104,6 +105,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.PageContent != null)
                 {
                     hashCode = (hashCode * 59) + this.PageContent.GetHashCode();

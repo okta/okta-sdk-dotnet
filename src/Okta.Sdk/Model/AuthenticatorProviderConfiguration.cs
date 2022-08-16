@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// AuthenticatorProviderConfiguration
     /// </summary>
     [DataContract(Name = "AuthenticatorProviderConfiguration")]
+    
     public partial class AuthenticatorProviderConfiguration : IEquatable<AuthenticatorProviderConfiguration>
     {
         
@@ -146,6 +147,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.AuthPort.GetHashCode();
                 if (this.HostName != null)
                 {

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// LinkedObject
     /// </summary>
     [DataContract(Name = "LinkedObject")]
+    
     public partial class LinkedObject : IEquatable<LinkedObject>
     {
         
@@ -132,6 +133,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Associated != null)
                 {
                     hashCode = (hashCode * 59) + this.Associated.GetHashCode();

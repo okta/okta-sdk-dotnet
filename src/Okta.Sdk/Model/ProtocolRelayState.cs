@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ProtocolRelayState
     /// </summary>
     [DataContract(Name = "ProtocolRelayState")]
+    
     public partial class ProtocolRelayState : IEquatable<ProtocolRelayState>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Format != null)
                 {
                     hashCode = (hashCode * 59) + this.Format.GetHashCode();

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationVisibility
     /// </summary>
     [DataContract(Name = "ApplicationVisibility")]
+    
     public partial class ApplicationVisibility : IEquatable<ApplicationVisibility>
     {
         
@@ -134,6 +135,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.AppLinks != null)
                 {
                     hashCode = (hashCode * 59) + this.AppLinks.GetHashCode();

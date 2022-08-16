@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// GroupRuleConditions
     /// </summary>
     [DataContract(Name = "GroupRuleConditions")]
+    
     public partial class GroupRuleConditions : IEquatable<GroupRuleConditions>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Expression != null)
                 {
                     hashCode = (hashCode * 59) + this.Expression.GetHashCode();

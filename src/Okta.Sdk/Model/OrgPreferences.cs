@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OrgPreferences
     /// </summary>
     [DataContract(Name = "OrgPreferences")]
+    
     public partial class OrgPreferences : IEquatable<OrgPreferences>
     {
         
@@ -119,6 +120,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.ShowEndUserFooter.GetHashCode();
                 if (this.Links != null)
                 {

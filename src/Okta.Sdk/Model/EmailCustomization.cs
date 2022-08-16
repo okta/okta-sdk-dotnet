@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// EmailCustomization
     /// </summary>
     [DataContract(Name = "EmailCustomization")]
+    
     public partial class EmailCustomization : IEquatable<EmailCustomization>
     {
         /// <summary>
@@ -218,6 +219,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Body != null)
                 {
                     hashCode = (hashCode * 59) + this.Body.GetHashCode();

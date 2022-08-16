@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// An AgentPool is a collection of agents that serve a common purpose. An AgentPool has a unique ID within an org, and contains a collection of agents disjoint to every other AgentPool (i.e. no two AgentPools share an Agent).
     /// </summary>
     [DataContract(Name = "AgentPool")]
+    
     public partial class AgentPool : IEquatable<AgentPool>
     {
         
@@ -158,6 +159,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Agents != null)
                 {
                     hashCode = (hashCode * 59) + this.Agents.GetHashCode();

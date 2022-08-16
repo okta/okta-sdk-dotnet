@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationCredentialsOAuthClient
     /// </summary>
     [DataContract(Name = "ApplicationCredentialsOAuthClient")]
+    
     public partial class ApplicationCredentialsOAuthClient : IEquatable<ApplicationCredentialsOAuthClient>
     {
         
@@ -134,6 +135,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.AutoKeyRotation.GetHashCode();
                 if (this.ClientId != null)
                 {

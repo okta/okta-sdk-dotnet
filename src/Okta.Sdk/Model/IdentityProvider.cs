@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// IdentityProvider
     /// </summary>
     [DataContract(Name = "IdentityProvider")]
+    
     public partial class IdentityProvider : IEquatable<IdentityProvider>
     {
         
@@ -240,6 +241,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Created != null)
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();

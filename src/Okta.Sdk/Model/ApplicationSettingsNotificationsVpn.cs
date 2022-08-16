@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationSettingsNotificationsVpn
     /// </summary>
     [DataContract(Name = "ApplicationSettingsNotificationsVpn")]
+    
     public partial class ApplicationSettingsNotificationsVpn : IEquatable<ApplicationSettingsNotificationsVpn>
     {
         
@@ -123,6 +124,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.HelpUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.HelpUrl.GetHashCode();

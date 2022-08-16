@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OrgContactUser
     /// </summary>
     [DataContract(Name = "OrgContactUser")]
+    
     public partial class OrgContactUser : IEquatable<OrgContactUser>
     {
         
@@ -120,6 +121,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.UserId != null)
                 {
                     hashCode = (hashCode * 59) + this.UserId.GetHashCode();

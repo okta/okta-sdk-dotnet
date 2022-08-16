@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// UserSchemaAttributeItems
     /// </summary>
     [DataContract(Name = "UserSchemaAttributeItems")]
+    
     public partial class UserSchemaAttributeItems : IEquatable<UserSchemaAttributeItems>
     {
         
@@ -125,6 +126,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Enum != null)
                 {
                     hashCode = (hashCode * 59) + this.Enum.GetHashCode();

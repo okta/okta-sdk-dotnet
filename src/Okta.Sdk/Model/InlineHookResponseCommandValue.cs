@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// InlineHookResponseCommandValue
     /// </summary>
     [DataContract(Name = "InlineHookResponseCommandValue")]
+    
     public partial class InlineHookResponseCommandValue : IEquatable<InlineHookResponseCommandValue>
     {
         
@@ -123,6 +124,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Op != null)
                 {
                     hashCode = (hashCode * 59) + this.Op.GetHashCode();

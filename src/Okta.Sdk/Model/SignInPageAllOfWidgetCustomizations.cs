@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// SignInPageAllOfWidgetCustomizations
     /// </summary>
     [DataContract(Name = "SignInPage_allOf_widgetCustomizations")]
+    
     public partial class SignInPageAllOfWidgetCustomizations : IEquatable<SignInPageAllOfWidgetCustomizations>
     {
         
@@ -325,6 +326,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.SignInLabel != null)
                 {
                     hashCode = (hashCode * 59) + this.SignInLabel.GetHashCode();

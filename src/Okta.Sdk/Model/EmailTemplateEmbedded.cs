@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// EmailTemplateEmbedded
     /// </summary>
     [DataContract(Name = "EmailTemplate__embedded")]
+    
     public partial class EmailTemplateEmbedded : IEquatable<EmailTemplateEmbedded>
     {
         
@@ -110,6 +111,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Settings != null)
                 {
                     hashCode = (hashCode * 59) + this.Settings.GetHashCode();

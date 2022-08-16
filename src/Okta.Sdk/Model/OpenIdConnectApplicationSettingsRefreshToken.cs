@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OpenIdConnectApplicationSettingsRefreshToken
     /// </summary>
     [DataContract(Name = "OpenIdConnectApplicationSettingsRefreshToken")]
+    
     public partial class OpenIdConnectApplicationSettingsRefreshToken : IEquatable<OpenIdConnectApplicationSettingsRefreshToken>
     {
         
@@ -110,6 +111,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.Leeway.GetHashCode();
                 if (this.RotationType != null)
                 {

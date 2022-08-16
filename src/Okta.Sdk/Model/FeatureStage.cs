@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// FeatureStage
     /// </summary>
     [DataContract(Name = "FeatureStage")]
+    
     public partial class FeatureStage : IEquatable<FeatureStage>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.State != null)
                 {
                     hashCode = (hashCode * 59) + this.State.GetHashCode();

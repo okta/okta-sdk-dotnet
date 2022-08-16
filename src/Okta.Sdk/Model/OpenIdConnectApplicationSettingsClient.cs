@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OpenIdConnectApplicationSettingsClient
     /// </summary>
     [DataContract(Name = "OpenIdConnectApplicationSettingsClient")]
+    
     public partial class OpenIdConnectApplicationSettingsClient : IEquatable<OpenIdConnectApplicationSettingsClient>
     {
         
@@ -283,6 +284,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ApplicationType != null)
                 {
                     hashCode = (hashCode * 59) + this.ApplicationType.GetHashCode();

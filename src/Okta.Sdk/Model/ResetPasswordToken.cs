@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ResetPasswordToken
     /// </summary>
     [DataContract(Name = "ResetPasswordToken")]
+    
     public partial class ResetPasswordToken : IEquatable<ResetPasswordToken>
     {
         
@@ -107,6 +108,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ResetPasswordUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.ResetPasswordUrl.GetHashCode();

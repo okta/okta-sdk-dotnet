@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// An API token for an Okta User. This token is NOT scoped any further and can be used for any API the user has permissions to call.
     /// </summary>
     [DataContract(Name = "ApiToken")]
+    
     public partial class ApiToken : IEquatable<ApiToken>
     {
         /// <summary>
@@ -241,6 +242,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ClientName != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientName.GetHashCode();

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Group
     /// </summary>
     [DataContract(Name = "Group")]
+    
     public partial class Group : IEquatable<Group>
     {
         
@@ -254,6 +255,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Created != null)
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();

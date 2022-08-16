@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// BeforeScheduledActionPolicyRuleCondition
     /// </summary>
     [DataContract(Name = "BeforeScheduledActionPolicyRuleCondition")]
+    
     public partial class BeforeScheduledActionPolicyRuleCondition : IEquatable<BeforeScheduledActionPolicyRuleCondition>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Duration != null)
                 {
                     hashCode = (hashCode * 59) + this.Duration.GetHashCode();

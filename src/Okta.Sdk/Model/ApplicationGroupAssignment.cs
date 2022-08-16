@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationGroupAssignment
     /// </summary>
     [DataContract(Name = "ApplicationGroupAssignment")]
+    
     public partial class ApplicationGroupAssignment : IEquatable<ApplicationGroupAssignment>
     {
         
@@ -193,6 +194,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();

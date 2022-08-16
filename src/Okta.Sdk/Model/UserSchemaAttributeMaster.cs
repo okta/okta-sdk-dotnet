@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// UserSchemaAttributeMaster
     /// </summary>
     [DataContract(Name = "UserSchemaAttributeMaster")]
+    
     public partial class UserSchemaAttributeMaster : IEquatable<UserSchemaAttributeMaster>
     {
         
@@ -112,6 +113,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Priority != null)
                 {
                     hashCode = (hashCode * 59) + this.Priority.GetHashCode();

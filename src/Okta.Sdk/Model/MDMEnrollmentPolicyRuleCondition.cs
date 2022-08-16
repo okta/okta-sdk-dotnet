@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// MDMEnrollmentPolicyRuleCondition
     /// </summary>
     [DataContract(Name = "MDMEnrollmentPolicyRuleCondition")]
+    
     public partial class MDMEnrollmentPolicyRuleCondition : IEquatable<MDMEnrollmentPolicyRuleCondition>
     {
         
@@ -110,6 +111,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.BlockNonSafeAndroid.GetHashCode();
                 if (this.Enrollment != null)
                 {

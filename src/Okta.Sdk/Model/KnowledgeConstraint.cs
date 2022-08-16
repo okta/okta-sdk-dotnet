@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// KnowledgeConstraint
     /// </summary>
     [DataContract(Name = "KnowledgeConstraint")]
+    
     public partial class KnowledgeConstraint : IEquatable<KnowledgeConstraint>
     {
         
@@ -125,6 +126,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Methods != null)
                 {
                     hashCode = (hashCode * 59) + this.Methods.GetHashCode();

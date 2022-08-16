@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationLayoutRuleCondition
     /// </summary>
     [DataContract(Name = "ApplicationLayoutRuleCondition")]
+    
     public partial class ApplicationLayoutRuleCondition : IEquatable<ApplicationLayoutRuleCondition>
     {
         
@@ -112,6 +113,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Schema != null)
                 {
                     hashCode = (hashCode * 59) + this.Schema.GetHashCode();

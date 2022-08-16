@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Subscription
     /// </summary>
     [DataContract(Name = "Subscription")]
+    
     public partial class Subscription : IEquatable<Subscription>
     {
         
@@ -145,6 +146,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Channels != null)
                 {
                     hashCode = (hashCode * 59) + this.Channels.GetHashCode();

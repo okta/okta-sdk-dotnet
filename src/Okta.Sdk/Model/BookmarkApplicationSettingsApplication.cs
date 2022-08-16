@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// BookmarkApplicationSettingsApplication
     /// </summary>
     [DataContract(Name = "BookmarkApplicationSettingsApplication")]
+    
     public partial class BookmarkApplicationSettingsApplication : IEquatable<BookmarkApplicationSettingsApplication>
     {
         
@@ -110,6 +111,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.RequestIntegration.GetHashCode();
                 if (this.Url != null)
                 {

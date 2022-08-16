@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ImageUploadResponse
     /// </summary>
     [DataContract(Name = "ImageUploadResponse")]
+    
     public partial class ImageUploadResponse : IEquatable<ImageUploadResponse>
     {
         
@@ -107,6 +108,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Url != null)
                 {
                     hashCode = (hashCode * 59) + this.Url.GetHashCode();

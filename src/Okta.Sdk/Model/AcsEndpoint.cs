@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// AcsEndpoint
     /// </summary>
     [DataContract(Name = "AcsEndpoint")]
+    
     public partial class AcsEndpoint : IEquatable<AcsEndpoint>
     {
         
@@ -110,6 +111,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.Index.GetHashCode();
                 if (this.Url != null)
                 {

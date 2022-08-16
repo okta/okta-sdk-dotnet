@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// LogDebugContext
     /// </summary>
     [DataContract(Name = "LogDebugContext")]
+    
     public partial class LogDebugContext : IEquatable<LogDebugContext>
     {
         
@@ -108,6 +109,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.DebugData != null)
                 {
                     hashCode = (hashCode * 59) + this.DebugData.GetHashCode();

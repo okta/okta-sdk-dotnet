@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OrgContactTypeObj
     /// </summary>
     [DataContract(Name = "OrgContactTypeObj")]
+    
     public partial class OrgContactTypeObj : IEquatable<OrgContactTypeObj>
     {
         
@@ -112,6 +113,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ContactType != null)
                 {
                     hashCode = (hashCode * 59) + this.ContactType.GetHashCode();

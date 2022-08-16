@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ClientPolicyCondition
     /// </summary>
     [DataContract(Name = "ClientPolicyCondition")]
+    
     public partial class ClientPolicyCondition : IEquatable<ClientPolicyCondition>
     {
         
@@ -100,6 +101,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Include != null)
                 {
                     hashCode = (hashCode * 59) + this.Include.GetHashCode();

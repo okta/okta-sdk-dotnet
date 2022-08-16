@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// TokenAuthorizationServerPolicyRuleAction
     /// </summary>
     [DataContract(Name = "TokenAuthorizationServerPolicyRuleAction")]
+    
     public partial class TokenAuthorizationServerPolicyRuleAction : IEquatable<TokenAuthorizationServerPolicyRuleAction>
     {
         
@@ -132,6 +133,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.AccessTokenLifetimeMinutes.GetHashCode();
                 if (this.InlineHook != null)
                 {

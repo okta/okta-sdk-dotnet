@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// CreateSessionRequest
     /// </summary>
     [DataContract(Name = "CreateSessionRequest")]
+    
     public partial class CreateSessionRequest : IEquatable<CreateSessionRequest>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.SessionToken != null)
                 {
                     hashCode = (hashCode * 59) + this.SessionToken.GetHashCode();

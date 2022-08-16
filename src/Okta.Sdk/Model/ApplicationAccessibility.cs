@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationAccessibility
     /// </summary>
     [DataContract(Name = "ApplicationAccessibility")]
+    
     public partial class ApplicationAccessibility : IEquatable<ApplicationAccessibility>
     {
         
@@ -122,6 +123,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ErrorRedirectUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.ErrorRedirectUrl.GetHashCode();

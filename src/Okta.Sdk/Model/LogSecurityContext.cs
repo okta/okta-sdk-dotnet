@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// LogSecurityContext
     /// </summary>
     [DataContract(Name = "LogSecurityContext")]
+    
     public partial class LogSecurityContext : IEquatable<LogSecurityContext>
     {
         
@@ -185,6 +186,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.AsNumber.GetHashCode();
                 if (this.AsOrg != null)
                 {
