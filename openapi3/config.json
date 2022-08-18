@@ -19,7 +19,7 @@
     "globalProperties": {
         "apiTests": false,
         "modelTests": false,
-        "isOAuth": false
+        "isOAuth": true
     },
     "files": {
         "WebLink.mustache":{

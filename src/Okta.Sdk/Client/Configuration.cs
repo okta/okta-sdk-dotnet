@@ -161,7 +161,27 @@ namespace Okta.Sdk.Client
         /// The number of times to retry
         /// </value>
         public int? MaxRetries { get; set; } = DefaultMaxRetries;
-        
+
+        /// <summary>
+        /// Gets or sets the authorization mode.
+        /// </summary>
+        public AuthorizationMode? AuthorizationMode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the private key. Required when AuthorizationMode is equal to PrivateKey.
+        /// </summary>
+        public JsonWebKeyConfiguration PrivateKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets the client id. Required when AuthorizationMode is equal to PrivateKey.
+        /// </summary>
+        public string ClientId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Okta scopes
+        /// </summary>
+        public List<string> Scopes { get; set; }
+
 
         #endregion
 
@@ -220,14 +240,20 @@ namespace Okta.Sdk.Client
                 throw new ArgumentNullException(nameof(configuration.OktaDomain), $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
             }
 
-            if (string.IsNullOrEmpty(configuration.Token))
+            if (configuration.AuthorizationMode == AuthorizationMode.SSWS)
             {
-                throw new ArgumentNullException(nameof(configuration.Token), "Your Okta API token is missing. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token");
-            }
+                if (string.IsNullOrEmpty(configuration.Token))
+                {
+                    throw new ArgumentNullException(nameof(configuration.Token),
+                        "Your Okta API token is missing. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token");
+                }
 
-            if (configuration.Token.IndexOf("{apiToken}", StringComparison.OrdinalIgnoreCase) >= 0)
-            {
-                throw new ArgumentException("Replace {apiToken} with your Okta API token. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token", nameof(configuration.Token));
+                if (configuration.Token.IndexOf("{apiToken}", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    throw new ArgumentException(
+                        "Replace {apiToken} with your Okta API token. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token",
+                        nameof(configuration.Token));
+                }
             }
 
         }
@@ -746,6 +772,8 @@ namespace Okta.Sdk.Client
                 TempFolderPath = second.TempFolderPath ?? first.TempFolderPath,
                 DateTimeFormat = second.DateTimeFormat ?? first.DateTimeFormat,
                 ClientCertificates = second.ClientCertificates ?? first.ClientCertificates,
+                AuthorizationMode = second.AuthorizationMode ?? first.AuthorizationMode,
+                ClientId = 
             };
             return config;
         }
