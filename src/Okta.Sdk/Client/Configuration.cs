@@ -240,7 +240,7 @@ namespace Okta.Sdk.Client
                 throw new ArgumentNullException(nameof(configuration.OktaDomain), $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
             }
 
-            if (configuration.AuthorizationMode == AuthorizationMode.SSWS)
+            if (configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Client.AuthorizationMode.SSWS)
             {
                 if (string.IsNullOrEmpty(configuration.Token))
                 {
@@ -773,7 +773,9 @@ namespace Okta.Sdk.Client
                 DateTimeFormat = second.DateTimeFormat ?? first.DateTimeFormat,
                 ClientCertificates = second.ClientCertificates ?? first.ClientCertificates,
                 AuthorizationMode = second.AuthorizationMode ?? first.AuthorizationMode,
-                ClientId = 
+                ClientId = second.ClientId ?? first.ClientId,
+                Scopes = second.Scopes ?? first.Scopes,
+                PrivateKey = second.PrivateKey ?? first.PrivateKey
             };
             return config;
         }
