@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         /// <param name="appName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApplicationLayout</returns>
-        System.Threading.Tasks.Task<OAuthResponse> GetBearerTokenAsync(
+        System.Threading.Tasks.Task<OAuthTokenResponse> GetBearerTokenAsync(
             System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace Okta.Sdk.Api
         /// <param name="appName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApplicationLayout)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OAuthResponse>> GetBearerTokenWithHttpInfoAsync(
+        System.Threading.Tasks.Task<ApiResponse<OAuthTokenResponse>> GetBearerTokenWithHttpInfoAsync(
             System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         #endregion
@@ -149,14 +149,14 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
 
-        public async Task<OAuthResponse> GetBearerTokenAsync(CancellationToken cancellationToken = default)
+        public async Task<OAuthTokenResponse> GetBearerTokenAsync(CancellationToken cancellationToken = default)
         {
-            Okta.Sdk.Client.ApiResponse<OAuthResponse> localVarResponse = await GetBearerTokenWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<OAuthTokenResponse> localVarResponse = await GetBearerTokenWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
     
 
-        public async Task<ApiResponse<OAuthResponse>> GetBearerTokenWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<OAuthTokenResponse>> GetBearerTokenWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -186,7 +186,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<OAuthResponse>(accessTokenUri.Trim(), localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<OAuthTokenResponse>(accessTokenUri.Trim(), localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -1060,14 +1060,16 @@ namespace Okta.Sdk.Api
     public partial class ApplicationApi : IApplicationApi
     {
         private Okta.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private IOAuthTokenProvider _oAuthTokenProvider;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="oAuthTokenProvider">An instance of the OAuth token provider. If it's not provided the default implementation is used. </param>
         /// <returns></returns>
-        public ApplicationApi(Okta.Sdk.Client.Configuration configuration = null)
+        public ApplicationApi(Okta.Sdk.Client.Configuration configuration = null, IOAuthTokenProvider oAuthTokenProvider = null)
         {
             configuration = Sdk.Client.Configuration.GetConfigurationOrDefault(configuration);
 
@@ -1079,13 +1081,13 @@ namespace Okta.Sdk.Api
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
+            _oAuthTokenProvider = oAuthTokenProvider ?? new DefaultOAuthTokenProvider((Configuration)Configuration);
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
-        /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         public ApplicationApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration)
@@ -1096,6 +1098,7 @@ namespace Okta.Sdk.Api
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
+            _oAuthTokenProvider = new DefaultOAuthTokenProvider((Configuration)Configuration);
         }
 
         /// <summary>
@@ -1186,13 +1189,23 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
             // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (this.Configuration.AuthorizationMode.HasValue &&
+                this.Configuration.AuthorizationMode.Value == AuthorizationMode.SSWS && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
+
+            if (this.Configuration.AuthorizationMode.HasValue &&
+                this.Configuration.AuthorizationMode.Value == AuthorizationMode.PrivateKey)
+            {
+                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
             // authentication (OAuth_2.0) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (this.Configuration.AuthorizationMode.HasValue &&
+                this.Configuration.AuthorizationMode.Value == AuthorizationMode.BearerToken && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }

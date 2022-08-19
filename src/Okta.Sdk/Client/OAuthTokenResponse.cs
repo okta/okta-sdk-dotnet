@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Okta.Sdk.Client
 {
-    public class OAuthResponse
+    public class OAuthTokenResponse
     {
         [DataMember(Name = "token_type", EmitDefaultValue = false)]
         public string TokenType { get; set; }

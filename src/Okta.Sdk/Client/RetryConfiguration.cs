@@ -93,34 +93,6 @@ namespace Okta.Sdk.Client
             return finalPolicy;
         }
 
-        /// <summary>
-        /// Gets the policy for retrying requests when the OAuth token has expired.
-        /// </summary>
-        /// <param name="configuration">The configuration.</param>
-        /// <param name="onRetryAsyncFunc">The method to call before retrying a request</param>
-        /// <returns></returns>
-        public static Polly.AsyncPolicy<IRestResponse> GetOAuthRetryPolicy(IReadableConfiguration configuration,
-            Func<DelegateResult<IRestResponse>, int, Context, Task> onRetryAsyncFunc = null)
-        {
-            AsyncPolicy<IRestResponse> retryAsyncPolicy = Policy
-                .Handle<ApiException>(ex => ex.ErrorCode == 401)
-                .OrResult<IRestResponse>(r => (int)r.StatusCode == 401).RetryAsync(1, onRetry: (response, retryCount, context) => OnOAuthRetryAsync(response, retryCount, context, onRetryAsyncFunc));
-
-            return retryAsyncPolicy;
-        }
-
-        private static Task OnOAuthRetryAsync(DelegateResult<IRestResponse> response, int retryCount, Context context, Func<DelegateResult<IRestResponse>, int, Context, Task> onRetryAsyncFunc = null)
-        {
-            // TODO: Get a new token and add it to the header
-            AddToContext(context, XOktaRetryCountHeader, retryCount);
-
-            if (onRetryAsyncFunc != null)
-            {
-                onRetryAsyncFunc(response, retryCount, context);
-            }
-            return Task.CompletedTask;
-        }
-
         private static TimeSpan CalculateDelay(int retryCount, DelegateResult<IRestResponse> response, Context context)
         {
             DateTime? requestTime = null;
