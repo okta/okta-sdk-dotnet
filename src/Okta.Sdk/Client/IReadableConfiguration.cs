@@ -69,7 +69,7 @@ namespace Okta.Sdk.Client
         /// <summary>
         /// Gets the Okta scopes
         /// </summary>
-        List<string> Scopes { get; }
+        HashSet<string> Scopes { get; }
 
         /// <summary>
         /// Gets the date time format.

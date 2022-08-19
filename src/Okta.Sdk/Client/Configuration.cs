@@ -165,7 +165,7 @@ namespace Okta.Sdk.Client
         /// <summary>
         /// Gets or sets the authorization mode.
         /// </summary>
-        public AuthorizationMode? AuthorizationMode { get; set; }
+        public AuthorizationMode? AuthorizationMode { get; set; } = Client.AuthorizationMode.SSWS;
 
         /// <summary>
         /// Gets or sets the private key. Required when AuthorizationMode is equal to PrivateKey.
@@ -180,7 +180,7 @@ namespace Okta.Sdk.Client
         /// <summary>
         /// Gets or sets the Okta scopes
         /// </summary>
-        public List<string> Scopes { get; set; }
+        public HashSet<string> Scopes { get; set; }
 
 
         #endregion
@@ -361,6 +361,7 @@ namespace Okta.Sdk.Client
 
             // Setting Timeout has side effects (forces ApiClient creation).
             Timeout = 100000;
+            AuthorizationMode = Client.AuthorizationMode.SSWS;
         }
 
         /// <summary>
@@ -398,6 +399,8 @@ namespace Okta.Sdk.Client
             {
                 ApiKeyPrefix.Add(keyValuePair);
             }
+
+            AuthorizationMode = Client.AuthorizationMode.SSWS;
         }
         
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
@@ -413,6 +416,7 @@ namespace Okta.Sdk.Client
 
             OktaDomain = oktaDomain;
             Token = token;
+            AuthorizationMode = Client.AuthorizationMode.SSWS;
         }
 
         #endregion Constructors

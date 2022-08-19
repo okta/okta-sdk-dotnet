@@ -87,7 +87,7 @@ namespace Okta.Sdk.IntegrationTest
                                  }";
 
                 var configuration = new Configuration();
-                configuration.Scopes = new List<string> { "okta.users.read" };
+                configuration.Scopes = new HashSet<string> { "okta.users.read" };
                 configuration.ClientId = clientId;
                 configuration.PrivateKey = new JsonWebKeyConfiguration(jsonPrivateKey);
                 configuration.AuthorizationMode = AuthorizationMode.PrivateKey;

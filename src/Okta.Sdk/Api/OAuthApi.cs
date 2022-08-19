@@ -170,12 +170,8 @@ namespace Okta.Sdk.Api
             };
 
             var jwtSecurityToken = _jwtGenerator.GenerateSignedJWT();
-
-            localVarRequestOptions.PathParameters.Add("grant_type", "client_credentials");
-            localVarRequestOptions.PathParameters.Add("scope", $"{string.Join("+", Configuration.Scopes)}");
-            localVarRequestOptions.PathParameters.Add("client_assertion_type", "urn:ietf:params:oauth:client-assertion-type:jwt-bearer");
-            localVarRequestOptions.PathParameters.Add("client_assertion", $"={jwtSecurityToken.ToString()}");
-
+            var scopes = string.Join("+", Configuration.Scopes);
+            var accessTokenUri = $@"/oauth2/v1/token?grant_type=client_credentials&scope={scopes}&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion={jwtSecurityToken.ToString()}";
 
             var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
@@ -190,7 +186,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<OAuthResponse>("/oauth2/v1/token", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<OAuthResponse>(accessTokenUri.Trim(), localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
