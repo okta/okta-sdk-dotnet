@@ -90,7 +90,7 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
+            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain, NullOAuthTokenProvider.Instance);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
             _jwtGenerator = jwtGenerator ?? new DefaultJwtGenerator(Configuration);
         }

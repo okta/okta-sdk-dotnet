@@ -1079,9 +1079,26 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
+            
+
+            if (oAuthTokenProvider == null &&
+                Configuration.AuthorizationMode.HasValue &&
+                Configuration.AuthorizationMode.Value == AuthorizationMode.PrivateKey)
+            {
+                _oAuthTokenProvider = new DefaultOAuthTokenProvider((Configuration)Configuration);
+            }
+            else if (oAuthTokenProvider != null)
+            {
+                _oAuthTokenProvider = _oAuthTokenProvider;
+            }
+            else
+            {
+                _oAuthTokenProvider = NullOAuthTokenProvider.Instance;
+            }
+                
+            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain, _oAuthTokenProvider);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
-            _oAuthTokenProvider = oAuthTokenProvider ?? new DefaultOAuthTokenProvider((Configuration)Configuration);
+            
         }
 
         /// <summary>
@@ -1098,7 +1115,15 @@ namespace Okta.Sdk.Api
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
-            _oAuthTokenProvider = new DefaultOAuthTokenProvider((Configuration)Configuration);
+            if (Configuration.AuthorizationMode.HasValue &&
+                Configuration.AuthorizationMode.Value == AuthorizationMode.PrivateKey)
+            {
+                _oAuthTokenProvider = new DefaultOAuthTokenProvider((Configuration)Configuration);
+            }
+            else
+            {
+                _oAuthTokenProvider = NullOAuthTokenProvider.Instance;
+            }
         }
 
         /// <summary>

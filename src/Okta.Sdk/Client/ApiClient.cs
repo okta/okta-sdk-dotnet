@@ -207,7 +207,7 @@ namespace Okta.Sdk.Client
         public ApiClient(IOAuthTokenProvider oAuthTokenProvider = null)
         {
             _baseUrl = Okta.Sdk.Client.GlobalConfiguration.Instance.OktaDomain;
-            _authTokenProvider = oAuthTokenProvider ?? new DefaultOAuthTokenProvider(Configuration.GetConfigurationOrDefault());
+            _authTokenProvider = oAuthTokenProvider;
         }
 
         /// <summary>
@@ -215,13 +215,13 @@ namespace Okta.Sdk.Client
         /// </summary>
         /// <param name="oktaDomain">The Okta domain in URL format.</param>
         /// <exception cref="ArgumentException"></exception>
-        public ApiClient(string oktaDomain)
+        public ApiClient(string oktaDomain, IOAuthTokenProvider oAuthTokenProvider = null)
         {
             if (string.IsNullOrEmpty(oktaDomain))
                 throw new ArgumentException("oktaDomain cannot be empty");
 
             _baseUrl = oktaDomain;
-            _authTokenProvider = new DefaultOAuthTokenProvider(Configuration.GetConfigurationOrDefault());
+            _authTokenProvider = oAuthTokenProvider;
         }
 
         /// <summary>
@@ -505,7 +505,7 @@ namespace Okta.Sdk.Client
             if (configuration.AuthorizationMode.HasValue &&
                 configuration.AuthorizationMode.Value == AuthorizationMode.PrivateKey)
             {
-                policy.WrapAsync(_authTokenProvider.GetOAuthRetryPolicy());
+                policy = _authTokenProvider.GetOAuthRetryPolicy();
             }
 
             if (RetryConfiguration.AsyncRetryPolicy != null || configuration.MaxRetries.HasValue && configuration.MaxRetries > 0)
