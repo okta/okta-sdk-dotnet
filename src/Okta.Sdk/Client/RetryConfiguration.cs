@@ -93,6 +93,7 @@ namespace Okta.Sdk.Client
             return finalPolicy;
         }
 
+
         private static TimeSpan CalculateDelay(int retryCount, DelegateResult<IRestResponse> response, Context context)
         {
             DateTime? requestTime = null;
