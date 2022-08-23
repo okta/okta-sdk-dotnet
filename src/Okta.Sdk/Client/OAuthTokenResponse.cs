@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Okta.Sdk.Client
 {
     public class OAuthTokenResponse
     {
-        [DataMember(Name = "token_type", EmitDefaultValue = false)]
+        [JsonProperty("token_type")]
         public string TokenType { get; set; }
 
-        [DataMember(Name = "access_token", EmitDefaultValue = false)]
+        [JsonProperty("access_token")]
         public string AccessToken { get; set; }
 
-        [DataMember(Name = "expires_in", EmitDefaultValue = false)]
+        [JsonProperty("expires_in")]
         public int ExpiresIn { get; set; }
 
-        [DataMember(Name = "scope", EmitDefaultValue = false)]
+        [JsonProperty("scope")]
         public string Scope { get; set; }
     }
 }

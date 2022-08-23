@@ -502,10 +502,13 @@ namespace Okta.Sdk.Client
             
             AsyncPolicy<IRestResponse> policy = null;
 
+
             if (configuration.AuthorizationMode.HasValue &&
                 configuration.AuthorizationMode.Value == AuthorizationMode.PrivateKey)
             {
                 policy = _authTokenProvider.GetOAuthRetryPolicy();
+                //var accessToken = await _authTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
+                //req.AddHeader("Authorization", $"Bearer {accessToken}");
             }
 
             if (RetryConfiguration.AsyncRetryPolicy != null || configuration.MaxRetries.HasValue && configuration.MaxRetries > 0)

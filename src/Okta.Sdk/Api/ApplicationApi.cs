@@ -16,6 +16,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using System.Threading;
+using System.Threading.Tasks;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -3692,20 +3693,36 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeNonDeleted", includeNonDeleted));
             }
 
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            switch (this.Configuration.AuthorizationMode)
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                case AuthorizationMode.PrivateKey:
+                    //var tokenResponse = _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken).Result;
+
+                    //localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + tokenResponse);
+                    //// get token
+                    /// Delegated to ApiClient
+                    break;
+                case AuthorizationMode.BearerToken:
+                    // authentication (OAuth_2.0) required
+                    // oauth required
+                    if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+                    {
+                        localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                    }
+                    break;
+                default:
+                    // authentication (API_Token) required
+                    if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+                    {
+                        localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+                    }
+
+                    break;
             }
             
-            return new OktaCollectionClient<Application>(localVarRequestOptions, "/api/v1/apps", this.AsynchronousClient);
+            return new OktaCollectionClient<Application>(localVarRequestOptions, "/api/v1/apps", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
         }
+
         /// <summary>
         /// List all Applications Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
         /// </summary>

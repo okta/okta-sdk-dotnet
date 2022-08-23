@@ -44,8 +44,10 @@ namespace Okta.Sdk.Client
         private IAsynchronousClient _client;
         private string _nextPath;
         private readonly CancellationToken _cancellationToken;
+        private readonly IReadableConfiguration _configuration;
+        private readonly IOAuthTokenProvider _oAuthTokenProvider;
 
-        public OktaPagedCollectionEnumerator(RequestOptions initialRequest, string path, IAsynchronousClient client, CancellationToken cancellationToken = default)
+        public OktaPagedCollectionEnumerator(RequestOptions initialRequest, string path, IAsynchronousClient client, CancellationToken cancellationToken = default, IReadableConfiguration configuration = null, IOAuthTokenProvider oAuthTokenProvider = null)
         {
             if (string.IsNullOrEmpty(path))
             {
@@ -56,6 +58,8 @@ namespace Okta.Sdk.Client
             _nextPath = path;
             _client = client ?? throw new ArgumentNullException(nameof(client));
             _cancellationToken = cancellationToken;
+            _configuration = configuration;
+            _oAuthTokenProvider = oAuthTokenProvider;
         }
         
         private WebLink GetNextLink(ApiResponse<IEnumerable<T>> response)
@@ -88,8 +92,15 @@ namespace Okta.Sdk.Client
             {
                 return false;
             }
+            // TODO: Pass the right configuration
+            if (_configuration.AuthorizationMode.HasValue &&
+                _configuration.AuthorizationMode.Value == AuthorizationMode.PrivateKey)
+            {
+                var accessToken = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: _cancellationToken);
+                _nextRequest.HeaderParameters.Add("Authorization", $"Bearer {accessToken}");
+            }
 
-            var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, null, _cancellationToken).ConfigureAwait(false);
+            var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, _configuration, _cancellationToken).ConfigureAwait(false);
 
 
             var items = response?.Data ?? Array.Empty<T>();
