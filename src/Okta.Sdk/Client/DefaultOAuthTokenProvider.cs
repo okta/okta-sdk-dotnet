@@ -28,16 +28,16 @@ namespace Okta.Sdk.Client
 
         private OAuthTokenResponse _oAuthTokenResponse;
 
-        private OAuthApi _oauthApi;
+        private IOAuthApi _oauthApi;
         
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultOAuthTokenProvider"/> class.
         /// </summary>
         /// <param name="configuration">The Okta configuration.</param>
-        public DefaultOAuthTokenProvider(Configuration configuration)
+        public DefaultOAuthTokenProvider(Configuration configuration, IOAuthApi oAuthApi = null)
         {
             Configuration = configuration;
-            _oauthApi = new OAuthApi(configuration);
+            _oauthApi = oAuthApi ?? new OAuthApi(configuration);
         }
 
         /// <inheritdoc/>
@@ -54,7 +54,6 @@ namespace Okta.Sdk.Client
         /// <summary>
         /// Gets the policy for retrying requests when the OAuth token has expired.
         /// </summary>
-        /// <param name="configuration">The configuration.</param>
         /// <param name="onRetryAsyncFunc">The method to call before retrying a request</param>
         /// <returns></returns>
         public Polly.AsyncPolicy<IRestResponse> GetOAuthRetryPolicy(
@@ -63,8 +62,8 @@ namespace Okta.Sdk.Client
             AsyncPolicy<IRestResponse> retryAsyncPolicy = Policy
                 .Handle<ApiException>(ex => ex.ErrorCode == 401)
                 .OrResult<IRestResponse>(r => (int)r.StatusCode == 401)
-                .RetryAsync(1, onRetry: (response, retryCount, context) 
-                    => OnOAuthRetryAsync(response, retryCount, context, onRetryAsyncFunc));
+                .RetryAsync(1, onRetry: async (response, retryCount, context) 
+                    => await OnOAuthRetryAsync(response, retryCount, context, onRetryAsyncFunc));
 
             return retryAsyncPolicy;
         }
