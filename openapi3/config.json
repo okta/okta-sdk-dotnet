@@ -47,6 +47,11 @@
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Client"
         },
+        "OAuthApi.mustache":{
+            "destinationFilename": "OAuthApi.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Api"
+        },
         "api_README.mustache":{
             "destinationFilename":"API_README.md",
             "templateType": "SupportingFiles",

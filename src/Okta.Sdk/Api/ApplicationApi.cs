@@ -1079,23 +1079,14 @@ namespace Okta.Sdk.Api
                 configuration
             );
             
-            Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            
+            Sdk.Client.Configuration.Validate(this.Configuration);
+            _oAuthTokenProvider = NullOAuthTokenProvider.Instance;
 
-            if (oAuthTokenProvider == null &&
-                Configuration.AuthorizationMode.HasValue &&
-                Configuration.AuthorizationMode.Value == AuthorizationMode.PrivateKey)
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration))
             {
-                _oAuthTokenProvider = new DefaultOAuthTokenProvider((Configuration)Configuration);
+                _oAuthTokenProvider = oAuthTokenProvider ?? new DefaultOAuthTokenProvider(Configuration);
             }
-            else if (oAuthTokenProvider != null)
-            {
-                _oAuthTokenProvider = _oAuthTokenProvider;
-            }
-            else
-            {
-                _oAuthTokenProvider = NullOAuthTokenProvider.Instance;
-            }
+            
                 
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain, _oAuthTokenProvider);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;

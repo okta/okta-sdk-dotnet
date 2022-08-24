@@ -24,7 +24,7 @@ namespace Okta.Sdk.Client
     /// </summary>
     public class DefaultOAuthTokenProvider : IOAuthTokenProvider
     {
-        private Configuration Configuration { get; }
+        private IReadableConfiguration Configuration { get; }
 
         private OAuthTokenResponse _oAuthTokenResponse;
 
@@ -34,10 +34,10 @@ namespace Okta.Sdk.Client
         /// Initializes a new instance of the <see cref="DefaultOAuthTokenProvider"/> class.
         /// </summary>
         /// <param name="configuration">The Okta configuration.</param>
-        public DefaultOAuthTokenProvider(Configuration configuration, IOAuthApi oAuthApi = null)
+        public DefaultOAuthTokenProvider(IReadableConfiguration configuration, IOAuthApi oAuthApi = null)
         {
             Configuration = configuration;
-            _oauthApi = oAuthApi ?? new OAuthApi(configuration);
+            _oauthApi = oAuthApi ?? new OAuthApi((Configuration)configuration);
         }
 
         /// <inheritdoc/>

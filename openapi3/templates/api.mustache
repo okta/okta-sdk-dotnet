@@ -78,14 +78,15 @@ namespace {{packageName}}.{{apiPackage}}
     {{>visibility}} partial class {{classname}} : {{interfacePrefix}}{{classname}}
     {
         private {{packageName}}.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
-
+        private IOAuthTokenProvider _oAuthTokenProvider;
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="{{classname}}"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public {{classname}}({{packageName}}.Client.Configuration configuration = null)
+        public {{classname}}({{packageName}}.Client.Configuration configuration = null, , IOAuthTokenProvider oAuthTokenProvider = null)
         {
             configuration = Sdk.Client.Configuration.GetConfigurationOrDefault(configuration);
 

@@ -92,14 +92,14 @@ namespace Okta.Sdk.Client
             {
                 return false;
             }
-            // TODO: Pass the right configuration
+            
             if (_configuration.AuthorizationMode.HasValue &&
                 _configuration.AuthorizationMode.Value == AuthorizationMode.PrivateKey)
             {
                 var accessToken = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: _cancellationToken);
                 _nextRequest.HeaderParameters.Add("Authorization", $"Bearer {accessToken}");
             }
-
+            
             var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, _configuration, _cancellationToken).ConfigureAwait(false);
 
 

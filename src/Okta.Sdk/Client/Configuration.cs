@@ -16,14 +16,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Text.RegularExpressions;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
-using Okta.Sdk.Abstractions.Configuration;
 using Okta.Sdk.Abstractions.Configuration.Providers.EnvironmentVariables;
 using Okta.Sdk.Abstractions.Configuration.Providers.Object;
 using Okta.Sdk.Abstractions.Configuration.Providers.Yaml;
@@ -206,7 +202,7 @@ namespace Okta.Sdk.Client
         /// Validates the Okta configuration
         /// </summary>
         /// <param name="configuration">The configuration to be validated</param>
-        public static void Validate(Configuration configuration)
+        public static void Validate(IReadableConfiguration configuration)
         {
             if (string.IsNullOrEmpty(configuration.OktaDomain))
             {
@@ -698,6 +694,24 @@ namespace Okta.Sdk.Client
             return url;
         }
 
+        /// <summary>
+        /// Returns true if the AuthorizationMode is equals to PrivateKey, false otherwise.
+        /// </summary>
+        public static bool IsPrivateKeyMode (IReadableConfiguration configuration) 
+            => configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.PrivateKey;
+
+        /// <summary>
+        /// Returns true if the AuthorizationMode is equals to SSWS, false otherwise.
+        /// </summary>
+        public static bool IsSswsMode (IReadableConfiguration configuration) 
+            => configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.SSWS;
+
+        /// <summary>
+        /// Returns true if the AuthorizationMode is equals to BearerToken, false otherwise.
+        /// </summary>
+        public static bool IsBearerTokenMode(IReadableConfiguration configuration) 
+            => configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.BearerToken;
+
         #endregion Properties
 
         #region Methods
@@ -814,6 +828,7 @@ namespace Okta.Sdk.Client
         #endregion Static Members
     }
     
+
     /// <summary>
     /// Contains methods for resolving the home directory path.
     /// </summary>

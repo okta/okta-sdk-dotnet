@@ -4,19 +4,17 @@ using System;
 {{^net35}}
 using System.Collections.Concurrent;
 {{/net35}}
+using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Text.RegularExpressions;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
-using Okta.Sdk.Abstractions.Configuration;
 using Okta.Sdk.Abstractions.Configuration.Providers.EnvironmentVariables;
 using Okta.Sdk.Abstractions.Configuration.Providers.Object;
 using Okta.Sdk.Abstractions.Configuration.Providers.Yaml;
@@ -155,6 +153,23 @@ namespace {{packageName}}.Client
         /// </value>
         public int? MaxRetries { get; set; } = DefaultMaxRetries;
         
+        /// <summary>
+        /// Returns true if the AuthorizationMode is equals to PrivateKey, false otherwise.
+        /// </summary>
+        public bool IsPrivateKeyMode => this.AuthorizationMode.HasValue &&
+                                        AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.PrivateKey;
+
+        /// <summary>
+        /// Returns true if the AuthorizationMode is equals to SSWS, false otherwise.
+        /// </summary>
+        public bool IsSswsMode => this.AuthorizationMode.HasValue &&
+                                        AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.SSWS;
+
+        /// <summary>
+        /// Returns true if the AuthorizationMode is equals to BearerToken, false otherwise.
+        /// </summary>
+        public bool IsBearerTokenMode => this.AuthorizationMode.HasValue &&
+                                  AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.BearerToken;
 
         #endregion
 

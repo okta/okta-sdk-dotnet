@@ -52,6 +52,12 @@ namespace Okta.Sdk.Client
         string OktaDomain { get; }
 
         /// <summary>
+        /// Gets the value of the DisableHttpsCheck flag.
+        /// </summary>
+        /// <value>Okta domain.</value>
+        bool DisableHttpsCheck { get; }
+
+        /// <summary>
         /// Gets the authorization mode.
         /// </summary>
         AuthorizationMode? AuthorizationMode { get; }
