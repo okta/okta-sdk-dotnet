@@ -98,7 +98,7 @@ namespace Okta.Sdk.Client
                  var accessToken = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: _cancellationToken);
                 _nextRequest.HeaderParameters.Add("Authorization", $"Bearer {accessToken}");
             }
-
+            
             var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, null, _cancellationToken).ConfigureAwait(false);
 
 

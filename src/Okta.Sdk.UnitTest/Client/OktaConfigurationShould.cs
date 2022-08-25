@@ -125,5 +125,96 @@ namespace Okta.Sdk.UnitTest.Client
             Action action = () => Configuration.Validate(configuration);
             action.Should().NotThrow<ArgumentException>();
         }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData("{ClientId}")]
+        public void FailForEmptyOrInvalidClientIdWhenAuthorizationModeIsPrivateKey(string clientId)
+        {
+            var configuration = new Configuration();
+            configuration.OktaDomain = "https://myOktaDomain.oktapreview.com";
+            configuration.AuthorizationMode = AuthorizationMode.PrivateKey;
+            configuration.ClientId = clientId;
+            configuration.PrivateKey = new JsonWebKeyConfiguration();
+            configuration.Scopes = new HashSet<string> { "foo" };
+
+            Action action = () => Configuration.Validate(configuration);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void ThrowForEmptyScopesWhenAuthorizationModeIsPrivateKey()
+        {
+            var configuration = new Configuration();
+            configuration.OktaDomain = "https://myOktaDomain.oktapreview.com";
+            configuration.AuthorizationMode = AuthorizationMode.PrivateKey;
+            configuration.ClientId = "foo";
+            configuration.PrivateKey = new JsonWebKeyConfiguration();
+            configuration.Scopes = new HashSet<string>();
+
+            Action action = () => Configuration.Validate(configuration);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void ThrowForNullScopesWhenAuthorizationModeIsPrivateKey()
+        {
+            var configuration = new Configuration();
+            configuration.OktaDomain = "https://myOktaDomain.oktapreview.com";
+            configuration.AuthorizationMode = AuthorizationMode.PrivateKey;
+            configuration.ClientId = "foo";
+            configuration.PrivateKey = new JsonWebKeyConfiguration();
+            configuration.Scopes = null;
+
+            Action action = () => Configuration.Validate(configuration);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void NotFailWhenValidConfigWhenAuthorizationModeIsPrivateKey()
+        {
+            var configuration = new Configuration();
+            configuration.OktaDomain = "https://myOktaDomain.oktapreview.com";
+            configuration.AuthorizationMode = AuthorizationMode.PrivateKey;
+            configuration.ClientId = "foo";
+            configuration.PrivateKey = new JsonWebKeyConfiguration();
+            configuration.Scopes = new HashSet<string> { "foo" };
+
+            Action action = () => Configuration.Validate(configuration);
+            action.Should().NotThrow();
+        }
+
+        [Fact]
+        public void FailWhenAccessTokenNotProvidedAndAuthorizationModeIsOAuthAccessToken()
+        {
+            var configuration = new Configuration
+            {
+                OktaDomain = "https://myOktaDomain.oktapreview.com",
+                AuthorizationMode = AuthorizationMode.BearerToken,
+                ClientId = "foo",
+                Scopes = new HashSet<string> { "foo" },
+            };
+
+            Action action = () => Configuration.Validate(configuration);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void NotFailWhenAccessTokenProvidedAndAuthorizationModeIsOAuthAccessToken()
+        {
+            var configuration = new Configuration
+            {
+                OktaDomain = "https://myOktaDomain.oktapreview.com",
+                AuthorizationMode = AuthorizationMode.BearerToken,
+                AccessToken = "AnyToken",
+                ClientId = "foo",
+                Scopes = new HashSet<string> { "foo" },
+            };
+
+            Action action = () => Configuration.Validate(configuration);
+            action.Should().NotThrow();
+        }
+
     }
 }
