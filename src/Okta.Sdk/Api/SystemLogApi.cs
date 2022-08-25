@@ -244,6 +244,7 @@ namespace Okta.Sdk.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
+            
             // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
             
             return new OktaCollectionClient<LogEvent>(localVarRequestOptions, "/api/v1/logs", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
@@ -326,6 +327,7 @@ namespace Okta.Sdk.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
+            
             // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
 
             // make the HTTP request
