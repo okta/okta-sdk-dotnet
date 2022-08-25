@@ -47,7 +47,7 @@ namespace Okta.Sdk.Client
         private readonly IReadableConfiguration _configuration;
         private readonly IOAuthTokenProvider _oAuthTokenProvider;
 
-        public OktaPagedCollectionEnumerator(RequestOptions initialRequest, string path, IAsynchronousClient client, CancellationToken cancellationToken = default, IReadableConfiguration configuration = null, IOAuthTokenProvider oAuthTokenProvider = null)
+        public OktaPagedCollectionEnumerator(RequestOptions initialRequest, string path, IAsynchronousClient client, IReadableConfiguration configuration, IOAuthTokenProvider oAuthTokenProvider, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrEmpty(path))
             {
@@ -58,8 +58,8 @@ namespace Okta.Sdk.Client
             _nextPath = path;
             _client = client ?? throw new ArgumentNullException(nameof(client));
             _cancellationToken = cancellationToken;
-            _configuration = configuration;
-            _oAuthTokenProvider = oAuthTokenProvider;
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+            _oAuthTokenProvider = oAuthTokenProvider ?? throw new ArgumentNullException(nameof(oAuthTokenProvider));;
         }
         
         private WebLink GetNextLink(ApiResponse<IEnumerable<T>> response)
@@ -93,14 +93,13 @@ namespace Okta.Sdk.Client
                 return false;
             }
             
-            if (_configuration.AuthorizationMode.HasValue &&
-                _configuration.AuthorizationMode.Value == AuthorizationMode.PrivateKey)
+            if (Okta.Sdk.Client.Configuration.IsPrivateKeyMode(_configuration))
             {
-                var accessToken = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: _cancellationToken);
+                 var accessToken = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: _cancellationToken);
                 _nextRequest.HeaderParameters.Add("Authorization", $"Bearer {accessToken}");
             }
-            
-            var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, _configuration, _cancellationToken).ConfigureAwait(false);
+
+            var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, null, _cancellationToken).ConfigureAwait(false);
 
 
             var items = response?.Data ?? Array.Empty<T>();

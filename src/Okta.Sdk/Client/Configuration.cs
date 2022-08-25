@@ -11,6 +11,8 @@
 
 using System;
 using System.Collections.Concurrent;
+using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -157,7 +159,7 @@ namespace Okta.Sdk.Client
         /// The number of times to retry
         /// </value>
         public int? MaxRetries { get; set; } = DefaultMaxRetries;
-
+        
         /// <summary>
         /// Gets or sets the authorization mode.
         /// </summary>
@@ -177,7 +179,24 @@ namespace Okta.Sdk.Client
         /// Gets or sets the Okta scopes
         /// </summary>
         public HashSet<string> Scopes { get; set; }
+        
+        /// <summary>
+        /// Returns true if the AuthorizationMode is equals to PrivateKey, false otherwise.
+        /// </summary>
+        public static bool IsPrivateKeyMode (IReadableConfiguration configuration) 
+            => configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.PrivateKey;
 
+        /// <summary>
+        /// Returns true if the AuthorizationMode is equals to SSWS, false otherwise.
+        /// </summary>
+        public static bool IsSswsMode (IReadableConfiguration configuration) 
+            => configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.SSWS;
+
+        /// <summary>
+        /// Returns true if the AuthorizationMode is equals to BearerToken, false otherwise.
+        /// </summary>
+        public static bool IsBearerTokenMode(IReadableConfiguration configuration) 
+            => configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.BearerToken;
 
         #endregion
 
@@ -230,28 +249,23 @@ namespace Okta.Sdk.Client
             {
                 throw new ArgumentNullException(nameof(configuration.OktaDomain), $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
             }
-
-            if (Regex.Matches(configuration.OktaDomain, "://").Count != 1)
+            if ((configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Client.AuthorizationMode.SSWS)) 
             {
-                throw new ArgumentNullException(nameof(configuration.OktaDomain), $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
-            }
+                if (Regex.Matches(configuration.OktaDomain, "://").Count != 1)
+                {
+                    throw new ArgumentNullException(nameof(configuration.OktaDomain), $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
+                }
 
-            if (configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Client.AuthorizationMode.SSWS)
-            {
                 if (string.IsNullOrEmpty(configuration.Token))
                 {
-                    throw new ArgumentNullException(nameof(configuration.Token),
-                        "Your Okta API token is missing. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token");
+                    throw new ArgumentNullException(nameof(configuration.Token), "Your Okta API token is missing. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token");
                 }
 
                 if (configuration.Token.IndexOf("{apiToken}", StringComparison.OrdinalIgnoreCase) >= 0)
                 {
-                    throw new ArgumentException(
-                        "Replace {apiToken} with your Okta API token. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token",
-                        nameof(configuration.Token));
+                    throw new ArgumentException("Replace {apiToken} with your Okta API token. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token", nameof(configuration.Token));
                 }
             }
-
         }
 
         #endregion Static Members
@@ -395,7 +409,7 @@ namespace Okta.Sdk.Client
             {
                 ApiKeyPrefix.Add(keyValuePair);
             }
-
+            
             AuthorizationMode = Client.AuthorizationMode.SSWS;
         }
         
@@ -694,24 +708,6 @@ namespace Okta.Sdk.Client
             return url;
         }
 
-        /// <summary>
-        /// Returns true if the AuthorizationMode is equals to PrivateKey, false otherwise.
-        /// </summary>
-        public static bool IsPrivateKeyMode (IReadableConfiguration configuration) 
-            => configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.PrivateKey;
-
-        /// <summary>
-        /// Returns true if the AuthorizationMode is equals to SSWS, false otherwise.
-        /// </summary>
-        public static bool IsSswsMode (IReadableConfiguration configuration) 
-            => configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.SSWS;
-
-        /// <summary>
-        /// Returns true if the AuthorizationMode is equals to BearerToken, false otherwise.
-        /// </summary>
-        public static bool IsBearerTokenMode(IReadableConfiguration configuration) 
-            => configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.BearerToken;
-
         #endregion Properties
 
         #region Methods
@@ -828,7 +824,6 @@ namespace Okta.Sdk.Client
         #endregion Static Members
     }
     
-
     /// <summary>
     /// Contains methods for resolving the home directory path.
     /// </summary>

@@ -21,6 +21,7 @@ using System.Web;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Okta.Sdk.Abstractions;
+using Okta.Sdk.Api;
 using ErrorEventArgs = Newtonsoft.Json.Serialization.ErrorEventArgs;
 using RestSharp;
 using RestSharp.Deserializers;
@@ -164,6 +165,7 @@ namespace {{packageName}}.Client
     {{>visibility}} partial class ApiClient : {{#supportsAsync}} IAsynchronousClient{{/supportsAsync}}
     {
         private readonly string _baseUrl;
+        private readonly IOAuthTokenProvider _authTokenProvider;
 
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
@@ -198,22 +200,26 @@ namespace {{packageName}}.Client
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" />, defaulting to the global configurations' base url.
         /// </summary>
-        public ApiClient()
+        /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional./param>
+        public ApiClient(IOAuthTokenProvider oAuthTokenProvider = null)
         {
             _baseUrl = {{packageName}}.Client.GlobalConfiguration.Instance.OktaDomain;
+            _authTokenProvider = oAuthTokenProvider ?? NullOAuthTokenProvider.Instance;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" />
         /// </summary>
         /// <param name="oktaDomain">The Okta domain in URL format.</param>
+        /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional./param>
         /// <exception cref="ArgumentException"></exception>
-        public ApiClient(string oktaDomain)
+        public ApiClient(string oktaDomain, IOAuthTokenProvider oAuthTokenProvider = null)
         {
             if (string.IsNullOrEmpty(oktaDomain))
                 throw new ArgumentException("oktaDomain cannot be empty");
 
             _baseUrl = oktaDomain;
+            _authTokenProvider = oAuthTokenProvider ?? NullOAuthTokenProvider.Instance;
         }
 
         /// <summary>
@@ -492,10 +498,25 @@ namespace {{packageName}}.Client
             InterceptRequest(req);
 
             IRestResponse<T> response;
-        {{#supportsRetry}}
-           if (RetryConfiguration.AsyncRetryPolicy != null || configuration.MaxRetries.HasValue && configuration.MaxRetries > 0)
+            
+            AsyncPolicy<IRestResponse> policy = null;
+            
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(configuration))
             {
-                var policy = RetryConfiguration.AsyncRetryPolicy ?? DefaultRetryStrategy.GetRetryPolicy(configuration);
+                policy = _authTokenProvider.GetOAuthRetryPolicy();
+            }
+            
+            {{#supportsRetry}}
+            if (RetryConfiguration.AsyncRetryPolicy != null || configuration.MaxRetries.HasValue && configuration.MaxRetries > 0)
+            {
+                var retryPolicy = RetryConfiguration.AsyncRetryPolicy ?? DefaultRetryStrategy.GetRetryPolicy(configuration);
+                policy = policy?.WrapAsync(retryPolicy) ?? retryPolicy;
+            }
+            
+            {{/supportsRetry}}
+            
+            if (policy != null)
+            {
                 var policyResult = await policy.ExecuteAndCaptureAsync(action: (ctx) => ExecuteAsyncWithRetryHeaders(ctx, req, client), new Context()).ConfigureAwait(false);
                 response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>
                 {
@@ -505,12 +526,9 @@ namespace {{packageName}}.Client
             }
             else
             {
-        {{/supportsRetry}}
                 response = await client.ExecuteAsync<T>(req, cancellationToken).ConfigureAwait(false);
-        {{#supportsRetry}}
             }
-        {{/supportsRetry}}
-
+            
             // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
             if (typeof({{{packageName}}}.{{modelPackage}}.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
             {
@@ -561,7 +579,7 @@ namespace {{packageName}}.Client
         private Task<IRestResponse> ExecuteAsyncWithRetryHeaders(Context context, IRestRequest request, RestClient client)
         {
             DefaultRetryStrategy.AddRetryHeaders(context, request);
-
+            DefaultOAuthTokenProvider.AddOrUpdateAuthorizationHeader(context, request);
             return client.ExecuteAsync(request);
         }
 

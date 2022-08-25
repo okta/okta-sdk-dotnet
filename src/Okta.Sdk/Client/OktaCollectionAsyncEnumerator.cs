@@ -37,10 +37,10 @@ namespace Okta.Sdk.Client
             }
         }
 
-        public OktaCollectionAsyncEnumerator(RequestOptions initialRequest, string path, IAsynchronousClient client, CancellationToken cancellationToken = default, IReadableConfiguration configuration =null, IOAuthTokenProvider oAuthTokenProvider = null)
+        public OktaCollectionAsyncEnumerator(RequestOptions initialRequest, string path, IAsynchronousClient client, IReadableConfiguration configuration, IOAuthTokenProvider oAuthTokenProvider, CancellationToken cancellationToken = default)
         {
             _pagedEnumerator =
-                new OktaPagedCollectionEnumerator<T>(initialRequest, path, client, cancellationToken, configuration, oAuthTokenProvider);
+                new OktaPagedCollectionEnumerator<T>(initialRequest, path, client, configuration, oAuthTokenProvider, cancellationToken);
         }
 
 

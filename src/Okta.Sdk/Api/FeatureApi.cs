@@ -16,6 +16,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using System.Threading;
+using System.Threading.Tasks;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -156,14 +157,15 @@ namespace Okta.Sdk.Api
     public partial class FeatureApi : IFeatureApi
     {
         private Okta.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
-
+        private IOAuthTokenProvider _oAuthTokenProvider;
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="FeatureApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public FeatureApi(Okta.Sdk.Client.Configuration configuration = null)
+        public FeatureApi(Okta.Sdk.Client.Configuration configuration = null, IOAuthTokenProvider oAuthTokenProvider = null)
         {
             configuration = Sdk.Client.Configuration.GetConfigurationOrDefault(configuration);
 
@@ -173,6 +175,13 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
+            
+            _oAuthTokenProvider = NullOAuthTokenProvider.Instance;
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration))
+            {
+                _oAuthTokenProvider = oAuthTokenProvider ?? new DefaultOAuthTokenProvider(Configuration);
+            }
+            
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
@@ -192,6 +201,11 @@ namespace Okta.Sdk.Api
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
+             _oAuthTokenProvider = NullOAuthTokenProvider.Instance;
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration))
+            {
+                _oAuthTokenProvider = new DefaultOAuthTokenProvider(Configuration);
+            }
         }
 
         /// <summary>
@@ -283,14 +297,19 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
 
             // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (OAuth_2.0) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
@@ -350,18 +369,19 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
 
             // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (OAuth_2.0) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
             
-            return new OktaCollectionClient<Feature>(localVarRequestOptions, "/api/v1/features/{featureId}/dependencies", this.AsynchronousClient);
+            return new OktaCollectionClient<Feature>(localVarRequestOptions, "/api/v1/features/{featureId}/dependencies", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
         }
         /// <summary>
         /// List all Dependencies Success
@@ -404,16 +424,17 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
 
             // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (OAuth_2.0) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
 
             // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<Feature>>("/api/v1/features/{featureId}/dependencies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
@@ -471,18 +492,19 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
 
             // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (OAuth_2.0) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
             
-            return new OktaCollectionClient<Feature>(localVarRequestOptions, "/api/v1/features/{featureId}/dependents", this.AsynchronousClient);
+            return new OktaCollectionClient<Feature>(localVarRequestOptions, "/api/v1/features/{featureId}/dependents", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
         }
         /// <summary>
         /// List all Dependents Success
@@ -525,16 +547,17 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
 
             // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (OAuth_2.0) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
 
             // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<Feature>>("/api/v1/features/{featureId}/dependents", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
@@ -584,18 +607,19 @@ namespace Okta.Sdk.Api
 
 
             // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (OAuth_2.0) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
             
-            return new OktaCollectionClient<Feature>(localVarRequestOptions, "/api/v1/features", this.AsynchronousClient);
+            return new OktaCollectionClient<Feature>(localVarRequestOptions, "/api/v1/features", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
         }
         /// <summary>
         /// List all Features Success
@@ -630,16 +654,17 @@ namespace Okta.Sdk.Api
 
 
             // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (OAuth_2.0) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
 
             // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<Feature>>("/api/v1/features", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
@@ -724,14 +749,19 @@ namespace Okta.Sdk.Api
             }
 
             // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (OAuth_2.0) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 

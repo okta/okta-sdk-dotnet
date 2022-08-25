@@ -1,10 +1,17 @@
 ﻿{{>partial_header}}
+
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
-namespace Okta.Sdk.Api
+namespace {{packageName}}.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -47,7 +54,7 @@ namespace Okta.Sdk.Api
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
     public interface IOAuthApi : IOAuthApiAsync
-    {
+{
 
     }
 
@@ -74,7 +81,7 @@ namespace Okta.Sdk.Api
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
-            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain, NullOAuthTokenProvider.i);
+            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain, NullOAuthTokenProvider.Instance);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
             _jwtGenerator = jwtGenerator ?? new DefaultJwtGenerator(Configuration);
         }

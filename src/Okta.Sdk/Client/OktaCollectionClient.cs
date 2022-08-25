@@ -46,21 +46,21 @@ namespace Okta.Sdk.Client
         private IReadableConfiguration _configuration;
         private IOAuthTokenProvider _oAuthTokenProvider;
         
-        public OktaCollectionClient(RequestOptions initialRequest, string initialPath, IAsynchronousClient client, IReadableConfiguration configuration = null, IOAuthTokenProvider oAuthTokenProvider = null)
+        public OktaCollectionClient(RequestOptions initialRequest, string initialPath, IAsynchronousClient client, IReadableConfiguration configuration, IOAuthTokenProvider oAuthTokenProvider)
         {
             _initialRequest = initialRequest;
             _client = client;
             _initialPath = initialPath;
-            _configuration = configuration ?? Configuration.GetConfigurationOrDefault();
+            _configuration = configuration;
             _oAuthTokenProvider = oAuthTokenProvider;
         }
         
         /// <inheritdoc/>
         public IAsyncEnumerator<T> GetAsyncEnumerator(CancellationToken cancellationToken = default)
-            => new OktaCollectionAsyncEnumerator<T>(_initialRequest, _initialPath, _client, cancellationToken, _configuration, _oAuthTokenProvider);
+            => new OktaCollectionAsyncEnumerator<T>(_initialRequest, _initialPath, _client, _configuration, _oAuthTokenProvider, cancellationToken);
         
         /// <inheritdoc/>
         public IOktaPagedCollectionEnumerator<T> GetPagedEnumerator(CancellationToken cancellationToken = default)
-            => new OktaPagedCollectionEnumerator<T>(_initialRequest, _initialPath, _client, cancellationToken, _configuration, _oAuthTokenProvider);
+            => new OktaPagedCollectionEnumerator<T>(_initialRequest, _initialPath, _client, _configuration, _oAuthTokenProvider, cancellationToken);
     }
 }

@@ -61,7 +61,7 @@ namespace Okta.Sdk.Client
         /// Gets the policy to be used for retrying requests.
         /// </summary>
         /// <param name="configuration">The configuration</param>
-        /// <param name="onRetryAsyncFunc">The method to call before retrying a request</param>
+        /// <param name="onRetryAsyncFunc">The function to call before retrying a request</param>
         /// <returns></returns>
         public static Polly.AsyncPolicy<IRestResponse> GetRetryPolicy(IReadableConfiguration configuration, Func<DelegateResult<IRestResponse>, TimeSpan, int, Context, Task> onRetryAsyncFunc = null)
         {
@@ -92,7 +92,6 @@ namespace Okta.Sdk.Client
 
             return finalPolicy;
         }
-
 
         private static TimeSpan CalculateDelay(int retryCount, DelegateResult<IRestResponse> response, Context context)
         {
