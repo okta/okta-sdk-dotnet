@@ -66,7 +66,7 @@ namespace Okta.Sdk.UnitTest.Client
         }
 
         [Fact]
-        public async Task AddOktaHeadersInRetry()
+        public async Task UpdateTokenInRetry()
         {
             var globalRetry = 0;
             var request = new RestRequest();
