@@ -43,20 +43,24 @@ namespace Okta.Sdk.Client
         private RequestOptions _initialRequest;
         private string _initialPath;
         private IAsynchronousClient _client;
+        private IReadableConfiguration _configuration;
+        private IOAuthTokenProvider _oAuthTokenProvider;
         
-        public OktaCollectionClient(RequestOptions initialRequest, string initialPath, IAsynchronousClient client)
+        public OktaCollectionClient(RequestOptions initialRequest, string initialPath, IAsynchronousClient client, IReadableConfiguration configuration, IOAuthTokenProvider oAuthTokenProvider)
         {
             _initialRequest = initialRequest;
             _client = client;
             _initialPath = initialPath;
+            _configuration = configuration;
+            _oAuthTokenProvider = oAuthTokenProvider;
         }
         
         /// <inheritdoc/>
         public IAsyncEnumerator<T> GetAsyncEnumerator(CancellationToken cancellationToken = default)
-            => new OktaCollectionAsyncEnumerator<T>(_initialRequest, _initialPath, _client, cancellationToken);
+            => new OktaCollectionAsyncEnumerator<T>(_initialRequest, _initialPath, _client, _configuration, _oAuthTokenProvider, cancellationToken);
         
         /// <inheritdoc/>
         public IOktaPagedCollectionEnumerator<T> GetPagedEnumerator(CancellationToken cancellationToken = default)
-            => new OktaPagedCollectionEnumerator<T>(_initialRequest, _initialPath, _client, cancellationToken);
+            => new OktaPagedCollectionEnumerator<T>(_initialRequest, _initialPath, _client, _configuration, _oAuthTokenProvider, cancellationToken);
     }
 }

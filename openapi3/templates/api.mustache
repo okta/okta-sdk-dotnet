@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using System.Threading;
+using System.Threading.Tasks;
 using {{packageName}}.Client;
 {{#hasImport}}using {{packageName}}.{{modelPackage}};
 {{/hasImport}}
@@ -78,14 +79,15 @@ namespace {{packageName}}.{{apiPackage}}
     {{>visibility}} partial class {{classname}} : {{interfacePrefix}}{{classname}}
     {
         private {{packageName}}.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
-
+        private IOAuthTokenProvider _oAuthTokenProvider;
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="{{classname}}"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public {{classname}}({{packageName}}.Client.Configuration configuration = null)
+        public {{classname}}({{packageName}}.Client.Configuration configuration = null, IOAuthTokenProvider oAuthTokenProvider = null)
         {
             configuration = Sdk.Client.Configuration.GetConfigurationOrDefault(configuration);
 
@@ -95,6 +97,13 @@ namespace {{packageName}}.{{apiPackage}}
             );
             
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
+            
+            _oAuthTokenProvider = NullOAuthTokenProvider.Instance;
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration))
+            {
+                _oAuthTokenProvider = oAuthTokenProvider ?? new DefaultOAuthTokenProvider(Configuration);
+            }
+            
             {{#supportsAsync}}
             this.AsynchronousClient = new {{packageName}}.Client.ApiClient(this.Configuration.OktaDomain);
             {{/supportsAsync}}
@@ -120,6 +129,11 @@ namespace {{packageName}}.{{apiPackage}}
             {{/supportsAsync}}
             this.Configuration = configuration;
             this.ExceptionFactory = {{packageName}}.Client.Configuration.DefaultExceptionFactory;
+             _oAuthTokenProvider = NullOAuthTokenProvider.Instance;
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration))
+            {
+                _oAuthTokenProvider = new DefaultOAuthTokenProvider(Configuration);
+            }
         }
 
         {{#supportsAsync}}
@@ -302,7 +316,7 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/isKeyInCookie}}
             {{#isKeyInHeader}}
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("{{keyParamName}}")))
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("{{keyParamName}}")))
             {
                 localVarRequestOptions.HeaderParameters.Add("{{keyParamName}}", this.Configuration.GetApiKeyWithPrefix("{{keyParamName}}"));
             }
@@ -332,10 +346,22 @@ namespace {{packageName}}.{{apiPackage}}
             {{/isBasic}}
             {{#isOAuth}}
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
+            
+            {{#isArray}}
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
+            {{/isArray}}
+            {{^isArray}}
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+            
+            {{/isArray}}
             {{/isOAuth}}
             {{#isHttpSignature}}
             if (this.Configuration.HttpSigningConfiguration != null)
@@ -356,7 +382,7 @@ namespace {{packageName}}.{{apiPackage}}
             {{/isHttpSignature}}
             {{/authMethods}}
             
-            return new OktaCollectionClient<{{{returnBaseType}}}>(localVarRequestOptions, "{{{path}}}", this.AsynchronousClient);
+            return new OktaCollectionClient<{{{returnBaseType}}}>(localVarRequestOptions, "{{{path}}}", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
         }
         {{/isArray}}
         {{^isArray}}
@@ -505,7 +531,7 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/isKeyInCookie}}
             {{#isKeyInHeader}}
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("{{keyParamName}}")))
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("{{keyParamName}}")))
             {
                 localVarRequestOptions.HeaderParameters.Add("{{keyParamName}}", this.Configuration.GetApiKeyWithPrefix("{{keyParamName}}"));
             }
@@ -535,10 +561,21 @@ namespace {{packageName}}.{{apiPackage}}
             {{/isBasic}}
             {{#isOAuth}}
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
+            
+            {{#isArray}}
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
+            {{/isArray}}
+            {{^isArray}}
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+            {{/isArray}}
             {{/isOAuth}}
             {{#isHttpSignature}}
             if (this.Configuration.HttpSigningConfiguration != null)

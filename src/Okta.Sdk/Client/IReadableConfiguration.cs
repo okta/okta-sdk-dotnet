@@ -50,6 +50,32 @@ namespace Okta.Sdk.Client
         /// </summary>
         /// <value>Okta domain.</value>
         string OktaDomain { get; }
+        
+        /// <summary>
+        /// Gets the value of the DisableHttpsCheck flag.
+        /// </summary>
+        /// <value>Okta domain.</value>
+        bool DisableHttpsCheck { get; }
+
+        /// <summary>
+        /// Gets the authorization mode.
+        /// </summary>
+        AuthorizationMode? AuthorizationMode { get; }
+
+        /// <summary>
+        /// Gets the private key. Required when AuthorizationMode is equal to PrivateKey.
+        /// </summary>
+        JsonWebKeyConfiguration PrivateKey { get; }
+
+        /// <summary>
+        /// Gets the client id. Required when AuthorizationMode is equal to PrivateKey.
+        /// </summary>
+        string ClientId { get; }
+
+        /// <summary>
+        /// Gets the Okta scopes
+        /// </summary>
+        HashSet<string> Scopes { get; }
 
         /// <summary>
         /// Gets the date time format.

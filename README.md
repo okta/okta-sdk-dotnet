@@ -150,7 +150,50 @@ Hard-coding the Okta domain and API token works for quick tests, but for real pr
 
 ### OAuth 2.0
 
-This feature is not available yet, and it will be released in the next beta release.
+Okta allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
+
+This SDK supports this feature only for service-to-service applications. Check out our guides to learn more about how to register a new service application using a private and public key pair.
+
+When using this approach you won't need an API Token because the SDK will request an access token for you. In order to use OAuth 2.0, construct an API client instance by passing the following parameters:
+
+```csharp
+var oauthAppsApi = new ApplicationApi(new Configuration
+{
+    OktaDomain = "https://{{yourOktaDomain}}",
+    AuthorizationMode = AuthorizationMode.PrivateKey,
+    ClientId = "{{clientId}}",
+    Scopes = new List<string> { "okta.users.read", "okta.apps.read" }, // Add all the scopes you need
+    PrivateKey =  new JsonWebKeyConfiguration(jsonString)
+});
+```
+
+Key object for assigning to the PrivateKey can be created and initialized inline like in this example for RSA key:
+
+```csharp
+var privateKey = new JsonWebKeyConfiguration
+{
+    P = "{{P}}",
+    Kty = "RSA",
+    Q = "{{Q}}",
+    D = "{{D}}",
+    E = "{{E}}",
+    Kid = "{{P}}",
+    Qi = "{{Qi}}"
+};
+
+var configuration = new Configuration
+{
+    OktaDomain = "https://{{yourOktaDomain}}",
+    AuthorizationMode = AuthorizationMode.PrivateKey,
+    ClientId = "{{clientId}}",
+    Scopes = new List<string> { "okta.users.read", "okta.apps.read" }, // Add all the scopes you need
+    PrivateKey = privateKey
+};
+
+var oauthAppsApi = new ApplicationApi(configuration);
+```
+
+It is possible to use an access token you retrieved outside of the SDK for authentication. For that, set `Configuration.AuthorizationMode` configuration property to `AuthorizationMode.BearerToken` and `Configuration.AccessToken` to the token string.
 
 ## Usage guide
 
