@@ -257,7 +257,7 @@ namespace Okta.Sdk
         /// <typeparam name="T">The <see cref="Resource"/> type of the collection.</typeparam>
         /// <param name="href">The collection URL.</param>
         /// <returns>A collection that can be enumerated asynchronously.</returns>
-        CollectionClient<T> GetCollection<T>(string href)
+        ICollectionClient<T> GetCollection<T>(string href)
             where T : IResource;
 
         /// <summary>
@@ -266,7 +266,7 @@ namespace Okta.Sdk
         /// <typeparam name="T">The <see cref="Resource"/> type of the collection.</typeparam>
         /// <param name="request">The request options.</param>
         /// <returns>A collection that can be enumerated asynchronously.</returns>
-        CollectionClient<T> GetCollection<T>(HttpRequest request)
+        ICollectionClient<T> GetCollection<T>(HttpRequest request)
             where T : IResource;
 
         /// <summary>

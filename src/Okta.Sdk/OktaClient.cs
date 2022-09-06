@@ -282,7 +282,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public CollectionClient<T> GetCollection<T>(string href)
+        public ICollectionClient<T> GetCollection<T>(string href)
             where T : IResource
             => GetCollection<T>(new HttpRequest
             {
@@ -290,7 +290,7 @@ namespace Okta.Sdk
             });
 
         /// <inheritdoc/>
-        public CollectionClient<T> GetCollection<T>(HttpRequest request)
+        public ICollectionClient<T> GetCollection<T>(HttpRequest request)
             where T : IResource
             => GetCollectionClient<T>(request);
 
