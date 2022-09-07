@@ -169,6 +169,7 @@ namespace Okta.Sdk.Client
     {
         private readonly string _baseUrl;
         private readonly IOAuthTokenProvider _authTokenProvider;
+        private readonly WebProxy _proxy;
 
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
@@ -204,10 +205,11 @@ namespace Okta.Sdk.Client
         /// Initializes a new instance of the <see cref="ApiClient" />, defaulting to the global configurations' base url.
         /// </summary>
         /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional./param>
-        public ApiClient(IOAuthTokenProvider oAuthTokenProvider = null)
+        public ApiClient(IOAuthTokenProvider oAuthTokenProvider = null, WebProxy webProxy = null)
         {
             _baseUrl = Okta.Sdk.Client.GlobalConfiguration.Instance.OktaDomain;
             _authTokenProvider = oAuthTokenProvider ?? NullOAuthTokenProvider.Instance;
+            _proxy = webProxy;
         }
 
         /// <summary>
@@ -216,13 +218,14 @@ namespace Okta.Sdk.Client
         /// <param name="oktaDomain">The Okta domain in URL format.</param>
         /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional./param>
         /// <exception cref="ArgumentException"></exception>
-        public ApiClient(string oktaDomain, IOAuthTokenProvider oAuthTokenProvider = null)
+        public ApiClient(string oktaDomain, IOAuthTokenProvider oAuthTokenProvider = null, WebProxy webProxy = null)
         {
             if (string.IsNullOrEmpty(oktaDomain))
                 throw new ArgumentException("oktaDomain cannot be empty");
 
             _baseUrl = oktaDomain;
             _authTokenProvider = oAuthTokenProvider ?? NullOAuthTokenProvider.Instance;
+            _proxy = webProxy;
         }
 
         /// <summary>
@@ -472,9 +475,13 @@ namespace Okta.Sdk.Client
 
             client.Timeout = configuration.ConnectionTimeout ?? Configuration.DefaultConnectionTimeout;
 
-            if (configuration.Proxy != null)
+            if (_proxy != null)
             {
-                client.Proxy = configuration.Proxy;
+                client.Proxy = _proxy;
+            }
+            else if (configuration.Proxy != null)
+            {
+                client.Proxy = ProxyConfiguration.GetProxy(configuration.Proxy);
             }
 
             client.UserAgent = new UserAgentBuilder("Okta.Sdk",

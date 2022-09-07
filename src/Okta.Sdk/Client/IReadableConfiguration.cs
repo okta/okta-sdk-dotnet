@@ -125,10 +125,12 @@ namespace Okta.Sdk.Client
         int? MaxRetries { get; }
 
         /// <summary>
-        /// Gets the proxy.
+        /// Gets the optional proxy to use for HTTP connections. If <c>null</c>, the default system proxy is used, if any.
         /// </summary>
-        /// <value>Proxy.</value>
-        WebProxy Proxy { get; }
+        /// <value>
+        /// The proxy to use for HTTP connections.
+        /// </value>
+        ProxyConfiguration Proxy { get; }
 
         /// <summary>
         /// Gets the user agent.
