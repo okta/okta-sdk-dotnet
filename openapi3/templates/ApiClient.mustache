@@ -166,7 +166,8 @@ namespace {{packageName}}.Client
     {
         private readonly string _baseUrl;
         private readonly IOAuthTokenProvider _authTokenProvider;
-
+        private readonly WebProxy _proxy;
+        
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
         /// These settings can be adjusted to accommodate custom serialization rules.
@@ -201,10 +202,12 @@ namespace {{packageName}}.Client
         /// Initializes a new instance of the <see cref="ApiClient" />, defaulting to the global configurations' base url.
         /// </summary>
         /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional./param>
-        public ApiClient(IOAuthTokenProvider oAuthTokenProvider = null)
+        /// <param name="webProxy">The web proxy to be used by the HTTP client. Optional./param>
+        public ApiClient(IOAuthTokenProvider oAuthTokenProvider = null, WebProxy webProxy = null)
         {
             _baseUrl = {{packageName}}.Client.GlobalConfiguration.Instance.OktaDomain;
             _authTokenProvider = oAuthTokenProvider ?? NullOAuthTokenProvider.Instance;
+            _proxy = webProxy;
         }
 
         /// <summary>
@@ -212,14 +215,16 @@ namespace {{packageName}}.Client
         /// </summary>
         /// <param name="oktaDomain">The Okta domain in URL format.</param>
         /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional./param>
+        /// <param name="webProxy">The web proxy to be used by the HTTP client. Optional./param>
         /// <exception cref="ArgumentException"></exception>
-        public ApiClient(string oktaDomain, IOAuthTokenProvider oAuthTokenProvider = null)
+        public ApiClient(string oktaDomain, IOAuthTokenProvider oAuthTokenProvider = null, WebProxy webProxy = null)
         {
             if (string.IsNullOrEmpty(oktaDomain))
                 throw new ArgumentException("oktaDomain cannot be empty");
 
             _baseUrl = oktaDomain;
             _authTokenProvider = oAuthTokenProvider ?? NullOAuthTokenProvider.Instance;
+            _proxy = webProxy;
         }
 
         /// <summary>
@@ -470,9 +475,13 @@ namespace {{packageName}}.Client
 
             client.Timeout = configuration.ConnectionTimeout ?? Configuration.DefaultConnectionTimeout;
 
-            if (configuration.Proxy != null)
+            if (_proxy != null)
             {
-                client.Proxy = configuration.Proxy;
+                client.Proxy = _proxy;
+            }
+            else if (configuration.Proxy != null)
+            {
+                client.Proxy = ProxyConfiguration.GetProxy(configuration.Proxy);
             }
 
             client.UserAgent = new UserAgentBuilder("{{{packageName}}}",

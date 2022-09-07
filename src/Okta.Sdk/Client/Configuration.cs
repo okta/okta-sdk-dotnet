@@ -122,13 +122,13 @@ namespace Okta.Sdk.Client
         }
         
         /// <summary>
-        /// Gets or sets the optional proxy to use for HTTP connections. If <c>null</c>, the default system proxy is used, if any.
+        /// Gets or sets the optional proxy configuration to use for HTTP connections. If <c>null</c>, the default system proxy is used, if any.
         /// </summary>
         /// <value>
         /// The proxy to use for HTTP connections.
         /// </value>
         public ProxyConfiguration Proxy { get; set; }
-
+        
         /// <summary>
         /// The default HTTP connection timeout in milliseconds.
         /// </summary>
@@ -187,7 +187,7 @@ namespace Okta.Sdk.Client
         /// Gets or sets the Okta scopes
         /// </summary>
         public HashSet<string> Scopes { get; set; }
-
+        
         /// <summary>
         /// Returns true if the AuthorizationMode is equals to PrivateKey, false otherwise.
         /// </summary>
@@ -508,12 +508,6 @@ namespace Okta.Sdk.Client
         /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
         /// </summary>
         public virtual int Timeout { get; set; }
-
-        ///// <summary>
-        ///// Gets or sets the proxy
-        ///// </summary>
-        ///// <value>Proxy.</value>
-        //public virtual WebProxy Proxy { get; set; }
 
         /// <summary>
         /// Gets or sets the HTTP user agent.
