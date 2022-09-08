@@ -82,6 +82,11 @@
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Client"
         },
+        "ProxyConfiguration.mustache":{
+            "destinationFilename": "ProxyConfiguration.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
         "api_README.mustache":{
             "destinationFilename":"API_README.md",
             "templateType": "SupportingFiles",

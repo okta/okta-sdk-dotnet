@@ -136,17 +136,18 @@ namespace Example
 }
 ```
 
-To use the API client with a HTTP proxy, setup a `System.Net.WebProxy`
+
+> Hard-coding the Okta domain and API token works for quick tests, but for real projects you should use a more secure way of storing these values (such as environment variables). This library supports a few different configuration sources, covered in the [configuration reference](#configuration-reference) section.
+
+To use the API client with an HTTP proxy, you can either setup your proxy via different configuration sources, covered in the [configuration reference](#configuration-reference) section, or via API constructor. If you have both, the proxy passed via constructor will take precedence.
+
 
 ```csharp
-Configuration c = new Configuration();
 System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:80/");
 webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
-c.Proxy = webProxy;
+
+var appsApi = new ApplicationApi(webProxy : webProxy);
 ```
-
-
-Hard-coding the Okta domain and API token works for quick tests, but for real projects you should use a more secure way of storing these values (such as environment variables). This library supports a few different configuration sources, covered in the [configuration reference](#configuration-reference) section.
 
 ### OAuth 2.0
 
@@ -449,11 +450,74 @@ okta:
   client:
     connectionTimeout: 30 # seconds
     oktaDomain: "https://{yourOktaDomain}"
+    proxy:
+        port: null
+        host: null
+        username: null
+        password: null
     token: {apiToken}
     requestTimeout: 0 # seconds
     rateLimit:
       maxRetries: 4
 ```
+
+When you use OAuth 2.0 the full YAML configuration looks like this when using EC key:
+
+```yaml
+okta:
+  client:
+    connectionTimeout: 30 # seconds
+    oktaDomain: "https://{yourOktaDomain}"
+    proxy:
+      port: null
+      host: null
+      username: null
+      password: null
+    authorizationMode: "PrivateKey"
+    clientId: "{yourClientId}"
+    Scopes:
+    - scope1
+    - scope2
+    PrivateKey: # This SDK supports both RSA and EC keys.
+        kty: "EC"
+        crv: "P-256"
+        x: "{x}"
+        y: "{y}"
+    requestTimeout: 0 # seconds
+    rateLimit:
+      maxRetries: 4
+```
+
+Or like this for RSA key:
+
+```yaml
+okta:
+  client:
+    connectionTimeout: 30 # seconds
+    oktaDomain: "https://{yourOktaDomain}"
+    proxy:
+      port: null
+      host: null
+      username: null
+      password: null
+    authorizationMode: "PrivateKey"
+    clientId: "{yourClientId}"
+    Scopes:
+    - scope1
+    - scope2
+    PrivateKey: 
+      "p": "{p}"
+      "kty": "RSA"
+      "q": "{q}"
+      "d": "{d}"
+      "e": "{e}"
+      "kid": "{kid}"
+      "qi": "{qi}"
+    requestTimeout: 0 # seconds
+    rateLimit:
+      maxRetries: 4
+```
+
 ### Environment variables
  
 Each one of the configuration values above can be turned into an environment variable name with the `_` (underscore) character:

@@ -22,7 +22,6 @@ namespace Okta.Sdk.IntegrationTest
         [Fact]
         public async Task RetrieveAccessToken()
         {
-
             var guid = Guid.NewGuid();
             var payload = $@"{{
                                 ""client_name"": ""dotnet-sdk: Service Client {guid}"",

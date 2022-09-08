@@ -86,8 +86,10 @@ namespace {{packageName}}.{{apiPackage}}
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional./param>
+        /// <param name="webProxy">The web proxy to be used by the HTTP client. Optional./param>
         /// <returns></returns>
-        public {{classname}}({{packageName}}.Client.Configuration configuration = null, IOAuthTokenProvider oAuthTokenProvider = null)
+        public {{classname}}({{packageName}}.Client.Configuration configuration = null, IOAuthTokenProvider oAuthTokenProvider = null, WebProxy webProxy = null)
         {
             configuration = Sdk.Client.Configuration.GetConfigurationOrDefault(configuration);
 
@@ -105,7 +107,7 @@ namespace {{packageName}}.{{apiPackage}}
             }
             
             {{#supportsAsync}}
-            this.AsynchronousClient = new {{packageName}}.Client.ApiClient(this.Configuration.OktaDomain);
+            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain, _oAuthTokenProvider, webProxy);
             {{/supportsAsync}}
             ExceptionFactory = {{packageName}}.Client.Configuration.DefaultExceptionFactory;
         }
@@ -114,8 +116,9 @@ namespace {{packageName}}.{{apiPackage}}
         /// Initializes a new instance of the <see cref="{{classname}}"/> class
         /// using a Configuration object and client instance.
         /// </summary>
-        /// <param name="client">The client interface for synchronous API access.</param>{{#supportsAsync}}
-        /// <param name="asyncClient">The client interface for asynchronous API access.</param>{{/supportsAsync}}
+        {{#supportsAsync}}
+        /// <param name="asyncClient">The client interface for asynchronous API access.</param>
+        {{/supportsAsync}}
         /// <param name="configuration">The configuration object.</param>
         public {{classname}}({{#supportsAsync}}{{packageName}}.Client.IAsynchronousClient asyncClient, {{/supportsAsync}}{{packageName}}.Client.IReadableConfiguration configuration)
         {
