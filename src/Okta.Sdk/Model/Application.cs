@@ -49,6 +49,7 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(SecurePasswordStoreApplication), "SecurePasswordStoreApplication")]
     [JsonSubtypes.KnownSubType(typeof(WsFederationApplication), "WS_FEDERATION")]
     [JsonSubtypes.KnownSubType(typeof(WsFederationApplication), "WsFederationApplication")]
+    
     public partial class Application : IEquatable<Application>
     {
         
@@ -314,6 +315,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Accessibility != null)
                 {
                     hashCode = (hashCode * 59) + this.Accessibility.GetHashCode();

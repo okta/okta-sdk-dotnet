@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// EventHook
     /// </summary>
     [DataContract(Name = "EventHook")]
+    
     public partial class EventHook : IEquatable<EventHook>
     {
         
@@ -240,6 +241,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Channel != null)
                 {
                     hashCode = (hashCode * 59) + this.Channel.GetHashCode();

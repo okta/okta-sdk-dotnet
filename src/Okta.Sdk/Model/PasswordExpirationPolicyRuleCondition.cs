@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PasswordExpirationPolicyRuleCondition
     /// </summary>
     [DataContract(Name = "PasswordExpirationPolicyRuleCondition")]
+    
     public partial class PasswordExpirationPolicyRuleCondition : IEquatable<PasswordExpirationPolicyRuleCondition>
     {
         
@@ -110,6 +111,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.Number.GetHashCode();
                 if (this.Unit != null)
                 {

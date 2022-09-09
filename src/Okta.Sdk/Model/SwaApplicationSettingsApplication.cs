@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// SwaApplicationSettingsApplication
     /// </summary>
     [DataContract(Name = "SwaApplicationSettingsApplication")]
+    
     public partial class SwaApplicationSettingsApplication : IEquatable<SwaApplicationSettingsApplication>
     {
         
@@ -243,6 +244,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ButtonField != null)
                 {
                     hashCode = (hashCode * 59) + this.ButtonField.GetHashCode();

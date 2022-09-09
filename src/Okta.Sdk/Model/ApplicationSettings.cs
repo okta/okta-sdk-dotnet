@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationSettings
     /// </summary>
     [DataContract(Name = "ApplicationSettings")]
+    
     public partial class ApplicationSettings : IEquatable<ApplicationSettings>
     {
         
@@ -146,6 +147,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.IdentityStoreId != null)
                 {
                     hashCode = (hashCode * 59) + this.IdentityStoreId.GetHashCode();

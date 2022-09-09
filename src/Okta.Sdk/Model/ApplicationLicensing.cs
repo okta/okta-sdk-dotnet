@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationLicensing
     /// </summary>
     [DataContract(Name = "ApplicationLicensing")]
+    
     public partial class ApplicationLicensing : IEquatable<ApplicationLicensing>
     {
         
@@ -98,6 +99,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.SeatCount.GetHashCode();
                 return hashCode;
             }

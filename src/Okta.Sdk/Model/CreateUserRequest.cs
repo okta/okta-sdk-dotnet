@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// CreateUserRequest
     /// </summary>
     [DataContract(Name = "CreateUserRequest")]
+    
     public partial class CreateUserRequest : IEquatable<CreateUserRequest>
     {
         /// <summary>
@@ -141,6 +142,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Credentials != null)
                 {
                     hashCode = (hashCode * 59) + this.Credentials.GetHashCode();

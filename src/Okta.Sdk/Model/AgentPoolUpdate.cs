@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Various information about agent auto update configuration
     /// </summary>
     [DataContract(Name = "AgentPoolUpdate")]
+    
     public partial class AgentPoolUpdate : IEquatable<AgentPoolUpdate>
     {
         
@@ -239,6 +240,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Agents != null)
                 {
                     hashCode = (hashCode * 59) + this.Agents.GetHashCode();

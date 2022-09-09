@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// LogUserAgent
     /// </summary>
     [DataContract(Name = "LogUserAgent")]
+    
     public partial class LogUserAgent : IEquatable<LogUserAgent>
     {
         
@@ -147,6 +148,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Browser != null)
                 {
                     hashCode = (hashCode * 59) + this.Browser.GetHashCode();

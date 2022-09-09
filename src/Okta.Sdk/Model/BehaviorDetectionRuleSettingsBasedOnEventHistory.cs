@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// BehaviorDetectionRuleSettingsBasedOnEventHistory
     /// </summary>
     [DataContract(Name = "Behavior_Detection_Rule_Settings_based_on_Event_History")]
+    
     public partial class BehaviorDetectionRuleSettingsBasedOnEventHistory : IEquatable<BehaviorDetectionRuleSettingsBasedOnEventHistory>
     {
         
@@ -109,6 +110,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.MaxEventsUsedForEvaluation.GetHashCode();
                 hashCode = (hashCode * 59) + this.MinEventsNeededForEvaluation.GetHashCode();
                 return hashCode;

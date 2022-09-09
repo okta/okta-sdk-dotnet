@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Error
     /// </summary>
     [DataContract(Name = "Error")]
+    
     public partial class Error : IEquatable<Error>
     {
         
@@ -152,6 +153,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ErrorCauses != null)
                 {
                     hashCode = (hashCode * 59) + this.ErrorCauses.GetHashCode();

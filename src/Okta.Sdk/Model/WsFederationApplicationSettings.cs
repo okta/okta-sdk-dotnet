@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// WsFederationApplicationSettings
     /// </summary>
     [DataContract(Name = "WsFederationApplicationSettings")]
+    
     public partial class WsFederationApplicationSettings : IEquatable<WsFederationApplicationSettings>
     {
         
@@ -158,6 +159,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.IdentityStoreId != null)
                 {
                     hashCode = (hashCode * 59) + this.IdentityStoreId.GetHashCode();

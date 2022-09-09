@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OktaSignOnPolicyRuleSignonSessionActions
     /// </summary>
     [DataContract(Name = "OktaSignOnPolicyRuleSignonSessionActions")]
+    
     public partial class OktaSignOnPolicyRuleSignonSessionActions : IEquatable<OktaSignOnPolicyRuleSignonSessionActions>
     {
         
@@ -120,6 +121,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.MaxSessionIdleMinutes.GetHashCode();
                 hashCode = (hashCode * 59) + this.MaxSessionLifetimeMinutes.GetHashCode();
                 hashCode = (hashCode * 59) + this.UsePersistentCookie.GetHashCode();

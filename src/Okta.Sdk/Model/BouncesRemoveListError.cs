@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// BouncesRemoveListError
     /// </summary>
     [DataContract(Name = "BouncesRemoveListError")]
+    
     public partial class BouncesRemoveListError : IEquatable<BouncesRemoveListError>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.EmailAddress != null)
                 {
                     hashCode = (hashCode * 59) + this.EmailAddress.GetHashCode();

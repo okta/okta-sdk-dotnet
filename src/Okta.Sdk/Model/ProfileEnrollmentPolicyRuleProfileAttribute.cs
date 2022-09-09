@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ProfileEnrollmentPolicyRuleProfileAttribute
     /// </summary>
     [DataContract(Name = "ProfileEnrollmentPolicyRuleProfileAttribute")]
+    
     public partial class ProfileEnrollmentPolicyRuleProfileAttribute : IEquatable<ProfileEnrollmentPolicyRuleProfileAttribute>
     {
         
@@ -122,6 +123,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Label != null)
                 {
                     hashCode = (hashCode * 59) + this.Label.GetHashCode();

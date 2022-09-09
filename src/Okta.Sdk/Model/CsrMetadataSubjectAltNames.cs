@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// CsrMetadataSubjectAltNames
     /// </summary>
     [DataContract(Name = "CsrMetadataSubjectAltNames")]
+    
     public partial class CsrMetadataSubjectAltNames : IEquatable<CsrMetadataSubjectAltNames>
     {
         
@@ -100,6 +101,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.DnsNames != null)
                 {
                     hashCode = (hashCode * 59) + this.DnsNames.GetHashCode();

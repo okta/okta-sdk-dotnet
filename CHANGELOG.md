@@ -1,6 +1,12 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 6.0.0-beta02
+
+- Add support for OAuth for Okta
+- Add support for Proxy configuration 
+- Add support for dynamic properties
+
 ## 6.0.0-beta01
 
 - Update Open API spec to 3.0.0

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ContextPolicyRuleCondition
     /// </summary>
     [DataContract(Name = "ContextPolicyRuleCondition")]
+    
     public partial class ContextPolicyRuleCondition : IEquatable<ContextPolicyRuleCondition>
     {
         
@@ -145,6 +146,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.Migrated.GetHashCode();
                 if (this.Platform != null)
                 {

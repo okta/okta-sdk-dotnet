@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// SingleLogout
     /// </summary>
     [DataContract(Name = "SingleLogout")]
+    
     public partial class SingleLogout : IEquatable<SingleLogout>
     {
         
@@ -122,6 +123,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
                 if (this.Issuer != null)
                 {

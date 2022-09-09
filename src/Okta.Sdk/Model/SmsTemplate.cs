@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// SmsTemplate
     /// </summary>
     [DataContract(Name = "SmsTemplate")]
+    
     public partial class SmsTemplate : IEquatable<SmsTemplate>
     {
         
@@ -195,6 +196,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Created != null)
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PolicyAccountLinkFilter
     /// </summary>
     [DataContract(Name = "PolicyAccountLinkFilter")]
+    
     public partial class PolicyAccountLinkFilter : IEquatable<PolicyAccountLinkFilter>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Groups != null)
                 {
                     hashCode = (hashCode * 59) + this.Groups.GetHashCode();

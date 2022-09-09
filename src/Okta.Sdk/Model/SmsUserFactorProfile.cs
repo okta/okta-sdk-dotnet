@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// SmsUserFactorProfile
     /// </summary>
     [DataContract(Name = "SmsUserFactorProfile")]
+    
     public partial class SmsUserFactorProfile : IEquatable<SmsUserFactorProfile>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.PhoneNumber != null)
                 {
                     hashCode = (hashCode * 59) + this.PhoneNumber.GetHashCode();

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ForgotPasswordResponse
     /// </summary>
     [DataContract(Name = "ForgotPasswordResponse")]
+    
     public partial class ForgotPasswordResponse : IEquatable<ForgotPasswordResponse>
     {
         
@@ -107,6 +108,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ResetPasswordUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.ResetPasswordUrl.GetHashCode();

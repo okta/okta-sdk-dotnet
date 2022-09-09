@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PasswordPolicyRuleAction
     /// </summary>
     [DataContract(Name = "PasswordPolicyRuleAction")]
+    
     public partial class PasswordPolicyRuleAction : IEquatable<PasswordPolicyRuleAction>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Access != null)
                 {
                     hashCode = (hashCode * 59) + this.Access.GetHashCode();

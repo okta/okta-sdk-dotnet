@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// SocialAuthToken
     /// </summary>
     [DataContract(Name = "SocialAuthToken")]
+    
     public partial class SocialAuthToken : IEquatable<SocialAuthToken>
     {
         
@@ -176,6 +177,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ExpiresAt != null)
                 {
                     hashCode = (hashCode * 59) + this.ExpiresAt.GetHashCode();

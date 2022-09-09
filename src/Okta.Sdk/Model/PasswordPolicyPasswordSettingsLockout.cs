@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PasswordPolicyPasswordSettingsLockout
     /// </summary>
     [DataContract(Name = "PasswordPolicyPasswordSettingsLockout")]
+    
     public partial class PasswordPolicyPasswordSettingsLockout : IEquatable<PasswordPolicyPasswordSettingsLockout>
     {
         
@@ -133,6 +134,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.AutoUnlockMinutes.GetHashCode();
                 hashCode = (hashCode * 59) + this.MaxAttempts.GetHashCode();
                 hashCode = (hashCode * 59) + this.ShowLockoutFailures.GetHashCode();

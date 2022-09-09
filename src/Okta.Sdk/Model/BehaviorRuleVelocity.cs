@@ -36,6 +36,7 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(BehaviorRuleAnomalousIP), "ANOMALOUS_IP")]
     [JsonSubtypes.KnownSubType(typeof(BehaviorRuleAnomalousLocation), "ANOMALOUS_LOCATION")]
     [JsonSubtypes.KnownSubType(typeof(BehaviorRuleVelocity), "VELOCITY")]
+    
     public partial class BehaviorRuleVelocity : BehaviorRule, IEquatable<BehaviorRuleVelocity>
     {
         /// <summary>
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
+                
                 if (this.Settings != null)
                 {
                     hashCode = (hashCode * 59) + this.Settings.GetHashCode();

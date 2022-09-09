@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// FCMConfiguration
     /// </summary>
     [DataContract(Name = "FCMConfiguration")]
+    
     public partial class FCMConfiguration : IEquatable<FCMConfiguration>
     {
         
@@ -134,6 +135,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.FileName != null)
                 {
                     hashCode = (hashCode * 59) + this.FileName.GetHashCode();

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// UserSchemaPropertiesProfile
     /// </summary>
     [DataContract(Name = "UserSchemaPropertiesProfile")]
+    
     public partial class UserSchemaPropertiesProfile : IEquatable<UserSchemaPropertiesProfile>
     {
         
@@ -100,6 +101,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.AllOf != null)
                 {
                     hashCode = (hashCode * 59) + this.AllOf.GetHashCode();

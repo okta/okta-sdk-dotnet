@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PasswordCredential
     /// </summary>
     [DataContract(Name = "PasswordCredential")]
+    
     public partial class PasswordCredential : IEquatable<PasswordCredential>
     {
         
@@ -123,6 +124,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Hash != null)
                 {
                     hashCode = (hashCode * 59) + this.Hash.GetHashCode();

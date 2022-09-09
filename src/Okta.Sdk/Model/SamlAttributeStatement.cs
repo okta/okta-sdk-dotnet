@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// SamlAttributeStatement
     /// </summary>
     [DataContract(Name = "SamlAttributeStatement")]
+    
     public partial class SamlAttributeStatement : IEquatable<SamlAttributeStatement>
     {
         
@@ -160,6 +161,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.FilterType != null)
                 {
                     hashCode = (hashCode * 59) + this.FilterType.GetHashCode();

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// CustomHotpUserFactorProfile
     /// </summary>
     [DataContract(Name = "CustomHotpUserFactorProfile")]
+    
     public partial class CustomHotpUserFactorProfile : IEquatable<CustomHotpUserFactorProfile>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.SharedSecret != null)
                 {
                     hashCode = (hashCode * 59) + this.SharedSecret.GetHashCode();

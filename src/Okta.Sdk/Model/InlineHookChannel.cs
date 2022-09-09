@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// InlineHookChannel
     /// </summary>
     [DataContract(Name = "InlineHookChannel")]
+    
     public partial class InlineHookChannel : IEquatable<InlineHookChannel>
     {
         
@@ -123,6 +124,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Config != null)
                 {
                     hashCode = (hashCode * 59) + this.Config.GetHashCode();

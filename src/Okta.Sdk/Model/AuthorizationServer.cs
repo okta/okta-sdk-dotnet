@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// AuthorizationServer
     /// </summary>
     [DataContract(Name = "AuthorizationServer")]
+    
     public partial class AuthorizationServer : IEquatable<AuthorizationServer>
     {
         
@@ -253,6 +254,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Audiences != null)
                 {
                     hashCode = (hashCode * 59) + this.Audiences.GetHashCode();

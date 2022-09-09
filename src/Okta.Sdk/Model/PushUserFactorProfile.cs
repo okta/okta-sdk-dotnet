@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PushUserFactorProfile
     /// </summary>
     [DataContract(Name = "PushUserFactorProfile")]
+    
     public partial class PushUserFactorProfile : IEquatable<PushUserFactorProfile>
     {
         
@@ -159,6 +160,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.CredentialId != null)
                 {
                     hashCode = (hashCode * 59) + this.CredentialId.GetHashCode();

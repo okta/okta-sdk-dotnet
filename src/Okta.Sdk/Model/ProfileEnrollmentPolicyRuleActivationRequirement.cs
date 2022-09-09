@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ProfileEnrollmentPolicyRuleActivationRequirement
     /// </summary>
     [DataContract(Name = "ProfileEnrollmentPolicyRuleActivationRequirement")]
+    
     public partial class ProfileEnrollmentPolicyRuleActivationRequirement : IEquatable<ProfileEnrollmentPolicyRuleActivationRequirement>
     {
         
@@ -98,6 +99,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.EmailVerification.GetHashCode();
                 return hashCode;
             }

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PossessionConstraint
     /// </summary>
     [DataContract(Name = "PossessionConstraint")]
+    
     public partial class PossessionConstraint : IEquatable<PossessionConstraint>
     {
         
@@ -173,6 +174,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Methods != null)
                 {
                     hashCode = (hashCode * 59) + this.Methods.GetHashCode();

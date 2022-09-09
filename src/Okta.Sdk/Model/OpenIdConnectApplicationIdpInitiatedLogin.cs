@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OpenIdConnectApplicationIdpInitiatedLogin
     /// </summary>
     [DataContract(Name = "OpenIdConnectApplicationIdpInitiatedLogin")]
+    
     public partial class OpenIdConnectApplicationIdpInitiatedLogin : IEquatable<OpenIdConnectApplicationIdpInitiatedLogin>
     {
         
@@ -112,6 +113,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.DefaultScope != null)
                 {
                     hashCode = (hashCode * 59) + this.DefaultScope.GetHashCode();

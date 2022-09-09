@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationVisibilityHide
     /// </summary>
     [DataContract(Name = "ApplicationVisibilityHide")]
+    
     public partial class ApplicationVisibilityHide : IEquatable<ApplicationVisibilityHide>
     {
         
@@ -109,6 +110,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.IOS.GetHashCode();
                 hashCode = (hashCode * 59) + this.Web.GetHashCode();
                 return hashCode;

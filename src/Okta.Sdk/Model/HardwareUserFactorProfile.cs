@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// HardwareUserFactorProfile
     /// </summary>
     [DataContract(Name = "HardwareUserFactorProfile")]
+    
     public partial class HardwareUserFactorProfile : IEquatable<HardwareUserFactorProfile>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.CredentialId != null)
                 {
                     hashCode = (hashCode * 59) + this.CredentialId.GetHashCode();

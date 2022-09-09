@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// LogIpAddress
     /// </summary>
     [DataContract(Name = "LogIpAddress")]
+    
     public partial class LogIpAddress : IEquatable<LogIpAddress>
     {
         
@@ -159,6 +160,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.GeographicalContext != null)
                 {
                     hashCode = (hashCode * 59) + this.GeographicalContext.GetHashCode();

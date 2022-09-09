@@ -19,8 +19,7 @@
     "globalProperties": {
         "apiTests": false,
         "modelTests": false,
-        "isOAuth": false
-        
+        "isOAuth": true
     },
     "files": {
         "WebLink.mustache":{
@@ -45,6 +44,46 @@
         },
         "OktaCollectionAsyncEnumerator.mustache":{
             "destinationFilename": "OktaCollectionAsyncEnumerator.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "OAuthApi.mustache":{
+            "destinationFilename": "OAuthApi.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Api"
+        },
+        "OAuthTokenResponse.mustache":{
+            "destinationFilename": "OAuthTokenResponse.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "AuthorizationMode.mustache":{
+            "destinationFilename": "AuthorizationMode.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "DefaultJwtGenerator.mustache":{
+            "destinationFilename": "DefaultJwtGenerator.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "DefaultOAuthTokenProvider.mustache":{
+            "destinationFilename": "DefaultOAuthTokenProvider.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "NullOAuthTokenProvider.mustache":{
+            "destinationFilename": "NullOAuthTokenProvider.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "JsonWebKeyConfiguration.mustache":{
+            "destinationFilename": "JsonWebKeyConfiguration.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "ProxyConfiguration.mustache":{
+            "destinationFilename": "ProxyConfiguration.cs",
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Client"
         },

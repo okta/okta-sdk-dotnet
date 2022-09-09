@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// AccessPolicyRuleApplicationSignOn
     /// </summary>
     [DataContract(Name = "AccessPolicyRuleApplicationSignOn")]
+    
     public partial class AccessPolicyRuleApplicationSignOn : IEquatable<AccessPolicyRuleApplicationSignOn>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Access != null)
                 {
                     hashCode = (hashCode * 59) + this.Access.GetHashCode();

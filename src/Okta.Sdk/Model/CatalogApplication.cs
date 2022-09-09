@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// CatalogApplication
     /// </summary>
     [DataContract(Name = "CatalogApplication")]
+    
     public partial class CatalogApplication : IEquatable<CatalogApplication>
     {
         
@@ -258,6 +259,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Category != null)
                 {
                     hashCode = (hashCode * 59) + this.Category.GetHashCode();

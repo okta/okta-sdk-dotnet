@@ -136,21 +136,65 @@ namespace Example
 }
 ```
 
-To use the API client with a HTTP proxy, setup a `System.Net.WebProxy`
+
+> Hard-coding the Okta domain and API token works for quick tests, but for real projects you should use a more secure way of storing these values (such as environment variables). This library supports a few different configuration sources, covered in the [configuration reference](#configuration-reference) section.
+
+To use the API client with an HTTP proxy, you can either setup your proxy via different configuration sources, covered in the [configuration reference](#configuration-reference) section, or via API constructor. If you have both, the proxy passed via constructor will take precedence.
+
 
 ```csharp
-Configuration c = new Configuration();
 System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:80/");
 webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
-c.Proxy = webProxy;
+
+var appsApi = new ApplicationApi(webProxy : webProxy);
 ```
-
-
-Hard-coding the Okta domain and API token works for quick tests, but for real projects you should use a more secure way of storing these values (such as environment variables). This library supports a few different configuration sources, covered in the [configuration reference](#configuration-reference) section.
 
 ### OAuth 2.0
 
-This feature is not available yet, and it will be released in the next beta release.
+Okta allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
+
+This SDK supports this feature only for service-to-service applications. Check out our guides to learn more about how to register a new service application using a private and public key pair.
+
+When using this approach you won't need an API Token because the SDK will request an access token for you. In order to use OAuth 2.0, construct an API client instance by passing the following parameters:
+
+```csharp
+var oauthAppsApi = new ApplicationApi(new Configuration
+{
+    OktaDomain = "https://{{yourOktaDomain}}",
+    AuthorizationMode = AuthorizationMode.PrivateKey,
+    ClientId = "{{clientId}}",
+    Scopes = new List<string> { "okta.users.read", "okta.apps.read" }, // Add all the scopes you need
+    PrivateKey =  new JsonWebKeyConfiguration(jsonString)
+});
+```
+
+Key object for assigning to the PrivateKey can be created and initialized inline like in this example for RSA key:
+
+```csharp
+var privateKey = new JsonWebKeyConfiguration
+{
+    P = "{{P}}",
+    Kty = "RSA",
+    Q = "{{Q}}",
+    D = "{{D}}",
+    E = "{{E}}",
+    Kid = "{{P}}",
+    Qi = "{{Qi}}"
+};
+
+var configuration = new Configuration
+{
+    OktaDomain = "https://{{yourOktaDomain}}",
+    AuthorizationMode = AuthorizationMode.PrivateKey,
+    ClientId = "{{clientId}}",
+    Scopes = new List<string> { "okta.users.read", "okta.apps.read" }, // Add all the scopes you need
+    PrivateKey = privateKey
+};
+
+var oauthAppsApi = new ApplicationApi(configuration);
+```
+
+It is possible to use an access token you retrieved outside of the SDK for authentication. For that, set `Configuration.AuthorizationMode` configuration property to `AuthorizationMode.BearerToken` and `Configuration.AccessToken` to the token string.
 
 ## Usage guide
 
@@ -229,7 +273,21 @@ var updatedUser = await _userApi.UpdateUserAsync(createdUser.Id, updateUserReque
 
 ### Get and set custom attributes
 
-This feature is not available yet, and it will be released in the next beta release.
+You can't create attributes via code right now, but you can get and set their values. To create them you have to use the Profile Editor in the Developer Console web UI. Once you have created them, you can use the code below:
+
+```csharp
+user.Profile.AdditionalProperties = new Dictionary<string, object>();
+user.Profile.AdditionalProperties["homeworld"] = "Planet Earth";
+
+var updateUserRequest = new UpdateUserRequest
+{
+    Profile = user.Profile
+};
+
+var updatedUser = await _userApi.UpdateUserAsync(createdUser.Id, updateUserRequest);
+
+var userHomeworld= updatedUser.Profile.AdditionalProperties["homeworld"];
+```
 
 ### Remove a User
 ``` csharp
@@ -392,11 +450,74 @@ okta:
   client:
     connectionTimeout: 30 # seconds
     oktaDomain: "https://{yourOktaDomain}"
+    proxy:
+        port: null
+        host: null
+        username: null
+        password: null
     token: {apiToken}
     requestTimeout: 0 # seconds
     rateLimit:
       maxRetries: 4
 ```
+
+When you use OAuth 2.0 the full YAML configuration looks like this when using EC key:
+
+```yaml
+okta:
+  client:
+    connectionTimeout: 30 # seconds
+    oktaDomain: "https://{yourOktaDomain}"
+    proxy:
+      port: null
+      host: null
+      username: null
+      password: null
+    authorizationMode: "PrivateKey"
+    clientId: "{yourClientId}"
+    Scopes:
+    - scope1
+    - scope2
+    PrivateKey: # This SDK supports both RSA and EC keys.
+        kty: "EC"
+        crv: "P-256"
+        x: "{x}"
+        y: "{y}"
+    requestTimeout: 0 # seconds
+    rateLimit:
+      maxRetries: 4
+```
+
+Or like this for RSA key:
+
+```yaml
+okta:
+  client:
+    connectionTimeout: 30 # seconds
+    oktaDomain: "https://{yourOktaDomain}"
+    proxy:
+      port: null
+      host: null
+      username: null
+      password: null
+    authorizationMode: "PrivateKey"
+    clientId: "{yourClientId}"
+    Scopes:
+    - scope1
+    - scope2
+    PrivateKey: 
+      "p": "{p}"
+      "kty": "RSA"
+      "q": "{q}"
+      "d": "{d}"
+      "e": "{e}"
+      "kid": "{kid}"
+      "qi": "{qi}"
+    requestTimeout: 0 # seconds
+    rateLimit:
+      maxRetries: 4
+```
+
 ### Environment variables
  
 Each one of the configuration values above can be turned into an environment variable name with the `_` (underscore) character:

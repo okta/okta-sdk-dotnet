@@ -41,6 +41,32 @@ namespace {{packageName}}.Client
         /// </summary>
         /// <value>Okta domain.</value>
         string OktaDomain { get; }
+        
+        /// <summary>
+        /// Gets the value of the DisableHttpsCheck flag.
+        /// </summary>
+        /// <value>Okta domain.</value>
+        bool DisableHttpsCheck { get; }
+
+        /// <summary>
+        /// Gets the authorization mode.
+        /// </summary>
+        AuthorizationMode? AuthorizationMode { get; }
+
+        /// <summary>
+        /// Gets the private key. Required when AuthorizationMode is equal to PrivateKey.
+        /// </summary>
+        JsonWebKeyConfiguration PrivateKey { get; }
+
+        /// <summary>
+        /// Gets the client id. Required when AuthorizationMode is equal to PrivateKey.
+        /// </summary>
+        string ClientId { get; }
+
+        /// <summary>
+        /// Gets the Okta scopes
+        /// </summary>
+        HashSet<string> Scopes { get; }
 
         /// <summary>
         /// Gets the date time format.
@@ -88,13 +114,15 @@ namespace {{packageName}}.Client
         /// The number of times to retry
         /// </value>
         int? MaxRetries { get; }
-
+        
         /// <summary>
-        /// Gets the proxy.
+        /// Gets the optional proxy configuration to use for HTTP connections. If <c>null</c>, the default system proxy is used, if any.
         /// </summary>
-        /// <value>Proxy.</value>
-        WebProxy Proxy { get; }
-
+        /// <value>
+        /// The proxy to use for HTTP connections.
+        /// </value>
+        ProxyConfiguration Proxy { get; }
+        
         /// <summary>
         /// Gets the user agent.
         /// </summary>

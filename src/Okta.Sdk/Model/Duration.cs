@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Duration
     /// </summary>
     [DataContract(Name = "Duration")]
+    
     public partial class Duration : IEquatable<Duration>
     {
         
@@ -110,6 +111,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.Number.GetHashCode();
                 if (this.Unit != null)
                 {

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ProtocolAlgorithmType
     /// </summary>
     [DataContract(Name = "ProtocolAlgorithmType")]
+    
     public partial class ProtocolAlgorithmType : IEquatable<ProtocolAlgorithmType>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Signature != null)
                 {
                     hashCode = (hashCode * 59) + this.Signature.GetHashCode();

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// AppLink
     /// </summary>
     [DataContract(Name = "AppLink")]
+    
     public partial class AppLink : IEquatable<AppLink>
     {
         
@@ -284,6 +285,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.AppAssignmentId != null)
                 {
                     hashCode = (hashCode * 59) + this.AppAssignmentId.GetHashCode();

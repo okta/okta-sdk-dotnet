@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ChannelBinding
     /// </summary>
     [DataContract(Name = "ChannelBinding")]
+    
     public partial class ChannelBinding : IEquatable<ChannelBinding>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Required != null)
                 {
                     hashCode = (hashCode * 59) + this.Required.GetHashCode();

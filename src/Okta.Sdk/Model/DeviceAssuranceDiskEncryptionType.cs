@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// DeviceAssuranceDiskEncryptionType
     /// </summary>
     [DataContract(Name = "DeviceAssurance_diskEncryptionType")]
+    
     public partial class DeviceAssuranceDiskEncryptionType : IEquatable<DeviceAssuranceDiskEncryptionType>
     {
         
@@ -100,6 +101,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Include != null)
                 {
                     hashCode = (hashCode * 59) + this.Include.GetHashCode();

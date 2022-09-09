@@ -32,6 +32,7 @@ namespace Okta.Sdk.Model
     /// </summary>
     [DataContract(Name = "EventSubscriptions")]
     [JsonConverter(typeof(JsonSubtypes), "Type")]
+    
     public partial class EventSubscriptions : IEquatable<EventSubscriptions>
     {
         
@@ -114,6 +115,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Items != null)
                 {
                     hashCode = (hashCode * 59) + this.Items.GetHashCode();

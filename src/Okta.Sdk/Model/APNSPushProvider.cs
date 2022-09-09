@@ -34,6 +34,7 @@ namespace Okta.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "ProviderType")]
     [JsonSubtypes.KnownSubType(typeof(APNSPushProvider), "APNS")]
     [JsonSubtypes.KnownSubType(typeof(FCMPushProvider), "FCM")]
+    
     public partial class APNSPushProvider : PushProvider, IEquatable<APNSPushProvider>
     {
         
@@ -104,6 +105,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
+                
                 if (this._Configuration != null)
                 {
                     hashCode = (hashCode * 59) + this._Configuration.GetHashCode();

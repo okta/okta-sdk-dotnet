@@ -9,7 +9,14 @@
     [JsonSubtypes.KnownSubType(typeof({{{modelName}}}), "{{^vendorExtensions.x-discriminator-value}}{{{mappingName}}}{{/vendorExtensions.x-discriminator-value}}{{#vendorExtensions.x-discriminator-value}}{{{.}}}{{/vendorExtensions.x-discriminator-value}}")]
     {{/mappedModels}}
     {{/discriminator}}
+    {{! Removing parent when additionalProperties is true due to Dictionary inheritance issue https://github.com/OpenAPITools/openapi-generator/issues/13142 }}
+    {{#isAdditionalPropertiesTrue}}
+    {{>visibility}} partial class {{classname}} : IEquatable<{{classname}}>{{#validatable}}, IValidatableObject{{/validatable}}
+    {{/isAdditionalPropertiesTrue}}
+    
+    {{^isAdditionalPropertiesTrue}}
     {{>visibility}} partial class {{classname}} : {{#parent}}{{{.}}}, {{/parent}}IEquatable<{{classname}}>{{#validatable}}, IValidatableObject{{/validatable}}
+    {{/isAdditionalPropertiesTrue}}
     {
         {{#vars}}
         {{#items.isEnum}}
@@ -108,7 +115,7 @@
         public {{classname}}() { }
         {{/isAdditionalPropertiesTrue}}
         {{#isAdditionalPropertiesTrue}}
-        protected {{classname}}()
+        public {{classname}}()
         {
             this.AdditionalProperties = new Dictionary<string, object>();
         }
@@ -213,9 +220,11 @@
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class {{classname}} {\n");
+            {{^isAdditionalPropertiesTrue}}
             {{#parent}}
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             {{/parent}}
+            {{/isAdditionalPropertiesTrue}}
             {{#vars}}
             sb.Append("  {{name}}: ").Append({{name}}).Append("\n");
             {{/vars}}
@@ -265,7 +274,7 @@
             {
                 return false;
             }
-            return {{#vars}}{{#parent}}base.Equals(input) && {{/parent}}{{^isContainer}}
+            return {{#vars}}{{^isAdditionalPropertiesTrue}}{{#parent}}base.Equals(input) && {{/parent}}{{/isAdditionalPropertiesTrue}}{{^isContainer}}
                 (
                     this.{{name}} == input.{{name}} ||
                     {{^vendorExtensions.x-is-value-type}}
@@ -296,12 +305,18 @@
         {
             unchecked // Overflow is fine, just wrap
             {
+                {{#isAdditionalPropertiesTrue}}
+                int hashCode = 41;
+                {{/isAdditionalPropertiesTrue}}
+                {{^isAdditionalPropertiesTrue}}
                 {{#parent}}
                 int hashCode = base.GetHashCode();
                 {{/parent}}
                 {{^parent}}
                 int hashCode = 41;
                 {{/parent}}
+                {{/isAdditionalPropertiesTrue}}
+                
                 {{#vars}}
                 {{^vendorExtensions.x-is-value-type}}
                 if (this.{{name}} != null)

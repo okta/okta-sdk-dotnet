@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationLayout
     /// </summary>
     [DataContract(Name = "ApplicationLayout")]
+    
     public partial class ApplicationLayout : IEquatable<ApplicationLayout>
     {
         
@@ -161,6 +162,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Elements != null)
                 {
                     hashCode = (hashCode * 59) + this.Elements.GetHashCode();

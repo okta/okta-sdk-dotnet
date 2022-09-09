@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OAuth2Claim
     /// </summary>
     [DataContract(Name = "OAuth2Claim")]
+    
     public partial class OAuth2Claim : IEquatable<OAuth2Claim>
     {
         
@@ -234,6 +235,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.AlwaysIncludeInToken.GetHashCode();
                 if (this.ClaimType != null)
                 {

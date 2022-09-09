@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// AccessPolicyConstraints
     /// </summary>
     [DataContract(Name = "AccessPolicyConstraints")]
+    
     public partial class AccessPolicyConstraints : IEquatable<AccessPolicyConstraints>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Knowledge != null)
                 {
                     hashCode = (hashCode * 59) + this.Knowledge.GetHashCode();

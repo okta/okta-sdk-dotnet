@@ -27,6 +27,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Okta.Sdk.Abstractions;
+using Okta.Sdk.Api;
 using ErrorEventArgs = Newtonsoft.Json.Serialization.ErrorEventArgs;
 using RestSharp;
 using RestSharp.Deserializers;
@@ -167,7 +168,9 @@ namespace Okta.Sdk.Client
     public partial class ApiClient :  IAsynchronousClient
     {
         private readonly string _baseUrl;
-
+        private readonly IOAuthTokenProvider _authTokenProvider;
+        private readonly WebProxy _proxy;
+        
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
         /// These settings can be adjusted to accommodate custom serialization rules.
@@ -201,22 +204,30 @@ namespace Okta.Sdk.Client
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" />, defaulting to the global configurations' base url.
         /// </summary>
-        public ApiClient()
+        /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional./param>
+        /// <param name="webProxy">The web proxy to be used by the HTTP client. Optional./param>
+        public ApiClient(IOAuthTokenProvider oAuthTokenProvider = null, WebProxy webProxy = null)
         {
             _baseUrl = Okta.Sdk.Client.GlobalConfiguration.Instance.OktaDomain;
+            _authTokenProvider = oAuthTokenProvider ?? NullOAuthTokenProvider.Instance;
+            _proxy = webProxy;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" />
         /// </summary>
         /// <param name="oktaDomain">The Okta domain in URL format.</param>
+        /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional./param>
+        /// <param name="webProxy">The web proxy to be used by the HTTP client. Optional./param>
         /// <exception cref="ArgumentException"></exception>
-        public ApiClient(string oktaDomain)
+        public ApiClient(string oktaDomain, IOAuthTokenProvider oAuthTokenProvider = null, WebProxy webProxy = null)
         {
             if (string.IsNullOrEmpty(oktaDomain))
                 throw new ArgumentException("oktaDomain cannot be empty");
 
             _baseUrl = oktaDomain;
+            _authTokenProvider = oAuthTokenProvider ?? NullOAuthTokenProvider.Instance;
+            _proxy = webProxy;
         }
 
         /// <summary>
@@ -466,9 +477,13 @@ namespace Okta.Sdk.Client
 
             client.Timeout = configuration.ConnectionTimeout ?? Configuration.DefaultConnectionTimeout;
 
-            if (configuration.Proxy != null)
+            if (_proxy != null)
             {
-                client.Proxy = configuration.Proxy;
+                client.Proxy = _proxy;
+            }
+            else if (configuration.Proxy != null)
+            {
+                client.Proxy = ProxyConfiguration.GetProxy(configuration.Proxy);
             }
 
             client.UserAgent = new UserAgentBuilder("Okta.Sdk",
@@ -494,9 +509,23 @@ namespace Okta.Sdk.Client
             InterceptRequest(req);
 
             IRestResponse<T> response;
-           if (RetryConfiguration.AsyncRetryPolicy != null || configuration.MaxRetries.HasValue && configuration.MaxRetries > 0)
+            
+            AsyncPolicy<IRestResponse> policy = null;
+            
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(configuration))
             {
-                var policy = RetryConfiguration.AsyncRetryPolicy ?? DefaultRetryStrategy.GetRetryPolicy(configuration);
+                policy = _authTokenProvider.GetOAuthRetryPolicy();
+            }
+            
+            if (RetryConfiguration.AsyncRetryPolicy != null || configuration.MaxRetries.HasValue && configuration.MaxRetries > 0)
+            {
+                var retryPolicy = RetryConfiguration.AsyncRetryPolicy ?? DefaultRetryStrategy.GetRetryPolicy(configuration);
+                policy = policy?.WrapAsync(retryPolicy) ?? retryPolicy;
+            }
+            
+            
+            if (policy != null)
+            {
                 var policyResult = await policy.ExecuteAndCaptureAsync(action: (ctx) => ExecuteAsyncWithRetryHeaders(ctx, req, client), new Context()).ConfigureAwait(false);
                 response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>
                 {
@@ -508,7 +537,7 @@ namespace Okta.Sdk.Client
             {
                 response = await client.ExecuteAsync<T>(req, cancellationToken).ConfigureAwait(false);
             }
-
+            
             // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
             if (typeof(Okta.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
             {
@@ -559,7 +588,7 @@ namespace Okta.Sdk.Client
         private Task<IRestResponse> ExecuteAsyncWithRetryHeaders(Context context, IRestRequest request, RestClient client)
         {
             DefaultRetryStrategy.AddRetryHeaders(context, request);
-
+            DefaultOAuthTokenProvider.AddOrUpdateAuthorizationHeader(context, request);
             return client.ExecuteAsync(request);
         }
 

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// UserLifecycleAttributePolicyRuleCondition
     /// </summary>
     [DataContract(Name = "UserLifecycleAttributePolicyRuleCondition")]
+    
     public partial class UserLifecycleAttributePolicyRuleCondition : IEquatable<UserLifecycleAttributePolicyRuleCondition>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.AttributeName != null)
                 {
                     hashCode = (hashCode * 59) + this.AttributeName.GetHashCode();

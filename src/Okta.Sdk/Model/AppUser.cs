@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// AppUser
     /// </summary>
     [DataContract(Name = "AppUser")]
+    
     public partial class AppUser : IEquatable<AppUser>
     {
         
@@ -338,6 +339,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Created != null)
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// SignInPage
     /// </summary>
     [DataContract(Name = "SignInPage")]
+    
     public partial class SignInPage : IEquatable<SignInPage>
     {
         /// <summary>
@@ -153,6 +154,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.PageContent != null)
                 {
                     hashCode = (hashCode * 59) + this.PageContent.GetHashCode();

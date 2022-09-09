@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Session
     /// </summary>
     [DataContract(Name = "Session")]
+    
     public partial class Session : IEquatable<Session>
     {
         
@@ -293,6 +294,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Amr != null)
                 {
                     hashCode = (hashCode * 59) + this.Amr.GetHashCode();

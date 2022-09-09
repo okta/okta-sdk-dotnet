@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// VersionObject
     /// </summary>
     [DataContract(Name = "VersionObject")]
+    
     public partial class VersionObject : IEquatable<VersionObject>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Minimum != null)
                 {
                     hashCode = (hashCode * 59) + this.Minimum.GetHashCode();

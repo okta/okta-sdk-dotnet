@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Links to resources related to this email template.
     /// </summary>
     [DataContract(Name = "EmailTemplate__links")]
+    
     public partial class EmailTemplateLinks : IEquatable<EmailTemplateLinks>
     {
         
@@ -147,6 +148,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Self != null)
                 {
                     hashCode = (hashCode * 59) + this.Self.GetHashCode();

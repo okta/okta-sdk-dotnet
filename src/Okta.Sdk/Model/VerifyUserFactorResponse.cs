@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// VerifyUserFactorResponse
     /// </summary>
     [DataContract(Name = "VerifyUserFactorResponse")]
+    
     public partial class VerifyUserFactorResponse : IEquatable<VerifyUserFactorResponse>
     {
         
@@ -173,6 +174,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ExpiresAt != null)
                 {
                     hashCode = (hashCode * 59) + this.ExpiresAt.GetHashCode();

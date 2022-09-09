@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// APNSConfiguration
     /// </summary>
     [DataContract(Name = "APNSConfiguration")]
+    
     public partial class APNSConfiguration : IEquatable<APNSConfiguration>
     {
         
@@ -139,6 +140,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.FileName != null)
                 {
                     hashCode = (hashCode * 59) + this.FileName.GetHashCode();

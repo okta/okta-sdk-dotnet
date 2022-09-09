@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// SamlApplicationSettingsApplication
     /// </summary>
     [DataContract(Name = "SamlApplicationSettingsApplication")]
+    
     public partial class SamlApplicationSettingsApplication : IEquatable<SamlApplicationSettingsApplication>
     {
         
@@ -123,6 +124,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.AcsUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.AcsUrl.GetHashCode();

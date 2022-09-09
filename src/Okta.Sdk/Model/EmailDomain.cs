@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// EmailDomain
     /// </summary>
     [DataContract(Name = "EmailDomain")]
+    
     public partial class EmailDomain : IEquatable<EmailDomain>
     {
         /// <summary>
@@ -128,6 +129,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Domain != null)
                 {
                     hashCode = (hashCode * 59) + this.Domain.GetHashCode();

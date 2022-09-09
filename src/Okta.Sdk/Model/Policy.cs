@@ -46,6 +46,7 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(ProfileEnrollmentPolicy), "PROFILE_ENROLLMENT")]
     [JsonSubtypes.KnownSubType(typeof(PasswordPolicy), "PasswordPolicy")]
     [JsonSubtypes.KnownSubType(typeof(ProfileEnrollmentPolicy), "ProfileEnrollmentPolicy")]
+    
     public partial class Policy : IEquatable<Policy>
     {
         
@@ -275,6 +276,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Created != null)
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();

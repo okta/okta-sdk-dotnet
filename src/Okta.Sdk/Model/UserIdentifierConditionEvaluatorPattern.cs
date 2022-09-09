@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// UserIdentifierConditionEvaluatorPattern
     /// </summary>
     [DataContract(Name = "UserIdentifierConditionEvaluatorPattern")]
+    
     public partial class UserIdentifierConditionEvaluatorPattern : IEquatable<UserIdentifierConditionEvaluatorPattern>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.MatchType != null)
                 {
                     hashCode = (hashCode * 59) + this.MatchType.GetHashCode();

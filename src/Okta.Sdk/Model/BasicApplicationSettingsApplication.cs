@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// BasicApplicationSettingsApplication
     /// </summary>
     [DataContract(Name = "BasicApplicationSettingsApplication")]
+    
     public partial class BasicApplicationSettingsApplication : IEquatable<BasicApplicationSettingsApplication>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.AuthURL != null)
                 {
                     hashCode = (hashCode * 59) + this.AuthURL.GetHashCode();

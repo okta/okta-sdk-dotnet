@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ApplicationCredentialsSigning
     /// </summary>
     [DataContract(Name = "ApplicationCredentialsSigning")]
+    
     public partial class ApplicationCredentialsSigning : IEquatable<ApplicationCredentialsSigning>
     {
         
@@ -163,6 +164,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Kid != null)
                 {
                     hashCode = (hashCode * 59) + this.Kid.GetHashCode();

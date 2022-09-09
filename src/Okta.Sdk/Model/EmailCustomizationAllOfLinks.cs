@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Links to resources related to this email customization.
     /// </summary>
     [DataContract(Name = "EmailCustomization_allOf__links")]
+    
     public partial class EmailCustomizationAllOfLinks : IEquatable<EmailCustomizationAllOfLinks>
     {
         
@@ -135,6 +136,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Self != null)
                 {
                     hashCode = (hashCode * 59) + this.Self.GetHashCode();

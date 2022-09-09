@@ -1,26 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Net;
-using System.Net.Http;
-using System.Net.Sockets;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Moq;
-using Newtonsoft.Json;
-using Okta.Sdk.Api;
 using Okta.Sdk.Client;
-using Okta.Sdk.Model;
 using Okta.Sdk.UnitTest.Internal;
-using Polly;
 using RestSharp;
 using Xunit;
 using Xunit.Abstractions;
-using Policy = Polly.Policy;
 
 namespace Okta.Sdk.UnitTest.Client
 {

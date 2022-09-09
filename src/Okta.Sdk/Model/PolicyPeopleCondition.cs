@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// PolicyPeopleCondition
     /// </summary>
     [DataContract(Name = "PolicyPeopleCondition")]
+    
     public partial class PolicyPeopleCondition : IEquatable<PolicyPeopleCondition>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Groups != null)
                 {
                     hashCode = (hashCode * 59) + this.Groups.GetHashCode();

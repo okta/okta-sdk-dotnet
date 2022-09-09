@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// SignOnInlineHook
     /// </summary>
     [DataContract(Name = "SignOnInlineHook")]
+    
     public partial class SignOnInlineHook : IEquatable<SignOnInlineHook>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();

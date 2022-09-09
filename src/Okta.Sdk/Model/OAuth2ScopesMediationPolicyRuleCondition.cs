@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OAuth2ScopesMediationPolicyRuleCondition
     /// </summary>
     [DataContract(Name = "OAuth2ScopesMediationPolicyRuleCondition")]
+    
     public partial class OAuth2ScopesMediationPolicyRuleCondition : IEquatable<OAuth2ScopesMediationPolicyRuleCondition>
     {
         
@@ -100,6 +101,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Include != null)
                 {
                     hashCode = (hashCode * 59) + this.Include.GetHashCode();

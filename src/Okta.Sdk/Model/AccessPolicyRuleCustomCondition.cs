@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// AccessPolicyRuleCustomCondition
     /// </summary>
     [DataContract(Name = "AccessPolicyRuleCustomCondition")]
+    
     public partial class AccessPolicyRuleCustomCondition : IEquatable<AccessPolicyRuleCustomCondition>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Condition != null)
                 {
                     hashCode = (hashCode * 59) + this.Condition.GetHashCode();

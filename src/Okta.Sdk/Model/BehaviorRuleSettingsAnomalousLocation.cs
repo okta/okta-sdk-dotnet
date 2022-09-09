@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// BehaviorRuleSettingsAnomalousLocation
     /// </summary>
     [DataContract(Name = "BehaviorRuleSettingsAnomalousLocation")]
+    
     public partial class BehaviorRuleSettingsAnomalousLocation : IEquatable<BehaviorRuleSettingsAnomalousLocation>
     {
         /// <summary>
@@ -138,6 +139,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 hashCode = (hashCode * 59) + this.MaxEventsUsedForEvaluation.GetHashCode();
                 hashCode = (hashCode * 59) + this.MinEventsNeededForEvaluation.GetHashCode();
                 if (this.Granularity != null)

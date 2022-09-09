@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// CallUserFactorProfile
     /// </summary>
     [DataContract(Name = "CallUserFactorProfile")]
+    
     public partial class CallUserFactorProfile : IEquatable<CallUserFactorProfile>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.PhoneExtension != null)
                 {
                     hashCode = (hashCode * 59) + this.PhoneExtension.GetHashCode();

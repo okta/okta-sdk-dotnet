@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// WebAuthnUserFactorProfile
     /// </summary>
     [DataContract(Name = "WebAuthnUserFactorProfile")]
+    
     public partial class WebAuthnUserFactorProfile : IEquatable<WebAuthnUserFactorProfile>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.AuthenticatorName != null)
                 {
                     hashCode = (hashCode * 59) + this.AuthenticatorName.GetHashCode();

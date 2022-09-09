@@ -11,19 +11,17 @@
 
 using System;
 using System.Collections.Concurrent;
+using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Text.RegularExpressions;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
-using Okta.Sdk.Abstractions.Configuration;
 using Okta.Sdk.Abstractions.Configuration.Providers.EnvironmentVariables;
 using Okta.Sdk.Abstractions.Configuration.Providers.Object;
 using Okta.Sdk.Abstractions.Configuration.Providers.Yaml;
@@ -124,6 +122,14 @@ namespace Okta.Sdk.Client
         }
         
         /// <summary>
+        /// Gets or sets the optional proxy configuration to use for HTTP connections. If <c>null</c>, the default system proxy is used, if any.
+        /// </summary>
+        /// <value>
+        /// The proxy to use for HTTP connections.
+        /// </value>
+        public ProxyConfiguration Proxy { get; set; }
+        
+        /// <summary>
         /// The default HTTP connection timeout in milliseconds.
         /// </summary>
         public const int DefaultConnectionTimeout = 30000; // milliseconds
@@ -162,6 +168,43 @@ namespace Okta.Sdk.Client
         /// </value>
         public int? MaxRetries { get; set; } = DefaultMaxRetries;
         
+        /// <summary>
+        /// Gets or sets the authorization mode.
+        /// </summary>
+        public AuthorizationMode? AuthorizationMode { get; set; } = Client.AuthorizationMode.SSWS;
+
+        /// <summary>
+        /// Gets or sets the private key. Required when AuthorizationMode is equal to PrivateKey.
+        /// </summary>
+        public JsonWebKeyConfiguration PrivateKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets the client id. Required when AuthorizationMode is equal to PrivateKey.
+        /// </summary>
+        public string ClientId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Okta scopes
+        /// </summary>
+        public HashSet<string> Scopes { get; set; }
+        
+        /// <summary>
+        /// Returns true if the AuthorizationMode is equals to PrivateKey, false otherwise.
+        /// </summary>
+        public static bool IsPrivateKeyMode (IReadableConfiguration configuration) 
+            => configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.PrivateKey;
+
+        /// <summary>
+        /// Returns true if the AuthorizationMode is equals to SSWS, false otherwise.
+        /// </summary>
+        public static bool IsSswsMode (IReadableConfiguration configuration) 
+            => configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.SSWS;
+
+        /// <summary>
+        /// Returns true if the AuthorizationMode is equals to BearerToken, false otherwise.
+        /// </summary>
+        public static bool IsBearerTokenMode(IReadableConfiguration configuration) 
+            => configuration.AuthorizationMode.HasValue && configuration.AuthorizationMode.Value == Okta.Sdk.Client.AuthorizationMode.BearerToken;
 
         #endregion
 
@@ -186,7 +229,7 @@ namespace Okta.Sdk.Client
         /// Validates the Okta configuration
         /// </summary>
         /// <param name="configuration">The configuration to be validated</param>
-        public static void Validate(Configuration configuration)
+        public static void Validate(IReadableConfiguration configuration)
         {
             if (string.IsNullOrEmpty(configuration.OktaDomain))
             {
@@ -214,22 +257,57 @@ namespace Okta.Sdk.Client
             {
                 throw new ArgumentNullException(nameof(configuration.OktaDomain), $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
             }
-
-            if (Regex.Matches(configuration.OktaDomain, "://").Count != 1)
+           
+            if (Configuration.IsSswsMode(configuration))
             {
-                throw new ArgumentNullException(nameof(configuration.OktaDomain), $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
+                if (Regex.Matches(configuration.OktaDomain, "://").Count != 1)
+                {
+                    throw new ArgumentNullException(nameof(configuration.OktaDomain), $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
+                }
+
+                if (string.IsNullOrEmpty(configuration.Token))
+                {
+                    throw new ArgumentNullException(nameof(configuration.Token), "Your Okta API token is missing. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token");
+                }
+
+                if (configuration.Token.IndexOf("{apiToken}", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    throw new ArgumentException("Replace {apiToken} with your Okta API token. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token", nameof(configuration.Token));
+                }
+            }
+            
+            if(Configuration.IsPrivateKeyMode(configuration))
+            {
+                if (string.IsNullOrEmpty(configuration.ClientId))
+                {
+                    throw new ArgumentNullException(nameof(configuration.ClientId), "Your client ID is missing. You can copy it from the Okta Developer Console in the details for the Application you created. Follow these instructions to find it: https://bit.ly/finding-okta-app-credentials");
+                }
+
+                if (configuration.ClientId.IndexOf("{ClientId}", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    throw new ArgumentNullException(
+                        nameof(configuration.ClientId),
+                        "Replace {clientId} with the client ID of your Application. You can copy it from the Okta Developer Console in the details for the Application you created. Follow these instructions to find it: https://bit.ly/finding-okta-app-credentials");
+                }
+
+                if (configuration.PrivateKey == null)
+                {
+                    throw new ArgumentNullException(nameof(configuration.PrivateKey), "Your private key is missing.");
+                }
+
+                if (configuration.Scopes == null || configuration.Scopes.Count == 0)
+                {
+                    throw new ArgumentNullException(nameof(configuration.Scopes), "Scopes cannot be null or empty.");
+                }
             }
 
-            if (string.IsNullOrEmpty(configuration.Token))
+            if (Configuration.IsBearerTokenMode(configuration))
             {
-                throw new ArgumentNullException(nameof(configuration.Token), "Your Okta API token is missing. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token");
+                if (string.IsNullOrEmpty(configuration.AccessToken))
+                {
+                    throw new ArgumentNullException(nameof(configuration.AccessToken), "Your access token is missing.");
+                }
             }
-
-            if (configuration.Token.IndexOf("{apiToken}", StringComparison.OrdinalIgnoreCase) >= 0)
-            {
-                throw new ArgumentException("Replace {apiToken} with your Okta API token. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token", nameof(configuration.Token));
-            }
-
         }
 
         #endregion Static Members
@@ -335,6 +413,7 @@ namespace Okta.Sdk.Client
 
             // Setting Timeout has side effects (forces ApiClient creation).
             Timeout = 100000;
+            AuthorizationMode = Client.AuthorizationMode.SSWS;
         }
 
         /// <summary>
@@ -372,6 +451,8 @@ namespace Okta.Sdk.Client
             {
                 ApiKeyPrefix.Add(keyValuePair);
             }
+            
+            AuthorizationMode = Client.AuthorizationMode.SSWS;
         }
         
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
@@ -387,6 +468,7 @@ namespace Okta.Sdk.Client
 
             OktaDomain = oktaDomain;
             Token = token;
+            AuthorizationMode = Client.AuthorizationMode.SSWS;
         }
 
         #endregion Constructors
@@ -426,12 +508,6 @@ namespace Okta.Sdk.Client
         /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
         /// </summary>
         public virtual int Timeout { get; set; }
-
-        /// <summary>
-        /// Gets or sets the proxy
-        /// </summary>
-        /// <value>Proxy.</value>
-        public virtual WebProxy Proxy { get; set; }
 
         /// <summary>
         /// Gets or sets the HTTP user agent.
@@ -746,6 +822,10 @@ namespace Okta.Sdk.Client
                 TempFolderPath = second.TempFolderPath ?? first.TempFolderPath,
                 DateTimeFormat = second.DateTimeFormat ?? first.DateTimeFormat,
                 ClientCertificates = second.ClientCertificates ?? first.ClientCertificates,
+                AuthorizationMode = second.AuthorizationMode ?? first.AuthorizationMode,
+                ClientId = second.ClientId ?? first.ClientId,
+                Scopes = second.Scopes ?? first.Scopes,
+                PrivateKey = second.PrivateKey ?? first.PrivateKey
             };
             return config;
         }

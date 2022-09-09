@@ -41,6 +41,7 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(SamlApplication), "SAML_2_0")]
     [JsonSubtypes.KnownSubType(typeof(SecurePasswordStoreApplication), "SECURE_PASSWORD_STORE")]
     [JsonSubtypes.KnownSubType(typeof(WsFederationApplication), "WS_FEDERATION")]
+    
     public partial class WsFederationApplication : Application, IEquatable<WsFederationApplication>
     {
         
@@ -123,6 +124,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
+                
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();

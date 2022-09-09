@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// UserStatusPolicyRuleCondition
     /// </summary>
     [DataContract(Name = "UserStatusPolicyRuleCondition")]
+    
     public partial class UserStatusPolicyRuleCondition : IEquatable<UserStatusPolicyRuleCondition>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Value != null)
                 {
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();

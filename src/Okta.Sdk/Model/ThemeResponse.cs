@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ThemeResponse
     /// </summary>
     [DataContract(Name = "ThemeResponse")]
+    
     public partial class ThemeResponse : IEquatable<ThemeResponse>
     {
         
@@ -284,6 +285,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.BackgroundImage != null)
                 {
                     hashCode = (hashCode * 59) + this.BackgroundImage.GetHashCode();

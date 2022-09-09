@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// Used for links
     /// </summary>
     [DataContract(Name = "HrefObject")]
+    
     public partial class HrefObject : IEquatable<HrefObject>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Hints != null)
                 {
                     hashCode = (hashCode * 59) + this.Hints.GetHashCode();

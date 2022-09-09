@@ -1,0 +1,51 @@
+﻿{{>partial_header}}
+
+using Polly;
+using RestSharp;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Polly.NoOp;
+
+namespace {{packageName}}.Client
+{
+    /// <summary>
+    /// Null OAuth Token Provider.
+    /// </summary>
+    public class NullOAuthTokenProvider : IOAuthTokenProvider
+    {
+        private static NullOAuthTokenProvider _instance = null;
+
+        private NullOAuthTokenProvider()
+        {
+        }
+
+        /// <summary>
+        /// Gets a new <c>NullOAuthTokenProvider</c> instance.
+        /// </summary>
+        public static IOAuthTokenProvider Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new NullOAuthTokenProvider();
+                }
+
+                return _instance;
+            }
+        }
+
+        /// <inheritdoc/>
+        public Task<string> GetAccessTokenAsync(bool forceRenew = false, CancellationToken cancellationToken = default)
+        {
+            return Task.FromResult<string>(null);
+        }
+
+        /// <inheritdoc/>
+        public AsyncPolicy<IRestResponse> GetOAuthRetryPolicy(Func<DelegateResult<IRestResponse>, int, Context, Task> onRetryAsyncFunc = null)
+        {
+            return Policy.NoOpAsync<IRestResponse>();
+        }
+    }
+}

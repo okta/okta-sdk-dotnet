@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// LifecycleCreateSettingObject
     /// </summary>
     [DataContract(Name = "LifecycleCreateSettingObject")]
+    
     public partial class LifecycleCreateSettingObject : IEquatable<LifecycleCreateSettingObject>
     {
         
@@ -99,6 +100,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Status != null)
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();

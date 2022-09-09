@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// EventHookChannelConfigAuthScheme
     /// </summary>
     [DataContract(Name = "EventHookChannelConfigAuthScheme")]
+    
     public partial class EventHookChannelConfigAuthScheme : IEquatable<EventHookChannelConfigAuthScheme>
     {
         
@@ -123,6 +124,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Key != null)
                 {
                     hashCode = (hashCode * 59) + this.Key.GetHashCode();

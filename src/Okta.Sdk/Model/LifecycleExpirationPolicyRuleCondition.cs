@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// LifecycleExpirationPolicyRuleCondition
     /// </summary>
     [DataContract(Name = "LifecycleExpirationPolicyRuleCondition")]
+    
     public partial class LifecycleExpirationPolicyRuleCondition : IEquatable<LifecycleExpirationPolicyRuleCondition>
     {
         
@@ -122,6 +123,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.LifecycleStatus != null)
                 {
                     hashCode = (hashCode * 59) + this.LifecycleStatus.GetHashCode();

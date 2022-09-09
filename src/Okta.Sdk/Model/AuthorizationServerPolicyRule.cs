@@ -37,6 +37,7 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(ProfileEnrollmentPolicyRule), "PROFILE_ENROLLMENT")]
     [JsonSubtypes.KnownSubType(typeof(AuthorizationServerPolicyRule), "RESOURCE_ACCESS")]
     [JsonSubtypes.KnownSubType(typeof(OktaSignOnPolicyRule), "SIGN_ON")]
+    
     public partial class AuthorizationServerPolicyRule : PolicyRule, IEquatable<AuthorizationServerPolicyRule>
     {
         
@@ -119,6 +120,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
+                
                 if (this.Actions != null)
                 {
                     hashCode = (hashCode * 59) + this.Actions.GetHashCode();

@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// SecurityQuestion
     /// </summary>
     [DataContract(Name = "SecurityQuestion")]
+    
     public partial class SecurityQuestion : IEquatable<SecurityQuestion>
     {
         
@@ -123,6 +124,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.Answer != null)
                 {
                     hashCode = (hashCode * 59) + this.Answer.GetHashCode();

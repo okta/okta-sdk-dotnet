@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// OAuth2RefreshToken
     /// </summary>
     [DataContract(Name = "OAuth2RefreshToken")]
+    
     public partial class OAuth2RefreshToken : IEquatable<OAuth2RefreshToken>
     {
         
@@ -282,6 +283,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.ClientId != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientId.GetHashCode();

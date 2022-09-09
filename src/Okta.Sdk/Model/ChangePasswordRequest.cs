@@ -30,6 +30,7 @@ namespace Okta.Sdk.Model
     /// ChangePasswordRequest
     /// </summary>
     [DataContract(Name = "ChangePasswordRequest")]
+    
     public partial class ChangePasswordRequest : IEquatable<ChangePasswordRequest>
     {
         
@@ -111,6 +112,7 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                
                 if (this.NewPassword != null)
                 {
                     hashCode = (hashCode * 59) + this.NewPassword.GetHashCode();
