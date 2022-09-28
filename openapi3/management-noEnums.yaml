@@ -7163,6 +7163,7 @@ paths:
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests429'
       security:
+        - API_Token: []
         - OAuth_2.0:
             - okta.roles.manage
       tags:
@@ -7198,6 +7199,7 @@ paths:
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests429'
       security:
+        - API_Token: []
         - OAuth_2.0:
             - okta.roles.manage
       tags:

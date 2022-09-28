@@ -302,6 +302,8 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.OktaDomain = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -340,7 +342,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth_2.0](../README.md#OAuth_2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1935,6 +1937,8 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.OktaDomain = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.Token ="YOUR_API_KEY";
             // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1973,7 +1977,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth_2.0](../README.md#OAuth_2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
