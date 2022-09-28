@@ -156,21 +156,15 @@ namespace Okta.Sdk.IntegrationTest
 
             var createdGroup = await _groupApi.CreateGroupAsync(group);
 
-            try
-            {
-                var retrievedGroup = await _groupApi.GetGroupAsync(createdGroup.Id);
-                retrievedGroup.Should().NotBeNull();
+            var retrievedGroup = await _groupApi.GetGroupAsync(createdGroup.Id);
+            retrievedGroup.Should().NotBeNull();
 
-                await Task.Delay(1000);
+            await Task.Delay(1000);
 
-                await _groupApi.DeleteGroupAsync(createdGroup.Id);
-                var groups = await _groupApi.ListGroups().ToListAsync();
-                groups.FirstOrDefault(x => x.Id == createdGroup.Id).Should().BeNull();
-            }
-            finally
-            {
-                await _groupApi.DeleteGroupAsync(createdGroup.Id);
-            }
+            await _groupApi.DeleteGroupAsync(createdGroup.Id);
+            var groups = await _groupApi.ListGroups().ToListAsync();
+            groups.FirstOrDefault(x => x.Id == createdGroup.Id).Should().BeNull();
+           
         }
 
         [Fact]
