@@ -37,7 +37,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Profile = new GroupProfile
                 {
-                    Name = $"dotnet-sdk: Get Test Group {guid}"
+                    Name = $"dotnet-sdk: {nameof(GetGroup)} {guid}"
                 },
             };
 
@@ -65,7 +65,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Profile = new GroupProfile
                 {
-                    Name = $"dotnet-sdk: List Test Group {guid}"
+                    Name = $"dotnet-sdk: {nameof(ListGroups)} {guid}"
                 },
             };
 
@@ -86,7 +86,7 @@ namespace Okta.Sdk.IntegrationTest
         [Fact]
         public async Task SearchGroup()
         {
-            var groupName = $"dotnet-sdk: Search Test Group {Guid.NewGuid()}";
+            var groupName = $"dotnet-sdk: {nameof(SearchGroup)} {Guid.NewGuid()}";
 
             var group = new Group
             {
@@ -119,7 +119,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Profile = new GroupProfile
                 {
-                    Name = $"dotnet-sdk: Update Test Group {guid}"
+                    Name = $"dotnet-sdk: {nameof(UpdateGroup)} {guid}"
                 },
             };
 
@@ -150,7 +150,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Profile = new GroupProfile
                 {
-                    Name = $"dotnet-sdk: Remove Test Group {guid}"
+                    Name = $"dotnet-sdk: {nameof(RemoveGroup)} {guid}"
                 },
             };
 
@@ -160,7 +160,9 @@ namespace Okta.Sdk.IntegrationTest
             {
                 var retrievedGroup = await _groupApi.GetGroupAsync(createdGroup.Id);
                 retrievedGroup.Should().NotBeNull();
-                
+
+                await Task.Delay(1000);
+
                 await _groupApi.DeleteGroupAsync(createdGroup.Id);
                 var groups = await _groupApi.ListGroups().ToListAsync();
                 groups.FirstOrDefault(x => x.Id == createdGroup.Id).Should().BeNull();
@@ -180,7 +182,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Profile = new GroupProfile
                 {
-                    Name = $"dotnet-sdk: Add User to Test Group {guid}"
+                    Name = $"dotnet-sdk: {nameof(AddUserToGroup)} {guid}"
                 },
             };
 
@@ -231,7 +233,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Profile = new GroupProfile
                 {
-                    Name = $"dotnet-sdk: Remove User from Test Group {guid}"
+                    Name = $"dotnet-sdk: {nameof(RemoveUserFromGroup)} {guid}"
                 },
             };
 
