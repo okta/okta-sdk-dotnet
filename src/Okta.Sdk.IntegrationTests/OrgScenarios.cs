@@ -73,6 +73,7 @@ namespace Okta.Sdk.IntegrationTests
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
 
+            var billingContactUser = await client.Orgs.GetOrgContactUserAsync(OrgContactType.Billing);
             // Create a user
             var user = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
             {
@@ -92,7 +93,7 @@ namespace Okta.Sdk.IntegrationTests
                     new UserIdString
                     {
                         UserId = user.Id,
-                    }, OrgContactType.Technical);
+                    }, OrgContactType.Billing);
 
                 orgContactUser.UserId.Should().Be(user.Id);
             }
@@ -102,8 +103,8 @@ namespace Okta.Sdk.IntegrationTests
                 await client.Orgs.UpdateOrgContactUserAsync(
                     new UserIdString
                     {
-                        UserId = null,
-                    }, OrgContactType.Technical);
+                        UserId = billingContactUser?.UserId,
+                    }, OrgContactType.Billing);
 
                 // Remove the user
                 await user.DeactivateAsync();
