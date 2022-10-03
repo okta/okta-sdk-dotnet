@@ -98,5 +98,20 @@ namespace Okta.Sdk.UnitTests
             mockRequestExecutor.ReceivedHttpVerbs.Count.Should().Be(1);
             mockRequestExecutor.ReceivedHttpVerbs[0].Should().Be(HttpVerb.Delete);
         }
+
+
+        [Fact]
+        public async Task GetEmailCustomizationPreview()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            var emailTemplateCustomization = await client.Brands.GetEmailTemplateCustomizationPreviewAsync( "foo", "bar", "baz");
+
+            mockRequestExecutor.ReceivedHref.Should().Be($"/api/v1/brands/foo/templates/email/bar/customizations/baz/preview");
+            mockRequestExecutor.ReceivedHttpVerbs.Count.Should().Be(1);
+            mockRequestExecutor.ReceivedHttpVerbs[0].Should().Be(HttpVerb.Get);
+
+        }
     }
 }

@@ -355,37 +355,6 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task GetEmailTemplateCustomizationPreview()
-        {
-            var client = TestClient.Create();
-            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
-            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
-            var testBody = $"Test Customization - {nameof(GetEmailTemplateCustomizationPreview)}" + "${activationLink} ${activationToken}";
-            var testSubject = $"Test Subject - {nameof(GetEmailTemplateCustomizationPreview)}";
-            var testLanguage = "uk";
-
-            var emailTemplateCustomizationRequest = new EmailTemplateCustomizationRequest()
-            {
-                Body = testBody,
-                Subject = testSubject,
-                Language = testLanguage,
-                IsDefault = false,
-            };
-
-            var emailTemplateCustomization = await client.Brands.CreateEmailTemplateCustomizationAsync(emailTemplateCustomizationRequest, brand.Id, emailTemplate.Name);
-
-            var emailTemplateCustomizationPreview = await client.Brands.GetEmailTemplateCustomizationPreviewAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
-            emailTemplateCustomizationPreview.Should().NotBeNull();
-            emailTemplateCustomizationPreview.Body.Should().NotBeNull();
-            emailTemplateCustomizationPreview.Subject.Should().NotBeNull();
-
-            if ((bool)!emailTemplateCustomization.IsDefault)
-            {
-                await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
-            }
-        }
-
-        [Fact]
         public async Task GetEmailTemplateDefaultContent()
         {
             var client = TestClient.Create();
