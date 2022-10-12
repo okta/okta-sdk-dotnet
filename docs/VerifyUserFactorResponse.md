@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ExpiresAt** | **DateTimeOffset** |  | [optional] [readonly] 
-**FactorResult** | **string** |  | [optional] 
+**FactorResult** | **VerifyUserFactorResult** |  | [optional] 
 **FactorResultMessage** | **string** |  | [optional] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 

@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,18 +33,19 @@ namespace Okta.Sdk.Model
     
     public partial class HostedPage : IEquatable<HostedPage>
     {
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
+        
+        public HostedPageType Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="HostedPage" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         public HostedPage() { }
         
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
-        public string Type { get; set; }
-
         /// <summary>
         /// Gets or Sets Url
         /// </summary>
@@ -98,8 +99,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
                     this.Url == input.Url ||
@@ -118,10 +118,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 if (this.Url != null)
                 {
                     hashCode = (hashCode * 59) + this.Url.GetHashCode();

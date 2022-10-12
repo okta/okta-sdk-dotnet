@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,13 @@ namespace Okta.Sdk.Model
     
     public partial class ApplicationCredentialsOAuthClient : IEquatable<ApplicationCredentialsOAuthClient>
     {
+
+        /// <summary>
+        /// Gets or Sets TokenEndpointAuthMethod
+        /// </summary>
+        [DataMember(Name = "token_endpoint_auth_method", EmitDefaultValue = false)]
+        
+        public OAuthEndpointAuthenticationMethod TokenEndpointAuthMethod { get; set; }
         
         /// <summary>
         /// Gets or Sets AutoKeyRotation
@@ -51,12 +58,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "client_secret", EmitDefaultValue = false)]
         public string ClientSecret { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TokenEndpointAuthMethod
-        /// </summary>
-        [DataMember(Name = "token_endpoint_auth_method", EmitDefaultValue = false)]
-        public string TokenEndpointAuthMethod { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -121,8 +122,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.TokenEndpointAuthMethod == input.TokenEndpointAuthMethod ||
-                    (this.TokenEndpointAuthMethod != null &&
-                    this.TokenEndpointAuthMethod.Equals(input.TokenEndpointAuthMethod))
+                    this.TokenEndpointAuthMethod.Equals(input.TokenEndpointAuthMethod)
                 );
         }
 
@@ -145,10 +145,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ClientSecret.GetHashCode();
                 }
-                if (this.TokenEndpointAuthMethod != null)
-                {
-                    hashCode = (hashCode * 59) + this.TokenEndpointAuthMethod.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.TokenEndpointAuthMethod.GetHashCode();
                 return hashCode;
             }
         }

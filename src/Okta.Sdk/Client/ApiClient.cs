@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -54,7 +54,7 @@ namespace Okta.Sdk.Client
                 {
                     OverrideSpecifiedNames = false
                 }
-            }
+            },
         };
 
         public CustomJsonCodec(IReadableConfiguration configuration)
@@ -65,6 +65,7 @@ namespace Okta.Sdk.Client
         public CustomJsonCodec(JsonSerializerSettings serializerSettings, IReadableConfiguration configuration)
         {
             _serializerSettings = serializerSettings;
+            _serializerSettings.Converters.Add(new StringEnumSerializingConverter());
             _configuration = configuration;
         }
 

@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,18 +33,19 @@ namespace Okta.Sdk.Model
     
     public partial class ProtocolAlgorithmTypeSignature : IEquatable<ProtocolAlgorithmTypeSignature>
     {
+
+        /// <summary>
+        /// Gets or Sets Scope
+        /// </summary>
+        [DataMember(Name = "scope", EmitDefaultValue = false)]
+        
+        public ProtocolAlgorithmTypeSignatureScope Scope { get; set; }
         
         /// <summary>
         /// Gets or Sets Algorithm
         /// </summary>
         [DataMember(Name = "algorithm", EmitDefaultValue = false)]
         public string Algorithm { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Scope
-        /// </summary>
-        [DataMember(Name = "scope", EmitDefaultValue = false)]
-        public string Scope { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -98,8 +99,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Scope == input.Scope ||
-                    (this.Scope != null &&
-                    this.Scope.Equals(input.Scope))
+                    this.Scope.Equals(input.Scope)
                 );
         }
 
@@ -117,10 +117,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Algorithm.GetHashCode();
                 }
-                if (this.Scope != null)
-                {
-                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Scope.GetHashCode();
                 return hashCode;
             }
         }

@@ -6,7 +6,7 @@ Various information about agent auto update configuration
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Agents** | [**List&lt;Agent&gt;**](Agent.md) |  | [optional] 
-**AgentType** | **string** | Agent types that are being monitored | [optional] 
+**AgentType** | **AgentType** |  | [optional] 
 **Enabled** | **bool** |  | [optional] 
 **Id** | **string** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Reason** | **string** |  | [optional] 
 **Schedule** | [**AutoUpdateSchedule**](AutoUpdateSchedule.md) |  | [optional] 
 **SortOrder** | **int** |  | [optional] 
-**Status** | **string** | Overall state for the auto-update job from admin perspective | [optional] 
+**Status** | **AgentUpdateJobStatus** |  | [optional] 
 **TargetVersion** | **string** |  | [optional] 
 **Links** | [**HrefObject**](HrefObject.md) |  | [optional] 
 

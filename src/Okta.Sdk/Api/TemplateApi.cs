@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="smsTemplate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmsTemplate</returns>
-        System.Threading.Tasks.Task<SmsTemplate> CreateSmsTemplateAsync(SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SmsTemplate> CreateSmsTemplateAsync(  SmsTemplate smsTemplate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create an SMS Template
         /// </summary>
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <param name="smsTemplate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SmsTemplate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SmsTemplate>> CreateSmsTemplateWithHttpInfoAsync(SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SmsTemplate>> CreateSmsTemplateWithHttpInfoAsync(  SmsTemplate smsTemplate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete an SMS Template
         /// </summary>
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteSmsTemplateAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteSmsTemplateAsync(  string templateId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete an SMS Template
         /// </summary>
@@ -71,7 +71,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSmsTemplateWithHttpInfoAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSmsTemplateWithHttpInfoAsync(  string templateId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve an SMS Template
         /// </summary>
@@ -82,7 +82,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmsTemplate</returns>
-        System.Threading.Tasks.Task<SmsTemplate> GetSmsTemplateAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SmsTemplate> GetSmsTemplateAsync(  string templateId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve an SMS Template
         /// </summary>
@@ -93,7 +93,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SmsTemplate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SmsTemplate>> GetSmsTemplateWithHttpInfoAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SmsTemplate>> GetSmsTemplateWithHttpInfoAsync(  string templateId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all SMS Templates
         /// </summary>
@@ -104,7 +104,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateType"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SmsTemplate&gt;</returns>
-        IOktaCollectionClient<SmsTemplate> ListSmsTemplates(string templateType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<SmsTemplate> ListSmsTemplates(SmsTemplateType templateType  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all SMS Templates
         /// </summary>
@@ -115,7 +115,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateType"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SmsTemplate&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<SmsTemplate>>> ListSmsTemplatesWithHttpInfoAsync(string templateType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<SmsTemplate>>> ListSmsTemplatesWithHttpInfoAsync(SmsTemplateType templateType  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update an SMS Template
         /// </summary>
@@ -127,7 +127,7 @@ namespace Okta.Sdk.Api
         /// <param name="smsTemplate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmsTemplate</returns>
-        System.Threading.Tasks.Task<SmsTemplate> PartialUpdateSmsTemplateAsync(string templateId, SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SmsTemplate> PartialUpdateSmsTemplateAsync(  string templateId ,   SmsTemplate smsTemplate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update an SMS Template
         /// </summary>
@@ -139,7 +139,7 @@ namespace Okta.Sdk.Api
         /// <param name="smsTemplate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SmsTemplate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SmsTemplate>> PartialUpdateSmsTemplateWithHttpInfoAsync(string templateId, SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SmsTemplate>> PartialUpdateSmsTemplateWithHttpInfoAsync(  string templateId ,   SmsTemplate smsTemplate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace an SMS Template
         /// </summary>
@@ -151,7 +151,7 @@ namespace Okta.Sdk.Api
         /// <param name="smsTemplate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmsTemplate</returns>
-        System.Threading.Tasks.Task<SmsTemplate> UpdateSmsTemplateAsync(string templateId, SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SmsTemplate> UpdateSmsTemplateAsync(  string templateId ,   SmsTemplate smsTemplate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace an SMS Template
         /// </summary>
@@ -163,7 +163,7 @@ namespace Okta.Sdk.Api
         /// <param name="smsTemplate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SmsTemplate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SmsTemplate>> UpdateSmsTemplateWithHttpInfoAsync(string templateId, SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SmsTemplate>> UpdateSmsTemplateWithHttpInfoAsync(  string templateId ,   SmsTemplate smsTemplate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -276,7 +276,7 @@ namespace Okta.Sdk.Api
         /// <param name="smsTemplate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmsTemplate</returns>
-        public async System.Threading.Tasks.Task<SmsTemplate> CreateSmsTemplateAsync(SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SmsTemplate> CreateSmsTemplateAsync(  SmsTemplate smsTemplate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<SmsTemplate> localVarResponse = await CreateSmsTemplateWithHttpInfoAsync(smsTemplate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -288,7 +288,7 @@ namespace Okta.Sdk.Api
         /// <param name="smsTemplate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SmsTemplate)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<SmsTemplate>> CreateSmsTemplateWithHttpInfoAsync(SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<SmsTemplate>> CreateSmsTemplateWithHttpInfoAsync(  SmsTemplate smsTemplate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'smsTemplate' is set
             if (smsTemplate == null)
@@ -322,12 +322,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = smsTemplate;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -362,7 +362,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteSmsTemplateAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteSmsTemplateAsync(  string templateId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteSmsTemplateWithHttpInfoAsync(templateId, cancellationToken).ConfigureAwait(false);
         }
@@ -373,7 +373,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteSmsTemplateWithHttpInfoAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteSmsTemplateWithHttpInfoAsync(  string templateId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -406,12 +406,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -446,7 +446,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmsTemplate</returns>
-        public async System.Threading.Tasks.Task<SmsTemplate> GetSmsTemplateAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SmsTemplate> GetSmsTemplateAsync(  string templateId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<SmsTemplate> localVarResponse = await GetSmsTemplateWithHttpInfoAsync(templateId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -458,7 +458,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SmsTemplate)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<SmsTemplate>> GetSmsTemplateWithHttpInfoAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<SmsTemplate>> GetSmsTemplateWithHttpInfoAsync(  string templateId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -491,12 +491,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -531,7 +531,8 @@ namespace Okta.Sdk.Api
         /// <param name="templateType"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SmsTemplate&gt;</returns>
-        public IOktaCollectionClient<SmsTemplate> ListSmsTemplates(string templateType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        //a
+        public IOktaCollectionClient<SmsTemplate> ListSmsTemplates(SmsTemplateType templateType  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -561,12 +562,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "templateType", templateType));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -584,7 +585,7 @@ namespace Okta.Sdk.Api
         /// <param name="templateType"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SmsTemplate&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<SmsTemplate>>> ListSmsTemplatesWithHttpInfoAsync(string templateType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<SmsTemplate>>> ListSmsTemplatesWithHttpInfoAsync(SmsTemplateType templateType  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -614,12 +615,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "templateType", templateType));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -651,7 +652,7 @@ namespace Okta.Sdk.Api
         /// <param name="smsTemplate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmsTemplate</returns>
-        public async System.Threading.Tasks.Task<SmsTemplate> PartialUpdateSmsTemplateAsync(string templateId, SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SmsTemplate> PartialUpdateSmsTemplateAsync(  string templateId ,   SmsTemplate smsTemplate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<SmsTemplate> localVarResponse = await PartialUpdateSmsTemplateWithHttpInfoAsync(templateId, smsTemplate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -664,7 +665,7 @@ namespace Okta.Sdk.Api
         /// <param name="smsTemplate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SmsTemplate)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<SmsTemplate>> PartialUpdateSmsTemplateWithHttpInfoAsync(string templateId, SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<SmsTemplate>> PartialUpdateSmsTemplateWithHttpInfoAsync(  string templateId ,   SmsTemplate smsTemplate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -705,12 +706,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
             localVarRequestOptions.Data = smsTemplate;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -746,7 +747,7 @@ namespace Okta.Sdk.Api
         /// <param name="smsTemplate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SmsTemplate</returns>
-        public async System.Threading.Tasks.Task<SmsTemplate> UpdateSmsTemplateAsync(string templateId, SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SmsTemplate> UpdateSmsTemplateAsync(  string templateId ,   SmsTemplate smsTemplate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<SmsTemplate> localVarResponse = await UpdateSmsTemplateWithHttpInfoAsync(templateId, smsTemplate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -759,7 +760,7 @@ namespace Okta.Sdk.Api
         /// <param name="smsTemplate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SmsTemplate)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<SmsTemplate>> UpdateSmsTemplateWithHttpInfoAsync(string templateId, SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<SmsTemplate>> UpdateSmsTemplateWithHttpInfoAsync(  string templateId ,   SmsTemplate smsTemplate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -800,12 +801,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
             localVarRequestOptions.Data = smsTemplate;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

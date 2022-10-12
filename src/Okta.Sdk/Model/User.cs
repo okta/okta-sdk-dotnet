@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,20 @@ namespace Okta.Sdk.Model
     
     public partial class User : IEquatable<User>
     {
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        
+        public UserStatus Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TransitioningToStatus
+        /// </summary>
+        [DataMember(Name = "transitioningToStatus", EmitDefaultValue = false)]
+        
+        public UserStatus TransitioningToStatus { get; set; }
         
         /// <summary>
         /// Gets or Sets Activated
@@ -131,12 +145,6 @@ namespace Okta.Sdk.Model
         public UserProfile Profile { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string Status { get; set; }
-
-        /// <summary>
         /// Gets or Sets StatusChanged
         /// </summary>
         [DataMember(Name = "statusChanged", EmitDefaultValue = true)]
@@ -150,12 +158,6 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
-        /// <summary>
-        /// Gets or Sets TransitioningToStatus
-        /// </summary>
-        [DataMember(Name = "transitioningToStatus", EmitDefaultValue = false)]
-        public string TransitioningToStatus { get; set; }
-
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
@@ -289,8 +291,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status.Equals(input.Status)
                 ) && 
                 (
                     this.StatusChanged == input.StatusChanged ||
@@ -299,8 +300,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.TransitioningToStatus == input.TransitioningToStatus ||
-                    (this.TransitioningToStatus != null &&
-                    this.TransitioningToStatus.Equals(input.TransitioningToStatus))
+                    this.TransitioningToStatus.Equals(input.TransitioningToStatus)
                 ) && 
                 (
                     this.Type == input.Type ||
@@ -363,18 +363,12 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();
                 }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.StatusChanged != null)
                 {
                     hashCode = (hashCode * 59) + this.StatusChanged.GetHashCode();
                 }
-                if (this.TransitioningToStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.TransitioningToStatus.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.TransitioningToStatus.GetHashCode();
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();

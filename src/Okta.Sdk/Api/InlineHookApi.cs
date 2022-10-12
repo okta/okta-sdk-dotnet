@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -32,182 +32,182 @@ namespace Okta.Sdk.Api
         /// Activate an Inline Hook
         /// </summary>
         /// <remarks>
-        /// Activates the Inline Hook matching the provided id
+        /// Activates the inline hook by &#x60;inlineHookId&#x60;
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
-        System.Threading.Tasks.Task<InlineHook> ActivateInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineHook> ActivateInlineHookAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Activate an Inline Hook
         /// </summary>
         /// <remarks>
-        /// Activates the Inline Hook matching the provided id
+        /// Activates the inline hook by &#x60;inlineHookId&#x60;
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineHook)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineHook>> ActivateInlineHookWithHttpInfoAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineHook>> ActivateInlineHookWithHttpInfoAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create an Inline Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Creates an inline hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
-        System.Threading.Tasks.Task<InlineHook> CreateInlineHookAsync(InlineHook inlineHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineHook> CreateInlineHookAsync(  InlineHook inlineHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create an Inline Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Creates an inline hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineHook)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineHook>> CreateInlineHookWithHttpInfoAsync(InlineHook inlineHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineHook>> CreateInlineHookWithHttpInfoAsync(  InlineHook inlineHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deactivate an Inline Hook
         /// </summary>
         /// <remarks>
-        /// Deactivates the Inline Hook matching the provided id
+        /// Deactivates the inline hook by &#x60;inlineHookId&#x60;
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
-        System.Threading.Tasks.Task<InlineHook> DeactivateInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineHook> DeactivateInlineHookAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deactivate an Inline Hook
         /// </summary>
         /// <remarks>
-        /// Deactivates the Inline Hook matching the provided id
+        /// Deactivates the inline hook by &#x60;inlineHookId&#x60;
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineHook)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineHook>> DeactivateInlineHookWithHttpInfoAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineHook>> DeactivateInlineHookWithHttpInfoAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete an Inline Hook
         /// </summary>
         /// <remarks>
-        /// Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
+        /// Deletes an inline hook by &#x60;inlineHookId&#x60;. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteInlineHookAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete an Inline Hook
         /// </summary>
         /// <remarks>
-        /// Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
+        /// Deletes an inline hook by &#x60;inlineHookId&#x60;. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInlineHookWithHttpInfoAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInlineHookWithHttpInfoAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Execute an Inline Hook
         /// </summary>
         /// <remarks>
-        /// Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
+        /// Executes the inline hook by &#x60;inlineHookId&#x60; using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="payloadData"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHookResponse</returns>
-        System.Threading.Tasks.Task<InlineHookResponse> ExecuteInlineHookAsync(string inlineHookId, Object payloadData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineHookResponse> ExecuteInlineHookAsync(  string inlineHookId ,   Object payloadData , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Execute an Inline Hook
         /// </summary>
         /// <remarks>
-        /// Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
+        /// Executes the inline hook by &#x60;inlineHookId&#x60; using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="payloadData"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineHookResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineHookResponse>> ExecuteInlineHookWithHttpInfoAsync(string inlineHookId, Object payloadData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineHookResponse>> ExecuteInlineHookWithHttpInfoAsync(  string inlineHookId ,   Object payloadData , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve an Inline Hook
         /// </summary>
         /// <remarks>
-        /// Gets an inline hook by ID
+        /// Retrieves an inline hook by &#x60;inlineHookId&#x60;
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
-        System.Threading.Tasks.Task<InlineHook> GetInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineHook> GetInlineHookAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve an Inline Hook
         /// </summary>
         /// <remarks>
-        /// Gets an inline hook by ID
+        /// Retrieves an inline hook by &#x60;inlineHookId&#x60;
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineHook)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineHook>> GetInlineHookWithHttpInfoAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineHook>> GetInlineHookWithHttpInfoAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Inline Hooks
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Lists all inline hooks
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InlineHook&gt;</returns>
-        IOktaCollectionClient<InlineHook> ListInlineHooks(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<InlineHook> ListInlineHooks(  string type = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Inline Hooks
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Lists all inline hooks
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InlineHook&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineHook>>> ListInlineHooksWithHttpInfoAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<InlineHook>>> ListInlineHooksWithHttpInfoAsync(  string type = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace an Inline Hook
         /// </summary>
         /// <remarks>
-        /// Updates an inline hook by ID
+        /// Replaces an inline hook by &#x60;inlineHookId&#x60;
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="inlineHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
-        System.Threading.Tasks.Task<InlineHook> UpdateInlineHookAsync(string inlineHookId, InlineHook inlineHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineHook> UpdateInlineHookAsync(  string inlineHookId ,   InlineHook inlineHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace an Inline Hook
         /// </summary>
         /// <remarks>
-        /// Updates an inline hook by ID
+        /// Replaces an inline hook by &#x60;inlineHookId&#x60;
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="inlineHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineHook)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineHook>> UpdateInlineHookWithHttpInfoAsync(string inlineHookId, InlineHook inlineHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineHook>> UpdateInlineHookWithHttpInfoAsync(  string inlineHookId ,   InlineHook inlineHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -314,25 +314,25 @@ namespace Okta.Sdk.Api
         }
          
         /// <summary>
-        /// Activate an Inline Hook Activates the Inline Hook matching the provided id
+        /// Activate an Inline Hook Activates the inline hook by &#x60;inlineHookId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
-        public async System.Threading.Tasks.Task<InlineHook> ActivateInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineHook> ActivateInlineHookAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<InlineHook> localVarResponse = await ActivateInlineHookWithHttpInfoAsync(inlineHookId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Activate an Inline Hook Activates the Inline Hook matching the provided id
+        /// Activate an Inline Hook Activates the inline hook by &#x60;inlineHookId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineHook)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<InlineHook>> ActivateInlineHookWithHttpInfoAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<InlineHook>> ActivateInlineHookWithHttpInfoAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'inlineHookId' is set
             if (inlineHookId == null)
@@ -365,12 +365,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -399,25 +399,25 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create an Inline Hook Success
+        /// Create an Inline Hook Creates an inline hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
-        public async System.Threading.Tasks.Task<InlineHook> CreateInlineHookAsync(InlineHook inlineHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineHook> CreateInlineHookAsync(  InlineHook inlineHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<InlineHook> localVarResponse = await CreateInlineHookWithHttpInfoAsync(inlineHook, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Create an Inline Hook Success
+        /// Create an Inline Hook Creates an inline hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineHook)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<InlineHook>> CreateInlineHookWithHttpInfoAsync(InlineHook inlineHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<InlineHook>> CreateInlineHookWithHttpInfoAsync(  InlineHook inlineHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'inlineHook' is set
             if (inlineHook == null)
@@ -451,12 +451,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = inlineHook;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -485,25 +485,25 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate an Inline Hook Deactivates the Inline Hook matching the provided id
+        /// Deactivate an Inline Hook Deactivates the inline hook by &#x60;inlineHookId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
-        public async System.Threading.Tasks.Task<InlineHook> DeactivateInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineHook> DeactivateInlineHookAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<InlineHook> localVarResponse = await DeactivateInlineHookWithHttpInfoAsync(inlineHookId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Deactivate an Inline Hook Deactivates the Inline Hook matching the provided id
+        /// Deactivate an Inline Hook Deactivates the inline hook by &#x60;inlineHookId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineHook)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<InlineHook>> DeactivateInlineHookWithHttpInfoAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<InlineHook>> DeactivateInlineHookWithHttpInfoAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'inlineHookId' is set
             if (inlineHookId == null)
@@ -536,12 +536,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -570,24 +570,24 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete an Inline Hook Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
+        /// Delete an Inline Hook Deletes an inline hook by &#x60;inlineHookId&#x60;. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteInlineHookAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteInlineHookWithHttpInfoAsync(inlineHookId, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an Inline Hook Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
+        /// Delete an Inline Hook Deletes an inline hook by &#x60;inlineHookId&#x60;. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteInlineHookWithHttpInfoAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteInlineHookWithHttpInfoAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'inlineHookId' is set
             if (inlineHookId == null)
@@ -620,12 +620,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -654,27 +654,27 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Execute an Inline Hook Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
+        /// Execute an Inline Hook Executes the inline hook by &#x60;inlineHookId&#x60; using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="payloadData"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHookResponse</returns>
-        public async System.Threading.Tasks.Task<InlineHookResponse> ExecuteInlineHookAsync(string inlineHookId, Object payloadData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineHookResponse> ExecuteInlineHookAsync(  string inlineHookId ,   Object payloadData , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<InlineHookResponse> localVarResponse = await ExecuteInlineHookWithHttpInfoAsync(inlineHookId, payloadData, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Execute an Inline Hook Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
+        /// Execute an Inline Hook Executes the inline hook by &#x60;inlineHookId&#x60; using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="payloadData"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineHookResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<InlineHookResponse>> ExecuteInlineHookWithHttpInfoAsync(string inlineHookId, Object payloadData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<InlineHookResponse>> ExecuteInlineHookWithHttpInfoAsync(  string inlineHookId ,   Object payloadData , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'inlineHookId' is set
             if (inlineHookId == null)
@@ -715,12 +715,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
             localVarRequestOptions.Data = payloadData;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -749,25 +749,25 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve an Inline Hook Gets an inline hook by ID
+        /// Retrieve an Inline Hook Retrieves an inline hook by &#x60;inlineHookId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
-        public async System.Threading.Tasks.Task<InlineHook> GetInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineHook> GetInlineHookAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<InlineHook> localVarResponse = await GetInlineHookWithHttpInfoAsync(inlineHookId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Retrieve an Inline Hook Gets an inline hook by ID
+        /// Retrieve an Inline Hook Retrieves an inline hook by &#x60;inlineHookId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineHook)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<InlineHook>> GetInlineHookWithHttpInfoAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<InlineHook>> GetInlineHookWithHttpInfoAsync(  string inlineHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'inlineHookId' is set
             if (inlineHookId == null)
@@ -800,12 +800,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -834,13 +834,14 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List all Inline Hooks Success
+        /// List all Inline Hooks Lists all inline hooks
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InlineHook&gt;</returns>
-        public IOktaCollectionClient<InlineHook> ListInlineHooks(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        //a
+        public IOktaCollectionClient<InlineHook> ListInlineHooks(  string type = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -870,12 +871,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -887,13 +888,13 @@ namespace Okta.Sdk.Api
             return new OktaCollectionClient<InlineHook>(localVarRequestOptions, "/api/v1/inlineHooks", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
         }
         /// <summary>
-        /// List all Inline Hooks Success
+        /// List all Inline Hooks Lists all inline hooks
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InlineHook&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<InlineHook>>> ListInlineHooksWithHttpInfoAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<InlineHook>>> ListInlineHooksWithHttpInfoAsync(  string type = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -923,12 +924,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -953,27 +954,27 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Replace an Inline Hook Updates an inline hook by ID
+        /// Replace an Inline Hook Replaces an inline hook by &#x60;inlineHookId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="inlineHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineHook</returns>
-        public async System.Threading.Tasks.Task<InlineHook> UpdateInlineHookAsync(string inlineHookId, InlineHook inlineHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineHook> UpdateInlineHookAsync(  string inlineHookId ,   InlineHook inlineHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<InlineHook> localVarResponse = await UpdateInlineHookWithHttpInfoAsync(inlineHookId, inlineHook, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Replace an Inline Hook Updates an inline hook by ID
+        /// Replace an Inline Hook Replaces an inline hook by &#x60;inlineHookId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
         /// <param name="inlineHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineHook)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<InlineHook>> UpdateInlineHookWithHttpInfoAsync(string inlineHookId, InlineHook inlineHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<InlineHook>> UpdateInlineHookWithHttpInfoAsync(  string inlineHookId ,   InlineHook inlineHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'inlineHookId' is set
             if (inlineHookId == null)
@@ -1014,12 +1015,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
             localVarRequestOptions.Data = inlineHook;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "6.0.0-beta01";
+        public const string Version = "6.0.0-beta02";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -358,7 +358,7 @@ namespace Okta.Sdk.Client
         {
             Proxy = null;
             UserAgent = "/okta-sdk-dotnet/csharp/oasv3";
-            OktaDomain = "https://your-subdomain.okta.com";
+            OktaDomain = "https://subdomain.okta.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -366,43 +366,14 @@ namespace Okta.Sdk.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "https://{subdomain}.{domain}"},
+                        {"url", "https://{yourOktaDomain}"},
                         {"description", "No description provided"},
                         {
                             "variables", new Dictionary<string, object> {
                                 {
-                                    "subdomain", new Dictionary<string, object> {
-                                        {"description", "The subdomain of your organization"},
-                                        {"default_value", "your-subdomain"},
-                                    }
-                                },
-                                {
-                                    "domain", new Dictionary<string, object> {
-                                        {"description", "The okta domain of your organization."},
-                                        {"default_value", "okta.com"},
-                                        {
-                                            "enum_values", new List<string>() {
-                                                "okta.com",
-                                                "oktapreview.com",
-                                                "okta-emea.com"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                {
-                    new Dictionary<string, object> {
-                        {"url", "https://{customDomain}"},
-                        {"description", "No description provided"},
-                        {
-                            "variables", new Dictionary<string, object> {
-                                {
-                                    "customDomain", new Dictionary<string, object> {
-                                        {"description", "The custom domain configured for your organization"},
-                                        {"default_value", "auth.your-custom-domain.com"},
+                                    "yourOktaDomain", new Dictionary<string, object> {
+                                        {"description", "The domain of your organization. This can be a provided subdomain of an official okta domain (okta.com, oktapreview.com, etc) or one of your configured custom domains."},
+                                        {"default_value", "subdomain.okta.com"},
                                     }
                                 }
                             }
@@ -424,7 +395,7 @@ namespace Okta.Sdk.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string oktaDomain = "https://your-subdomain.okta.com") : this()
+            string oktaDomain = "https://subdomain.okta.com") : this()
         {
             if (string.IsNullOrWhiteSpace(oktaDomain))
                 throw new ArgumentException("The provided oktaDomain is invalid.", "oktaDomain");
@@ -757,7 +728,7 @@ namespace Okta.Sdk.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 3.0.0\n";
-            report += "    SDK Package Version: 6.0.0-beta01\n";
+            report += "    SDK Package Version: 6.0.0-beta02\n";
 
             return report;
         }

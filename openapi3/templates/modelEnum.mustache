@@ -15,18 +15,34 @@
     {{/-first}}
     {{/enumVars}}
     {{/allowableValues}}
-    {{>visibility}} enum {{datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}{{#vendorExtensions.x-enum-byte}}: byte{{/vendorExtensions.x-enum-byte}}
+
+    /// <summary>
+    /// An enumeration of {{classname}} values in the Okta API.
+    /// </summary>
+    public sealed class {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} : StringEnum
     {
         {{#allowableValues}}
         {{#enumVars}}
-        /// <summary>
-        /// Enum {{name}} for value: {{value}}
+         /// <summary>
+        /// StringEnum {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} for value: {{{value}}}
         /// </summary>
-        {{#isString}}
-        [EnumMember(Value = "{{{value}}}")]
-        {{/isString}}
-        {{name}}{{^isString}} = {{{value}}}{{/isString}}{{#isString}} = {{-index}}{{/isString}}{{^-last}},{{/-last}}
-
+        public static {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} {{{name}}} = new {{datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}("{{value}}");
         {{/enumVars}}
         {{/allowableValues}}
-    }{{! NOTE: This model's enumVars is modified to look like CodegenProperty}}
+
+        /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="{{memberName}}"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}(string value) => new {{datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}(value);
+
+        /// <summary>
+        /// Creates a new <see cref="{{name}}"/> instance.
+        /// </summary>
+        /// <param name="value">The value to use.</param>
+        public {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}(string value)
+            : base(value)
+        {
+        }
+    }
+

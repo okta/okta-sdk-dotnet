@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -48,18 +48,19 @@ namespace Okta.Sdk.Model
     
     public partial class PushUserFactor : UserFactor, IEquatable<PushUserFactor>
     {
+
+        /// <summary>
+        /// Gets or Sets FactorResult
+        /// </summary>
+        [DataMember(Name = "factorResult", EmitDefaultValue = false)]
+        
+        public FactorResultType FactorResult { get; set; }
         
         /// <summary>
         /// Gets or Sets ExpiresAt
         /// </summary>
         [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
         public DateTimeOffset ExpiresAt { get; set; }
-
-        /// <summary>
-        /// Gets or Sets FactorResult
-        /// </summary>
-        [DataMember(Name = "factorResult", EmitDefaultValue = false)]
-        public string FactorResult { get; set; }
 
         /// <summary>
         /// Gets or Sets Profile
@@ -121,8 +122,7 @@ namespace Okta.Sdk.Model
                 ) && base.Equals(input) && 
                 (
                     this.FactorResult == input.FactorResult ||
-                    (this.FactorResult != null &&
-                    this.FactorResult.Equals(input.FactorResult))
+                    this.FactorResult.Equals(input.FactorResult)
                 ) && base.Equals(input) && 
                 (
                     this.Profile == input.Profile ||
@@ -145,10 +145,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ExpiresAt.GetHashCode();
                 }
-                if (this.FactorResult != null)
-                {
-                    hashCode = (hashCode * 59) + this.FactorResult.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.FactorResult.GetHashCode();
                 if (this.Profile != null)
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();

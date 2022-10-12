@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="bouncesRemoveListObj"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BouncesRemoveListResult</returns>
-        System.Threading.Tasks.Task<BouncesRemoveListResult> BulkRemoveEmailAddressBouncesAsync(BouncesRemoveListObj bouncesRemoveListObj = default(BouncesRemoveListObj), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BouncesRemoveListResult> BulkRemoveEmailAddressBouncesAsync(  BouncesRemoveListObj bouncesRemoveListObj = default(BouncesRemoveListObj) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Remove Emails from Email Provider Bounce List
         /// </summary>
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <param name="bouncesRemoveListObj"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BouncesRemoveListResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BouncesRemoveListResult>> BulkRemoveEmailAddressBouncesWithHttpInfoAsync(BouncesRemoveListObj bouncesRemoveListObj = default(BouncesRemoveListObj), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BouncesRemoveListResult>> BulkRemoveEmailAddressBouncesWithHttpInfoAsync(  BouncesRemoveListObj bouncesRemoveListObj = default(BouncesRemoveListObj) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Extend Okta Support Access
         /// </summary>
@@ -120,7 +120,7 @@ namespace Okta.Sdk.Api
         /// <param name="contactType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgContactUser</returns>
-        System.Threading.Tasks.Task<OrgContactUser> GetOrgContactUserAsync(string contactType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OrgContactUser> GetOrgContactUserAsync(  string contactType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the User of the Contact Type
         /// </summary>
@@ -131,7 +131,7 @@ namespace Okta.Sdk.Api
         /// <param name="contactType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrgContactUser)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrgContactUser>> GetOrgContactUserWithHttpInfoAsync(string contactType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<OrgContactUser>> GetOrgContactUserWithHttpInfoAsync(  string contactType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the Okta Support Settings
         /// </summary>
@@ -282,7 +282,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgSetting"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgSetting</returns>
-        System.Threading.Tasks.Task<OrgSetting> PartialUpdateOrgSettingAsync(OrgSetting orgSetting = default(OrgSetting), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OrgSetting> PartialUpdateOrgSettingAsync(  OrgSetting orgSetting = default(OrgSetting) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update the Org Settings
         /// </summary>
@@ -293,7 +293,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgSetting"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrgSetting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrgSetting>> PartialUpdateOrgSettingWithHttpInfoAsync(OrgSetting orgSetting = default(OrgSetting), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<OrgSetting>> PartialUpdateOrgSettingWithHttpInfoAsync(  OrgSetting orgSetting = default(OrgSetting) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Revoke Okta Support Access
         /// </summary>
@@ -345,7 +345,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgContactUser"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgContactUser</returns>
-        System.Threading.Tasks.Task<OrgContactUser> UpdateOrgContactUserAsync(string contactType, OrgContactUser orgContactUser, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OrgContactUser> UpdateOrgContactUserAsync(  string contactType ,   OrgContactUser orgContactUser , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace the User of the Contact Type
         /// </summary>
@@ -357,7 +357,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgContactUser"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrgContactUser)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrgContactUser>> UpdateOrgContactUserWithHttpInfoAsync(string contactType, OrgContactUser orgContactUser, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<OrgContactUser>> UpdateOrgContactUserWithHttpInfoAsync(  string contactType ,   OrgContactUser orgContactUser , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Upload the Org Logo
         /// </summary>
@@ -368,7 +368,7 @@ namespace Okta.Sdk.Api
         /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateOrgLogoAsync(System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UpdateOrgLogoAsync(  System.IO.Stream file , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Upload the Org Logo
         /// </summary>
@@ -379,7 +379,7 @@ namespace Okta.Sdk.Api
         /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateOrgLogoWithHttpInfoAsync(System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateOrgLogoWithHttpInfoAsync(  System.IO.Stream file , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace the Org Settings
         /// </summary>
@@ -390,7 +390,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgSetting"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgSetting</returns>
-        System.Threading.Tasks.Task<OrgSetting> UpdateOrgSettingAsync(OrgSetting orgSetting, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OrgSetting> UpdateOrgSettingAsync(  OrgSetting orgSetting , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace the Org Settings
         /// </summary>
@@ -401,7 +401,27 @@ namespace Okta.Sdk.Api
         /// <param name="orgSetting"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrgSetting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrgSetting>> UpdateOrgSettingWithHttpInfoAsync(OrgSetting orgSetting, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<OrgSetting>> UpdateOrgSettingWithHttpInfoAsync(  OrgSetting orgSetting , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve the Well-Known Org Metadata
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of WellKnownOrgMetadata</returns>
+        System.Threading.Tasks.Task<WellKnownOrgMetadata> WellknownOrgMetadataAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve the Well-Known Org Metadata
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (WellKnownOrgMetadata)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WellKnownOrgMetadata>> WellknownOrgMetadataWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -514,7 +534,7 @@ namespace Okta.Sdk.Api
         /// <param name="bouncesRemoveListObj"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BouncesRemoveListResult</returns>
-        public async System.Threading.Tasks.Task<BouncesRemoveListResult> BulkRemoveEmailAddressBouncesAsync(BouncesRemoveListObj bouncesRemoveListObj = default(BouncesRemoveListObj), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BouncesRemoveListResult> BulkRemoveEmailAddressBouncesAsync(  BouncesRemoveListObj bouncesRemoveListObj = default(BouncesRemoveListObj) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<BouncesRemoveListResult> localVarResponse = await BulkRemoveEmailAddressBouncesWithHttpInfoAsync(bouncesRemoveListObj, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -526,7 +546,7 @@ namespace Okta.Sdk.Api
         /// <param name="bouncesRemoveListObj"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BouncesRemoveListResult)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<BouncesRemoveListResult>> BulkRemoveEmailAddressBouncesWithHttpInfoAsync(BouncesRemoveListObj bouncesRemoveListObj = default(BouncesRemoveListObj), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<BouncesRemoveListResult>> BulkRemoveEmailAddressBouncesWithHttpInfoAsync(  BouncesRemoveListObj bouncesRemoveListObj = default(BouncesRemoveListObj) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -554,12 +574,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = bouncesRemoveListObj;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -630,12 +650,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -706,12 +726,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -745,6 +765,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OrgContactTypeObj&gt;</returns>
+        //a
         public IOktaCollectionClient<OrgContactTypeObj> GetOrgContactTypes(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
@@ -771,12 +792,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -819,12 +840,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -855,7 +876,7 @@ namespace Okta.Sdk.Api
         /// <param name="contactType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgContactUser</returns>
-        public async System.Threading.Tasks.Task<OrgContactUser> GetOrgContactUserAsync(string contactType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OrgContactUser> GetOrgContactUserAsync(  string contactType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<OrgContactUser> localVarResponse = await GetOrgContactUserWithHttpInfoAsync(contactType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -867,7 +888,7 @@ namespace Okta.Sdk.Api
         /// <param name="contactType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrgContactUser)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<OrgContactUser>> GetOrgContactUserWithHttpInfoAsync(string contactType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<OrgContactUser>> GetOrgContactUserWithHttpInfoAsync(  string contactType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'contactType' is set
             if (contactType == null)
@@ -900,12 +921,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("contactType", Okta.Sdk.Client.ClientUtils.ParameterToString(contactType)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -976,12 +997,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1052,12 +1073,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1128,12 +1149,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1204,12 +1225,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1280,12 +1301,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1356,12 +1377,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1432,12 +1453,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1472,7 +1493,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgSetting"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgSetting</returns>
-        public async System.Threading.Tasks.Task<OrgSetting> PartialUpdateOrgSettingAsync(OrgSetting orgSetting = default(OrgSetting), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OrgSetting> PartialUpdateOrgSettingAsync(  OrgSetting orgSetting = default(OrgSetting) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<OrgSetting> localVarResponse = await PartialUpdateOrgSettingWithHttpInfoAsync(orgSetting, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1484,7 +1505,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgSetting"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrgSetting)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<OrgSetting>> PartialUpdateOrgSettingWithHttpInfoAsync(OrgSetting orgSetting = default(OrgSetting), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<OrgSetting>> PartialUpdateOrgSettingWithHttpInfoAsync(  OrgSetting orgSetting = default(OrgSetting) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -1512,12 +1533,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = orgSetting;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1588,12 +1609,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1664,12 +1685,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1705,7 +1726,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgContactUser"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgContactUser</returns>
-        public async System.Threading.Tasks.Task<OrgContactUser> UpdateOrgContactUserAsync(string contactType, OrgContactUser orgContactUser, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OrgContactUser> UpdateOrgContactUserAsync(  string contactType ,   OrgContactUser orgContactUser , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<OrgContactUser> localVarResponse = await UpdateOrgContactUserWithHttpInfoAsync(contactType, orgContactUser, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1718,7 +1739,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgContactUser"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrgContactUser)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<OrgContactUser>> UpdateOrgContactUserWithHttpInfoAsync(string contactType, OrgContactUser orgContactUser, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<OrgContactUser>> UpdateOrgContactUserWithHttpInfoAsync(  string contactType ,   OrgContactUser orgContactUser , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'contactType' is set
             if (contactType == null)
@@ -1759,12 +1780,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("contactType", Okta.Sdk.Client.ClientUtils.ParameterToString(contactType)); // path parameter
             localVarRequestOptions.Data = orgContactUser;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1799,7 +1820,7 @@ namespace Okta.Sdk.Api
         /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateOrgLogoAsync(System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateOrgLogoAsync(  System.IO.Stream file , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await UpdateOrgLogoWithHttpInfoAsync(file, cancellationToken).ConfigureAwait(false);
         }
@@ -1810,7 +1831,7 @@ namespace Okta.Sdk.Api
         /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> UpdateOrgLogoWithHttpInfoAsync(System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> UpdateOrgLogoWithHttpInfoAsync(  System.IO.Stream file , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'file' is set
             if (file == null)
@@ -1844,12 +1865,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.FileParameters.Add("file", file);
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1884,7 +1905,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgSetting"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgSetting</returns>
-        public async System.Threading.Tasks.Task<OrgSetting> UpdateOrgSettingAsync(OrgSetting orgSetting, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OrgSetting> UpdateOrgSettingAsync(  OrgSetting orgSetting , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<OrgSetting> localVarResponse = await UpdateOrgSettingWithHttpInfoAsync(orgSetting, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1896,7 +1917,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgSetting"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrgSetting)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<OrgSetting>> UpdateOrgSettingWithHttpInfoAsync(OrgSetting orgSetting, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<OrgSetting>> UpdateOrgSettingWithHttpInfoAsync(  OrgSetting orgSetting , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'orgSetting' is set
             if (orgSetting == null)
@@ -1930,12 +1951,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = orgSetting;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1954,6 +1975,65 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateOrgSetting", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve the Well-Known Org Metadata Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of WellKnownOrgMetadata</returns>
+        public async System.Threading.Tasks.Task<WellKnownOrgMetadata> WellknownOrgMetadataAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<WellKnownOrgMetadata> localVarResponse = await WellknownOrgMetadataWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Retrieve the Well-Known Org Metadata Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (WellKnownOrgMetadata)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<WellKnownOrgMetadata>> WellknownOrgMetadataWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<WellKnownOrgMetadata>("/.well-known/okta-organization", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("WellknownOrgMetadata", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -87,14 +87,14 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var defaultLogo = createdApp.Links["logo"].ToString();
+                var defaultLogo = createdApp.Links.Logo.ToString();
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Assets/okta_logo_white.png");
                 var file = File.OpenRead(filePath);
 
                 await _applicationApi.UploadApplicationLogoAsync(createdApp.Id, file);
 
                 var retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id) as BookmarkApplication;
-                var updatedLogo = retrievedApp.Links["logo"].ToString();
+                var updatedLogo = retrievedApp.Links.Logo.ToString();
                 defaultLogo.Should().NotBeEquivalentTo(updatedLogo);
 
             }
@@ -180,7 +180,7 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         ClientUri = "https://example.com/client",
                         LogoUri = "https://example.com/assets/images/logo-new.png",
-                        ResponseTypes = new List<string>
+                        ResponseTypes = new List<OAuthResponseType>
                         {
                             "token",
                             "id_token",
@@ -196,7 +196,7 @@ namespace Okta.Sdk.IntegrationTest
                             "https://example.com/postlogout",
                             "myapp://postlogoutcallback",
                         },
-                        GrantTypes = new List<string>
+                        GrantTypes = new List<OAuthGrantType>
                         {
                             "implicit",
                             "authorization_code",
@@ -688,7 +688,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "template_basic_auth",
                 Label = $"dotnet-sdk: ActivateApplication {Guid.NewGuid()}",
-                SignOnMode = "BASICAUTH",
+                SignOnMode = ApplicationSignOnMode.BASICAUTH,
                 Settings = new BasicApplicationSettings
                 {
                     App = new BasicApplicationSettingsApplication
@@ -703,11 +703,11 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 var retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
-                retrievedApp.Status.Should().Be("INACTIVE");
+                retrievedApp.Status.Should().Be(ApplicationLifecycleStatus.INACTIVE);
 
                 await _applicationApi.ActivateApplicationAsync(createdApp.Id);
                 retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
-                retrievedApp.Status.Should().Be("ACTIVE");
+                retrievedApp.Status.ToString().Should().Be("ACTIVE");
             }
             finally
             {
@@ -1809,7 +1809,7 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         ClientUri = "https://example.com/client",
                         LogoUri = "https://example.com/assets/images/logo-new.png",
-                        ResponseTypes = new List<string>
+                        ResponseTypes = new List<OAuthResponseType>
                         {
                             "token",
                             "id_token",
@@ -1825,7 +1825,7 @@ namespace Okta.Sdk.IntegrationTest
                             "https://example.com/postlogout",
                             "myapp://postlogoutcallback",
                         },
-                        GrantTypes = new List<string>
+                        GrantTypes = new List<OAuthGrantType>
                         {
                             "implicit",
                             "authorization_code",
@@ -1891,7 +1891,7 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         ClientUri = "https://example.com/client",
                         LogoUri = "https://example.com/assets/images/logo-new.png",
-                        ResponseTypes = new List<string>
+                        ResponseTypes = new List<OAuthResponseType>
                         {
                             "token",
                             "id_token",
@@ -1907,7 +1907,7 @@ namespace Okta.Sdk.IntegrationTest
                             "https://example.com/postlogout",
                             "myapp://postlogoutcallback",
                         },
-                        GrantTypes = new List<string>
+                        GrantTypes = new List<OAuthGrantType>
                         {
                             "implicit",
                             "authorization_code",
@@ -1978,7 +1978,7 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         ClientUri = "https://example.com/client",
                         LogoUri = "https://example.com/assets/images/logo-new.png",
-                        ResponseTypes = new List<string>
+                        ResponseTypes = new List<OAuthResponseType>
                         {
                             "token",
                             "id_token",
@@ -1994,7 +1994,7 @@ namespace Okta.Sdk.IntegrationTest
                             "https://example.com/postlogout",
                             "myapp://postlogoutcallback",
                         },
-                        GrantTypes = new List<string>
+                        GrantTypes = new List<OAuthGrantType>
                         {
                             "implicit",
                             "authorization_code",
@@ -2053,7 +2053,7 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         ClientUri = "https://example.com/client",
                         LogoUri = "https://example.com/assets/images/logo-new.png",
-                        ResponseTypes = new List<string>
+                        ResponseTypes = new List<OAuthResponseType>
                         {
                             "code",
                         },
@@ -2063,7 +2063,7 @@ namespace Okta.Sdk.IntegrationTest
                             "myapp://callback",
                         },
                         
-                        GrantTypes = new List<string>
+                        GrantTypes = new List<OAuthGrantType>
                         {
                             "authorization_code",
                             "client_credentials",
@@ -2113,7 +2113,7 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         ClientUri = "https://example.com/client",
                         LogoUri = "https://example.com/assets/images/logo-new.png",
-                        ResponseTypes = new List<string>
+                        ResponseTypes = new List<OAuthResponseType>
                         {
                             "code",
                         },
@@ -2123,7 +2123,7 @@ namespace Okta.Sdk.IntegrationTest
                             "myapp://callback",
                         },
 
-                        GrantTypes = new List<string>
+                        GrantTypes = new List<OAuthGrantType>
                         {
                             "authorization_code",
                             "client_credentials",

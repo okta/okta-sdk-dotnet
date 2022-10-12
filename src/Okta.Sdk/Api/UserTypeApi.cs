@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="userType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserType</returns>
-        System.Threading.Tasks.Task<UserType> CreateUserTypeAsync(UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserType> CreateUserTypeAsync(  UserType userType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a User Type
         /// </summary>
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <param name="userType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserType>> CreateUserTypeWithHttpInfoAsync(UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UserType>> CreateUserTypeWithHttpInfoAsync(  UserType userType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a User Type
         /// </summary>
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         /// <param name="typeId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteUserTypeAsync(string typeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteUserTypeAsync(  string typeId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a User Type
         /// </summary>
@@ -71,7 +71,7 @@ namespace Okta.Sdk.Api
         /// <param name="typeId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUserTypeWithHttpInfoAsync(string typeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUserTypeWithHttpInfoAsync(  string typeId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a User Type
         /// </summary>
@@ -82,7 +82,7 @@ namespace Okta.Sdk.Api
         /// <param name="typeId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserType</returns>
-        System.Threading.Tasks.Task<UserType> GetUserTypeAsync(string typeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserType> GetUserTypeAsync(  string typeId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a User Type
         /// </summary>
@@ -93,7 +93,7 @@ namespace Okta.Sdk.Api
         /// <param name="typeId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserType>> GetUserTypeWithHttpInfoAsync(string typeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UserType>> GetUserTypeWithHttpInfoAsync(  string typeId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all User Types
         /// </summary>
@@ -125,7 +125,7 @@ namespace Okta.Sdk.Api
         /// <param name="userType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserType</returns>
-        System.Threading.Tasks.Task<UserType> ReplaceUserTypeAsync(string typeId, UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserType> ReplaceUserTypeAsync(  string typeId ,   UserType userType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a User Type
         /// </summary>
@@ -137,7 +137,7 @@ namespace Okta.Sdk.Api
         /// <param name="userType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserType>> ReplaceUserTypeWithHttpInfoAsync(string typeId, UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UserType>> ReplaceUserTypeWithHttpInfoAsync(  string typeId ,   UserType userType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update a User Type
         /// </summary>
@@ -149,7 +149,7 @@ namespace Okta.Sdk.Api
         /// <param name="userType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserType</returns>
-        System.Threading.Tasks.Task<UserType> UpdateUserTypeAsync(string typeId, UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserType> UpdateUserTypeAsync(  string typeId ,   UserType userType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update a User Type
         /// </summary>
@@ -161,7 +161,7 @@ namespace Okta.Sdk.Api
         /// <param name="userType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserType>> UpdateUserTypeWithHttpInfoAsync(string typeId, UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UserType>> UpdateUserTypeWithHttpInfoAsync(  string typeId ,   UserType userType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -274,7 +274,7 @@ namespace Okta.Sdk.Api
         /// <param name="userType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserType</returns>
-        public async System.Threading.Tasks.Task<UserType> CreateUserTypeAsync(UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UserType> CreateUserTypeAsync(  UserType userType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<UserType> localVarResponse = await CreateUserTypeWithHttpInfoAsync(userType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -286,7 +286,7 @@ namespace Okta.Sdk.Api
         /// <param name="userType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserType)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserType>> CreateUserTypeWithHttpInfoAsync(UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserType>> CreateUserTypeWithHttpInfoAsync(  UserType userType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userType' is set
             if (userType == null)
@@ -320,12 +320,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = userType;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -360,7 +360,7 @@ namespace Okta.Sdk.Api
         /// <param name="typeId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteUserTypeAsync(string typeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteUserTypeAsync(  string typeId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteUserTypeWithHttpInfoAsync(typeId, cancellationToken).ConfigureAwait(false);
         }
@@ -371,7 +371,7 @@ namespace Okta.Sdk.Api
         /// <param name="typeId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteUserTypeWithHttpInfoAsync(string typeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteUserTypeWithHttpInfoAsync(  string typeId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'typeId' is set
             if (typeId == null)
@@ -404,12 +404,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("typeId", Okta.Sdk.Client.ClientUtils.ParameterToString(typeId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -444,7 +444,7 @@ namespace Okta.Sdk.Api
         /// <param name="typeId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserType</returns>
-        public async System.Threading.Tasks.Task<UserType> GetUserTypeAsync(string typeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UserType> GetUserTypeAsync(  string typeId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<UserType> localVarResponse = await GetUserTypeWithHttpInfoAsync(typeId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -456,7 +456,7 @@ namespace Okta.Sdk.Api
         /// <param name="typeId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserType)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserType>> GetUserTypeWithHttpInfoAsync(string typeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserType>> GetUserTypeWithHttpInfoAsync(  string typeId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'typeId' is set
             if (typeId == null)
@@ -489,12 +489,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("typeId", Okta.Sdk.Client.ClientUtils.ParameterToString(typeId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -528,6 +528,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserType&gt;</returns>
+        //a
         public IOktaCollectionClient<UserType> ListUserTypes(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
@@ -554,12 +555,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -602,12 +603,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -639,7 +640,7 @@ namespace Okta.Sdk.Api
         /// <param name="userType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserType</returns>
-        public async System.Threading.Tasks.Task<UserType> ReplaceUserTypeAsync(string typeId, UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UserType> ReplaceUserTypeAsync(  string typeId ,   UserType userType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<UserType> localVarResponse = await ReplaceUserTypeWithHttpInfoAsync(typeId, userType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -652,7 +653,7 @@ namespace Okta.Sdk.Api
         /// <param name="userType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserType)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserType>> ReplaceUserTypeWithHttpInfoAsync(string typeId, UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserType>> ReplaceUserTypeWithHttpInfoAsync(  string typeId ,   UserType userType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'typeId' is set
             if (typeId == null)
@@ -693,12 +694,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("typeId", Okta.Sdk.Client.ClientUtils.ParameterToString(typeId)); // path parameter
             localVarRequestOptions.Data = userType;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -734,7 +735,7 @@ namespace Okta.Sdk.Api
         /// <param name="userType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserType</returns>
-        public async System.Threading.Tasks.Task<UserType> UpdateUserTypeAsync(string typeId, UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UserType> UpdateUserTypeAsync(  string typeId ,   UserType userType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<UserType> localVarResponse = await UpdateUserTypeWithHttpInfoAsync(typeId, userType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -747,7 +748,7 @@ namespace Okta.Sdk.Api
         /// <param name="userType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserType)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserType>> UpdateUserTypeWithHttpInfoAsync(string typeId, UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserType>> UpdateUserTypeWithHttpInfoAsync(  string typeId ,   UserType userType , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'typeId' is set
             if (typeId == null)
@@ -788,12 +789,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("typeId", Okta.Sdk.Client.ClientUtils.ParameterToString(typeId)); // path parameter
             localVarRequestOptions.Data = userType;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

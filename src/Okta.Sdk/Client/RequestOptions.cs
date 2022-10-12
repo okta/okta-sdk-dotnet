@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -53,6 +53,16 @@ namespace Okta.Sdk.Client
         /// Cookies to be sent along with the request.
         /// </summary>
         public List<Cookie> Cookies { get; set; }
+
+        /// <summary>
+        /// Operation associated with the request path.
+        /// </summary>
+        public string Operation { get; set; }
+
+        /// <summary>
+        /// Index associated with the operation.
+        /// </summary>
+        public int OperationIndex { get; set; }
 
         /// <summary>
         /// Any data associated with a request body.

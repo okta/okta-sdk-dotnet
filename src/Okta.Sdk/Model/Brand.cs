@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -74,6 +74,26 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
+        /// Gets or Sets IsDefault
+        /// </summary>
+        [DataMember(Name = "isDefault", EmitDefaultValue = true)]
+        public bool IsDefault { get; private set; }
+
+        /// <summary>
+        /// Returns false as IsDefault should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeIsDefault()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
+
+        /// <summary>
         /// Gets or Sets OptOutOfUserCommunications
         /// </summary>
         [DataMember(Name = "optOutOfUserCommunications", EmitDefaultValue = true)]
@@ -89,16 +109,8 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "_links", EmitDefaultValue = false)]
-        public Dictionary<string, Object> Links { get; private set; }
+        public BrandLinks Links { get; set; }
 
-        /// <summary>
-        /// Returns false as Links should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeLinks()
-        {
-            return false;
-        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -112,6 +124,8 @@ namespace Okta.Sdk.Model
             sb.Append("  DefaultApp: ").Append(DefaultApp).Append("\n");
             sb.Append("  DisplayLanguage: ").Append(DisplayLanguage).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  OptOutOfUserCommunications: ").Append(OptOutOfUserCommunications).Append("\n");
             sb.Append("  RemovePoweredByOkta: ").Append(RemovePoweredByOkta).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -175,6 +189,15 @@ namespace Okta.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
+                    this.IsDefault == input.IsDefault ||
+                    this.IsDefault.Equals(input.IsDefault)
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
                     this.OptOutOfUserCommunications == input.OptOutOfUserCommunications ||
                     this.OptOutOfUserCommunications.Equals(input.OptOutOfUserCommunications)
                 ) && 
@@ -184,9 +207,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Links == input.Links ||
-                    this.Links != null &&
-                    input.Links != null &&
-                    this.Links.SequenceEqual(input.Links)
+                    (this.Links != null &&
+                    this.Links.Equals(input.Links))
                 );
         }
 
@@ -216,6 +238,11 @@ namespace Okta.Sdk.Model
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsDefault.GetHashCode();
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.OptOutOfUserCommunications.GetHashCode();
                 hashCode = (hashCode * 59) + this.RemovePoweredByOkta.GetHashCode();

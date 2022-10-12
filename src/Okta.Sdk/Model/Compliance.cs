@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,14 @@ namespace Okta.Sdk.Model
     
     public partial class Compliance : IEquatable<Compliance>
     {
-        
+
         /// <summary>
         /// Gets or Sets Fips
         /// </summary>
         [DataMember(Name = "fips", EmitDefaultValue = false)]
-        public string Fips { get; set; }
-
+        
+        public FipsEnum Fips { get; set; }
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -86,8 +87,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Fips == input.Fips ||
-                    (this.Fips != null &&
-                    this.Fips.Equals(input.Fips))
+                    this.Fips.Equals(input.Fips)
                 );
         }
 
@@ -101,10 +101,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Fips != null)
-                {
-                    hashCode = (hashCode * 59) + this.Fips.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Fips.GetHashCode();
                 return hashCode;
             }
         }

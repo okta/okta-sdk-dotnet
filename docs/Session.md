@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amr** | **List&lt;string&gt;** |  | [optional] [readonly] 
+**Amr** | [**List&lt;SessionAuthenticationMethod&gt;**](SessionAuthenticationMethod.md) |  | [optional] [readonly] 
 **CreatedAt** | **DateTimeOffset** |  | [optional] [readonly] 
 **ExpiresAt** | **DateTimeOffset** |  | [optional] [readonly] 
 **Id** | **string** |  | [optional] [readonly] 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **LastFactorVerification** | **DateTimeOffset** |  | [optional] [readonly] 
 **LastPasswordVerification** | **DateTimeOffset** |  | [optional] [readonly] 
 **Login** | **string** |  | [optional] [readonly] 
-**Status** | **string** |  | [optional] 
+**Status** | **SessionStatus** |  | [optional] 
 **UserId** | **string** |  | [optional] [readonly] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 

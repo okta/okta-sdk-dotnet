@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
 **SignOnModes** | **List&lt;string&gt;** |  | [optional] 
-**Status** | **string** |  | [optional] 
+**Status** | **CatalogApplicationStatus** |  | [optional] 
 **VerificationStatus** | **string** |  | [optional] 
 **Website** | **string** |  | [optional] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 

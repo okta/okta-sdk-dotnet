@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,28 @@ namespace Okta.Sdk.Model
     
     public partial class Role : IEquatable<Role>
     {
-        
+
         /// <summary>
         /// Gets or Sets AssignmentType
         /// </summary>
         [DataMember(Name = "assignmentType", EmitDefaultValue = false)]
-        public string AssignmentType { get; set; }
+        
+        public RoleAssignmentType AssignmentType { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        
+        public LifecycleStatus Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        
+        public RoleType Type { get; set; }
+        
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
@@ -102,18 +117,6 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string Status { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
-
         /// <summary>
         /// Gets or Sets Embedded
         /// </summary>
@@ -197,8 +200,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.AssignmentType == input.AssignmentType ||
-                    (this.AssignmentType != null &&
-                    this.AssignmentType.Equals(input.AssignmentType))
+                    this.AssignmentType.Equals(input.AssignmentType)
                 ) && 
                 (
                     this.Created == input.Created ||
@@ -227,13 +229,11 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status.Equals(input.Status)
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
                     this.Embedded == input.Embedded ||
@@ -259,10 +259,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.AssignmentType != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssignmentType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.AssignmentType.GetHashCode();
                 if (this.Created != null)
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();
@@ -283,14 +280,8 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.LastUpdated.GetHashCode();
                 }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 if (this.Embedded != null)
                 {
                     hashCode = (hashCode * 59) + this.Embedded.GetHashCode();

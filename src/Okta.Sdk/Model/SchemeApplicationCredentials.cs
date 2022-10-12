@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,13 @@ namespace Okta.Sdk.Model
     
     public partial class SchemeApplicationCredentials : IEquatable<SchemeApplicationCredentials>
     {
+
+        /// <summary>
+        /// Gets or Sets Scheme
+        /// </summary>
+        [DataMember(Name = "scheme", EmitDefaultValue = false)]
+        
+        public ApplicationCredentialsScheme Scheme { get; set; }
         
         /// <summary>
         /// Gets or Sets Signing
@@ -57,12 +64,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "revealPassword", EmitDefaultValue = true)]
         public bool RevealPassword { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Scheme
-        /// </summary>
-        [DataMember(Name = "scheme", EmitDefaultValue = false)]
-        public string Scheme { get; set; }
 
         /// <summary>
         /// Gets or Sets UserName
@@ -140,8 +141,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Scheme == input.Scheme ||
-                    (this.Scheme != null &&
-                    this.Scheme.Equals(input.Scheme))
+                    this.Scheme.Equals(input.Scheme)
                 ) && 
                 (
                     this.UserName == input.UserName ||
@@ -173,10 +173,7 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Password.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.RevealPassword.GetHashCode();
-                if (this.Scheme != null)
-                {
-                    hashCode = (hashCode * 59) + this.Scheme.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Scheme.GetHashCode();
                 if (this.UserName != null)
                 {
                     hashCode = (hashCode * 59) + this.UserName.GetHashCode();

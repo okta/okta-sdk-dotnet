@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="GroupScenarios.cs" />
+    <Compile Remove="IdentityProvidersScenarios.cs" />
+    <Compile Remove="OAuthScenarios.cs" />
+    <Compile Remove="SchemaScenarios.cs" />
+    <Compile Remove="UserScenarios.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="6.6.0" />
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />

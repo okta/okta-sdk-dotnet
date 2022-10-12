@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
 **Priority** | **int** |  | [optional] 
-**Status** | **string** |  | [optional] 
+**Status** | **LifecycleStatus** |  | [optional] 
 **System** | **bool** |  | [optional] [default to false]
-**Type** | **string** |  | [optional] 
+**Type** | **PolicyRuleType** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

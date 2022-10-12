@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,24 +33,26 @@ namespace Okta.Sdk.Model
     
     public partial class OktaSignOnPolicyRuleSignonActions : IEquatable<OktaSignOnPolicyRuleSignonActions>
     {
-        
+
         /// <summary>
         /// Gets or Sets Access
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
-        public string Access { get; set; }
-
-        /// <summary>
-        /// Gets or Sets FactorLifetime
-        /// </summary>
-        [DataMember(Name = "factorLifetime", EmitDefaultValue = false)]
-        public int FactorLifetime { get; set; }
+        
+        public PolicyAccess Access { get; set; }
 
         /// <summary>
         /// Gets or Sets FactorPromptMode
         /// </summary>
         [DataMember(Name = "factorPromptMode", EmitDefaultValue = false)]
-        public string FactorPromptMode { get; set; }
+        
+        public OktaSignOnPolicyFactorPromptMode FactorPromptMode { get; set; }
+        
+        /// <summary>
+        /// Gets or Sets FactorLifetime
+        /// </summary>
+        [DataMember(Name = "factorLifetime", EmitDefaultValue = false)]
+        public int FactorLifetime { get; set; }
 
         /// <summary>
         /// Gets or Sets RememberDeviceByDefault
@@ -121,8 +123,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Access == input.Access ||
-                    (this.Access != null &&
-                    this.Access.Equals(input.Access))
+                    this.Access.Equals(input.Access)
                 ) && 
                 (
                     this.FactorLifetime == input.FactorLifetime ||
@@ -130,8 +131,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.FactorPromptMode == input.FactorPromptMode ||
-                    (this.FactorPromptMode != null &&
-                    this.FactorPromptMode.Equals(input.FactorPromptMode))
+                    this.FactorPromptMode.Equals(input.FactorPromptMode)
                 ) && 
                 (
                     this.RememberDeviceByDefault == input.RememberDeviceByDefault ||
@@ -158,15 +158,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Access != null)
-                {
-                    hashCode = (hashCode * 59) + this.Access.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Access.GetHashCode();
                 hashCode = (hashCode * 59) + this.FactorLifetime.GetHashCode();
-                if (this.FactorPromptMode != null)
-                {
-                    hashCode = (hashCode * 59) + this.FactorPromptMode.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.FactorPromptMode.GetHashCode();
                 hashCode = (hashCode * 59) + this.RememberDeviceByDefault.GetHashCode();
                 hashCode = (hashCode * 59) + this.RequireFactor.GetHashCode();
                 if (this.Session != null)

@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,14 +33,21 @@ namespace Okta.Sdk.Model
     
     public partial class AgentPoolUpdateSetting : IEquatable<AgentPoolUpdateSetting>
     {
-        
-        /// <summary>
-        /// Agent types that are being monitored
-        /// </summary>
-        /// <value>Agent types that are being monitored</value>
-        [DataMember(Name = "agentType", EmitDefaultValue = false)]
-        public string AgentType { get; set; }
 
+        /// <summary>
+        /// Gets or Sets AgentType
+        /// </summary>
+        [DataMember(Name = "agentType", EmitDefaultValue = false)]
+        
+        public AgentType AgentType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReleaseChannel
+        /// </summary>
+        [DataMember(Name = "releaseChannel", EmitDefaultValue = false)]
+        
+        public ReleaseChannel ReleaseChannel { get; set; }
+        
         /// <summary>
         /// Gets or Sets ContinueOnError
         /// </summary>
@@ -78,13 +85,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "poolName", EmitDefaultValue = false)]
         public string PoolName { get; set; }
-
-        /// <summary>
-        /// Release channel for auto-update
-        /// </summary>
-        /// <value>Release channel for auto-update</value>
-        [DataMember(Name = "releaseChannel", EmitDefaultValue = false)]
-        public string ReleaseChannel { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -138,8 +138,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.AgentType == input.AgentType ||
-                    (this.AgentType != null &&
-                    this.AgentType.Equals(input.AgentType))
+                    this.AgentType.Equals(input.AgentType)
                 ) && 
                 (
                     this.ContinueOnError == input.ContinueOnError ||
@@ -167,8 +166,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.ReleaseChannel == input.ReleaseChannel ||
-                    (this.ReleaseChannel != null &&
-                    this.ReleaseChannel.Equals(input.ReleaseChannel))
+                    this.ReleaseChannel.Equals(input.ReleaseChannel)
                 );
         }
 
@@ -182,10 +180,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.AgentType != null)
-                {
-                    hashCode = (hashCode * 59) + this.AgentType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.AgentType.GetHashCode();
                 hashCode = (hashCode * 59) + this.ContinueOnError.GetHashCode();
                 if (this.LatestVersion != null)
                 {
@@ -203,10 +198,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PoolName.GetHashCode();
                 }
-                if (this.ReleaseChannel != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReleaseChannel.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.ReleaseChannel.GetHashCode();
                 return hashCode;
             }
         }

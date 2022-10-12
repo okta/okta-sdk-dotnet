@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProvider"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PushProvider</returns>
-        System.Threading.Tasks.Task<PushProvider> CreatePushProviderAsync(PushProvider pushProvider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PushProvider> CreatePushProviderAsync(  PushProvider pushProvider , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Push Provider
         /// </summary>
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProvider"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PushProvider)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PushProvider>> CreatePushProviderWithHttpInfoAsync(PushProvider pushProvider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PushProvider>> CreatePushProviderWithHttpInfoAsync(  PushProvider pushProvider , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Push Provider
         /// </summary>
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProviderId">Id of the push provider</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeletePushProviderAsync(string pushProviderId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeletePushProviderAsync(  string pushProviderId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Push Provider
         /// </summary>
@@ -71,7 +71,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProviderId">Id of the push provider</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeletePushProviderWithHttpInfoAsync(string pushProviderId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeletePushProviderWithHttpInfoAsync(  string pushProviderId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Push Provider
         /// </summary>
@@ -82,7 +82,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProviderId">Id of the push provider</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PushProvider</returns>
-        System.Threading.Tasks.Task<PushProvider> GetPushProviderAsync(string pushProviderId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PushProvider> GetPushProviderAsync(  string pushProviderId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Push Provider
         /// </summary>
@@ -93,7 +93,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProviderId">Id of the push provider</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PushProvider)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PushProvider>> GetPushProviderWithHttpInfoAsync(string pushProviderId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PushProvider>> GetPushProviderWithHttpInfoAsync(  string pushProviderId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Push Providers
         /// </summary>
@@ -104,7 +104,7 @@ namespace Okta.Sdk.Api
         /// <param name="type">Filters push providers by &#x60;providerType&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;PushProvider&gt;</returns>
-        IOktaCollectionClient<PushProvider> ListPushProviders(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<PushProvider> ListPushProviders(ProviderType type  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Push Providers
         /// </summary>
@@ -115,7 +115,7 @@ namespace Okta.Sdk.Api
         /// <param name="type">Filters push providers by &#x60;providerType&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;PushProvider&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<PushProvider>>> ListPushProvidersWithHttpInfoAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<PushProvider>>> ListPushProvidersWithHttpInfoAsync(ProviderType type  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Push Provider
         /// </summary>
@@ -127,7 +127,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProvider"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PushProvider</returns>
-        System.Threading.Tasks.Task<PushProvider> UpdatePushProviderAsync(string pushProviderId, PushProvider pushProvider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PushProvider> UpdatePushProviderAsync(  string pushProviderId ,   PushProvider pushProvider , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Push Provider
         /// </summary>
@@ -139,7 +139,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProvider"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PushProvider)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PushProvider>> UpdatePushProviderWithHttpInfoAsync(string pushProviderId, PushProvider pushProvider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PushProvider>> UpdatePushProviderWithHttpInfoAsync(  string pushProviderId ,   PushProvider pushProvider , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -252,7 +252,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProvider"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PushProvider</returns>
-        public async System.Threading.Tasks.Task<PushProvider> CreatePushProviderAsync(PushProvider pushProvider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PushProvider> CreatePushProviderAsync(  PushProvider pushProvider , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<PushProvider> localVarResponse = await CreatePushProviderWithHttpInfoAsync(pushProvider, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -264,7 +264,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProvider"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PushProvider)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PushProvider>> CreatePushProviderWithHttpInfoAsync(PushProvider pushProvider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PushProvider>> CreatePushProviderWithHttpInfoAsync(  PushProvider pushProvider , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'pushProvider' is set
             if (pushProvider == null)
@@ -298,12 +298,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = pushProvider;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -338,7 +338,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProviderId">Id of the push provider</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeletePushProviderAsync(string pushProviderId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeletePushProviderAsync(  string pushProviderId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeletePushProviderWithHttpInfoAsync(pushProviderId, cancellationToken).ConfigureAwait(false);
         }
@@ -349,7 +349,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProviderId">Id of the push provider</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeletePushProviderWithHttpInfoAsync(string pushProviderId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeletePushProviderWithHttpInfoAsync(  string pushProviderId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'pushProviderId' is set
             if (pushProviderId == null)
@@ -382,12 +382,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("pushProviderId", Okta.Sdk.Client.ClientUtils.ParameterToString(pushProviderId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -422,7 +422,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProviderId">Id of the push provider</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PushProvider</returns>
-        public async System.Threading.Tasks.Task<PushProvider> GetPushProviderAsync(string pushProviderId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PushProvider> GetPushProviderAsync(  string pushProviderId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<PushProvider> localVarResponse = await GetPushProviderWithHttpInfoAsync(pushProviderId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -434,7 +434,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProviderId">Id of the push provider</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PushProvider)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PushProvider>> GetPushProviderWithHttpInfoAsync(string pushProviderId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PushProvider>> GetPushProviderWithHttpInfoAsync(  string pushProviderId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'pushProviderId' is set
             if (pushProviderId == null)
@@ -467,12 +467,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("pushProviderId", Okta.Sdk.Client.ClientUtils.ParameterToString(pushProviderId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -507,7 +507,8 @@ namespace Okta.Sdk.Api
         /// <param name="type">Filters push providers by &#x60;providerType&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;PushProvider&gt;</returns>
-        public IOktaCollectionClient<PushProvider> ListPushProviders(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        //a
+        public IOktaCollectionClient<PushProvider> ListPushProviders(ProviderType type  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -537,12 +538,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -560,7 +561,7 @@ namespace Okta.Sdk.Api
         /// <param name="type">Filters push providers by &#x60;providerType&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;PushProvider&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<PushProvider>>> ListPushProvidersWithHttpInfoAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<PushProvider>>> ListPushProvidersWithHttpInfoAsync(ProviderType type  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -590,12 +591,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -627,7 +628,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProvider"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PushProvider</returns>
-        public async System.Threading.Tasks.Task<PushProvider> UpdatePushProviderAsync(string pushProviderId, PushProvider pushProvider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PushProvider> UpdatePushProviderAsync(  string pushProviderId ,   PushProvider pushProvider , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<PushProvider> localVarResponse = await UpdatePushProviderWithHttpInfoAsync(pushProviderId, pushProvider, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -640,7 +641,7 @@ namespace Okta.Sdk.Api
         /// <param name="pushProvider"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PushProvider)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PushProvider>> UpdatePushProviderWithHttpInfoAsync(string pushProviderId, PushProvider pushProvider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PushProvider>> UpdatePushProviderWithHttpInfoAsync(  string pushProviderId ,   PushProvider pushProvider , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'pushProviderId' is set
             if (pushProviderId == null)
@@ -681,12 +682,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("pushProviderId", Okta.Sdk.Client.ClientUtils.ParameterToString(pushProviderId)); // path parameter
             localVarRequestOptions.Data = pushProvider;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

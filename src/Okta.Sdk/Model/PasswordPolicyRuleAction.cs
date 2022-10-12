@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,14 @@ namespace Okta.Sdk.Model
     
     public partial class PasswordPolicyRuleAction : IEquatable<PasswordPolicyRuleAction>
     {
-        
+
         /// <summary>
         /// Gets or Sets Access
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
-        public string Access { get; set; }
-
+        
+        public PolicyAccess Access { get; set; }
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -86,8 +87,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Access == input.Access ||
-                    (this.Access != null &&
-                    this.Access.Equals(input.Access))
+                    this.Access.Equals(input.Access)
                 );
         }
 
@@ -101,10 +101,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Access != null)
-                {
-                    hashCode = (hashCode * 59) + this.Access.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Access.GetHashCode();
                 return hashCode;
             }
         }

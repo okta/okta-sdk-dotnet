@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,28 @@ namespace Okta.Sdk.Model
     
     public partial class LogAuthenticationContext : IEquatable<LogAuthenticationContext>
     {
-        
+
         /// <summary>
         /// Gets or Sets AuthenticationProvider
         /// </summary>
         [DataMember(Name = "authenticationProvider", EmitDefaultValue = false)]
-        public string AuthenticationProvider { get; set; }
+        
+        public LogAuthenticationProvider AuthenticationProvider { get; set; }
 
+        /// <summary>
+        /// Gets or Sets CredentialProvider
+        /// </summary>
+        [DataMember(Name = "credentialProvider", EmitDefaultValue = false)]
+        
+        public LogCredentialProvider CredentialProvider { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CredentialType
+        /// </summary>
+        [DataMember(Name = "credentialType", EmitDefaultValue = false)]
+        
+        public LogCredentialType CredentialType { get; set; }
+        
         /// <summary>
         /// Gets or Sets AuthenticationStep
         /// </summary>
@@ -54,18 +69,6 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
-        /// <summary>
-        /// Gets or Sets CredentialProvider
-        /// </summary>
-        [DataMember(Name = "credentialProvider", EmitDefaultValue = false)]
-        public string CredentialProvider { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CredentialType
-        /// </summary>
-        [DataMember(Name = "credentialType", EmitDefaultValue = false)]
-        public string CredentialType { get; set; }
-
         /// <summary>
         /// Gets or Sets ExternalSessionId
         /// </summary>
@@ -152,8 +155,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.AuthenticationProvider == input.AuthenticationProvider ||
-                    (this.AuthenticationProvider != null &&
-                    this.AuthenticationProvider.Equals(input.AuthenticationProvider))
+                    this.AuthenticationProvider.Equals(input.AuthenticationProvider)
                 ) && 
                 (
                     this.AuthenticationStep == input.AuthenticationStep ||
@@ -161,13 +163,11 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.CredentialProvider == input.CredentialProvider ||
-                    (this.CredentialProvider != null &&
-                    this.CredentialProvider.Equals(input.CredentialProvider))
+                    this.CredentialProvider.Equals(input.CredentialProvider)
                 ) && 
                 (
                     this.CredentialType == input.CredentialType ||
-                    (this.CredentialType != null &&
-                    this.CredentialType.Equals(input.CredentialType))
+                    this.CredentialType.Equals(input.CredentialType)
                 ) && 
                 (
                     this.ExternalSessionId == input.ExternalSessionId ||
@@ -196,19 +196,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.AuthenticationProvider != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthenticationProvider.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.AuthenticationProvider.GetHashCode();
                 hashCode = (hashCode * 59) + this.AuthenticationStep.GetHashCode();
-                if (this.CredentialProvider != null)
-                {
-                    hashCode = (hashCode * 59) + this.CredentialProvider.GetHashCode();
-                }
-                if (this.CredentialType != null)
-                {
-                    hashCode = (hashCode * 59) + this.CredentialType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.CredentialProvider.GetHashCode();
+                hashCode = (hashCode * 59) + this.CredentialType.GetHashCode();
                 if (this.ExternalSessionId != null)
                 {
                     hashCode = (hashCode * 59) + this.ExternalSessionId.GetHashCode();

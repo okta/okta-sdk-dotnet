@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,13 @@ namespace Okta.Sdk.Model
     
     public partial class BehaviorRuleSettingsAnomalousLocation : IEquatable<BehaviorRuleSettingsAnomalousLocation>
     {
+
+        /// <summary>
+        /// Gets or Sets Granularity
+        /// </summary>
+        [DataMember(Name = "granularity", IsRequired = true, EmitDefaultValue = false)]
+        
+        public LocationGranularity Granularity { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="BehaviorRuleSettingsAnomalousLocation" /> class.
         /// </summary>
@@ -50,12 +57,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "minEventsNeededForEvaluation", EmitDefaultValue = false)]
         public int MinEventsNeededForEvaluation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Granularity
-        /// </summary>
-        [DataMember(Name = "granularity", IsRequired = true, EmitDefaultValue = false)]
-        public string Granularity { get; set; }
 
         /// <summary>
         /// Required when &#x60;granularity&#x60; is &#x60;LAT_LONG&#x60;. Radius from the provided coordinates in kilometers.
@@ -121,8 +122,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Granularity == input.Granularity ||
-                    (this.Granularity != null &&
-                    this.Granularity.Equals(input.Granularity))
+                    this.Granularity.Equals(input.Granularity)
                 ) && 
                 (
                     this.RadiusKilometers == input.RadiusKilometers ||
@@ -142,10 +142,7 @@ namespace Okta.Sdk.Model
                 
                 hashCode = (hashCode * 59) + this.MaxEventsUsedForEvaluation.GetHashCode();
                 hashCode = (hashCode * 59) + this.MinEventsNeededForEvaluation.GetHashCode();
-                if (this.Granularity != null)
-                {
-                    hashCode = (hashCode * 59) + this.Granularity.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Granularity.GetHashCode();
                 hashCode = (hashCode * 59) + this.RadiusKilometers.GetHashCode();
                 return hashCode;
             }

@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
 **Priority** | **int** |  | [optional] 
-**Status** | **string** |  | [optional] 
+**Status** | [**LifecycleStatus**](LifecycleStatus.md) |  | [optional] 
 **System** | **bool** |  | [optional] [default to false]
-**Type** | **string** |  | [optional] 
+**Type** | [**PolicyRuleType**](PolicyRuleType.md) |  | [optional] 
 **Actions** | [**PasswordPolicyRuleActions**](PasswordPolicyRuleActions.md) |  | [optional] 
 **Conditions** | [**PasswordPolicyRuleConditions**](PasswordPolicyRuleConditions.md) |  | [optional] 
 

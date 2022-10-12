@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,14 @@ namespace Okta.Sdk.Model
     
     public partial class OrgContactTypeObj : IEquatable<OrgContactTypeObj>
     {
-        
+
         /// <summary>
         /// Gets or Sets ContactType
         /// </summary>
         [DataMember(Name = "contactType", EmitDefaultValue = false)]
-        public string ContactType { get; set; }
-
+        
+        public OrgContactType ContactType { get; set; }
+        
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
@@ -93,8 +94,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.ContactType == input.ContactType ||
-                    (this.ContactType != null &&
-                    this.ContactType.Equals(input.ContactType))
+                    this.ContactType.Equals(input.ContactType)
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -114,10 +114,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.ContactType != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContactType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.ContactType.GetHashCode();
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

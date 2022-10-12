@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,34 @@ namespace Okta.Sdk.Model
     
     public partial class ThemeResponse : IEquatable<ThemeResponse>
     {
+
+        /// <summary>
+        /// Gets or Sets EmailTemplateTouchPointVariant
+        /// </summary>
+        [DataMember(Name = "emailTemplateTouchPointVariant", EmitDefaultValue = false)]
+        
+        public EmailTemplateTouchPointVariant EmailTemplateTouchPointVariant { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EndUserDashboardTouchPointVariant
+        /// </summary>
+        [DataMember(Name = "endUserDashboardTouchPointVariant", EmitDefaultValue = false)]
+        
+        public EndUserDashboardTouchPointVariant EndUserDashboardTouchPointVariant { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ErrorPageTouchPointVariant
+        /// </summary>
+        [DataMember(Name = "errorPageTouchPointVariant", EmitDefaultValue = false)]
+        
+        public ErrorPageTouchPointVariant ErrorPageTouchPointVariant { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SignInPageTouchPointVariant
+        /// </summary>
+        [DataMember(Name = "signInPageTouchPointVariant", EmitDefaultValue = false)]
+        
+        public SignInPageTouchPointVariant SignInPageTouchPointVariant { get; set; }
         
         /// <summary>
         /// Gets or Sets BackgroundImage
@@ -48,24 +76,6 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
-        /// <summary>
-        /// Gets or Sets EmailTemplateTouchPointVariant
-        /// </summary>
-        [DataMember(Name = "emailTemplateTouchPointVariant", EmitDefaultValue = false)]
-        public string EmailTemplateTouchPointVariant { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EndUserDashboardTouchPointVariant
-        /// </summary>
-        [DataMember(Name = "endUserDashboardTouchPointVariant", EmitDefaultValue = false)]
-        public string EndUserDashboardTouchPointVariant { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ErrorPageTouchPointVariant
-        /// </summary>
-        [DataMember(Name = "errorPageTouchPointVariant", EmitDefaultValue = false)]
-        public string ErrorPageTouchPointVariant { get; set; }
-
         /// <summary>
         /// Gets or Sets Favicon
         /// </summary>
@@ -131,12 +141,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "secondaryColorHex", EmitDefaultValue = false)]
         public string SecondaryColorHex { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SignInPageTouchPointVariant
-        /// </summary>
-        [DataMember(Name = "signInPageTouchPointVariant", EmitDefaultValue = false)]
-        public string SignInPageTouchPointVariant { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -215,18 +219,15 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.EmailTemplateTouchPointVariant == input.EmailTemplateTouchPointVariant ||
-                    (this.EmailTemplateTouchPointVariant != null &&
-                    this.EmailTemplateTouchPointVariant.Equals(input.EmailTemplateTouchPointVariant))
+                    this.EmailTemplateTouchPointVariant.Equals(input.EmailTemplateTouchPointVariant)
                 ) && 
                 (
                     this.EndUserDashboardTouchPointVariant == input.EndUserDashboardTouchPointVariant ||
-                    (this.EndUserDashboardTouchPointVariant != null &&
-                    this.EndUserDashboardTouchPointVariant.Equals(input.EndUserDashboardTouchPointVariant))
+                    this.EndUserDashboardTouchPointVariant.Equals(input.EndUserDashboardTouchPointVariant)
                 ) && 
                 (
                     this.ErrorPageTouchPointVariant == input.ErrorPageTouchPointVariant ||
-                    (this.ErrorPageTouchPointVariant != null &&
-                    this.ErrorPageTouchPointVariant.Equals(input.ErrorPageTouchPointVariant))
+                    this.ErrorPageTouchPointVariant.Equals(input.ErrorPageTouchPointVariant)
                 ) && 
                 (
                     this.Favicon == input.Favicon ||
@@ -265,8 +266,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.SignInPageTouchPointVariant == input.SignInPageTouchPointVariant ||
-                    (this.SignInPageTouchPointVariant != null &&
-                    this.SignInPageTouchPointVariant.Equals(input.SignInPageTouchPointVariant))
+                    this.SignInPageTouchPointVariant.Equals(input.SignInPageTouchPointVariant)
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -290,18 +290,9 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.BackgroundImage.GetHashCode();
                 }
-                if (this.EmailTemplateTouchPointVariant != null)
-                {
-                    hashCode = (hashCode * 59) + this.EmailTemplateTouchPointVariant.GetHashCode();
-                }
-                if (this.EndUserDashboardTouchPointVariant != null)
-                {
-                    hashCode = (hashCode * 59) + this.EndUserDashboardTouchPointVariant.GetHashCode();
-                }
-                if (this.ErrorPageTouchPointVariant != null)
-                {
-                    hashCode = (hashCode * 59) + this.ErrorPageTouchPointVariant.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.EmailTemplateTouchPointVariant.GetHashCode();
+                hashCode = (hashCode * 59) + this.EndUserDashboardTouchPointVariant.GetHashCode();
+                hashCode = (hashCode * 59) + this.ErrorPageTouchPointVariant.GetHashCode();
                 if (this.Favicon != null)
                 {
                     hashCode = (hashCode * 59) + this.Favicon.GetHashCode();
@@ -330,10 +321,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.SecondaryColorHex.GetHashCode();
                 }
-                if (this.SignInPageTouchPointVariant != null)
-                {
-                    hashCode = (hashCode * 59) + this.SignInPageTouchPointVariant.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.SignInPageTouchPointVariant.GetHashCode();
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

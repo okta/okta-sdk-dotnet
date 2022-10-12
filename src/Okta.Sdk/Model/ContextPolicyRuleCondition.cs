@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,13 @@ namespace Okta.Sdk.Model
     
     public partial class ContextPolicyRuleCondition : IEquatable<ContextPolicyRuleCondition>
     {
+
+        /// <summary>
+        /// Gets or Sets TrustLevel
+        /// </summary>
+        [DataMember(Name = "trustLevel", EmitDefaultValue = false)]
+        
+        public DevicePolicyTrustLevel TrustLevel { get; set; }
         
         /// <summary>
         /// Gets or Sets Migrated
@@ -51,12 +58,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "rooted", EmitDefaultValue = true)]
         public bool Rooted { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TrustLevel
-        /// </summary>
-        [DataMember(Name = "trustLevel", EmitDefaultValue = false)]
-        public string TrustLevel { get; set; }
 
         /// <summary>
         /// Gets or Sets Expression
@@ -127,8 +128,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.TrustLevel == input.TrustLevel ||
-                    (this.TrustLevel != null &&
-                    this.TrustLevel.Equals(input.TrustLevel))
+                    this.TrustLevel.Equals(input.TrustLevel)
                 ) && 
                 (
                     this.Expression == input.Expression ||
@@ -153,10 +153,7 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Platform.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Rooted.GetHashCode();
-                if (this.TrustLevel != null)
-                {
-                    hashCode = (hashCode * 59) + this.TrustLevel.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.TrustLevel.GetHashCode();
                 if (this.Expression != null)
                 {
                     hashCode = (hashCode * 59) + this.Expression.GetHashCode();

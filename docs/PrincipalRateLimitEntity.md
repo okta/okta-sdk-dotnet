@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **LastUpdatedBy** | **string** |  | [optional] [readonly] 
 **OrgId** | **string** |  | [optional] [readonly] 
 **PrincipalId** | **string** |  | 
-**PrincipalType** | **string** |  | 
+**PrincipalType** | **PrincipalType** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

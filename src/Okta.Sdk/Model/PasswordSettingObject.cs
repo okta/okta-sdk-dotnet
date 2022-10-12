@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,25 +33,28 @@ namespace Okta.Sdk.Model
     
     public partial class PasswordSettingObject : IEquatable<PasswordSettingObject>
     {
-        
+
         /// <summary>
         /// Gets or Sets Change
         /// </summary>
         [DataMember(Name = "change", EmitDefaultValue = false)]
-        public string Change { get; set; }
+        
+        public ChangeEnum Change { get; set; }
 
         /// <summary>
         /// Gets or Sets Seed
         /// </summary>
         [DataMember(Name = "seed", EmitDefaultValue = false)]
-        public string Seed { get; set; }
+        
+        public SeedEnum Seed { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string Status { get; set; }
-
+        
+        public EnabledStatus Status { get; set; }
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -100,18 +103,15 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Change == input.Change ||
-                    (this.Change != null &&
-                    this.Change.Equals(input.Change))
+                    this.Change.Equals(input.Change)
                 ) && 
                 (
                     this.Seed == input.Seed ||
-                    (this.Seed != null &&
-                    this.Seed.Equals(input.Seed))
+                    this.Seed.Equals(input.Seed)
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status.Equals(input.Status)
                 );
         }
 
@@ -125,18 +125,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Change != null)
-                {
-                    hashCode = (hashCode * 59) + this.Change.GetHashCode();
-                }
-                if (this.Seed != null)
-                {
-                    hashCode = (hashCode * 59) + this.Seed.GetHashCode();
-                }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Change.GetHashCode();
+                hashCode = (hashCode * 59) + this.Seed.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 return hashCode;
             }
         }
