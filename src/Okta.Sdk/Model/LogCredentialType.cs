@@ -28,7 +28,7 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines LogCredentialType
     /// </summary>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class LogCredentialType : StringEnum
     {
         /// <summary>

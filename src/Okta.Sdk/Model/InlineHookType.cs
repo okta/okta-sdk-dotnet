@@ -28,7 +28,7 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines InlineHookType
     /// </summary>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class InlineHookType : StringEnum
     {
         /// <summary>

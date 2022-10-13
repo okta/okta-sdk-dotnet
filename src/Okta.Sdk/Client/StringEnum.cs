@@ -12,7 +12,7 @@
 using System;
 using System.Reflection;
 
-namespace Okta.Sdk.Client
+namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Represents an enumeration where the members are strings.

@@ -28,7 +28,7 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines InlineHookChannelType
     /// </summary>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class InlineHookChannelType : StringEnum
     {
         /// <summary>

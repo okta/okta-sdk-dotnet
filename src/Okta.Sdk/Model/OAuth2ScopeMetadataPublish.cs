@@ -28,7 +28,7 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OAuth2ScopeMetadataPublish
     /// </summary>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class OAuth2ScopeMetadataPublish : StringEnum
     {
         /// <summary>

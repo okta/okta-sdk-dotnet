@@ -29,7 +29,7 @@ namespace Okta.Sdk.Model
     /// The Log Stream type specifies the streaming provider used. Okta supports [AWS EventBridge](https://aws.amazon.com/eventbridge/) and [Splunk Cloud](https://www.splunk.com/en_us/software/splunk-cloud-platform.html).
     /// </summary>
     /// <value>The Log Stream type specifies the streaming provider used. Okta supports [AWS EventBridge](https://aws.amazon.com/eventbridge/) and [Splunk Cloud](https://www.splunk.com/en_us/software/splunk-cloud-platform.html).</value>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class LogStreamType : StringEnum
     {
         /// <summary>

@@ -29,7 +29,7 @@ namespace Okta.Sdk.Model
     /// OS platform of the device
     /// </summary>
     /// <value>OS platform of the device</value>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class DevicePlatform : StringEnum
     {
         /// <summary>

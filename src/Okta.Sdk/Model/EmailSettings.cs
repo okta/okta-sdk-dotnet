@@ -36,7 +36,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Defines Recipients
         /// </summary>
-        [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+        [JsonConverter(typeof(StringEnumSerializingConverter))]
         public enum RecipientsEnum
         {
             /// <summary>

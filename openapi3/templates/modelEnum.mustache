@@ -9,7 +9,7 @@
     {{#-first}}
     {{#isString}}
     {{^useGenericHost}}
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     {{/useGenericHost}}
     {{/isString}}
     {{/-first}}

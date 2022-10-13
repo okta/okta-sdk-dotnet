@@ -29,7 +29,7 @@ namespace Okta.Sdk.Model
     /// Operational status of a given agent
     /// </summary>
     /// <value>Operational status of a given agent</value>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class OperationalStatus : StringEnum
     {
         /// <summary>

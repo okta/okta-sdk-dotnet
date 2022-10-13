@@ -29,7 +29,7 @@ namespace Okta.Sdk.Model
     /// Overall state for the auto-update job from admin perspective
     /// </summary>
     /// <value>Overall state for the auto-update job from admin perspective</value>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class AgentUpdateJobStatus : StringEnum
     {
         /// <summary>

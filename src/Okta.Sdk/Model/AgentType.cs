@@ -29,7 +29,7 @@ namespace Okta.Sdk.Model
     /// Agent types that are being monitored
     /// </summary>
     /// <value>Agent types that are being monitored</value>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class AgentType : StringEnum
     {
         /// <summary>

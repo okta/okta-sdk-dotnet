@@ -29,7 +29,7 @@ namespace Okta.Sdk.Model
     /// An AWS region
     /// </summary>
     /// <value>An AWS region</value>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class AwsRegion : StringEnum
     {
         /// <summary>

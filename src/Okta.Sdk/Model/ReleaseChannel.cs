@@ -29,7 +29,7 @@ namespace Okta.Sdk.Model
     /// Release channel for auto-update
     /// </summary>
     /// <value>Release channel for auto-update</value>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class ReleaseChannel : StringEnum
     {
         /// <summary>

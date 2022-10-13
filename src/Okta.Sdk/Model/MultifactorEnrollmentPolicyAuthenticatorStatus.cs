@@ -28,7 +28,7 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines MultifactorEnrollmentPolicyAuthenticatorStatus
     /// </summary>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class MultifactorEnrollmentPolicyAuthenticatorStatus : StringEnum
     {
         /// <summary>

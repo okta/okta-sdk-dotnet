@@ -65,7 +65,6 @@ namespace Okta.Sdk.Client
         public CustomJsonCodec(JsonSerializerSettings serializerSettings, IReadableConfiguration configuration)
         {
             _serializerSettings = serializerSettings;
-            _serializerSettings.Converters.Add(new StringEnumSerializingConverter());
             _configuration = configuration;
         }
 

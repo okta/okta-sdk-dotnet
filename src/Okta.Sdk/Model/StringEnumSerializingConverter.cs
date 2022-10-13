@@ -13,7 +13,7 @@ using System;
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace Okta.Sdk.Client
+namespace Okta.Sdk.Model
 {
     /// <summary>
     /// This class provides special serialization for <see cref="StringEnum"/> types.

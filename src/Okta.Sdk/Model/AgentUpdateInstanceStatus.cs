@@ -29,7 +29,7 @@ namespace Okta.Sdk.Model
     /// Status for one agent regarding the status to auto-update that agent
     /// </summary>
     /// <value>Status for one agent regarding the status to auto-update that agent</value>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class AgentUpdateInstanceStatus : StringEnum
     {
         /// <summary>

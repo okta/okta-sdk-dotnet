@@ -28,7 +28,7 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ProtocolAlgorithmTypeSignatureScope
     /// </summary>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class ProtocolAlgorithmTypeSignatureScope : StringEnum
     {
         /// <summary>

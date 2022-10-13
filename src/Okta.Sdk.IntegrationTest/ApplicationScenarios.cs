@@ -52,7 +52,7 @@ namespace Okta.Sdk.IntegrationTest
                 var retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id) as BookmarkApplication;
                 retrievedApp.Name.Should().Be("bookmark");
                 retrievedApp.Label.Should().Be($"dotnet-sdk: AddBookmarkApp {guid}");
-                retrievedApp.SignOnMode.Should().Be("BOOKMARK");
+                retrievedApp.SignOnMode.Value.Should().Be("BOOKMARK");
                 retrievedApp.Settings.App.RequestIntegration.Should().Be(false);
                 retrievedApp.Settings.App.Url.Should().Be("https://example.com/bookmark.htm");
             }
@@ -131,7 +131,7 @@ namespace Okta.Sdk.IntegrationTest
                 var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as BasicAuthApplication;
                 retrieved.Name.Should().Be("template_basic_auth");
                 retrieved.Label.Should().Be($"dotnet-sdk: AddBasicAuthenticationApp {guid}");
-                retrieved.SignOnMode.Should().Be("BASIC_AUTH");
+                retrieved.SignOnMode.Value.Should().Be("BASIC_AUTH");
 
                 retrieved.Settings.App.AuthURL.Should().Be("https://example.com/auth.html");
                 retrieved.Settings.App.Url.Should().Be("https://example.com/login.html");
@@ -222,7 +222,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 retrieved.Name.Should().Be("oidc_client");
                 retrieved.Label.Should().Be($"dotnet-sdk: AddOpenIdConnectApp {guid}");
-                retrieved.SignOnMode.Should().Be("OPENID_CONNECT");
+                retrieved.SignOnMode.Value.Should().Be("OPENID_CONNECT");
                 retrieved.Credentials.OauthClient.ClientId.Should().Be(testClientId);
                 retrieved.Credentials.OauthClient.AutoKeyRotation.Should().BeTrue();
                 retrieved.Credentials.OauthClient.TokenEndpointAuthMethod.Should()
@@ -707,7 +707,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 await _applicationApi.ActivateApplicationAsync(createdApp.Id);
                 retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
-                retrievedApp.Status.ToString().Should().Be("ACTIVE");
+                retrievedApp.Status.Value.Should().Be("ACTIVE");
             }
             finally
             {
@@ -739,7 +739,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 var retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
-                retrievedApp.Status.Should().Be("ACTIVE");
+                retrievedApp.Status.Value.Should().Be("ACTIVE");
             }
             finally
             {
@@ -2183,7 +2183,7 @@ namespace Okta.Sdk.IntegrationTest
             {
 
                 newApp.Id.Should().NotBeNullOrEmpty();
-                newApp.SignOnMode.Should().Be("SAML_2_0");
+                newApp.SignOnMode.Value.Should().Be("SAML_2_0");
                 ((SamlApplication)newApp).Name.Should().Be(org2orgApp.Name);
                 newApp.Label.Should().Be(org2orgApp.Label);
 

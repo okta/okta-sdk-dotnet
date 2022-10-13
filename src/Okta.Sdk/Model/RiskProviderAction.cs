@@ -29,7 +29,7 @@ namespace Okta.Sdk.Model
     /// The action taken by Okta during authentication attempts based on the risk events sent by this provider. Logging can be found in the SystemLogs.
     /// </summary>
     /// <value>The action taken by Okta during authentication attempts based on the risk events sent by this provider. Logging can be found in the SystemLogs.</value>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class RiskProviderAction : StringEnum
     {
         /// <summary>

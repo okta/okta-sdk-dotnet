@@ -29,7 +29,7 @@ namespace Okta.Sdk.Model
     /// The authentication pipeline of the org. &#x60;idx&#x60; means the org is using the Identity Engine, while &#x60;v1&#x60; means the org is using the Classic authentication pipeline.
     /// </summary>
     /// <value>The authentication pipeline of the org. &#x60;idx&#x60; means the org is using the Identity Engine, while &#x60;v1&#x60; means the org is using the Classic authentication pipeline.</value>
-    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class PipelineType : StringEnum
     {
         /// <summary>

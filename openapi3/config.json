@@ -100,7 +100,7 @@
         "StringEnumSerializingConverter.mustache":{
             "destinationFilename": "StringEnumSerializingConverter.cs",
             "templateType": "SupportingFiles",
-            "folder": "/src/Okta.Sdk/Client"
+            "folder": "/src/Okta.Sdk/Model"
         }
     }
 }
