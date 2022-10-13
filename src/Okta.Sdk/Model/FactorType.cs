@@ -28,62 +28,58 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines FactorType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of FactorType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class FactorType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorType for value: call
         /// </summary>
         public static FactorType Call = new FactorType("call");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorType for value: email
         /// </summary>
         public static FactorType Email = new FactorType("email");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorType for value: hotp
         /// </summary>
         public static FactorType Hotp = new FactorType("hotp");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorType for value: push
         /// </summary>
         public static FactorType Push = new FactorType("push");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorType for value: question
         /// </summary>
         public static FactorType Question = new FactorType("question");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorType for value: sms
         /// </summary>
         public static FactorType Sms = new FactorType("sms");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorType for value: token
         /// </summary>
         public static FactorType Token = new FactorType("token");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorType for value: token:hardware
         /// </summary>
         public static FactorType Tokenhardware = new FactorType("token:hardware");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorType for value: token:hotp
         /// </summary>
         public static FactorType Tokenhotp = new FactorType("token:hotp");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorType for value: token:software:totp
         /// </summary>
         public static FactorType Tokensoftwaretotp = new FactorType("token:software:totp");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorType for value: u2f
         /// </summary>
         public static FactorType U2f = new FactorType("u2f");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorType for value: web
         /// </summary>
         public static FactorType Web = new FactorType("web");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorType for value: webauthn
         /// </summary>
         public static FactorType Webauthn = new FactorType("webauthn");

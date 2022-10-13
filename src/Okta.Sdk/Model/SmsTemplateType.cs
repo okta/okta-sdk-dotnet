@@ -28,14 +28,10 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines SmsTemplateType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of SmsTemplateType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class SmsTemplateType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum SmsTemplateType for value: SMS_VERIFY_CODE
         /// </summary>
         public static SmsTemplateType SMSVERIFYCODE = new SmsTemplateType("SMS_VERIFY_CODE");

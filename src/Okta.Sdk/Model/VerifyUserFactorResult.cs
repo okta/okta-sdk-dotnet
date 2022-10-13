@@ -28,50 +28,46 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines VerifyUserFactorResult
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of VerifyUserFactorResult values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class VerifyUserFactorResult : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum VerifyUserFactorResult for value: CHALLENGE
         /// </summary>
         public static VerifyUserFactorResult CHALLENGE = new VerifyUserFactorResult("CHALLENGE");
-         /// <summary>
+        /// <summary>
         /// StringEnum VerifyUserFactorResult for value: ERROR
         /// </summary>
         public static VerifyUserFactorResult ERROR = new VerifyUserFactorResult("ERROR");
-         /// <summary>
+        /// <summary>
         /// StringEnum VerifyUserFactorResult for value: EXPIRED
         /// </summary>
         public static VerifyUserFactorResult EXPIRED = new VerifyUserFactorResult("EXPIRED");
-         /// <summary>
+        /// <summary>
         /// StringEnum VerifyUserFactorResult for value: FAILED
         /// </summary>
         public static VerifyUserFactorResult FAILED = new VerifyUserFactorResult("FAILED");
-         /// <summary>
+        /// <summary>
         /// StringEnum VerifyUserFactorResult for value: PASSCODE_REPLAYED
         /// </summary>
         public static VerifyUserFactorResult PASSCODEREPLAYED = new VerifyUserFactorResult("PASSCODE_REPLAYED");
-         /// <summary>
+        /// <summary>
         /// StringEnum VerifyUserFactorResult for value: REJECTED
         /// </summary>
         public static VerifyUserFactorResult REJECTED = new VerifyUserFactorResult("REJECTED");
-         /// <summary>
+        /// <summary>
         /// StringEnum VerifyUserFactorResult for value: SUCCESS
         /// </summary>
         public static VerifyUserFactorResult SUCCESS = new VerifyUserFactorResult("SUCCESS");
-         /// <summary>
+        /// <summary>
         /// StringEnum VerifyUserFactorResult for value: TIMEOUT
         /// </summary>
         public static VerifyUserFactorResult TIMEOUT = new VerifyUserFactorResult("TIMEOUT");
-         /// <summary>
+        /// <summary>
         /// StringEnum VerifyUserFactorResult for value: TIME_WINDOW_EXCEEDED
         /// </summary>
         public static VerifyUserFactorResult TIMEWINDOWEXCEEDED = new VerifyUserFactorResult("TIME_WINDOW_EXCEEDED");
-         /// <summary>
+        /// <summary>
         /// StringEnum VerifyUserFactorResult for value: WAITING
         /// </summary>
         public static VerifyUserFactorResult WAITING = new VerifyUserFactorResult("WAITING");

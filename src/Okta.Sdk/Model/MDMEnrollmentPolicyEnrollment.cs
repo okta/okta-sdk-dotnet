@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines MDMEnrollmentPolicyEnrollment
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of MDMEnrollmentPolicyEnrollment values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class MDMEnrollmentPolicyEnrollment : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum MDMEnrollmentPolicyEnrollment for value: ANY_OR_NONE
         /// </summary>
         public static MDMEnrollmentPolicyEnrollment ANYORNONE = new MDMEnrollmentPolicyEnrollment("ANY_OR_NONE");
-         /// <summary>
+        /// <summary>
         /// StringEnum MDMEnrollmentPolicyEnrollment for value: OMM
         /// </summary>
         public static MDMEnrollmentPolicyEnrollment OMM = new MDMEnrollmentPolicyEnrollment("OMM");

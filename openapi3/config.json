@@ -95,7 +95,12 @@
         "StringEnum.mustache":{
             "destinationFilename": "StringEnum.cs",
             "templateType": "SupportingFiles",
-            "folder": "/src/Okta.Sdk/Model"
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "StringEnumSerializingConverter.mustache":{
+            "destinationFilename": "StringEnumSerializingConverter.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
         }
     }
 }

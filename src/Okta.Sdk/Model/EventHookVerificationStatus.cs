@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines EventHookVerificationStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of EventHookVerificationStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class EventHookVerificationStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum EventHookVerificationStatus for value: UNVERIFIED
         /// </summary>
         public static EventHookVerificationStatus UNVERIFIED = new EventHookVerificationStatus("UNVERIFIED");
-         /// <summary>
+        /// <summary>
         /// StringEnum EventHookVerificationStatus for value: VERIFIED
         /// </summary>
         public static EventHookVerificationStatus VERIFIED = new EventHookVerificationStatus("VERIFIED");

@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines LocationGranularity
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of LocationGranularity values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class LocationGranularity : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum LocationGranularity for value: CITY
         /// </summary>
         public static LocationGranularity CITY = new LocationGranularity("CITY");
-         /// <summary>
+        /// <summary>
         /// StringEnum LocationGranularity for value: COUNTRY
         /// </summary>
         public static LocationGranularity COUNTRY = new LocationGranularity("COUNTRY");
-         /// <summary>
+        /// <summary>
         /// StringEnum LocationGranularity for value: LAT_LONG
         /// </summary>
         public static LocationGranularity LATLONG = new LocationGranularity("LAT_LONG");
-         /// <summary>
+        /// <summary>
         /// StringEnum LocationGranularity for value: SUBDIVISION
         /// </summary>
         public static LocationGranularity SUBDIVISION = new LocationGranularity("SUBDIVISION");

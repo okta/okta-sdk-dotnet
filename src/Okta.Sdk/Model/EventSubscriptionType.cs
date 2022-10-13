@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines EventSubscriptionType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of EventSubscriptionType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class EventSubscriptionType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum EventSubscriptionType for value: EVENT_TYPE
         /// </summary>
         public static EventSubscriptionType EVENTTYPE = new EventSubscriptionType("EVENT_TYPE");
-         /// <summary>
+        /// <summary>
         /// StringEnum EventSubscriptionType for value: FLOW_EVENT
         /// </summary>
         public static EventSubscriptionType FLOWEVENT = new EventSubscriptionType("FLOW_EVENT");

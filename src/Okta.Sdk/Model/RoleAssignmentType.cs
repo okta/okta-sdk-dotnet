@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines RoleAssignmentType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of RoleAssignmentType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class RoleAssignmentType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum RoleAssignmentType for value: GROUP
         /// </summary>
         public static RoleAssignmentType GROUP = new RoleAssignmentType("GROUP");
-         /// <summary>
+        /// <summary>
         /// StringEnum RoleAssignmentType for value: USER
         /// </summary>
         public static RoleAssignmentType USER = new RoleAssignmentType("USER");

@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines SessionStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of SessionStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class SessionStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionStatus for value: ACTIVE
         /// </summary>
         public static SessionStatus ACTIVE = new SessionStatus("ACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionStatus for value: MFA_ENROLL
         /// </summary>
         public static SessionStatus MFAENROLL = new SessionStatus("MFA_ENROLL");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionStatus for value: MFA_REQUIRED
         /// </summary>
         public static SessionStatus MFAREQUIRED = new SessionStatus("MFA_REQUIRED");

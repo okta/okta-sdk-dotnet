@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OAuth2ScopeConsentGrantSource
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OAuth2ScopeConsentGrantSource values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OAuth2ScopeConsentGrantSource : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ScopeConsentGrantSource for value: ADMIN
         /// </summary>
         public static OAuth2ScopeConsentGrantSource ADMIN = new OAuth2ScopeConsentGrantSource("ADMIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ScopeConsentGrantSource for value: END_USER
         /// </summary>
         public static OAuth2ScopeConsentGrantSource ENDUSER = new OAuth2ScopeConsentGrantSource("END_USER");

@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines NetworkZoneUsage
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of NetworkZoneUsage values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class NetworkZoneUsage : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum NetworkZoneUsage for value: BLOCKLIST
         /// </summary>
         public static NetworkZoneUsage BLOCKLIST = new NetworkZoneUsage("BLOCKLIST");
-         /// <summary>
+        /// <summary>
         /// StringEnum NetworkZoneUsage for value: POLICY
         /// </summary>
         public static NetworkZoneUsage POLICY = new NetworkZoneUsage("POLICY");

@@ -29,26 +29,22 @@ namespace Okta.Sdk.Model
     /// OS platform of the device
     /// </summary>
     /// <value>OS platform of the device</value>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of DevicePlatform values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class DevicePlatform : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum DevicePlatform for value: ANDROID
         /// </summary>
         public static DevicePlatform ANDROID = new DevicePlatform("ANDROID");
-         /// <summary>
+        /// <summary>
         /// StringEnum DevicePlatform for value: IOS
         /// </summary>
         public static DevicePlatform IOS = new DevicePlatform("IOS");
-         /// <summary>
+        /// <summary>
         /// StringEnum DevicePlatform for value: MACOS
         /// </summary>
         public static DevicePlatform MACOS = new DevicePlatform("MACOS");
-         /// <summary>
+        /// <summary>
         /// StringEnum DevicePlatform for value: WINDOWS
         /// </summary>
         public static DevicePlatform WINDOWS = new DevicePlatform("WINDOWS");

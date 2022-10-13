@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PolicyNetworkConnection
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PolicyNetworkConnection values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PolicyNetworkConnection : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyNetworkConnection for value: ANYWHERE
         /// </summary>
         public static PolicyNetworkConnection ANYWHERE = new PolicyNetworkConnection("ANYWHERE");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyNetworkConnection for value: ZONE
         /// </summary>
         public static PolicyNetworkConnection ZONE = new PolicyNetworkConnection("ZONE");

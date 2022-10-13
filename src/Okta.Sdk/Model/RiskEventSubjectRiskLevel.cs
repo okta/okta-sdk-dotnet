@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines RiskEventSubjectRiskLevel
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of RiskEventSubjectRiskLevel values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class RiskEventSubjectRiskLevel : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum RiskEventSubjectRiskLevel for value: HIGH
         /// </summary>
         public static RiskEventSubjectRiskLevel HIGH = new RiskEventSubjectRiskLevel("HIGH");
-         /// <summary>
+        /// <summary>
         /// StringEnum RiskEventSubjectRiskLevel for value: LOW
         /// </summary>
         public static RiskEventSubjectRiskLevel LOW = new RiskEventSubjectRiskLevel("LOW");
-         /// <summary>
+        /// <summary>
         /// StringEnum RiskEventSubjectRiskLevel for value: MEDIUM
         /// </summary>
         public static RiskEventSubjectRiskLevel MEDIUM = new RiskEventSubjectRiskLevel("MEDIUM");

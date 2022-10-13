@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines MultifactorEnrollmentPolicyAuthenticatorStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of MultifactorEnrollmentPolicyAuthenticatorStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class MultifactorEnrollmentPolicyAuthenticatorStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorStatus for value: NOT_ALLOWED
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorStatus NOTALLOWED = new MultifactorEnrollmentPolicyAuthenticatorStatus("NOT_ALLOWED");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorStatus for value: OPTIONAL
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorStatus OPTIONAL = new MultifactorEnrollmentPolicyAuthenticatorStatus("OPTIONAL");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorStatus for value: REQUIRED
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorStatus REQUIRED = new MultifactorEnrollmentPolicyAuthenticatorStatus("REQUIRED");

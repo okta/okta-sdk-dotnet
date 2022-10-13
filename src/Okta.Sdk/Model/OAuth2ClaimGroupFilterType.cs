@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OAuth2ClaimGroupFilterType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OAuth2ClaimGroupFilterType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OAuth2ClaimGroupFilterType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ClaimGroupFilterType for value: CONTAINS
         /// </summary>
         public static OAuth2ClaimGroupFilterType CONTAINS = new OAuth2ClaimGroupFilterType("CONTAINS");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ClaimGroupFilterType for value: EQUALS
         /// </summary>
         public static OAuth2ClaimGroupFilterType EQUALS = new OAuth2ClaimGroupFilterType("EQUALS");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ClaimGroupFilterType for value: REGEX
         /// </summary>
         public static OAuth2ClaimGroupFilterType REGEX = new OAuth2ClaimGroupFilterType("REGEX");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ClaimGroupFilterType for value: STARTS_WITH
         /// </summary>
         public static OAuth2ClaimGroupFilterType STARTSWITH = new OAuth2ClaimGroupFilterType("STARTS_WITH");

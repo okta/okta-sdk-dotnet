@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OpenIdConnectApplicationConsentMethod
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OpenIdConnectApplicationConsentMethod values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OpenIdConnectApplicationConsentMethod : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OpenIdConnectApplicationConsentMethod for value: REQUIRED
         /// </summary>
         public static OpenIdConnectApplicationConsentMethod REQUIRED = new OpenIdConnectApplicationConsentMethod("REQUIRED");
-         /// <summary>
+        /// <summary>
         /// StringEnum OpenIdConnectApplicationConsentMethod for value: TRUSTED
         /// </summary>
         public static OpenIdConnectApplicationConsentMethod TRUSTED = new OpenIdConnectApplicationConsentMethod("TRUSTED");

@@ -29,34 +29,30 @@ namespace Okta.Sdk.Model
     /// Overall state for the auto-update job from admin perspective
     /// </summary>
     /// <value>Overall state for the auto-update job from admin perspective</value>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of AgentUpdateJobStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class AgentUpdateJobStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentUpdateJobStatus for value: Cancelled
         /// </summary>
         public static AgentUpdateJobStatus Cancelled = new AgentUpdateJobStatus("Cancelled");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentUpdateJobStatus for value: Failed
         /// </summary>
         public static AgentUpdateJobStatus Failed = new AgentUpdateJobStatus("Failed");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentUpdateJobStatus for value: InProgress
         /// </summary>
         public static AgentUpdateJobStatus InProgress = new AgentUpdateJobStatus("InProgress");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentUpdateJobStatus for value: Paused
         /// </summary>
         public static AgentUpdateJobStatus Paused = new AgentUpdateJobStatus("Paused");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentUpdateJobStatus for value: Scheduled
         /// </summary>
         public static AgentUpdateJobStatus Scheduled = new AgentUpdateJobStatus("Scheduled");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentUpdateJobStatus for value: Success
         /// </summary>
         public static AgentUpdateJobStatus Success = new AgentUpdateJobStatus("Success");

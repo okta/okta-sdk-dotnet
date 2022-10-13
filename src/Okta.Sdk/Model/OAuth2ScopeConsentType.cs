@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OAuth2ScopeConsentType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OAuth2ScopeConsentType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OAuth2ScopeConsentType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ScopeConsentType for value: ADMIN
         /// </summary>
         public static OAuth2ScopeConsentType ADMIN = new OAuth2ScopeConsentType("ADMIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ScopeConsentType for value: IMPLICIT
         /// </summary>
         public static OAuth2ScopeConsentType IMPLICIT = new OAuth2ScopeConsentType("IMPLICIT");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ScopeConsentType for value: REQUIRED
         /// </summary>
         public static OAuth2ScopeConsentType REQUIRED = new OAuth2ScopeConsentType("REQUIRED");

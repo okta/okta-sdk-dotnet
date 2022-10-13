@@ -28,30 +28,26 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines SessionIdentityProviderType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of SessionIdentityProviderType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class SessionIdentityProviderType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionIdentityProviderType for value: ACTIVE_DIRECTORY
         /// </summary>
         public static SessionIdentityProviderType ACTIVEDIRECTORY = new SessionIdentityProviderType("ACTIVE_DIRECTORY");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionIdentityProviderType for value: FEDERATION
         /// </summary>
         public static SessionIdentityProviderType FEDERATION = new SessionIdentityProviderType("FEDERATION");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionIdentityProviderType for value: LDAP
         /// </summary>
         public static SessionIdentityProviderType LDAP = new SessionIdentityProviderType("LDAP");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionIdentityProviderType for value: OKTA
         /// </summary>
         public static SessionIdentityProviderType OKTA = new SessionIdentityProviderType("OKTA");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionIdentityProviderType for value: SOCIAL
         /// </summary>
         public static SessionIdentityProviderType SOCIAL = new SessionIdentityProviderType("SOCIAL");

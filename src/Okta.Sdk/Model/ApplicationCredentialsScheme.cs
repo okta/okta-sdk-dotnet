@@ -28,30 +28,26 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ApplicationCredentialsScheme
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ApplicationCredentialsScheme values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ApplicationCredentialsScheme : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationCredentialsScheme for value: ADMIN_SETS_CREDENTIALS
         /// </summary>
         public static ApplicationCredentialsScheme ADMINSETSCREDENTIALS = new ApplicationCredentialsScheme("ADMIN_SETS_CREDENTIALS");
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationCredentialsScheme for value: EDIT_PASSWORD_ONLY
         /// </summary>
         public static ApplicationCredentialsScheme EDITPASSWORDONLY = new ApplicationCredentialsScheme("EDIT_PASSWORD_ONLY");
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationCredentialsScheme for value: EDIT_USERNAME_AND_PASSWORD
         /// </summary>
         public static ApplicationCredentialsScheme EDITUSERNAMEANDPASSWORD = new ApplicationCredentialsScheme("EDIT_USERNAME_AND_PASSWORD");
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationCredentialsScheme for value: EXTERNAL_PASSWORD_SYNC
         /// </summary>
         public static ApplicationCredentialsScheme EXTERNALPASSWORDSYNC = new ApplicationCredentialsScheme("EXTERNAL_PASSWORD_SYNC");
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationCredentialsScheme for value: SHARED_USERNAME_AND_PASSWORD
         /// </summary>
         public static ApplicationCredentialsScheme SHAREDUSERNAMEANDPASSWORD = new ApplicationCredentialsScheme("SHARED_USERNAME_AND_PASSWORD");

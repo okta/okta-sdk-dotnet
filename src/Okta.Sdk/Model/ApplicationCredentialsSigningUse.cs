@@ -28,14 +28,10 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ApplicationCredentialsSigningUse
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ApplicationCredentialsSigningUse values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ApplicationCredentialsSigningUse : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationCredentialsSigningUse for value: sig
         /// </summary>
         public static ApplicationCredentialsSigningUse Sig = new ApplicationCredentialsSigningUse("sig");

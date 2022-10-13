@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ApplicationLifecycleStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ApplicationLifecycleStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ApplicationLifecycleStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationLifecycleStatus for value: ACTIVE
         /// </summary>
         public static ApplicationLifecycleStatus ACTIVE = new ApplicationLifecycleStatus("ACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationLifecycleStatus for value: DELETED
         /// </summary>
         public static ApplicationLifecycleStatus DELETED = new ApplicationLifecycleStatus("DELETED");
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationLifecycleStatus for value: INACTIVE
         /// </summary>
         public static ApplicationLifecycleStatus INACTIVE = new ApplicationLifecycleStatus("INACTIVE");

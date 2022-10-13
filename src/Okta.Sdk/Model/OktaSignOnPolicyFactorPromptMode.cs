@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OktaSignOnPolicyFactorPromptMode
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OktaSignOnPolicyFactorPromptMode values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OktaSignOnPolicyFactorPromptMode : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OktaSignOnPolicyFactorPromptMode for value: ALWAYS
         /// </summary>
         public static OktaSignOnPolicyFactorPromptMode ALWAYS = new OktaSignOnPolicyFactorPromptMode("ALWAYS");
-         /// <summary>
+        /// <summary>
         /// StringEnum OktaSignOnPolicyFactorPromptMode for value: DEVICE
         /// </summary>
         public static OktaSignOnPolicyFactorPromptMode DEVICE = new OktaSignOnPolicyFactorPromptMode("DEVICE");
-         /// <summary>
+        /// <summary>
         /// StringEnum OktaSignOnPolicyFactorPromptMode for value: SESSION
         /// </summary>
         public static OktaSignOnPolicyFactorPromptMode SESSION = new OktaSignOnPolicyFactorPromptMode("SESSION");

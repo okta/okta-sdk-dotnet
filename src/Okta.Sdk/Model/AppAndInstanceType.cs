@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines AppAndInstanceType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of AppAndInstanceType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class AppAndInstanceType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum AppAndInstanceType for value: APP
         /// </summary>
         public static AppAndInstanceType APP = new AppAndInstanceType("APP");
-         /// <summary>
+        /// <summary>
         /// StringEnum AppAndInstanceType for value: APP_TYPE
         /// </summary>
         public static AppAndInstanceType APPTYPE = new AppAndInstanceType("APP_TYPE");

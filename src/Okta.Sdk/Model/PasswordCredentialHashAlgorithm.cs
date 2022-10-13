@@ -28,30 +28,26 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PasswordCredentialHashAlgorithm
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PasswordCredentialHashAlgorithm values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PasswordCredentialHashAlgorithm : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PasswordCredentialHashAlgorithm for value: BCRYPT
         /// </summary>
         public static PasswordCredentialHashAlgorithm BCRYPT = new PasswordCredentialHashAlgorithm("BCRYPT");
-         /// <summary>
+        /// <summary>
         /// StringEnum PasswordCredentialHashAlgorithm for value: MD5
         /// </summary>
         public static PasswordCredentialHashAlgorithm MD5 = new PasswordCredentialHashAlgorithm("MD5");
-         /// <summary>
+        /// <summary>
         /// StringEnum PasswordCredentialHashAlgorithm for value: SHA-1
         /// </summary>
         public static PasswordCredentialHashAlgorithm SHA1 = new PasswordCredentialHashAlgorithm("SHA-1");
-         /// <summary>
+        /// <summary>
         /// StringEnum PasswordCredentialHashAlgorithm for value: SHA-256
         /// </summary>
         public static PasswordCredentialHashAlgorithm SHA256 = new PasswordCredentialHashAlgorithm("SHA-256");
-         /// <summary>
+        /// <summary>
         /// StringEnum PasswordCredentialHashAlgorithm for value: SHA-512
         /// </summary>
         public static PasswordCredentialHashAlgorithm SHA512 = new PasswordCredentialHashAlgorithm("SHA-512");

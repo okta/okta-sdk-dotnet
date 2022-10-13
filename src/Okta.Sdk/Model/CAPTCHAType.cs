@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines CAPTCHAType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of CAPTCHAType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class CAPTCHAType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum CAPTCHAType for value: HCAPTCHA
         /// </summary>
         public static CAPTCHAType HCAPTCHA = new CAPTCHAType("HCAPTCHA");
-         /// <summary>
+        /// <summary>
         /// StringEnum CAPTCHAType for value: RECAPTCHA_V2
         /// </summary>
         public static CAPTCHAType RECAPTCHAV2 = new CAPTCHAType("RECAPTCHA_V2");

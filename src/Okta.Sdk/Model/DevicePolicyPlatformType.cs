@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines DevicePolicyPlatformType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of DevicePolicyPlatformType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class DevicePolicyPlatformType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum DevicePolicyPlatformType for value: ANDROID
         /// </summary>
         public static DevicePolicyPlatformType ANDROID = new DevicePolicyPlatformType("ANDROID");
-         /// <summary>
+        /// <summary>
         /// StringEnum DevicePolicyPlatformType for value: IOS
         /// </summary>
         public static DevicePolicyPlatformType IOS = new DevicePolicyPlatformType("IOS");
-         /// <summary>
+        /// <summary>
         /// StringEnum DevicePolicyPlatformType for value: OSX
         /// </summary>
         public static DevicePolicyPlatformType OSX = new DevicePolicyPlatformType("OSX");
-         /// <summary>
+        /// <summary>
         /// StringEnum DevicePolicyPlatformType for value: WINDOWS
         /// </summary>
         public static DevicePolicyPlatformType WINDOWS = new DevicePolicyPlatformType("WINDOWS");

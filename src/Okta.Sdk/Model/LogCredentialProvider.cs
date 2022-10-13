@@ -28,38 +28,34 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines LogCredentialProvider
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of LogCredentialProvider values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class LogCredentialProvider : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialProvider for value: DUO
         /// </summary>
         public static LogCredentialProvider DUO = new LogCredentialProvider("DUO");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialProvider for value: GOOGLE
         /// </summary>
         public static LogCredentialProvider GOOGLE = new LogCredentialProvider("GOOGLE");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialProvider for value: OKTA_AUTHENTICATION_PROVIDER
         /// </summary>
         public static LogCredentialProvider OKTAAUTHENTICATIONPROVIDER = new LogCredentialProvider("OKTA_AUTHENTICATION_PROVIDER");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialProvider for value: OKTA_CREDENTIAL_PROVIDER
         /// </summary>
         public static LogCredentialProvider OKTACREDENTIALPROVIDER = new LogCredentialProvider("OKTA_CREDENTIAL_PROVIDER");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialProvider for value: RSA
         /// </summary>
         public static LogCredentialProvider RSA = new LogCredentialProvider("RSA");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialProvider for value: SYMANTEC
         /// </summary>
         public static LogCredentialProvider SYMANTEC = new LogCredentialProvider("SYMANTEC");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialProvider for value: YUBIKEY
         /// </summary>
         public static LogCredentialProvider YUBIKEY = new LogCredentialProvider("YUBIKEY");

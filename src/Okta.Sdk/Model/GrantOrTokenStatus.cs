@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines GrantOrTokenStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of GrantOrTokenStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class GrantOrTokenStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum GrantOrTokenStatus for value: ACTIVE
         /// </summary>
         public static GrantOrTokenStatus ACTIVE = new GrantOrTokenStatus("ACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum GrantOrTokenStatus for value: REVOKED
         /// </summary>
         public static GrantOrTokenStatus REVOKED = new GrantOrTokenStatus("REVOKED");

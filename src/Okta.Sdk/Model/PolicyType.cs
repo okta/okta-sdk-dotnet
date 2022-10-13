@@ -28,38 +28,34 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PolicyType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PolicyType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PolicyType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyType for value: ACCESS_POLICY
         /// </summary>
         public static PolicyType ACCESSPOLICY = new PolicyType("ACCESS_POLICY");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyType for value: IDP_DISCOVERY
         /// </summary>
         public static PolicyType IDPDISCOVERY = new PolicyType("IDP_DISCOVERY");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyType for value: MFA_ENROLL
         /// </summary>
         public static PolicyType MFAENROLL = new PolicyType("MFA_ENROLL");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyType for value: OAUTH_AUTHORIZATION_POLICY
         /// </summary>
         public static PolicyType OAUTHAUTHORIZATIONPOLICY = new PolicyType("OAUTH_AUTHORIZATION_POLICY");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyType for value: OKTA_SIGN_ON
         /// </summary>
         public static PolicyType OKTASIGNON = new PolicyType("OKTA_SIGN_ON");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyType for value: PASSWORD
         /// </summary>
         public static PolicyType PASSWORD = new PolicyType("PASSWORD");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyType for value: PROFILE_ENROLLMENT
         /// </summary>
         public static PolicyType PROFILEENROLLMENT = new PolicyType("PROFILE_ENROLLMENT");

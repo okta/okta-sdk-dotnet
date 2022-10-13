@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines IdentityProviderCredentialsTrustRevocation
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of IdentityProviderCredentialsTrustRevocation values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class IdentityProviderCredentialsTrustRevocation : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderCredentialsTrustRevocation for value: CRL
         /// </summary>
         public static IdentityProviderCredentialsTrustRevocation CRL = new IdentityProviderCredentialsTrustRevocation("CRL");
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderCredentialsTrustRevocation for value: DELTA_CRL
         /// </summary>
         public static IdentityProviderCredentialsTrustRevocation DELTACRL = new IdentityProviderCredentialsTrustRevocation("DELTA_CRL");
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderCredentialsTrustRevocation for value: OCSP
         /// </summary>
         public static IdentityProviderCredentialsTrustRevocation OCSP = new IdentityProviderCredentialsTrustRevocation("OCSP");

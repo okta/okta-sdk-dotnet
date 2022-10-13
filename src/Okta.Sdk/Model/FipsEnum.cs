@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines FipsEnum
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of FipsEnum values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class FipsEnum : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum FipsEnum for value: OPTIONAL
         /// </summary>
         public static FipsEnum OPTIONAL = new FipsEnum("OPTIONAL");
-         /// <summary>
+        /// <summary>
         /// StringEnum FipsEnum for value: REQUIRED
         /// </summary>
         public static FipsEnum REQUIRED = new FipsEnum("REQUIRED");

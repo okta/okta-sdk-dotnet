@@ -28,38 +28,34 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines FactorStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of FactorStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class FactorStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorStatus for value: ACTIVE
         /// </summary>
         public static FactorStatus ACTIVE = new FactorStatus("ACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorStatus for value: DISABLED
         /// </summary>
         public static FactorStatus DISABLED = new FactorStatus("DISABLED");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorStatus for value: ENROLLED
         /// </summary>
         public static FactorStatus ENROLLED = new FactorStatus("ENROLLED");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorStatus for value: EXPIRED
         /// </summary>
         public static FactorStatus EXPIRED = new FactorStatus("EXPIRED");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorStatus for value: INACTIVE
         /// </summary>
         public static FactorStatus INACTIVE = new FactorStatus("INACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorStatus for value: NOT_SETUP
         /// </summary>
         public static FactorStatus NOTSETUP = new FactorStatus("NOT_SETUP");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorStatus for value: PENDING_ACTIVATION
         /// </summary>
         public static FactorStatus PENDINGACTIVATION = new FactorStatus("PENDING_ACTIVATION");

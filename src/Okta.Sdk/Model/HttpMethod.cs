@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines HttpMethod
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of HttpMethod values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class HttpMethod : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum HttpMethod for value: DELETE
         /// </summary>
         public static HttpMethod DELETE = new HttpMethod("DELETE");
-         /// <summary>
+        /// <summary>
         /// StringEnum HttpMethod for value: GET
         /// </summary>
         public static HttpMethod GET = new HttpMethod("GET");
-         /// <summary>
+        /// <summary>
         /// StringEnum HttpMethod for value: POST
         /// </summary>
         public static HttpMethod POST = new HttpMethod("POST");
-         /// <summary>
+        /// <summary>
         /// StringEnum HttpMethod for value: PUT
         /// </summary>
         public static HttpMethod PUT = new HttpMethod("PUT");

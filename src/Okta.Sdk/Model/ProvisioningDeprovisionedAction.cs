@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ProvisioningDeprovisionedAction
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ProvisioningDeprovisionedAction values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ProvisioningDeprovisionedAction : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningDeprovisionedAction for value: NONE
         /// </summary>
         public static ProvisioningDeprovisionedAction NONE = new ProvisioningDeprovisionedAction("NONE");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningDeprovisionedAction for value: REACTIVATE
         /// </summary>
         public static ProvisioningDeprovisionedAction REACTIVATE = new ProvisioningDeprovisionedAction("REACTIVATE");

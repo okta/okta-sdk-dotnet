@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ProtocolRelayStateFormat
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ProtocolRelayStateFormat values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ProtocolRelayStateFormat : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolRelayStateFormat for value: FROM_URL
         /// </summary>
         public static ProtocolRelayStateFormat FROMURL = new ProtocolRelayStateFormat("FROM_URL");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolRelayStateFormat for value: OPAQUE
         /// </summary>
         public static ProtocolRelayStateFormat OPAQUE = new ProtocolRelayStateFormat("OPAQUE");

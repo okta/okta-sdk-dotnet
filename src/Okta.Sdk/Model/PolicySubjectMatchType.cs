@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PolicySubjectMatchType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PolicySubjectMatchType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PolicySubjectMatchType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicySubjectMatchType for value: CUSTOM_ATTRIBUTE
         /// </summary>
         public static PolicySubjectMatchType CUSTOMATTRIBUTE = new PolicySubjectMatchType("CUSTOM_ATTRIBUTE");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicySubjectMatchType for value: EMAIL
         /// </summary>
         public static PolicySubjectMatchType EMAIL = new PolicySubjectMatchType("EMAIL");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicySubjectMatchType for value: USERNAME
         /// </summary>
         public static PolicySubjectMatchType USERNAME = new PolicySubjectMatchType("USERNAME");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicySubjectMatchType for value: USERNAME_OR_EMAIL
         /// </summary>
         public static PolicySubjectMatchType USERNAMEOREMAIL = new PolicySubjectMatchType("USERNAME_OR_EMAIL");

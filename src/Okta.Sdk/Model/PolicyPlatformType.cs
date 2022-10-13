@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PolicyPlatformType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PolicyPlatformType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PolicyPlatformType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyPlatformType for value: ANY
         /// </summary>
         public static PolicyPlatformType ANY = new PolicyPlatformType("ANY");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyPlatformType for value: DESKTOP
         /// </summary>
         public static PolicyPlatformType DESKTOP = new PolicyPlatformType("DESKTOP");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyPlatformType for value: MOBILE
         /// </summary>
         public static PolicyPlatformType MOBILE = new PolicyPlatformType("MOBILE");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyPlatformType for value: OTHER
         /// </summary>
         public static PolicyPlatformType OTHER = new PolicyPlatformType("OTHER");

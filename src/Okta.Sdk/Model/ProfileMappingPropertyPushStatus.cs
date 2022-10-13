@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ProfileMappingPropertyPushStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ProfileMappingPropertyPushStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ProfileMappingPropertyPushStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ProfileMappingPropertyPushStatus for value: DONT_PUSH
         /// </summary>
         public static ProfileMappingPropertyPushStatus DONTPUSH = new ProfileMappingPropertyPushStatus("DONT_PUSH");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProfileMappingPropertyPushStatus for value: PUSH
         /// </summary>
         public static ProfileMappingPropertyPushStatus PUSH = new ProfileMappingPropertyPushStatus("PUSH");

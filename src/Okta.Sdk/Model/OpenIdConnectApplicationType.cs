@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OpenIdConnectApplicationType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OpenIdConnectApplicationType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OpenIdConnectApplicationType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OpenIdConnectApplicationType for value: browser
         /// </summary>
         public static OpenIdConnectApplicationType Browser = new OpenIdConnectApplicationType("browser");
-         /// <summary>
+        /// <summary>
         /// StringEnum OpenIdConnectApplicationType for value: native
         /// </summary>
         public static OpenIdConnectApplicationType Native = new OpenIdConnectApplicationType("native");
-         /// <summary>
+        /// <summary>
         /// StringEnum OpenIdConnectApplicationType for value: service
         /// </summary>
         public static OpenIdConnectApplicationType Service = new OpenIdConnectApplicationType("service");
-         /// <summary>
+        /// <summary>
         /// StringEnum OpenIdConnectApplicationType for value: web
         /// </summary>
         public static OpenIdConnectApplicationType Web = new OpenIdConnectApplicationType("web");

@@ -28,34 +28,30 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PolicyPlatformOperatingSystemType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PolicyPlatformOperatingSystemType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PolicyPlatformOperatingSystemType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyPlatformOperatingSystemType for value: ANDROID
         /// </summary>
         public static PolicyPlatformOperatingSystemType ANDROID = new PolicyPlatformOperatingSystemType("ANDROID");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyPlatformOperatingSystemType for value: ANY
         /// </summary>
         public static PolicyPlatformOperatingSystemType ANY = new PolicyPlatformOperatingSystemType("ANY");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyPlatformOperatingSystemType for value: IOS
         /// </summary>
         public static PolicyPlatformOperatingSystemType IOS = new PolicyPlatformOperatingSystemType("IOS");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyPlatformOperatingSystemType for value: OSX
         /// </summary>
         public static PolicyPlatformOperatingSystemType OSX = new PolicyPlatformOperatingSystemType("OSX");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyPlatformOperatingSystemType for value: OTHER
         /// </summary>
         public static PolicyPlatformOperatingSystemType OTHER = new PolicyPlatformOperatingSystemType("OTHER");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyPlatformOperatingSystemType for value: WINDOWS
         /// </summary>
         public static PolicyPlatformOperatingSystemType WINDOWS = new PolicyPlatformOperatingSystemType("WINDOWS");

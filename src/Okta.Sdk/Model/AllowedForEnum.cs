@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines AllowedForEnum
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of AllowedForEnum values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class AllowedForEnum : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum AllowedForEnum for value: any
         /// </summary>
         public static AllowedForEnum Any = new AllowedForEnum("any");
-         /// <summary>
+        /// <summary>
         /// StringEnum AllowedForEnum for value: none
         /// </summary>
         public static AllowedForEnum None = new AllowedForEnum("none");
-         /// <summary>
+        /// <summary>
         /// StringEnum AllowedForEnum for value: recovery
         /// </summary>
         public static AllowedForEnum Recovery = new AllowedForEnum("recovery");
-         /// <summary>
+        /// <summary>
         /// StringEnum AllowedForEnum for value: sso
         /// </summary>
         public static AllowedForEnum Sso = new AllowedForEnum("sso");

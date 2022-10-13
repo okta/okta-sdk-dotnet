@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines Platform
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of Platform values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class Platform : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum Platform for value: ANDROID
         /// </summary>
         public static Platform ANDROID = new Platform("ANDROID");
-         /// <summary>
+        /// <summary>
         /// StringEnum Platform for value: IOS
         /// </summary>
         public static Platform IOS = new Platform("IOS");
-         /// <summary>
+        /// <summary>
         /// StringEnum Platform for value: MACOS
         /// </summary>
         public static Platform MACOS = new Platform("MACOS");
-         /// <summary>
+        /// <summary>
         /// StringEnum Platform for value: WINDOWS
         /// </summary>
         public static Platform WINDOWS = new Platform("WINDOWS");

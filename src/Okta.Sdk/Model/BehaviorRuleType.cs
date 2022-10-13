@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines BehaviorRuleType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of BehaviorRuleType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class BehaviorRuleType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum BehaviorRuleType for value: ANOMALOUS_DEVICE
         /// </summary>
         public static BehaviorRuleType ANOMALOUSDEVICE = new BehaviorRuleType("ANOMALOUS_DEVICE");
-         /// <summary>
+        /// <summary>
         /// StringEnum BehaviorRuleType for value: ANOMALOUS_IP
         /// </summary>
         public static BehaviorRuleType ANOMALOUSIP = new BehaviorRuleType("ANOMALOUS_IP");
-         /// <summary>
+        /// <summary>
         /// StringEnum BehaviorRuleType for value: ANOMALOUS_LOCATION
         /// </summary>
         public static BehaviorRuleType ANOMALOUSLOCATION = new BehaviorRuleType("ANOMALOUS_LOCATION");
-         /// <summary>
+        /// <summary>
         /// StringEnum BehaviorRuleType for value: VELOCITY
         /// </summary>
         public static BehaviorRuleType VELOCITY = new BehaviorRuleType("VELOCITY");

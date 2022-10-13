@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines FeatureStageState
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of FeatureStageState values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class FeatureStageState : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum FeatureStageState for value: CLOSED
         /// </summary>
         public static FeatureStageState CLOSED = new FeatureStageState("CLOSED");
-         /// <summary>
+        /// <summary>
         /// StringEnum FeatureStageState for value: OPEN
         /// </summary>
         public static FeatureStageState OPEN = new FeatureStageState("OPEN");

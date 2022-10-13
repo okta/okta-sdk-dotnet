@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines UserSchemaAttributeUnion
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of UserSchemaAttributeUnion values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class UserSchemaAttributeUnion : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum UserSchemaAttributeUnion for value: DISABLE
         /// </summary>
         public static UserSchemaAttributeUnion DISABLE = new UserSchemaAttributeUnion("DISABLE");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserSchemaAttributeUnion for value: ENABLE
         /// </summary>
         public static UserSchemaAttributeUnion ENABLE = new UserSchemaAttributeUnion("ENABLE");

@@ -28,46 +28,42 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ApplicationSignOnMode
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ApplicationSignOnMode values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ApplicationSignOnMode : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationSignOnMode for value: AUTO_LOGIN
         /// </summary>
         public static ApplicationSignOnMode AUTOLOGIN = new ApplicationSignOnMode("AUTO_LOGIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationSignOnMode for value: BASIC_AUTH
         /// </summary>
         public static ApplicationSignOnMode BASICAUTH = new ApplicationSignOnMode("BASIC_AUTH");
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationSignOnMode for value: BOOKMARK
         /// </summary>
         public static ApplicationSignOnMode BOOKMARK = new ApplicationSignOnMode("BOOKMARK");
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationSignOnMode for value: BROWSER_PLUGIN
         /// </summary>
         public static ApplicationSignOnMode BROWSERPLUGIN = new ApplicationSignOnMode("BROWSER_PLUGIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationSignOnMode for value: OPENID_CONNECT
         /// </summary>
         public static ApplicationSignOnMode OPENIDCONNECT = new ApplicationSignOnMode("OPENID_CONNECT");
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationSignOnMode for value: SAML_1_1
         /// </summary>
         public static ApplicationSignOnMode SAML11 = new ApplicationSignOnMode("SAML_1_1");
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationSignOnMode for value: SAML_2_0
         /// </summary>
         public static ApplicationSignOnMode SAML20 = new ApplicationSignOnMode("SAML_2_0");
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationSignOnMode for value: SECURE_PASSWORD_STORE
         /// </summary>
         public static ApplicationSignOnMode SECUREPASSWORDSTORE = new ApplicationSignOnMode("SECURE_PASSWORD_STORE");
-         /// <summary>
+        /// <summary>
         /// StringEnum ApplicationSignOnMode for value: WS_FEDERATION
         /// </summary>
         public static ApplicationSignOnMode WSFEDERATION = new ApplicationSignOnMode("WS_FEDERATION");

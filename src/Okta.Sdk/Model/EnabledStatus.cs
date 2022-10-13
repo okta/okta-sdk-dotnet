@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines EnabledStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of EnabledStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class EnabledStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum EnabledStatus for value: DISABLED
         /// </summary>
         public static EnabledStatus DISABLED = new EnabledStatus("DISABLED");
-         /// <summary>
+        /// <summary>
         /// StringEnum EnabledStatus for value: ENABLED
         /// </summary>
         public static EnabledStatus ENABLED = new EnabledStatus("ENABLED");

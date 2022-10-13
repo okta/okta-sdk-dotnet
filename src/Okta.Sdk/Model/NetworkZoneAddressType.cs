@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines NetworkZoneAddressType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of NetworkZoneAddressType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class NetworkZoneAddressType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum NetworkZoneAddressType for value: CIDR
         /// </summary>
         public static NetworkZoneAddressType CIDR = new NetworkZoneAddressType("CIDR");
-         /// <summary>
+        /// <summary>
         /// StringEnum NetworkZoneAddressType for value: RANGE
         /// </summary>
         public static NetworkZoneAddressType RANGE = new NetworkZoneAddressType("RANGE");

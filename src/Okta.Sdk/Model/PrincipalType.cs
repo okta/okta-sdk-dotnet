@@ -28,14 +28,10 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PrincipalType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PrincipalType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PrincipalType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PrincipalType for value: SSWS_TOKEN
         /// </summary>
         public static PrincipalType SSWSTOKEN = new PrincipalType("SSWS_TOKEN");

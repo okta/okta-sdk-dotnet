@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ProtocolEndpointBinding
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ProtocolEndpointBinding values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ProtocolEndpointBinding : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolEndpointBinding for value: HTTP-POST
         /// </summary>
         public static ProtocolEndpointBinding POST = new ProtocolEndpointBinding("HTTP-POST");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolEndpointBinding for value: HTTP-REDIRECT
         /// </summary>
         public static ProtocolEndpointBinding REDIRECT = new ProtocolEndpointBinding("HTTP-REDIRECT");

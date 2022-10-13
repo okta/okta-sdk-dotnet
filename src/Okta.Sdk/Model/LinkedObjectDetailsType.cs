@@ -28,14 +28,10 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines LinkedObjectDetailsType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of LinkedObjectDetailsType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class LinkedObjectDetailsType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum LinkedObjectDetailsType for value: USER
         /// </summary>
         public static LinkedObjectDetailsType USER = new LinkedObjectDetailsType("USER");

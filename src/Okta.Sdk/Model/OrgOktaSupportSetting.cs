@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OrgOktaSupportSetting
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OrgOktaSupportSetting values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OrgOktaSupportSetting : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OrgOktaSupportSetting for value: DISABLED
         /// </summary>
         public static OrgOktaSupportSetting DISABLED = new OrgOktaSupportSetting("DISABLED");
-         /// <summary>
+        /// <summary>
         /// StringEnum OrgOktaSupportSetting for value: ENABLED
         /// </summary>
         public static OrgOktaSupportSetting ENABLED = new OrgOktaSupportSetting("ENABLED");

@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PolicyRuleAuthContextType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PolicyRuleAuthContextType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PolicyRuleAuthContextType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyRuleAuthContextType for value: ANY
         /// </summary>
         public static PolicyRuleAuthContextType ANY = new PolicyRuleAuthContextType("ANY");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyRuleAuthContextType for value: RADIUS
         /// </summary>
         public static PolicyRuleAuthContextType RADIUS = new PolicyRuleAuthContextType("RADIUS");

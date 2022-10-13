@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OAuth2ClaimValueType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OAuth2ClaimValueType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OAuth2ClaimValueType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ClaimValueType for value: EXPRESSION
         /// </summary>
         public static OAuth2ClaimValueType EXPRESSION = new OAuth2ClaimValueType("EXPRESSION");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ClaimValueType for value: GROUPS
         /// </summary>
         public static OAuth2ClaimValueType GROUPS = new OAuth2ClaimValueType("GROUPS");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ClaimValueType for value: SYSTEM
         /// </summary>
         public static OAuth2ClaimValueType SYSTEM = new OAuth2ClaimValueType("SYSTEM");

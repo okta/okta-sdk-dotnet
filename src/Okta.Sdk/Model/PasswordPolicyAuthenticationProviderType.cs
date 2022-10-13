@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PasswordPolicyAuthenticationProviderType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PasswordPolicyAuthenticationProviderType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PasswordPolicyAuthenticationProviderType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PasswordPolicyAuthenticationProviderType for value: ACTIVE_DIRECTORY
         /// </summary>
         public static PasswordPolicyAuthenticationProviderType ACTIVEDIRECTORY = new PasswordPolicyAuthenticationProviderType("ACTIVE_DIRECTORY");
-         /// <summary>
+        /// <summary>
         /// StringEnum PasswordPolicyAuthenticationProviderType for value: ANY
         /// </summary>
         public static PasswordPolicyAuthenticationProviderType ANY = new PasswordPolicyAuthenticationProviderType("ANY");
-         /// <summary>
+        /// <summary>
         /// StringEnum PasswordPolicyAuthenticationProviderType for value: LDAP
         /// </summary>
         public static PasswordPolicyAuthenticationProviderType LDAP = new PasswordPolicyAuthenticationProviderType("LDAP");
-         /// <summary>
+        /// <summary>
         /// StringEnum PasswordPolicyAuthenticationProviderType for value: OKTA
         /// </summary>
         public static PasswordPolicyAuthenticationProviderType OKTA = new PasswordPolicyAuthenticationProviderType("OKTA");

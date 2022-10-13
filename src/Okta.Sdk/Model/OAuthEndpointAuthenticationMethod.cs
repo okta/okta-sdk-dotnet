@@ -28,30 +28,26 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OAuthEndpointAuthenticationMethod
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OAuthEndpointAuthenticationMethod values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OAuthEndpointAuthenticationMethod : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuthEndpointAuthenticationMethod for value: client_secret_basic
         /// </summary>
         public static OAuthEndpointAuthenticationMethod ClientSecretBasic = new OAuthEndpointAuthenticationMethod("client_secret_basic");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuthEndpointAuthenticationMethod for value: client_secret_jwt
         /// </summary>
         public static OAuthEndpointAuthenticationMethod ClientSecretJwt = new OAuthEndpointAuthenticationMethod("client_secret_jwt");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuthEndpointAuthenticationMethod for value: client_secret_post
         /// </summary>
         public static OAuthEndpointAuthenticationMethod ClientSecretPost = new OAuthEndpointAuthenticationMethod("client_secret_post");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuthEndpointAuthenticationMethod for value: none
         /// </summary>
         public static OAuthEndpointAuthenticationMethod None = new OAuthEndpointAuthenticationMethod("none");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuthEndpointAuthenticationMethod for value: private_key_jwt
         /// </summary>
         public static OAuthEndpointAuthenticationMethod PrivateKeyJwt = new OAuthEndpointAuthenticationMethod("private_key_jwt");

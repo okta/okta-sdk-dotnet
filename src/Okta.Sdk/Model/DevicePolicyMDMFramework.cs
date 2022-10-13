@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines DevicePolicyMDMFramework
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of DevicePolicyMDMFramework values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class DevicePolicyMDMFramework : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum DevicePolicyMDMFramework for value: AFW
         /// </summary>
         public static DevicePolicyMDMFramework AFW = new DevicePolicyMDMFramework("AFW");
-         /// <summary>
+        /// <summary>
         /// StringEnum DevicePolicyMDMFramework for value: NATIVE
         /// </summary>
         public static DevicePolicyMDMFramework NATIVE = new DevicePolicyMDMFramework("NATIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum DevicePolicyMDMFramework for value: SAFE
         /// </summary>
         public static DevicePolicyMDMFramework SAFE = new DevicePolicyMDMFramework("SAFE");

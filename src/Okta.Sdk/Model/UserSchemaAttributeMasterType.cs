@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines UserSchemaAttributeMasterType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of UserSchemaAttributeMasterType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class UserSchemaAttributeMasterType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum UserSchemaAttributeMasterType for value: OKTA
         /// </summary>
         public static UserSchemaAttributeMasterType OKTA = new UserSchemaAttributeMasterType("OKTA");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserSchemaAttributeMasterType for value: OVERRIDE
         /// </summary>
         public static UserSchemaAttributeMasterType OVERRIDE = new UserSchemaAttributeMasterType("OVERRIDE");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserSchemaAttributeMasterType for value: PROFILE_MASTER
         /// </summary>
         public static UserSchemaAttributeMasterType PROFILEMASTER = new UserSchemaAttributeMasterType("PROFILE_MASTER");

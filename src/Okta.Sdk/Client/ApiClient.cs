@@ -54,7 +54,7 @@ namespace Okta.Sdk.Client
                 {
                     OverrideSpecifiedNames = false
                 }
-            },
+            }
         };
 
         public CustomJsonCodec(IReadableConfiguration configuration)

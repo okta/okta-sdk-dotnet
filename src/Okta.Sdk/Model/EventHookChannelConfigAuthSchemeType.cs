@@ -28,14 +28,10 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines EventHookChannelConfigAuthSchemeType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of EventHookChannelConfigAuthSchemeType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class EventHookChannelConfigAuthSchemeType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum EventHookChannelConfigAuthSchemeType for value: HEADER
         /// </summary>
         public static EventHookChannelConfigAuthSchemeType HEADER = new EventHookChannelConfigAuthSchemeType("HEADER");

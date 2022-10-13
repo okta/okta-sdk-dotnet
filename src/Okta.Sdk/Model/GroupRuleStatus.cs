@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines GroupRuleStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of GroupRuleStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class GroupRuleStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum GroupRuleStatus for value: ACTIVE
         /// </summary>
         public static GroupRuleStatus ACTIVE = new GroupRuleStatus("ACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum GroupRuleStatus for value: INACTIVE
         /// </summary>
         public static GroupRuleStatus INACTIVE = new GroupRuleStatus("INACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum GroupRuleStatus for value: INVALID
         /// </summary>
         public static GroupRuleStatus INVALID = new GroupRuleStatus("INVALID");

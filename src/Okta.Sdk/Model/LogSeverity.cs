@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines LogSeverity
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of LogSeverity values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class LogSeverity : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum LogSeverity for value: DEBUG
         /// </summary>
         public static LogSeverity DEBUG = new LogSeverity("DEBUG");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogSeverity for value: ERROR
         /// </summary>
         public static LogSeverity ERROR = new LogSeverity("ERROR");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogSeverity for value: INFO
         /// </summary>
         public static LogSeverity INFO = new LogSeverity("INFO");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogSeverity for value: WARN
         /// </summary>
         public static LogSeverity WARN = new LogSeverity("WARN");

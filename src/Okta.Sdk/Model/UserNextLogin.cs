@@ -28,14 +28,10 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines UserNextLogin
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of UserNextLogin values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class UserNextLogin : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum UserNextLogin for value: changePassword
         /// </summary>
         public static UserNextLogin ChangePassword = new UserNextLogin("changePassword");

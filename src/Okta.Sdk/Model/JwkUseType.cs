@@ -28,14 +28,10 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines JwkUseType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of JwkUseType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class JwkUseType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum JwkUseType for value: sig
         /// </summary>
         public static JwkUseType Sig = new JwkUseType("sig");

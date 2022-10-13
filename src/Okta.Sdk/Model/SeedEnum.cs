@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines SeedEnum
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of SeedEnum values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class SeedEnum : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum SeedEnum for value: OKTA
         /// </summary>
         public static SeedEnum OKTA = new SeedEnum("OKTA");
-         /// <summary>
+        /// <summary>
         /// StringEnum SeedEnum for value: RANDOM
         /// </summary>
         public static SeedEnum RANDOM = new SeedEnum("RANDOM");

@@ -28,50 +28,46 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines RoleType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of RoleType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class RoleType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum RoleType for value: API_ACCESS_MANAGEMENT_ADMIN
         /// </summary>
         public static RoleType APIACCESSMANAGEMENTADMIN = new RoleType("API_ACCESS_MANAGEMENT_ADMIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum RoleType for value: APP_ADMIN
         /// </summary>
         public static RoleType APPADMIN = new RoleType("APP_ADMIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum RoleType for value: GROUP_MEMBERSHIP_ADMIN
         /// </summary>
         public static RoleType GROUPMEMBERSHIPADMIN = new RoleType("GROUP_MEMBERSHIP_ADMIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum RoleType for value: HELP_DESK_ADMIN
         /// </summary>
         public static RoleType HELPDESKADMIN = new RoleType("HELP_DESK_ADMIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum RoleType for value: MOBILE_ADMIN
         /// </summary>
         public static RoleType MOBILEADMIN = new RoleType("MOBILE_ADMIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum RoleType for value: ORG_ADMIN
         /// </summary>
         public static RoleType ORGADMIN = new RoleType("ORG_ADMIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum RoleType for value: READ_ONLY_ADMIN
         /// </summary>
         public static RoleType READONLYADMIN = new RoleType("READ_ONLY_ADMIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum RoleType for value: REPORT_ADMIN
         /// </summary>
         public static RoleType REPORTADMIN = new RoleType("REPORT_ADMIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum RoleType for value: SUPER_ADMIN
         /// </summary>
         public static RoleType SUPERADMIN = new RoleType("SUPER_ADMIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum RoleType for value: USER_ADMIN
         /// </summary>
         public static RoleType USERADMIN = new RoleType("USER_ADMIN");

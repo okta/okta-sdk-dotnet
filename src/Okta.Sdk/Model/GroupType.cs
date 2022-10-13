@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines GroupType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of GroupType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class GroupType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum GroupType for value: APP_GROUP
         /// </summary>
         public static GroupType APPGROUP = new GroupType("APP_GROUP");
-         /// <summary>
+        /// <summary>
         /// StringEnum GroupType for value: BUILT_IN
         /// </summary>
         public static GroupType BUILTIN = new GroupType("BUILT_IN");
-         /// <summary>
+        /// <summary>
         /// StringEnum GroupType for value: OKTA_GROUP
         /// </summary>
         public static GroupType OKTAGROUP = new GroupType("OKTA_GROUP");

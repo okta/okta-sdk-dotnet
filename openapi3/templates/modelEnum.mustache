@@ -9,21 +9,17 @@
     {{#-first}}
     {{#isString}}
     {{^useGenericHost}}
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     {{/useGenericHost}}
     {{/isString}}
     {{/-first}}
     {{/enumVars}}
     {{/allowableValues}}
-
-    /// <summary>
-    /// An enumeration of {{classname}} values in the Okta API.
-    /// </summary>
     public sealed class {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} : StringEnum
     {
         {{#allowableValues}}
         {{#enumVars}}
-         /// <summary>
+        /// <summary>
         /// StringEnum {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} for value: {{{value}}}
         /// </summary>
         public static {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} {{{name}}} = new {{datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}("{{value}}");

@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ProtocolEndpointType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ProtocolEndpointType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ProtocolEndpointType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolEndpointType for value: INSTANCE
         /// </summary>
         public static ProtocolEndpointType INSTANCE = new ProtocolEndpointType("INSTANCE");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolEndpointType for value: ORG
         /// </summary>
         public static ProtocolEndpointType ORG = new ProtocolEndpointType("ORG");

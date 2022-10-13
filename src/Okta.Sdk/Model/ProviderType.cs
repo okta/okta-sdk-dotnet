@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ProviderType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ProviderType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ProviderType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ProviderType for value: APNS
         /// </summary>
         public static ProviderType APNS = new ProviderType("APNS");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProviderType for value: FCM
         /// </summary>
         public static ProviderType FCM = new ProviderType("FCM");

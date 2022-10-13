@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PolicyAccess
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PolicyAccess values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PolicyAccess : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyAccess for value: ALLOW
         /// </summary>
         public static PolicyAccess ALLOW = new PolicyAccess("ALLOW");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyAccess for value: DENY
         /// </summary>
         public static PolicyAccess DENY = new PolicyAccess("DENY");

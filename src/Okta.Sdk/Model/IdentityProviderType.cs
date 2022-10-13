@@ -28,50 +28,46 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines IdentityProviderType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of IdentityProviderType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class IdentityProviderType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderType for value: AgentlessDSSO
         /// </summary>
         public static IdentityProviderType AgentlessDSSO = new IdentityProviderType("AgentlessDSSO");
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderType for value: FACEBOOK
         /// </summary>
         public static IdentityProviderType FACEBOOK = new IdentityProviderType("FACEBOOK");
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderType for value: GOOGLE
         /// </summary>
         public static IdentityProviderType GOOGLE = new IdentityProviderType("GOOGLE");
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderType for value: IWA
         /// </summary>
         public static IdentityProviderType IWA = new IdentityProviderType("IWA");
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderType for value: LINKEDIN
         /// </summary>
         public static IdentityProviderType LINKEDIN = new IdentityProviderType("LINKEDIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderType for value: MICROSOFT
         /// </summary>
         public static IdentityProviderType MICROSOFT = new IdentityProviderType("MICROSOFT");
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderType for value: OIDC
         /// </summary>
         public static IdentityProviderType OIDC = new IdentityProviderType("OIDC");
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderType for value: OKTA
         /// </summary>
         public static IdentityProviderType OKTA = new IdentityProviderType("OKTA");
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderType for value: SAML2
         /// </summary>
         public static IdentityProviderType SAML2 = new IdentityProviderType("SAML2");
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderType for value: X509
         /// </summary>
         public static IdentityProviderType X509 = new IdentityProviderType("X509");

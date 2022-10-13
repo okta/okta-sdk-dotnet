@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines NetworkZoneType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of NetworkZoneType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class NetworkZoneType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum NetworkZoneType for value: DYNAMIC
         /// </summary>
         public static NetworkZoneType DYNAMIC = new NetworkZoneType("DYNAMIC");
-         /// <summary>
+        /// <summary>
         /// StringEnum NetworkZoneType for value: IP
         /// </summary>
         public static NetworkZoneType IP = new NetworkZoneType("IP");

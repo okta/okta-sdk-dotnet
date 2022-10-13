@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines InlineHookStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of InlineHookStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class InlineHookStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum InlineHookStatus for value: ACTIVE
         /// </summary>
         public static InlineHookStatus ACTIVE = new InlineHookStatus("ACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum InlineHookStatus for value: INACTIVE
         /// </summary>
         public static InlineHookStatus INACTIVE = new InlineHookStatus("INACTIVE");

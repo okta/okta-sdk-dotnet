@@ -28,70 +28,66 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines MultifactorEnrollmentPolicyAuthenticatorType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of MultifactorEnrollmentPolicyAuthenticatorType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class MultifactorEnrollmentPolicyAuthenticatorType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: custom_app
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType CustomApp = new MultifactorEnrollmentPolicyAuthenticatorType("custom_app");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: custom_otp
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType CustomOtp = new MultifactorEnrollmentPolicyAuthenticatorType("custom_otp");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: duo
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType Duo = new MultifactorEnrollmentPolicyAuthenticatorType("duo");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: external_idp
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType ExternalIdp = new MultifactorEnrollmentPolicyAuthenticatorType("external_idp");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: google_otp
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType GoogleOtp = new MultifactorEnrollmentPolicyAuthenticatorType("google_otp");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: okta_email
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType OktaEmail = new MultifactorEnrollmentPolicyAuthenticatorType("okta_email");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: okta_password
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType OktaPassword = new MultifactorEnrollmentPolicyAuthenticatorType("okta_password");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: okta_verify
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType OktaVerify = new MultifactorEnrollmentPolicyAuthenticatorType("okta_verify");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: onprem_mfa
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType OnpremMfa = new MultifactorEnrollmentPolicyAuthenticatorType("onprem_mfa");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: phone_number
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType PhoneNumber = new MultifactorEnrollmentPolicyAuthenticatorType("phone_number");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: rsa_token
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType RsaToken = new MultifactorEnrollmentPolicyAuthenticatorType("rsa_token");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: security_question
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType SecurityQuestion = new MultifactorEnrollmentPolicyAuthenticatorType("security_question");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: symantec_vip
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType SymantecVip = new MultifactorEnrollmentPolicyAuthenticatorType("symantec_vip");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: webauthn
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType Webauthn = new MultifactorEnrollmentPolicyAuthenticatorType("webauthn");
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicyAuthenticatorType for value: yubikey_token
         /// </summary>
         public static MultifactorEnrollmentPolicyAuthenticatorType YubikeyToken = new MultifactorEnrollmentPolicyAuthenticatorType("yubikey_token");

@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines UserIdentifierType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of UserIdentifierType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class UserIdentifierType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum UserIdentifierType for value: ATTRIBUTE
         /// </summary>
         public static UserIdentifierType ATTRIBUTE = new UserIdentifierType("ATTRIBUTE");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserIdentifierType for value: IDENTIFIER
         /// </summary>
         public static UserIdentifierType IDENTIFIER = new UserIdentifierType("IDENTIFIER");

@@ -28,14 +28,10 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines MultifactorEnrollmentPolicySettingsType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of MultifactorEnrollmentPolicySettingsType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class MultifactorEnrollmentPolicySettingsType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum MultifactorEnrollmentPolicySettingsType for value: AUTHENTICATORS
         /// </summary>
         public static MultifactorEnrollmentPolicySettingsType AUTHENTICATORS = new MultifactorEnrollmentPolicySettingsType("AUTHENTICATORS");

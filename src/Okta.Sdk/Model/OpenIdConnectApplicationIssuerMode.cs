@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OpenIdConnectApplicationIssuerMode
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OpenIdConnectApplicationIssuerMode values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OpenIdConnectApplicationIssuerMode : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OpenIdConnectApplicationIssuerMode for value: CUSTOM_URL
         /// </summary>
         public static OpenIdConnectApplicationIssuerMode CUSTOMURL = new OpenIdConnectApplicationIssuerMode("CUSTOM_URL");
-         /// <summary>
+        /// <summary>
         /// StringEnum OpenIdConnectApplicationIssuerMode for value: DYNAMIC
         /// </summary>
         public static OpenIdConnectApplicationIssuerMode DYNAMIC = new OpenIdConnectApplicationIssuerMode("DYNAMIC");
-         /// <summary>
+        /// <summary>
         /// StringEnum OpenIdConnectApplicationIssuerMode for value: ORG_URL
         /// </summary>
         public static OpenIdConnectApplicationIssuerMode ORGURL = new OpenIdConnectApplicationIssuerMode("ORG_URL");

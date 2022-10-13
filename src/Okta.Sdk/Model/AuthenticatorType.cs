@@ -28,38 +28,34 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines AuthenticatorType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of AuthenticatorType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class AuthenticatorType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticatorType for value: app
         /// </summary>
         public static AuthenticatorType App = new AuthenticatorType("app");
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticatorType for value: email
         /// </summary>
         public static AuthenticatorType Email = new AuthenticatorType("email");
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticatorType for value: federated
         /// </summary>
         public static AuthenticatorType Federated = new AuthenticatorType("federated");
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticatorType for value: password
         /// </summary>
         public static AuthenticatorType Password = new AuthenticatorType("password");
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticatorType for value: phone
         /// </summary>
         public static AuthenticatorType Phone = new AuthenticatorType("phone");
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticatorType for value: security_key
         /// </summary>
         public static AuthenticatorType SecurityKey = new AuthenticatorType("security_key");
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticatorType for value: security_question
         /// </summary>
         public static AuthenticatorType SecurityQuestion = new AuthenticatorType("security_question");

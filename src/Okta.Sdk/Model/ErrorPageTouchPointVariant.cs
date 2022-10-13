@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ErrorPageTouchPointVariant
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ErrorPageTouchPointVariant values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ErrorPageTouchPointVariant : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ErrorPageTouchPointVariant for value: BACKGROUND_IMAGE
         /// </summary>
         public static ErrorPageTouchPointVariant BACKGROUNDIMAGE = new ErrorPageTouchPointVariant("BACKGROUND_IMAGE");
-         /// <summary>
+        /// <summary>
         /// StringEnum ErrorPageTouchPointVariant for value: BACKGROUND_SECONDARY_COLOR
         /// </summary>
         public static ErrorPageTouchPointVariant BACKGROUNDSECONDARYCOLOR = new ErrorPageTouchPointVariant("BACKGROUND_SECONDARY_COLOR");
-         /// <summary>
+        /// <summary>
         /// StringEnum ErrorPageTouchPointVariant for value: OKTA_DEFAULT
         /// </summary>
         public static ErrorPageTouchPointVariant OKTADEFAULT = new ErrorPageTouchPointVariant("OKTA_DEFAULT");

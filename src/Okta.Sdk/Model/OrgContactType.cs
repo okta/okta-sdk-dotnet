@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OrgContactType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OrgContactType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OrgContactType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OrgContactType for value: BILLING
         /// </summary>
         public static OrgContactType BILLING = new OrgContactType("BILLING");
-         /// <summary>
+        /// <summary>
         /// StringEnum OrgContactType for value: TECHNICAL
         /// </summary>
         public static OrgContactType TECHNICAL = new OrgContactType("TECHNICAL");

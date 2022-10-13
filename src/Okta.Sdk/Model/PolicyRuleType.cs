@@ -28,38 +28,34 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PolicyRuleType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PolicyRuleType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PolicyRuleType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyRuleType for value: ACCESS_POLICY
         /// </summary>
         public static PolicyRuleType ACCESSPOLICY = new PolicyRuleType("ACCESS_POLICY");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyRuleType for value: IDP_DISCOVERY
         /// </summary>
         public static PolicyRuleType IDPDISCOVERY = new PolicyRuleType("IDP_DISCOVERY");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyRuleType for value: MFA_ENROLL
         /// </summary>
         public static PolicyRuleType MFAENROLL = new PolicyRuleType("MFA_ENROLL");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyRuleType for value: PASSWORD
         /// </summary>
         public static PolicyRuleType PASSWORD = new PolicyRuleType("PASSWORD");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyRuleType for value: PROFILE_ENROLLMENT
         /// </summary>
         public static PolicyRuleType PROFILEENROLLMENT = new PolicyRuleType("PROFILE_ENROLLMENT");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyRuleType for value: RESOURCE_ACCESS
         /// </summary>
         public static PolicyRuleType RESOURCEACCESS = new PolicyRuleType("RESOURCE_ACCESS");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyRuleType for value: SIGN_ON
         /// </summary>
         public static PolicyRuleType SIGNON = new PolicyRuleType("SIGN_ON");

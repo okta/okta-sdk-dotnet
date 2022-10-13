@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ScreenLockType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ScreenLockType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ScreenLockType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ScreenLockType for value: BIOMETRIC
         /// </summary>
         public static ScreenLockType BIOMETRIC = new ScreenLockType("BIOMETRIC");
-         /// <summary>
+        /// <summary>
         /// StringEnum ScreenLockType for value: PASSCODE
         /// </summary>
         public static ScreenLockType PASSCODE = new ScreenLockType("PASSCODE");

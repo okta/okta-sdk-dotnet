@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines DeviceStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of DeviceStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class DeviceStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum DeviceStatus for value: ACTIVE
         /// </summary>
         public static DeviceStatus ACTIVE = new DeviceStatus("ACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum DeviceStatus for value: CREATED
         /// </summary>
         public static DeviceStatus CREATED = new DeviceStatus("CREATED");
-         /// <summary>
+        /// <summary>
         /// StringEnum DeviceStatus for value: DEACTIVATED
         /// </summary>
         public static DeviceStatus DEACTIVATED = new DeviceStatus("DEACTIVATED");
-         /// <summary>
+        /// <summary>
         /// StringEnum DeviceStatus for value: SUSPENDED
         /// </summary>
         public static DeviceStatus SUSPENDED = new DeviceStatus("SUSPENDED");

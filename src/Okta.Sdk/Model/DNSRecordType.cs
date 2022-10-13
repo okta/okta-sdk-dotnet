@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines DNSRecordType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of DNSRecordType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class DNSRecordType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum DNSRecordType for value: CNAME
         /// </summary>
         public static DNSRecordType CNAME = new DNSRecordType("CNAME");
-         /// <summary>
+        /// <summary>
         /// StringEnum DNSRecordType for value: TXT
         /// </summary>
         public static DNSRecordType TXT = new DNSRecordType("TXT");

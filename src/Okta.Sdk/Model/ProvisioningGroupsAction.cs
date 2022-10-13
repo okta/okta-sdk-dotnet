@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ProvisioningGroupsAction
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ProvisioningGroupsAction values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ProvisioningGroupsAction : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningGroupsAction for value: APPEND
         /// </summary>
         public static ProvisioningGroupsAction APPEND = new ProvisioningGroupsAction("APPEND");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningGroupsAction for value: ASSIGN
         /// </summary>
         public static ProvisioningGroupsAction ASSIGN = new ProvisioningGroupsAction("ASSIGN");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningGroupsAction for value: NONE
         /// </summary>
         public static ProvisioningGroupsAction NONE = new ProvisioningGroupsAction("NONE");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningGroupsAction for value: SYNC
         /// </summary>
         public static ProvisioningGroupsAction SYNC = new ProvisioningGroupsAction("SYNC");

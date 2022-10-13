@@ -28,14 +28,10 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines DomainCertificateType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of DomainCertificateType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class DomainCertificateType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum DomainCertificateType for value: PEM
         /// </summary>
         public static DomainCertificateType PEM = new DomainCertificateType("PEM");

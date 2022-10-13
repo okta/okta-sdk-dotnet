@@ -28,58 +28,54 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines SessionAuthenticationMethod
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of SessionAuthenticationMethod values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class SessionAuthenticationMethod : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionAuthenticationMethod for value: fpt
         /// </summary>
         public static SessionAuthenticationMethod Fpt = new SessionAuthenticationMethod("fpt");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionAuthenticationMethod for value: geo
         /// </summary>
         public static SessionAuthenticationMethod Geo = new SessionAuthenticationMethod("geo");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionAuthenticationMethod for value: hwk
         /// </summary>
         public static SessionAuthenticationMethod Hwk = new SessionAuthenticationMethod("hwk");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionAuthenticationMethod for value: kba
         /// </summary>
         public static SessionAuthenticationMethod Kba = new SessionAuthenticationMethod("kba");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionAuthenticationMethod for value: mca
         /// </summary>
         public static SessionAuthenticationMethod Mca = new SessionAuthenticationMethod("mca");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionAuthenticationMethod for value: mfa
         /// </summary>
         public static SessionAuthenticationMethod Mfa = new SessionAuthenticationMethod("mfa");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionAuthenticationMethod for value: otp
         /// </summary>
         public static SessionAuthenticationMethod Otp = new SessionAuthenticationMethod("otp");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionAuthenticationMethod for value: pwd
         /// </summary>
         public static SessionAuthenticationMethod Pwd = new SessionAuthenticationMethod("pwd");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionAuthenticationMethod for value: sc
         /// </summary>
         public static SessionAuthenticationMethod Sc = new SessionAuthenticationMethod("sc");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionAuthenticationMethod for value: sms
         /// </summary>
         public static SessionAuthenticationMethod Sms = new SessionAuthenticationMethod("sms");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionAuthenticationMethod for value: swk
         /// </summary>
         public static SessionAuthenticationMethod Swk = new SessionAuthenticationMethod("swk");
-         /// <summary>
+        /// <summary>
         /// StringEnum SessionAuthenticationMethod for value: tel
         /// </summary>
         public static SessionAuthenticationMethod Tel = new SessionAuthenticationMethod("tel");

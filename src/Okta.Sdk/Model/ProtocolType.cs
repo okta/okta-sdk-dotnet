@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ProtocolType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ProtocolType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ProtocolType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolType for value: MTLS
         /// </summary>
         public static ProtocolType MTLS = new ProtocolType("MTLS");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolType for value: OAUTH2
         /// </summary>
         public static ProtocolType OAUTH2 = new ProtocolType("OAUTH2");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolType for value: OIDC
         /// </summary>
         public static ProtocolType OIDC = new ProtocolType("OIDC");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolType for value: SAML2
         /// </summary>
         public static ProtocolType SAML2 = new ProtocolType("SAML2");

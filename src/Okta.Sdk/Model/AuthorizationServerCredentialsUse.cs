@@ -28,14 +28,10 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines AuthorizationServerCredentialsUse
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of AuthorizationServerCredentialsUse values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class AuthorizationServerCredentialsUse : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthorizationServerCredentialsUse for value: sig
         /// </summary>
         public static AuthorizationServerCredentialsUse Sig = new AuthorizationServerCredentialsUse("sig");

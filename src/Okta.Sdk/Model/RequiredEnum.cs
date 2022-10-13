@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines RequiredEnum
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of RequiredEnum values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class RequiredEnum : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum RequiredEnum for value: ALWAYS
         /// </summary>
         public static RequiredEnum ALWAYS = new RequiredEnum("ALWAYS");
-         /// <summary>
+        /// <summary>
         /// StringEnum RequiredEnum for value: HIGH_RISK_ONLY
         /// </summary>
         public static RequiredEnum HIGHRISKONLY = new RequiredEnum("HIGH_RISK_ONLY");
-         /// <summary>
+        /// <summary>
         /// StringEnum RequiredEnum for value: NEVER
         /// </summary>
         public static RequiredEnum NEVER = new RequiredEnum("NEVER");

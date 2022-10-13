@@ -28,14 +28,10 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines IframeEmbedScopeAllowedApps
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of IframeEmbedScopeAllowedApps values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class IframeEmbedScopeAllowedApps : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum IframeEmbedScopeAllowedApps for value: OKTA_ENDUSER
         /// </summary>
         public static IframeEmbedScopeAllowedApps OKTAENDUSER = new IframeEmbedScopeAllowedApps("OKTA_ENDUSER");

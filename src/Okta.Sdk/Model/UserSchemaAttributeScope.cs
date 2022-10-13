@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines UserSchemaAttributeScope
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of UserSchemaAttributeScope values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class UserSchemaAttributeScope : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum UserSchemaAttributeScope for value: NONE
         /// </summary>
         public static UserSchemaAttributeScope NONE = new UserSchemaAttributeScope("NONE");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserSchemaAttributeScope for value: SELF
         /// </summary>
         public static UserSchemaAttributeScope SELF = new UserSchemaAttributeScope("SELF");

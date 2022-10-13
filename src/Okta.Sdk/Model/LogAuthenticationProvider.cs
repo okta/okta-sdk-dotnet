@@ -28,34 +28,30 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines LogAuthenticationProvider
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of LogAuthenticationProvider values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class LogAuthenticationProvider : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum LogAuthenticationProvider for value: ACTIVE_DIRECTORY
         /// </summary>
         public static LogAuthenticationProvider ACTIVEDIRECTORY = new LogAuthenticationProvider("ACTIVE_DIRECTORY");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogAuthenticationProvider for value: FACTOR_PROVIDER
         /// </summary>
         public static LogAuthenticationProvider FACTORPROVIDER = new LogAuthenticationProvider("FACTOR_PROVIDER");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogAuthenticationProvider for value: FEDERATION
         /// </summary>
         public static LogAuthenticationProvider FEDERATION = new LogAuthenticationProvider("FEDERATION");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogAuthenticationProvider for value: LDAP
         /// </summary>
         public static LogAuthenticationProvider LDAP = new LogAuthenticationProvider("LDAP");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogAuthenticationProvider for value: OKTA_AUTHENTICATION_PROVIDER
         /// </summary>
         public static LogAuthenticationProvider OKTAAUTHENTICATIONPROVIDER = new LogAuthenticationProvider("OKTA_AUTHENTICATION_PROVIDER");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogAuthenticationProvider for value: SOCIAL
         /// </summary>
         public static LogAuthenticationProvider SOCIAL = new LogAuthenticationProvider("SOCIAL");

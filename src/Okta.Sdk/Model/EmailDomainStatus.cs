@@ -28,30 +28,26 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines EmailDomainStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of EmailDomainStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class EmailDomainStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum EmailDomainStatus for value: DELETED
         /// </summary>
         public static EmailDomainStatus DELETED = new EmailDomainStatus("DELETED");
-         /// <summary>
+        /// <summary>
         /// StringEnum EmailDomainStatus for value: ERROR
         /// </summary>
         public static EmailDomainStatus ERROR = new EmailDomainStatus("ERROR");
-         /// <summary>
+        /// <summary>
         /// StringEnum EmailDomainStatus for value: NOT_STARTED
         /// </summary>
         public static EmailDomainStatus NOTSTARTED = new EmailDomainStatus("NOT_STARTED");
-         /// <summary>
+        /// <summary>
         /// StringEnum EmailDomainStatus for value: POLLING
         /// </summary>
         public static EmailDomainStatus POLLING = new EmailDomainStatus("POLLING");
-         /// <summary>
+        /// <summary>
         /// StringEnum EmailDomainStatus for value: VERIFIED
         /// </summary>
         public static EmailDomainStatus VERIFIED = new EmailDomainStatus("VERIFIED");

@@ -4,7 +4,7 @@
         {{#description}}
         /// <value>{{description}}</value>
         {{/description}}
-        [JsonConverter(typeof(StringEnumSerializingConverter))]
+        [JsonConverter(typeof(Client.StringEnumSerializingConverter))]
         {{>visibility}} enum {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}
         {
             {{#allowableValues}}

@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ProvisioningConnectionAuthScheme
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ProvisioningConnectionAuthScheme values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ProvisioningConnectionAuthScheme : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningConnectionAuthScheme for value: TOKEN
         /// </summary>
         public static ProvisioningConnectionAuthScheme TOKEN = new ProvisioningConnectionAuthScheme("TOKEN");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningConnectionAuthScheme for value: UNKNOWN
         /// </summary>
         public static ProvisioningConnectionAuthScheme UNKNOWN = new ProvisioningConnectionAuthScheme("UNKNOWN");

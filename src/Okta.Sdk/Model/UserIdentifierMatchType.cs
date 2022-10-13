@@ -28,30 +28,26 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines UserIdentifierMatchType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of UserIdentifierMatchType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class UserIdentifierMatchType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum UserIdentifierMatchType for value: CONTAINS
         /// </summary>
         public static UserIdentifierMatchType CONTAINS = new UserIdentifierMatchType("CONTAINS");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserIdentifierMatchType for value: EQUALS
         /// </summary>
         public static UserIdentifierMatchType EQUALS = new UserIdentifierMatchType("EQUALS");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserIdentifierMatchType for value: EXPRESSION
         /// </summary>
         public static UserIdentifierMatchType EXPRESSION = new UserIdentifierMatchType("EXPRESSION");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserIdentifierMatchType for value: STARTS_WITH
         /// </summary>
         public static UserIdentifierMatchType STARTSWITH = new UserIdentifierMatchType("STARTS_WITH");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserIdentifierMatchType for value: SUFFIX
         /// </summary>
         public static UserIdentifierMatchType SUFFIX = new UserIdentifierMatchType("SUFFIX");

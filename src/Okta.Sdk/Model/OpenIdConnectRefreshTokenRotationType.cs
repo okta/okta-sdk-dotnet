@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OpenIdConnectRefreshTokenRotationType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OpenIdConnectRefreshTokenRotationType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OpenIdConnectRefreshTokenRotationType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OpenIdConnectRefreshTokenRotationType for value: ROTATE
         /// </summary>
         public static OpenIdConnectRefreshTokenRotationType ROTATE = new OpenIdConnectRefreshTokenRotationType("ROTATE");
-         /// <summary>
+        /// <summary>
         /// StringEnum OpenIdConnectRefreshTokenRotationType for value: STATIC
         /// </summary>
         public static OpenIdConnectRefreshTokenRotationType STATIC = new OpenIdConnectRefreshTokenRotationType("STATIC");

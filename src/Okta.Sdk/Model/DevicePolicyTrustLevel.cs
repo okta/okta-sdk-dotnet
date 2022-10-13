@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines DevicePolicyTrustLevel
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of DevicePolicyTrustLevel values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class DevicePolicyTrustLevel : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum DevicePolicyTrustLevel for value: ANY
         /// </summary>
         public static DevicePolicyTrustLevel ANY = new DevicePolicyTrustLevel("ANY");
-         /// <summary>
+        /// <summary>
         /// StringEnum DevicePolicyTrustLevel for value: TRUSTED
         /// </summary>
         public static DevicePolicyTrustLevel TRUSTED = new DevicePolicyTrustLevel("TRUSTED");

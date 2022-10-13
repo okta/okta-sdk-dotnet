@@ -1,15 +1,10 @@
-﻿
+{{>partial_header}}
+
 using System;
 using System.Reflection;
-using System.Text.Json;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Okta.Sdk.Abstractions;
-using JsonException = Newtonsoft.Json.JsonException;
-using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
-
-namespace Okta.Sdk.Model
+namespace {{packageName}}.Client
 {
     /// <summary>
     /// This class provides special serialization for <see cref="StringEnum"/> types.
@@ -27,6 +22,7 @@ namespace Okta.Sdk.Model
             {
                 return null;
             }
+            
             var stringEnum = Activator.CreateInstance(objectType, reader.Value) as StringEnum;
 
             return stringEnum;

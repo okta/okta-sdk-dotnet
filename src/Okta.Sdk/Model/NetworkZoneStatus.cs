@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines NetworkZoneStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of NetworkZoneStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class NetworkZoneStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum NetworkZoneStatus for value: ACTIVE
         /// </summary>
         public static NetworkZoneStatus ACTIVE = new NetworkZoneStatus("ACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum NetworkZoneStatus for value: INACTIVE
         /// </summary>
         public static NetworkZoneStatus INACTIVE = new NetworkZoneStatus("INACTIVE");

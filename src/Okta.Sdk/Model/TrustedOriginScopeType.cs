@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines TrustedOriginScopeType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of TrustedOriginScopeType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class TrustedOriginScopeType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum TrustedOriginScopeType for value: CORS
         /// </summary>
         public static TrustedOriginScopeType CORS = new TrustedOriginScopeType("CORS");
-         /// <summary>
+        /// <summary>
         /// StringEnum TrustedOriginScopeType for value: IFRAME_EMBED
         /// </summary>
         public static TrustedOriginScopeType IFRAMEEMBED = new TrustedOriginScopeType("IFRAME_EMBED");
-         /// <summary>
+        /// <summary>
         /// StringEnum TrustedOriginScopeType for value: REDIRECT
         /// </summary>
         public static TrustedOriginScopeType REDIRECT = new TrustedOriginScopeType("REDIRECT");

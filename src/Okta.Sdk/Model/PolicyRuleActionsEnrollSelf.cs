@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PolicyRuleActionsEnrollSelf
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PolicyRuleActionsEnrollSelf values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PolicyRuleActionsEnrollSelf : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyRuleActionsEnrollSelf for value: CHALLENGE
         /// </summary>
         public static PolicyRuleActionsEnrollSelf CHALLENGE = new PolicyRuleActionsEnrollSelf("CHALLENGE");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyRuleActionsEnrollSelf for value: LOGIN
         /// </summary>
         public static PolicyRuleActionsEnrollSelf LOGIN = new PolicyRuleActionsEnrollSelf("LOGIN");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyRuleActionsEnrollSelf for value: NEVER
         /// </summary>
         public static PolicyRuleActionsEnrollSelf NEVER = new PolicyRuleActionsEnrollSelf("NEVER");

@@ -28,14 +28,10 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines EventHookChannelType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of EventHookChannelType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class EventHookChannelType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum EventHookChannelType for value: HTTP
         /// </summary>
         public static EventHookChannelType HTTP = new EventHookChannelType("HTTP");

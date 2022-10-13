@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines CatalogApplicationStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of CatalogApplicationStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class CatalogApplicationStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum CatalogApplicationStatus for value: ACTIVE
         /// </summary>
         public static CatalogApplicationStatus ACTIVE = new CatalogApplicationStatus("ACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum CatalogApplicationStatus for value: INACTIVE
         /// </summary>
         public static CatalogApplicationStatus INACTIVE = new CatalogApplicationStatus("INACTIVE");

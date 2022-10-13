@@ -29,54 +29,50 @@ namespace Okta.Sdk.Model
     /// An AWS region
     /// </summary>
     /// <value>An AWS region</value>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of AwsRegion values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class AwsRegion : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum AwsRegion for value: ca-central-1
         /// </summary>
         public static AwsRegion CaCentral1 = new AwsRegion("ca-central-1");
-         /// <summary>
+        /// <summary>
         /// StringEnum AwsRegion for value: eu-central-1
         /// </summary>
         public static AwsRegion EuCentral1 = new AwsRegion("eu-central-1");
-         /// <summary>
+        /// <summary>
         /// StringEnum AwsRegion for value: eu-north-1
         /// </summary>
         public static AwsRegion EuNorth1 = new AwsRegion("eu-north-1");
-         /// <summary>
+        /// <summary>
         /// StringEnum AwsRegion for value: eu-south-1
         /// </summary>
         public static AwsRegion EuSouth1 = new AwsRegion("eu-south-1");
-         /// <summary>
+        /// <summary>
         /// StringEnum AwsRegion for value: eu-west-1
         /// </summary>
         public static AwsRegion EuWest1 = new AwsRegion("eu-west-1");
-         /// <summary>
+        /// <summary>
         /// StringEnum AwsRegion for value: eu-west-2
         /// </summary>
         public static AwsRegion EuWest2 = new AwsRegion("eu-west-2");
-         /// <summary>
+        /// <summary>
         /// StringEnum AwsRegion for value: eu-west-3
         /// </summary>
         public static AwsRegion EuWest3 = new AwsRegion("eu-west-3");
-         /// <summary>
+        /// <summary>
         /// StringEnum AwsRegion for value: us-east-1
         /// </summary>
         public static AwsRegion UsEast1 = new AwsRegion("us-east-1");
-         /// <summary>
+        /// <summary>
         /// StringEnum AwsRegion for value: us-east-2
         /// </summary>
         public static AwsRegion UsEast2 = new AwsRegion("us-east-2");
-         /// <summary>
+        /// <summary>
         /// StringEnum AwsRegion for value: us-west-1
         /// </summary>
         public static AwsRegion UsWest1 = new AwsRegion("us-west-1");
-         /// <summary>
+        /// <summary>
         /// StringEnum AwsRegion for value: us-west-2
         /// </summary>
         public static AwsRegion UsWest2 = new AwsRegion("us-west-2");

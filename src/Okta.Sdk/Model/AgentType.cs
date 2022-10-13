@@ -29,38 +29,34 @@ namespace Okta.Sdk.Model
     /// Agent types that are being monitored
     /// </summary>
     /// <value>Agent types that are being monitored</value>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of AgentType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class AgentType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentType for value: AD
         /// </summary>
         public static AgentType AD = new AgentType("AD");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentType for value: IWA
         /// </summary>
         public static AgentType IWA = new AgentType("IWA");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentType for value: LDAP
         /// </summary>
         public static AgentType LDAP = new AgentType("LDAP");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentType for value: MFA
         /// </summary>
         public static AgentType MFA = new AgentType("MFA");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentType for value: OPP
         /// </summary>
         public static AgentType OPP = new AgentType("OPP");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentType for value: RUM
         /// </summary>
         public static AgentType RUM = new AgentType("RUM");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentType for value: Radius
         /// </summary>
         public static AgentType Radius = new AgentType("Radius");

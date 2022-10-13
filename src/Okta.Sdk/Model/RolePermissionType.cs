@@ -28,146 +28,142 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines RolePermissionType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of RolePermissionType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class RolePermissionType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.apps.assignment.manage
         /// </summary>
         public static RolePermissionType AppsAssignmentManage = new RolePermissionType("okta.apps.assignment.manage");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.apps.manage
         /// </summary>
         public static RolePermissionType AppsManage = new RolePermissionType("okta.apps.manage");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.apps.manageFirstPartyApps
         /// </summary>
         public static RolePermissionType AppsManageFirstPartyApps = new RolePermissionType("okta.apps.manageFirstPartyApps");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.apps.read
         /// </summary>
         public static RolePermissionType AppsRead = new RolePermissionType("okta.apps.read");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.authzServers.manage
         /// </summary>
         public static RolePermissionType AuthzServersManage = new RolePermissionType("okta.authzServers.manage");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.authzServers.read
         /// </summary>
         public static RolePermissionType AuthzServersRead = new RolePermissionType("okta.authzServers.read");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.customizations.manage
         /// </summary>
         public static RolePermissionType CustomizationsManage = new RolePermissionType("okta.customizations.manage");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.customizations.read
         /// </summary>
         public static RolePermissionType CustomizationsRead = new RolePermissionType("okta.customizations.read");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.governance.accessCertifications.manage
         /// </summary>
         public static RolePermissionType GovernanceAccessCertificationsManage = new RolePermissionType("okta.governance.accessCertifications.manage");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.governance.accessRequests.manage
         /// </summary>
         public static RolePermissionType GovernanceAccessRequestsManage = new RolePermissionType("okta.governance.accessRequests.manage");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.groups.appAssignment.manage
         /// </summary>
         public static RolePermissionType GroupsAppAssignmentManage = new RolePermissionType("okta.groups.appAssignment.manage");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.groups.create
         /// </summary>
         public static RolePermissionType GroupsCreate = new RolePermissionType("okta.groups.create");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.groups.manage
         /// </summary>
         public static RolePermissionType GroupsManage = new RolePermissionType("okta.groups.manage");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.groups.members.manage
         /// </summary>
         public static RolePermissionType GroupsMembersManage = new RolePermissionType("okta.groups.members.manage");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.groups.read
         /// </summary>
         public static RolePermissionType GroupsRead = new RolePermissionType("okta.groups.read");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.profilesources.import.run
         /// </summary>
         public static RolePermissionType ProfilesourcesImportRun = new RolePermissionType("okta.profilesources.import.run");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.appAssignment.manage
         /// </summary>
         public static RolePermissionType UsersAppAssignmentManage = new RolePermissionType("okta.users.appAssignment.manage");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.create
         /// </summary>
         public static RolePermissionType UsersCreate = new RolePermissionType("okta.users.create");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.credentials.expirePassword
         /// </summary>
         public static RolePermissionType UsersCredentialsExpirePassword = new RolePermissionType("okta.users.credentials.expirePassword");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.credentials.manage
         /// </summary>
         public static RolePermissionType UsersCredentialsManage = new RolePermissionType("okta.users.credentials.manage");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.credentials.resetFactors
         /// </summary>
         public static RolePermissionType UsersCredentialsResetFactors = new RolePermissionType("okta.users.credentials.resetFactors");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.credentials.resetPassword
         /// </summary>
         public static RolePermissionType UsersCredentialsResetPassword = new RolePermissionType("okta.users.credentials.resetPassword");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.groupMembership.manage
         /// </summary>
         public static RolePermissionType UsersGroupMembershipManage = new RolePermissionType("okta.users.groupMembership.manage");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.lifecycle.activate
         /// </summary>
         public static RolePermissionType UsersLifecycleActivate = new RolePermissionType("okta.users.lifecycle.activate");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.lifecycle.clearSessions
         /// </summary>
         public static RolePermissionType UsersLifecycleClearSessions = new RolePermissionType("okta.users.lifecycle.clearSessions");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.lifecycle.deactivate
         /// </summary>
         public static RolePermissionType UsersLifecycleDeactivate = new RolePermissionType("okta.users.lifecycle.deactivate");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.lifecycle.delete
         /// </summary>
         public static RolePermissionType UsersLifecycleDelete = new RolePermissionType("okta.users.lifecycle.delete");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.lifecycle.manage
         /// </summary>
         public static RolePermissionType UsersLifecycleManage = new RolePermissionType("okta.users.lifecycle.manage");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.lifecycle.suspend
         /// </summary>
         public static RolePermissionType UsersLifecycleSuspend = new RolePermissionType("okta.users.lifecycle.suspend");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.lifecycle.unlock
         /// </summary>
         public static RolePermissionType UsersLifecycleUnlock = new RolePermissionType("okta.users.lifecycle.unlock");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.lifecycle.unsuspend
         /// </summary>
         public static RolePermissionType UsersLifecycleUnsuspend = new RolePermissionType("okta.users.lifecycle.unsuspend");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.manage
         /// </summary>
         public static RolePermissionType UsersManage = new RolePermissionType("okta.users.manage");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.read
         /// </summary>
         public static RolePermissionType UsersRead = new RolePermissionType("okta.users.read");
-         /// <summary>
+        /// <summary>
         /// StringEnum RolePermissionType for value: okta.users.userprofile.manage
         /// </summary>
         public static RolePermissionType UsersUserprofileManage = new RolePermissionType("okta.users.userprofile.manage");

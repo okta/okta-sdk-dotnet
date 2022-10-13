@@ -28,34 +28,30 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines AuthenticationProviderType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of AuthenticationProviderType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class AuthenticationProviderType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticationProviderType for value: ACTIVE_DIRECTORY
         /// </summary>
         public static AuthenticationProviderType ACTIVEDIRECTORY = new AuthenticationProviderType("ACTIVE_DIRECTORY");
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticationProviderType for value: FEDERATION
         /// </summary>
         public static AuthenticationProviderType FEDERATION = new AuthenticationProviderType("FEDERATION");
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticationProviderType for value: IMPORT
         /// </summary>
         public static AuthenticationProviderType IMPORT = new AuthenticationProviderType("IMPORT");
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticationProviderType for value: LDAP
         /// </summary>
         public static AuthenticationProviderType LDAP = new AuthenticationProviderType("LDAP");
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticationProviderType for value: OKTA
         /// </summary>
         public static AuthenticationProviderType OKTA = new AuthenticationProviderType("OKTA");
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticationProviderType for value: SOCIAL
         /// </summary>
         public static AuthenticationProviderType SOCIAL = new AuthenticationProviderType("SOCIAL");

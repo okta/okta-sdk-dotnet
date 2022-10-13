@@ -28,30 +28,26 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines UserSchemaAttributeType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of UserSchemaAttributeType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class UserSchemaAttributeType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum UserSchemaAttributeType for value: array
         /// </summary>
         public static UserSchemaAttributeType Array = new UserSchemaAttributeType("array");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserSchemaAttributeType for value: boolean
         /// </summary>
         public static UserSchemaAttributeType Boolean = new UserSchemaAttributeType("boolean");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserSchemaAttributeType for value: integer
         /// </summary>
         public static UserSchemaAttributeType Integer = new UserSchemaAttributeType("integer");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserSchemaAttributeType for value: number
         /// </summary>
         public static UserSchemaAttributeType Number = new UserSchemaAttributeType("number");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserSchemaAttributeType for value: string
         /// </summary>
         public static UserSchemaAttributeType String = new UserSchemaAttributeType("string");

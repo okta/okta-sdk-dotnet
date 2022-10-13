@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OAuth2ScopeMetadataPublish
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OAuth2ScopeMetadataPublish values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OAuth2ScopeMetadataPublish : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ScopeMetadataPublish for value: ALL_CLIENTS
         /// </summary>
         public static OAuth2ScopeMetadataPublish ALLCLIENTS = new OAuth2ScopeMetadataPublish("ALL_CLIENTS");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ScopeMetadataPublish for value: NO_CLIENTS
         /// </summary>
         public static OAuth2ScopeMetadataPublish NOCLIENTS = new OAuth2ScopeMetadataPublish("NO_CLIENTS");

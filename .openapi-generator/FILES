@@ -733,6 +733,8 @@ src/Okta.Sdk/Client/OpenAPIDateConverter.cs
 src/Okta.Sdk/Client/ProxyConfiguration.cs
 src/Okta.Sdk/Client/RequestOptions.cs
 src/Okta.Sdk/Client/RetryConfiguration.cs
+src/Okta.Sdk/Client/StringEnum.cs
+src/Okta.Sdk/Client/StringEnumSerializingConverter.cs
 src/Okta.Sdk/Client/WebLink.cs
 src/Okta.Sdk/Model/APNSConfiguration.cs
 src/Okta.Sdk/Model/APNSPushProvider.cs
@@ -1286,7 +1288,6 @@ src/Okta.Sdk/Model/SmsUserFactor.cs
 src/Okta.Sdk/Model/SmsUserFactorProfile.cs
 src/Okta.Sdk/Model/SocialAuthToken.cs
 src/Okta.Sdk/Model/SpCertificate.cs
-src/Okta.Sdk/Model/StringEnum.cs
 src/Okta.Sdk/Model/Subscription.cs
 src/Okta.Sdk/Model/SubscriptionStatus.cs
 src/Okta.Sdk/Model/SwaApplicationSettings.cs

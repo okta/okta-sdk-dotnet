@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ProvisioningAction
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ProvisioningAction values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ProvisioningAction : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningAction for value: AUTO
         /// </summary>
         public static ProvisioningAction AUTO = new ProvisioningAction("AUTO");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningAction for value: CALLOUT
         /// </summary>
         public static ProvisioningAction CALLOUT = new ProvisioningAction("CALLOUT");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningAction for value: DISABLED
         /// </summary>
         public static ProvisioningAction DISABLED = new ProvisioningAction("DISABLED");

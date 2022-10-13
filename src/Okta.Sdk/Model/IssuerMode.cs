@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines IssuerMode
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of IssuerMode values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class IssuerMode : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum IssuerMode for value: CUSTOM_URL
         /// </summary>
         public static IssuerMode CUSTOMURL = new IssuerMode("CUSTOM_URL");
-         /// <summary>
+        /// <summary>
         /// StringEnum IssuerMode for value: DYNAMIC
         /// </summary>
         public static IssuerMode DYNAMIC = new IssuerMode("DYNAMIC");
-         /// <summary>
+        /// <summary>
         /// StringEnum IssuerMode for value: ORG_URL
         /// </summary>
         public static IssuerMode ORGURL = new IssuerMode("ORG_URL");

@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines GroupOwnerType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of GroupOwnerType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class GroupOwnerType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum GroupOwnerType for value: GROUP
         /// </summary>
         public static GroupOwnerType GROUP = new GroupOwnerType("GROUP");
-         /// <summary>
+        /// <summary>
         /// StringEnum GroupOwnerType for value: UNKNOWN
         /// </summary>
         public static GroupOwnerType UNKNOWN = new GroupOwnerType("UNKNOWN");
-         /// <summary>
+        /// <summary>
         /// StringEnum GroupOwnerType for value: USER
         /// </summary>
         public static GroupOwnerType USER = new GroupOwnerType("USER");

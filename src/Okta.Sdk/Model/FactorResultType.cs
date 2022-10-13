@@ -28,50 +28,46 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines FactorResultType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of FactorResultType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class FactorResultType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorResultType for value: CANCELLED
         /// </summary>
         public static FactorResultType CANCELLED = new FactorResultType("CANCELLED");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorResultType for value: CHALLENGE
         /// </summary>
         public static FactorResultType CHALLENGE = new FactorResultType("CHALLENGE");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorResultType for value: ERROR
         /// </summary>
         public static FactorResultType ERROR = new FactorResultType("ERROR");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorResultType for value: FAILED
         /// </summary>
         public static FactorResultType FAILED = new FactorResultType("FAILED");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorResultType for value: PASSCODE_REPLAYED
         /// </summary>
         public static FactorResultType PASSCODEREPLAYED = new FactorResultType("PASSCODE_REPLAYED");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorResultType for value: REJECTED
         /// </summary>
         public static FactorResultType REJECTED = new FactorResultType("REJECTED");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorResultType for value: SUCCESS
         /// </summary>
         public static FactorResultType SUCCESS = new FactorResultType("SUCCESS");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorResultType for value: TIMEOUT
         /// </summary>
         public static FactorResultType TIMEOUT = new FactorResultType("TIMEOUT");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorResultType for value: TIME_WINDOW_EXCEEDED
         /// </summary>
         public static FactorResultType TIMEWINDOWEXCEEDED = new FactorResultType("TIME_WINDOW_EXCEEDED");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorResultType for value: WAITING
         /// </summary>
         public static FactorResultType WAITING = new FactorResultType("WAITING");

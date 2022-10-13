@@ -28,42 +28,38 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines LogCredentialType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of LogCredentialType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class LogCredentialType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialType for value: ASSERTION
         /// </summary>
         public static LogCredentialType ASSERTION = new LogCredentialType("ASSERTION");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialType for value: EMAIL
         /// </summary>
         public static LogCredentialType EMAIL = new LogCredentialType("EMAIL");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialType for value: IWA
         /// </summary>
         public static LogCredentialType IWA = new LogCredentialType("IWA");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialType for value: JWT
         /// </summary>
         public static LogCredentialType JWT = new LogCredentialType("JWT");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialType for value: OAuth 2.0
         /// </summary>
         public static LogCredentialType OAuth20 = new LogCredentialType("OAuth 2.0");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialType for value: OTP
         /// </summary>
         public static LogCredentialType OTP = new LogCredentialType("OTP");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialType for value: PASSWORD
         /// </summary>
         public static LogCredentialType PASSWORD = new LogCredentialType("PASSWORD");
-         /// <summary>
+        /// <summary>
         /// StringEnum LogCredentialType for value: SMS
         /// </summary>
         public static LogCredentialType SMS = new LogCredentialType("SMS");

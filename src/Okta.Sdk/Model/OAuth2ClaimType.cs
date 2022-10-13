@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OAuth2ClaimType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OAuth2ClaimType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OAuth2ClaimType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ClaimType for value: IDENTITY
         /// </summary>
         public static OAuth2ClaimType IDENTITY = new OAuth2ClaimType("IDENTITY");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuth2ClaimType for value: RESOURCE
         /// </summary>
         public static OAuth2ClaimType RESOURCE = new OAuth2ClaimType("RESOURCE");

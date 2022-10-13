@@ -28,34 +28,30 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OAuthGrantType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OAuthGrantType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OAuthGrantType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuthGrantType for value: authorization_code
         /// </summary>
         public static OAuthGrantType AuthorizationCode = new OAuthGrantType("authorization_code");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuthGrantType for value: client_credentials
         /// </summary>
         public static OAuthGrantType ClientCredentials = new OAuthGrantType("client_credentials");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuthGrantType for value: implicit
         /// </summary>
         public static OAuthGrantType Implicit = new OAuthGrantType("implicit");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuthGrantType for value: interaction_code
         /// </summary>
         public static OAuthGrantType InteractionCode = new OAuthGrantType("interaction_code");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuthGrantType for value: password
         /// </summary>
         public static OAuthGrantType Password = new OAuthGrantType("password");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuthGrantType for value: refresh_token
         /// </summary>
         public static OAuthGrantType RefreshToken = new OAuthGrantType("refresh_token");

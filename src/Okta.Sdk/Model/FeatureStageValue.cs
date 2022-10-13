@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines FeatureStageValue
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of FeatureStageValue values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class FeatureStageValue : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum FeatureStageValue for value: BETA
         /// </summary>
         public static FeatureStageValue BETA = new FeatureStageValue("BETA");
-         /// <summary>
+        /// <summary>
         /// StringEnum FeatureStageValue for value: EA
         /// </summary>
         public static FeatureStageValue EA = new FeatureStageValue("EA");

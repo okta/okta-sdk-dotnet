@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines HostedPageType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of HostedPageType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class HostedPageType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum HostedPageType for value: EXTERNALLY_HOSTED
         /// </summary>
         public static HostedPageType EXTERNALLYHOSTED = new HostedPageType("EXTERNALLY_HOSTED");
-         /// <summary>
+        /// <summary>
         /// StringEnum HostedPageType for value: OKTA_DEFAULT
         /// </summary>
         public static HostedPageType OKTADEFAULT = new HostedPageType("OKTA_DEFAULT");

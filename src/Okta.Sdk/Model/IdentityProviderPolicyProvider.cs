@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines IdentityProviderPolicyProvider
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of IdentityProviderPolicyProvider values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class IdentityProviderPolicyProvider : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderPolicyProvider for value: ANY
         /// </summary>
         public static IdentityProviderPolicyProvider ANY = new IdentityProviderPolicyProvider("ANY");
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderPolicyProvider for value: OKTA
         /// </summary>
         public static IdentityProviderPolicyProvider OKTA = new IdentityProviderPolicyProvider("OKTA");
-         /// <summary>
+        /// <summary>
         /// StringEnum IdentityProviderPolicyProvider for value: SPECIFIC_IDP
         /// </summary>
         public static IdentityProviderPolicyProvider SPECIFICIDP = new IdentityProviderPolicyProvider("SPECIFIC_IDP");

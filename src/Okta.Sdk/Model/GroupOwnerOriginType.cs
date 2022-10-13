@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines GroupOwnerOriginType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of GroupOwnerOriginType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class GroupOwnerOriginType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum GroupOwnerOriginType for value: APPLICATION
         /// </summary>
         public static GroupOwnerOriginType APPLICATION = new GroupOwnerOriginType("APPLICATION");
-         /// <summary>
+        /// <summary>
         /// StringEnum GroupOwnerOriginType for value: OKTA_DIRECTORY
         /// </summary>
         public static GroupOwnerOriginType OKTADIRECTORY = new GroupOwnerOriginType("OKTA_DIRECTORY");

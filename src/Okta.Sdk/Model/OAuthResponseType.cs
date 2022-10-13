@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines OAuthResponseType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OAuthResponseType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OAuthResponseType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuthResponseType for value: code
         /// </summary>
         public static OAuthResponseType Code = new OAuthResponseType("code");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuthResponseType for value: id_token
         /// </summary>
         public static OAuthResponseType IdToken = new OAuthResponseType("id_token");
-         /// <summary>
+        /// <summary>
         /// StringEnum OAuthResponseType for value: token
         /// </summary>
         public static OAuthResponseType Token = new OAuthResponseType("token");

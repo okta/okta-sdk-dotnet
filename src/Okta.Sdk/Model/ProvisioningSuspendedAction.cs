@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ProvisioningSuspendedAction
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ProvisioningSuspendedAction values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ProvisioningSuspendedAction : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningSuspendedAction for value: NONE
         /// </summary>
         public static ProvisioningSuspendedAction NONE = new ProvisioningSuspendedAction("NONE");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningSuspendedAction for value: UNSUSPEND
         /// </summary>
         public static ProvisioningSuspendedAction UNSUSPEND = new ProvisioningSuspendedAction("UNSUSPEND");

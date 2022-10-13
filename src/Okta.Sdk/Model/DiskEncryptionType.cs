@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines DiskEncryptionType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of DiskEncryptionType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class DiskEncryptionType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum DiskEncryptionType for value: ALL_INTERNAL_VOLUMES
         /// </summary>
         public static DiskEncryptionType ALLINTERNALVOLUMES = new DiskEncryptionType("ALL_INTERNAL_VOLUMES");
-         /// <summary>
+        /// <summary>
         /// StringEnum DiskEncryptionType for value: FULL
         /// </summary>
         public static DiskEncryptionType FULL = new DiskEncryptionType("FULL");
-         /// <summary>
+        /// <summary>
         /// StringEnum DiskEncryptionType for value: USER
         /// </summary>
         public static DiskEncryptionType USER = new DiskEncryptionType("USER");

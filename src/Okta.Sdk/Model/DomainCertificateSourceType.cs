@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines DomainCertificateSourceType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of DomainCertificateSourceType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class DomainCertificateSourceType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum DomainCertificateSourceType for value: MANUAL
         /// </summary>
         public static DomainCertificateSourceType MANUAL = new DomainCertificateSourceType("MANUAL");
-         /// <summary>
+        /// <summary>
         /// StringEnum DomainCertificateSourceType for value: OKTA_MANAGED
         /// </summary>
         public static DomainCertificateSourceType OKTAMANAGED = new DomainCertificateSourceType("OKTA_MANAGED");

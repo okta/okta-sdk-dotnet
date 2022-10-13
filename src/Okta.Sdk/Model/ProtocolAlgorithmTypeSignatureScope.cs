@@ -28,30 +28,26 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ProtocolAlgorithmTypeSignatureScope
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ProtocolAlgorithmTypeSignatureScope values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ProtocolAlgorithmTypeSignatureScope : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolAlgorithmTypeSignatureScope for value: ANY
         /// </summary>
         public static ProtocolAlgorithmTypeSignatureScope ANY = new ProtocolAlgorithmTypeSignatureScope("ANY");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolAlgorithmTypeSignatureScope for value: NONE
         /// </summary>
         public static ProtocolAlgorithmTypeSignatureScope NONE = new ProtocolAlgorithmTypeSignatureScope("NONE");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolAlgorithmTypeSignatureScope for value: REQUEST
         /// </summary>
         public static ProtocolAlgorithmTypeSignatureScope REQUEST = new ProtocolAlgorithmTypeSignatureScope("REQUEST");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolAlgorithmTypeSignatureScope for value: RESPONSE
         /// </summary>
         public static ProtocolAlgorithmTypeSignatureScope RESPONSE = new ProtocolAlgorithmTypeSignatureScope("RESPONSE");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProtocolAlgorithmTypeSignatureScope for value: TOKEN
         /// </summary>
         public static ProtocolAlgorithmTypeSignatureScope TOKEN = new ProtocolAlgorithmTypeSignatureScope("TOKEN");

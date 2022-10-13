@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines EndUserDashboardTouchPointVariant
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of EndUserDashboardTouchPointVariant values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class EndUserDashboardTouchPointVariant : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum EndUserDashboardTouchPointVariant for value: FULL_THEME
         /// </summary>
         public static EndUserDashboardTouchPointVariant FULLTHEME = new EndUserDashboardTouchPointVariant("FULL_THEME");
-         /// <summary>
+        /// <summary>
         /// StringEnum EndUserDashboardTouchPointVariant for value: LOGO_ON_FULL_WHITE_BACKGROUND
         /// </summary>
         public static EndUserDashboardTouchPointVariant LOGOONFULLWHITEBACKGROUND = new EndUserDashboardTouchPointVariant("LOGO_ON_FULL_WHITE_BACKGROUND");
-         /// <summary>
+        /// <summary>
         /// StringEnum EndUserDashboardTouchPointVariant for value: OKTA_DEFAULT
         /// </summary>
         public static EndUserDashboardTouchPointVariant OKTADEFAULT = new EndUserDashboardTouchPointVariant("OKTA_DEFAULT");
-         /// <summary>
+        /// <summary>
         /// StringEnum EndUserDashboardTouchPointVariant for value: WHITE_LOGO_BACKGROUND
         /// </summary>
         public static EndUserDashboardTouchPointVariant WHITELOGOBACKGROUND = new EndUserDashboardTouchPointVariant("WHITE_LOGO_BACKGROUND");

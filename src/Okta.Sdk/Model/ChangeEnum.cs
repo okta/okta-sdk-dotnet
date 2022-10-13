@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ChangeEnum
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ChangeEnum values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ChangeEnum : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ChangeEnum for value: CHANGE
         /// </summary>
         public static ChangeEnum CHANGE = new ChangeEnum("CHANGE");
-         /// <summary>
+        /// <summary>
         /// StringEnum ChangeEnum for value: KEEP_EXISTING
         /// </summary>
         public static ChangeEnum KEEPEXISTING = new ChangeEnum("KEEP_EXISTING");

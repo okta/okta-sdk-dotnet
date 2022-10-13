@@ -28,30 +28,26 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines InlineHookType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of InlineHookType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class InlineHookType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum InlineHookType for value: com.okta.import.transform
         /// </summary>
         public static InlineHookType ImportTransform = new InlineHookType("com.okta.import.transform");
-         /// <summary>
+        /// <summary>
         /// StringEnum InlineHookType for value: com.okta.oauth2.tokens.transform
         /// </summary>
         public static InlineHookType Oauth2TokensTransform = new InlineHookType("com.okta.oauth2.tokens.transform");
-         /// <summary>
+        /// <summary>
         /// StringEnum InlineHookType for value: com.okta.saml.tokens.transform
         /// </summary>
         public static InlineHookType SamlTokensTransform = new InlineHookType("com.okta.saml.tokens.transform");
-         /// <summary>
+        /// <summary>
         /// StringEnum InlineHookType for value: com.okta.user.credential.password.import
         /// </summary>
         public static InlineHookType UserCredentialPasswordImport = new InlineHookType("com.okta.user.credential.password.import");
-         /// <summary>
+        /// <summary>
         /// StringEnum InlineHookType for value: com.okta.user.pre-registration
         /// </summary>
         public static InlineHookType UserPreRegistration = new InlineHookType("com.okta.user.pre-registration");

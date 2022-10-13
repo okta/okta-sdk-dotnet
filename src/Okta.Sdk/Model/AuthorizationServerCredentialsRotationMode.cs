@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines AuthorizationServerCredentialsRotationMode
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of AuthorizationServerCredentialsRotationMode values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class AuthorizationServerCredentialsRotationMode : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthorizationServerCredentialsRotationMode for value: AUTO
         /// </summary>
         public static AuthorizationServerCredentialsRotationMode AUTO = new AuthorizationServerCredentialsRotationMode("AUTO");
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthorizationServerCredentialsRotationMode for value: MANUAL
         /// </summary>
         public static AuthorizationServerCredentialsRotationMode MANUAL = new AuthorizationServerCredentialsRotationMode("MANUAL");

@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines AuthenticatorStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of AuthenticatorStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class AuthenticatorStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticatorStatus for value: ACTIVE
         /// </summary>
         public static AuthenticatorStatus ACTIVE = new AuthenticatorStatus("ACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum AuthenticatorStatus for value: INACTIVE
         /// </summary>
         public static AuthenticatorStatus INACTIVE = new AuthenticatorStatus("INACTIVE");

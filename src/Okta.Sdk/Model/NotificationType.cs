@@ -28,58 +28,54 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines NotificationType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of NotificationType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class NotificationType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum NotificationType for value: AD_AGENT
         /// </summary>
         public static NotificationType ADAGENT = new NotificationType("AD_AGENT");
-         /// <summary>
+        /// <summary>
         /// StringEnum NotificationType for value: APP_IMPORT
         /// </summary>
         public static NotificationType APPIMPORT = new NotificationType("APP_IMPORT");
-         /// <summary>
+        /// <summary>
         /// StringEnum NotificationType for value: CONNECTOR_AGENT
         /// </summary>
         public static NotificationType CONNECTORAGENT = new NotificationType("CONNECTOR_AGENT");
-         /// <summary>
+        /// <summary>
         /// StringEnum NotificationType for value: IWA_AGENT
         /// </summary>
         public static NotificationType IWAAGENT = new NotificationType("IWA_AGENT");
-         /// <summary>
+        /// <summary>
         /// StringEnum NotificationType for value: LDAP_AGENT
         /// </summary>
         public static NotificationType LDAPAGENT = new NotificationType("LDAP_AGENT");
-         /// <summary>
+        /// <summary>
         /// StringEnum NotificationType for value: OKTA_ANNOUNCEMENT
         /// </summary>
         public static NotificationType OKTAANNOUNCEMENT = new NotificationType("OKTA_ANNOUNCEMENT");
-         /// <summary>
+        /// <summary>
         /// StringEnum NotificationType for value: OKTA_ISSUE
         /// </summary>
         public static NotificationType OKTAISSUE = new NotificationType("OKTA_ISSUE");
-         /// <summary>
+        /// <summary>
         /// StringEnum NotificationType for value: OKTA_UPDATE
         /// </summary>
         public static NotificationType OKTAUPDATE = new NotificationType("OKTA_UPDATE");
-         /// <summary>
+        /// <summary>
         /// StringEnum NotificationType for value: RATELIMIT_NOTIFICATION
         /// </summary>
         public static NotificationType RATELIMITNOTIFICATION = new NotificationType("RATELIMIT_NOTIFICATION");
-         /// <summary>
+        /// <summary>
         /// StringEnum NotificationType for value: REPORT_SUSPICIOUS_ACTIVITY
         /// </summary>
         public static NotificationType REPORTSUSPICIOUSACTIVITY = new NotificationType("REPORT_SUSPICIOUS_ACTIVITY");
-         /// <summary>
+        /// <summary>
         /// StringEnum NotificationType for value: USER_DEPROVISION
         /// </summary>
         public static NotificationType USERDEPROVISION = new NotificationType("USER_DEPROVISION");
-         /// <summary>
+        /// <summary>
         /// StringEnum NotificationType for value: USER_LOCKED_OUT
         /// </summary>
         public static NotificationType USERLOCKEDOUT = new NotificationType("USER_LOCKED_OUT");

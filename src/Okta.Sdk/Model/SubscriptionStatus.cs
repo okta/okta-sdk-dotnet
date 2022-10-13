@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines SubscriptionStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of SubscriptionStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class SubscriptionStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum SubscriptionStatus for value: subscribed
         /// </summary>
         public static SubscriptionStatus Subscribed = new SubscriptionStatus("subscribed");
-         /// <summary>
+        /// <summary>
         /// StringEnum SubscriptionStatus for value: unsubscribed
         /// </summary>
         public static SubscriptionStatus Unsubscribed = new SubscriptionStatus("unsubscribed");

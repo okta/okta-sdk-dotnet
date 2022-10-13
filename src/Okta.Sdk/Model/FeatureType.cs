@@ -28,14 +28,10 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines FeatureType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of FeatureType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class FeatureType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum FeatureType for value: self-service
         /// </summary>
         public static FeatureType SelfService = new FeatureType("self-service");

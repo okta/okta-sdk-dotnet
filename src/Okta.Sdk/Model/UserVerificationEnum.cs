@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines UserVerificationEnum
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of UserVerificationEnum values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class UserVerificationEnum : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum UserVerificationEnum for value: PREFERRED
         /// </summary>
         public static UserVerificationEnum PREFERRED = new UserVerificationEnum("PREFERRED");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserVerificationEnum for value: REQUIRED
         /// </summary>
         public static UserVerificationEnum REQUIRED = new UserVerificationEnum("REQUIRED");

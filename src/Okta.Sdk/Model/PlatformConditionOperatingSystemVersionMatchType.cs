@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PlatformConditionOperatingSystemVersionMatchType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PlatformConditionOperatingSystemVersionMatchType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PlatformConditionOperatingSystemVersionMatchType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PlatformConditionOperatingSystemVersionMatchType for value: EXPRESSION
         /// </summary>
         public static PlatformConditionOperatingSystemVersionMatchType EXPRESSION = new PlatformConditionOperatingSystemVersionMatchType("EXPRESSION");
-         /// <summary>
+        /// <summary>
         /// StringEnum PlatformConditionOperatingSystemVersionMatchType for value: SEMVER
         /// </summary>
         public static PlatformConditionOperatingSystemVersionMatchType SEMVER = new PlatformConditionOperatingSystemVersionMatchType("SEMVER");

@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines EmailTemplateTouchPointVariant
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of EmailTemplateTouchPointVariant values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class EmailTemplateTouchPointVariant : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum EmailTemplateTouchPointVariant for value: FULL_THEME
         /// </summary>
         public static EmailTemplateTouchPointVariant FULLTHEME = new EmailTemplateTouchPointVariant("FULL_THEME");
-         /// <summary>
+        /// <summary>
         /// StringEnum EmailTemplateTouchPointVariant for value: OKTA_DEFAULT
         /// </summary>
         public static EmailTemplateTouchPointVariant OKTADEFAULT = new EmailTemplateTouchPointVariant("OKTA_DEFAULT");

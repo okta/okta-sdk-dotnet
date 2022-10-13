@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines SignInPageTouchPointVariant
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of SignInPageTouchPointVariant values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class SignInPageTouchPointVariant : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum SignInPageTouchPointVariant for value: BACKGROUND_IMAGE
         /// </summary>
         public static SignInPageTouchPointVariant BACKGROUNDIMAGE = new SignInPageTouchPointVariant("BACKGROUND_IMAGE");
-         /// <summary>
+        /// <summary>
         /// StringEnum SignInPageTouchPointVariant for value: BACKGROUND_SECONDARY_COLOR
         /// </summary>
         public static SignInPageTouchPointVariant BACKGROUNDSECONDARYCOLOR = new SignInPageTouchPointVariant("BACKGROUND_SECONDARY_COLOR");
-         /// <summary>
+        /// <summary>
         /// StringEnum SignInPageTouchPointVariant for value: OKTA_DEFAULT
         /// </summary>
         public static SignInPageTouchPointVariant OKTADEFAULT = new SignInPageTouchPointVariant("OKTA_DEFAULT");

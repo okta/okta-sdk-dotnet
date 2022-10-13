@@ -29,34 +29,30 @@ namespace Okta.Sdk.Model
     /// Status for one agent regarding the status to auto-update that agent
     /// </summary>
     /// <value>Status for one agent regarding the status to auto-update that agent</value>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of AgentUpdateInstanceStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class AgentUpdateInstanceStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentUpdateInstanceStatus for value: Cancelled
         /// </summary>
         public static AgentUpdateInstanceStatus Cancelled = new AgentUpdateInstanceStatus("Cancelled");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentUpdateInstanceStatus for value: Failed
         /// </summary>
         public static AgentUpdateInstanceStatus Failed = new AgentUpdateInstanceStatus("Failed");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentUpdateInstanceStatus for value: InProgress
         /// </summary>
         public static AgentUpdateInstanceStatus InProgress = new AgentUpdateInstanceStatus("InProgress");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentUpdateInstanceStatus for value: PendingCompletion
         /// </summary>
         public static AgentUpdateInstanceStatus PendingCompletion = new AgentUpdateInstanceStatus("PendingCompletion");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentUpdateInstanceStatus for value: Scheduled
         /// </summary>
         public static AgentUpdateInstanceStatus Scheduled = new AgentUpdateInstanceStatus("Scheduled");
-         /// <summary>
+        /// <summary>
         /// StringEnum AgentUpdateInstanceStatus for value: Success
         /// </summary>
         public static AgentUpdateInstanceStatus Success = new AgentUpdateInstanceStatus("Success");

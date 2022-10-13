@@ -28,18 +28,14 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PolicyAccountLinkAction
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PolicyAccountLinkAction values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PolicyAccountLinkAction : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyAccountLinkAction for value: AUTO
         /// </summary>
         public static PolicyAccountLinkAction AUTO = new PolicyAccountLinkAction("AUTO");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyAccountLinkAction for value: DISABLED
         /// </summary>
         public static PolicyAccountLinkAction DISABLED = new PolicyAccountLinkAction("DISABLED");

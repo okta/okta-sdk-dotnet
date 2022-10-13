@@ -29,26 +29,22 @@ namespace Okta.Sdk.Model
     /// Operational status of a given agent
     /// </summary>
     /// <value>Operational status of a given agent</value>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of OperationalStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class OperationalStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum OperationalStatus for value: DEGRADED
         /// </summary>
         public static OperationalStatus DEGRADED = new OperationalStatus("DEGRADED");
-         /// <summary>
+        /// <summary>
         /// StringEnum OperationalStatus for value: DISRUPTED
         /// </summary>
         public static OperationalStatus DISRUPTED = new OperationalStatus("DISRUPTED");
-         /// <summary>
+        /// <summary>
         /// StringEnum OperationalStatus for value: INACTIVE
         /// </summary>
         public static OperationalStatus INACTIVE = new OperationalStatus("INACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum OperationalStatus for value: OPERATIONAL
         /// </summary>
         public static OperationalStatus OPERATIONAL = new OperationalStatus("OPERATIONAL");

@@ -28,26 +28,22 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines DomainValidationStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of DomainValidationStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class DomainValidationStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum DomainValidationStatus for value: COMPLETED
         /// </summary>
         public static DomainValidationStatus COMPLETED = new DomainValidationStatus("COMPLETED");
-         /// <summary>
+        /// <summary>
         /// StringEnum DomainValidationStatus for value: IN_PROGRESS
         /// </summary>
         public static DomainValidationStatus INPROGRESS = new DomainValidationStatus("IN_PROGRESS");
-         /// <summary>
+        /// <summary>
         /// StringEnum DomainValidationStatus for value: NOT_STARTED
         /// </summary>
         public static DomainValidationStatus NOTSTARTED = new DomainValidationStatus("NOT_STARTED");
-         /// <summary>
+        /// <summary>
         /// StringEnum DomainValidationStatus for value: VERIFIED
         /// </summary>
         public static DomainValidationStatus VERIFIED = new DomainValidationStatus("VERIFIED");

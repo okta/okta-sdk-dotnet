@@ -28,14 +28,10 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines InlineHookChannelType
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of InlineHookChannelType values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class InlineHookChannelType : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum InlineHookChannelType for value: HTTP
         /// </summary>
         public static InlineHookChannelType HTTP = new InlineHookChannelType("HTTP");

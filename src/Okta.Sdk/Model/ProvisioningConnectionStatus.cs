@@ -28,22 +28,18 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines ProvisioningConnectionStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ProvisioningConnectionStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ProvisioningConnectionStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningConnectionStatus for value: DISABLED
         /// </summary>
         public static ProvisioningConnectionStatus DISABLED = new ProvisioningConnectionStatus("DISABLED");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningConnectionStatus for value: ENABLED
         /// </summary>
         public static ProvisioningConnectionStatus ENABLED = new ProvisioningConnectionStatus("ENABLED");
-         /// <summary>
+        /// <summary>
         /// StringEnum ProvisioningConnectionStatus for value: UNKNOWN
         /// </summary>
         public static ProvisioningConnectionStatus UNKNOWN = new ProvisioningConnectionStatus("UNKNOWN");

@@ -28,42 +28,38 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines FactorProvider
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of FactorProvider values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class FactorProvider : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorProvider for value: CUSTOM
         /// </summary>
         public static FactorProvider CUSTOM = new FactorProvider("CUSTOM");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorProvider for value: DUO
         /// </summary>
         public static FactorProvider DUO = new FactorProvider("DUO");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorProvider for value: FIDO
         /// </summary>
         public static FactorProvider FIDO = new FactorProvider("FIDO");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorProvider for value: GOOGLE
         /// </summary>
         public static FactorProvider GOOGLE = new FactorProvider("GOOGLE");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorProvider for value: OKTA
         /// </summary>
         public static FactorProvider OKTA = new FactorProvider("OKTA");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorProvider for value: RSA
         /// </summary>
         public static FactorProvider RSA = new FactorProvider("RSA");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorProvider for value: SYMANTEC
         /// </summary>
         public static FactorProvider SYMANTEC = new FactorProvider("SYMANTEC");
-         /// <summary>
+        /// <summary>
         /// StringEnum FactorProvider for value: YUBICO
         /// </summary>
         public static FactorProvider YUBICO = new FactorProvider("YUBICO");

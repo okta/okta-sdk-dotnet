@@ -29,26 +29,22 @@ namespace Okta.Sdk.Model
     /// Release channel for auto-update
     /// </summary>
     /// <value>Release channel for auto-update</value>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of ReleaseChannel values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class ReleaseChannel : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum ReleaseChannel for value: BETA
         /// </summary>
         public static ReleaseChannel BETA = new ReleaseChannel("BETA");
-         /// <summary>
+        /// <summary>
         /// StringEnum ReleaseChannel for value: EA
         /// </summary>
         public static ReleaseChannel EA = new ReleaseChannel("EA");
-         /// <summary>
+        /// <summary>
         /// StringEnum ReleaseChannel for value: GA
         /// </summary>
         public static ReleaseChannel GA = new ReleaseChannel("GA");
-         /// <summary>
+        /// <summary>
         /// StringEnum ReleaseChannel for value: TEST
         /// </summary>
         public static ReleaseChannel TEST = new ReleaseChannel("TEST");

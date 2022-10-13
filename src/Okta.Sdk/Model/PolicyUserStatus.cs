@@ -28,42 +28,38 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines PolicyUserStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of PolicyUserStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class PolicyUserStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyUserStatus for value: ACTIVATING
         /// </summary>
         public static PolicyUserStatus ACTIVATING = new PolicyUserStatus("ACTIVATING");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyUserStatus for value: ACTIVE
         /// </summary>
         public static PolicyUserStatus ACTIVE = new PolicyUserStatus("ACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyUserStatus for value: DELETED
         /// </summary>
         public static PolicyUserStatus DELETED = new PolicyUserStatus("DELETED");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyUserStatus for value: DELETING
         /// </summary>
         public static PolicyUserStatus DELETING = new PolicyUserStatus("DELETING");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyUserStatus for value: EXPIRED_PASSWORD
         /// </summary>
         public static PolicyUserStatus EXPIREDPASSWORD = new PolicyUserStatus("EXPIRED_PASSWORD");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyUserStatus for value: INACTIVE
         /// </summary>
         public static PolicyUserStatus INACTIVE = new PolicyUserStatus("INACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyUserStatus for value: PENDING
         /// </summary>
         public static PolicyUserStatus PENDING = new PolicyUserStatus("PENDING");
-         /// <summary>
+        /// <summary>
         /// StringEnum PolicyUserStatus for value: SUSPENDED
         /// </summary>
         public static PolicyUserStatus SUSPENDED = new PolicyUserStatus("SUSPENDED");

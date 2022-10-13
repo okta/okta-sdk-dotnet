@@ -28,42 +28,38 @@ namespace Okta.Sdk.Model
     /// <summary>
     /// Defines UserStatus
     /// </summary>
-    [JsonConverter(typeof(StringEnumSerializingConverter))]
-
-    /// <summary>
-    /// An enumeration of UserStatus values in the Okta API.
-    /// </summary>
+    [JsonConverter(typeof(Okta.Sdk.Client.StringEnumSerializingConverter))]
     public sealed class UserStatus : StringEnum
     {
-         /// <summary>
+        /// <summary>
         /// StringEnum UserStatus for value: ACTIVE
         /// </summary>
         public static UserStatus ACTIVE = new UserStatus("ACTIVE");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserStatus for value: DEPROVISIONED
         /// </summary>
         public static UserStatus DEPROVISIONED = new UserStatus("DEPROVISIONED");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserStatus for value: LOCKED_OUT
         /// </summary>
         public static UserStatus LOCKEDOUT = new UserStatus("LOCKED_OUT");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserStatus for value: PASSWORD_EXPIRED
         /// </summary>
         public static UserStatus PASSWORDEXPIRED = new UserStatus("PASSWORD_EXPIRED");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserStatus for value: PROVISIONED
         /// </summary>
         public static UserStatus PROVISIONED = new UserStatus("PROVISIONED");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserStatus for value: RECOVERY
         /// </summary>
         public static UserStatus RECOVERY = new UserStatus("RECOVERY");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserStatus for value: STAGED
         /// </summary>
         public static UserStatus STAGED = new UserStatus("STAGED");
-         /// <summary>
+        /// <summary>
         /// StringEnum UserStatus for value: SUSPENDED
         /// </summary>
         public static UserStatus SUSPENDED = new UserStatus("SUSPENDED");
