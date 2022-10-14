@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="GroupScenarios.cs" />
     <Compile Remove="IdentityProvidersScenarios.cs" />
     <Compile Remove="OAuthScenarios.cs" />
     <Compile Remove="SchemaScenarios.cs" />
