@@ -72,7 +72,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "bookmark",
                 Label = $"dotnet-sdk: UploadLogo {guid}",
-                SignOnMode = "BOOKMARK",
+                SignOnMode = ApplicationSignOnMode.BOOKMARK,
                 Settings = new BookmarkApplicationSettings
                 {
                     App = new BookmarkApplicationSettingsApplication
@@ -87,14 +87,14 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var defaultLogo = createdApp.Links.Logo.ToString();
+                var defaultLogo = createdApp.Links.Logo.FirstOrDefault().Href.ToString();
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Assets/okta_logo_white.png");
                 var file = File.OpenRead(filePath);
 
                 await _applicationApi.UploadApplicationLogoAsync(createdApp.Id, file);
 
                 var retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id) as BookmarkApplication;
-                var updatedLogo = retrievedApp.Links.Logo.ToString();
+                var updatedLogo = retrievedApp.Links.Logo.FirstOrDefault().Href.ToString();
                 defaultLogo.Should().NotBeEquivalentTo(updatedLogo);
 
             }
@@ -226,7 +226,7 @@ namespace Okta.Sdk.IntegrationTest
                 retrieved.Credentials.OauthClient.ClientId.Should().Be(testClientId);
                 retrieved.Credentials.OauthClient.AutoKeyRotation.Should().BeTrue();
                 retrieved.Credentials.OauthClient.TokenEndpointAuthMethod.Should()
-                    .Be("client_secret_post");
+                    .Be(OAuthEndpointAuthenticationMethod.ClientSecretPost);
 
                 retrieved.Settings.OauthClient.ClientUri.Should().Be("https://example.com/client");
                 retrieved.Settings.OauthClient.LogoUri.Should().Be("https://example.com/assets/images/logo-new.png");
@@ -239,14 +239,14 @@ namespace Okta.Sdk.IntegrationTest
                 retrieved.Settings.OauthClient.PostLogoutRedirectUris.Last().Should().Be("myapp://postlogoutcallback");
 
                 retrieved.Settings.OauthClient.ResponseTypes.Should().HaveCount(3);
-                retrieved.Settings.OauthClient.ResponseTypes.First().Should().Be("token");
-                retrieved.Settings.OauthClient.ResponseTypes.Should().Contain("id_token");
-                retrieved.Settings.OauthClient.ResponseTypes.Should().Contain("code");
+                retrieved.Settings.OauthClient.ResponseTypes.First().Value.Should().Be("token");
+                retrieved.Settings.OauthClient.ResponseTypes.Should().Contain(OAuthResponseType.IdToken);
+                retrieved.Settings.OauthClient.ResponseTypes.Should().Contain(OAuthResponseType.Code);
 
                 retrieved.Settings.OauthClient.GrantTypes.Should().HaveCount(2);
-                retrieved.Settings.OauthClient.GrantTypes.First().Should().Be("implicit");
-                retrieved.Settings.OauthClient.GrantTypes.Last().Should().Be("authorization_code");
-                retrieved.Settings.OauthClient.ApplicationType.Should().Be("native");
+                retrieved.Settings.OauthClient.GrantTypes.First().Value.Should().Be("implicit");
+                retrieved.Settings.OauthClient.GrantTypes.Last().Should().Be(OAuthGrantType.AuthorizationCode);
+                retrieved.Settings.OauthClient.ApplicationType.Should().Be(OpenIdConnectApplicationType.Native);
                 retrieved.Settings.OauthClient.TosUri.Should().Be("https://example.com/client/tos");
 
                 retrieved.Settings.OauthClient.Jwks.Keys.Should().NotBeNullOrEmpty();
@@ -462,7 +462,7 @@ namespace Okta.Sdk.IntegrationTest
             var app = new BrowserPluginApplication
             {
                 Label = $"dotnet-sdk: UpdateSWAApplicationAdminSetUsernameAndPassword {Guid.NewGuid()}",
-                SignOnMode = "BROWSER_PLUGIN",
+                SignOnMode = ApplicationSignOnMode.BROWSERPLUGIN,
                 Name = "template_swa",
                 Settings = new SwaApplicationSettings
                 {
@@ -484,7 +484,7 @@ namespace Okta.Sdk.IntegrationTest
                 var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as BrowserPluginApplication ;
 
                 // Checking defaults
-                retrieved.Credentials.Scheme.Should().Be("EDIT_USERNAME_AND_PASSWORD");
+                retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.EDITUSERNAMEANDPASSWORD);
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
                 retrieved.Credentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
 
@@ -504,7 +504,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
 
-                retrieved.Credentials.Scheme.Should().Be("ADMIN_SETS_CREDENTIALS");
+                retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.ADMINSETSCREDENTIALS);
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
                 retrieved.Credentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
             }
@@ -521,7 +521,7 @@ namespace Okta.Sdk.IntegrationTest
             var app = new BrowserPluginApplication
             {
                 Label = $"dotnet-sdk: UpdateSWAApplicationSetUserEditablePassword {Guid.NewGuid()}",
-                SignOnMode = "BROWSER_PLUGIN",
+                SignOnMode = ApplicationSignOnMode.BROWSERPLUGIN,
                 Name = "template_swa",
                 Settings = new SwaApplicationSettings
                 {
@@ -543,17 +543,17 @@ namespace Okta.Sdk.IntegrationTest
                 var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as BrowserPluginApplication;
 
                 // Checking defaults
-                retrieved.Credentials.Scheme.Should().Be("EDIT_USERNAME_AND_PASSWORD");
+                retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.EDITUSERNAMEANDPASSWORD);
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
                 retrieved.Credentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
 
-                retrieved.Credentials.Scheme = "EDIT_PASSWORD_ONLY";
+                retrieved.Credentials.Scheme = ApplicationCredentialsScheme.EDITPASSWORDONLY;
                 retrieved.Credentials.UserNameTemplate.Template = "${source.login}";
                 retrieved.Credentials.UserNameTemplate.Type = "BUILT_IN";
 
                 retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
 
-                retrieved.Credentials.Scheme.Should().Be("EDIT_PASSWORD_ONLY");
+                retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.EDITPASSWORDONLY);
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
                 retrieved.Credentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
             }
@@ -571,7 +571,7 @@ namespace Okta.Sdk.IntegrationTest
             var app = new BrowserPluginApplication
             {
                 Label = $"dotnet-sdk: UpdateSWAApplicationSetSharedCredentials {Guid.NewGuid()}",
-                SignOnMode = "BROWSER_PLUGIN",
+                SignOnMode = ApplicationSignOnMode.BROWSERPLUGIN,
                 Name = "template_swa",
                 Settings = new SwaApplicationSettings
                 {
@@ -593,11 +593,11 @@ namespace Okta.Sdk.IntegrationTest
                 var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as BrowserPluginApplication;
 
                 // Checking defaults
-                retrieved.Credentials.Scheme.Should().Be("EDIT_USERNAME_AND_PASSWORD");
+                retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.EDITUSERNAMEANDPASSWORD);
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
                 retrieved.Credentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
 
-                retrieved.Credentials.Scheme = "SHARED_USERNAME_AND_PASSWORD";
+                retrieved.Credentials.Scheme = ApplicationCredentialsScheme.SHAREDUSERNAMEANDPASSWORD;
                 retrieved.Credentials.UserNameTemplate.Template = "${source.login}";
                 retrieved.Credentials.UserNameTemplate.Type = "BUILT_IN";
                 retrieved.Credentials.UserName = "sharedusername";
@@ -605,7 +605,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
 
-                retrieved.Credentials.Scheme.Should().Be("SHARED_USERNAME_AND_PASSWORD");
+                retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.SHAREDUSERNAMEANDPASSWORD);
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
                 retrieved.Credentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
                 retrieved.Credentials.UserName.Should().Be("sharedusername");
@@ -2125,8 +2125,8 @@ namespace Okta.Sdk.IntegrationTest
 
                         GrantTypes = new List<OAuthGrantType>
                         {
-                            "authorization_code",
-                            "client_credentials",
+                            OAuthGrantType.AuthorizationCode,
+                            OAuthGrantType.ClientCredentials,
                         },
                         ApplicationType = "service",
 
@@ -2140,8 +2140,8 @@ namespace Okta.Sdk.IntegrationTest
             {
 
                 var connection = await _applicationApi.GetDefaultProvisioningConnectionForApplicationAsync(createdApp.Id);
-                connection.AuthScheme.Should().Be("UNKNOWN");
-                connection.Status.Should().Be("UNKNOWN");
+                connection.AuthScheme.Should().Be(ProvisioningConnectionAuthScheme.UNKNOWN);
+                connection.Status.Should().Be(ProvisioningConnectionStatus.UNKNOWN);
 
             }
             finally
