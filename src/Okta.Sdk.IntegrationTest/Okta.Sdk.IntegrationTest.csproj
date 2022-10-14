@@ -11,7 +11,6 @@
     <Compile Remove="IdentityProvidersScenarios.cs" />
     <Compile Remove="OAuthScenarios.cs" />
     <Compile Remove="SchemaScenarios.cs" />
-    <Compile Remove="UserScenarios.cs" />
   </ItemGroup>
 
   <ItemGroup>
