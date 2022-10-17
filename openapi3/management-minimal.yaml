@@ -7866,6 +7866,7 @@ paths:
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests429'
       security:
+        - apiToken: []
         - oauth2:
             - okta.roles.manage
       tags:
@@ -7901,6 +7902,7 @@ paths:
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests429'
       security:
+        - apiToken: []
         - oauth2:
             - okta.roles.manage
       tags:

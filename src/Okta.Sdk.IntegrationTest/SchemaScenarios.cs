@@ -33,10 +33,10 @@ namespace Okta.Sdk.IntegrationTest
             userSchema.Definitions.Base.Id.Should().Be("#base");
             userSchema.Definitions.Base.Type.Should().Be("object");
             userSchema.Definitions.Base.Properties.Login.Title.Should().Be("Username");
-            userSchema.Definitions.Base.Properties.Login.Type.Should().Be("string");
+            userSchema.Definitions.Base.Properties.Login.Type.Value.Should().Be("string");
             userSchema.Definitions.Base.Properties.Login.Required.Should().BeTrue();
             userSchema.Definitions.Base.Properties.Login.Mutability.Should().Be("READ_WRITE");
-            userSchema.Definitions.Base.Properties.Login.Scope.Should().Be("NONE");
+            userSchema.Definitions.Base.Properties.Login.Scope.Value.Should().Be("NONE");
             userSchema.Definitions.Base.Properties.Login.MinLength.Should().Be(5);
             userSchema.Definitions.Base.Properties.Login.MaxLength.Should().Be(100);
             userSchema.Definitions.Base.Properties.Login.Permissions.FirstOrDefault().Principal.Should().Be("SELF");
@@ -77,7 +77,7 @@ namespace Okta.Sdk.IntegrationTest
 
             var retrievedCustomAttribute = updatedUserSchema.Definitions.Custom.Properties[testAttributeName];
             retrievedCustomAttribute.Title.Should().Be(testAttributeName);
-            retrievedCustomAttribute.Type.Should().Be("string");
+            retrievedCustomAttribute.Type.Value.Should().Be("string");
             retrievedCustomAttribute.Description.Should().Be(guid.ToString());
             retrievedCustomAttribute.Required.Should().BeFalse();
             retrievedCustomAttribute.MinLength.Should().Be(1);

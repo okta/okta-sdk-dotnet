@@ -357,7 +357,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact(Skip = "Review why it's failing")]
+        [Fact]
         public async Task ListGroupTargetsForGroup()
         {
 
@@ -408,7 +408,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact(Skip = "Review why it's failing")]
+        [Fact]
         public async Task RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup()
         {
 
@@ -987,7 +987,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 createdGroupRule.Should().NotBeNull();
-                createdGroupRule.Status.Should().Be("INACTIVE");
+                createdGroupRule.Status.Should().Be(GroupRuleStatus.INACTIVE);
 
                 await _groupApi.ActivateGroupRuleAsync(createdGroupRule.Id);
 
@@ -995,7 +995,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 var retrievedGroupRule = await _groupApi.GetGroupRuleAsync(createdGroupRule.Id);
                 retrievedGroupRule.Should().NotBeNull();
-                retrievedGroupRule.Status.Should().Be("ACTIVE");
+                retrievedGroupRule.Status.Should().Be(GroupRuleStatus.ACTIVE);
 
                 await _groupApi.DeactivateGroupRuleAsync(createdGroupRule.Id);
 
@@ -1003,7 +1003,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 retrievedGroupRule = await _groupApi.GetGroupRuleAsync(createdGroupRule.Id);
                 retrievedGroupRule.Should().NotBeNull();
-                retrievedGroupRule.Status.Should().Be("INACTIVE");
+                retrievedGroupRule.Status.Should().Be(GroupRuleStatus.INACTIVE);
             }
             finally
             {
