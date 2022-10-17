@@ -552,6 +552,7 @@ Class | Method | HTTP request | Description
  - [Model.ApplicationFeature](docs/ApplicationFeature.md)
  - [Model.ApplicationGroupAssignment](docs/ApplicationGroupAssignment.md)
  - [Model.ApplicationLayout](docs/ApplicationLayout.md)
+ - [Model.ApplicationLayoutElementsValue](docs/ApplicationLayoutElementsValue.md)
  - [Model.ApplicationLayoutRule](docs/ApplicationLayoutRule.md)
  - [Model.ApplicationLayoutRuleCondition](docs/ApplicationLayoutRuleCondition.md)
  - [Model.ApplicationLicensing](docs/ApplicationLicensing.md)

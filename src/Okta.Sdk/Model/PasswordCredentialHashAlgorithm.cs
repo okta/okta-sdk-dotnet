@@ -53,7 +53,7 @@ namespace Okta.Sdk.Model
         public static PasswordCredentialHashAlgorithm SHA512 = new PasswordCredentialHashAlgorithm("SHA-512");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PasswordCredentialHashAlgorithm"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator PasswordCredentialHashAlgorithm(string value) => new PasswordCredentialHashAlgorithm(value);

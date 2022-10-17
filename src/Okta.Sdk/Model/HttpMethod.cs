@@ -49,7 +49,7 @@ namespace Okta.Sdk.Model
         public static HttpMethod PUT = new HttpMethod("PUT");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="HttpMethod"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator HttpMethod(string value) => new HttpMethod(value);

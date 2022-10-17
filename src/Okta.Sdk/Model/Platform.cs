@@ -49,7 +49,7 @@ namespace Okta.Sdk.Model
         public static Platform WINDOWS = new Platform("WINDOWS");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="Platform"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator Platform(string value) => new Platform(value);

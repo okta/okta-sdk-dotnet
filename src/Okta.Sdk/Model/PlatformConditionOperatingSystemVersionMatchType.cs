@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static PlatformConditionOperatingSystemVersionMatchType SEMVER = new PlatformConditionOperatingSystemVersionMatchType("SEMVER");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PlatformConditionOperatingSystemVersionMatchType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator PlatformConditionOperatingSystemVersionMatchType(string value) => new PlatformConditionOperatingSystemVersionMatchType(value);

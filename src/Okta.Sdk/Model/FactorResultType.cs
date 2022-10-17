@@ -73,7 +73,7 @@ namespace Okta.Sdk.Model
         public static FactorResultType WAITING = new FactorResultType("WAITING");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="FactorResultType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator FactorResultType(string value) => new FactorResultType(value);

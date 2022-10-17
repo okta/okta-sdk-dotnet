@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static PolicyAccountLinkAction DISABLED = new PolicyAccountLinkAction("DISABLED");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PolicyAccountLinkAction"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator PolicyAccountLinkAction(string value) => new PolicyAccountLinkAction(value);

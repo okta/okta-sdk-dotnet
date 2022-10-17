@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static CAPTCHAType RECAPTCHAV2 = new CAPTCHAType("RECAPTCHA_V2");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="CAPTCHAType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator CAPTCHAType(string value) => new CAPTCHAType(value);

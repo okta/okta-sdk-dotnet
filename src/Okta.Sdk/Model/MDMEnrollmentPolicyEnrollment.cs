@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static MDMEnrollmentPolicyEnrollment OMM = new MDMEnrollmentPolicyEnrollment("OMM");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="MDMEnrollmentPolicyEnrollment"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator MDMEnrollmentPolicyEnrollment(string value) => new MDMEnrollmentPolicyEnrollment(value);

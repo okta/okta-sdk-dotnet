@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static DevicePolicyMDMFramework SAFE = new DevicePolicyMDMFramework("SAFE");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="DevicePolicyMDMFramework"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator DevicePolicyMDMFramework(string value) => new DevicePolicyMDMFramework(value);

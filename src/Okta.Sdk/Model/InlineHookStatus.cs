@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static InlineHookStatus INACTIVE = new InlineHookStatus("INACTIVE");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="InlineHookStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator InlineHookStatus(string value) => new InlineHookStatus(value);

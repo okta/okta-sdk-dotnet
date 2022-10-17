@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static PolicyRuleAuthContextType RADIUS = new PolicyRuleAuthContextType("RADIUS");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PolicyRuleAuthContextType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator PolicyRuleAuthContextType(string value) => new PolicyRuleAuthContextType(value);

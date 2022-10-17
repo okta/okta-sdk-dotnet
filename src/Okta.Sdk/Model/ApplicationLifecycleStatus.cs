@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static ApplicationLifecycleStatus INACTIVE = new ApplicationLifecycleStatus("INACTIVE");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ApplicationLifecycleStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator ApplicationLifecycleStatus(string value) => new ApplicationLifecycleStatus(value);

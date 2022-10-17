@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static OktaSignOnPolicyFactorPromptMode SESSION = new OktaSignOnPolicyFactorPromptMode("SESSION");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OktaSignOnPolicyFactorPromptMode"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator OktaSignOnPolicyFactorPromptMode(string value) => new OktaSignOnPolicyFactorPromptMode(value);

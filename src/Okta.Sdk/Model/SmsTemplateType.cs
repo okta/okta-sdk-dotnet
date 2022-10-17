@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         public static SmsTemplateType SMSVERIFYCODE = new SmsTemplateType("SMS_VERIFY_CODE");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="SmsTemplateType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator SmsTemplateType(string value) => new SmsTemplateType(value);

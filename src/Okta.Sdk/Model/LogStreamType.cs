@@ -42,7 +42,7 @@ namespace Okta.Sdk.Model
         public static LogStreamType SplunkCloudLogstreaming = new LogStreamType("splunk_cloud_logstreaming");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="LogStreamType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator LogStreamType(string value) => new LogStreamType(value);

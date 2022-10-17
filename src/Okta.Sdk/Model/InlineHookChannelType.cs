@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         public static InlineHookChannelType HTTP = new InlineHookChannelType("HTTP");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="InlineHookChannelType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator InlineHookChannelType(string value) => new InlineHookChannelType(value);

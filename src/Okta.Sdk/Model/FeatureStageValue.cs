@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static FeatureStageValue EA = new FeatureStageValue("EA");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="FeatureStageValue"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator FeatureStageValue(string value) => new FeatureStageValue(value);

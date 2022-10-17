@@ -49,7 +49,7 @@ namespace Okta.Sdk.Model
         public static PolicyPlatformType OTHER = new PolicyPlatformType("OTHER");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PolicyPlatformType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator PolicyPlatformType(string value) => new PolicyPlatformType(value);

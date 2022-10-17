@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static ProtocolEndpointBinding REDIRECT = new ProtocolEndpointBinding("HTTP-REDIRECT");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ProtocolEndpointBinding"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator ProtocolEndpointBinding(string value) => new ProtocolEndpointBinding(value);

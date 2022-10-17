@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static PolicyNetworkConnection ZONE = new PolicyNetworkConnection("ZONE");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PolicyNetworkConnection"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator PolicyNetworkConnection(string value) => new PolicyNetworkConnection(value);

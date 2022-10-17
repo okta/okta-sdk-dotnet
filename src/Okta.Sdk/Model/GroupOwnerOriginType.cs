@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static GroupOwnerOriginType OKTADIRECTORY = new GroupOwnerOriginType("OKTA_DIRECTORY");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="GroupOwnerOriginType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator GroupOwnerOriginType(string value) => new GroupOwnerOriginType(value);

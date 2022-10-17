@@ -53,7 +53,7 @@ namespace Okta.Sdk.Model
         public static EmailDomainStatus VERIFIED = new EmailDomainStatus("VERIFIED");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="EmailDomainStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator EmailDomainStatus(string value) => new EmailDomainStatus(value);

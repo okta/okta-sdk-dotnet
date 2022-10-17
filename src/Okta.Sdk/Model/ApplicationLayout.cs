@@ -35,6 +35,12 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
+        /// Gets or Sets Elements
+        /// </summary>
+        [DataMember(Name = "elements", EmitDefaultValue = false)]
+        public List<Dictionary<string, Object>> Elements { get; set; }
+
+        /// <summary>
         /// Gets or Sets Label
         /// </summary>
         [DataMember(Name = "label", EmitDefaultValue = false)]
@@ -72,6 +78,7 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ApplicationLayout {\n");
+            sb.Append("  Elements: ").Append(Elements).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("  Rule: ").Append(Rule).Append("\n");
@@ -113,6 +120,12 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
+                    this.Elements == input.Elements ||
+                    this.Elements != null &&
+                    input.Elements != null &&
+                    this.Elements.SequenceEqual(input.Elements)
+                ) && 
+                (
                     this.Label == input.Label ||
                     (this.Label != null &&
                     this.Label.Equals(input.Label))
@@ -150,6 +163,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
+                if (this.Elements != null)
+                {
+                    hashCode = (hashCode * 59) + this.Elements.GetHashCode();
+                }
                 if (this.Label != null)
                 {
                     hashCode = (hashCode * 59) + this.Label.GetHashCode();

@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static OpenIdConnectApplicationIssuerMode ORGURL = new OpenIdConnectApplicationIssuerMode("ORG_URL");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OpenIdConnectApplicationIssuerMode"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator OpenIdConnectApplicationIssuerMode(string value) => new OpenIdConnectApplicationIssuerMode(value);

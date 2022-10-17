@@ -49,7 +49,7 @@ namespace Okta.Sdk.Model
         public static OAuth2ClaimGroupFilterType STARTSWITH = new OAuth2ClaimGroupFilterType("STARTS_WITH");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OAuth2ClaimGroupFilterType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator OAuth2ClaimGroupFilterType(string value) => new OAuth2ClaimGroupFilterType(value);

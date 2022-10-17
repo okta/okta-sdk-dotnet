@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static TrustedOriginScopeType REDIRECT = new TrustedOriginScopeType("REDIRECT");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="TrustedOriginScopeType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator TrustedOriginScopeType(string value) => new TrustedOriginScopeType(value);

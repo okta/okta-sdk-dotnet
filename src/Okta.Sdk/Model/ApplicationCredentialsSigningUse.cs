@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         public static ApplicationCredentialsSigningUse Sig = new ApplicationCredentialsSigningUse("sig");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ApplicationCredentialsSigningUse"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator ApplicationCredentialsSigningUse(string value) => new ApplicationCredentialsSigningUse(value);

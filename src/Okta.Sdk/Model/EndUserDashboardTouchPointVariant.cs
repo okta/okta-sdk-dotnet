@@ -49,7 +49,7 @@ namespace Okta.Sdk.Model
         public static EndUserDashboardTouchPointVariant WHITELOGOBACKGROUND = new EndUserDashboardTouchPointVariant("WHITE_LOGO_BACKGROUND");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="EndUserDashboardTouchPointVariant"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator EndUserDashboardTouchPointVariant(string value) => new EndUserDashboardTouchPointVariant(value);

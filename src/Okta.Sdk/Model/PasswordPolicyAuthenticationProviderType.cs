@@ -49,7 +49,7 @@ namespace Okta.Sdk.Model
         public static PasswordPolicyAuthenticationProviderType OKTA = new PasswordPolicyAuthenticationProviderType("OKTA");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PasswordPolicyAuthenticationProviderType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator PasswordPolicyAuthenticationProviderType(string value) => new PasswordPolicyAuthenticationProviderType(value);

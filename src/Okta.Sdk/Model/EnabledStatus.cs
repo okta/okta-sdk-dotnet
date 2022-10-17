@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static EnabledStatus ENABLED = new EnabledStatus("ENABLED");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="EnabledStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator EnabledStatus(string value) => new EnabledStatus(value);

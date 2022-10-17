@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static IssuerMode ORGURL = new IssuerMode("ORG_URL");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="IssuerMode"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator IssuerMode(string value) => new IssuerMode(value);

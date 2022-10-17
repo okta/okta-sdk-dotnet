@@ -61,7 +61,7 @@ namespace Okta.Sdk.Model
         public static PolicyRuleType SIGNON = new PolicyRuleType("SIGN_ON");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PolicyRuleType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator PolicyRuleType(string value) => new PolicyRuleType(value);

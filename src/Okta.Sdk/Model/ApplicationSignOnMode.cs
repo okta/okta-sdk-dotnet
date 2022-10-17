@@ -69,7 +69,7 @@ namespace Okta.Sdk.Model
         public static ApplicationSignOnMode WSFEDERATION = new ApplicationSignOnMode("WS_FEDERATION");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ApplicationSignOnMode"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator ApplicationSignOnMode(string value) => new ApplicationSignOnMode(value);

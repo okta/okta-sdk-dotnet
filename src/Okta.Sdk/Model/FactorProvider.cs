@@ -65,7 +65,7 @@ namespace Okta.Sdk.Model
         public static FactorProvider YUBICO = new FactorProvider("YUBICO");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="FactorProvider"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator FactorProvider(string value) => new FactorProvider(value);

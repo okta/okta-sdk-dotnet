@@ -85,7 +85,7 @@ namespace Okta.Sdk.Model
         public static FactorType Webauthn = new FactorType("webauthn");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="FactorType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator FactorType(string value) => new FactorType(value);

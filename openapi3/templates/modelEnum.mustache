@@ -27,7 +27,7 @@
         {{/allowableValues}}
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref="{{memberName}}"/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="{{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}(string value) => new {{datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}(value);

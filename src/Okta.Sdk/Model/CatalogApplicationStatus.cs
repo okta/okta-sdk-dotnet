@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static CatalogApplicationStatus INACTIVE = new CatalogApplicationStatus("INACTIVE");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="CatalogApplicationStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator CatalogApplicationStatus(string value) => new CatalogApplicationStatus(value);

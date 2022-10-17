@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static NetworkZoneUsage POLICY = new NetworkZoneUsage("POLICY");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="NetworkZoneUsage"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator NetworkZoneUsage(string value) => new NetworkZoneUsage(value);

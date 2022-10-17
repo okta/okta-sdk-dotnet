@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static ProvisioningSuspendedAction UNSUSPEND = new ProvisioningSuspendedAction("UNSUSPEND");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ProvisioningSuspendedAction"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator ProvisioningSuspendedAction(string value) => new ProvisioningSuspendedAction(value);

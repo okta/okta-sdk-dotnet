@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static OAuth2ScopeMetadataPublish NOCLIENTS = new OAuth2ScopeMetadataPublish("NO_CLIENTS");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OAuth2ScopeMetadataPublish"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator OAuth2ScopeMetadataPublish(string value) => new OAuth2ScopeMetadataPublish(value);

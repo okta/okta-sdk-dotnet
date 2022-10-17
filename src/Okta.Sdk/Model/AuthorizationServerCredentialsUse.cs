@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         public static AuthorizationServerCredentialsUse Sig = new AuthorizationServerCredentialsUse("sig");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="AuthorizationServerCredentialsUse"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator AuthorizationServerCredentialsUse(string value) => new AuthorizationServerCredentialsUse(value);

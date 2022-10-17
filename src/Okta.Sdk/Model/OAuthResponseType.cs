@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static OAuthResponseType Token = new OAuthResponseType("token");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OAuthResponseType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator OAuthResponseType(string value) => new OAuthResponseType(value);

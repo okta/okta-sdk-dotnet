@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static PolicyRuleActionsEnrollSelf NEVER = new PolicyRuleActionsEnrollSelf("NEVER");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PolicyRuleActionsEnrollSelf"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator PolicyRuleActionsEnrollSelf(string value) => new PolicyRuleActionsEnrollSelf(value);

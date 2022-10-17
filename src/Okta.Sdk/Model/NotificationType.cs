@@ -81,7 +81,7 @@ namespace Okta.Sdk.Model
         public static NotificationType USERLOCKEDOUT = new NotificationType("USER_LOCKED_OUT");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="NotificationType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator NotificationType(string value) => new NotificationType(value);

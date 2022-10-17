@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static DomainCertificateSourceType OKTAMANAGED = new DomainCertificateSourceType("OKTA_MANAGED");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="DomainCertificateSourceType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator DomainCertificateSourceType(string value) => new DomainCertificateSourceType(value);

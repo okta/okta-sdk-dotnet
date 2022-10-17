@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static UserSchemaAttributeMasterType PROFILEMASTER = new UserSchemaAttributeMasterType("PROFILE_MASTER");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="UserSchemaAttributeMasterType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator UserSchemaAttributeMasterType(string value) => new UserSchemaAttributeMasterType(value);

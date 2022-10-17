@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static AuthorizationServerCredentialsRotationMode MANUAL = new AuthorizationServerCredentialsRotationMode("MANUAL");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="AuthorizationServerCredentialsRotationMode"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator AuthorizationServerCredentialsRotationMode(string value) => new AuthorizationServerCredentialsRotationMode(value);

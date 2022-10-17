@@ -43,6 +43,7 @@ docs/ApplicationCredentialsUsernameTemplate.md
 docs/ApplicationFeature.md
 docs/ApplicationGroupAssignment.md
 docs/ApplicationLayout.md
+docs/ApplicationLayoutElementsValue.md
 docs/ApplicationLayoutRule.md
 docs/ApplicationLayoutRuleCondition.md
 docs/ApplicationLicensing.md
@@ -777,6 +778,7 @@ src/Okta.Sdk/Model/ApplicationCredentialsUsernameTemplate.cs
 src/Okta.Sdk/Model/ApplicationFeature.cs
 src/Okta.Sdk/Model/ApplicationGroupAssignment.cs
 src/Okta.Sdk/Model/ApplicationLayout.cs
+src/Okta.Sdk/Model/ApplicationLayoutElementsValue.cs
 src/Okta.Sdk/Model/ApplicationLayoutRule.cs
 src/Okta.Sdk/Model/ApplicationLayoutRuleCondition.cs
 src/Okta.Sdk/Model/ApplicationLicensing.cs

@@ -58,7 +58,7 @@ namespace Okta.Sdk.Model
         public static AgentUpdateJobStatus Success = new AgentUpdateJobStatus("Success");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="AgentUpdateJobStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator AgentUpdateJobStatus(string value) => new AgentUpdateJobStatus(value);

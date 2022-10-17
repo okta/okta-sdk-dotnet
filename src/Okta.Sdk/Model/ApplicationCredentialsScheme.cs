@@ -53,7 +53,7 @@ namespace Okta.Sdk.Model
         public static ApplicationCredentialsScheme SHAREDUSERNAMEANDPASSWORD = new ApplicationCredentialsScheme("SHARED_USERNAME_AND_PASSWORD");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ApplicationCredentialsScheme"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator ApplicationCredentialsScheme(string value) => new ApplicationCredentialsScheme(value);

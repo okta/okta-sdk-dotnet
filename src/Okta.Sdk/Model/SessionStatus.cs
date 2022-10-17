@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static SessionStatus MFAREQUIRED = new SessionStatus("MFA_REQUIRED");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="SessionStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator SessionStatus(string value) => new SessionStatus(value);

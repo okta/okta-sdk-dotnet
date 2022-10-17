@@ -61,7 +61,7 @@ namespace Okta.Sdk.Model
         public static FactorStatus PENDINGACTIVATION = new FactorStatus("PENDING_ACTIVATION");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="FactorStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator FactorStatus(string value) => new FactorStatus(value);

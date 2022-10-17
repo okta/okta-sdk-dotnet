@@ -53,7 +53,7 @@ namespace Okta.Sdk.Model
         public static UserSchemaAttributeType String = new UserSchemaAttributeType("string");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="UserSchemaAttributeType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator UserSchemaAttributeType(string value) => new UserSchemaAttributeType(value);

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         public static LinkedObjectDetailsType USER = new LinkedObjectDetailsType("USER");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="LinkedObjectDetailsType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator LinkedObjectDetailsType(string value) => new LinkedObjectDetailsType(value);

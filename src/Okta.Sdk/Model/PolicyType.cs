@@ -61,7 +61,7 @@ namespace Okta.Sdk.Model
         public static PolicyType PROFILEENROLLMENT = new PolicyType("PROFILE_ENROLLMENT");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PolicyType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator PolicyType(string value) => new PolicyType(value);

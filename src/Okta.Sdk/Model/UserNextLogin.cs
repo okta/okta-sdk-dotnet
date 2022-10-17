@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         public static UserNextLogin ChangePassword = new UserNextLogin("changePassword");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="UserNextLogin"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator UserNextLogin(string value) => new UserNextLogin(value);

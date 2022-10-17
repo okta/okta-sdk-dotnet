@@ -73,7 +73,7 @@ namespace Okta.Sdk.Model
         public static IdentityProviderType X509 = new IdentityProviderType("X509");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="IdentityProviderType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator IdentityProviderType(string value) => new IdentityProviderType(value);

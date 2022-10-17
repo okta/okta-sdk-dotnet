@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         public static DomainCertificateType PEM = new DomainCertificateType("PEM");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="DomainCertificateType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator DomainCertificateType(string value) => new DomainCertificateType(value);

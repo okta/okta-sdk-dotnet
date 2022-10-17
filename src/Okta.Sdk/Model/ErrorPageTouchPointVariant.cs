@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static ErrorPageTouchPointVariant OKTADEFAULT = new ErrorPageTouchPointVariant("OKTA_DEFAULT");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ErrorPageTouchPointVariant"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator ErrorPageTouchPointVariant(string value) => new ErrorPageTouchPointVariant(value);

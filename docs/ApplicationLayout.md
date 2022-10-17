@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Elements** | **List&lt;Dictionary&lt;string, Object&gt;&gt;** |  | [optional] 
 **Label** | **string** |  | [optional] 
 **Options** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
 **Rule** | [**ApplicationLayoutRule**](ApplicationLayoutRule.md) |  | [optional] 

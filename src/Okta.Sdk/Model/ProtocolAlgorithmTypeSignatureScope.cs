@@ -53,7 +53,7 @@ namespace Okta.Sdk.Model
         public static ProtocolAlgorithmTypeSignatureScope TOKEN = new ProtocolAlgorithmTypeSignatureScope("TOKEN");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ProtocolAlgorithmTypeSignatureScope"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator ProtocolAlgorithmTypeSignatureScope(string value) => new ProtocolAlgorithmTypeSignatureScope(value);

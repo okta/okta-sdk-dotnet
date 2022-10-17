@@ -57,7 +57,7 @@ namespace Okta.Sdk.Model
         public static AuthenticationProviderType SOCIAL = new AuthenticationProviderType("SOCIAL");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="AuthenticationProviderType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator AuthenticationProviderType(string value) => new AuthenticationProviderType(value);

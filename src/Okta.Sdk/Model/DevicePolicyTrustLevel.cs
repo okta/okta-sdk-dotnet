@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static DevicePolicyTrustLevel TRUSTED = new DevicePolicyTrustLevel("TRUSTED");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="DevicePolicyTrustLevel"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator DevicePolicyTrustLevel(string value) => new DevicePolicyTrustLevel(value);

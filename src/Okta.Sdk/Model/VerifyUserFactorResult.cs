@@ -73,7 +73,7 @@ namespace Okta.Sdk.Model
         public static VerifyUserFactorResult WAITING = new VerifyUserFactorResult("WAITING");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="VerifyUserFactorResult"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator VerifyUserFactorResult(string value) => new VerifyUserFactorResult(value);

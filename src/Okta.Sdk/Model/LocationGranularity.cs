@@ -49,7 +49,7 @@ namespace Okta.Sdk.Model
         public static LocationGranularity SUBDIVISION = new LocationGranularity("SUBDIVISION");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="LocationGranularity"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator LocationGranularity(string value) => new LocationGranularity(value);

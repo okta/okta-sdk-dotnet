@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static OpenIdConnectRefreshTokenRotationType STATIC = new OpenIdConnectRefreshTokenRotationType("STATIC");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OpenIdConnectRefreshTokenRotationType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator OpenIdConnectRefreshTokenRotationType(string value) => new OpenIdConnectRefreshTokenRotationType(value);

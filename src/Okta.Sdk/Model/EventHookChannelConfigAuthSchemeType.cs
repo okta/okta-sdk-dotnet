@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         public static EventHookChannelConfigAuthSchemeType HEADER = new EventHookChannelConfigAuthSchemeType("HEADER");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="EventHookChannelConfigAuthSchemeType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator EventHookChannelConfigAuthSchemeType(string value) => new EventHookChannelConfigAuthSchemeType(value);

@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static ProvisioningDeprovisionedAction REACTIVATE = new ProvisioningDeprovisionedAction("REACTIVATE");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ProvisioningDeprovisionedAction"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator ProvisioningDeprovisionedAction(string value) => new ProvisioningDeprovisionedAction(value);

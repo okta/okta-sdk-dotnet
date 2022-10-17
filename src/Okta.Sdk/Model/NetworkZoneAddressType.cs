@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static NetworkZoneAddressType RANGE = new NetworkZoneAddressType("RANGE");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="NetworkZoneAddressType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator NetworkZoneAddressType(string value) => new NetworkZoneAddressType(value);

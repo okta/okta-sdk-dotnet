@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static OAuth2ClaimType RESOURCE = new OAuth2ClaimType("RESOURCE");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OAuth2ClaimType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator OAuth2ClaimType(string value) => new OAuth2ClaimType(value);

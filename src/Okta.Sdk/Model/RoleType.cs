@@ -73,7 +73,7 @@ namespace Okta.Sdk.Model
         public static RoleType USERADMIN = new RoleType("USER_ADMIN");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="RoleType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator RoleType(string value) => new RoleType(value);

@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static RequiredEnum NEVER = new RequiredEnum("NEVER");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="RequiredEnum"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator RequiredEnum(string value) => new RequiredEnum(value);

@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static AuthenticatorStatus INACTIVE = new AuthenticatorStatus("INACTIVE");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="AuthenticatorStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator AuthenticatorStatus(string value) => new AuthenticatorStatus(value);

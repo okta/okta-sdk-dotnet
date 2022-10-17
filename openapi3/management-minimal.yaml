@@ -18435,10 +18435,11 @@ components:
     ApplicationLayout:
       type: object
       properties:
-        # elements:
-        #   items:
-        #     $ref: '#/components/schemas/ApplicationLayoutElements'
-        #   type: array
+        elements:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
         label:
           type: string
         options:
@@ -18455,9 +18456,6 @@ components:
           type: string
         type:
           type: string
-    ApplicationLayoutElements:
-      type: object
-      additionalProperties: {}
     ApplicationLayoutRuleCondition:
       type: object
       properties:

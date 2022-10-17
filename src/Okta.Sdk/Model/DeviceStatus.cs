@@ -49,7 +49,7 @@ namespace Okta.Sdk.Model
         public static DeviceStatus SUSPENDED = new DeviceStatus("SUSPENDED");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="DeviceStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator DeviceStatus(string value) => new DeviceStatus(value);

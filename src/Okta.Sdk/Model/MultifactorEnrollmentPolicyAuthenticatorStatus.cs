@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static MultifactorEnrollmentPolicyAuthenticatorStatus REQUIRED = new MultifactorEnrollmentPolicyAuthenticatorStatus("REQUIRED");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="MultifactorEnrollmentPolicyAuthenticatorStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator MultifactorEnrollmentPolicyAuthenticatorStatus(string value) => new MultifactorEnrollmentPolicyAuthenticatorStatus(value);

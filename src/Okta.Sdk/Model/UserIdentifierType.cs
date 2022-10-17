@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static UserIdentifierType IDENTIFIER = new UserIdentifierType("IDENTIFIER");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="UserIdentifierType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator UserIdentifierType(string value) => new UserIdentifierType(value);

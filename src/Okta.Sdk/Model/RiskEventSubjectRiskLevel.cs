@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static RiskEventSubjectRiskLevel MEDIUM = new RiskEventSubjectRiskLevel("MEDIUM");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="RiskEventSubjectRiskLevel"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator RiskEventSubjectRiskLevel(string value) => new RiskEventSubjectRiskLevel(value);

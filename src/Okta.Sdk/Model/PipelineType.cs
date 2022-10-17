@@ -42,7 +42,7 @@ namespace Okta.Sdk.Model
         public static PipelineType V1 = new PipelineType("v1");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PipelineType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator PipelineType(string value) => new PipelineType(value);

@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static AppAndInstanceType APPTYPE = new AppAndInstanceType("APP_TYPE");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="AppAndInstanceType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator AppAndInstanceType(string value) => new AppAndInstanceType(value);

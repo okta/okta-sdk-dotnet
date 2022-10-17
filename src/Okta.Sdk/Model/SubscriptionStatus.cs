@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static SubscriptionStatus Unsubscribed = new SubscriptionStatus("unsubscribed");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="SubscriptionStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator SubscriptionStatus(string value) => new SubscriptionStatus(value);

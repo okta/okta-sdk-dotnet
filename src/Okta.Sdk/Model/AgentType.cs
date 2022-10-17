@@ -62,7 +62,7 @@ namespace Okta.Sdk.Model
         public static AgentType Radius = new AgentType("Radius");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="AgentType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator AgentType(string value) => new AgentType(value);

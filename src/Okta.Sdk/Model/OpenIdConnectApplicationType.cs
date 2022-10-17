@@ -49,7 +49,7 @@ namespace Okta.Sdk.Model
         public static OpenIdConnectApplicationType Web = new OpenIdConnectApplicationType("web");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OpenIdConnectApplicationType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator OpenIdConnectApplicationType(string value) => new OpenIdConnectApplicationType(value);

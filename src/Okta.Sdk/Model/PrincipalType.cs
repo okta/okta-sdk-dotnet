@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         public static PrincipalType SSWSTOKEN = new PrincipalType("SSWS_TOKEN");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PrincipalType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator PrincipalType(string value) => new PrincipalType(value);

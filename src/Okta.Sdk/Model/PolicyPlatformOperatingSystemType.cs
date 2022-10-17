@@ -57,7 +57,7 @@ namespace Okta.Sdk.Model
         public static PolicyPlatformOperatingSystemType WINDOWS = new PolicyPlatformOperatingSystemType("WINDOWS");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PolicyPlatformOperatingSystemType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator PolicyPlatformOperatingSystemType(string value) => new PolicyPlatformOperatingSystemType(value);

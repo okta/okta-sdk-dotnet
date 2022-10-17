@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static ProfileMappingPropertyPushStatus PUSH = new ProfileMappingPropertyPushStatus("PUSH");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ProfileMappingPropertyPushStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator ProfileMappingPropertyPushStatus(string value) => new ProfileMappingPropertyPushStatus(value);

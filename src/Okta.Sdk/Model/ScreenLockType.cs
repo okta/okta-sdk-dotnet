@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static ScreenLockType PASSCODE = new ScreenLockType("PASSCODE");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ScreenLockType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator ScreenLockType(string value) => new ScreenLockType(value);

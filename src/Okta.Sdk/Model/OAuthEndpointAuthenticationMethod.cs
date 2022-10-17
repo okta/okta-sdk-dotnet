@@ -53,7 +53,7 @@ namespace Okta.Sdk.Model
         public static OAuthEndpointAuthenticationMethod PrivateKeyJwt = new OAuthEndpointAuthenticationMethod("private_key_jwt");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OAuthEndpointAuthenticationMethod"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator OAuthEndpointAuthenticationMethod(string value) => new OAuthEndpointAuthenticationMethod(value);

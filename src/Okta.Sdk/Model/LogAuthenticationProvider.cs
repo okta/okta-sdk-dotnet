@@ -57,7 +57,7 @@ namespace Okta.Sdk.Model
         public static LogAuthenticationProvider SOCIAL = new LogAuthenticationProvider("SOCIAL");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="LogAuthenticationProvider"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator LogAuthenticationProvider(string value) => new LogAuthenticationProvider(value);

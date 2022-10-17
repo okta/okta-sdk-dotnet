@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static OrgOktaSupportSetting ENABLED = new OrgOktaSupportSetting("ENABLED");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OrgOktaSupportSetting"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator OrgOktaSupportSetting(string value) => new OrgOktaSupportSetting(value);

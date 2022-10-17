@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static RoleAssignmentType USER = new RoleAssignmentType("USER");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="RoleAssignmentType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator RoleAssignmentType(string value) => new RoleAssignmentType(value);

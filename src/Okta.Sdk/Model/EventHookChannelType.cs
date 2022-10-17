@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         public static EventHookChannelType HTTP = new EventHookChannelType("HTTP");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="EventHookChannelType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator EventHookChannelType(string value) => new EventHookChannelType(value);

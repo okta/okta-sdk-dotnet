@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static HostedPageType OKTADEFAULT = new HostedPageType("OKTA_DEFAULT");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="HostedPageType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator HostedPageType(string value) => new HostedPageType(value);

@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static UserVerificationEnum REQUIRED = new UserVerificationEnum("REQUIRED");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="UserVerificationEnum"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator UserVerificationEnum(string value) => new UserVerificationEnum(value);

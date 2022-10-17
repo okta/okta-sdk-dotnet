@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static OrgContactType TECHNICAL = new OrgContactType("TECHNICAL");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OrgContactType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator OrgContactType(string value) => new OrgContactType(value);

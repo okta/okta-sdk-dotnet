@@ -58,7 +58,7 @@ namespace Okta.Sdk.Model
         public static AgentUpdateInstanceStatus Success = new AgentUpdateInstanceStatus("Success");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="AgentUpdateInstanceStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator AgentUpdateInstanceStatus(string value) => new AgentUpdateInstanceStatus(value);

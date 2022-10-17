@@ -65,7 +65,7 @@ namespace Okta.Sdk.Model
         public static PolicyUserStatus SUSPENDED = new PolicyUserStatus("SUSPENDED");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PolicyUserStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator PolicyUserStatus(string value) => new PolicyUserStatus(value);

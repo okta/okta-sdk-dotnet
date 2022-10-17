@@ -50,7 +50,7 @@ namespace Okta.Sdk.Model
         public static DevicePlatform WINDOWS = new DevicePlatform("WINDOWS");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="DevicePlatform"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator DevicePlatform(string value) => new DevicePlatform(value);

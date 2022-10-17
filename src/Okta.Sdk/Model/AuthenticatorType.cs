@@ -61,7 +61,7 @@ namespace Okta.Sdk.Model
         public static AuthenticatorType SecurityQuestion = new AuthenticatorType("security_question");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="AuthenticatorType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator AuthenticatorType(string value) => new AuthenticatorType(value);

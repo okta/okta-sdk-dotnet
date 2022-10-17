@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static OAuth2ScopeConsentGrantSource ENDUSER = new OAuth2ScopeConsentGrantSource("END_USER");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OAuth2ScopeConsentGrantSource"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator OAuth2ScopeConsentGrantSource(string value) => new OAuth2ScopeConsentGrantSource(value);

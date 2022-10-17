@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static EventHookVerificationStatus VERIFIED = new EventHookVerificationStatus("VERIFIED");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="EventHookVerificationStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator EventHookVerificationStatus(string value) => new EventHookVerificationStatus(value);

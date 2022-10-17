@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         public static DNSRecordType TXT = new DNSRecordType("TXT");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="DNSRecordType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator DNSRecordType(string value) => new DNSRecordType(value);

@@ -93,7 +93,7 @@ namespace Okta.Sdk.Model
         public static MultifactorEnrollmentPolicyAuthenticatorType YubikeyToken = new MultifactorEnrollmentPolicyAuthenticatorType("yubikey_token");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="MultifactorEnrollmentPolicyAuthenticatorType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator MultifactorEnrollmentPolicyAuthenticatorType(string value) => new MultifactorEnrollmentPolicyAuthenticatorType(value);

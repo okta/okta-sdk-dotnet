@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         public static OAuth2ScopeConsentType REQUIRED = new OAuth2ScopeConsentType("REQUIRED");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OAuth2ScopeConsentType"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator OAuth2ScopeConsentType(string value) => new OAuth2ScopeConsentType(value);

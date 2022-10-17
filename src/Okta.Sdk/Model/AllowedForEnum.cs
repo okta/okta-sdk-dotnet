@@ -49,7 +49,7 @@ namespace Okta.Sdk.Model
         public static AllowedForEnum Sso = new AllowedForEnum("sso");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref=""/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="AllowedForEnum"/>
         /// </summary>
         /// <param name="value">The value to use</param>
         public static implicit operator AllowedForEnum(string value) => new AllowedForEnum(value);
