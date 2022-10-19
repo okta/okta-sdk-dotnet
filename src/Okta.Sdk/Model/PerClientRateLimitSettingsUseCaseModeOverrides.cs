@@ -21,38 +21,40 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// InlineHookChannel
+    /// A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode. Overrides the &#x60;defaultMode&#x60; property for the specified use cases.
     /// </summary>
-    [DataContract(Name = "InlineHookChannel")]
-    [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelHttp), "HTTP")]
-    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelHttp), "InlineHookChannelHttp")]
-    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelOAuth), "InlineHookChannelOAuth")]
-    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelOAuth), "OAUTH")]
+    [DataContract(Name = "PerClientRateLimitSettings_useCaseModeOverrides")]
     
-    public partial class InlineHookChannel : IEquatable<InlineHookChannel>
+    public partial class PerClientRateLimitSettingsUseCaseModeOverrides : IEquatable<PerClientRateLimitSettingsUseCaseModeOverrides>
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Gets or Sets LOGIN_PAGE
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "LOGIN_PAGE", EmitDefaultValue = false)]
         
-        public InlineHookChannelType Type { get; set; }
-        
-        /// <summary>
-        /// Gets or Sets _Version
-        /// </summary>
-        [DataMember(Name = "version", EmitDefaultValue = false)]
-        public string _Version { get; set; }
+        public PerClientRateLimitMode LOGIN_PAGE { get; set; }
 
+        /// <summary>
+        /// Gets or Sets OAUTH2AUTHORIZE
+        /// </summary>
+        [DataMember(Name = "OAUTH2_AUTHORIZE", EmitDefaultValue = false)]
+        
+        public PerClientRateLimitMode OAUTH2AUTHORIZE { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OIE_APP_INTENT
+        /// </summary>
+        [DataMember(Name = "OIE_APP_INTENT", EmitDefaultValue = false)]
+        
+        public PerClientRateLimitMode OIE_APP_INTENT { get; set; }
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -60,9 +62,10 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InlineHookChannel {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("class PerClientRateLimitSettingsUseCaseModeOverrides {\n");
+            sb.Append("  LOGIN_PAGE: ").Append(LOGIN_PAGE).Append("\n");
+            sb.Append("  OAUTH2AUTHORIZE: ").Append(OAUTH2AUTHORIZE).Append("\n");
+            sb.Append("  OIE_APP_INTENT: ").Append(OIE_APP_INTENT).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,15 +86,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineHookChannel);
+            return this.Equals(input as PerClientRateLimitSettingsUseCaseModeOverrides);
         }
 
         /// <summary>
-        /// Returns true if InlineHookChannel instances are equal
+        /// Returns true if PerClientRateLimitSettingsUseCaseModeOverrides instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineHookChannel to be compared</param>
+        /// <param name="input">Instance of PerClientRateLimitSettingsUseCaseModeOverrides to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineHookChannel input)
+        public bool Equals(PerClientRateLimitSettingsUseCaseModeOverrides input)
         {
             if (input == null)
             {
@@ -99,13 +102,16 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    this.LOGIN_PAGE == input.LOGIN_PAGE ||
+                    this.LOGIN_PAGE.Equals(input.LOGIN_PAGE)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.OAUTH2AUTHORIZE == input.OAUTH2AUTHORIZE ||
+                    this.OAUTH2AUTHORIZE.Equals(input.OAUTH2AUTHORIZE)
+                ) && 
+                (
+                    this.OIE_APP_INTENT == input.OIE_APP_INTENT ||
+                    this.OIE_APP_INTENT.Equals(input.OIE_APP_INTENT)
                 );
         }
 
@@ -119,11 +125,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                if (this._Version != null)
-                {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.LOGIN_PAGE.GetHashCode();
+                hashCode = (hashCode * 59) + this.OAUTH2AUTHORIZE.GetHashCode();
+                hashCode = (hashCode * 59) + this.OIE_APP_INTENT.GetHashCode();
                 return hashCode;
             }
         }

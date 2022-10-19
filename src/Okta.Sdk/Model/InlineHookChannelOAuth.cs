@@ -28,30 +28,21 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// InlineHookChannel
+    /// InlineHookChannelOAuth
     /// </summary>
-    [DataContract(Name = "InlineHookChannel")]
+    [DataContract(Name = "InlineHookChannelOAuth")]
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(InlineHookChannelHttp), "HTTP")]
-    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelHttp), "InlineHookChannelHttp")]
-    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelOAuth), "InlineHookChannelOAuth")]
     [JsonSubtypes.KnownSubType(typeof(InlineHookChannelOAuth), "OAUTH")]
     
-    public partial class InlineHookChannel : IEquatable<InlineHookChannel>
+    public partial class InlineHookChannelOAuth : InlineHookChannel, IEquatable<InlineHookChannelOAuth>
     {
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        
-        public InlineHookChannelType Type { get; set; }
         
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets Config
         /// </summary>
-        [DataMember(Name = "version", EmitDefaultValue = false)]
-        public string _Version { get; set; }
+        [DataMember(Name = "config", EmitDefaultValue = false)]
+        public InlineHookOAuthChannelConfig Config { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +51,9 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InlineHookChannel {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("class InlineHookChannelOAuth {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("  Config: ").Append(Config).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -71,7 +62,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -83,29 +74,25 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineHookChannel);
+            return this.Equals(input as InlineHookChannelOAuth);
         }
 
         /// <summary>
-        /// Returns true if InlineHookChannel instances are equal
+        /// Returns true if InlineHookChannelOAuth instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineHookChannel to be compared</param>
+        /// <param name="input">Instance of InlineHookChannelOAuth to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineHookChannel input)
+        public bool Equals(InlineHookChannelOAuth input)
         {
             if (input == null)
             {
                 return false;
             }
-            return 
+            return base.Equals(input) && 
                 (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                ) && 
-                (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.Config == input.Config ||
+                    (this.Config != null &&
+                    this.Config.Equals(input.Config))
                 );
         }
 
@@ -117,12 +104,11 @@ namespace Okta.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                if (this._Version != null)
+                if (this.Config != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Config.GetHashCode();
                 }
                 return hashCode;
             }

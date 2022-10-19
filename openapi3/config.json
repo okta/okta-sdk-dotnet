@@ -5,7 +5,7 @@
     "templateDir" : "./templates",
     "packageName" : "Okta.Sdk",
     "outputDir" : "../",
-    "inputSpec" : "./management-minimal.yaml", 
+    "inputSpec" : "./management.yaml", 
     "packageVersion" : "6.0.0-beta02",
     "packageDescription" : "Official .NET SDK for the Okta API",
     "packageTitle" : "Official .NET SDK for the Okta API",

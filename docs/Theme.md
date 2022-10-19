@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **EmailTemplateTouchPointVariant** | **EmailTemplateTouchPointVariant** |  | [optional] 
 **EndUserDashboardTouchPointVariant** | **EndUserDashboardTouchPointVariant** |  | [optional] 
 **ErrorPageTouchPointVariant** | **ErrorPageTouchPointVariant** |  | [optional] 
+**LoadingPageTouchPointVariant** | **LoadingPageTouchPointVariant** |  | [optional] 
 **PrimaryColorContrastHex** | **string** |  | [optional] 
 **PrimaryColorHex** | **string** |  | [optional] 
 **SecondaryColorContrastHex** | **string** |  | [optional] 

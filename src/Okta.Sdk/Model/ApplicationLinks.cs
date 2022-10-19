@@ -29,11 +29,17 @@ namespace Okta.Sdk.Model
     /// Template: ModelGeneric
     /// ApplicationLinks
     /// </summary>
-    [DataContract(Name = "Application__links")]
-    public partial class ApplicationLinks : IEquatable<ApplicationLinks>
+    [DataContract(Name = "ApplicationLinks")]
     
+    public partial class ApplicationLinks : IEquatable<ApplicationLinks>
     {
         
+        /// <summary>
+        /// Gets or Sets AccessPolicy
+        /// </summary>
+        [DataMember(Name = "accessPolicy", EmitDefaultValue = false)]
+        public HrefObject AccessPolicy { get; set; }
+
         /// <summary>
         /// Gets or Sets Activate
         /// </summary>
@@ -77,18 +83,6 @@ namespace Okta.Sdk.Model
         public HrefObject Users { get; set; }
 
         /// <summary>
-        /// Gets or Sets AccessPolicy
-        /// </summary>
-        [DataMember(Name = "accessPolicy", EmitDefaultValue = false)]
-        public HrefObject AccessPolicy { get; set; }
-
-        /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -96,6 +90,7 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ApplicationLinks {\n");
+            sb.Append("  AccessPolicy: ").Append(AccessPolicy).Append("\n");
             sb.Append("  Activate: ").Append(Activate).Append("\n");
             sb.Append("  Deactivate: ").Append(Deactivate).Append("\n");
             sb.Append("  Groups: ").Append(Groups).Append("\n");
@@ -103,8 +98,6 @@ namespace Okta.Sdk.Model
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
             sb.Append("  Users: ").Append(Users).Append("\n");
-            sb.Append("  AccessPolicy: ").Append(AccessPolicy).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -113,7 +106,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -140,6 +133,11 @@ namespace Okta.Sdk.Model
                 return false;
             }
             return 
+                (
+                    this.AccessPolicy == input.AccessPolicy ||
+                    (this.AccessPolicy != null &&
+                    this.AccessPolicy.Equals(input.AccessPolicy))
+                ) && 
                 (
                     this.Activate == input.Activate ||
                     (this.Activate != null &&
@@ -175,13 +173,7 @@ namespace Okta.Sdk.Model
                     this.Users == input.Users ||
                     (this.Users != null &&
                     this.Users.Equals(input.Users))
-                ) && 
-                (
-                    this.AccessPolicy == input.AccessPolicy ||
-                    (this.AccessPolicy != null &&
-                    this.AccessPolicy.Equals(input.AccessPolicy))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                );
         }
 
         /// <summary>
@@ -194,6 +186,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
+                if (this.AccessPolicy != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccessPolicy.GetHashCode();
+                }
                 if (this.Activate != null)
                 {
                     hashCode = (hashCode * 59) + this.Activate.GetHashCode();
@@ -221,14 +217,6 @@ namespace Okta.Sdk.Model
                 if (this.Users != null)
                 {
                     hashCode = (hashCode * 59) + this.Users.GetHashCode();
-                }
-                if (this.AccessPolicy != null)
-                {
-                    hashCode = (hashCode * 59) + this.AccessPolicy.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

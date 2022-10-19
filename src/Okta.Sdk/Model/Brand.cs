@@ -94,12 +94,6 @@ namespace Okta.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets OptOutOfUserCommunications
-        /// </summary>
-        [DataMember(Name = "optOutOfUserCommunications", EmitDefaultValue = true)]
-        public bool OptOutOfUserCommunications { get; set; }
-
-        /// <summary>
         /// Gets or Sets RemovePoweredByOkta
         /// </summary>
         [DataMember(Name = "removePoweredByOkta", EmitDefaultValue = true)]
@@ -126,7 +120,6 @@ namespace Okta.Sdk.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  OptOutOfUserCommunications: ").Append(OptOutOfUserCommunications).Append("\n");
             sb.Append("  RemovePoweredByOkta: ").Append(RemovePoweredByOkta).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -198,10 +191,6 @@ namespace Okta.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.OptOutOfUserCommunications == input.OptOutOfUserCommunications ||
-                    this.OptOutOfUserCommunications.Equals(input.OptOutOfUserCommunications)
-                ) && 
-                (
                     this.RemovePoweredByOkta == input.RemovePoweredByOkta ||
                     this.RemovePoweredByOkta.Equals(input.RemovePoweredByOkta)
                 ) && 
@@ -244,7 +233,6 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.OptOutOfUserCommunications.GetHashCode();
                 hashCode = (hashCode * 59) + this.RemovePoweredByOkta.GetHashCode();
                 if (this.Links != null)
                 {

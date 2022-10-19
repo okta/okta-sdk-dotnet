@@ -6,6 +6,7 @@ using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -321,12 +322,14 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact(Skip = "Depends on OKTA-542930")]
+        [Fact]
         public async Task CreateAccessPolicyPolicyRule()
         {
 
             var guid = Guid.NewGuid();
             Application createdApp = null;
+            string accessPolicyId = string.Empty;
+            string policyRuleId = string.Empty;
 
             var app = new OpenIdConnectApplication
             {
@@ -381,7 +384,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 createdApp = await _applicationApi.CreateApplicationAsync(app);
 
-                var accessPolicyId = createdApp.Links.AccessPolicy.Href.Split('/')?.LastOrDefault();
+                accessPolicyId = createdApp.Links.AccessPolicy.Href.Split('/')?.LastOrDefault();
 
                 var accessPolicyRuleOptions = new AccessPolicyRule
                 {
@@ -403,21 +406,25 @@ namespace Okta.Sdk.IntegrationTest
                 };
 
                 var createdPolicyRule = await  _policyApi.CreatePolicyRuleAsync(accessPolicyId, accessPolicyRuleOptions) as AccessPolicyRule;
-                    
+                policyRuleId = createdPolicyRule.Id;
              
-                    createdPolicyRule.Should().NotBeNull();
-                    createdPolicyRule.Name.Should().Be(accessPolicyRuleOptions.Name);
-                    createdPolicyRule.Actions.Should().NotBeNull();
-                    createdPolicyRule.Actions.AppSignOn.Access.Should().Be("DENY");
-                    createdPolicyRule.Actions.AppSignOn.VerificationMethod.Type.Should().Be("ASSURANCE");
-                    createdPolicyRule.Actions.AppSignOn.VerificationMethod.FactorMode.Should().Be("1FA");
-                    createdPolicyRule.Actions.AppSignOn.VerificationMethod.ReauthenticateIn.Should().Be("PT43800H");
-                    createdPolicyRule.Type.Should().Be(PolicyType.ACCESSPOLICY);
+                createdPolicyRule.Should().NotBeNull();
+                createdPolicyRule.Name.Should().Be(accessPolicyRuleOptions.Name);
+                createdPolicyRule.Actions.Should().NotBeNull();
+                createdPolicyRule.Actions.AppSignOn.Access.Should().Be("DENY");
+                createdPolicyRule.Actions.AppSignOn.VerificationMethod.Type.Should().Be("ASSURANCE");
+                createdPolicyRule.Actions.AppSignOn.VerificationMethod.FactorMode.Should().Be("1FA");
+                createdPolicyRule.Actions.AppSignOn.VerificationMethod.ReauthenticateIn.Should().Be("PT43800H");
+                createdPolicyRule.Type.Should().Be(PolicyRuleType.ACCESSPOLICY);
             }
             finally
             {
                 await _applicationApi.DeactivateApplicationAsync(createdApp?.Id);
                 await _applicationApi.DeleteApplicationAsync(createdApp?.Id);
+                if (policyRuleId != string.Empty)
+                {
+                    await _policyApi.DeletePolicyRuleAsync(accessPolicyId, policyRuleId);
+                }
             }
         }
 

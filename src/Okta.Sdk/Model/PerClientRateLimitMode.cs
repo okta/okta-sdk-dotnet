@@ -26,31 +26,35 @@ using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 namespace Okta.Sdk.Model
 {
     /// <summary>
-    /// Defines InlineHookChannelType
+    /// Defines PerClientRateLimitMode
     /// </summary>
     [JsonConverter(typeof(StringEnumSerializingConverter))]
-    public sealed class InlineHookChannelType : StringEnum
+    public sealed class PerClientRateLimitMode : StringEnum
     {
         /// <summary>
-        /// StringEnum InlineHookChannelType for value: HTTP
+        /// StringEnum PerClientRateLimitMode for value: DISABLE
         /// </summary>
-        public static InlineHookChannelType HTTP = new InlineHookChannelType("HTTP");
+        public static PerClientRateLimitMode DISABLE = new PerClientRateLimitMode("DISABLE");
         /// <summary>
-        /// StringEnum InlineHookChannelType for value: OAUTH
+        /// StringEnum PerClientRateLimitMode for value: ENFORCE
         /// </summary>
-        public static InlineHookChannelType OAUTH = new InlineHookChannelType("OAUTH");
+        public static PerClientRateLimitMode ENFORCE = new PerClientRateLimitMode("ENFORCE");
+        /// <summary>
+        /// StringEnum PerClientRateLimitMode for value: PREVIEW
+        /// </summary>
+        public static PerClientRateLimitMode PREVIEW = new PerClientRateLimitMode("PREVIEW");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref="InlineHookChannelType"/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="PerClientRateLimitMode"/>
         /// </summary>
         /// <param name="value">The value to use</param>
-        public static implicit operator InlineHookChannelType(string value) => new InlineHookChannelType(value);
+        public static implicit operator PerClientRateLimitMode(string value) => new PerClientRateLimitMode(value);
 
         /// <summary>
-        /// Creates a new <see cref="InlineHookChannelType"/> instance.
+        /// Creates a new <see cref="PerClientRateLimitMode"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
-        public InlineHookChannelType(string value)
+        public PerClientRateLimitMode(string value)
             : base(value)
         {
         }

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ErrorPageTouchPointVariant** | **ErrorPageTouchPointVariant** |  | [optional] 
 **Favicon** | **string** |  | [optional] [readonly] 
 **Id** | **string** |  | [optional] [readonly] 
+**LoadingPageTouchPointVariant** | **LoadingPageTouchPointVariant** |  | [optional] 
 **Logo** | **string** |  | [optional] [readonly] 
 **PrimaryColorContrastHex** | **string** |  | [optional] 
 **PrimaryColorHex** | **string** |  | [optional] 

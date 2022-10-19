@@ -251,6 +251,8 @@ docs/GroupSchemaDefinitions.md
 docs/GroupType.md
 docs/HardwareUserFactor.md
 docs/HardwareUserFactorProfile.md
+docs/HookKey.md
+docs/HookKeyApi.md
 docs/HostedPage.md
 docs/HostedPageType.md
 docs/HrefObject.md
@@ -283,7 +285,13 @@ docs/InlineHookChannel.md
 docs/InlineHookChannelConfig.md
 docs/InlineHookChannelConfigAuthScheme.md
 docs/InlineHookChannelConfigHeaders.md
+docs/InlineHookChannelHttp.md
+docs/InlineHookChannelOAuth.md
 docs/InlineHookChannelType.md
+docs/InlineHookOAuthBasicConfig.md
+docs/InlineHookOAuthChannelConfig.md
+docs/InlineHookOAuthClientSecretConfig.md
+docs/InlineHookOAuthPrivateKeyJwtConfig.md
 docs/InlineHookResponse.md
 docs/InlineHookResponseCommandValue.md
 docs/InlineHookResponseCommands.md
@@ -293,6 +301,7 @@ docs/IssuerMode.md
 docs/JsonWebKey.md
 docs/JwkUse.md
 docs/JwkUseType.md
+docs/KeyRequest.md
 docs/KnowledgeConstraint.md
 docs/LifecycleCreateSettingObject.md
 docs/LifecycleDeactivateSettingObject.md
@@ -302,6 +311,7 @@ docs/LinkedObject.md
 docs/LinkedObjectApi.md
 docs/LinkedObjectDetails.md
 docs/LinkedObjectDetailsType.md
+docs/LoadingPageTouchPointVariant.md
 docs/LocationGranularity.md
 docs/LogActor.md
 docs/LogAuthenticationContext.md
@@ -396,6 +406,9 @@ docs/OrgOktaSupportSettingsObj.md
 docs/OrgPreferences.md
 docs/OrgSetting.md
 docs/OrgSettingApi.md
+docs/PageRoot.md
+docs/PageRootEmbedded.md
+docs/PageRootLinks.md
 docs/PasswordCredential.md
 docs/PasswordCredentialHash.md
 docs/PasswordCredentialHashAlgorithm.md
@@ -428,6 +441,9 @@ docs/PasswordPolicyRuleActions.md
 docs/PasswordPolicyRuleConditions.md
 docs/PasswordPolicySettings.md
 docs/PasswordSettingObject.md
+docs/PerClientRateLimitMode.md
+docs/PerClientRateLimitSettings.md
+docs/PerClientRateLimitSettingsUseCaseModeOverrides.md
 docs/Permission.md
 docs/PermissionLinks.md
 docs/Permissions.md
@@ -512,6 +528,8 @@ docs/PushProvider.md
 docs/PushProviderApi.md
 docs/PushUserFactor.md
 docs/PushUserFactorProfile.md
+docs/RateLimitAdminNotifications.md
+docs/RateLimitSettingsApi.md
 docs/RecoveryQuestionCredential.md
 docs/ReleaseChannel.md
 docs/RequiredEnum.md
@@ -680,6 +698,7 @@ src/Okta.Sdk/Api/EmailDomainApi.cs
 src/Okta.Sdk/Api/EventHookApi.cs
 src/Okta.Sdk/Api/FeatureApi.cs
 src/Okta.Sdk/Api/GroupApi.cs
+src/Okta.Sdk/Api/HookKeyApi.cs
 src/Okta.Sdk/Api/IdentityProviderApi.cs
 src/Okta.Sdk/Api/InlineHookApi.cs
 src/Okta.Sdk/Api/LinkedObjectApi.cs
@@ -691,6 +710,7 @@ src/Okta.Sdk/Api/PolicyApi.cs
 src/Okta.Sdk/Api/PrincipalRateLimitApi.cs
 src/Okta.Sdk/Api/ProfileMappingApi.cs
 src/Okta.Sdk/Api/PushProviderApi.cs
+src/Okta.Sdk/Api/RateLimitSettingsApi.cs
 src/Okta.Sdk/Api/ResourceSetApi.cs
 src/Okta.Sdk/Api/RiskEventApi.cs
 src/Okta.Sdk/Api/RiskProviderApi.cs
@@ -973,6 +993,7 @@ src/Okta.Sdk/Model/GroupSchemaDefinitions.cs
 src/Okta.Sdk/Model/GroupType.cs
 src/Okta.Sdk/Model/HardwareUserFactor.cs
 src/Okta.Sdk/Model/HardwareUserFactorProfile.cs
+src/Okta.Sdk/Model/HookKey.cs
 src/Okta.Sdk/Model/HostedPage.cs
 src/Okta.Sdk/Model/HostedPageType.cs
 src/Okta.Sdk/Model/HrefObject.cs
@@ -1003,7 +1024,13 @@ src/Okta.Sdk/Model/InlineHookChannel.cs
 src/Okta.Sdk/Model/InlineHookChannelConfig.cs
 src/Okta.Sdk/Model/InlineHookChannelConfigAuthScheme.cs
 src/Okta.Sdk/Model/InlineHookChannelConfigHeaders.cs
+src/Okta.Sdk/Model/InlineHookChannelHttp.cs
+src/Okta.Sdk/Model/InlineHookChannelOAuth.cs
 src/Okta.Sdk/Model/InlineHookChannelType.cs
+src/Okta.Sdk/Model/InlineHookOAuthBasicConfig.cs
+src/Okta.Sdk/Model/InlineHookOAuthChannelConfig.cs
+src/Okta.Sdk/Model/InlineHookOAuthClientSecretConfig.cs
+src/Okta.Sdk/Model/InlineHookOAuthPrivateKeyJwtConfig.cs
 src/Okta.Sdk/Model/InlineHookResponse.cs
 src/Okta.Sdk/Model/InlineHookResponseCommandValue.cs
 src/Okta.Sdk/Model/InlineHookResponseCommands.cs
@@ -1013,6 +1040,7 @@ src/Okta.Sdk/Model/IssuerMode.cs
 src/Okta.Sdk/Model/JsonWebKey.cs
 src/Okta.Sdk/Model/JwkUse.cs
 src/Okta.Sdk/Model/JwkUseType.cs
+src/Okta.Sdk/Model/KeyRequest.cs
 src/Okta.Sdk/Model/KnowledgeConstraint.cs
 src/Okta.Sdk/Model/LifecycleCreateSettingObject.cs
 src/Okta.Sdk/Model/LifecycleDeactivateSettingObject.cs
@@ -1021,6 +1049,7 @@ src/Okta.Sdk/Model/LifecycleStatus.cs
 src/Okta.Sdk/Model/LinkedObject.cs
 src/Okta.Sdk/Model/LinkedObjectDetails.cs
 src/Okta.Sdk/Model/LinkedObjectDetailsType.cs
+src/Okta.Sdk/Model/LoadingPageTouchPointVariant.cs
 src/Okta.Sdk/Model/LocationGranularity.cs
 src/Okta.Sdk/Model/LogActor.cs
 src/Okta.Sdk/Model/LogAuthenticationContext.cs
@@ -1112,6 +1141,9 @@ src/Okta.Sdk/Model/OrgOktaSupportSetting.cs
 src/Okta.Sdk/Model/OrgOktaSupportSettingsObj.cs
 src/Okta.Sdk/Model/OrgPreferences.cs
 src/Okta.Sdk/Model/OrgSetting.cs
+src/Okta.Sdk/Model/PageRoot.cs
+src/Okta.Sdk/Model/PageRootEmbedded.cs
+src/Okta.Sdk/Model/PageRootLinks.cs
 src/Okta.Sdk/Model/PasswordCredential.cs
 src/Okta.Sdk/Model/PasswordCredentialHash.cs
 src/Okta.Sdk/Model/PasswordCredentialHashAlgorithm.cs
@@ -1144,6 +1176,9 @@ src/Okta.Sdk/Model/PasswordPolicyRuleActions.cs
 src/Okta.Sdk/Model/PasswordPolicyRuleConditions.cs
 src/Okta.Sdk/Model/PasswordPolicySettings.cs
 src/Okta.Sdk/Model/PasswordSettingObject.cs
+src/Okta.Sdk/Model/PerClientRateLimitMode.cs
+src/Okta.Sdk/Model/PerClientRateLimitSettings.cs
+src/Okta.Sdk/Model/PerClientRateLimitSettingsUseCaseModeOverrides.cs
 src/Okta.Sdk/Model/Permission.cs
 src/Okta.Sdk/Model/PermissionLinks.cs
 src/Okta.Sdk/Model/Permissions.cs
@@ -1224,6 +1259,7 @@ src/Okta.Sdk/Model/ProvisioningSuspendedCondition.cs
 src/Okta.Sdk/Model/PushProvider.cs
 src/Okta.Sdk/Model/PushUserFactor.cs
 src/Okta.Sdk/Model/PushUserFactorProfile.cs
+src/Okta.Sdk/Model/RateLimitAdminNotifications.cs
 src/Okta.Sdk/Model/RecoveryQuestionCredential.cs
 src/Okta.Sdk/Model/ReleaseChannel.cs
 src/Okta.Sdk/Model/RequiredEnum.cs
