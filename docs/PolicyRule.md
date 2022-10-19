@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** | **DateTimeOffset** |  | [optional] [readonly] 
+**Created** | **DateTimeOffset?** |  | [optional] [readonly] 
 **Id** | **string** |  | [optional] 
-**LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
+**LastUpdated** | **DateTimeOffset?** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
 **Priority** | **int** |  | [optional] 
 **Status** | **LifecycleStatus** |  | [optional] 

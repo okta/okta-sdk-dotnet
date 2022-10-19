@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 using Policy = Okta.Sdk.Model.Policy;
@@ -320,11 +321,12 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Depends on OKTA-542930")]
         public async Task CreateAccessPolicyPolicyRule()
         {
 
             var guid = Guid.NewGuid();
+            Application createdApp = null;
 
             var app = new OpenIdConnectApplication
             {
@@ -335,7 +337,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     OauthClient = new ApplicationCredentialsOAuthClient()
                     {
-                        ClientId = "foo",
+                        ClientId = $"{nameof(CreateAccessPolicyPolicyRule)}{guid}_TestClientId",
                         TokenEndpointAuthMethod = "client_secret_post",
                         AutoKeyRotation = true,
                     },
@@ -367,53 +369,55 @@ namespace Okta.Sdk.IntegrationTest
                             "implicit",
                             "authorization_code",
                         },
-                        ApplicationType = "native",
+                        ApplicationType = "web",
 
                         TosUri = "https://example.com/client/tos",
                         PolicyUri = "https://example.com/client/policy",
                     },
                 }
             };
-            var createdApp = await _applicationApi.CreateApplicationAsync(app);
 
-            var accessPolicyId = "";
-
-            var accessPolicyRuleOptions = new AccessPolicyRule
-            {
-                Name = $"dotnet-sdk: CreateAccessPolicyRule {guid}".Substring(0, 50),
-                Type = PolicyType.ACCESSPOLICY.Value,
-                Actions = new AccessPolicyRuleActions
-                {
-                    AppSignOn = new AccessPolicyRuleApplicationSignOn
-                    {
-                        Access = "DENY",
-                        VerificationMethod = new VerificationMethod
-                        {
-                            Type = "ASSURANCE",
-                            FactorMode = "1FA",
-                            ReauthenticateIn = "PT43800H",
-                        },
-                    },
-                },
-            };
-
-            var createdPolicyRule = await  _policyApi.CreatePolicyRuleAsync(accessPolicyId, accessPolicyRuleOptions) as AccessPolicyRule;
-                
             try
             {
-                createdPolicyRule.Should().NotBeNull();
-                createdPolicyRule.Name.Should().Be(accessPolicyRuleOptions.Name);
-                createdPolicyRule.Actions.Should().NotBeNull();
-                createdPolicyRule.Actions.AppSignOn.Access.Should().Be("DENY");
-                createdPolicyRule.Actions.AppSignOn.VerificationMethod.Type.Should().Be("ASSURANCE");
-                createdPolicyRule.Actions.AppSignOn.VerificationMethod.FactorMode.Should().Be("1FA");
-                createdPolicyRule.Actions.AppSignOn.VerificationMethod.ReauthenticateIn.Should().Be("PT43800H");
-                createdPolicyRule.Type.Should().Be(PolicyType.ACCESSPOLICY);
+                createdApp = await _applicationApi.CreateApplicationAsync(app);
+
+                var accessPolicyId = createdApp.Links.AccessPolicy.Href.Split('/')?.LastOrDefault();
+
+                var accessPolicyRuleOptions = new AccessPolicyRule
+                {
+                    Name = $"dotnet-sdk: CreateAccessPolicyRule {guid}".Substring(0, 50),
+                    Type = PolicyRuleType.ACCESSPOLICY.Value,
+                    Actions = new AccessPolicyRuleActions
+                    {
+                        AppSignOn = new AccessPolicyRuleApplicationSignOn
+                        {
+                            Access = "DENY",
+                            VerificationMethod = new VerificationMethod
+                            {
+                                Type = "ASSURANCE",
+                                FactorMode = "1FA",
+                                ReauthenticateIn = "PT43800H",
+                            },
+                        },
+                    },
+                };
+
+                var createdPolicyRule = await  _policyApi.CreatePolicyRuleAsync(accessPolicyId, accessPolicyRuleOptions) as AccessPolicyRule;
+                    
+             
+                    createdPolicyRule.Should().NotBeNull();
+                    createdPolicyRule.Name.Should().Be(accessPolicyRuleOptions.Name);
+                    createdPolicyRule.Actions.Should().NotBeNull();
+                    createdPolicyRule.Actions.AppSignOn.Access.Should().Be("DENY");
+                    createdPolicyRule.Actions.AppSignOn.VerificationMethod.Type.Should().Be("ASSURANCE");
+                    createdPolicyRule.Actions.AppSignOn.VerificationMethod.FactorMode.Should().Be("1FA");
+                    createdPolicyRule.Actions.AppSignOn.VerificationMethod.ReauthenticateIn.Should().Be("PT43800H");
+                    createdPolicyRule.Type.Should().Be(PolicyType.ACCESSPOLICY);
             }
             finally
             {
-                await _applicationApi.DeactivateApplicationAsync(createdApp.Id);
-                await _applicationApi.DeleteApplicationAsync(createdApp.Id);
+                await _applicationApi.DeactivateApplicationAsync(createdApp?.Id);
+                await _applicationApi.DeleteApplicationAsync(createdApp?.Id);
             }
         }
 
@@ -460,7 +464,7 @@ namespace Okta.Sdk.IntegrationTest
                 var createdPolicyRule = await _policyApi.UpdatePolicyRuleAsync( createdPolicy.Id, defaultPolicyRule.Id, defaultPolicyRule) as ProfileEnrollmentPolicyRule;
                 createdPolicyRule.Should().NotBeNull();
                 createdPolicyRule.Name.Should().Be(defaultPolicyRule.Name);
-                createdPolicyRule.Type.Should().Be(PolicyType.PROFILEENROLLMENT.Value);
+                createdPolicyRule.Type.Should().Be(PolicyRuleType.PROFILEENROLLMENT);
                 createdPolicyRule.Actions.Should().NotBeNull();
                 createdPolicyRule.Actions.ProfileEnrollment.Should().NotBeNull();
                 createdPolicyRule.Actions.ProfileEnrollment.Access.Should().Be("ALLOW");
@@ -510,7 +514,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             UsePersistentCookie = false,
                             MaxSessionIdleMinutes = 720,
-                            MaxSessionLifetimeMinutes = 0,
+                            MaxSessionLifetimeMinutes = 800,
                         },
                     },
                 },
@@ -536,7 +540,7 @@ namespace Okta.Sdk.IntegrationTest
                 createdPolicyRule.Actions.Signon.RememberDeviceByDefault.Should().Be(false);
                 createdPolicyRule.Actions.Signon.Session.UsePersistentCookie.Should().Be(false);
                 createdPolicyRule.Actions.Signon.Session.MaxSessionIdleMinutes.Should().Be(720);
-                createdPolicyRule.Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(0);
+                createdPolicyRule.Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(800);
                 createdPolicyRule.Conditions.AuthContext.AuthType.Value.Should().Be("ANY");
             }
             finally
@@ -578,7 +582,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             UsePersistentCookie = false,
                             MaxSessionIdleMinutes = 720,
-                            MaxSessionLifetimeMinutes = 0,
+                            MaxSessionLifetimeMinutes = 800,
                         },
                     },
                 },
@@ -607,13 +611,9 @@ namespace Okta.Sdk.IntegrationTest
                 createdPolicyRule.Actions.Signon.RememberDeviceByDefault.Should().Be(false);
                 createdPolicyRule.Actions.Signon.Session.UsePersistentCookie.Should().Be(false);
                 createdPolicyRule.Actions.Signon.Session.MaxSessionIdleMinutes.Should().Be(720);
-                createdPolicyRule.Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(0);
+                createdPolicyRule.Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(800);
                 createdPolicyRule.Conditions.AuthContext.AuthType.Value.Should().Be("ANY");
                 createdPolicyRule.Conditions.Network.Connection.Value.Should().Be("ANYWHERE");
-                createdPolicyRule.Conditions.People.Users.Include.Should().BeNullOrEmpty();
-                createdPolicyRule.Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
-                createdPolicyRule.Conditions.People.Groups.Include.Should().BeNullOrEmpty();
-                createdPolicyRule.Conditions.People.Groups.Exclude.Should().BeNullOrEmpty();
             }
             finally
             {
@@ -714,7 +714,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             UsePersistentCookie = false,
                             MaxSessionIdleMinutes = 720,
-                            MaxSessionLifetimeMinutes = 0,
+                            MaxSessionLifetimeMinutes = 800,
                         },
                     },
                 },
@@ -743,13 +743,9 @@ namespace Okta.Sdk.IntegrationTest
                 createdPolicyRule.Actions.Signon.RememberDeviceByDefault.Should().Be(false);
                 createdPolicyRule.Actions.Signon.Session.UsePersistentCookie.Should().Be(false);
                 createdPolicyRule.Actions.Signon.Session.MaxSessionIdleMinutes.Should().Be(720);
-                createdPolicyRule.Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(0);
+                createdPolicyRule.Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(800);
                 createdPolicyRule.Conditions.AuthContext.AuthType.Value.Should().Be("ANY");
                 createdPolicyRule.Conditions.Network.Connection.Value.Should().Be("ANYWHERE");
-                createdPolicyRule.Conditions.People.Users.Include.Should().BeNullOrEmpty();
-                createdPolicyRule.Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
-                createdPolicyRule.Conditions.People.Groups.Include.Should().BeNullOrEmpty();
-                createdPolicyRule.Conditions.People.Groups.Exclude.Should().BeNullOrEmpty();
 
                 createdPolicyRule.Name = $"dotnet-sdk: Updated {createdPolicyRule.Name}".Substring(0, 50);
                 createdPolicyRule.Conditions.Network = new PolicyNetworkCondition() { Connection = "ANYWHERE" };
@@ -764,7 +760,7 @@ namespace Okta.Sdk.IntegrationTest
                 updatedPolicyRule.Actions.Signon.RememberDeviceByDefault.Should().Be(false);
                 updatedPolicyRule.Actions.Signon.Session.UsePersistentCookie.Should().Be(false);
                 updatedPolicyRule.Actions.Signon.Session.MaxSessionIdleMinutes.Should().Be(720);
-                updatedPolicyRule.Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(0);
+                updatedPolicyRule.Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(800);
                 updatedPolicyRule.Conditions.AuthContext.AuthType.Value.Should().Be("ANY");
                 updatedPolicyRule.Conditions.Network.Connection.Value.Should().Be("ANYWHERE");
             }
@@ -807,7 +803,7 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             UsePersistentCookie = false,
                             MaxSessionIdleMinutes = 720,
-                            MaxSessionLifetimeMinutes = 0,
+                            MaxSessionLifetimeMinutes = 800,
                         },
                     },
                 },
@@ -1063,7 +1059,10 @@ namespace Okta.Sdk.IntegrationTest
                 },
             };
 
-            var createdPolicyRule = await _policyApi.CreatePolicyRuleAsync(createdPolicy.Id, policyRule) as PasswordPolicyRule;
+            var createdPolicyRule = await _policyApi.CreatePolicyRuleAsync(createdPolicy.Id, policyRule);
+            Assert.NotNull(createdPolicyRule);
+            Thread.Sleep(3000);
+
             try
             {
                 var retrievedPolicyRule = await _policyApi.GetPolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id) as PasswordPolicyRule;
@@ -1101,7 +1100,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     OauthClient = new ApplicationCredentialsOAuthClient()
                     {
-                        ClientId = "foo",
+                        ClientId = $"{nameof(AssignApplicationToPolicy)}_TestClientId",
                         TokenEndpointAuthMethod = "client_secret_post",
                         AutoKeyRotation = true,
                     },

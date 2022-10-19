@@ -63,8 +63,8 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
-        public DateTimeOffset Created { get; private set; }
+        [DataMember(Name = "created", EmitDefaultValue = true)]
+        public DateTimeOffset? Created { get; private set; }
 
         /// <summary>
         /// Returns false as Created should not be serialized given that it's read-only.
@@ -83,8 +83,8 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
-        public DateTimeOffset LastUpdated { get; private set; }
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
+        public DateTimeOffset? LastUpdated { get; private set; }
 
         /// <summary>
         /// Returns false as LastUpdated should not be serialized given that it's read-only.

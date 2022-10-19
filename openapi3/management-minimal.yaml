@@ -18307,7 +18307,10 @@ components:
               $ref: '#/components/schemas/HrefObject'
             users:
               $ref: '#/components/schemas/HrefObject'
+            accessPolicy:
+              $ref: '#/components/schemas/HrefObject'
           readOnly: true
+          additionalProperties: true
       discriminator:
         propertyName: signOnMode
         mapping:
@@ -22662,12 +22665,14 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true 
         id:
           type: string
         lastUpdated:
           type: string
           format: date-time
           readOnly: true
+          nullable: true 
         name:
           type: string
         priority:
