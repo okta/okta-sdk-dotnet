@@ -60,6 +60,7 @@ Class | Method | HTTP request | Description
 *ApiTokenApi* | [**RevokeCurrentApiToken**](docs/ApiTokenApi.md#revokecurrentapitoken) | **DELETE** /api/v1/api-tokens/current | Revoke the Current API Token
 *ApplicationApi* | [**ActivateApplication**](docs/ApplicationApi.md#activateapplication) | **POST** /api/v1/apps/{appId}/lifecycle/activate | Activate an Application
 *ApplicationApi* | [**ActivateDefaultProvisioningConnectionForApplication**](docs/ApplicationApi.md#activatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/activate | Activate the default Provisioning Connection
+*ApplicationApi* | [**AssignApplicationPolicy**](docs/ApplicationApi.md#assignapplicationpolicy) | **PUT** /api/v1/apps/{appId}/policies/{policyId} | Assign an application to a specific policy
 *ApplicationApi* | [**AssignUserToApplication**](docs/ApplicationApi.md#assignusertoapplication) | **POST** /api/v1/apps/{appId}/users | Assign a User
 *ApplicationApi* | [**CloneApplicationKey**](docs/ApplicationApi.md#cloneapplicationkey) | **POST** /api/v1/apps/{appId}/credentials/keys/{keyId}/clone | Clone a Key Credential
 *ApplicationApi* | [**CreateApplication**](docs/ApplicationApi.md#createapplication) | **POST** /api/v1/apps | Create an Application
@@ -96,7 +97,6 @@ Class | Method | HTTP request | Description
 *ApplicationApi* | [**RevokeScopeConsentGrant**](docs/ApplicationApi.md#revokescopeconsentgrant) | **DELETE** /api/v1/apps/{appId}/grants/{grantId} | Revoke a Scope Consent Grant
 *ApplicationApi* | [**SetDefaultProvisioningConnectionForApplication**](docs/ApplicationApi.md#setdefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default | Update the default Provisioning Connection
 *ApplicationApi* | [**UpdateApplication**](docs/ApplicationApi.md#updateapplication) | **PUT** /api/v1/apps/{appId} | Replace an Application
-*ApplicationApi* | [**UpdateApplicationPolicy**](docs/ApplicationApi.md#updateapplicationpolicy) | **PUT** /api/v1/apps/{appId}/policies/{policyId} | Assign an application to a specific policy
 *ApplicationApi* | [**UpdateApplicationUser**](docs/ApplicationApi.md#updateapplicationuser) | **POST** /api/v1/apps/{appId}/users/{userId} | Update an Application Profile for Assigned User
 *ApplicationApi* | [**UpdateFeatureForApplication**](docs/ApplicationApi.md#updatefeatureforapplication) | **PUT** /api/v1/apps/{appId}/features/{name} | Update a Feature
 *ApplicationApi* | [**UploadApplicationLogo**](docs/ApplicationApi.md#uploadapplicationlogo) | **POST** /api/v1/apps/{appId}/logo | Upload a Logo

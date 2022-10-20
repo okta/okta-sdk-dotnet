@@ -30,8 +30,8 @@ namespace Okta.Sdk.Model
     /// ApplicationLinks
     /// </summary>
     [DataContract(Name = "ApplicationLinks")]
-    
     public partial class ApplicationLinks : IEquatable<ApplicationLinks>
+    
     {
         
         /// <summary>
@@ -83,6 +83,12 @@ namespace Okta.Sdk.Model
         public HrefObject Users { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -98,6 +104,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
             sb.Append("  Users: ").Append(Users).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,7 +113,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -173,7 +180,8 @@ namespace Okta.Sdk.Model
                     this.Users == input.Users ||
                     (this.Users != null &&
                     this.Users.Equals(input.Users))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -217,6 +225,10 @@ namespace Okta.Sdk.Model
                 if (this.Users != null)
                 {
                     hashCode = (hashCode * 59) + this.Users.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

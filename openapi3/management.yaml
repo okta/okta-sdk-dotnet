@@ -1993,7 +1993,7 @@ paths:
     put:
       summary: Assign an application to a specific policy
       description: Assign an application to a specific policy. This unassigns the application from its currently assigned policy.
-      operationId: updateApplicationPolicy
+      operationId: assignApplicationPolicy
       parameters:
         - in: path
           name: appId
@@ -19029,13 +19029,13 @@ components:
         - INACTIVE
       readOnly: true
     ApplicationLinks:
+      additionalProperties: true
       type: object
       properties:
         accessPolicy:
           $ref: '#/components/schemas/HrefObject'
         activate:
           $ref: '#/components/schemas/HrefObject'
-        additionalProperties: true
         deactivate:
           $ref: '#/components/schemas/HrefObject'
         groups:
@@ -19046,11 +19046,11 @@ components:
             $ref: '#/components/schemas/HrefObject'
         metadata:
           $ref: '#/components/schemas/HrefObject'
-        readOnly: true
         self:
           $ref: '#/components/schemas/HrefObject'
         users:
           $ref: '#/components/schemas/HrefObject'
+      readOnly: true
     ApplicationSettings:
       type: object
       properties:

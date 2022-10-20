@@ -1173,13 +1173,13 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                await _applicationApi.UpdateApplicationPolicyAsync(createdApp.Id, createdPolicy1.Id);
+                await _applicationApi.AssignApplicationPolicyAsync(createdApp.Id, createdPolicy1.Id);
                 var updatedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
                 var accessPolicyId = updatedApp.Links.AccessPolicy.Href.Split('/')?.LastOrDefault();
                 accessPolicyId.Should().Be(createdPolicy1.Id);
 
 
-                await _applicationApi.UpdateApplicationPolicyAsync(createdApp.Id, createdPolicy2.Id);
+                await _applicationApi.AssignApplicationPolicyAsync(createdApp.Id, createdPolicy2.Id);
                 updatedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
                 accessPolicyId = updatedApp.Links.AccessPolicy.Href.Split('/')?.LastOrDefault();
                 accessPolicyId.Should().Be(createdPolicy2.Id);
