@@ -791,7 +791,7 @@ namespace Okta.Sdk.IntegrationTest
                 Description = "The default policy applies in all situations if no other policy applies.",
             };
 
-            var createdPolicy = await _policyApi.CreatePolicyAsync(policy);
+            var createdPolicy = await _policyApi.CreatePolicyAsync(policy) as OktaSignOnPolicy;
 
             var policyRule = new OktaSignOnPolicyRule
             {
@@ -1093,7 +1093,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact(Skip = "API not supported")]
+        [Fact]
         public async Task AssignApplicationToPolicy()
         {
             var guid = Guid.NewGuid();
@@ -1173,13 +1173,16 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                //await createdApp.UpdateApplicationPolicyAsync(createdPolicy1.Id);
-                //var updatedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
-                //updatedApp.GetAccessPolicyId().Should().Be(createdPolicy1.Id);
+                await _applicationApi.UpdateApplicationPolicyAsync(createdApp.Id, createdPolicy1.Id);
+                var updatedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
+                var accessPolicyId = updatedApp.Links.AccessPolicy.Href.Split('/')?.LastOrDefault();
+                accessPolicyId.Should().Be(createdPolicy1.Id);
 
-                //await createdApp.UpdateApplicationPolicyAsync(createdPolicy2.Id);
-                //updatedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
-                //updatedApp.GetAccessPolicyId().Should().Be(createdPolicy2.Id);
+
+                await _applicationApi.UpdateApplicationPolicyAsync(createdApp.Id, createdPolicy2.Id);
+                updatedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
+                accessPolicyId = updatedApp.Links.AccessPolicy.Href.Split('/')?.LastOrDefault();
+                accessPolicyId.Should().Be(createdPolicy2.Id);
             }
             finally
             {

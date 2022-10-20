@@ -2009,7 +2009,7 @@ paths:
         '204':
           description: No Content
       security:
-        - api_token: []
+        - apiToken: []
         - oauth2:
             - okta.apps.manage
       tags:
