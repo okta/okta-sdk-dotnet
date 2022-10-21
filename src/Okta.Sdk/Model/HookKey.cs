@@ -21,50 +21,24 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// PolicyRule
+    /// HookKey
     /// </summary>
-    [DataContract(Name = "PolicyRule")]
-    [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(AccessPolicyRule), "ACCESS_POLICY")]
-    [JsonSubtypes.KnownSubType(typeof(AccessPolicyRule), "AccessPolicyRule")]
-    [JsonSubtypes.KnownSubType(typeof(AuthorizationServerPolicyRule), "AuthorizationServerPolicyRule")]
-    [JsonSubtypes.KnownSubType(typeof(OktaSignOnPolicyRule), "OktaSignOnPolicyRule")]
-    [JsonSubtypes.KnownSubType(typeof(PasswordPolicyRule), "PASSWORD")]
-    [JsonSubtypes.KnownSubType(typeof(ProfileEnrollmentPolicyRule), "PROFILE_ENROLLMENT")]
-    [JsonSubtypes.KnownSubType(typeof(PasswordPolicyRule), "PasswordPolicyRule")]
-    [JsonSubtypes.KnownSubType(typeof(ProfileEnrollmentPolicyRule), "ProfileEnrollmentPolicyRule")]
-    [JsonSubtypes.KnownSubType(typeof(AuthorizationServerPolicyRule), "RESOURCE_ACCESS")]
-    [JsonSubtypes.KnownSubType(typeof(OktaSignOnPolicyRule), "SIGN_ON")]
+    [DataContract(Name = "HookKey")]
     
-    public partial class PolicyRule : IEquatable<PolicyRule>
+    public partial class HookKey : IEquatable<HookKey>
     {
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        
-        public LifecycleStatus Status { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        
-        public PolicyRuleType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = true)]
-        public DateTimeOffset? Created { get; private set; }
+        [DataMember(Name = "created", EmitDefaultValue = false)]
+        public DateTimeOffset Created { get; private set; }
 
         /// <summary>
         /// Returns false as Created should not be serialized given that it's read-only.
@@ -78,13 +52,41 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Id
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; set; }
+        public string Id { get; private set; }
 
+        /// <summary>
+        /// Returns false as Id should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeId()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Gets or Sets IsUsed
+        /// </summary>
+        [DataMember(Name = "isUsed", EmitDefaultValue = false)]
+        public bool IsUsed { get; set; }
+
+        /// <summary>
+        /// Gets or Sets KeyId
+        /// </summary>
+        [DataMember(Name = "keyId", EmitDefaultValue = false)]
+        public string KeyId { get; private set; }
+
+        /// <summary>
+        /// Returns false as KeyId should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeKeyId()
+        {
+            return false;
+        }
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
-        public DateTimeOffset? LastUpdated { get; private set; }
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
         /// Returns false as LastUpdated should not be serialized given that it's read-only.
@@ -101,16 +103,10 @@ namespace Okta.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Priority
+        /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name = "priority", EmitDefaultValue = false)]
-        public int Priority { get; set; }
-
-        /// <summary>
-        /// Gets or Sets System
-        /// </summary>
-        [DataMember(Name = "system", EmitDefaultValue = true)]
-        public bool System { get; set; }
+        [DataMember(Name = "_embedded", EmitDefaultValue = false)]
+        public JsonWebKey Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -119,15 +115,14 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PolicyRule {\n");
+            sb.Append("class HookKey {\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  IsUsed: ").Append(IsUsed).Append("\n");
+            sb.Append("  KeyId: ").Append(KeyId).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Priority: ").Append(Priority).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  System: ").Append(System).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -148,15 +143,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PolicyRule);
+            return this.Equals(input as HookKey);
         }
 
         /// <summary>
-        /// Returns true if PolicyRule instances are equal
+        /// Returns true if HookKey instances are equal
         /// </summary>
-        /// <param name="input">Instance of PolicyRule to be compared</param>
+        /// <param name="input">Instance of HookKey to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PolicyRule input)
+        public bool Equals(HookKey input)
         {
             if (input == null)
             {
@@ -174,6 +169,15 @@ namespace Okta.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
+                    this.IsUsed == input.IsUsed ||
+                    this.IsUsed.Equals(input.IsUsed)
+                ) && 
+                (
+                    this.KeyId == input.KeyId ||
+                    (this.KeyId != null &&
+                    this.KeyId.Equals(input.KeyId))
+                ) && 
+                (
                     this.LastUpdated == input.LastUpdated ||
                     (this.LastUpdated != null &&
                     this.LastUpdated.Equals(input.LastUpdated))
@@ -184,20 +188,9 @@ namespace Okta.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Priority == input.Priority ||
-                    this.Priority.Equals(input.Priority)
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.System == input.System ||
-                    this.System.Equals(input.System)
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    this.Embedded == input.Embedded ||
+                    (this.Embedded != null &&
+                    this.Embedded.Equals(input.Embedded))
                 );
         }
 
@@ -219,6 +212,11 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsUsed.GetHashCode();
+                if (this.KeyId != null)
+                {
+                    hashCode = (hashCode * 59) + this.KeyId.GetHashCode();
+                }
                 if (this.LastUpdated != null)
                 {
                     hashCode = (hashCode * 59) + this.LastUpdated.GetHashCode();
@@ -227,10 +225,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Priority.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                hashCode = (hashCode * 59) + this.System.GetHashCode();
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Embedded != null)
+                {
+                    hashCode = (hashCode * 59) + this.Embedded.GetHashCode();
+                }
                 return hashCode;
             }
         }

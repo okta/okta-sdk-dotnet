@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AccessPolicy** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **Activate** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **Deactivate** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **Groups** | [**HrefObject**](HrefObject.md) |  | [optional] 

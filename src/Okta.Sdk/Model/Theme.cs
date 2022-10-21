@@ -56,6 +56,13 @@ namespace Okta.Sdk.Model
         public ErrorPageTouchPointVariant ErrorPageTouchPointVariant { get; set; }
 
         /// <summary>
+        /// Gets or Sets LoadingPageTouchPointVariant
+        /// </summary>
+        [DataMember(Name = "loadingPageTouchPointVariant", EmitDefaultValue = false)]
+        
+        public LoadingPageTouchPointVariant LoadingPageTouchPointVariant { get; set; }
+
+        /// <summary>
         /// Gets or Sets SignInPageTouchPointVariant
         /// </summary>
         [DataMember(Name = "signInPageTouchPointVariant", EmitDefaultValue = false)]
@@ -126,6 +133,7 @@ namespace Okta.Sdk.Model
             sb.Append("  EmailTemplateTouchPointVariant: ").Append(EmailTemplateTouchPointVariant).Append("\n");
             sb.Append("  EndUserDashboardTouchPointVariant: ").Append(EndUserDashboardTouchPointVariant).Append("\n");
             sb.Append("  ErrorPageTouchPointVariant: ").Append(ErrorPageTouchPointVariant).Append("\n");
+            sb.Append("  LoadingPageTouchPointVariant: ").Append(LoadingPageTouchPointVariant).Append("\n");
             sb.Append("  PrimaryColorContrastHex: ").Append(PrimaryColorContrastHex).Append("\n");
             sb.Append("  PrimaryColorHex: ").Append(PrimaryColorHex).Append("\n");
             sb.Append("  SecondaryColorContrastHex: ").Append(SecondaryColorContrastHex).Append("\n");
@@ -185,6 +193,10 @@ namespace Okta.Sdk.Model
                     this.ErrorPageTouchPointVariant.Equals(input.ErrorPageTouchPointVariant)
                 ) && 
                 (
+                    this.LoadingPageTouchPointVariant == input.LoadingPageTouchPointVariant ||
+                    this.LoadingPageTouchPointVariant.Equals(input.LoadingPageTouchPointVariant)
+                ) && 
+                (
                     this.PrimaryColorContrastHex == input.PrimaryColorContrastHex ||
                     (this.PrimaryColorContrastHex != null &&
                     this.PrimaryColorContrastHex.Equals(input.PrimaryColorContrastHex))
@@ -233,6 +245,7 @@ namespace Okta.Sdk.Model
                 hashCode = (hashCode * 59) + this.EmailTemplateTouchPointVariant.GetHashCode();
                 hashCode = (hashCode * 59) + this.EndUserDashboardTouchPointVariant.GetHashCode();
                 hashCode = (hashCode * 59) + this.ErrorPageTouchPointVariant.GetHashCode();
+                hashCode = (hashCode * 59) + this.LoadingPageTouchPointVariant.GetHashCode();
                 if (this.PrimaryColorContrastHex != null)
                 {
                     hashCode = (hashCode * 59) + this.PrimaryColorContrastHex.GetHashCode();

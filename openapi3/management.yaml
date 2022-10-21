@@ -208,6 +208,9 @@ tags:
   - name: PushProvider
     x-displayName: Push Providers
     description: The Push Providers API provides operations to manage Push Providers for your organization.
+  - name: RateLimitSettings
+    x-displayName: Rate Limit Settings
+    description: The Rate Limit Settings APIs provide operations to manage settings and configurations surrounding rate limiting in your Okta organization.
   - name: ResourceSet
     x-displayName: Resource Sets
     description: The Resource Sets API provides operations to manage Resource Sets as custom collections of resources. You can use Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources. See [Supported Resources](https://developer.okta.com/docs/concepts/role-assignment/#supported-resources).
@@ -1980,6 +1983,31 @@ paths:
           $ref: '#/components/responses/ErrorResourceNotFound404'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.apps.manage
+      tags:
+        - Application
+  /api/v1/apps/{appId}/policies/{policyId}:
+    put:
+      summary: Assign an application to a specific policy
+      description: Assign an application to a specific policy. This unassigns the application from its currently assigned policy.
+      operationId: assignApplicationPolicy
+      parameters:
+        - in: path
+          name: appId
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: policyId
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
       security:
         - apiToken: []
         - oauth2:
@@ -4381,6 +4409,7 @@ paths:
   /api/v1/brands/{brandId}/pages/error:
     parameters:
       - $ref: '#/components/parameters/pathBrandId'
+      - $ref: '#/components/parameters/queryExpandPageRoot'
     get:
       summary: Retrieve the Error Page
       description: Retrieves the error page.
@@ -4388,6 +4417,37 @@ paths:
       responses:
         '200':
           description: Successfully retrieved the error page.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageRoot'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.brands.read
+      tags:
+        - Customization
+  /api/v1/brands/{brandId}/pages/error/customized:
+    parameters:
+      - $ref: '#/components/parameters/pathBrandId'
+    get:
+      summary: Retrieve the Customized Error Page
+      description: Retrieves the customized error page.
+      operationId: retrieveCustomizedErrorPage
+      responses:
+        '200':
+          description: Successfully retrieved the customized error page.
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uri
           content:
             application/json:
               schema:
@@ -4405,9 +4465,9 @@ paths:
       tags:
         - Customization
     put:
-      summary: Replace the Error Page
-      description: Replaces the error page.
-      operationId: replaceErrorPage
+      summary: Replace the Customized Error Page
+      description: Replaces the customized error page.
+      operationId: replaceCustomizedErrorPage
       requestBody:
         content:
           application/json:
@@ -4416,7 +4476,12 @@ paths:
         required: true
       responses:
         '200':
-          description: Successfully replaced the error page.
+          description: Successfully replaced the customized error page.
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uri
           content:
             application/json:
               schema:
@@ -4436,12 +4501,12 @@ paths:
       tags:
         - Customization
     delete:
-      summary: Reset the Error Page
-      description: Resets the error page.
-      operationId: resetErrorPage
+      summary: Reset the Customized Error Page
+      description: Resets the customized error page.
+      operationId: resetCustomizedErrorPage
       responses:
         '204':
-          description: Successfully reset the error page.
+          description: Successfully reset the customized error page.
           content: {}
         '403':
           $ref: '#/components/responses/ErrorAccessDenied403'
@@ -4455,13 +4520,67 @@ paths:
             - okta.brands.manage
       tags:
         - Customization
+  /api/v1/brands/{brandId}/pages/error/default:
+    parameters:
+      - $ref: '#/components/parameters/pathBrandId'
+    get:
+      summary: Retrieve the Default Error Page
+      description: Retrieves the default error page.
+      operationId: retrieveDefaultErrorPage
+      responses:
+        '200':
+          description: Successfully retrieved the default error page.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomizablePage'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.brands.read
+      tags:
+        - Customization
   /api/v1/brands/{brandId}/pages/error/preview:
     parameters:
       - $ref: '#/components/parameters/pathBrandId'
-    post:
-      summary: Preview the Error Page
-      description: Previews the error page.
-      operationId: previewErrorPage
+    get:
+      summary: Retrieve the Preview Error Page Preview
+      description: Retrieves the preview error page.
+      operationId: retrievePreviewErrorPage
+      responses:
+        '200':
+          description: Successfully retrieved the preview error page.
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uri
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomizablePage'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.brands.read
+      tags:
+        - Customization
+    put:
+      summary: Replace the Preview Error Page
+      description: Replace the preview error page.
+      operationId: replacePreviewErrorPage
       requestBody:
         content:
           application/json:
@@ -4470,13 +4589,65 @@ paths:
         required: true
       responses:
         '200':
-          description: Successfully previewed the error page.
-          content:
-            text/html:
+          description: Successfully replaced the preview error page.
+          headers:
+            Location:
               schema:
                 type: string
+                format: uri
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomizablePage'
         '400':
           $ref: '#/components/responses/ErrorApiValidationFailed400'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.brands.manage
+      tags:
+        - Customization
+    delete:
+      summary: Reset the Preview Error Page
+      description: Reset the preview error page.
+      operationId: resetPreviewErrorPage
+      responses:
+        '204':
+          description: Successfully reset the preview error page.
+          content: {}
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.brands.manage
+      tags:
+        - Customization
+  /api/v1/brands/{brandId}/pages/sign-in:
+    parameters:
+      - $ref: '#/components/parameters/pathBrandId'
+      - $ref: '#/components/parameters/queryExpandPageRoot'
+    get:
+      summary: Retrieve the Sign-in Page
+      description: Retrieves the sign-in page.
+      operationId: retrieveSignInPage
+      responses:
+        '200':
+          description: Successfully retrieved the sign-in page.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageRoot'
         '403':
           $ref: '#/components/responses/ErrorAccessDenied403'
         '404':
@@ -4493,12 +4664,17 @@ paths:
     parameters:
       - $ref: '#/components/parameters/pathBrandId'
     get:
-      summary: Retrieve the Sign-in Page
-      description: Retrieves the sign-in page.
-      operationId: retrieveSignInPage
+      summary: Retrieve the Customized Sign-in Page
+      description: Retrieves the customized sign-in page.
+      operationId: retrieveCustomizedSignInPage
       responses:
         '200':
-          description: Successfully retrieved the sign-in page.
+          description: Successfully retrieved the customized sign-in page.
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uri
           content:
             application/json:
               schema:
@@ -4516,9 +4692,9 @@ paths:
       tags:
         - Customization
     put:
-      summary: Replace the Sign-in Page
-      description: Replaces the sign-in page.
-      operationId: replaceSignInPage
+      summary: Replace the Customized Sign-in Page
+      description: Replaces the customized sign-in page.
+      operationId: replaceCustomizedSignInPage
       requestBody:
         content:
           application/json:
@@ -4527,84 +4703,7 @@ paths:
         required: true
       responses:
         '200':
-          description: Successfully replaced the sign-in page.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SignInPage'
-        '400':
-          $ref: '#/components/responses/ErrorApiValidationFailed400'
-        '403':
-          $ref: '#/components/responses/ErrorAccessDenied403'
-        '404':
-          $ref: '#/components/responses/ErrorResourceNotFound404'
-        '429':
-          $ref: '#/components/responses/ErrorTooManyRequests429'
-      security:
-        - apiToken: []
-        - oauth2:
-            - okta.brands.manage
-      tags:
-        - Customization
-    delete:
-      summary: Reset the Sign-in Page
-      description: Reset the sign-in page.
-      operationId: resetSignInPage
-      responses:
-        '204':
-          description: Successfully reset the sign-in page.
-          content: {}
-        '403':
-          $ref: '#/components/responses/ErrorAccessDenied403'
-        '404':
-          $ref: '#/components/responses/ErrorResourceNotFound404'
-        '429':
-          $ref: '#/components/responses/ErrorTooManyRequests429'
-      security:
-        - apiToken: []
-        - oauth2:
-            - okta.brands.manage
-      tags:
-        - Customization
-  /api/v1/brands/{brandId}/pages/sign-in/preview:
-    parameters:
-      - $ref: '#/components/parameters/pathBrandId'
-    get:
-      summary: Retrieve the Sign-in Page Preview
-      description: Retrieves the sign-in page preview.
-      operationId: retrieveSignInPagePreview
-      responses:
-        '200':
-          description: Successfully retrieved the sign-in page preview.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SignInPage'
-        '403':
-          $ref: '#/components/responses/ErrorAccessDenied403'
-        '404':
-          $ref: '#/components/responses/ErrorResourceNotFound404'
-        '429':
-          $ref: '#/components/responses/ErrorTooManyRequests429'
-      security:
-        - apiToken: []
-        - oauth2:
-            - okta.brands.read
-      tags:
-        - Customization
-    put:
-      summary: Replace the Sign-in Page Preview
-      description: Replace the sign-in page preview.
-      operationId: replaceSignInPagePreview
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SignInPage'
-        required: true
-      responses:
-        '303':
-          description: Successfully replaced the sign-in page preview.
+          description: Successfully replaced the customized sign-in page.
           headers:
             Location:
               schema:
@@ -4629,12 +4728,125 @@ paths:
       tags:
         - Customization
     delete:
-      summary: Reset the Sign-in Page Preview
-      description: Reset the sign-in page preview.
-      operationId: resetSignInPagePreview
+      summary: Reset the Customized Sign-in Page
+      description: Reset the customized sign-in page.
+      operationId: resetCustomizedSignInPage
       responses:
         '204':
-          description: Successfully reset the sign-in page preview.
+          description: Successfully reset the sign-in page.
+          content: {}
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.brands.manage
+      tags:
+        - Customization
+  /api/v1/brands/{brandId}/pages/sign-in/default:
+    parameters:
+      - $ref: '#/components/parameters/pathBrandId'
+    get:
+      summary: Retrieve the Default Sign-in Page
+      description: Retrieves the default sign-in page.
+      operationId: retrieveDefaultSignInPage
+      responses:
+        '200':
+          description: Successfully retrieved the default sign-in page.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignInPage'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.brands.read
+      tags:
+        - Customization
+  /api/v1/brands/{brandId}/pages/sign-in/preview:
+    parameters:
+      - $ref: '#/components/parameters/pathBrandId'
+    get:
+      summary: Retrieve the Preview Sign-in Page Preview
+      description: Retrieves the preview sign-in page.
+      operationId: retrievePreviewSignInPage
+      responses:
+        '200':
+          description: Successfully retrieved the preview sign-in page.
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uri
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignInPage'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.brands.read
+      tags:
+        - Customization
+    put:
+      summary: Replace the Preview Sign-in Page
+      description: Replace the preview sign-in page.
+      operationId: replacePreviewSignInPage
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignInPage'
+        required: true
+      responses:
+        '200':
+          description: Successfully replaced the preview sign-in page.
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uri
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignInPage'
+        '400':
+          $ref: '#/components/responses/ErrorApiValidationFailed400'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.brands.manage
+      tags:
+        - Customization
+    delete:
+      summary: Reset the Preview Sign-in Page
+      description: Reset the preview sign-in page.
+      operationId: resetPreviewSignInPage
+      responses:
+        '204':
+          description: Successfully reset the preview sign-in page.
           content: {}
         '403':
           $ref: '#/components/responses/ErrorAccessDenied403'
@@ -4677,7 +4889,7 @@ paths:
             - okta.brands.read
       tags:
         - Customization
-  /api/v1/brands/{brandId}/pages/sign-out:
+  /api/v1/brands/{brandId}/pages/sign-out/customized:
     parameters:
       - $ref: '#/components/parameters/pathBrandId'
     get:
@@ -8014,6 +8226,184 @@ paths:
             - okta.groups.manage
       tags:
         - Group
+  /api/v1/hook-keys:
+    get:
+      summary: List all keys
+      description: Lists all keys
+      operationId: listHookKeys
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/HookKey'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.inlineHooks.read
+      tags:
+        - HookKey
+    post:
+      summary: Create a key
+      description: Creates a key
+      operationId: addHookKey
+      x-codegen-request-body-name: keyRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyRequest'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HookKey'
+        '400':
+          $ref: '#/components/responses/ErrorApiValidationFailed400'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.inlineHooks.manage
+      tags:
+        - HookKey
+  /api/v1/hook-keys/public/{keyId}:
+    get:
+      summary: Retrieve a public key
+      description: Retrieves a public key by `keyId`
+      operationId: getPublicKey
+      parameters:
+        - name: keyId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JsonWebKey'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.inlineHooks.read
+      tags:
+        - HookKey
+  /api/v1/hook-keys/{hookKeyId}:
+    get:
+      summary: Retrieve a key
+      description: Retrieves a key by `hookKeyId`
+      operationId: getHookKey
+      parameters:
+        - name: hookKeyId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HookKey'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.inlineHooks.read
+      tags:
+        - HookKey
+    put:
+      summary: Replace a key
+      description: Replace a key by `hookKeyId`
+      operationId: replaceHookKey
+      parameters:
+        - name: hookKeyId
+          in: path
+          required: true
+          schema:
+            type: string
+      x-codegen-request-body-name: keyRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyRequest'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HookKey'
+        '400':
+          $ref: '#/components/responses/ErrorApiValidationFailed400'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.inlineHooks.manage
+      tags:
+        - HookKey
+    delete:
+      summary: Delete a key
+      description: Deletes a key by `hookKeyId`. Once deleted, the Hook Key is unrecoverable. As a safety precaution, unused keys are eligible for deletion.
+      operationId: deleteHookKey
+      parameters:
+        - name: hookKeyId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+          content: {}
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.inlineHooks.manage
+      tags:
+        - HookKey
   /api/v1/iam/resource-sets:
     get:
       summary: List all Resource Sets
@@ -12221,6 +12611,146 @@ paths:
             - okta.pushProviders.manage
       tags:
         - PushProvider
+  /api/v1/rate-limit-settings/admin-notifications:
+    get:
+      summary: Retrieve the Rate Limit Admin Notification Settings
+      description: Retrieves the currently configured Rate Limit Admin Notification Settings
+      operationId: getRateLimitSettingsAdminNotifications
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitAdminNotifications'
+              examples:
+                Enabled:
+                  $ref: '#/components/examples/RateLimitAdminNotificationsEnabled'
+                Disabled:
+                  $ref: '#/components/examples/RateLimitAdminNotificationsDisabled'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.rateLimits.read
+      tags:
+        - RateLimitSettings
+    put:
+      summary: Replace the Rate Limit Admin Notification Settings
+      description: Replaces the Rate Limit Admin Notification Settings and returns the configured properties
+      operationId: replaceRateLimitSettingsAdminNotifications
+      x-codegen-request-body-name: RateLimitAdminNotifications
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RateLimitAdminNotifications'
+            examples:
+              Enabled:
+                $ref: '#/components/examples/RateLimitAdminNotificationsEnabled'
+              Disabled:
+                $ref: '#/components/examples/RateLimitAdminNotificationsDisabled'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitAdminNotifications'
+              examples:
+                Enabled:
+                  $ref: '#/components/examples/RateLimitAdminNotificationsEnabled'
+                Disabled:
+                  $ref: '#/components/examples/RateLimitAdminNotificationsDisabled'
+        '400':
+          $ref: '#/components/responses/ErrorApiValidationFailed400'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.rateLimits.manage
+      tags:
+        - RateLimitSettings
+  /api/v1/rate-limit-settings/per-client:
+    get:
+      summary: Retrieve the Per-Client Rate Limit Settings
+      description: Retrieves the currently configured Per-Client Rate Limit Settings
+      operationId: getRateLimitSettingsPerClient
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PerClientRateLimitSettings'
+              examples:
+                EnforceDefault:
+                  $ref: '#/components/examples/PerClientRateLimitSettingsEnforceDefault'
+                EnforceDefaultWithOverrides:
+                  $ref: '#/components/examples/PerClientRateLimitSettingsEnforceDefaultWithOverrides'
+                PreviewDefaultWithOverrides:
+                  $ref: '#/components/examples/PerClientRateLimitSettingsPreviewDefaultWithOverrides'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.rateLimits.read
+      tags:
+        - RateLimitSettings
+    put:
+      summary: Replace the Per-Client Rate Limit Settings
+      description: Replaces the Per-Client Rate Limit Settings and returns the configured properties
+      operationId: replaceRateLimitSettingsPerClient
+      x-codegen-request-body-name: perClientRateLimitSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PerClientRateLimitSettings'
+            examples:
+              EnforceDefault:
+                $ref: '#/components/examples/PerClientRateLimitSettingsEnforceDefault'
+              EnforceDefaultWithOverrides:
+                $ref: '#/components/examples/PerClientRateLimitSettingsEnforceDefaultWithOverrides'
+              PreviewDefaultWithOverrides:
+                $ref: '#/components/examples/PerClientRateLimitSettingsPreviewDefaultWithOverrides'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PerClientRateLimitSettings'
+              examples:
+                EnforceDefault:
+                  $ref: '#/components/examples/PerClientRateLimitSettingsEnforceDefault'
+                EnforceDefaultWithOverrides:
+                  $ref: '#/components/examples/PerClientRateLimitSettingsEnforceDefaultWithOverrides'
+                PreviewDefaultWithOverrides:
+                  $ref: '#/components/examples/PerClientRateLimitSettingsPreviewDefaultWithOverrides'
+        '400':
+          $ref: '#/components/responses/ErrorApiValidationFailed400'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.rateLimits.manage
+      tags:
+        - RateLimitSettings
   /api/v1/risk/events/ip:
     post:
       summary: Send multiple Risk Events
@@ -12676,7 +13206,6 @@ paths:
         - name: templateType
           in: query
           schema:
-            nullable: false
             $ref: '#/components/schemas/SmsTemplateType'
       responses:
         '200':
@@ -15883,6 +16412,8 @@ components:
             okta.profileMappings.read: Allows the app to read user profile mappings in your Okta organization.
             okta.pushProviders.manage: Allows the app to create and manage push notification providers such as APNs and FCM.
             okta.pushProviders.read: Allows the app to read push notification providers such as APNs and FCM.
+            okta.rateLimits.manage: Allows the app to create and manage rate limits in your Okta organization.
+            okta.rateLimits.read: Allows the app to read information about rate limits in your Okta organization.
             okta.riskEvents.manage: Allows the app to publish risk events to your Okta organization.
             okta.riskProviders.manage: Allows the app to create and manage risk provider integrations in your Okta organization.
             okta.riskProviders.read: Allows the app to read all risk provider integrations in your Okta organization.
@@ -17047,6 +17578,20 @@ components:
               name: Name can't exceed 100 characters.
     LogStreamSchemaSplunk:
       value: *ref_5
+    PerClientRateLimitSettingsEnforceDefault:
+      value:
+        defaultMode: ENFORCE
+    PerClientRateLimitSettingsEnforceDefaultWithOverrides:
+      value:
+        defaultMode: ENFORCE
+        useCaseModeOverrides:
+          OAUTH2_AUTHORIZE: PREVIEW
+          OIE_APP_INTENT: DISABLE
+    PerClientRateLimitSettingsPreviewDefaultWithOverrides:
+      value:
+        defaultMode: PREVIEW
+        useCaseModeOverrides:
+          LOGIN_PAGE: ENFORCE
     PermissionResponse:
       value:
         label: okta.users.manage
@@ -17215,6 +17760,12 @@ components:
                 - DELETE
                 - GET
                 - PUT
+    RateLimitAdminNotificationsDisabled:
+      value:
+        notificationsEnabled: false
+    RateLimitAdminNotificationsEnabled:
+      value:
+        notificationsEnabled: true
     ResourceSetBindingAddMembersRequestExample:
       value:
         additions:
@@ -17791,6 +18342,23 @@ components:
             - settings
             - customizationCount
       description: Specifies additional metadata to be included in the response.
+    queryExpandPageRoot:
+      name: expand
+      in: query
+      style: form
+      explode: false
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - default
+            - customized
+            - customizedUrl
+            - preview
+            - previewUrl
+      description: Specifies additional metadata to be included in the response.
     queryLanguage:
       name: language
       schema:
@@ -18264,7 +18832,7 @@ components:
           type: string
           readOnly: true
         label:
-          type: string
+          $ref: '#/components/schemas/ApplicationLabel'
         lastUpdated:
           type: string
           format: date-time
@@ -18289,25 +18857,7 @@ components:
             properties: {}
           readOnly: true
         _links:
-          type: object
-          properties:
-            activate:
-              $ref: '#/components/schemas/HrefObject'
-            deactivate:
-              $ref: '#/components/schemas/HrefObject'
-            groups:
-              $ref: '#/components/schemas/HrefObject'
-            logo:
-              type: array
-              items:
-                $ref: '#/components/schemas/HrefObject'
-            metadata:
-              $ref: '#/components/schemas/HrefObject'
-            self:
-              $ref: '#/components/schemas/HrefObject'
-            users:
-              $ref: '#/components/schemas/HrefObject'
-          readOnly: true
+          $ref: '#/components/schemas/ApplicationLinks'
       discriminator:
         propertyName: signOnMode
         mapping:
@@ -18432,6 +18982,8 @@ components:
             type: object
             properties: {}
           readOnly: true
+    ApplicationLabel:
+      type: string
     ApplicationLayout:
       type: object
       properties:
@@ -18475,6 +19027,29 @@ components:
         - ACTIVE
         - DELETED
         - INACTIVE
+      readOnly: true
+    ApplicationLinks:
+      additionalProperties: true
+      type: object
+      properties:
+        accessPolicy:
+          $ref: '#/components/schemas/HrefObject'
+        activate:
+          $ref: '#/components/schemas/HrefObject'
+        deactivate:
+          $ref: '#/components/schemas/HrefObject'
+        groups:
+          $ref: '#/components/schemas/HrefObject'
+        logo:
+          type: array
+          items:
+            $ref: '#/components/schemas/HrefObject'
+        metadata:
+          $ref: '#/components/schemas/HrefObject'
+        self:
+          $ref: '#/components/schemas/HrefObject'
+        users:
+          $ref: '#/components/schemas/HrefObject'
       readOnly: true
     ApplicationSettings:
       type: object
@@ -19067,8 +19642,6 @@ components:
           type: boolean
         name:
           type: string
-        optOutOfUserCommunications:
-          type: boolean
         removePoweredByOkta:
           type: boolean
         _links:
@@ -20517,6 +21090,31 @@ components:
       properties:
         credentialId:
           type: string
+    HookKey:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        id:
+          type: string
+          readOnly: true
+        isUsed:
+          type: string
+          format: boolean
+        keyId:
+          type: string
+          readOnly: true
+        lastUpdated:
+          type: string
+          format: date-time
+          readOnly: true
+        name:
+          type: string
+          readOnly: false
+        _embedded:
+          $ref: '#/components/schemas/JsonWebKey'
     HostedPage:
       type: object
       properties:
@@ -20822,12 +21420,15 @@ components:
     InlineHookChannel:
       type: object
       properties:
-        config:
-          $ref: '#/components/schemas/InlineHookChannelConfig'
         type:
           $ref: '#/components/schemas/InlineHookChannelType'
         version:
           type: string
+      discriminator:
+        propertyName: type
+        mapping:
+          HTTP: '#/components/schemas/InlineHookChannelHttp'
+          OAUTH: '#/components/schemas/InlineHookChannelOAuth'
     InlineHookChannelConfig:
       type: object
       properties:
@@ -20857,10 +21458,62 @@ components:
           type: string
         value:
           type: string
+    InlineHookChannelHttp:
+      allOf:
+        - $ref: '#/components/schemas/InlineHookChannel'
+        - type: object
+          properties:
+            config:
+              $ref: '#/components/schemas/InlineHookChannelConfig'
+    InlineHookChannelOAuth:
+      allOf:
+        - $ref: '#/components/schemas/InlineHookChannel'
+        - type: object
+          properties:
+            config:
+              $ref: '#/components/schemas/InlineHookOAuthChannelConfig'
     InlineHookChannelType:
       type: string
       enum:
         - HTTP
+        - OAUTH
+    InlineHookOAuthBasicConfig:
+      allOf:
+        - $ref: '#/components/schemas/InlineHookChannelConfig'
+      type: object
+      properties:
+        authType:
+          type: string
+        clientId:
+          type: string
+        scope:
+          type: string
+        tokenUrl:
+          type: string
+    InlineHookOAuthChannelConfig:
+      type: object
+      properties:
+        authType:
+          type: string
+      discriminator:
+        propertyName: authType
+        mapping:
+          client_secret_post: '#/components/schemas/InlineHookOAuthClientSecretConfig'
+          private_key_jwt: '#/components/schemas/InlineHookOAuthPrivateKeyJwtConfig'
+    InlineHookOAuthClientSecretConfig:
+      allOf:
+        - $ref: '#/components/schemas/InlineHookOAuthBasicConfig'
+      type: object
+      properties:
+        clientSecret:
+          type: string
+    InlineHookOAuthPrivateKeyJwtConfig:
+      allOf:
+        - $ref: '#/components/schemas/InlineHookOAuthBasicConfig'
+      type: object
+      properties:
+        hookKeyId:
+          type: string
     InlineHookPayload:
       type: object
       x-okta-extensible: true
@@ -20963,6 +21616,11 @@ components:
       type: string
       enum:
         - sig
+    KeyRequest:
+      type: object
+      properties:
+        name:
+          type: string
     KnowledgeConstraint:
       allOf:
         - $ref: '#/components/schemas/AccessPolicyConstraint'
@@ -21021,6 +21679,11 @@ components:
       type: string
       enum:
         - USER
+    LoadingPageTouchPointVariant:
+      type: string
+      enum:
+        - NONE
+        - OKTA_DEFAULT
     LocationGranularity:
       type: string
       enum:
@@ -22192,6 +22855,37 @@ components:
         _links:
           additionalProperties:
             type: object
+    PageRoot:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            default:
+              $ref: '#/components/schemas/CustomizablePage'
+            customized:
+              $ref: '#/components/schemas/CustomizablePage'
+            customizedUrl:
+              type: string
+              format: uri
+            preview:
+              $ref: '#/components/schemas/CustomizablePage'
+            previewUrl:
+              type: string
+              format: uri
+          readOnly: true
+        _links:
+          type: object
+          properties:
+            self:
+              $ref: '#/components/schemas/HrefObject'
+            default:
+              $ref: '#/components/schemas/HrefObject'
+            customized:
+              $ref: '#/components/schemas/HrefObject'
+            preview:
+              $ref: '#/components/schemas/HrefObject'
+          readOnly: true
     PasswordCredential:
       type: object
       properties:
@@ -22453,6 +23147,32 @@ components:
           $ref: '#/components/schemas/SeedEnum'
         status:
           $ref: '#/components/schemas/EnabledStatus'
+    PerClientRateLimitMode:
+      type: string
+      enum:
+        - DISABLE
+        - ENFORCE
+        - PREVIEW
+    PerClientRateLimitSettings:
+      title: PerClientRateLimitSettings
+      description: ''
+      type: object
+      properties:
+        defaultMode:
+          $ref: '#/components/schemas/PerClientRateLimitMode'
+          description: The default PerClientRateLimitMode that applies to any use case in the absence of a more specific override
+        useCaseModeOverrides:
+          description: A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode. Overrides the `defaultMode` property for the specified use cases.
+          type: object
+          properties:
+            LOGIN_PAGE:
+              $ref: '#/components/schemas/PerClientRateLimitMode'
+            OAUTH2_AUTHORIZE:
+              $ref: '#/components/schemas/PerClientRateLimitMode'
+            OIE_APP_INTENT:
+              $ref: '#/components/schemas/PerClientRateLimitMode'
+      required:
+        - defaultMode
     Permission:
       type: object
       properties:
@@ -22662,12 +23382,14 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         id:
           type: string
         lastUpdated:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         name:
           type: string
         priority:
@@ -23269,6 +23991,15 @@ components:
           type: string
         version:
           type: string
+    RateLimitAdminNotifications:
+      title: RateLimitAdminNotifications
+      description: ''
+      type: object
+      properties:
+        notificationsEnabled:
+          type: boolean
+      required:
+        - notificationsEnabled
     RecoveryQuestionCredential:
       type: object
       properties:
@@ -24174,6 +24905,8 @@ components:
           $ref: '#/components/schemas/EndUserDashboardTouchPointVariant'
         errorPageTouchPointVariant:
           $ref: '#/components/schemas/ErrorPageTouchPointVariant'
+        loadingPageTouchPointVariant:
+          $ref: '#/components/schemas/LoadingPageTouchPointVariant'
         primaryColorContrastHex:
           type: string
         primaryColorHex:
@@ -24207,6 +24940,8 @@ components:
         id:
           readOnly: true
           type: string
+        loadingPageTouchPointVariant:
+          $ref: '#/components/schemas/LoadingPageTouchPointVariant'
         logo:
           readOnly: true
           type: string

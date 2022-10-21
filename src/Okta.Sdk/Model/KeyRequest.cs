@@ -21,37 +21,24 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// InlineHookChannel
+    /// KeyRequest
     /// </summary>
-    [DataContract(Name = "InlineHookChannel")]
-    [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelHttp), "HTTP")]
-    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelHttp), "InlineHookChannelHttp")]
-    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelOAuth), "InlineHookChannelOAuth")]
-    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelOAuth), "OAUTH")]
+    [DataContract(Name = "KeyRequest")]
     
-    public partial class InlineHookChannel : IEquatable<InlineHookChannel>
+    public partial class KeyRequest : IEquatable<KeyRequest>
     {
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        
-        public InlineHookChannelType Type { get; set; }
         
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "version", EmitDefaultValue = false)]
-        public string _Version { get; set; }
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +47,8 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InlineHookChannel {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("class KeyRequest {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,15 +69,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineHookChannel);
+            return this.Equals(input as KeyRequest);
         }
 
         /// <summary>
-        /// Returns true if InlineHookChannel instances are equal
+        /// Returns true if KeyRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineHookChannel to be compared</param>
+        /// <param name="input">Instance of KeyRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineHookChannel input)
+        public bool Equals(KeyRequest input)
         {
             if (input == null)
             {
@@ -99,13 +85,9 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                ) && 
-                (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -119,10 +101,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                if (this._Version != null)
+                if (this.Name != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 return hashCode;
             }

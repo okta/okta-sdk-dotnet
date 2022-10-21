@@ -56,6 +56,13 @@ namespace Okta.Sdk.Model
         public ErrorPageTouchPointVariant ErrorPageTouchPointVariant { get; set; }
 
         /// <summary>
+        /// Gets or Sets LoadingPageTouchPointVariant
+        /// </summary>
+        [DataMember(Name = "loadingPageTouchPointVariant", EmitDefaultValue = false)]
+        
+        public LoadingPageTouchPointVariant LoadingPageTouchPointVariant { get; set; }
+
+        /// <summary>
         /// Gets or Sets SignInPageTouchPointVariant
         /// </summary>
         [DataMember(Name = "signInPageTouchPointVariant", EmitDefaultValue = false)]
@@ -170,6 +177,7 @@ namespace Okta.Sdk.Model
             sb.Append("  ErrorPageTouchPointVariant: ").Append(ErrorPageTouchPointVariant).Append("\n");
             sb.Append("  Favicon: ").Append(Favicon).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  LoadingPageTouchPointVariant: ").Append(LoadingPageTouchPointVariant).Append("\n");
             sb.Append("  Logo: ").Append(Logo).Append("\n");
             sb.Append("  PrimaryColorContrastHex: ").Append(PrimaryColorContrastHex).Append("\n");
             sb.Append("  PrimaryColorHex: ").Append(PrimaryColorHex).Append("\n");
@@ -240,6 +248,10 @@ namespace Okta.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
+                    this.LoadingPageTouchPointVariant == input.LoadingPageTouchPointVariant ||
+                    this.LoadingPageTouchPointVariant.Equals(input.LoadingPageTouchPointVariant)
+                ) && 
+                (
                     this.Logo == input.Logo ||
                     (this.Logo != null &&
                     this.Logo.Equals(input.Logo))
@@ -301,6 +313,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.LoadingPageTouchPointVariant.GetHashCode();
                 if (this.Logo != null)
                 {
                     hashCode = (hashCode * 59) + this.Logo.GetHashCode();

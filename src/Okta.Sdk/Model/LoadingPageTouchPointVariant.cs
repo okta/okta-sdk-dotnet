@@ -26,31 +26,31 @@ using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 namespace Okta.Sdk.Model
 {
     /// <summary>
-    /// Defines InlineHookChannelType
+    /// Defines LoadingPageTouchPointVariant
     /// </summary>
     [JsonConverter(typeof(StringEnumSerializingConverter))]
-    public sealed class InlineHookChannelType : StringEnum
+    public sealed class LoadingPageTouchPointVariant : StringEnum
     {
         /// <summary>
-        /// StringEnum InlineHookChannelType for value: HTTP
+        /// StringEnum LoadingPageTouchPointVariant for value: NONE
         /// </summary>
-        public static InlineHookChannelType HTTP = new InlineHookChannelType("HTTP");
+        public static LoadingPageTouchPointVariant NONE = new LoadingPageTouchPointVariant("NONE");
         /// <summary>
-        /// StringEnum InlineHookChannelType for value: OAUTH
+        /// StringEnum LoadingPageTouchPointVariant for value: OKTA_DEFAULT
         /// </summary>
-        public static InlineHookChannelType OAUTH = new InlineHookChannelType("OAUTH");
+        public static LoadingPageTouchPointVariant OKTADEFAULT = new LoadingPageTouchPointVariant("OKTA_DEFAULT");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref="InlineHookChannelType"/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="LoadingPageTouchPointVariant"/>
         /// </summary>
         /// <param name="value">The value to use</param>
-        public static implicit operator InlineHookChannelType(string value) => new InlineHookChannelType(value);
+        public static implicit operator LoadingPageTouchPointVariant(string value) => new LoadingPageTouchPointVariant(value);
 
         /// <summary>
-        /// Creates a new <see cref="InlineHookChannelType"/> instance.
+        /// Creates a new <see cref="LoadingPageTouchPointVariant"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
-        public InlineHookChannelType(string value)
+        public LoadingPageTouchPointVariant(string value)
             : base(value)
         {
         }

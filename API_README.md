@@ -60,6 +60,7 @@ Class | Method | HTTP request | Description
 *ApiTokenApi* | [**RevokeCurrentApiToken**](docs/ApiTokenApi.md#revokecurrentapitoken) | **DELETE** /api/v1/api-tokens/current | Revoke the Current API Token
 *ApplicationApi* | [**ActivateApplication**](docs/ApplicationApi.md#activateapplication) | **POST** /api/v1/apps/{appId}/lifecycle/activate | Activate an Application
 *ApplicationApi* | [**ActivateDefaultProvisioningConnectionForApplication**](docs/ApplicationApi.md#activatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/activate | Activate the default Provisioning Connection
+*ApplicationApi* | [**AssignApplicationPolicy**](docs/ApplicationApi.md#assignapplicationpolicy) | **PUT** /api/v1/apps/{appId}/policies/{policyId} | Assign an application to a specific policy
 *ApplicationApi* | [**AssignUserToApplication**](docs/ApplicationApi.md#assignusertoapplication) | **POST** /api/v1/apps/{appId}/users | Assign a User
 *ApplicationApi* | [**CloneApplicationKey**](docs/ApplicationApi.md#cloneapplicationkey) | **POST** /api/v1/apps/{appId}/credentials/keys/{keyId}/clone | Clone a Key Credential
 *ApplicationApi* | [**CreateApplication**](docs/ApplicationApi.md#createapplication) | **POST** /api/v1/apps | Create an Application
@@ -179,18 +180,24 @@ Class | Method | HTTP request | Description
 *CustomizationApi* | [**ListBrands**](docs/CustomizationApi.md#listbrands) | **GET** /api/v1/brands | List all Brands
 *CustomizationApi* | [**ListEmailCustomizations**](docs/CustomizationApi.md#listemailcustomizations) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | List all Email Customizations
 *CustomizationApi* | [**ListEmailTemplates**](docs/CustomizationApi.md#listemailtemplates) | **GET** /api/v1/brands/{brandId}/templates/email | List all Email Templates
-*CustomizationApi* | [**PreviewErrorPage**](docs/CustomizationApi.md#previewerrorpage) | **POST** /api/v1/brands/{brandId}/pages/error/preview | Preview the Error Page
-*CustomizationApi* | [**ReplaceErrorPage**](docs/CustomizationApi.md#replaceerrorpage) | **PUT** /api/v1/brands/{brandId}/pages/error | Replace the Error Page
-*CustomizationApi* | [**ReplaceSignInPage**](docs/CustomizationApi.md#replacesigninpage) | **PUT** /api/v1/brands/{brandId}/pages/sign-in/customized | Replace the Sign-in Page
-*CustomizationApi* | [**ReplaceSignInPagePreview**](docs/CustomizationApi.md#replacesigninpagepreview) | **PUT** /api/v1/brands/{brandId}/pages/sign-in/preview | Replace the Sign-in Page Preview
-*CustomizationApi* | [**ReplaceSignOutPageSettings**](docs/CustomizationApi.md#replacesignoutpagesettings) | **PUT** /api/v1/brands/{brandId}/pages/sign-out | Replace the Sign-out Page Settings
-*CustomizationApi* | [**ResetErrorPage**](docs/CustomizationApi.md#reseterrorpage) | **DELETE** /api/v1/brands/{brandId}/pages/error | Reset the Error Page
-*CustomizationApi* | [**ResetSignInPage**](docs/CustomizationApi.md#resetsigninpage) | **DELETE** /api/v1/brands/{brandId}/pages/sign-in/customized | Reset the Sign-in Page
-*CustomizationApi* | [**ResetSignInPagePreview**](docs/CustomizationApi.md#resetsigninpagepreview) | **DELETE** /api/v1/brands/{brandId}/pages/sign-in/preview | Reset the Sign-in Page Preview
+*CustomizationApi* | [**ReplaceCustomizedErrorPage**](docs/CustomizationApi.md#replacecustomizederrorpage) | **PUT** /api/v1/brands/{brandId}/pages/error/customized | Replace the Customized Error Page
+*CustomizationApi* | [**ReplaceCustomizedSignInPage**](docs/CustomizationApi.md#replacecustomizedsigninpage) | **PUT** /api/v1/brands/{brandId}/pages/sign-in/customized | Replace the Customized Sign-in Page
+*CustomizationApi* | [**ReplacePreviewErrorPage**](docs/CustomizationApi.md#replacepreviewerrorpage) | **PUT** /api/v1/brands/{brandId}/pages/error/preview | Replace the Preview Error Page
+*CustomizationApi* | [**ReplacePreviewSignInPage**](docs/CustomizationApi.md#replacepreviewsigninpage) | **PUT** /api/v1/brands/{brandId}/pages/sign-in/preview | Replace the Preview Sign-in Page
+*CustomizationApi* | [**ReplaceSignOutPageSettings**](docs/CustomizationApi.md#replacesignoutpagesettings) | **PUT** /api/v1/brands/{brandId}/pages/sign-out/customized | Replace the Sign-out Page Settings
+*CustomizationApi* | [**ResetCustomizedErrorPage**](docs/CustomizationApi.md#resetcustomizederrorpage) | **DELETE** /api/v1/brands/{brandId}/pages/error/customized | Reset the Customized Error Page
+*CustomizationApi* | [**ResetCustomizedSignInPage**](docs/CustomizationApi.md#resetcustomizedsigninpage) | **DELETE** /api/v1/brands/{brandId}/pages/sign-in/customized | Reset the Customized Sign-in Page
+*CustomizationApi* | [**ResetPreviewErrorPage**](docs/CustomizationApi.md#resetpreviewerrorpage) | **DELETE** /api/v1/brands/{brandId}/pages/error/preview | Reset the Preview Error Page
+*CustomizationApi* | [**ResetPreviewSignInPage**](docs/CustomizationApi.md#resetpreviewsigninpage) | **DELETE** /api/v1/brands/{brandId}/pages/sign-in/preview | Reset the Preview Sign-in Page
+*CustomizationApi* | [**RetrieveCustomizedErrorPage**](docs/CustomizationApi.md#retrievecustomizederrorpage) | **GET** /api/v1/brands/{brandId}/pages/error/customized | Retrieve the Customized Error Page
+*CustomizationApi* | [**RetrieveCustomizedSignInPage**](docs/CustomizationApi.md#retrievecustomizedsigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in/customized | Retrieve the Customized Sign-in Page
+*CustomizationApi* | [**RetrieveDefaultErrorPage**](docs/CustomizationApi.md#retrievedefaulterrorpage) | **GET** /api/v1/brands/{brandId}/pages/error/default | Retrieve the Default Error Page
+*CustomizationApi* | [**RetrieveDefaultSignInPage**](docs/CustomizationApi.md#retrievedefaultsigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in/default | Retrieve the Default Sign-in Page
 *CustomizationApi* | [**RetrieveErrorPage**](docs/CustomizationApi.md#retrieveerrorpage) | **GET** /api/v1/brands/{brandId}/pages/error | Retrieve the Error Page
-*CustomizationApi* | [**RetrieveSignInPage**](docs/CustomizationApi.md#retrievesigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in/customized | Retrieve the Sign-in Page
-*CustomizationApi* | [**RetrieveSignInPagePreview**](docs/CustomizationApi.md#retrievesigninpagepreview) | **GET** /api/v1/brands/{brandId}/pages/sign-in/preview | Retrieve the Sign-in Page Preview
-*CustomizationApi* | [**RetrieveSignOutPageSettings**](docs/CustomizationApi.md#retrievesignoutpagesettings) | **GET** /api/v1/brands/{brandId}/pages/sign-out | Retrieve the Sign-out Page Settings
+*CustomizationApi* | [**RetrievePreviewErrorPage**](docs/CustomizationApi.md#retrievepreviewerrorpage) | **GET** /api/v1/brands/{brandId}/pages/error/preview | Retrieve the Preview Error Page Preview
+*CustomizationApi* | [**RetrievePreviewSignInPage**](docs/CustomizationApi.md#retrievepreviewsigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in/preview | Retrieve the Preview Sign-in Page Preview
+*CustomizationApi* | [**RetrieveSignInPage**](docs/CustomizationApi.md#retrievesigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in | Retrieve the Sign-in Page
+*CustomizationApi* | [**RetrieveSignOutPageSettings**](docs/CustomizationApi.md#retrievesignoutpagesettings) | **GET** /api/v1/brands/{brandId}/pages/sign-out/customized | Retrieve the Sign-out Page Settings
 *CustomizationApi* | [**SendTestEmail**](docs/CustomizationApi.md#sendtestemail) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/test | Send a Test Email
 *CustomizationApi* | [**UnlinkBrandDomain**](docs/CustomizationApi.md#unlinkbranddomain) | **DELETE** /api/v1/brands/{brandId}/domains/{domainId} | Unlink a Brand from a Domain
 *CustomizationApi* | [**UpdateBrand**](docs/CustomizationApi.md#updatebrand) | **PUT** /api/v1/brands/{brandId} | Replace a Brand
@@ -258,6 +265,12 @@ Class | Method | HTTP request | Description
 *GroupApi* | [**RemoveUserFromGroup**](docs/GroupApi.md#removeuserfromgroup) | **DELETE** /api/v1/groups/{groupId}/users/{userId} | Unassign a User
 *GroupApi* | [**UpdateGroup**](docs/GroupApi.md#updategroup) | **PUT** /api/v1/groups/{groupId} | Replace a Group
 *GroupApi* | [**UpdateGroupRule**](docs/GroupApi.md#updategrouprule) | **PUT** /api/v1/groups/rules/{ruleId} | Replace a Group Rule
+*HookKeyApi* | [**AddHookKey**](docs/HookKeyApi.md#addhookkey) | **POST** /api/v1/hook-keys | Create a key
+*HookKeyApi* | [**DeleteHookKey**](docs/HookKeyApi.md#deletehookkey) | **DELETE** /api/v1/hook-keys/{hookKeyId} | Delete a key
+*HookKeyApi* | [**GetHookKey**](docs/HookKeyApi.md#gethookkey) | **GET** /api/v1/hook-keys/{hookKeyId} | Retrieve a key
+*HookKeyApi* | [**GetPublicKey**](docs/HookKeyApi.md#getpublickey) | **GET** /api/v1/hook-keys/public/{keyId} | Retrieve a public key
+*HookKeyApi* | [**ListHookKeys**](docs/HookKeyApi.md#listhookkeys) | **GET** /api/v1/hook-keys | List all keys
+*HookKeyApi* | [**ReplaceHookKey**](docs/HookKeyApi.md#replacehookkey) | **PUT** /api/v1/hook-keys/{hookKeyId} | Replace a key
 *IdentityProviderApi* | [**ActivateIdentityProvider**](docs/IdentityProviderApi.md#activateidentityprovider) | **POST** /api/v1/idps/{idpId}/lifecycle/activate | Activate an Identity Provider
 *IdentityProviderApi* | [**CloneIdentityProviderKey**](docs/IdentityProviderApi.md#cloneidentityproviderkey) | **POST** /api/v1/idps/{idpId}/credentials/keys/{keyId}/clone | Clone a Signing Credential Key
 *IdentityProviderApi* | [**CreateIdentityProvider**](docs/IdentityProviderApi.md#createidentityprovider) | **POST** /api/v1/idps | Create an Identity Provider
@@ -355,6 +368,10 @@ Class | Method | HTTP request | Description
 *PushProviderApi* | [**GetPushProvider**](docs/PushProviderApi.md#getpushprovider) | **GET** /api/v1/push-providers/{pushProviderId} | Retrieve a Push Provider
 *PushProviderApi* | [**ListPushProviders**](docs/PushProviderApi.md#listpushproviders) | **GET** /api/v1/push-providers | List all Push Providers
 *PushProviderApi* | [**UpdatePushProvider**](docs/PushProviderApi.md#updatepushprovider) | **PUT** /api/v1/push-providers/{pushProviderId} | Replace a Push Provider
+*RateLimitSettingsApi* | [**GetRateLimitSettingsAdminNotifications**](docs/RateLimitSettingsApi.md#getratelimitsettingsadminnotifications) | **GET** /api/v1/rate-limit-settings/admin-notifications | Retrieve the Rate Limit Admin Notification Settings
+*RateLimitSettingsApi* | [**GetRateLimitSettingsPerClient**](docs/RateLimitSettingsApi.md#getratelimitsettingsperclient) | **GET** /api/v1/rate-limit-settings/per-client | Retrieve the Per-Client Rate Limit Settings
+*RateLimitSettingsApi* | [**ReplaceRateLimitSettingsAdminNotifications**](docs/RateLimitSettingsApi.md#replaceratelimitsettingsadminnotifications) | **PUT** /api/v1/rate-limit-settings/admin-notifications | Replace the Rate Limit Admin Notification Settings
+*RateLimitSettingsApi* | [**ReplaceRateLimitSettingsPerClient**](docs/RateLimitSettingsApi.md#replaceratelimitsettingsperclient) | **PUT** /api/v1/rate-limit-settings/per-client | Replace the Per-Client Rate Limit Settings
 *ResourceSetApi* | [**AddMembersToBinding**](docs/ResourceSetApi.md#addmemberstobinding) | **PATCH** /api/v1/iam/resource-sets/{resourceSetId}/bindings/{roleIdOrLabel}/members | Add more Members to a binding
 *ResourceSetApi* | [**AddResourceSetResource**](docs/ResourceSetApi.md#addresourcesetresource) | **PATCH** /api/v1/iam/resource-sets/{resourceSetId}/resources | Add a Resource to a resource set
 *ResourceSetApi* | [**CreateResourceSet**](docs/ResourceSetApi.md#createresourceset) | **POST** /api/v1/iam/resource-sets | Create a Resource Set
@@ -552,7 +569,6 @@ Class | Method | HTTP request | Description
  - [Model.ApplicationFeature](docs/ApplicationFeature.md)
  - [Model.ApplicationGroupAssignment](docs/ApplicationGroupAssignment.md)
  - [Model.ApplicationLayout](docs/ApplicationLayout.md)
- - [Model.ApplicationLayoutElementsValue](docs/ApplicationLayoutElementsValue.md)
  - [Model.ApplicationLayoutRule](docs/ApplicationLayoutRule.md)
  - [Model.ApplicationLayoutRuleCondition](docs/ApplicationLayoutRuleCondition.md)
  - [Model.ApplicationLicensing](docs/ApplicationLicensing.md)
@@ -774,6 +790,7 @@ Class | Method | HTTP request | Description
  - [Model.HardwareUserFactor](docs/HardwareUserFactor.md)
  - [Model.HardwareUserFactorAllOf](docs/HardwareUserFactorAllOf.md)
  - [Model.HardwareUserFactorProfile](docs/HardwareUserFactorProfile.md)
+ - [Model.HookKey](docs/HookKey.md)
  - [Model.HostedPage](docs/HostedPage.md)
  - [Model.HostedPageType](docs/HostedPageType.md)
  - [Model.HrefObject](docs/HrefObject.md)
@@ -805,7 +822,15 @@ Class | Method | HTTP request | Description
  - [Model.InlineHookChannelConfig](docs/InlineHookChannelConfig.md)
  - [Model.InlineHookChannelConfigAuthScheme](docs/InlineHookChannelConfigAuthScheme.md)
  - [Model.InlineHookChannelConfigHeaders](docs/InlineHookChannelConfigHeaders.md)
+ - [Model.InlineHookChannelHttp](docs/InlineHookChannelHttp.md)
+ - [Model.InlineHookChannelHttpAllOf](docs/InlineHookChannelHttpAllOf.md)
+ - [Model.InlineHookChannelOAuth](docs/InlineHookChannelOAuth.md)
+ - [Model.InlineHookChannelOAuthAllOf](docs/InlineHookChannelOAuthAllOf.md)
  - [Model.InlineHookChannelType](docs/InlineHookChannelType.md)
+ - [Model.InlineHookOAuthBasicConfig](docs/InlineHookOAuthBasicConfig.md)
+ - [Model.InlineHookOAuthChannelConfig](docs/InlineHookOAuthChannelConfig.md)
+ - [Model.InlineHookOAuthClientSecretConfig](docs/InlineHookOAuthClientSecretConfig.md)
+ - [Model.InlineHookOAuthPrivateKeyJwtConfig](docs/InlineHookOAuthPrivateKeyJwtConfig.md)
  - [Model.InlineHookResponse](docs/InlineHookResponse.md)
  - [Model.InlineHookResponseCommandValue](docs/InlineHookResponseCommandValue.md)
  - [Model.InlineHookResponseCommands](docs/InlineHookResponseCommands.md)
@@ -815,6 +840,7 @@ Class | Method | HTTP request | Description
  - [Model.JsonWebKey](docs/JsonWebKey.md)
  - [Model.JwkUse](docs/JwkUse.md)
  - [Model.JwkUseType](docs/JwkUseType.md)
+ - [Model.KeyRequest](docs/KeyRequest.md)
  - [Model.KnowledgeConstraint](docs/KnowledgeConstraint.md)
  - [Model.LifecycleCreateSettingObject](docs/LifecycleCreateSettingObject.md)
  - [Model.LifecycleDeactivateSettingObject](docs/LifecycleDeactivateSettingObject.md)
@@ -823,6 +849,7 @@ Class | Method | HTTP request | Description
  - [Model.LinkedObject](docs/LinkedObject.md)
  - [Model.LinkedObjectDetails](docs/LinkedObjectDetails.md)
  - [Model.LinkedObjectDetailsType](docs/LinkedObjectDetailsType.md)
+ - [Model.LoadingPageTouchPointVariant](docs/LoadingPageTouchPointVariant.md)
  - [Model.LocationGranularity](docs/LocationGranularity.md)
  - [Model.LogActor](docs/LogActor.md)
  - [Model.LogAuthenticationContext](docs/LogAuthenticationContext.md)
@@ -927,6 +954,9 @@ Class | Method | HTTP request | Description
  - [Model.OrgOktaSupportSettingsObj](docs/OrgOktaSupportSettingsObj.md)
  - [Model.OrgPreferences](docs/OrgPreferences.md)
  - [Model.OrgSetting](docs/OrgSetting.md)
+ - [Model.PageRoot](docs/PageRoot.md)
+ - [Model.PageRootEmbedded](docs/PageRootEmbedded.md)
+ - [Model.PageRootLinks](docs/PageRootLinks.md)
  - [Model.PasswordCredential](docs/PasswordCredential.md)
  - [Model.PasswordCredentialHash](docs/PasswordCredentialHash.md)
  - [Model.PasswordCredentialHashAlgorithm](docs/PasswordCredentialHashAlgorithm.md)
@@ -964,6 +994,9 @@ Class | Method | HTTP request | Description
  - [Model.PasswordPolicyRuleConditionsAllOf](docs/PasswordPolicyRuleConditionsAllOf.md)
  - [Model.PasswordPolicySettings](docs/PasswordPolicySettings.md)
  - [Model.PasswordSettingObject](docs/PasswordSettingObject.md)
+ - [Model.PerClientRateLimitMode](docs/PerClientRateLimitMode.md)
+ - [Model.PerClientRateLimitSettings](docs/PerClientRateLimitSettings.md)
+ - [Model.PerClientRateLimitSettingsUseCaseModeOverrides](docs/PerClientRateLimitSettingsUseCaseModeOverrides.md)
  - [Model.Permission](docs/Permission.md)
  - [Model.PermissionLinks](docs/PermissionLinks.md)
  - [Model.Permissions](docs/Permissions.md)
@@ -1048,6 +1081,7 @@ Class | Method | HTTP request | Description
  - [Model.PushUserFactor](docs/PushUserFactor.md)
  - [Model.PushUserFactorAllOf](docs/PushUserFactorAllOf.md)
  - [Model.PushUserFactorProfile](docs/PushUserFactorProfile.md)
+ - [Model.RateLimitAdminNotifications](docs/RateLimitAdminNotifications.md)
  - [Model.RecoveryQuestionCredential](docs/RecoveryQuestionCredential.md)
  - [Model.ReleaseChannel](docs/ReleaseChannel.md)
  - [Model.RequiredEnum](docs/RequiredEnum.md)
@@ -1265,6 +1299,8 @@ Class | Method | HTTP request | Description
   - okta.profileMappings.read: Allows the app to read user profile mappings in your Okta organization.
   - okta.pushProviders.manage: Allows the app to create and manage push notification providers such as APNs and FCM.
   - okta.pushProviders.read: Allows the app to read push notification providers such as APNs and FCM.
+  - okta.rateLimits.manage: Allows the app to create and manage rate limits in your Okta organization.
+  - okta.rateLimits.read: Allows the app to read information about rate limits in your Okta organization.
   - okta.riskEvents.manage: Allows the app to publish risk events to your Okta organization.
   - okta.riskProviders.manage: Allows the app to create and manage risk provider integrations in your Okta organization.
   - okta.riskProviders.read: Allows the app to read all risk provider integrations in your Okta organization.

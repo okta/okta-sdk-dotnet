@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **Id** | **string** |  | [optional] [readonly] 
 **IsDefault** | **bool** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
-**OptOutOfUserCommunications** | **bool** |  | [optional] 
 **RemovePoweredByOkta** | **bool** |  | [optional] 
 **Links** | [**BrandLinks**](BrandLinks.md) |  | [optional] 
 

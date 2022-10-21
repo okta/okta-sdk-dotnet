@@ -21,37 +21,36 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// InlineHookChannel
+    /// PerClientRateLimitSettings
     /// </summary>
-    [DataContract(Name = "InlineHookChannel")]
-    [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelHttp), "HTTP")]
-    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelHttp), "InlineHookChannelHttp")]
-    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelOAuth), "InlineHookChannelOAuth")]
-    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelOAuth), "OAUTH")]
+    [DataContract(Name = "PerClientRateLimitSettings")]
     
-    public partial class InlineHookChannel : IEquatable<InlineHookChannel>
+    public partial class PerClientRateLimitSettings : IEquatable<PerClientRateLimitSettings>
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Gets or Sets DefaultMode
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "defaultMode", IsRequired = true, EmitDefaultValue = false)]
         
-        public InlineHookChannelType Type { get; set; }
+        public PerClientRateLimitMode DefaultMode { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PerClientRateLimitSettings" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        public PerClientRateLimitSettings() { }
         
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets UseCaseModeOverrides
         /// </summary>
-        [DataMember(Name = "version", EmitDefaultValue = false)]
-        public string _Version { get; set; }
+        [DataMember(Name = "useCaseModeOverrides", EmitDefaultValue = false)]
+        public PerClientRateLimitSettingsUseCaseModeOverrides UseCaseModeOverrides { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +59,9 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InlineHookChannel {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("class PerClientRateLimitSettings {\n");
+            sb.Append("  DefaultMode: ").Append(DefaultMode).Append("\n");
+            sb.Append("  UseCaseModeOverrides: ").Append(UseCaseModeOverrides).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,15 +82,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineHookChannel);
+            return this.Equals(input as PerClientRateLimitSettings);
         }
 
         /// <summary>
-        /// Returns true if InlineHookChannel instances are equal
+        /// Returns true if PerClientRateLimitSettings instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineHookChannel to be compared</param>
+        /// <param name="input">Instance of PerClientRateLimitSettings to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineHookChannel input)
+        public bool Equals(PerClientRateLimitSettings input)
         {
             if (input == null)
             {
@@ -99,13 +98,13 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    this.DefaultMode == input.DefaultMode ||
+                    this.DefaultMode.Equals(input.DefaultMode)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.UseCaseModeOverrides == input.UseCaseModeOverrides ||
+                    (this.UseCaseModeOverrides != null &&
+                    this.UseCaseModeOverrides.Equals(input.UseCaseModeOverrides))
                 );
         }
 
@@ -119,10 +118,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                if (this._Version != null)
+                hashCode = (hashCode * 59) + this.DefaultMode.GetHashCode();
+                if (this.UseCaseModeOverrides != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.UseCaseModeOverrides.GetHashCode();
                 }
                 return hashCode;
             }
