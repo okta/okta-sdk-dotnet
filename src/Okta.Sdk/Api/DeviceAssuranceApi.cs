@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssurance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeviceAssurance</returns>
-        System.Threading.Tasks.Task<DeviceAssurance> CreateDeviceAssurancePolicyAsync(DeviceAssurance deviceAssurance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeviceAssurance> CreateDeviceAssurancePolicyAsync(  DeviceAssurance deviceAssurance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Device Assurance Policy
         /// </summary>
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssurance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeviceAssurance)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeviceAssurance>> CreateDeviceAssurancePolicyWithHttpInfoAsync(DeviceAssurance deviceAssurance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeviceAssurance>> CreateDeviceAssurancePolicyWithHttpInfoAsync(  DeviceAssurance deviceAssurance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Device Assurance Policy
         /// </summary>
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssuranceId">Id of the Device Assurance Policy</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteDeviceAssurancePolicyAsync(string deviceAssuranceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteDeviceAssurancePolicyAsync(  string deviceAssuranceId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Device Assurance Policy
         /// </summary>
@@ -71,7 +71,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssuranceId">Id of the Device Assurance Policy</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDeviceAssurancePolicyWithHttpInfoAsync(string deviceAssuranceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDeviceAssurancePolicyWithHttpInfoAsync(  string deviceAssuranceId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Device Assurance Policy
         /// </summary>
@@ -82,7 +82,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssuranceId">Id of the Device Assurance Policy</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeviceAssurance</returns>
-        System.Threading.Tasks.Task<DeviceAssurance> GetDeviceAssurancePolicyAsync(string deviceAssuranceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeviceAssurance> GetDeviceAssurancePolicyAsync(  string deviceAssuranceId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Device Assurance Policy
         /// </summary>
@@ -93,7 +93,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssuranceId">Id of the Device Assurance Policy</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeviceAssurance)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeviceAssurance>> GetDeviceAssurancePolicyWithHttpInfoAsync(string deviceAssuranceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeviceAssurance>> GetDeviceAssurancePolicyWithHttpInfoAsync(  string deviceAssuranceId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Device Assurance Policies
         /// </summary>
@@ -125,7 +125,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssurance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeviceAssurance</returns>
-        System.Threading.Tasks.Task<DeviceAssurance> UpdateDeviceAssurancePolicyAsync(string deviceAssuranceId, DeviceAssurance deviceAssurance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeviceAssurance> UpdateDeviceAssurancePolicyAsync(  string deviceAssuranceId ,   DeviceAssurance deviceAssurance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Device Assurance Policy
         /// </summary>
@@ -137,7 +137,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssurance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeviceAssurance)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeviceAssurance>> UpdateDeviceAssurancePolicyWithHttpInfoAsync(string deviceAssuranceId, DeviceAssurance deviceAssurance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeviceAssurance>> UpdateDeviceAssurancePolicyWithHttpInfoAsync(  string deviceAssuranceId ,   DeviceAssurance deviceAssurance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -250,7 +250,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssurance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeviceAssurance</returns>
-        public async System.Threading.Tasks.Task<DeviceAssurance> CreateDeviceAssurancePolicyAsync(DeviceAssurance deviceAssurance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeviceAssurance> CreateDeviceAssurancePolicyAsync(  DeviceAssurance deviceAssurance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<DeviceAssurance> localVarResponse = await CreateDeviceAssurancePolicyWithHttpInfoAsync(deviceAssurance, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -262,7 +262,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssurance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeviceAssurance)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<DeviceAssurance>> CreateDeviceAssurancePolicyWithHttpInfoAsync(DeviceAssurance deviceAssurance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<DeviceAssurance>> CreateDeviceAssurancePolicyWithHttpInfoAsync(  DeviceAssurance deviceAssurance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'deviceAssurance' is set
             if (deviceAssurance == null)
@@ -296,12 +296,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = deviceAssurance;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -336,7 +336,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssuranceId">Id of the Device Assurance Policy</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteDeviceAssurancePolicyAsync(string deviceAssuranceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteDeviceAssurancePolicyAsync(  string deviceAssuranceId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteDeviceAssurancePolicyWithHttpInfoAsync(deviceAssuranceId, cancellationToken).ConfigureAwait(false);
         }
@@ -347,7 +347,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssuranceId">Id of the Device Assurance Policy</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteDeviceAssurancePolicyWithHttpInfoAsync(string deviceAssuranceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteDeviceAssurancePolicyWithHttpInfoAsync(  string deviceAssuranceId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'deviceAssuranceId' is set
             if (deviceAssuranceId == null)
@@ -380,12 +380,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("deviceAssuranceId", Okta.Sdk.Client.ClientUtils.ParameterToString(deviceAssuranceId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -420,7 +420,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssuranceId">Id of the Device Assurance Policy</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeviceAssurance</returns>
-        public async System.Threading.Tasks.Task<DeviceAssurance> GetDeviceAssurancePolicyAsync(string deviceAssuranceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeviceAssurance> GetDeviceAssurancePolicyAsync(  string deviceAssuranceId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<DeviceAssurance> localVarResponse = await GetDeviceAssurancePolicyWithHttpInfoAsync(deviceAssuranceId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -432,7 +432,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssuranceId">Id of the Device Assurance Policy</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeviceAssurance)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<DeviceAssurance>> GetDeviceAssurancePolicyWithHttpInfoAsync(string deviceAssuranceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<DeviceAssurance>> GetDeviceAssurancePolicyWithHttpInfoAsync(  string deviceAssuranceId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'deviceAssuranceId' is set
             if (deviceAssuranceId == null)
@@ -465,12 +465,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("deviceAssuranceId", Okta.Sdk.Client.ClientUtils.ParameterToString(deviceAssuranceId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -504,6 +504,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;DeviceAssurance&gt;</returns>
+        //a
         public IOktaCollectionClient<DeviceAssurance> ListDeviceAssurancePolicies(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
@@ -530,12 +531,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -578,12 +579,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -615,7 +616,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssurance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeviceAssurance</returns>
-        public async System.Threading.Tasks.Task<DeviceAssurance> UpdateDeviceAssurancePolicyAsync(string deviceAssuranceId, DeviceAssurance deviceAssurance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeviceAssurance> UpdateDeviceAssurancePolicyAsync(  string deviceAssuranceId ,   DeviceAssurance deviceAssurance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<DeviceAssurance> localVarResponse = await UpdateDeviceAssurancePolicyWithHttpInfoAsync(deviceAssuranceId, deviceAssurance, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -628,7 +629,7 @@ namespace Okta.Sdk.Api
         /// <param name="deviceAssurance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeviceAssurance)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<DeviceAssurance>> UpdateDeviceAssurancePolicyWithHttpInfoAsync(string deviceAssuranceId, DeviceAssurance deviceAssurance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<DeviceAssurance>> UpdateDeviceAssurancePolicyWithHttpInfoAsync(  string deviceAssuranceId ,   DeviceAssurance deviceAssurance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'deviceAssuranceId' is set
             if (deviceAssuranceId == null)
@@ -669,12 +670,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("deviceAssuranceId", Okta.Sdk.Client.ClientUtils.ParameterToString(deviceAssuranceId)); // path parameter
             localVarRequestOptions.Data = deviceAssurance;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

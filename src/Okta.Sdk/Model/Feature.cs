@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,20 @@ namespace Okta.Sdk.Model
     
     public partial class Feature : IEquatable<Feature>
     {
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        
+        public EnabledStatus Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        
+        public FeatureType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Description
@@ -65,18 +79,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "stage", EmitDefaultValue = false)]
         public FeatureStage Stage { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string Status { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -164,13 +166,11 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status.Equals(input.Status)
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -206,14 +206,8 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Stage.GetHashCode();
                 }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

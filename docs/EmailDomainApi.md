@@ -1,6 +1,6 @@
 # Okta.Sdk.Api.EmailDomainApi
 
-All URIs are relative to *https://your-subdomain.okta.com*
+All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,8 +9,8 @@ Method | HTTP request | Description
 [**GetEmailDomain**](EmailDomainApi.md#getemaildomain) | **GET** /api/v1/email-domains/{emailDomainId} | Retrieve a Email Domain
 [**ListEmailDomainBrands**](EmailDomainApi.md#listemaildomainbrands) | **GET** /api/v1/email-domains/{emailDomainId}/brands | List all brands linked to an email domain
 [**ListEmailDomains**](EmailDomainApi.md#listemaildomains) | **GET** /api/v1/email-domains | List all email domains
-[**UpdateEmailDomain**](EmailDomainApi.md#updateemaildomain) | **PUT** /api/v1/email-domains/{emailDomainId} | Update an Email Domain
-[**VerifyEmailDomain**](EmailDomainApi.md#verifyemaildomain) | **POST** /api/v1/email-domains/{emailDomainId}/verify | Verify Email Domain
+[**UpdateEmailDomain**](EmailDomainApi.md#updateemaildomain) | **PUT** /api/v1/email-domains/{emailDomainId} | Replace an Email Domain
+[**VerifyEmailDomain**](EmailDomainApi.md#verifyemaildomain) | **POST** /api/v1/email-domains/{emailDomainId}/verify | Verify an Email Domain
 
 
 <a name="createemaildomain"></a>
@@ -36,10 +36,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EmailDomainApi(config);
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -115,10 +115,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EmailDomainApi(config);
@@ -152,7 +152,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -193,10 +193,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EmailDomainApi(config);
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -272,10 +272,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EmailDomainApi(config);
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -351,10 +351,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EmailDomainApi(config);
@@ -385,7 +385,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -406,9 +406,9 @@ This endpoint does not need any parameter.
 # **UpdateEmailDomain**
 > EmailDomainResponse UpdateEmailDomain (string emailDomainId, UpdateEmailDomain updateEmailDomain)
 
-Update an Email Domain
+Replace an Email Domain
 
-Updates an email domain by `emailDomainId`
+Replaces an email domain by `emailDomainId`
 
 ### Example
 ```csharp
@@ -425,10 +425,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EmailDomainApi(config);
@@ -437,7 +437,7 @@ namespace Example
 
             try
             {
-                // Update an Email Domain
+                // Replace an Email Domain
                 EmailDomainResponse result = apiInstance.UpdateEmailDomain(emailDomainId, updateEmailDomain);
                 Debug.WriteLine(result);
             }
@@ -465,7 +465,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -488,9 +488,9 @@ Name | Type | Description  | Notes
 # **VerifyEmailDomain**
 > EmailDomainResponse VerifyEmailDomain (string emailDomainId)
 
-Verify Email Domain
+Verify an Email Domain
 
-Verifies the Email Domain by `id`.
+Verifies an Email Domain by `emailDomainId`.
 
 ### Example
 ```csharp
@@ -507,10 +507,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EmailDomainApi(config);
@@ -518,7 +518,7 @@ namespace Example
 
             try
             {
-                // Verify Email Domain
+                // Verify an Email Domain
                 EmailDomainResponse result = apiInstance.VerifyEmailDomain(emailDomainId);
                 Debug.WriteLine(result);
             }
@@ -545,7 +545,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 

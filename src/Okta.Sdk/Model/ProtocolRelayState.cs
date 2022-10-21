@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,14 @@ namespace Okta.Sdk.Model
     
     public partial class ProtocolRelayState : IEquatable<ProtocolRelayState>
     {
-        
+
         /// <summary>
         /// Gets or Sets Format
         /// </summary>
         [DataMember(Name = "format", EmitDefaultValue = false)]
-        public string Format { get; set; }
-
+        
+        public ProtocolRelayStateFormat Format { get; set; }
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -86,8 +87,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Format == input.Format ||
-                    (this.Format != null &&
-                    this.Format.Equals(input.Format))
+                    this.Format.Equals(input.Format)
                 );
         }
 
@@ -101,10 +101,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Format != null)
-                {
-                    hashCode = (hashCode * 59) + this.Format.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Format.GetHashCode();
                 return hashCode;
             }
         }

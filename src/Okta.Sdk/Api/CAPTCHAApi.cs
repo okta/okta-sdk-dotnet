@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CAPTCHAInstance</returns>
-        System.Threading.Tasks.Task<CAPTCHAInstance> CreateCaptchaInstanceAsync(CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CAPTCHAInstance> CreateCaptchaInstanceAsync(  CAPTCHAInstance instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a CAPTCHA instance
         /// </summary>
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CAPTCHAInstance)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CAPTCHAInstance>> CreateCaptchaInstanceWithHttpInfoAsync(CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CAPTCHAInstance>> CreateCaptchaInstanceWithHttpInfoAsync(  CAPTCHAInstance instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a CAPTCHA Instance
         /// </summary>
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         /// <param name="captchaId">id of the CAPTCHA</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteCaptchaInstanceAsync(string captchaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteCaptchaInstanceAsync(  string captchaId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a CAPTCHA Instance
         /// </summary>
@@ -71,7 +71,7 @@ namespace Okta.Sdk.Api
         /// <param name="captchaId">id of the CAPTCHA</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCaptchaInstanceWithHttpInfoAsync(string captchaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCaptchaInstanceWithHttpInfoAsync(  string captchaId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a CAPTCHA Instance
         /// </summary>
@@ -82,7 +82,7 @@ namespace Okta.Sdk.Api
         /// <param name="captchaId">id of the CAPTCHA</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CAPTCHAInstance</returns>
-        System.Threading.Tasks.Task<CAPTCHAInstance> GetCaptchaInstanceAsync(string captchaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CAPTCHAInstance> GetCaptchaInstanceAsync(  string captchaId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a CAPTCHA Instance
         /// </summary>
@@ -93,7 +93,7 @@ namespace Okta.Sdk.Api
         /// <param name="captchaId">id of the CAPTCHA</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CAPTCHAInstance)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CAPTCHAInstance>> GetCaptchaInstanceWithHttpInfoAsync(string captchaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CAPTCHAInstance>> GetCaptchaInstanceWithHttpInfoAsync(  string captchaId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all CAPTCHA instances
         /// </summary>
@@ -125,7 +125,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CAPTCHAInstance</returns>
-        System.Threading.Tasks.Task<CAPTCHAInstance> PartialUpdateCaptchaInstanceAsync(string captchaId, CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CAPTCHAInstance> PartialUpdateCaptchaInstanceAsync(  string captchaId ,   CAPTCHAInstance instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update a CAPTCHA instance
         /// </summary>
@@ -137,7 +137,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CAPTCHAInstance)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CAPTCHAInstance>> PartialUpdateCaptchaInstanceWithHttpInfoAsync(string captchaId, CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CAPTCHAInstance>> PartialUpdateCaptchaInstanceWithHttpInfoAsync(  string captchaId ,   CAPTCHAInstance instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a CAPTCHA instance
         /// </summary>
@@ -149,7 +149,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CAPTCHAInstance</returns>
-        System.Threading.Tasks.Task<CAPTCHAInstance> UpdateCaptchaInstanceAsync(string captchaId, CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CAPTCHAInstance> UpdateCaptchaInstanceAsync(  string captchaId ,   CAPTCHAInstance instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a CAPTCHA instance
         /// </summary>
@@ -161,7 +161,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CAPTCHAInstance)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CAPTCHAInstance>> UpdateCaptchaInstanceWithHttpInfoAsync(string captchaId, CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CAPTCHAInstance>> UpdateCaptchaInstanceWithHttpInfoAsync(  string captchaId ,   CAPTCHAInstance instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -274,7 +274,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CAPTCHAInstance</returns>
-        public async System.Threading.Tasks.Task<CAPTCHAInstance> CreateCaptchaInstanceAsync(CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CAPTCHAInstance> CreateCaptchaInstanceAsync(  CAPTCHAInstance instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<CAPTCHAInstance> localVarResponse = await CreateCaptchaInstanceWithHttpInfoAsync(instance, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -286,7 +286,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CAPTCHAInstance)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<CAPTCHAInstance>> CreateCaptchaInstanceWithHttpInfoAsync(CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<CAPTCHAInstance>> CreateCaptchaInstanceWithHttpInfoAsync(  CAPTCHAInstance instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'instance' is set
             if (instance == null)
@@ -320,12 +320,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = instance;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -360,7 +360,7 @@ namespace Okta.Sdk.Api
         /// <param name="captchaId">id of the CAPTCHA</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteCaptchaInstanceAsync(string captchaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteCaptchaInstanceAsync(  string captchaId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteCaptchaInstanceWithHttpInfoAsync(captchaId, cancellationToken).ConfigureAwait(false);
         }
@@ -371,7 +371,7 @@ namespace Okta.Sdk.Api
         /// <param name="captchaId">id of the CAPTCHA</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteCaptchaInstanceWithHttpInfoAsync(string captchaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteCaptchaInstanceWithHttpInfoAsync(  string captchaId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'captchaId' is set
             if (captchaId == null)
@@ -404,12 +404,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -444,7 +444,7 @@ namespace Okta.Sdk.Api
         /// <param name="captchaId">id of the CAPTCHA</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CAPTCHAInstance</returns>
-        public async System.Threading.Tasks.Task<CAPTCHAInstance> GetCaptchaInstanceAsync(string captchaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CAPTCHAInstance> GetCaptchaInstanceAsync(  string captchaId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<CAPTCHAInstance> localVarResponse = await GetCaptchaInstanceWithHttpInfoAsync(captchaId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -456,7 +456,7 @@ namespace Okta.Sdk.Api
         /// <param name="captchaId">id of the CAPTCHA</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CAPTCHAInstance)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<CAPTCHAInstance>> GetCaptchaInstanceWithHttpInfoAsync(string captchaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<CAPTCHAInstance>> GetCaptchaInstanceWithHttpInfoAsync(  string captchaId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'captchaId' is set
             if (captchaId == null)
@@ -489,12 +489,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -528,6 +528,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;CAPTCHAInstance&gt;</returns>
+        //a
         public IOktaCollectionClient<CAPTCHAInstance> ListCaptchaInstances(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
@@ -554,12 +555,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -602,12 +603,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -639,7 +640,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CAPTCHAInstance</returns>
-        public async System.Threading.Tasks.Task<CAPTCHAInstance> PartialUpdateCaptchaInstanceAsync(string captchaId, CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CAPTCHAInstance> PartialUpdateCaptchaInstanceAsync(  string captchaId ,   CAPTCHAInstance instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<CAPTCHAInstance> localVarResponse = await PartialUpdateCaptchaInstanceWithHttpInfoAsync(captchaId, instance, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -652,7 +653,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CAPTCHAInstance)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<CAPTCHAInstance>> PartialUpdateCaptchaInstanceWithHttpInfoAsync(string captchaId, CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<CAPTCHAInstance>> PartialUpdateCaptchaInstanceWithHttpInfoAsync(  string captchaId ,   CAPTCHAInstance instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'captchaId' is set
             if (captchaId == null)
@@ -693,12 +694,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
             localVarRequestOptions.Data = instance;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -734,7 +735,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CAPTCHAInstance</returns>
-        public async System.Threading.Tasks.Task<CAPTCHAInstance> UpdateCaptchaInstanceAsync(string captchaId, CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CAPTCHAInstance> UpdateCaptchaInstanceAsync(  string captchaId ,   CAPTCHAInstance instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<CAPTCHAInstance> localVarResponse = await UpdateCaptchaInstanceWithHttpInfoAsync(captchaId, instance, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -747,7 +748,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CAPTCHAInstance)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<CAPTCHAInstance>> UpdateCaptchaInstanceWithHttpInfoAsync(string captchaId, CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<CAPTCHAInstance>> UpdateCaptchaInstanceWithHttpInfoAsync(  string captchaId ,   CAPTCHAInstance instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'captchaId' is set
             if (captchaId == null)
@@ -788,12 +789,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
             localVarRequestOptions.Data = instance;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

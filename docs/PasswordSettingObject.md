@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Change** | **string** |  | [optional] 
-**Seed** | **string** |  | [optional] 
-**Status** | **string** |  | [optional] 
+**Change** | **ChangeEnum** |  | [optional] 
+**Seed** | **SeedEnum** |  | [optional] 
+**Status** | **EnabledStatus** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,13 @@ namespace Okta.Sdk.Model
     
     public partial class CatalogApplication : IEquatable<CatalogApplication>
     {
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        
+        public CatalogApplicationStatus Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Category
@@ -97,12 +104,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "signOnModes", EmitDefaultValue = false)]
         public List<string> SignOnModes { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string Status { get; set; }
 
         /// <summary>
         /// Gets or Sets VerificationStatus
@@ -229,8 +230,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status.Equals(input.Status)
                 ) && 
                 (
                     this.VerificationStatus == input.VerificationStatus ||
@@ -292,10 +292,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.SignOnModes.GetHashCode();
                 }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.VerificationStatus != null)
                 {
                     hashCode = (hashCode * 59) + this.VerificationStatus.GetHashCode();

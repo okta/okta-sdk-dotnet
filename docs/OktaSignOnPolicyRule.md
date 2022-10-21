@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** | **DateTimeOffset** |  | [optional] [readonly] 
+**Created** | **DateTimeOffset?** |  | [optional] [readonly] 
 **Id** | **string** |  | [optional] 
-**LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
+**LastUpdated** | **DateTimeOffset?** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
 **Priority** | **int** |  | [optional] 
-**Status** | **string** |  | [optional] 
+**Status** | [**LifecycleStatus**](LifecycleStatus.md) |  | [optional] 
 **System** | **bool** |  | [optional] [default to false]
-**Type** | **string** |  | [optional] 
+**Type** | [**PolicyRuleType**](PolicyRuleType.md) |  | [optional] 
 **Actions** | [**OktaSignOnPolicyRuleActions**](OktaSignOnPolicyRuleActions.md) |  | [optional] 
 **Conditions** | [**OktaSignOnPolicyRuleConditions**](OktaSignOnPolicyRuleConditions.md) |  | [optional] 
 

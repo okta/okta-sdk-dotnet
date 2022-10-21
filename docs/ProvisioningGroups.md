@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Action** | **string** |  | [optional] 
+**Action** | **ProvisioningGroupsAction** |  | [optional] 
 **Assignments** | **List&lt;string&gt;** |  | [optional] 
 **Filter** | **List&lt;string&gt;** |  | [optional] 
 **SourceAttributeName** | **string** |  | [optional] 

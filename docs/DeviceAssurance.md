@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **LastUpdatedDate** | **string** |  | [optional] [readonly] 
 **Name** | **string** | Display name of the Device Assurance Policy | [optional] 
 **OsVersion** | [**VersionObject**](VersionObject.md) |  | [optional] 
-**Platform** | **string** |  | [optional] 
+**Platform** | **Platform** |  | [optional] 
 **ScreenLockType** | [**DeviceAssuranceScreenLockType**](DeviceAssuranceScreenLockType.md) |  | [optional] 
 **SecureHardwarePresent** | **bool** |  | [optional] 
 **Links** | [**ApiTokenLink**](ApiTokenLink.md) |  | [optional] 

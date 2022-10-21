@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **Id** | **string** |  | [optional] [readonly] 
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
-**Status** | **string** |  | [optional] 
-**Type** | **string** |  | [optional] 
+**Status** | **InlineHookStatus** |  | [optional] 
+**Type** | **InlineHookType** |  | [optional] 
 **_Version** | **string** |  | [optional] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 

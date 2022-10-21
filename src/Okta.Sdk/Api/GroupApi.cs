@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ActivateGroupRuleAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task ActivateGroupRuleAsync(  string ruleId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Activate a Group Rule
         /// </summary>
@@ -49,87 +49,31 @@ namespace Okta.Sdk.Api
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ActivateGroupRuleWithHttpInfoAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> ActivateGroupRuleWithHttpInfoAsync(  string ruleId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Assign an Application Instance Target to Application Administrator Role
+        /// Assign a Group Owner
         /// </summary>
         /// <remarks>
-        /// Add App Instance Target to App Administrator Role given to a Group
+        /// Assigns a group owner for a specific group.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="applicationId"></param>
+        /// <param name="groupOwner"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(string groupId, string roleId, string appName, string applicationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of GroupOwner</returns>
+        System.Threading.Tasks.Task<GroupOwner> AddGroupOwnerAsync(  string groupId ,   GroupOwner groupOwner , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Assign an Application Instance Target to Application Administrator Role
+        /// Assign a Group Owner
         /// </summary>
         /// <remarks>
-        /// Add App Instance Target to App Administrator Role given to a Group
+        /// Assigns a group owner for a specific group.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="applicationId"></param>
+        /// <param name="groupOwner"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AddApplicationInstanceTargetToAppAdminRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string appName, string applicationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Assign an Application Target to Administrator Role
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AddApplicationTargetToAdminRoleGivenToGroupAsync(string groupId, string roleId, string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Assign an Application Target to Administrator Role
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AddApplicationTargetToAdminRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Assign a Group Target for Group Role
-        /// </summary>
-        /// <remarks>
-        /// Enumerates group targets for a group role.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="targetGroupId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AddGroupTargetToGroupAdministratorRoleForGroupAsync(string groupId, string roleId, string targetGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Assign a Group Target for Group Role
-        /// </summary>
-        /// <remarks>
-        /// Enumerates group targets for a group role.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="targetGroupId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AddGroupTargetToGroupAdministratorRoleForGroupWithHttpInfoAsync(string groupId, string roleId, string targetGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (GroupOwner)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GroupOwner>> AddGroupOwnerWithHttpInfoAsync(  string groupId ,   GroupOwner groupOwner , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Assign a User
         /// </summary>
@@ -141,7 +85,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AddUserToGroupAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task AddUserToGroupAsync(  string groupId ,   string userId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Assign a User
         /// </summary>
@@ -153,33 +97,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AddUserToGroupWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Assign a Role
-        /// </summary>
-        /// <remarks>
-        /// Assigns a Role to a Group
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="assignRoleRequest"></param>
-        /// <param name="disableNotifications"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Role</returns>
-        System.Threading.Tasks.Task<Role> AssignRoleToGroupAsync(string groupId, AssignRoleRequest assignRoleRequest, bool? disableNotifications = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Assign a Role
-        /// </summary>
-        /// <remarks>
-        /// Assigns a Role to a Group
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="assignRoleRequest"></param>
-        /// <param name="disableNotifications"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Role)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Role>> AssignRoleToGroupWithHttpInfoAsync(string groupId, AssignRoleRequest assignRoleRequest, bool? disableNotifications = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> AddUserToGroupWithHttpInfoAsync(  string groupId ,   string userId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Group
         /// </summary>
@@ -190,7 +108,7 @@ namespace Okta.Sdk.Api
         /// <param name="group"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Group</returns>
-        System.Threading.Tasks.Task<Group> CreateGroupAsync(Group group, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Group> CreateGroupAsync(  Group group , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Group
         /// </summary>
@@ -201,7 +119,7 @@ namespace Okta.Sdk.Api
         /// <param name="group"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Group)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Group>> CreateGroupWithHttpInfoAsync(Group group, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Group>> CreateGroupWithHttpInfoAsync(  Group group , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Group Rule
         /// </summary>
@@ -212,7 +130,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupRule"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupRule</returns>
-        System.Threading.Tasks.Task<GroupRule> CreateGroupRuleAsync(GroupRule groupRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupRule> CreateGroupRuleAsync(  GroupRule groupRule , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Group Rule
         /// </summary>
@@ -223,7 +141,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupRule"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupRule)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupRule>> CreateGroupRuleWithHttpInfoAsync(GroupRule groupRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupRule>> CreateGroupRuleWithHttpInfoAsync(  GroupRule groupRule , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deactivate a Group Rule
         /// </summary>
@@ -234,7 +152,7 @@ namespace Okta.Sdk.Api
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeactivateGroupRuleAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeactivateGroupRuleAsync(  string ruleId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deactivate a Group Rule
         /// </summary>
@@ -245,7 +163,7 @@ namespace Okta.Sdk.Api
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeactivateGroupRuleWithHttpInfoAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeactivateGroupRuleWithHttpInfoAsync(  string ruleId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Group
         /// </summary>
@@ -256,7 +174,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteGroupAsync(string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteGroupAsync(  string groupId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Group
         /// </summary>
@@ -267,7 +185,31 @@ namespace Okta.Sdk.Api
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteGroupWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteGroupWithHttpInfoAsync(  string groupId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Delete a Group Owner
+        /// </summary>
+        /// <remarks>
+        /// Delete a group owner from a specific group.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupId"></param>
+        /// <param name="ownerId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteGroupOwnerAsync(  string groupId ,   string ownerId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Delete a Group Owner
+        /// </summary>
+        /// <remarks>
+        /// Delete a group owner from a specific group.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupId"></param>
+        /// <param name="ownerId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteGroupOwnerWithHttpInfoAsync(  string groupId ,   string ownerId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a group Rule
         /// </summary>
@@ -279,7 +221,7 @@ namespace Okta.Sdk.Api
         /// <param name="removeUsers">Indicates whether to keep or remove users from groups assigned by this rule. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteGroupRuleAsync(string ruleId, bool? removeUsers = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteGroupRuleAsync(  string ruleId ,   bool? removeUsers = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a group Rule
         /// </summary>
@@ -291,7 +233,7 @@ namespace Okta.Sdk.Api
         /// <param name="removeUsers">Indicates whether to keep or remove users from groups assigned by this rule. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteGroupRuleWithHttpInfoAsync(string ruleId, bool? removeUsers = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteGroupRuleWithHttpInfoAsync(  string ruleId ,   bool? removeUsers = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Group Rules
         /// </summary>
@@ -302,7 +244,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Group</returns>
-        System.Threading.Tasks.Task<Group> GetGroupAsync(string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Group> GetGroupAsync(  string groupId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Group Rules
         /// </summary>
@@ -313,7 +255,35 @@ namespace Okta.Sdk.Api
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Group)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Group>> GetGroupWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Group>> GetGroupWithHttpInfoAsync(  string groupId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// List all Owners
+        /// </summary>
+        /// <remarks>
+        /// List all owners for a specific group.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupId"></param>
+        /// <param name="filter">SCIM Filter expression for group owners. Allows to filter owners by type. (optional)</param>
+        /// <param name="after">Specifies the pagination cursor for the next page of owners (optional)</param>
+        /// <param name="limit">Specifies the number of owner results in a page (optional, default to 1000)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;GroupOwner&gt;</returns>
+        IOktaCollectionClient<GroupOwner> GetGroupOwners(  string groupId ,   string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// List all Owners
+        /// </summary>
+        /// <remarks>
+        /// List all owners for a specific group.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupId"></param>
+        /// <param name="filter">SCIM Filter expression for group owners. Allows to filter owners by type. (optional)</param>
+        /// <param name="after">Specifies the pagination cursor for the next page of owners (optional)</param>
+        /// <param name="limit">Specifies the number of owner results in a page (optional, default to 1000)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;GroupOwner&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<GroupOwner>>> GetGroupOwnersWithHttpInfoAsync(  string groupId ,   string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Group Rule
         /// </summary>
@@ -325,7 +295,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupRule</returns>
-        System.Threading.Tasks.Task<GroupRule> GetGroupRuleAsync(string ruleId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupRule> GetGroupRuleAsync(  string ruleId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Group Rule
         /// </summary>
@@ -337,59 +307,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupRule)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupRule>> GetGroupRuleWithHttpInfoAsync(string ruleId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Retrieve a Role
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Role</returns>
-        System.Threading.Tasks.Task<Role> GetRoleAsync(string groupId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Retrieve a Role
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Role)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Role>> GetRoleWithHttpInfoAsync(string groupId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// List all Application Targets for an Application Administrator Role
-        /// </summary>
-        /// <remarks>
-        /// Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to 20)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;CatalogApplication&gt;</returns>
-        IOktaCollectionClient<CatalogApplication> ListApplicationTargetsForApplicationAdministratorRoleForGroup(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// List all Application Targets for an Application Administrator Role
-        /// </summary>
-        /// <remarks>
-        /// Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to 20)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;CatalogApplication&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<CatalogApplication>>> ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfoAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupRule>> GetGroupRuleWithHttpInfoAsync(  string ruleId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Assigned Applications
         /// </summary>
@@ -402,7 +320,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of app results for a page (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Application&gt;</returns>
-        IOktaCollectionClient<Application> ListAssignedApplicationsForGroup(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Application> ListAssignedApplicationsForGroup(  string groupId ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Assigned Applications
         /// </summary>
@@ -415,31 +333,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of app results for a page (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Application&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Application>>> ListAssignedApplicationsForGroupWithHttpInfoAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// List all Assigned Roles
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="expand"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Role&gt;</returns>
-        IOktaCollectionClient<Role> ListGroupAssignedRoles(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// List all Assigned Roles
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="expand"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Role&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Role>>> ListGroupAssignedRolesWithHttpInfoAsync(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Application>>> ListAssignedApplicationsForGroupWithHttpInfoAsync(  string groupId ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Group Rules
         /// </summary>
@@ -453,7 +347,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">If specified as &#x60;groupIdToGroupNameMap&#x60;, then show group names (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupRule&gt;</returns>
-        IOktaCollectionClient<GroupRule> ListGroupRules(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<GroupRule> ListGroupRules(  int? limit = default(int?) ,   string after = default(string) ,   string search = default(string) ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Group Rules
         /// </summary>
@@ -467,35 +361,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">If specified as &#x60;groupIdToGroupNameMap&#x60;, then show group names (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupRule&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GroupRule>>> ListGroupRulesWithHttpInfoAsync(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// List all Group Targets for a Group Role
-        /// </summary>
-        /// <remarks>
-        /// Enumerates group targets for a group role.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to 20)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Group&gt;</returns>
-        IOktaCollectionClient<Group> ListGroupTargetsForGroupRole(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// List all Group Targets for a Group Role
-        /// </summary>
-        /// <remarks>
-        /// Enumerates group targets for a group role.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to 20)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Group&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Group>>> ListGroupTargetsForGroupRoleWithHttpInfoAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<GroupRule>>> ListGroupRulesWithHttpInfoAsync(  int? limit = default(int?) ,   string after = default(string) ,   string search = default(string) ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Member Users
         /// </summary>
@@ -508,7 +374,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of user results in a page (optional, default to 1000)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;User&gt;</returns>
-        IOktaCollectionClient<User> ListGroupUsers(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<User> ListGroupUsers(  string groupId ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Member Users
         /// </summary>
@@ -521,7 +387,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of user results in a page (optional, default to 1000)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;User&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<User>>> ListGroupUsersWithHttpInfoAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<User>>> ListGroupUsersWithHttpInfoAsync(  string groupId ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Groups
         /// </summary>
@@ -530,13 +396,14 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Searches the name property of groups for matching value (optional)</param>
-        /// <param name="search">Filter expression for groups (optional)</param>
+        /// <param name="filter">Filter expression for groups (optional)</param>
         /// <param name="after">Specifies the pagination cursor for the next page of groups (optional)</param>
         /// <param name="limit">Specifies the number of group results in a page (optional, default to 10000)</param>
         /// <param name="expand">If specified, it causes additional metadata to be included in the response. (optional)</param>
+        /// <param name="search">Searches for groups with a supported filtering expression for all attributes except for _embedded, _links, and objectClass (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Group&gt;</returns>
-        IOktaCollectionClient<Group> ListGroups(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Group> ListGroups(  string q = default(string) ,   string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) ,   string expand = default(string) ,   string search = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Groups
         /// </summary>
@@ -545,117 +412,14 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Searches the name property of groups for matching value (optional)</param>
-        /// <param name="search">Filter expression for groups (optional)</param>
+        /// <param name="filter">Filter expression for groups (optional)</param>
         /// <param name="after">Specifies the pagination cursor for the next page of groups (optional)</param>
         /// <param name="limit">Specifies the number of group results in a page (optional, default to 10000)</param>
         /// <param name="expand">If specified, it causes additional metadata to be included in the response. (optional)</param>
+        /// <param name="search">Searches for groups with a supported filtering expression for all attributes except for _embedded, _links, and objectClass (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Group&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Group>>> ListGroupsWithHttpInfoAsync(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Delete an Application Instance Target to Application Administrator Role
-        /// </summary>
-        /// <remarks>
-        /// Remove App Instance Target to App Administrator Role given to a Group
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="applicationId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string appName, string applicationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Delete an Application Instance Target to Application Administrator Role
-        /// </summary>
-        /// <remarks>
-        /// Remove App Instance Target to App Administrator Role given to a Group
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="applicationId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RemoveApplicationTargetFromAdministratorRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string appName, string applicationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Delete an Application Target from Application Administrator Role
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Delete an Application Target from Application Administrator Role
-        /// </summary>
-        /// <remarks>
-        /// Success
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Delete a Group Target for Group Role
-        /// </summary>
-        /// <remarks>
-        /// remove group target for a group role.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="targetGroupId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string targetGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Delete a Group Target for Group Role
-        /// </summary>
-        /// <remarks>
-        /// remove group target for a group role.
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="targetGroupId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string targetGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Delete a Role
-        /// </summary>
-        /// <remarks>
-        /// Unassigns a Role from a Group
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RemoveRoleFromGroupAsync(string groupId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Delete a Role
-        /// </summary>
-        /// <remarks>
-        /// Unassigns a Role from a Group
-        /// </remarks>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RemoveRoleFromGroupWithHttpInfoAsync(string groupId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Group>>> ListGroupsWithHttpInfoAsync(  string q = default(string) ,   string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) ,   string expand = default(string) ,   string search = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Unassign a User
         /// </summary>
@@ -667,7 +431,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RemoveUserFromGroupAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task RemoveUserFromGroupAsync(  string groupId ,   string userId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Unassign a User
         /// </summary>
@@ -679,7 +443,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RemoveUserFromGroupWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> RemoveUserFromGroupWithHttpInfoAsync(  string groupId ,   string userId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Group
         /// </summary>
@@ -691,7 +455,7 @@ namespace Okta.Sdk.Api
         /// <param name="group"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Group</returns>
-        System.Threading.Tasks.Task<Group> UpdateGroupAsync(string groupId, Group group, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Group> UpdateGroupAsync(  string groupId ,   Group group , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Group
         /// </summary>
@@ -703,7 +467,7 @@ namespace Okta.Sdk.Api
         /// <param name="group"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Group)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Group>> UpdateGroupWithHttpInfoAsync(string groupId, Group group, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Group>> UpdateGroupWithHttpInfoAsync(  string groupId ,   Group group , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Group Rule
         /// </summary>
@@ -715,7 +479,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupRule"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupRule</returns>
-        System.Threading.Tasks.Task<GroupRule> UpdateGroupRuleAsync(string ruleId, GroupRule groupRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupRule> UpdateGroupRuleAsync(  string ruleId ,   GroupRule groupRule , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Group Rule
         /// </summary>
@@ -727,7 +491,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupRule"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupRule)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupRule>> UpdateGroupRuleWithHttpInfoAsync(string ruleId, GroupRule groupRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupRule>> UpdateGroupRuleWithHttpInfoAsync(  string ruleId ,   GroupRule groupRule , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -840,7 +604,7 @@ namespace Okta.Sdk.Api
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ActivateGroupRuleAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task ActivateGroupRuleAsync(  string ruleId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await ActivateGroupRuleWithHttpInfoAsync(ruleId, cancellationToken).ConfigureAwait(false);
         }
@@ -851,7 +615,7 @@ namespace Okta.Sdk.Api
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> ActivateGroupRuleWithHttpInfoAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> ActivateGroupRuleWithHttpInfoAsync(  string ruleId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ruleId' is set
             if (ruleId == null)
@@ -884,12 +648,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -918,59 +682,45 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Assign an Application Instance Target to Application Administrator Role Add App Instance Target to App Administrator Role given to a Group
+        /// Assign a Group Owner Assigns a group owner for a specific group.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="applicationId"></param>
+        /// <param name="groupOwner"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(string groupId, string roleId, string appName, string applicationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of GroupOwner</returns>
+        public async System.Threading.Tasks.Task<GroupOwner> AddGroupOwnerAsync(  string groupId ,   GroupOwner groupOwner , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await AddApplicationInstanceTargetToAppAdminRoleGivenToGroupWithHttpInfoAsync(groupId, roleId, appName, applicationId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<GroupOwner> localVarResponse = await AddGroupOwnerWithHttpInfoAsync(groupId, groupOwner, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
         /// <summary>
-        /// Assign an Application Instance Target to Application Administrator Role Add App Instance Target to App Administrator Role given to a Group
+        /// Assign a Group Owner Assigns a group owner for a specific group.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="applicationId"></param>
+        /// <param name="groupOwner"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> AddApplicationInstanceTargetToAppAdminRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string appName, string applicationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (GroupOwner)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<GroupOwner>> AddGroupOwnerWithHttpInfoAsync(  string groupId ,   GroupOwner groupOwner , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
             {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->AddApplicationInstanceTargetToAppAdminRoleGivenToGroup");
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->AddGroupOwner");
             }
 
-            // verify the required parameter 'roleId' is set
-            if (roleId == null)
+            // verify the required parameter 'groupOwner' is set
+            if (groupOwner == null)
             {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleId' when calling GroupApi->AddApplicationInstanceTargetToAppAdminRoleGivenToGroup");
-            }
-
-            // verify the required parameter 'appName' is set
-            if (appName == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appName' when calling GroupApi->AddApplicationInstanceTargetToAppAdminRoleGivenToGroup");
-            }
-
-            // verify the required parameter 'applicationId' is set
-            if (applicationId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'applicationId' when calling GroupApi->AddApplicationInstanceTargetToAppAdminRoleGivenToGroup");
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupOwner' when calling GroupApi->AddGroupOwner");
             }
 
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -991,16 +741,14 @@ namespace Okta.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
-            localVarRequestOptions.PathParameters.Add("applicationId", Okta.Sdk.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            localVarRequestOptions.Data = groupOwner;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1014,215 +762,11 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<GroupOwner>("/api/v1/groups/{groupId}/owners", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AddApplicationInstanceTargetToAppAdminRoleGivenToGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Assign an Application Target to Administrator Role Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AddApplicationTargetToAdminRoleGivenToGroupAsync(string groupId, string roleId, string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await AddApplicationTargetToAdminRoleGivenToGroupWithHttpInfoAsync(groupId, roleId, appName, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Assign an Application Target to Administrator Role Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> AddApplicationTargetToAdminRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->AddApplicationTargetToAdminRoleGivenToGroup");
-            }
-
-            // verify the required parameter 'roleId' is set
-            if (roleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleId' when calling GroupApi->AddApplicationTargetToAdminRoleGivenToGroup");
-            }
-
-            // verify the required parameter 'appName' is set
-            if (appName == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appName' when calling GroupApi->AddApplicationTargetToAdminRoleGivenToGroup");
-            }
-
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
-
-            // authentication (API_Token) required
-            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            
-            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("AddApplicationTargetToAdminRoleGivenToGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Assign a Group Target for Group Role Enumerates group targets for a group role.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="targetGroupId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AddGroupTargetToGroupAdministratorRoleForGroupAsync(string groupId, string roleId, string targetGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await AddGroupTargetToGroupAdministratorRoleForGroupWithHttpInfoAsync(groupId, roleId, targetGroupId, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Assign a Group Target for Group Role Enumerates group targets for a group role.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="targetGroupId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> AddGroupTargetToGroupAdministratorRoleForGroupWithHttpInfoAsync(string groupId, string roleId, string targetGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->AddGroupTargetToGroupAdministratorRoleForGroup");
-            }
-
-            // verify the required parameter 'roleId' is set
-            if (roleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleId' when calling GroupApi->AddGroupTargetToGroupAdministratorRoleForGroup");
-            }
-
-            // verify the required parameter 'targetGroupId' is set
-            if (targetGroupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'targetGroupId' when calling GroupApi->AddGroupTargetToGroupAdministratorRoleForGroup");
-            }
-
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("targetGroupId", Okta.Sdk.Client.ClientUtils.ParameterToString(targetGroupId)); // path parameter
-
-            // authentication (API_Token) required
-            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            
-            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("AddGroupTargetToGroupAdministratorRoleForGroup", localVarResponse);
+                Exception _exception = this.ExceptionFactory("AddGroupOwner", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1240,7 +784,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AddUserToGroupAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task AddUserToGroupAsync(  string groupId ,   string userId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await AddUserToGroupWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
         }
@@ -1252,7 +796,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> AddUserToGroupWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> AddUserToGroupWithHttpInfoAsync(  string groupId ,   string userId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -1292,12 +836,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1326,114 +870,13 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Assign a Role Assigns a Role to a Group
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="assignRoleRequest"></param>
-        /// <param name="disableNotifications"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Role</returns>
-        public async System.Threading.Tasks.Task<Role> AssignRoleToGroupAsync(string groupId, AssignRoleRequest assignRoleRequest, bool? disableNotifications = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Okta.Sdk.Client.ApiResponse<Role> localVarResponse = await AssignRoleToGroupWithHttpInfoAsync(groupId, assignRoleRequest, disableNotifications, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-        /// <summary>
-        /// Assign a Role Assigns a Role to a Group
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="assignRoleRequest"></param>
-        /// <param name="disableNotifications"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Role)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Role>> AssignRoleToGroupWithHttpInfoAsync(string groupId, AssignRoleRequest assignRoleRequest, bool? disableNotifications = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->AssignRoleToGroup");
-            }
-
-            // verify the required parameter 'assignRoleRequest' is set
-            if (assignRoleRequest == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'assignRoleRequest' when calling GroupApi->AssignRoleToGroup");
-            }
-
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            if (disableNotifications != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "disableNotifications", disableNotifications));
-            }
-            localVarRequestOptions.Data = assignRoleRequest;
-
-            // authentication (API_Token) required
-            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            
-            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Role>("/api/v1/groups/{groupId}/roles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("AssignRoleToGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Create a Group Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="group"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Group</returns>
-        public async System.Threading.Tasks.Task<Group> CreateGroupAsync(Group group, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Group> CreateGroupAsync(  Group group , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<Group> localVarResponse = await CreateGroupWithHttpInfoAsync(group, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1445,7 +888,7 @@ namespace Okta.Sdk.Api
         /// <param name="group"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Group)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Group>> CreateGroupWithHttpInfoAsync(Group group, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Group>> CreateGroupWithHttpInfoAsync(  Group group , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'group' is set
             if (group == null)
@@ -1479,12 +922,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = group;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1519,7 +962,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupRule"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupRule</returns>
-        public async System.Threading.Tasks.Task<GroupRule> CreateGroupRuleAsync(GroupRule groupRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupRule> CreateGroupRuleAsync(  GroupRule groupRule , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<GroupRule> localVarResponse = await CreateGroupRuleWithHttpInfoAsync(groupRule, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1531,7 +974,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupRule"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupRule)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<GroupRule>> CreateGroupRuleWithHttpInfoAsync(GroupRule groupRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<GroupRule>> CreateGroupRuleWithHttpInfoAsync(  GroupRule groupRule , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupRule' is set
             if (groupRule == null)
@@ -1565,12 +1008,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = groupRule;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1605,7 +1048,7 @@ namespace Okta.Sdk.Api
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeactivateGroupRuleAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeactivateGroupRuleAsync(  string ruleId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeactivateGroupRuleWithHttpInfoAsync(ruleId, cancellationToken).ConfigureAwait(false);
         }
@@ -1616,7 +1059,7 @@ namespace Okta.Sdk.Api
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeactivateGroupRuleWithHttpInfoAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeactivateGroupRuleWithHttpInfoAsync(  string ruleId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ruleId' is set
             if (ruleId == null)
@@ -1649,12 +1092,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1689,7 +1132,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteGroupAsync(string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteGroupAsync(  string groupId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteGroupWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
         }
@@ -1700,7 +1143,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteGroupWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteGroupWithHttpInfoAsync(  string groupId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -1733,12 +1176,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1767,6 +1210,99 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
+        /// Delete a Group Owner Delete a group owner from a specific group.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupId"></param>
+        /// <param name="ownerId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteGroupOwnerAsync(  string groupId ,   string ownerId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await DeleteGroupOwnerWithHttpInfoAsync(groupId, ownerId, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Delete a Group Owner Delete a group owner from a specific group.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupId"></param>
+        /// <param name="ownerId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteGroupOwnerWithHttpInfoAsync(  string groupId ,   string ownerId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'groupId' is set
+            if (groupId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->DeleteGroupOwner");
+            }
+
+            // verify the required parameter 'ownerId' is set
+            if (ownerId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'ownerId' when calling GroupApi->DeleteGroupOwner");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("ownerId", Okta.Sdk.Client.ClientUtils.ParameterToString(ownerId)); // path parameter
+
+            // authentication (apiToken) required
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (oauth2) required
+            // oauth required
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/api/v1/groups/{groupId}/owners/{ownerId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupOwner", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Delete a group Rule Removes a specific group rule by id from your organization
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1774,7 +1310,7 @@ namespace Okta.Sdk.Api
         /// <param name="removeUsers">Indicates whether to keep or remove users from groups assigned by this rule. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteGroupRuleAsync(string ruleId, bool? removeUsers = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteGroupRuleAsync(  string ruleId ,   bool? removeUsers = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteGroupRuleWithHttpInfoAsync(ruleId, removeUsers, cancellationToken).ConfigureAwait(false);
         }
@@ -1786,7 +1322,7 @@ namespace Okta.Sdk.Api
         /// <param name="removeUsers">Indicates whether to keep or remove users from groups assigned by this rule. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteGroupRuleWithHttpInfoAsync(string ruleId, bool? removeUsers = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteGroupRuleWithHttpInfoAsync(  string ruleId ,   bool? removeUsers = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ruleId' is set
             if (ruleId == null)
@@ -1823,12 +1359,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "removeUsers", removeUsers));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1863,7 +1399,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Group</returns>
-        public async System.Threading.Tasks.Task<Group> GetGroupAsync(string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Group> GetGroupAsync(  string groupId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<Group> localVarResponse = await GetGroupWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1875,7 +1411,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Group)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Group>> GetGroupWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Group>> GetGroupWithHttpInfoAsync(  string groupId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -1908,12 +1444,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1942,6 +1478,162 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
+        /// List all Owners List all owners for a specific group.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupId"></param>
+        /// <param name="filter">SCIM Filter expression for group owners. Allows to filter owners by type. (optional)</param>
+        /// <param name="after">Specifies the pagination cursor for the next page of owners (optional)</param>
+        /// <param name="limit">Specifies the number of owner results in a page (optional, default to 1000)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;GroupOwner&gt;</returns>
+        //a
+        public IOktaCollectionClient<GroupOwner> GetGroupOwners(  string groupId ,   string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'groupId' is set
+            if (groupId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->GetGroupOwners");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiToken) required
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (oauth2) required
+            // oauth required
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
+            
+            return new OktaCollectionClient<GroupOwner>(localVarRequestOptions, "/api/v1/groups/{groupId}/owners", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
+        }
+        /// <summary>
+        /// List all Owners List all owners for a specific group.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="groupId"></param>
+        /// <param name="filter">SCIM Filter expression for group owners. Allows to filter owners by type. (optional)</param>
+        /// <param name="after">Specifies the pagination cursor for the next page of owners (optional)</param>
+        /// <param name="limit">Specifies the number of owner results in a page (optional, default to 1000)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;GroupOwner&gt;)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<GroupOwner>>> GetGroupOwnersWithHttpInfoAsync(  string groupId ,   string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'groupId' is set
+            if (groupId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->GetGroupOwners");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiToken) required
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (oauth2) required
+            // oauth required
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupOwner>>("/api/v1/groups/{groupId}/owners", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupOwners", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Retrieve a Group Rule Fetches a specific group rule by id from your organization
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1949,7 +1641,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupRule</returns>
-        public async System.Threading.Tasks.Task<GroupRule> GetGroupRuleAsync(string ruleId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupRule> GetGroupRuleAsync(  string ruleId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<GroupRule> localVarResponse = await GetGroupRuleWithHttpInfoAsync(ruleId, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1962,7 +1654,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupRule)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<GroupRule>> GetGroupRuleWithHttpInfoAsync(string ruleId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<GroupRule>> GetGroupRuleWithHttpInfoAsync(  string ruleId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ruleId' is set
             if (ruleId == null)
@@ -1999,12 +1691,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2033,261 +1725,6 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve a Role Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Role</returns>
-        public async System.Threading.Tasks.Task<Role> GetRoleAsync(string groupId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Okta.Sdk.Client.ApiResponse<Role> localVarResponse = await GetRoleWithHttpInfoAsync(groupId, roleId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-        /// <summary>
-        /// Retrieve a Role Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Role)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Role>> GetRoleWithHttpInfoAsync(string groupId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->GetRole");
-            }
-
-            // verify the required parameter 'roleId' is set
-            if (roleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleId' when calling GroupApi->GetRole");
-            }
-
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
-
-            // authentication (API_Token) required
-            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            
-            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Role>("/api/v1/groups/{groupId}/roles/{roleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetRole", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all Application Targets for an Application Administrator Role Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to 20)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;CatalogApplication&gt;</returns>
-        public IOktaCollectionClient<CatalogApplication> ListApplicationTargetsForApplicationAdministratorRoleForGroup(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->ListApplicationTargetsForApplicationAdministratorRoleForGroup");
-            }
-
-            // verify the required parameter 'roleId' is set
-            if (roleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleId' when calling GroupApi->ListApplicationTargetsForApplicationAdministratorRoleForGroup");
-            }
-
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
-            if (after != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-
-            // authentication (API_Token) required
-            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            
-            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
-            
-            return new OktaCollectionClient<CatalogApplication>(localVarRequestOptions, "/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
-        }
-        /// <summary>
-        /// List all Application Targets for an Application Administrator Role Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to 20)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;CatalogApplication&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<CatalogApplication>>> ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfoAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->ListApplicationTargetsForApplicationAdministratorRoleForGroup");
-            }
-
-            // verify the required parameter 'roleId' is set
-            if (roleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleId' when calling GroupApi->ListApplicationTargetsForApplicationAdministratorRoleForGroup");
-            }
-
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
-            if (after != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-
-            // authentication (API_Token) required
-            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            
-            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<CatalogApplication>>("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListApplicationTargetsForApplicationAdministratorRoleForGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// List all Assigned Applications Enumerates all applications that are assigned to a group.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2296,7 +1733,8 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of app results for a page (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Application&gt;</returns>
-        public IOktaCollectionClient<Application> ListAssignedApplicationsForGroup(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        //a
+        public IOktaCollectionClient<Application> ListAssignedApplicationsForGroup(  string groupId ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -2337,12 +1775,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2362,7 +1800,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of app results for a page (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Application&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Application>>> ListAssignedApplicationsForGroupWithHttpInfoAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Application>>> ListAssignedApplicationsForGroupWithHttpInfoAsync(  string groupId ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -2403,12 +1841,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2433,141 +1871,6 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List all Assigned Roles Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="expand"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Role&gt;</returns>
-        public IOktaCollectionClient<Role> ListGroupAssignedRoles(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->ListGroupAssignedRoles");
-            }
-
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            if (expand != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
-            }
-
-            // authentication (API_Token) required
-            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            
-            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
-            
-            return new OktaCollectionClient<Role>(localVarRequestOptions, "/api/v1/groups/{groupId}/roles", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
-        }
-        /// <summary>
-        /// List all Assigned Roles Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="expand"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Role&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Role>>> ListGroupAssignedRolesWithHttpInfoAsync(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->ListGroupAssignedRoles");
-            }
-
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            if (expand != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
-            }
-
-            // authentication (API_Token) required
-            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            
-            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Role>>("/api/v1/groups/{groupId}/roles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListGroupAssignedRoles", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// List all Group Rules Lists all group rules for your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2577,7 +1880,8 @@ namespace Okta.Sdk.Api
         /// <param name="expand">If specified as &#x60;groupIdToGroupNameMap&#x60;, then show group names (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupRule&gt;</returns>
-        public IOktaCollectionClient<GroupRule> ListGroupRules(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        //a
+        public IOktaCollectionClient<GroupRule> ListGroupRules(  int? limit = default(int?) ,   string after = default(string) ,   string search = default(string) ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -2619,12 +1923,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2645,7 +1949,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">If specified as &#x60;groupIdToGroupNameMap&#x60;, then show group names (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupRule&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<GroupRule>>> ListGroupRulesWithHttpInfoAsync(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<GroupRule>>> ListGroupRulesWithHttpInfoAsync(  int? limit = default(int?) ,   string after = default(string) ,   string search = default(string) ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -2687,12 +1991,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2717,167 +2021,6 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List all Group Targets for a Group Role Enumerates group targets for a group role.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to 20)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Group&gt;</returns>
-        public IOktaCollectionClient<Group> ListGroupTargetsForGroupRole(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->ListGroupTargetsForGroupRole");
-            }
-
-            // verify the required parameter 'roleId' is set
-            if (roleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleId' when calling GroupApi->ListGroupTargetsForGroupRole");
-            }
-
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
-            if (after != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-
-            // authentication (API_Token) required
-            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            
-            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
-            
-            return new OktaCollectionClient<Group>(localVarRequestOptions, "/api/v1/groups/{groupId}/roles/{roleId}/targets/groups", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
-        }
-        /// <summary>
-        /// List all Group Targets for a Group Role Enumerates group targets for a group role.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="after"> (optional)</param>
-        /// <param name="limit"> (optional, default to 20)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Group&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Group>>> ListGroupTargetsForGroupRoleWithHttpInfoAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->ListGroupTargetsForGroupRole");
-            }
-
-            // verify the required parameter 'roleId' is set
-            if (roleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleId' when calling GroupApi->ListGroupTargetsForGroupRole");
-            }
-
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
-            if (after != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-
-            // authentication (API_Token) required
-            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            
-            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Group>>("/api/v1/groups/{groupId}/roles/{roleId}/targets/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListGroupTargetsForGroupRole", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// List all Member Users Enumerates all users that are a member of a group.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2886,7 +2029,8 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of user results in a page (optional, default to 1000)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;User&gt;</returns>
-        public IOktaCollectionClient<User> ListGroupUsers(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        //a
+        public IOktaCollectionClient<User> ListGroupUsers(  string groupId ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -2927,12 +2071,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2952,7 +2096,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of user results in a page (optional, default to 1000)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;User&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<User>>> ListGroupUsersWithHttpInfoAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<User>>> ListGroupUsersWithHttpInfoAsync(  string groupId ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -2993,12 +2137,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3027,13 +2171,15 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Searches the name property of groups for matching value (optional)</param>
-        /// <param name="search">Filter expression for groups (optional)</param>
+        /// <param name="filter">Filter expression for groups (optional)</param>
         /// <param name="after">Specifies the pagination cursor for the next page of groups (optional)</param>
         /// <param name="limit">Specifies the number of group results in a page (optional, default to 10000)</param>
         /// <param name="expand">If specified, it causes additional metadata to be included in the response. (optional)</param>
+        /// <param name="search">Searches for groups with a supported filtering expression for all attributes except for _embedded, _links, and objectClass (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Group&gt;</returns>
-        public IOktaCollectionClient<Group> ListGroups(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        //a
+        public IOktaCollectionClient<Group> ListGroups(  string q = default(string) ,   string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) ,   string expand = default(string) ,   string search = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -3062,9 +2208,9 @@ namespace Okta.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "q", q));
             }
-            if (search != null)
+            if (filter != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
             if (after != null)
             {
@@ -3078,13 +2224,17 @@ namespace Okta.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+            }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3100,13 +2250,14 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Searches the name property of groups for matching value (optional)</param>
-        /// <param name="search">Filter expression for groups (optional)</param>
+        /// <param name="filter">Filter expression for groups (optional)</param>
         /// <param name="after">Specifies the pagination cursor for the next page of groups (optional)</param>
         /// <param name="limit">Specifies the number of group results in a page (optional, default to 10000)</param>
         /// <param name="expand">If specified, it causes additional metadata to be included in the response. (optional)</param>
+        /// <param name="search">Searches for groups with a supported filtering expression for all attributes except for _embedded, _links, and objectClass (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Group&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Group>>> ListGroupsWithHttpInfoAsync(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Group>>> ListGroupsWithHttpInfoAsync(  string q = default(string) ,   string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) ,   string expand = default(string) ,   string search = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -3135,9 +2286,9 @@ namespace Okta.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "q", q));
             }
-            if (search != null)
+            if (filter != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
             if (after != null)
             {
@@ -3151,13 +2302,17 @@ namespace Okta.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+            }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3182,414 +2337,6 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete an Application Instance Target to Application Administrator Role Remove App Instance Target to App Administrator Role given to a Group
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="applicationId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string appName, string applicationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await RemoveApplicationTargetFromAdministratorRoleGivenToGroupWithHttpInfoAsync(groupId, roleId, appName, applicationId, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Delete an Application Instance Target to Application Administrator Role Remove App Instance Target to App Administrator Role given to a Group
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="applicationId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> RemoveApplicationTargetFromAdministratorRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string appName, string applicationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->RemoveApplicationTargetFromAdministratorRoleGivenToGroup");
-            }
-
-            // verify the required parameter 'roleId' is set
-            if (roleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleId' when calling GroupApi->RemoveApplicationTargetFromAdministratorRoleGivenToGroup");
-            }
-
-            // verify the required parameter 'appName' is set
-            if (appName == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appName' when calling GroupApi->RemoveApplicationTargetFromAdministratorRoleGivenToGroup");
-            }
-
-            // verify the required parameter 'applicationId' is set
-            if (applicationId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'applicationId' when calling GroupApi->RemoveApplicationTargetFromAdministratorRoleGivenToGroup");
-            }
-
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
-            localVarRequestOptions.PathParameters.Add("applicationId", Okta.Sdk.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
-
-            // authentication (API_Token) required
-            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            
-            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("RemoveApplicationTargetFromAdministratorRoleGivenToGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Delete an Application Target from Application Administrator Role Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupWithHttpInfoAsync(groupId, roleId, appName, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Delete an Application Target from Application Administrator Role Success
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup");
-            }
-
-            // verify the required parameter 'roleId' is set
-            if (roleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleId' when calling GroupApi->RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup");
-            }
-
-            // verify the required parameter 'appName' is set
-            if (appName == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appName' when calling GroupApi->RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup");
-            }
-
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
-
-            // authentication (API_Token) required
-            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            
-            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Delete a Group Target for Group Role remove group target for a group role.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="targetGroupId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string targetGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupWithHttpInfoAsync(groupId, roleId, targetGroupId, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Delete a Group Target for Group Role remove group target for a group role.
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="targetGroupId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string targetGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup");
-            }
-
-            // verify the required parameter 'roleId' is set
-            if (roleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleId' when calling GroupApi->RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup");
-            }
-
-            // verify the required parameter 'targetGroupId' is set
-            if (targetGroupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'targetGroupId' when calling GroupApi->RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup");
-            }
-
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("targetGroupId", Okta.Sdk.Client.ClientUtils.ParameterToString(targetGroupId)); // path parameter
-
-            // authentication (API_Token) required
-            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            
-            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Delete a Role Unassigns a Role from a Group
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RemoveRoleFromGroupAsync(string groupId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await RemoveRoleFromGroupWithHttpInfoAsync(groupId, roleId, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Delete a Role Unassigns a Role from a Group
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> RemoveRoleFromGroupWithHttpInfoAsync(string groupId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->RemoveRoleFromGroup");
-            }
-
-            // verify the required parameter 'roleId' is set
-            if (roleId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleId' when calling GroupApi->RemoveRoleFromGroup");
-            }
-
-
-            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
-
-            // authentication (API_Token) required
-            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-            
-            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/api/v1/groups/{groupId}/roles/{roleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("RemoveRoleFromGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Unassign a User Removes a user from a group with &#39;OKTA_GROUP&#39; type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3597,7 +2344,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RemoveUserFromGroupAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task RemoveUserFromGroupAsync(  string groupId ,   string userId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await RemoveUserFromGroupWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
         }
@@ -3609,7 +2356,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> RemoveUserFromGroupWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> RemoveUserFromGroupWithHttpInfoAsync(  string groupId ,   string userId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -3649,12 +2396,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3690,7 +2437,7 @@ namespace Okta.Sdk.Api
         /// <param name="group"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Group</returns>
-        public async System.Threading.Tasks.Task<Group> UpdateGroupAsync(string groupId, Group group, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Group> UpdateGroupAsync(  string groupId ,   Group group , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<Group> localVarResponse = await UpdateGroupWithHttpInfoAsync(groupId, group, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3703,7 +2450,7 @@ namespace Okta.Sdk.Api
         /// <param name="group"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Group)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Group>> UpdateGroupWithHttpInfoAsync(string groupId, Group group, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Group>> UpdateGroupWithHttpInfoAsync(  string groupId ,   Group group , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -3744,12 +2491,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = group;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3785,7 +2532,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupRule"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupRule</returns>
-        public async System.Threading.Tasks.Task<GroupRule> UpdateGroupRuleAsync(string ruleId, GroupRule groupRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupRule> UpdateGroupRuleAsync(  string ruleId ,   GroupRule groupRule , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<GroupRule> localVarResponse = await UpdateGroupRuleWithHttpInfoAsync(ruleId, groupRule, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3798,7 +2545,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupRule"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupRule)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<GroupRule>> UpdateGroupRuleWithHttpInfoAsync(string ruleId, GroupRule groupRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<GroupRule>> UpdateGroupRuleWithHttpInfoAsync(  string ruleId ,   GroupRule groupRule , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ruleId' is set
             if (ruleId == null)
@@ -3839,12 +2586,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
             localVarRequestOptions.Data = groupRule;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

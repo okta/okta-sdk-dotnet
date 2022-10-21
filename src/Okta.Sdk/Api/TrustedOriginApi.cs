@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -32,117 +32,117 @@ namespace Okta.Sdk.Api
         /// Activate a Trusted Origin
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Activate a trusted origin
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
-        System.Threading.Tasks.Task<TrustedOrigin> ActivateOriginAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TrustedOrigin> ActivateOriginAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Activate a Trusted Origin
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Activate a trusted origin
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TrustedOrigin)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TrustedOrigin>> ActivateOriginWithHttpInfoAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TrustedOrigin>> ActivateOriginWithHttpInfoAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Trusted Origin
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Create a trusted origin
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOrigin"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
-        System.Threading.Tasks.Task<TrustedOrigin> CreateOriginAsync(TrustedOrigin trustedOrigin, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TrustedOrigin> CreateOriginAsync(  TrustedOrigin trustedOrigin , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Trusted Origin
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Create a trusted origin
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOrigin"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TrustedOrigin)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TrustedOrigin>> CreateOriginWithHttpInfoAsync(TrustedOrigin trustedOrigin, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TrustedOrigin>> CreateOriginWithHttpInfoAsync(  TrustedOrigin trustedOrigin , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deactivate a Trusted Origin
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Deactivate a trusted origin
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
-        System.Threading.Tasks.Task<TrustedOrigin> DeactivateOriginAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TrustedOrigin> DeactivateOriginAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deactivate a Trusted Origin
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Deactivate a trusted origin
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TrustedOrigin)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TrustedOrigin>> DeactivateOriginWithHttpInfoAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TrustedOrigin>> DeactivateOriginWithHttpInfoAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Trusted Origin
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Delete a trusted origin
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteOriginAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteOriginAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Trusted Origin
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Delete a trusted origin
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteOriginWithHttpInfoAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteOriginWithHttpInfoAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Trusted Origin
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Retrieve a trusted origin
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
-        System.Threading.Tasks.Task<TrustedOrigin> GetOriginAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TrustedOrigin> GetOriginAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Trusted Origin
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Retrieve a trusted origin
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TrustedOrigin)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TrustedOrigin>> GetOriginWithHttpInfoAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TrustedOrigin>> GetOriginWithHttpInfoAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Trusted Origins
         /// </summary>
         /// <remarks>
-        /// Success
+        /// List all trusted origins
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q"> (optional)</param>
@@ -151,12 +151,12 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;TrustedOrigin&gt;</returns>
-        IOktaCollectionClient<TrustedOrigin> ListOrigins(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<TrustedOrigin> ListOrigins(  string q = default(string) ,   string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Trusted Origins
         /// </summary>
         /// <remarks>
-        /// Success
+        /// List all trusted origins
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q"> (optional)</param>
@@ -165,31 +165,31 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;TrustedOrigin&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<TrustedOrigin>>> ListOriginsWithHttpInfoAsync(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<TrustedOrigin>>> ListOriginsWithHttpInfoAsync(  string q = default(string) ,   string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Trusted Origin
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Replace a trusted origin
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="trustedOrigin"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
-        System.Threading.Tasks.Task<TrustedOrigin> UpdateOriginAsync(string trustedOriginId, TrustedOrigin trustedOrigin, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TrustedOrigin> UpdateOriginAsync(  string trustedOriginId ,   TrustedOrigin trustedOrigin , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Trusted Origin
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Replace a trusted origin
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="trustedOrigin"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TrustedOrigin)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TrustedOrigin>> UpdateOriginWithHttpInfoAsync(string trustedOriginId, TrustedOrigin trustedOrigin, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TrustedOrigin>> UpdateOriginWithHttpInfoAsync(  string trustedOriginId ,   TrustedOrigin trustedOrigin , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -296,25 +296,25 @@ namespace Okta.Sdk.Api
         }
          
         /// <summary>
-        /// Activate a Trusted Origin Success
+        /// Activate a Trusted Origin Activate a trusted origin
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
-        public async System.Threading.Tasks.Task<TrustedOrigin> ActivateOriginAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TrustedOrigin> ActivateOriginAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = await ActivateOriginWithHttpInfoAsync(trustedOriginId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Activate a Trusted Origin Success
+        /// Activate a Trusted Origin Activate a trusted origin
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TrustedOrigin)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<TrustedOrigin>> ActivateOriginWithHttpInfoAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<TrustedOrigin>> ActivateOriginWithHttpInfoAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'trustedOriginId' is set
             if (trustedOriginId == null)
@@ -347,12 +347,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("trustedOriginId", Okta.Sdk.Client.ClientUtils.ParameterToString(trustedOriginId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -381,25 +381,25 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create a Trusted Origin Success
+        /// Create a Trusted Origin Create a trusted origin
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOrigin"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
-        public async System.Threading.Tasks.Task<TrustedOrigin> CreateOriginAsync(TrustedOrigin trustedOrigin, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TrustedOrigin> CreateOriginAsync(  TrustedOrigin trustedOrigin , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = await CreateOriginWithHttpInfoAsync(trustedOrigin, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Create a Trusted Origin Success
+        /// Create a Trusted Origin Create a trusted origin
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOrigin"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TrustedOrigin)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<TrustedOrigin>> CreateOriginWithHttpInfoAsync(TrustedOrigin trustedOrigin, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<TrustedOrigin>> CreateOriginWithHttpInfoAsync(  TrustedOrigin trustedOrigin , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'trustedOrigin' is set
             if (trustedOrigin == null)
@@ -433,12 +433,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = trustedOrigin;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -467,25 +467,25 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate a Trusted Origin Success
+        /// Deactivate a Trusted Origin Deactivate a trusted origin
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
-        public async System.Threading.Tasks.Task<TrustedOrigin> DeactivateOriginAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TrustedOrigin> DeactivateOriginAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = await DeactivateOriginWithHttpInfoAsync(trustedOriginId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Deactivate a Trusted Origin Success
+        /// Deactivate a Trusted Origin Deactivate a trusted origin
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TrustedOrigin)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<TrustedOrigin>> DeactivateOriginWithHttpInfoAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<TrustedOrigin>> DeactivateOriginWithHttpInfoAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'trustedOriginId' is set
             if (trustedOriginId == null)
@@ -518,12 +518,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("trustedOriginId", Okta.Sdk.Client.ClientUtils.ParameterToString(trustedOriginId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -552,24 +552,24 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete a Trusted Origin Success
+        /// Delete a Trusted Origin Delete a trusted origin
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteOriginAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteOriginAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteOriginWithHttpInfoAsync(trustedOriginId, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a Trusted Origin Success
+        /// Delete a Trusted Origin Delete a trusted origin
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteOriginWithHttpInfoAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteOriginWithHttpInfoAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'trustedOriginId' is set
             if (trustedOriginId == null)
@@ -602,12 +602,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("trustedOriginId", Okta.Sdk.Client.ClientUtils.ParameterToString(trustedOriginId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -636,25 +636,25 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve a Trusted Origin Success
+        /// Retrieve a Trusted Origin Retrieve a trusted origin
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
-        public async System.Threading.Tasks.Task<TrustedOrigin> GetOriginAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TrustedOrigin> GetOriginAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = await GetOriginWithHttpInfoAsync(trustedOriginId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Retrieve a Trusted Origin Success
+        /// Retrieve a Trusted Origin Retrieve a trusted origin
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TrustedOrigin)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<TrustedOrigin>> GetOriginWithHttpInfoAsync(string trustedOriginId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<TrustedOrigin>> GetOriginWithHttpInfoAsync(  string trustedOriginId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'trustedOriginId' is set
             if (trustedOriginId == null)
@@ -687,12 +687,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("trustedOriginId", Okta.Sdk.Client.ClientUtils.ParameterToString(trustedOriginId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -721,7 +721,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List all Trusted Origins Success
+        /// List all Trusted Origins List all trusted origins
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q"> (optional)</param>
@@ -730,7 +730,8 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;TrustedOrigin&gt;</returns>
-        public IOktaCollectionClient<TrustedOrigin> ListOrigins(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        //a
+        public IOktaCollectionClient<TrustedOrigin> ListOrigins(  string q = default(string) ,   string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -772,12 +773,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -789,7 +790,7 @@ namespace Okta.Sdk.Api
             return new OktaCollectionClient<TrustedOrigin>(localVarRequestOptions, "/api/v1/trustedOrigins", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
         }
         /// <summary>
-        /// List all Trusted Origins Success
+        /// List all Trusted Origins List all trusted origins
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q"> (optional)</param>
@@ -798,7 +799,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;TrustedOrigin&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<TrustedOrigin>>> ListOriginsWithHttpInfoAsync(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<TrustedOrigin>>> ListOriginsWithHttpInfoAsync(  string q = default(string) ,   string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -840,12 +841,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -870,27 +871,27 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Replace a Trusted Origin Success
+        /// Replace a Trusted Origin Replace a trusted origin
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="trustedOrigin"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TrustedOrigin</returns>
-        public async System.Threading.Tasks.Task<TrustedOrigin> UpdateOriginAsync(string trustedOriginId, TrustedOrigin trustedOrigin, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TrustedOrigin> UpdateOriginAsync(  string trustedOriginId ,   TrustedOrigin trustedOrigin , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<TrustedOrigin> localVarResponse = await UpdateOriginWithHttpInfoAsync(trustedOriginId, trustedOrigin, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Replace a Trusted Origin Success
+        /// Replace a Trusted Origin Replace a trusted origin
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
         /// <param name="trustedOrigin"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TrustedOrigin)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<TrustedOrigin>> UpdateOriginWithHttpInfoAsync(string trustedOriginId, TrustedOrigin trustedOrigin, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<TrustedOrigin>> UpdateOriginWithHttpInfoAsync(  string trustedOriginId ,   TrustedOrigin trustedOrigin , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'trustedOriginId' is set
             if (trustedOriginId == null)
@@ -931,12 +932,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("trustedOriginId", Okta.Sdk.Client.ClientUtils.ParameterToString(trustedOriginId)); // path parameter
             localVarRequestOptions.Data = trustedOrigin;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

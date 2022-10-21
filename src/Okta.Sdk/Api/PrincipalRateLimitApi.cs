@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="entity"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PrincipalRateLimitEntity</returns>
-        System.Threading.Tasks.Task<PrincipalRateLimitEntity> CreatePrincipalRateLimitEntityAsync(PrincipalRateLimitEntity entity, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PrincipalRateLimitEntity> CreatePrincipalRateLimitEntityAsync(  PrincipalRateLimitEntity entity , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Principal Rate Limit
         /// </summary>
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <param name="entity"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PrincipalRateLimitEntity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PrincipalRateLimitEntity>> CreatePrincipalRateLimitEntityWithHttpInfoAsync(PrincipalRateLimitEntity entity, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PrincipalRateLimitEntity>> CreatePrincipalRateLimitEntityWithHttpInfoAsync(  PrincipalRateLimitEntity entity , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Principal Rate Limit
         /// </summary>
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PrincipalRateLimitEntity</returns>
-        System.Threading.Tasks.Task<PrincipalRateLimitEntity> GetPrincipalRateLimitEntityAsync(string principalRateLimitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PrincipalRateLimitEntity> GetPrincipalRateLimitEntityAsync(  string principalRateLimitId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Principal Rate Limit
         /// </summary>
@@ -71,7 +71,7 @@ namespace Okta.Sdk.Api
         /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PrincipalRateLimitEntity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PrincipalRateLimitEntity>> GetPrincipalRateLimitEntityWithHttpInfoAsync(string principalRateLimitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PrincipalRateLimitEntity>> GetPrincipalRateLimitEntityWithHttpInfoAsync(  string principalRateLimitId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Principal Rate Limits
         /// </summary>
@@ -84,7 +84,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;PrincipalRateLimitEntity&gt;</returns>
-        IOktaCollectionClient<PrincipalRateLimitEntity> ListPrincipalRateLimitEntities(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<PrincipalRateLimitEntity> ListPrincipalRateLimitEntities(  string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Principal Rate Limits
         /// </summary>
@@ -97,7 +97,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;PrincipalRateLimitEntity&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<PrincipalRateLimitEntity>>> ListPrincipalRateLimitEntitiesWithHttpInfoAsync(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<PrincipalRateLimitEntity>>> ListPrincipalRateLimitEntitiesWithHttpInfoAsync(  string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Principal Rate Limit
         /// </summary>
@@ -109,7 +109,7 @@ namespace Okta.Sdk.Api
         /// <param name="entity"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PrincipalRateLimitEntity</returns>
-        System.Threading.Tasks.Task<PrincipalRateLimitEntity> UpdatePrincipalRateLimitEntityAsync(string principalRateLimitId, PrincipalRateLimitEntity entity, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PrincipalRateLimitEntity> UpdatePrincipalRateLimitEntityAsync(  string principalRateLimitId ,   PrincipalRateLimitEntity entity , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Principal Rate Limit
         /// </summary>
@@ -121,7 +121,7 @@ namespace Okta.Sdk.Api
         /// <param name="entity"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PrincipalRateLimitEntity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PrincipalRateLimitEntity>> UpdatePrincipalRateLimitEntityWithHttpInfoAsync(string principalRateLimitId, PrincipalRateLimitEntity entity, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PrincipalRateLimitEntity>> UpdatePrincipalRateLimitEntityWithHttpInfoAsync(  string principalRateLimitId ,   PrincipalRateLimitEntity entity , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -234,7 +234,7 @@ namespace Okta.Sdk.Api
         /// <param name="entity"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PrincipalRateLimitEntity</returns>
-        public async System.Threading.Tasks.Task<PrincipalRateLimitEntity> CreatePrincipalRateLimitEntityAsync(PrincipalRateLimitEntity entity, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PrincipalRateLimitEntity> CreatePrincipalRateLimitEntityAsync(  PrincipalRateLimitEntity entity , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity> localVarResponse = await CreatePrincipalRateLimitEntityWithHttpInfoAsync(entity, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -246,7 +246,7 @@ namespace Okta.Sdk.Api
         /// <param name="entity"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PrincipalRateLimitEntity)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity>> CreatePrincipalRateLimitEntityWithHttpInfoAsync(PrincipalRateLimitEntity entity, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity>> CreatePrincipalRateLimitEntityWithHttpInfoAsync(  PrincipalRateLimitEntity entity , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'entity' is set
             if (entity == null)
@@ -280,12 +280,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = entity;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -320,7 +320,7 @@ namespace Okta.Sdk.Api
         /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PrincipalRateLimitEntity</returns>
-        public async System.Threading.Tasks.Task<PrincipalRateLimitEntity> GetPrincipalRateLimitEntityAsync(string principalRateLimitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PrincipalRateLimitEntity> GetPrincipalRateLimitEntityAsync(  string principalRateLimitId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity> localVarResponse = await GetPrincipalRateLimitEntityWithHttpInfoAsync(principalRateLimitId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -332,7 +332,7 @@ namespace Okta.Sdk.Api
         /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PrincipalRateLimitEntity)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity>> GetPrincipalRateLimitEntityWithHttpInfoAsync(string principalRateLimitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity>> GetPrincipalRateLimitEntityWithHttpInfoAsync(  string principalRateLimitId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'principalRateLimitId' is set
             if (principalRateLimitId == null)
@@ -365,12 +365,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("principalRateLimitId", Okta.Sdk.Client.ClientUtils.ParameterToString(principalRateLimitId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -407,7 +407,8 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;PrincipalRateLimitEntity&gt;</returns>
-        public IOktaCollectionClient<PrincipalRateLimitEntity> ListPrincipalRateLimitEntities(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        //a
+        public IOktaCollectionClient<PrincipalRateLimitEntity> ListPrincipalRateLimitEntities(  string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -445,12 +446,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -470,7 +471,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;PrincipalRateLimitEntity&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<PrincipalRateLimitEntity>>> ListPrincipalRateLimitEntitiesWithHttpInfoAsync(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<PrincipalRateLimitEntity>>> ListPrincipalRateLimitEntitiesWithHttpInfoAsync(  string filter = default(string) ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -508,12 +509,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -545,7 +546,7 @@ namespace Okta.Sdk.Api
         /// <param name="entity"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PrincipalRateLimitEntity</returns>
-        public async System.Threading.Tasks.Task<PrincipalRateLimitEntity> UpdatePrincipalRateLimitEntityAsync(string principalRateLimitId, PrincipalRateLimitEntity entity, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PrincipalRateLimitEntity> UpdatePrincipalRateLimitEntityAsync(  string principalRateLimitId ,   PrincipalRateLimitEntity entity , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity> localVarResponse = await UpdatePrincipalRateLimitEntityWithHttpInfoAsync(principalRateLimitId, entity, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -558,7 +559,7 @@ namespace Okta.Sdk.Api
         /// <param name="entity"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PrincipalRateLimitEntity)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity>> UpdatePrincipalRateLimitEntityWithHttpInfoAsync(string principalRateLimitId, PrincipalRateLimitEntity entity, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PrincipalRateLimitEntity>> UpdatePrincipalRateLimitEntityWithHttpInfoAsync(  string principalRateLimitId ,   PrincipalRateLimitEntity entity , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'principalRateLimitId' is set
             if (principalRateLimitId == null)
@@ -599,12 +600,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("principalRateLimitId", Okta.Sdk.Client.ClientUtils.ParameterToString(principalRateLimitId)); // path parameter
             localVarRequestOptions.Data = entity;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

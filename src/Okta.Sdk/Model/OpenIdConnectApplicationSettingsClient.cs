@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,28 @@ namespace Okta.Sdk.Model
     
     public partial class OpenIdConnectApplicationSettingsClient : IEquatable<OpenIdConnectApplicationSettingsClient>
     {
-        
+
         /// <summary>
         /// Gets or Sets ApplicationType
         /// </summary>
         [DataMember(Name = "application_type", EmitDefaultValue = false)]
-        public string ApplicationType { get; set; }
+        
+        public OpenIdConnectApplicationType ApplicationType { get; set; }
 
+        /// <summary>
+        /// Gets or Sets ConsentMethod
+        /// </summary>
+        [DataMember(Name = "consent_method", EmitDefaultValue = false)]
+        
+        public OpenIdConnectApplicationConsentMethod ConsentMethod { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IssuerMode
+        /// </summary>
+        [DataMember(Name = "issuer_mode", EmitDefaultValue = false)]
+        
+        public OpenIdConnectApplicationIssuerMode IssuerMode { get; set; }
+        
         /// <summary>
         /// Gets or Sets ClientUri
         /// </summary>
@@ -47,16 +62,10 @@ namespace Okta.Sdk.Model
         public string ClientUri { get; set; }
 
         /// <summary>
-        /// Gets or Sets ConsentMethod
-        /// </summary>
-        [DataMember(Name = "consent_method", EmitDefaultValue = false)]
-        public string ConsentMethod { get; set; }
-
-        /// <summary>
         /// Gets or Sets GrantTypes
         /// </summary>
         [DataMember(Name = "grant_types", EmitDefaultValue = false)]
-        public List<string> GrantTypes { get; set; }
+        public List<OAuthGrantType> GrantTypes { get; set; }
 
         /// <summary>
         /// Gets or Sets IdpInitiatedLogin
@@ -69,12 +78,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "initiate_login_uri", EmitDefaultValue = false)]
         public string InitiateLoginUri { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IssuerMode
-        /// </summary>
-        [DataMember(Name = "issuer_mode", EmitDefaultValue = false)]
-        public string IssuerMode { get; set; }
 
         /// <summary>
         /// Gets or Sets Jwks
@@ -116,7 +119,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets ResponseTypes
         /// </summary>
         [DataMember(Name = "response_types", EmitDefaultValue = false)]
-        public List<string> ResponseTypes { get; set; }
+        public List<OAuthResponseType> ResponseTypes { get; set; }
 
         /// <summary>
         /// Gets or Sets TosUri
@@ -191,8 +194,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.ApplicationType == input.ApplicationType ||
-                    (this.ApplicationType != null &&
-                    this.ApplicationType.Equals(input.ApplicationType))
+                    this.ApplicationType.Equals(input.ApplicationType)
                 ) && 
                 (
                     this.ClientUri == input.ClientUri ||
@@ -201,8 +203,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.ConsentMethod == input.ConsentMethod ||
-                    (this.ConsentMethod != null &&
-                    this.ConsentMethod.Equals(input.ConsentMethod))
+                    this.ConsentMethod.Equals(input.ConsentMethod)
                 ) && 
                 (
                     this.GrantTypes == input.GrantTypes ||
@@ -222,8 +223,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.IssuerMode == input.IssuerMode ||
-                    (this.IssuerMode != null &&
-                    this.IssuerMode.Equals(input.IssuerMode))
+                    this.IssuerMode.Equals(input.IssuerMode)
                 ) && 
                 (
                     this.Jwks == input.Jwks ||
@@ -285,18 +285,12 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.ApplicationType != null)
-                {
-                    hashCode = (hashCode * 59) + this.ApplicationType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.ApplicationType.GetHashCode();
                 if (this.ClientUri != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientUri.GetHashCode();
                 }
-                if (this.ConsentMethod != null)
-                {
-                    hashCode = (hashCode * 59) + this.ConsentMethod.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.ConsentMethod.GetHashCode();
                 if (this.GrantTypes != null)
                 {
                     hashCode = (hashCode * 59) + this.GrantTypes.GetHashCode();
@@ -309,10 +303,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.InitiateLoginUri.GetHashCode();
                 }
-                if (this.IssuerMode != null)
-                {
-                    hashCode = (hashCode * 59) + this.IssuerMode.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.IssuerMode.GetHashCode();
                 if (this.Jwks != null)
                 {
                     hashCode = (hashCode * 59) + this.Jwks.GetHashCode();

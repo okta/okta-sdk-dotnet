@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,14 @@ namespace Okta.Sdk.Model
     
     public partial class NetworkZoneAddress : IEquatable<NetworkZoneAddress>
     {
-        
+
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
-
+        
+        public NetworkZoneAddressType Type { get; set; }
+        
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
@@ -93,8 +94,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
                     this.Value == input.Value ||
@@ -113,10 +113,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 if (this.Value != null)
                 {
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();

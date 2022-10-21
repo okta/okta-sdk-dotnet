@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,16 +33,11 @@ namespace Okta.Sdk.Model
     
     public partial class CustomizablePage : IEquatable<CustomizablePage>
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CustomizablePage" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        public CustomizablePage() { }
         
         /// <summary>
         /// Gets or Sets PageContent
         /// </summary>
-        [DataMember(Name = "pageContent", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "pageContent", EmitDefaultValue = false)]
         public string PageContent { get; set; }
 
         /// <summary>

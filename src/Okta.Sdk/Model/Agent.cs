@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,27 @@ namespace Okta.Sdk.Model
     
     public partial class Agent : IEquatable<Agent>
     {
+
+        /// <summary>
+        /// Gets or Sets OperationalStatus
+        /// </summary>
+        [DataMember(Name = "operationalStatus", EmitDefaultValue = false)]
+        
+        public OperationalStatus OperationalStatus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        
+        public AgentType Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UpdateStatus
+        /// </summary>
+        [DataMember(Name = "updateStatus", EmitDefaultValue = false)]
+        
+        public AgentUpdateInstanceStatus UpdateStatus { get; set; }
         
         /// <summary>
         /// Gets or Sets Id
@@ -73,37 +94,16 @@ namespace Okta.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Operational status of a given agent
-        /// </summary>
-        /// <value>Operational status of a given agent</value>
-        [DataMember(Name = "operationalStatus", EmitDefaultValue = false)]
-        public string OperationalStatus { get; set; }
-
-        /// <summary>
         /// Gets or Sets PoolId
         /// </summary>
         [DataMember(Name = "poolId", EmitDefaultValue = false)]
         public string PoolId { get; set; }
 
         /// <summary>
-        /// Agent types that are being monitored
-        /// </summary>
-        /// <value>Agent types that are being monitored</value>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
-
-        /// <summary>
         /// Gets or Sets UpdateMessage
         /// </summary>
         [DataMember(Name = "updateMessage", EmitDefaultValue = false)]
         public string UpdateMessage { get; set; }
-
-        /// <summary>
-        /// Status for one agent regarding the status to auto-update that agent
-        /// </summary>
-        /// <value>Status for one agent regarding the status to auto-update that agent</value>
-        [DataMember(Name = "updateStatus", EmitDefaultValue = false)]
-        public string UpdateStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets _Version
@@ -197,8 +197,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.OperationalStatus == input.OperationalStatus ||
-                    (this.OperationalStatus != null &&
-                    this.OperationalStatus.Equals(input.OperationalStatus))
+                    this.OperationalStatus.Equals(input.OperationalStatus)
                 ) && 
                 (
                     this.PoolId == input.PoolId ||
@@ -207,8 +206,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
                     this.UpdateMessage == input.UpdateMessage ||
@@ -217,8 +215,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.UpdateStatus == input.UpdateStatus ||
-                    (this.UpdateStatus != null &&
-                    this.UpdateStatus.Equals(input.UpdateStatus))
+                    this.UpdateStatus.Equals(input.UpdateStatus)
                 ) && 
                 (
                     this._Version == input._Version ||
@@ -256,26 +253,17 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                if (this.OperationalStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.OperationalStatus.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.OperationalStatus.GetHashCode();
                 if (this.PoolId != null)
                 {
                     hashCode = (hashCode * 59) + this.PoolId.GetHashCode();
                 }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 if (this.UpdateMessage != null)
                 {
                     hashCode = (hashCode * 59) + this.UpdateMessage.GetHashCode();
                 }
-                if (this.UpdateStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdateStatus.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.UpdateStatus.GetHashCode();
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();

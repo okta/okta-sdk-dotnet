@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -36,7 +36,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Defines Recipients
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumSerializingConverter))]
         public enum RecipientsEnum
         {
             /// <summary>
@@ -64,6 +64,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Recipients
         /// </summary>
         [DataMember(Name = "recipients", IsRequired = true, EmitDefaultValue = false)]
+        
         public RecipientsEnum Recipients { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailSettings" /> class.

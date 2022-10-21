@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,21 @@ namespace Okta.Sdk.Model
     
     public partial class OAuth2Scope : IEquatable<OAuth2Scope>
     {
-        
+
         /// <summary>
         /// Gets or Sets Consent
         /// </summary>
         [DataMember(Name = "consent", EmitDefaultValue = false)]
-        public string Consent { get; set; }
+        
+        public OAuth2ScopeConsentType Consent { get; set; }
 
+        /// <summary>
+        /// Gets or Sets MetadataPublish
+        /// </summary>
+        [DataMember(Name = "metadataPublish", EmitDefaultValue = false)]
+        
+        public OAuth2ScopeMetadataPublish MetadataPublish { get; set; }
+        
         /// <summary>
         /// Gets or Sets Default
         /// </summary>
@@ -72,12 +80,6 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
-        /// <summary>
-        /// Gets or Sets MetadataPublish
-        /// </summary>
-        [DataMember(Name = "metadataPublish", EmitDefaultValue = false)]
-        public string MetadataPublish { get; set; }
-
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
@@ -143,8 +145,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Consent == input.Consent ||
-                    (this.Consent != null &&
-                    this.Consent.Equals(input.Consent))
+                    this.Consent.Equals(input.Consent)
                 ) && 
                 (
                     this.Default == input.Default ||
@@ -167,8 +168,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.MetadataPublish == input.MetadataPublish ||
-                    (this.MetadataPublish != null &&
-                    this.MetadataPublish.Equals(input.MetadataPublish))
+                    this.MetadataPublish.Equals(input.MetadataPublish)
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -191,10 +191,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Consent != null)
-                {
-                    hashCode = (hashCode * 59) + this.Consent.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Consent.GetHashCode();
                 hashCode = (hashCode * 59) + this.Default.GetHashCode();
                 if (this.Description != null)
                 {
@@ -208,10 +205,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.MetadataPublish != null)
-                {
-                    hashCode = (hashCode * 59) + this.MetadataPublish.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.MetadataPublish.GetHashCode();
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();

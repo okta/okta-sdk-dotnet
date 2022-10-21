@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,13 @@ namespace Okta.Sdk.Model
     
     public partial class CAPTCHAInstance : IEquatable<CAPTCHAInstance>
     {
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        
+        public CAPTCHAType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Id
@@ -67,16 +74,10 @@ namespace Okta.Sdk.Model
         public string SiteKey { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Link
-        /// </summary>
-        [DataMember(Name = "_link", EmitDefaultValue = false)]
-        public ApiTokenLink Link { get; set; }
+        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        public ApiTokenLink Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,7 +92,7 @@ namespace Okta.Sdk.Model
             sb.Append("  SecretKey: ").Append(SecretKey).Append("\n");
             sb.Append("  SiteKey: ").Append(SiteKey).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Link: ").Append(Link).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -149,13 +150,12 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
-                    this.Link == input.Link ||
-                    (this.Link != null &&
-                    this.Link.Equals(input.Link))
+                    this.Links == input.Links ||
+                    (this.Links != null &&
+                    this.Links.Equals(input.Links))
                 );
         }
 
@@ -185,13 +185,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.SiteKey.GetHashCode();
                 }
-                if (this.Type != null)
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Links != null)
                 {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
-                if (this.Link != null)
-                {
-                    hashCode = (hashCode * 59) + this.Link.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }

@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,27 @@ namespace Okta.Sdk.Model
     
     public partial class IdentityProvider : IEquatable<IdentityProvider>
     {
+
+        /// <summary>
+        /// Gets or Sets IssuerMode
+        /// </summary>
+        [DataMember(Name = "issuerMode", EmitDefaultValue = false)]
+        
+        public IssuerMode IssuerMode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        
+        public LifecycleStatus Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        
+        public IdentityProviderType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Created
@@ -62,12 +83,6 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
-        /// <summary>
-        /// Gets or Sets IssuerMode
-        /// </summary>
-        [DataMember(Name = "issuerMode", EmitDefaultValue = false)]
-        public string IssuerMode { get; set; }
-
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
@@ -99,18 +114,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "protocol", EmitDefaultValue = false)]
         public Protocol Protocol { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string Status { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -191,8 +194,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.IssuerMode == input.IssuerMode ||
-                    (this.IssuerMode != null &&
-                    this.IssuerMode.Equals(input.IssuerMode))
+                    this.IssuerMode.Equals(input.IssuerMode)
                 ) && 
                 (
                     this.LastUpdated == input.LastUpdated ||
@@ -216,13 +218,11 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status.Equals(input.Status)
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -250,10 +250,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.IssuerMode != null)
-                {
-                    hashCode = (hashCode * 59) + this.IssuerMode.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.IssuerMode.GetHashCode();
                 if (this.LastUpdated != null)
                 {
                     hashCode = (hashCode * 59) + this.LastUpdated.GetHashCode();
@@ -270,14 +267,8 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Protocol.GetHashCode();
                 }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

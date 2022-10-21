@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -27,12 +27,17 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// Used for links
+    /// Singular link objected returned in HAL &#x60;_links&#x60; object.
     /// </summary>
     [DataContract(Name = "HrefObject")]
     
     public partial class HrefObject : IEquatable<HrefObject>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HrefObject" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        public HrefObject() { }
         
         /// <summary>
         /// Gets or Sets Hints
@@ -43,8 +48,21 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Href
         /// </summary>
-        [DataMember(Name = "href", EmitDefaultValue = false)]
+        [DataMember(Name = "href", IsRequired = true, EmitDefaultValue = false)]
         public string Href { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// The media type of the link. If omitted, it is implicitly &#x60;application/json&#x60;.
+        /// </summary>
+        /// <value>The media type of the link. If omitted, it is implicitly &#x60;application/json&#x60;.</value>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -56,6 +74,8 @@ namespace Okta.Sdk.Model
             sb.Append("class HrefObject {\n");
             sb.Append("  Hints: ").Append(Hints).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,6 +120,16 @@ namespace Okta.Sdk.Model
                     this.Href == input.Href ||
                     (this.Href != null &&
                     this.Href.Equals(input.Href))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -120,6 +150,14 @@ namespace Okta.Sdk.Model
                 if (this.Href != null)
                 {
                     hashCode = (hashCode * 59) + this.Href.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
                 return hashCode;
             }

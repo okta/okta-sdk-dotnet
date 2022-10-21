@@ -7,7 +7,7 @@
         {{/description}}
         {{#isString}}
         {{^useGenericHost}}
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumSerializingConverter))]
         {{/useGenericHost}}
         {{/isString}}
         {{>visibility}} enum {{datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}{{#vendorExtensions.x-enum-byte}}: byte{{/vendorExtensions.x-enum-byte}}

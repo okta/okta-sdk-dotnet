@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Connection** | **string** |  | [optional] 
+**Connection** | **PolicyNetworkConnection** |  | [optional] 
 **Exclude** | **List&lt;string&gt;** |  | [optional] 
 **Include** | **List&lt;string&gt;** |  | [optional] 
 

@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,13 @@ namespace Okta.Sdk.Model
     
     public partial class IdentityProviderCredentialsTrust : IEquatable<IdentityProviderCredentialsTrust>
     {
+
+        /// <summary>
+        /// Gets or Sets Revocation
+        /// </summary>
+        [DataMember(Name = "revocation", EmitDefaultValue = false)]
+        
+        public IdentityProviderCredentialsTrustRevocation Revocation { get; set; }
         
         /// <summary>
         /// Gets or Sets Audience
@@ -51,12 +58,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "kid", EmitDefaultValue = false)]
         public string Kid { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Revocation
-        /// </summary>
-        [DataMember(Name = "revocation", EmitDefaultValue = false)]
-        public string Revocation { get; set; }
 
         /// <summary>
         /// Gets or Sets RevocationCacheLifetime
@@ -129,8 +130,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Revocation == input.Revocation ||
-                    (this.Revocation != null &&
-                    this.Revocation.Equals(input.Revocation))
+                    this.Revocation.Equals(input.Revocation)
                 ) && 
                 (
                     this.RevocationCacheLifetime == input.RevocationCacheLifetime ||
@@ -160,10 +160,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Kid.GetHashCode();
                 }
-                if (this.Revocation != null)
-                {
-                    hashCode = (hashCode * 59) + this.Revocation.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Revocation.GetHashCode();
                 hashCode = (hashCode * 59) + this.RevocationCacheLifetime.GetHashCode();
                 return hashCode;
             }

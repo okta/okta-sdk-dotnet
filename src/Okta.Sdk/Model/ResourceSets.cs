@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -27,18 +27,24 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// ErrorErrorCauses
+    /// ResourceSets
     /// </summary>
-    [DataContract(Name = "Error_errorCauses")]
+    [DataContract(Name = "ResourceSets")]
     
-    public partial class ErrorErrorCauses : IEquatable<ErrorErrorCauses>
+    public partial class ResourceSets : IEquatable<ResourceSets>
     {
         
         /// <summary>
-        /// Gets or Sets ErrorSummary
+        /// Gets or Sets _ResourceSets
         /// </summary>
-        [DataMember(Name = "errorSummary", EmitDefaultValue = false)]
-        public string ErrorSummary { get; set; }
+        [DataMember(Name = "resource-sets", EmitDefaultValue = false)]
+        public List<ResourceSet> _ResourceSets { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        public IamRolesLinks Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -47,8 +53,9 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ErrorErrorCauses {\n");
-            sb.Append("  ErrorSummary: ").Append(ErrorSummary).Append("\n");
+            sb.Append("class ResourceSets {\n");
+            sb.Append("  _ResourceSets: ").Append(_ResourceSets).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -69,15 +76,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ErrorErrorCauses);
+            return this.Equals(input as ResourceSets);
         }
 
         /// <summary>
-        /// Returns true if ErrorErrorCauses instances are equal
+        /// Returns true if ResourceSets instances are equal
         /// </summary>
-        /// <param name="input">Instance of ErrorErrorCauses to be compared</param>
+        /// <param name="input">Instance of ResourceSets to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ErrorErrorCauses input)
+        public bool Equals(ResourceSets input)
         {
             if (input == null)
             {
@@ -85,9 +92,15 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.ErrorSummary == input.ErrorSummary ||
-                    (this.ErrorSummary != null &&
-                    this.ErrorSummary.Equals(input.ErrorSummary))
+                    this._ResourceSets == input._ResourceSets ||
+                    this._ResourceSets != null &&
+                    input._ResourceSets != null &&
+                    this._ResourceSets.SequenceEqual(input._ResourceSets)
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    (this.Links != null &&
+                    this.Links.Equals(input.Links))
                 );
         }
 
@@ -101,9 +114,13 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.ErrorSummary != null)
+                if (this._ResourceSets != null)
                 {
-                    hashCode = (hashCode * 59) + this.ErrorSummary.GetHashCode();
+                    hashCode = (hashCode * 59) + this._ResourceSets.GetHashCode();
+                }
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }

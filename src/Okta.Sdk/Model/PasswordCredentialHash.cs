@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,14 @@ namespace Okta.Sdk.Model
     
     public partial class PasswordCredentialHash : IEquatable<PasswordCredentialHash>
     {
-        
+
         /// <summary>
         /// Gets or Sets Algorithm
         /// </summary>
         [DataMember(Name = "algorithm", EmitDefaultValue = false)]
-        public string Algorithm { get; set; }
-
+        
+        public PasswordCredentialHashAlgorithm Algorithm { get; set; }
+        
         /// <summary>
         /// Gets or Sets Salt
         /// </summary>
@@ -114,8 +115,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Algorithm == input.Algorithm ||
-                    (this.Algorithm != null &&
-                    this.Algorithm.Equals(input.Algorithm))
+                    this.Algorithm.Equals(input.Algorithm)
                 ) && 
                 (
                     this.Salt == input.Salt ||
@@ -148,10 +148,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Algorithm != null)
-                {
-                    hashCode = (hashCode * 59) + this.Algorithm.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Algorithm.GetHashCode();
                 if (this.Salt != null)
                 {
                     hashCode = (hashCode * 59) + this.Salt.GetHashCode();

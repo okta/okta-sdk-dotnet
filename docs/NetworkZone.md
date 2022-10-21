@@ -13,10 +13,10 @@ Name | Type | Description | Notes
 **Name** | **string** |  | [optional] 
 **Proxies** | [**List&lt;NetworkZoneAddress&gt;**](NetworkZoneAddress.md) |  | [optional] 
 **ProxyType** | **string** |  | [optional] 
-**Status** | **string** |  | [optional] 
+**Status** | **NetworkZoneStatus** |  | [optional] 
 **System** | **bool** |  | [optional] 
-**Type** | **string** |  | [optional] 
-**Usage** | **string** |  | [optional] 
+**Type** | **NetworkZoneType** |  | [optional] 
+**Usage** | **NetworkZoneUsage** |  | [optional] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

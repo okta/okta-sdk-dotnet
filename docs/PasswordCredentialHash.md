@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Algorithm** | **string** |  | [optional] 
+**Algorithm** | **PasswordCredentialHashAlgorithm** |  | [optional] 
 **Salt** | **string** |  | [optional] 
 **SaltOrder** | **string** |  | [optional] 
 **Value** | **string** |  | [optional] 

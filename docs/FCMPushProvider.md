@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | [optional] [readonly] 
 **LastUpdatedDate** | **string** |  | [optional] [readonly] 
 **Name** | **string** | Display name of the push provider | [optional] 
-**ProviderType** | **string** |  | [optional] 
+**ProviderType** | [**ProviderType**](ProviderType.md) |  | [optional] 
 **Links** | [**ApiTokenLink**](ApiTokenLink.md) |  | [optional] 
 **_Configuration** | [**FCMConfiguration**](FCMConfiguration.md) |  | [optional] 
 

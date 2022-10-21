@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="appName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApplicationLayout</returns>
-        System.Threading.Tasks.Task<ApplicationLayout> GetApplicationLayoutAsync(string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApplicationLayout> GetApplicationLayoutAsync(  string appName , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the UI Layout for an Application
         /// </summary>
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <param name="appName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApplicationLayout)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApplicationLayout>> GetApplicationLayoutWithHttpInfoAsync(string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ApplicationLayout>> GetApplicationLayoutWithHttpInfoAsync(  string appName , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the default Application User Schema for an Application
         /// </summary>
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         /// <param name="appInstanceId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserSchema</returns>
-        System.Threading.Tasks.Task<UserSchema> GetApplicationUserSchemaAsync(string appInstanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserSchema> GetApplicationUserSchemaAsync(  string appInstanceId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the default Application User Schema for an Application
         /// </summary>
@@ -71,7 +71,7 @@ namespace Okta.Sdk.Api
         /// <param name="appInstanceId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserSchema>> GetApplicationUserSchemaWithHttpInfoAsync(string appInstanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UserSchema>> GetApplicationUserSchemaWithHttpInfoAsync(  string appInstanceId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the default Group Schema
         /// </summary>
@@ -93,6 +93,28 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (GroupSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<GroupSchema>> GetGroupSchemaWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Retrieve the Log Stream Schema for the schema type
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the schema for a Log Stream type. The &#x60;logStreamType&#x60; element in the URL specifies the Log Stream type, which is either &#x60;aws_eventbridge&#x60; or &#x60;splunk_cloud_logstreaming&#x60;. Use the &#x60;aws_eventbridge&#x60; literal to retrieve the AWS EventBridge type schema, and use the &#x60;splunk_cloud_logstreaming&#x60; literal retrieve the Splunk Cloud type schema.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="logStreamType"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of LogStreamSchema</returns>
+        System.Threading.Tasks.Task<LogStreamSchema> GetLogStreamSchemaAsync(LogStreamType logStreamType  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve the Log Stream Schema for the schema type
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the schema for a Log Stream type. The &#x60;logStreamType&#x60; element in the URL specifies the Log Stream type, which is either &#x60;aws_eventbridge&#x60; or &#x60;splunk_cloud_logstreaming&#x60;. Use the &#x60;aws_eventbridge&#x60; literal to retrieve the AWS EventBridge type schema, and use the &#x60;splunk_cloud_logstreaming&#x60; literal retrieve the Splunk Cloud type schema.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="logStreamType"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (LogStreamSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LogStreamSchema>> GetLogStreamSchemaWithHttpInfoAsync(LogStreamType logStreamType  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Retrieve a User Schema
         /// </summary>
         /// <remarks>
@@ -102,7 +124,7 @@ namespace Okta.Sdk.Api
         /// <param name="schemaId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserSchema</returns>
-        System.Threading.Tasks.Task<UserSchema> GetUserSchemaAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserSchema> GetUserSchemaAsync(  string schemaId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a User Schema
         /// </summary>
@@ -113,7 +135,27 @@ namespace Okta.Sdk.Api
         /// <param name="schemaId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserSchema>> GetUserSchemaWithHttpInfoAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UserSchema>> GetUserSchemaWithHttpInfoAsync(  string schemaId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// List the Log Stream Schemas
+        /// </summary>
+        /// <remarks>
+        /// Lists the schema for all log stream types visible for this org.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;LogStreamSchema&gt;</returns>
+        IOktaCollectionClient<LogStreamSchema> ListLogStreamSchemas(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// List the Log Stream Schemas
+        /// </summary>
+        /// <remarks>
+        /// Lists the schema for all log stream types visible for this org.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;LogStreamSchema&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<LogStreamSchema>>> ListLogStreamSchemasWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update the default Application User Schema for an Application
         /// </summary>
@@ -125,7 +167,7 @@ namespace Okta.Sdk.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserSchema</returns>
-        System.Threading.Tasks.Task<UserSchema> UpdateApplicationUserProfileAsync(string appInstanceId, UserSchema body = default(UserSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserSchema> UpdateApplicationUserProfileAsync(  string appInstanceId ,   UserSchema body = default(UserSchema) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update the default Application User Schema for an Application
         /// </summary>
@@ -137,7 +179,7 @@ namespace Okta.Sdk.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserSchema>> UpdateApplicationUserProfileWithHttpInfoAsync(string appInstanceId, UserSchema body = default(UserSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UserSchema>> UpdateApplicationUserProfileWithHttpInfoAsync(  string appInstanceId ,   UserSchema body = default(UserSchema) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update the default Group Schema
         /// </summary>
@@ -148,7 +190,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupSchema"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupSchema</returns>
-        System.Threading.Tasks.Task<GroupSchema> UpdateGroupSchemaAsync(GroupSchema groupSchema = default(GroupSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupSchema> UpdateGroupSchemaAsync(  GroupSchema groupSchema = default(GroupSchema) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update the default Group Schema
         /// </summary>
@@ -159,7 +201,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupSchema"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupSchema>> UpdateGroupSchemaWithHttpInfoAsync(GroupSchema groupSchema = default(GroupSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupSchema>> UpdateGroupSchemaWithHttpInfoAsync(  GroupSchema groupSchema = default(GroupSchema) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update a User Schema
         /// </summary>
@@ -171,7 +213,7 @@ namespace Okta.Sdk.Api
         /// <param name="userSchema"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserSchema</returns>
-        System.Threading.Tasks.Task<UserSchema> UpdateUserProfileAsync(string schemaId, UserSchema userSchema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserSchema> UpdateUserProfileAsync(  string schemaId ,   UserSchema userSchema , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update a User Schema
         /// </summary>
@@ -183,7 +225,7 @@ namespace Okta.Sdk.Api
         /// <param name="userSchema"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserSchema>> UpdateUserProfileWithHttpInfoAsync(string schemaId, UserSchema userSchema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UserSchema>> UpdateUserProfileWithHttpInfoAsync(  string schemaId ,   UserSchema userSchema , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -296,7 +338,7 @@ namespace Okta.Sdk.Api
         /// <param name="appName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApplicationLayout</returns>
-        public async System.Threading.Tasks.Task<ApplicationLayout> GetApplicationLayoutAsync(string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApplicationLayout> GetApplicationLayoutAsync(  string appName , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<ApplicationLayout> localVarResponse = await GetApplicationLayoutWithHttpInfoAsync(appName, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -308,7 +350,7 @@ namespace Okta.Sdk.Api
         /// <param name="appName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApplicationLayout)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ApplicationLayout>> GetApplicationLayoutWithHttpInfoAsync(string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ApplicationLayout>> GetApplicationLayoutWithHttpInfoAsync(  string appName , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appName' is set
             if (appName == null)
@@ -341,12 +383,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -381,7 +423,7 @@ namespace Okta.Sdk.Api
         /// <param name="appInstanceId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserSchema</returns>
-        public async System.Threading.Tasks.Task<UserSchema> GetApplicationUserSchemaAsync(string appInstanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UserSchema> GetApplicationUserSchemaAsync(  string appInstanceId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<UserSchema> localVarResponse = await GetApplicationUserSchemaWithHttpInfoAsync(appInstanceId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -393,7 +435,7 @@ namespace Okta.Sdk.Api
         /// <param name="appInstanceId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserSchema)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserSchema>> GetApplicationUserSchemaWithHttpInfoAsync(string appInstanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserSchema>> GetApplicationUserSchemaWithHttpInfoAsync(  string appInstanceId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appInstanceId' is set
             if (appInstanceId == null)
@@ -426,12 +468,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appInstanceId", Okta.Sdk.Client.ClientUtils.ParameterToString(appInstanceId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -502,12 +544,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -536,13 +578,92 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
+        /// Retrieve the Log Stream Schema for the schema type Retrieves the schema for a Log Stream type. The &#x60;logStreamType&#x60; element in the URL specifies the Log Stream type, which is either &#x60;aws_eventbridge&#x60; or &#x60;splunk_cloud_logstreaming&#x60;. Use the &#x60;aws_eventbridge&#x60; literal to retrieve the AWS EventBridge type schema, and use the &#x60;splunk_cloud_logstreaming&#x60; literal retrieve the Splunk Cloud type schema.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="logStreamType"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of LogStreamSchema</returns>
+        public async System.Threading.Tasks.Task<LogStreamSchema> GetLogStreamSchemaAsync(LogStreamType logStreamType  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<LogStreamSchema> localVarResponse = await GetLogStreamSchemaWithHttpInfoAsync(logStreamType, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Retrieve the Log Stream Schema for the schema type Retrieves the schema for a Log Stream type. The &#x60;logStreamType&#x60; element in the URL specifies the Log Stream type, which is either &#x60;aws_eventbridge&#x60; or &#x60;splunk_cloud_logstreaming&#x60;. Use the &#x60;aws_eventbridge&#x60; literal to retrieve the AWS EventBridge type schema, and use the &#x60;splunk_cloud_logstreaming&#x60; literal retrieve the Splunk Cloud type schema.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="logStreamType"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (LogStreamSchema)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<LogStreamSchema>> GetLogStreamSchemaWithHttpInfoAsync(LogStreamType logStreamType  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("logStreamType", Okta.Sdk.Client.ClientUtils.ParameterToString(logStreamType)); // path parameter
+
+            // authentication (apiToken) required
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (oauth2) required
+            // oauth required
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<LogStreamSchema>("/api/v1/meta/schemas/logStream/{logStreamType}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetLogStreamSchema", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Retrieve a User Schema Fetches the schema for a Schema Id.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schemaId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserSchema</returns>
-        public async System.Threading.Tasks.Task<UserSchema> GetUserSchemaAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UserSchema> GetUserSchemaAsync(  string schemaId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<UserSchema> localVarResponse = await GetUserSchemaWithHttpInfoAsync(schemaId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -554,7 +675,7 @@ namespace Okta.Sdk.Api
         /// <param name="schemaId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserSchema)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserSchema>> GetUserSchemaWithHttpInfoAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserSchema>> GetUserSchemaWithHttpInfoAsync(  string schemaId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'schemaId' is set
             if (schemaId == null)
@@ -587,12 +708,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("schemaId", Okta.Sdk.Client.ClientUtils.ParameterToString(schemaId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -621,6 +742,116 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
+        /// List the Log Stream Schemas Lists the schema for all log stream types visible for this org.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;LogStreamSchema&gt;</returns>
+        //a
+        public IOktaCollectionClient<LogStreamSchema> ListLogStreamSchemas(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            // authentication (apiToken) required
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (oauth2) required
+            // oauth required
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
+            
+            return new OktaCollectionClient<LogStreamSchema>(localVarRequestOptions, "/api/v1/meta/schemas/logStream", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
+        }
+        /// <summary>
+        /// List the Log Stream Schemas Lists the schema for all log stream types visible for this org.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;LogStreamSchema&gt;)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<LogStreamSchema>>> ListLogStreamSchemasWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            // authentication (apiToken) required
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (oauth2) required
+            // oauth required
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<LogStreamSchema>>("/api/v1/meta/schemas/logStream", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListLogStreamSchemas", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Update the default Application User Schema for an Application Partial updates on the User Profile properties of the Application User Schema.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -628,7 +859,7 @@ namespace Okta.Sdk.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserSchema</returns>
-        public async System.Threading.Tasks.Task<UserSchema> UpdateApplicationUserProfileAsync(string appInstanceId, UserSchema body = default(UserSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UserSchema> UpdateApplicationUserProfileAsync(  string appInstanceId ,   UserSchema body = default(UserSchema) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<UserSchema> localVarResponse = await UpdateApplicationUserProfileWithHttpInfoAsync(appInstanceId, body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -641,7 +872,7 @@ namespace Okta.Sdk.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserSchema)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserSchema>> UpdateApplicationUserProfileWithHttpInfoAsync(string appInstanceId, UserSchema body = default(UserSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserSchema>> UpdateApplicationUserProfileWithHttpInfoAsync(  string appInstanceId ,   UserSchema body = default(UserSchema) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appInstanceId' is set
             if (appInstanceId == null)
@@ -676,12 +907,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appInstanceId", Okta.Sdk.Client.ClientUtils.ParameterToString(appInstanceId)); // path parameter
             localVarRequestOptions.Data = body;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -716,7 +947,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupSchema"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupSchema</returns>
-        public async System.Threading.Tasks.Task<GroupSchema> UpdateGroupSchemaAsync(GroupSchema groupSchema = default(GroupSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupSchema> UpdateGroupSchemaAsync(  GroupSchema groupSchema = default(GroupSchema) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<GroupSchema> localVarResponse = await UpdateGroupSchemaWithHttpInfoAsync(groupSchema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -728,7 +959,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupSchema"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupSchema)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<GroupSchema>> UpdateGroupSchemaWithHttpInfoAsync(GroupSchema groupSchema = default(GroupSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<GroupSchema>> UpdateGroupSchemaWithHttpInfoAsync(  GroupSchema groupSchema = default(GroupSchema) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -756,12 +987,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = groupSchema;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -797,7 +1028,7 @@ namespace Okta.Sdk.Api
         /// <param name="userSchema"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserSchema</returns>
-        public async System.Threading.Tasks.Task<UserSchema> UpdateUserProfileAsync(string schemaId, UserSchema userSchema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UserSchema> UpdateUserProfileAsync(  string schemaId ,   UserSchema userSchema , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<UserSchema> localVarResponse = await UpdateUserProfileWithHttpInfoAsync(schemaId, userSchema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -810,7 +1041,7 @@ namespace Okta.Sdk.Api
         /// <param name="userSchema"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserSchema)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserSchema>> UpdateUserProfileWithHttpInfoAsync(string schemaId, UserSchema userSchema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserSchema>> UpdateUserProfileWithHttpInfoAsync(  string schemaId ,   UserSchema userSchema , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'schemaId' is set
             if (schemaId == null)
@@ -851,12 +1082,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("schemaId", Okta.Sdk.Client.ClientUtils.ParameterToString(schemaId)); // path parameter
             localVarRequestOptions.Data = userSchema;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

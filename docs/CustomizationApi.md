@@ -1,16 +1,19 @@
 # Okta.Sdk.Api.CustomizationApi
 
-All URIs are relative to *https://your-subdomain.okta.com*
+All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CreateBrand**](CustomizationApi.md#createbrand) | **POST** /api/v1/brands | Create a Brand
 [**CreateEmailCustomization**](CustomizationApi.md#createemailcustomization) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | Create an Email Customization
 [**DeleteAllCustomizations**](CustomizationApi.md#deleteallcustomizations) | **DELETE** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | Delete all Email Customizations
+[**DeleteBrand**](CustomizationApi.md#deletebrand) | **DELETE** /api/v1/brands/{brandId} | Delete a brand
 [**DeleteBrandThemeBackgroundImage**](CustomizationApi.md#deletebrandthemebackgroundimage) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/background-image | Delete the Background Image
 [**DeleteBrandThemeFavicon**](CustomizationApi.md#deletebrandthemefavicon) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Delete the Favicon
 [**DeleteBrandThemeLogo**](CustomizationApi.md#deletebrandthemelogo) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/logo | Delete the Logo
 [**DeleteEmailCustomization**](CustomizationApi.md#deleteemailcustomization) | **DELETE** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Delete an Email Customization
 [**GetBrand**](CustomizationApi.md#getbrand) | **GET** /api/v1/brands/{brandId} | Retrieve a Brand
+[**GetBrandDomains**](CustomizationApi.md#getbranddomains) | **GET** /api/v1/brands/{brandId}/domains | List all Domains associated with a Brand
 [**GetBrandTheme**](CustomizationApi.md#getbrandtheme) | **GET** /api/v1/brands/{brandId}/themes/{themeId} | Retrieve a Theme
 [**GetCustomizationPreview**](CustomizationApi.md#getcustomizationpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId}/preview | Preview an Email Customization
 [**GetEmailCustomization**](CustomizationApi.md#getemailcustomization) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Retrieve an Email Customization
@@ -18,22 +21,32 @@ Method | HTTP request | Description
 [**GetEmailDefaultPreview**](CustomizationApi.md#getemaildefaultpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content/preview | Preview the Email Template Default Content
 [**GetEmailSettings**](CustomizationApi.md#getemailsettings) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Retrieve the Email Template Settings
 [**GetEmailTemplate**](CustomizationApi.md#getemailtemplate) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName} | Retrieve an Email Template
+[**LinkBrandDomain**](CustomizationApi.md#linkbranddomain) | **POST** /api/v1/brands/{brandId}/domains | Link a Brand to a Domain
 [**ListAllSignInWidgetVersions**](CustomizationApi.md#listallsigninwidgetversions) | **GET** /api/v1/brands/{brandId}/pages/sign-in/widget-versions | List all Sign-in Widget Versions
 [**ListBrandThemes**](CustomizationApi.md#listbrandthemes) | **GET** /api/v1/brands/{brandId}/themes | List all Themes
 [**ListBrands**](CustomizationApi.md#listbrands) | **GET** /api/v1/brands | List all Brands
 [**ListEmailCustomizations**](CustomizationApi.md#listemailcustomizations) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | List all Email Customizations
 [**ListEmailTemplates**](CustomizationApi.md#listemailtemplates) | **GET** /api/v1/brands/{brandId}/templates/email | List all Email Templates
-[**PreviewErrorPage**](CustomizationApi.md#previewerrorpage) | **POST** /api/v1/brands/{brandId}/pages/error/preview | Preview the Error Page
-[**PreviewSignInPage**](CustomizationApi.md#previewsigninpage) | **POST** /api/v1/brands/{brandId}/pages/sign-in/preview | Preview the Sign-in Page.
-[**ReplaceErrorPage**](CustomizationApi.md#replaceerrorpage) | **PUT** /api/v1/brands/{brandId}/pages/error | Replace the Error Page
-[**ReplaceSignInPage**](CustomizationApi.md#replacesigninpage) | **PUT** /api/v1/brands/{brandId}/pages/sign-in | Replace the Sign-in Page
-[**ReplaceSignOutPageSettings**](CustomizationApi.md#replacesignoutpagesettings) | **PUT** /api/v1/brands/{brandId}/pages/sign-out | Replace the Sign-out Page Settings
-[**ResetErrorPage**](CustomizationApi.md#reseterrorpage) | **DELETE** /api/v1/brands/{brandId}/pages/error | Reset the Error Page
-[**ResetSignInPage**](CustomizationApi.md#resetsigninpage) | **DELETE** /api/v1/brands/{brandId}/pages/sign-in | Reset the Sign-in Page
+[**ReplaceCustomizedErrorPage**](CustomizationApi.md#replacecustomizederrorpage) | **PUT** /api/v1/brands/{brandId}/pages/error/customized | Replace the Customized Error Page
+[**ReplaceCustomizedSignInPage**](CustomizationApi.md#replacecustomizedsigninpage) | **PUT** /api/v1/brands/{brandId}/pages/sign-in/customized | Replace the Customized Sign-in Page
+[**ReplacePreviewErrorPage**](CustomizationApi.md#replacepreviewerrorpage) | **PUT** /api/v1/brands/{brandId}/pages/error/preview | Replace the Preview Error Page
+[**ReplacePreviewSignInPage**](CustomizationApi.md#replacepreviewsigninpage) | **PUT** /api/v1/brands/{brandId}/pages/sign-in/preview | Replace the Preview Sign-in Page
+[**ReplaceSignOutPageSettings**](CustomizationApi.md#replacesignoutpagesettings) | **PUT** /api/v1/brands/{brandId}/pages/sign-out/customized | Replace the Sign-out Page Settings
+[**ResetCustomizedErrorPage**](CustomizationApi.md#resetcustomizederrorpage) | **DELETE** /api/v1/brands/{brandId}/pages/error/customized | Reset the Customized Error Page
+[**ResetCustomizedSignInPage**](CustomizationApi.md#resetcustomizedsigninpage) | **DELETE** /api/v1/brands/{brandId}/pages/sign-in/customized | Reset the Customized Sign-in Page
+[**ResetPreviewErrorPage**](CustomizationApi.md#resetpreviewerrorpage) | **DELETE** /api/v1/brands/{brandId}/pages/error/preview | Reset the Preview Error Page
+[**ResetPreviewSignInPage**](CustomizationApi.md#resetpreviewsigninpage) | **DELETE** /api/v1/brands/{brandId}/pages/sign-in/preview | Reset the Preview Sign-in Page
+[**RetrieveCustomizedErrorPage**](CustomizationApi.md#retrievecustomizederrorpage) | **GET** /api/v1/brands/{brandId}/pages/error/customized | Retrieve the Customized Error Page
+[**RetrieveCustomizedSignInPage**](CustomizationApi.md#retrievecustomizedsigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in/customized | Retrieve the Customized Sign-in Page
+[**RetrieveDefaultErrorPage**](CustomizationApi.md#retrievedefaulterrorpage) | **GET** /api/v1/brands/{brandId}/pages/error/default | Retrieve the Default Error Page
+[**RetrieveDefaultSignInPage**](CustomizationApi.md#retrievedefaultsigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in/default | Retrieve the Default Sign-in Page
 [**RetrieveErrorPage**](CustomizationApi.md#retrieveerrorpage) | **GET** /api/v1/brands/{brandId}/pages/error | Retrieve the Error Page
+[**RetrievePreviewErrorPage**](CustomizationApi.md#retrievepreviewerrorpage) | **GET** /api/v1/brands/{brandId}/pages/error/preview | Retrieve the Preview Error Page Preview
+[**RetrievePreviewSignInPage**](CustomizationApi.md#retrievepreviewsigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in/preview | Retrieve the Preview Sign-in Page Preview
 [**RetrieveSignInPage**](CustomizationApi.md#retrievesigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in | Retrieve the Sign-in Page
-[**RetrieveSignOutPageSettings**](CustomizationApi.md#retrievesignoutpagesettings) | **GET** /api/v1/brands/{brandId}/pages/sign-out | Retrieve the Sign-out Page Settings
+[**RetrieveSignOutPageSettings**](CustomizationApi.md#retrievesignoutpagesettings) | **GET** /api/v1/brands/{brandId}/pages/sign-out/customized | Retrieve the Sign-out Page Settings
 [**SendTestEmail**](CustomizationApi.md#sendtestemail) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/test | Send a Test Email
+[**UnlinkBrandDomain**](CustomizationApi.md#unlinkbranddomain) | **DELETE** /api/v1/brands/{brandId}/domains/{domainId} | Unlink a Brand from a Domain
 [**UpdateBrand**](CustomizationApi.md#updatebrand) | **PUT** /api/v1/brands/{brandId} | Replace a Brand
 [**UpdateBrandTheme**](CustomizationApi.md#updatebrandtheme) | **PUT** /api/v1/brands/{brandId}/themes/{themeId} | Replace a Theme
 [**UpdateEmailCustomization**](CustomizationApi.md#updateemailcustomization) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Replace an Email Customization
@@ -42,6 +55,85 @@ Method | HTTP request | Description
 [**UploadBrandThemeFavicon**](CustomizationApi.md#uploadbrandthemefavicon) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Upload the Favicon
 [**UploadBrandThemeLogo**](CustomizationApi.md#uploadbrandthemelogo) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/logo | Upload the Logo
 
+
+<a name="createbrand"></a>
+# **CreateBrand**
+> Brand CreateBrand (CreateBrandRequest createBrandRequest = null)
+
+Create a Brand
+
+Create new brand in your org
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class CreateBrandExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var createBrandRequest = new CreateBrandRequest(); // CreateBrandRequest |  (optional) 
+
+            try
+            {
+                // Create a Brand
+                Brand result = apiInstance.CreateBrand(createBrandRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.CreateBrand: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createBrandRequest** | [**CreateBrandRequest**](CreateBrandRequest.md)|  | [optional] 
+
+### Return type
+
+[**Brand**](Brand.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="createemailcustomization"></a>
 # **CreateEmailCustomization**
@@ -66,10 +158,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -108,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -151,10 +243,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -190,7 +282,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -204,6 +296,85 @@ void (empty response body)
 | **204** | Successfully deleted all customizations for the email template. |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletebrand"></a>
+# **DeleteBrand**
+> void DeleteBrand (string brandId)
+
+Delete a brand
+
+Deletes a brand by its unique identifier.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class DeleteBrandExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+
+            try
+            {
+                // Delete a brand
+                apiInstance.DeleteBrand(brandId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.DeleteBrand: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Successfully deleted the brand. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -231,15 +402,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | 
-            var themeId = "themeId_example";  // string | 
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var themeId = "themeId_example";  // string | The ID of the theme.
 
             try
             {
@@ -261,8 +432,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**|  | 
- **themeId** | **string**|  | 
+ **brandId** | **string**| The ID of the brand. | 
+ **themeId** | **string**| The ID of the theme. | 
 
 ### Return type
 
@@ -270,7 +441,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -311,15 +482,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | 
-            var themeId = "themeId_example";  // string | 
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var themeId = "themeId_example";  // string | The ID of the theme.
 
             try
             {
@@ -341,8 +512,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**|  | 
- **themeId** | **string**|  | 
+ **brandId** | **string**| The ID of the brand. | 
+ **themeId** | **string**| The ID of the theme. | 
 
 ### Return type
 
@@ -350,7 +521,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -391,15 +562,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | 
-            var themeId = "themeId_example";  // string | 
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var themeId = "themeId_example";  // string | The ID of the theme.
 
             try
             {
@@ -421,8 +592,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**|  | 
- **themeId** | **string**|  | 
+ **brandId** | **string**| The ID of the brand. | 
+ **themeId** | **string**| The ID of the theme. | 
 
 ### Return type
 
@@ -430,7 +601,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -471,10 +642,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -512,7 +683,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -554,14 +725,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | 
+            var brandId = "brandId_example";  // string | The ID of the brand.
 
             try
             {
@@ -584,7 +755,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**|  | 
+ **brandId** | **string**| The ID of the brand. | 
 
 ### Return type
 
@@ -592,7 +763,86 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getbranddomains"></a>
+# **GetBrandDomains**
+> List&lt;DomainResponse&gt; GetBrandDomains (string brandId)
+
+List all Domains associated with a Brand
+
+List all domains associated with a brand by `brandId`
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class GetBrandDomainsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+
+            try
+            {
+                // List all Domains associated with a Brand
+                List<DomainResponse> result = apiInstance.GetBrandDomains(brandId).ToListAsync();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.GetBrandDomains: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+
+### Return type
+
+[**List&lt;DomainResponse&gt;**](DomainResponse.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -633,15 +883,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | 
-            var themeId = "themeId_example";  // string | 
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var themeId = "themeId_example";  // string | The ID of the theme.
 
             try
             {
@@ -664,8 +914,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**|  | 
- **themeId** | **string**|  | 
+ **brandId** | **string**| The ID of the brand. | 
+ **themeId** | **string**| The ID of the theme. | 
 
 ### Return type
 
@@ -673,7 +923,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -714,10 +964,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -756,7 +1006,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -797,10 +1047,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -839,7 +1089,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -880,10 +1130,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -922,7 +1172,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -963,10 +1213,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1005,7 +1255,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1046,10 +1296,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1086,7 +1336,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1127,10 +1377,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1169,7 +1419,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1183,6 +1433,89 @@ Name | Type | Description  | Notes
 | **200** | Successfully retrieved the email template. |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="linkbranddomain"></a>
+# **LinkBrandDomain**
+> BrandDomain LinkBrandDomain (string brandId, CreateBrandDomainRequest createBrandDomainRequest = null)
+
+Link a Brand to a Domain
+
+Link a Brand to a Domain by `domainId`
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class LinkBrandDomainExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var createBrandDomainRequest = new CreateBrandDomainRequest(); // CreateBrandDomainRequest |  (optional) 
+
+            try
+            {
+                // Link a Brand to a Domain
+                BrandDomain result = apiInstance.LinkBrandDomain(brandId, createBrandDomainRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.LinkBrandDomain: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+ **createBrandDomainRequest** | [**CreateBrandDomainRequest**](CreateBrandDomainRequest.md)|  | [optional] 
+
+### Return type
+
+[**BrandDomain**](BrandDomain.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1210,10 +1543,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1248,7 +1581,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1261,6 +1594,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Successfully listed the sign-in widget versions. |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1288,14 +1622,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | 
+            var brandId = "brandId_example";  // string | The ID of the brand.
 
             try
             {
@@ -1318,7 +1652,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**|  | 
+ **brandId** | **string**| The ID of the brand. | 
 
 ### Return type
 
@@ -1326,7 +1660,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1367,10 +1701,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1401,7 +1735,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1441,16 +1775,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
             var brandId = "brandId_example";  // string | The ID of the brand.
             var templateName = "templateName_example";  // string | The name of the email template.
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
             var limit = 20;  // int? | A limit on the number of objects to return. (optional)  (default to 20)
 
             try
@@ -1476,7 +1810,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **brandId** | **string**| The ID of the brand. | 
  **templateName** | **string**| The name of the email template. | 
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
  **limit** | **int?**| A limit on the number of objects to return. | [optional] [default to 20]
 
 ### Return type
@@ -1485,7 +1819,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1526,15 +1860,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
             var brandId = "brandId_example";  // string | The ID of the brand.
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
             var limit = 20;  // int? | A limit on the number of objects to return. (optional)  (default to 20)
             var expand = new List<string>(); // List<string> | Specifies additional metadata to be included in the response. (optional) 
 
@@ -1560,7 +1894,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **brandId** | **string**| The ID of the brand. | 
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
  **limit** | **int?**| A limit on the number of objects to return. | [optional] [default to 20]
  **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to be included in the response. | [optional] 
 
@@ -1570,7 +1904,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1581,20 +1915,20 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully returned the list of email templates. |  * Link - The pagination header containing links to the current and next page of results. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. <br>  |
+| **200** | Successfully returned the list of email templates. |  * Link - The pagination header containing links to the current and next page of results. See [Pagination](/#pagination) for more information. <br>  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="previewerrorpage"></a>
-# **PreviewErrorPage**
-> string PreviewErrorPage (string brandId, CustomizablePage customizablePage)
+<a name="replacecustomizederrorpage"></a>
+# **ReplaceCustomizedErrorPage**
+> CustomizablePage ReplaceCustomizedErrorPage (string brandId, CustomizablePage customizablePage)
 
-Preview the Error Page
+Replace the Customized Error Page
 
-Previews the error page.
+Replaces the customized error page.
 
 ### Example
 ```csharp
@@ -1606,15 +1940,15 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class PreviewErrorPageExample
+    public class ReplaceCustomizedErrorPageExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1623,175 +1957,13 @@ namespace Example
 
             try
             {
-                // Preview the Error Page
-                string result = apiInstance.PreviewErrorPage(brandId, customizablePage);
+                // Replace the Customized Error Page
+                CustomizablePage result = apiInstance.ReplaceCustomizedErrorPage(brandId, customizablePage);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CustomizationApi.PreviewErrorPage: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **brandId** | **string**| The ID of the brand. | 
- **customizablePage** | [**CustomizablePage**](CustomizablePage.md)|  | 
-
-### Return type
-
-**string**
-
-### Authorization
-
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: text/html, application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully previewed the error page. |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="previewsigninpage"></a>
-# **PreviewSignInPage**
-> string PreviewSignInPage (string brandId, SignInPage signInPage)
-
-Preview the Sign-in Page.
-
-Preview the sign-in page.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class PreviewSignInPageExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | The ID of the brand.
-            var signInPage = new SignInPage(); // SignInPage | 
-
-            try
-            {
-                // Preview the Sign-in Page.
-                string result = apiInstance.PreviewSignInPage(brandId, signInPage);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling CustomizationApi.PreviewSignInPage: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **brandId** | **string**| The ID of the brand. | 
- **signInPage** | [**SignInPage**](SignInPage.md)|  | 
-
-### Return type
-
-**string**
-
-### Authorization
-
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: text/html, application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully previewed the sign-in page. |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="replaceerrorpage"></a>
-# **ReplaceErrorPage**
-> CustomizablePage ReplaceErrorPage (string brandId, CustomizablePage customizablePage)
-
-Replace the Error Page
-
-Replaces the error page.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class ReplaceErrorPageExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | The ID of the brand.
-            var customizablePage = new CustomizablePage(); // CustomizablePage | 
-
-            try
-            {
-                // Replace the Error Page
-                CustomizablePage result = apiInstance.ReplaceErrorPage(brandId, customizablePage);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling CustomizationApi.ReplaceErrorPage: " + e.Message );
+                Debug.Print("Exception when calling CustomizationApi.ReplaceCustomizedErrorPage: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1813,7 +1985,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1824,20 +1996,21 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully replaced the error page. |  -  |
+| **200** | Successfully replaced the customized error page. |  * Location -  <br>  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="replacesigninpage"></a>
-# **ReplaceSignInPage**
-> SignInPage ReplaceSignInPage (string brandId, SignInPage signInPage)
+<a name="replacecustomizedsigninpage"></a>
+# **ReplaceCustomizedSignInPage**
+> SignInPage ReplaceCustomizedSignInPage (string brandId, SignInPage signInPage)
 
-Replace the Sign-in Page
+Replace the Customized Sign-in Page
 
-Replaces the sign-in page.
+Replaces the customized sign-in page.
 
 ### Example
 ```csharp
@@ -1849,15 +2022,15 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class ReplaceSignInPageExample
+    public class ReplaceCustomizedSignInPageExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1866,13 +2039,13 @@ namespace Example
 
             try
             {
-                // Replace the Sign-in Page
-                SignInPage result = apiInstance.ReplaceSignInPage(brandId, signInPage);
+                // Replace the Customized Sign-in Page
+                SignInPage result = apiInstance.ReplaceCustomizedSignInPage(brandId, signInPage);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CustomizationApi.ReplaceSignInPage: " + e.Message );
+                Debug.Print("Exception when calling CustomizationApi.ReplaceCustomizedSignInPage: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1894,7 +2067,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1905,9 +2078,174 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully replaced the sign-in page. |  -  |
+| **200** | Successfully replaced the customized sign-in page. |  * Location -  <br>  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="replacepreviewerrorpage"></a>
+# **ReplacePreviewErrorPage**
+> CustomizablePage ReplacePreviewErrorPage (string brandId, CustomizablePage customizablePage)
+
+Replace the Preview Error Page
+
+Replace the preview error page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplacePreviewErrorPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var customizablePage = new CustomizablePage(); // CustomizablePage | 
+
+            try
+            {
+                // Replace the Preview Error Page
+                CustomizablePage result = apiInstance.ReplacePreviewErrorPage(brandId, customizablePage);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.ReplacePreviewErrorPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+ **customizablePage** | [**CustomizablePage**](CustomizablePage.md)|  | 
+
+### Return type
+
+[**CustomizablePage**](CustomizablePage.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully replaced the preview error page. |  * Location -  <br>  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="replacepreviewsigninpage"></a>
+# **ReplacePreviewSignInPage**
+> SignInPage ReplacePreviewSignInPage (string brandId, SignInPage signInPage)
+
+Replace the Preview Sign-in Page
+
+Replace the preview sign-in page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplacePreviewSignInPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var signInPage = new SignInPage(); // SignInPage | 
+
+            try
+            {
+                // Replace the Preview Sign-in Page
+                SignInPage result = apiInstance.ReplacePreviewSignInPage(brandId, signInPage);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.ReplacePreviewSignInPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+ **signInPage** | [**SignInPage**](SignInPage.md)|  | 
+
+### Return type
+
+[**SignInPage**](SignInPage.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully replaced the preview sign-in page. |  * Location -  <br>  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1935,10 +2273,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1975,7 +2313,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1989,17 +2327,18 @@ Name | Type | Description  | Notes
 | **200** | Successfully replaced the sign-out page settings. |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="reseterrorpage"></a>
-# **ResetErrorPage**
-> void ResetErrorPage (string brandId)
+<a name="resetcustomizederrorpage"></a>
+# **ResetCustomizedErrorPage**
+> void ResetCustomizedErrorPage (string brandId)
 
-Reset the Error Page
+Reset the Customized Error Page
 
-Resets the error page.
+Resets the customized error page.
 
 ### Example
 ```csharp
@@ -2011,15 +2350,15 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class ResetErrorPageExample
+    public class ResetCustomizedErrorPageExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -2027,12 +2366,12 @@ namespace Example
 
             try
             {
-                // Reset the Error Page
-                apiInstance.ResetErrorPage(brandId);
+                // Reset the Customized Error Page
+                apiInstance.ResetCustomizedErrorPage(brandId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CustomizationApi.ResetErrorPage: " + e.Message );
+                Debug.Print("Exception when calling CustomizationApi.ResetCustomizedErrorPage: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -2053,7 +2392,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2064,19 +2403,20 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Successfully reset the error page. |  -  |
+| **204** | Successfully reset the customized error page. |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="resetsigninpage"></a>
-# **ResetSignInPage**
-> void ResetSignInPage (string brandId)
+<a name="resetcustomizedsigninpage"></a>
+# **ResetCustomizedSignInPage**
+> void ResetCustomizedSignInPage (string brandId)
 
-Reset the Sign-in Page
+Reset the Customized Sign-in Page
 
-Reset the sign-in page.
+Reset the customized sign-in page.
 
 ### Example
 ```csharp
@@ -2088,15 +2428,15 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class ResetSignInPageExample
+    public class ResetCustomizedSignInPageExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -2104,12 +2444,12 @@ namespace Example
 
             try
             {
-                // Reset the Sign-in Page
-                apiInstance.ResetSignInPage(brandId);
+                // Reset the Customized Sign-in Page
+                apiInstance.ResetCustomizedSignInPage(brandId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CustomizationApi.ResetSignInPage: " + e.Message );
+                Debug.Print("Exception when calling CustomizationApi.ResetCustomizedSignInPage: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -2130,7 +2470,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2143,17 +2483,18 @@ void (empty response body)
 |-------------|-------------|------------------|
 | **204** | Successfully reset the sign-in page. |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="retrieveerrorpage"></a>
-# **RetrieveErrorPage**
-> CustomizablePage RetrieveErrorPage (string brandId)
+<a name="resetpreviewerrorpage"></a>
+# **ResetPreviewErrorPage**
+> void ResetPreviewErrorPage (string brandId)
 
-Retrieve the Error Page
+Reset the Preview Error Page
 
-Retrieves the error page.
+Reset the preview error page.
 
 ### Example
 ```csharp
@@ -2165,15 +2506,15 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class RetrieveErrorPageExample
+    public class ResetPreviewErrorPageExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -2181,13 +2522,169 @@ namespace Example
 
             try
             {
-                // Retrieve the Error Page
-                CustomizablePage result = apiInstance.RetrieveErrorPage(brandId);
+                // Reset the Preview Error Page
+                apiInstance.ResetPreviewErrorPage(brandId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.ResetPreviewErrorPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Successfully reset the preview error page. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="resetpreviewsigninpage"></a>
+# **ResetPreviewSignInPage**
+> void ResetPreviewSignInPage (string brandId)
+
+Reset the Preview Sign-in Page
+
+Reset the preview sign-in page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ResetPreviewSignInPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+
+            try
+            {
+                // Reset the Preview Sign-in Page
+                apiInstance.ResetPreviewSignInPage(brandId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.ResetPreviewSignInPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Successfully reset the preview sign-in page. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="retrievecustomizederrorpage"></a>
+# **RetrieveCustomizedErrorPage**
+> CustomizablePage RetrieveCustomizedErrorPage (string brandId)
+
+Retrieve the Customized Error Page
+
+Retrieves the customized error page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class RetrieveCustomizedErrorPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+
+            try
+            {
+                // Retrieve the Customized Error Page
+                CustomizablePage result = apiInstance.RetrieveCustomizedErrorPage(brandId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CustomizationApi.RetrieveErrorPage: " + e.Message );
+                Debug.Print("Exception when calling CustomizationApi.RetrieveCustomizedErrorPage: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -2208,7 +2705,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2219,19 +2716,20 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved the error page. |  -  |
+| **200** | Successfully retrieved the customized error page. |  * Location -  <br>  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="retrievesigninpage"></a>
-# **RetrieveSignInPage**
-> SignInPage RetrieveSignInPage (string brandId)
+<a name="retrievecustomizedsigninpage"></a>
+# **RetrieveCustomizedSignInPage**
+> SignInPage RetrieveCustomizedSignInPage (string brandId)
 
-Retrieve the Sign-in Page
+Retrieve the Customized Sign-in Page
 
-Retrieves the sign-in page.
+Retrieves the customized sign-in page.
 
 ### Example
 ```csharp
@@ -2243,15 +2741,15 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class RetrieveSignInPageExample
+    public class RetrieveCustomizedSignInPageExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -2259,13 +2757,13 @@ namespace Example
 
             try
             {
-                // Retrieve the Sign-in Page
-                SignInPage result = apiInstance.RetrieveSignInPage(brandId);
+                // Retrieve the Customized Sign-in Page
+                SignInPage result = apiInstance.RetrieveCustomizedSignInPage(brandId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CustomizationApi.RetrieveSignInPage: " + e.Message );
+                Debug.Print("Exception when calling CustomizationApi.RetrieveCustomizedSignInPage: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -2286,7 +2784,485 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved the customized sign-in page. |  * Location -  <br>  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="retrievedefaulterrorpage"></a>
+# **RetrieveDefaultErrorPage**
+> CustomizablePage RetrieveDefaultErrorPage (string brandId)
+
+Retrieve the Default Error Page
+
+Retrieves the default error page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class RetrieveDefaultErrorPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+
+            try
+            {
+                // Retrieve the Default Error Page
+                CustomizablePage result = apiInstance.RetrieveDefaultErrorPage(brandId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.RetrieveDefaultErrorPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+
+### Return type
+
+[**CustomizablePage**](CustomizablePage.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved the default error page. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="retrievedefaultsigninpage"></a>
+# **RetrieveDefaultSignInPage**
+> SignInPage RetrieveDefaultSignInPage (string brandId)
+
+Retrieve the Default Sign-in Page
+
+Retrieves the default sign-in page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class RetrieveDefaultSignInPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+
+            try
+            {
+                // Retrieve the Default Sign-in Page
+                SignInPage result = apiInstance.RetrieveDefaultSignInPage(brandId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.RetrieveDefaultSignInPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+
+### Return type
+
+[**SignInPage**](SignInPage.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved the default sign-in page. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="retrieveerrorpage"></a>
+# **RetrieveErrorPage**
+> PageRoot RetrieveErrorPage (string brandId, List<string> expand = null)
+
+Retrieve the Error Page
+
+Retrieves the error page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class RetrieveErrorPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var expand = new List<string>(); // List<string> | Specifies additional metadata to be included in the response. (optional) 
+
+            try
+            {
+                // Retrieve the Error Page
+                PageRoot result = apiInstance.RetrieveErrorPage(brandId, expand);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.RetrieveErrorPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+ **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to be included in the response. | [optional] 
+
+### Return type
+
+[**PageRoot**](PageRoot.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved the error page. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="retrievepreviewerrorpage"></a>
+# **RetrievePreviewErrorPage**
+> CustomizablePage RetrievePreviewErrorPage (string brandId)
+
+Retrieve the Preview Error Page Preview
+
+Retrieves the preview error page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class RetrievePreviewErrorPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+
+            try
+            {
+                // Retrieve the Preview Error Page Preview
+                CustomizablePage result = apiInstance.RetrievePreviewErrorPage(brandId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.RetrievePreviewErrorPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+
+### Return type
+
+[**CustomizablePage**](CustomizablePage.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved the preview error page. |  * Location -  <br>  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="retrievepreviewsigninpage"></a>
+# **RetrievePreviewSignInPage**
+> SignInPage RetrievePreviewSignInPage (string brandId)
+
+Retrieve the Preview Sign-in Page Preview
+
+Retrieves the preview sign-in page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class RetrievePreviewSignInPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+
+            try
+            {
+                // Retrieve the Preview Sign-in Page Preview
+                SignInPage result = apiInstance.RetrievePreviewSignInPage(brandId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.RetrievePreviewSignInPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+
+### Return type
+
+[**SignInPage**](SignInPage.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved the preview sign-in page. |  * Location -  <br>  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="retrievesigninpage"></a>
+# **RetrieveSignInPage**
+> PageRoot RetrieveSignInPage (string brandId, List<string> expand = null)
+
+Retrieve the Sign-in Page
+
+Retrieves the sign-in page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class RetrieveSignInPageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var expand = new List<string>(); // List<string> | Specifies additional metadata to be included in the response. (optional) 
+
+            try
+            {
+                // Retrieve the Sign-in Page
+                PageRoot result = apiInstance.RetrieveSignInPage(brandId, expand);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.RetrieveSignInPage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+ **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to be included in the response. | [optional] 
+
+### Return type
+
+[**PageRoot**](PageRoot.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2299,6 +3275,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the sign-in page. |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2326,10 +3303,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -2364,7 +3341,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2377,6 +3354,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the sign-out page settings. |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2404,10 +3382,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -2445,7 +3423,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2463,9 +3441,89 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="unlinkbranddomain"></a>
+# **UnlinkBrandDomain**
+> void UnlinkBrandDomain (string brandId, string domainId)
+
+Unlink a Brand from a Domain
+
+Unlink brand and domain by its unique identifier
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class UnlinkBrandDomainExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var domainId = "domainId_example";  // string | The ID of the domain.
+
+            try
+            {
+                // Unlink a Brand from a Domain
+                apiInstance.UnlinkBrandDomain(brandId, domainId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.UnlinkBrandDomain: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+ **domainId** | **string**| The ID of the domain. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Successfully unlinked the domain from the brand |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="updatebrand"></a>
 # **UpdateBrand**
-> Brand UpdateBrand (string brandId, Brand brand)
+> Brand UpdateBrand (string brandId, BrandRequest brand)
 
 Replace a Brand
 
@@ -2486,15 +3544,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | 
-            var brand = new Brand(); // Brand | 
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var brand = new BrandRequest(); // BrandRequest | 
 
             try
             {
@@ -2517,8 +3575,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**|  | 
- **brand** | [**Brand**](Brand.md)|  | 
+ **brandId** | **string**| The ID of the brand. | 
+ **brand** | [**BrandRequest**](BrandRequest.md)|  | 
 
 ### Return type
 
@@ -2526,7 +3584,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2568,15 +3626,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | 
-            var themeId = "themeId_example";  // string | 
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var themeId = "themeId_example";  // string | The ID of the theme.
             var theme = new Theme(); // Theme | 
 
             try
@@ -2600,8 +3658,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**|  | 
- **themeId** | **string**|  | 
+ **brandId** | **string**| The ID of the brand. | 
+ **themeId** | **string**| The ID of the theme. | 
  **theme** | [**Theme**](Theme.md)|  | 
 
 ### Return type
@@ -2610,7 +3668,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2652,10 +3710,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -2696,7 +3754,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2739,10 +3797,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -2780,7 +3838,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2823,15 +3881,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | 
-            var themeId = "themeId_example";  // string | 
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var themeId = "themeId_example";  // string | The ID of the theme.
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
             try
@@ -2855,8 +3913,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**|  | 
- **themeId** | **string**|  | 
+ **brandId** | **string**| The ID of the brand. | 
+ **themeId** | **string**| The ID of the theme. | 
  **file** | **System.IO.Stream****System.IO.Stream**|  | 
 
 ### Return type
@@ -2865,7 +3923,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2907,15 +3965,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | 
-            var themeId = "themeId_example";  // string | 
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var themeId = "themeId_example";  // string | The ID of the theme.
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
             try
@@ -2939,8 +3997,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**|  | 
- **themeId** | **string**|  | 
+ **brandId** | **string**| The ID of the brand. | 
+ **themeId** | **string**| The ID of the theme. | 
  **file** | **System.IO.Stream****System.IO.Stream**|  | 
 
 ### Return type
@@ -2949,7 +4007,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2991,15 +4049,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | 
-            var themeId = "themeId_example";  // string | 
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var themeId = "themeId_example";  // string | The ID of the theme.
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
             try
@@ -3023,8 +4081,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**|  | 
- **themeId** | **string**|  | 
+ **brandId** | **string**| The ID of the brand. | 
+ **themeId** | **string**| The ID of the theme. | 
  **file** | **System.IO.Stream****System.IO.Stream**|  | 
 
 ### Return type
@@ -3033,7 +4091,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 

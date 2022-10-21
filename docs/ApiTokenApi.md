@@ -1,6 +1,6 @@
 # Okta.Sdk.Api.ApiTokenApi
 
-All URIs are relative to *https://your-subdomain.okta.com*
+All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,10 +33,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApiTokenApi(config);
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -112,14 +112,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApiTokenApi(config);
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
             var limit = 20;  // int? | A limit on the number of objects to return. (optional)  (default to 20)
             var q = "q_example";  // string | Finds a token that matches the name or clientName. (optional) 
 
@@ -144,7 +144,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
  **limit** | **int?**| A limit on the number of objects to return. | [optional] [default to 20]
  **q** | **string**| Finds a token that matches the name or clientName. | [optional] 
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -194,10 +194,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApiTokenApi(config);
@@ -231,7 +231,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -272,8 +272,8 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
 
             var apiInstance = new ApiTokenApi(config);
@@ -303,7 +303,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token)
+[apiToken](../README.md#apiToken)
 
 ### HTTP request headers
 

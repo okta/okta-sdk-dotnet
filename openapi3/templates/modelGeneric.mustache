@@ -44,7 +44,8 @@
         {{#deprecated}}
         [Obsolete]
         {{/deprecated}}
-        public {{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}} {{name}} { get; set; }
+        
+        public {{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}{{^isEnum}}?{{/isEnum}}{{/required}}{{/isContainer}} {{name}} { get; set; }
         {{#isReadOnly}}
 
         /// <summary>
@@ -63,7 +64,7 @@
         {{#deprecated}}
         [Obsolete]
         {{/deprecated}}
-        public {{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}} {{name}} { get; set; }
+        public {{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}{{^isEnum}}?{{/isEnum}}{{/required}}{{/isContainer}} {{name}} { get; set; }
 
 
         /// <summary>
@@ -81,7 +82,7 @@
         {{#deprecated}}
         [Obsolete]
         {{/deprecated}}
-        public {{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}} {{name}}
+        public {{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}{{^isEnum}}?{{/isEnum}}{{/required}}{{/isContainer}} {{name}}
         {
             get{ return _{{name}};}
             set
@@ -90,7 +91,7 @@
                 _flag{{name}} = true;
             }
         }
-        private {{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}} _{{name}};
+        private {{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}{{^isEnum}}?{{/isEnum}}{{/required}}{{/isContainer}} _{{name}};
         private bool _flag{{name}};
 
         /// <summary>

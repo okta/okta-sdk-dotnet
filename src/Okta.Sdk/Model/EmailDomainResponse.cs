@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,13 @@ namespace Okta.Sdk.Model
     
     public partial class EmailDomainResponse : IEquatable<EmailDomainResponse>
     {
+
+        /// <summary>
+        /// Gets or Sets ValidationStatus
+        /// </summary>
+        [DataMember(Name = "validationStatus", EmitDefaultValue = false)]
+        
+        public EmailDomainStatus ValidationStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailDomainResponse" /> class.
         /// </summary>
@@ -56,12 +63,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ValidationStatus
-        /// </summary>
-        [DataMember(Name = "validationStatus", EmitDefaultValue = false)]
-        public string ValidationStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
@@ -142,8 +143,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.ValidationStatus == input.ValidationStatus ||
-                    (this.ValidationStatus != null &&
-                    this.ValidationStatus.Equals(input.ValidationStatus))
+                    this.ValidationStatus.Equals(input.ValidationStatus)
                 ) && 
                 (
                     this.DisplayName == input.DisplayName ||
@@ -179,10 +179,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.ValidationStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.ValidationStatus.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.ValidationStatus.GetHashCode();
                 if (this.DisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();

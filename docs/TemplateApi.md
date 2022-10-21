@@ -1,6 +1,6 @@
 # Okta.Sdk.Api.TemplateApi
 
-All URIs are relative to *https://your-subdomain.okta.com*
+All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,10 +35,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -114,10 +114,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
@@ -151,7 +151,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -192,10 +192,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 <a name="listsmstemplates"></a>
 # **ListSmsTemplates**
-> List&lt;SmsTemplate&gt; ListSmsTemplates (string templateType = null)
+> List&lt;SmsTemplate&gt; ListSmsTemplates (SmsTemplateType? templateType = null)
 
 List all SMS Templates
 
@@ -271,14 +271,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
-            var templateType = "templateType_example";  // string |  (optional) 
+            var templateType = (SmsTemplateType) "SMS_VERIFY_CODE";  // SmsTemplateType? |  (optional) 
 
             try
             {
@@ -301,7 +301,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **templateType** | **string**|  | [optional] 
+ **templateType** | **SmsTemplateType?**|  | [optional] 
 
 ### Return type
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -349,10 +349,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -431,10 +431,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 

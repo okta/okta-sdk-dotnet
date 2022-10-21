@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -52,6 +52,20 @@ namespace Okta.Sdk.Model
     
     public partial class Application : IEquatable<Application>
     {
+
+        /// <summary>
+        /// Gets or Sets SignOnMode
+        /// </summary>
+        [DataMember(Name = "signOnMode", EmitDefaultValue = false)]
+        
+        public ApplicationSignOnMode SignOnMode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        
+        public ApplicationLifecycleStatus Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Accessibility
@@ -126,26 +140,6 @@ namespace Okta.Sdk.Model
         public Dictionary<string, Object> Profile { get; set; }
 
         /// <summary>
-        /// Gets or Sets SignOnMode
-        /// </summary>
-        [DataMember(Name = "signOnMode", EmitDefaultValue = false)]
-        public string SignOnMode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string Status { get; private set; }
-
-        /// <summary>
-        /// Returns false as Status should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeStatus()
-        {
-            return false;
-        }
-        /// <summary>
         /// Gets or Sets Visibility
         /// </summary>
         [DataMember(Name = "visibility", EmitDefaultValue = false)]
@@ -169,16 +163,8 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "_links", EmitDefaultValue = false)]
-        public Dictionary<string, Object> Links { get; private set; }
+        public ApplicationLinks Links { get; set; }
 
-        /// <summary>
-        /// Returns false as Links should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeLinks()
-        {
-            return false;
-        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -279,13 +265,11 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.SignOnMode == input.SignOnMode ||
-                    (this.SignOnMode != null &&
-                    this.SignOnMode.Equals(input.SignOnMode))
+                    this.SignOnMode.Equals(input.SignOnMode)
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status.Equals(input.Status)
                 ) && 
                 (
                     this.Visibility == input.Visibility ||
@@ -300,9 +284,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Links == input.Links ||
-                    this.Links != null &&
-                    input.Links != null &&
-                    this.Links.SequenceEqual(input.Links)
+                    (this.Links != null &&
+                    this.Links.Equals(input.Links))
                 );
         }
 
@@ -348,14 +331,8 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();
                 }
-                if (this.SignOnMode != null)
-                {
-                    hashCode = (hashCode * 59) + this.SignOnMode.GetHashCode();
-                }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.SignOnMode.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.Visibility != null)
                 {
                     hashCode = (hashCode * 59) + this.Visibility.GetHashCode();

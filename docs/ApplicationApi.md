@@ -1,11 +1,12 @@
 # Okta.Sdk.Api.ApplicationApi
 
-All URIs are relative to *https://your-subdomain.okta.com*
+All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ActivateApplication**](ApplicationApi.md#activateapplication) | **POST** /api/v1/apps/{appId}/lifecycle/activate | Activate an Application
 [**ActivateDefaultProvisioningConnectionForApplication**](ApplicationApi.md#activatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/activate | Activate the default Provisioning Connection
+[**AssignApplicationPolicy**](ApplicationApi.md#assignapplicationpolicy) | **PUT** /api/v1/apps/{appId}/policies/{policyId} | Assign an application to a specific policy
 [**AssignUserToApplication**](ApplicationApi.md#assignusertoapplication) | **POST** /api/v1/apps/{appId}/users | Assign a User
 [**CloneApplicationKey**](ApplicationApi.md#cloneapplicationkey) | **POST** /api/v1/apps/{appId}/credentials/keys/{keyId}/clone | Clone a Key Credential
 [**CreateApplication**](ApplicationApi.md#createapplication) | **POST** /api/v1/apps | Create an Application
@@ -70,10 +71,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -107,7 +108,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -148,10 +149,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -185,7 +186,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -200,6 +201,83 @@ void (empty response body)
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="assignapplicationpolicy"></a>
+# **AssignApplicationPolicy**
+> void AssignApplicationPolicy (string appId, string policyId)
+
+Assign an application to a specific policy
+
+Assign an application to a specific policy. This unassigns the application from its currently assigned policy.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class AssignApplicationPolicyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new ApplicationApi(config);
+            var appId = "appId_example";  // string | 
+            var policyId = "policyId_example";  // string | 
+
+            try
+            {
+                // Assign an application to a specific policy
+                apiInstance.AssignApplicationPolicy(appId, policyId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ApplicationApi.AssignApplicationPolicy: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **policyId** | **string**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -226,10 +304,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -266,7 +344,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -308,10 +386,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -350,7 +428,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -391,10 +469,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -433,7 +511,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -474,10 +552,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -516,7 +594,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -558,10 +636,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -595,7 +673,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -636,10 +714,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -673,7 +751,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -714,10 +792,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -751,7 +829,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -792,10 +870,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -831,7 +909,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -872,10 +950,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -913,7 +991,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -954,10 +1032,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -994,7 +1072,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1035,10 +1113,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1075,7 +1153,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1117,10 +1195,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1157,7 +1235,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1198,10 +1276,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1240,7 +1318,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1281,10 +1359,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1321,7 +1399,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1362,10 +1440,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1404,7 +1482,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1445,10 +1523,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1485,7 +1563,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1526,10 +1604,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1564,7 +1642,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1605,10 +1683,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1645,7 +1723,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1686,10 +1764,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1728,7 +1806,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1769,8 +1847,8 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
 
             var apiInstance = new ApplicationApi(config);
@@ -1809,7 +1887,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token)
+[apiToken](../README.md#apiToken)
 
 ### HTTP request headers
 
@@ -1850,8 +1928,8 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
 
             var apiInstance = new ApplicationApi(config);
@@ -1888,7 +1966,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token)
+[apiToken](../README.md#apiToken)
 
 ### HTTP request headers
 
@@ -1930,10 +2008,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1976,7 +2054,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2017,10 +2095,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2055,7 +2133,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2096,10 +2174,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2146,7 +2224,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2187,10 +2265,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2235,7 +2313,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2275,10 +2353,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2313,7 +2391,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2354,10 +2432,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2392,7 +2470,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2433,10 +2511,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2477,7 +2555,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2518,8 +2596,8 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
 
             var apiInstance = new ApplicationApi(config);
@@ -2556,7 +2634,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token)
+[apiToken](../README.md#apiToken)
 
 ### HTTP request headers
 
@@ -2597,10 +2675,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2639,7 +2717,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2681,10 +2759,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2720,7 +2798,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2761,10 +2839,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2800,7 +2878,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2841,10 +2919,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2878,7 +2956,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2919,8 +2997,8 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
 
             var apiInstance = new ApplicationApi(config);
@@ -2956,7 +3034,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token)
+[apiToken](../README.md#apiToken)
 
 ### HTTP request headers
 
@@ -2997,10 +3075,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -3039,7 +3117,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -3081,10 +3159,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -3121,7 +3199,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -3163,10 +3241,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -3205,7 +3283,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -3247,10 +3325,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -3289,7 +3367,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -3331,10 +3409,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: OAuth_2.0
+            // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -3370,7 +3448,7 @@ void (empty response body)
 
 ### Authorization
 
-[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 

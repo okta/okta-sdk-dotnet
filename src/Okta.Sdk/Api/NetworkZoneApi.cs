@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
-        System.Threading.Tasks.Task<NetworkZone> ActivateNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<NetworkZone> ActivateNetworkZoneAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Activate a Network Zone
         /// </summary>
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NetworkZone)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NetworkZone>> ActivateNetworkZoneWithHttpInfoAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<NetworkZone>> ActivateNetworkZoneWithHttpInfoAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Network Zone
         /// </summary>
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         /// <param name="zone"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
-        System.Threading.Tasks.Task<NetworkZone> CreateNetworkZoneAsync(NetworkZone zone, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<NetworkZone> CreateNetworkZoneAsync(  NetworkZone zone , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Network Zone
         /// </summary>
@@ -71,7 +71,7 @@ namespace Okta.Sdk.Api
         /// <param name="zone"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NetworkZone)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NetworkZone>> CreateNetworkZoneWithHttpInfoAsync(NetworkZone zone, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<NetworkZone>> CreateNetworkZoneWithHttpInfoAsync(  NetworkZone zone , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deactivate a Network Zone
         /// </summary>
@@ -82,7 +82,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
-        System.Threading.Tasks.Task<NetworkZone> DeactivateNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<NetworkZone> DeactivateNetworkZoneAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deactivate a Network Zone
         /// </summary>
@@ -93,7 +93,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NetworkZone)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NetworkZone>> DeactivateNetworkZoneWithHttpInfoAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<NetworkZone>> DeactivateNetworkZoneWithHttpInfoAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Network Zone
         /// </summary>
@@ -104,7 +104,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteNetworkZoneAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Network Zone
         /// </summary>
@@ -115,7 +115,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteNetworkZoneWithHttpInfoAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteNetworkZoneWithHttpInfoAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Network Zone
         /// </summary>
@@ -126,7 +126,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
-        System.Threading.Tasks.Task<NetworkZone> GetNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<NetworkZone> GetNetworkZoneAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Network Zone
         /// </summary>
@@ -137,7 +137,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NetworkZone)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NetworkZone>> GetNetworkZoneWithHttpInfoAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<NetworkZone>> GetNetworkZoneWithHttpInfoAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Network Zones
         /// </summary>
@@ -150,7 +150,7 @@ namespace Okta.Sdk.Api
         /// <param name="filter">Filters zones by usage or id expression (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;NetworkZone&gt;</returns>
-        IOktaCollectionClient<NetworkZone> ListNetworkZones(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<NetworkZone> ListNetworkZones(  string after = default(string) ,   int? limit = default(int?) ,   string filter = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Network Zones
         /// </summary>
@@ -163,7 +163,7 @@ namespace Okta.Sdk.Api
         /// <param name="filter">Filters zones by usage or id expression (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;NetworkZone&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<NetworkZone>>> ListNetworkZonesWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<NetworkZone>>> ListNetworkZonesWithHttpInfoAsync(  string after = default(string) ,   int? limit = default(int?) ,   string filter = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Network Zone
         /// </summary>
@@ -175,7 +175,7 @@ namespace Okta.Sdk.Api
         /// <param name="zone"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
-        System.Threading.Tasks.Task<NetworkZone> UpdateNetworkZoneAsync(string zoneId, NetworkZone zone, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<NetworkZone> UpdateNetworkZoneAsync(  string zoneId ,   NetworkZone zone , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Network Zone
         /// </summary>
@@ -187,7 +187,7 @@ namespace Okta.Sdk.Api
         /// <param name="zone"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NetworkZone)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NetworkZone>> UpdateNetworkZoneWithHttpInfoAsync(string zoneId, NetworkZone zone, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<NetworkZone>> UpdateNetworkZoneWithHttpInfoAsync(  string zoneId ,   NetworkZone zone , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -300,7 +300,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
-        public async System.Threading.Tasks.Task<NetworkZone> ActivateNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NetworkZone> ActivateNetworkZoneAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = await ActivateNetworkZoneWithHttpInfoAsync(zoneId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -312,7 +312,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NetworkZone)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<NetworkZone>> ActivateNetworkZoneWithHttpInfoAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<NetworkZone>> ActivateNetworkZoneWithHttpInfoAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'zoneId' is set
             if (zoneId == null)
@@ -345,12 +345,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -385,7 +385,7 @@ namespace Okta.Sdk.Api
         /// <param name="zone"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
-        public async System.Threading.Tasks.Task<NetworkZone> CreateNetworkZoneAsync(NetworkZone zone, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NetworkZone> CreateNetworkZoneAsync(  NetworkZone zone , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = await CreateNetworkZoneWithHttpInfoAsync(zone, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -397,7 +397,7 @@ namespace Okta.Sdk.Api
         /// <param name="zone"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NetworkZone)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<NetworkZone>> CreateNetworkZoneWithHttpInfoAsync(NetworkZone zone, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<NetworkZone>> CreateNetworkZoneWithHttpInfoAsync(  NetworkZone zone , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'zone' is set
             if (zone == null)
@@ -431,12 +431,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = zone;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -471,7 +471,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
-        public async System.Threading.Tasks.Task<NetworkZone> DeactivateNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NetworkZone> DeactivateNetworkZoneAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = await DeactivateNetworkZoneWithHttpInfoAsync(zoneId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -483,7 +483,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NetworkZone)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<NetworkZone>> DeactivateNetworkZoneWithHttpInfoAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<NetworkZone>> DeactivateNetworkZoneWithHttpInfoAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'zoneId' is set
             if (zoneId == null)
@@ -516,12 +516,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -556,7 +556,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteNetworkZoneAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteNetworkZoneWithHttpInfoAsync(zoneId, cancellationToken).ConfigureAwait(false);
         }
@@ -567,7 +567,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteNetworkZoneWithHttpInfoAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteNetworkZoneWithHttpInfoAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'zoneId' is set
             if (zoneId == null)
@@ -600,12 +600,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -640,7 +640,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
-        public async System.Threading.Tasks.Task<NetworkZone> GetNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NetworkZone> GetNetworkZoneAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = await GetNetworkZoneWithHttpInfoAsync(zoneId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -652,7 +652,7 @@ namespace Okta.Sdk.Api
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NetworkZone)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<NetworkZone>> GetNetworkZoneWithHttpInfoAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<NetworkZone>> GetNetworkZoneWithHttpInfoAsync(  string zoneId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'zoneId' is set
             if (zoneId == null)
@@ -685,12 +685,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -727,7 +727,8 @@ namespace Okta.Sdk.Api
         /// <param name="filter">Filters zones by usage or id expression (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;NetworkZone&gt;</returns>
-        public IOktaCollectionClient<NetworkZone> ListNetworkZones(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        //a
+        public IOktaCollectionClient<NetworkZone> ListNetworkZones(  string after = default(string) ,   int? limit = default(int?) ,   string filter = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -765,12 +766,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -790,7 +791,7 @@ namespace Okta.Sdk.Api
         /// <param name="filter">Filters zones by usage or id expression (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;NetworkZone&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<NetworkZone>>> ListNetworkZonesWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<NetworkZone>>> ListNetworkZonesWithHttpInfoAsync(  string after = default(string) ,   int? limit = default(int?) ,   string filter = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -828,12 +829,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -865,7 +866,7 @@ namespace Okta.Sdk.Api
         /// <param name="zone"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NetworkZone</returns>
-        public async System.Threading.Tasks.Task<NetworkZone> UpdateNetworkZoneAsync(string zoneId, NetworkZone zone, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NetworkZone> UpdateNetworkZoneAsync(  string zoneId ,   NetworkZone zone , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<NetworkZone> localVarResponse = await UpdateNetworkZoneWithHttpInfoAsync(zoneId, zone, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -878,7 +879,7 @@ namespace Okta.Sdk.Api
         /// <param name="zone"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NetworkZone)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<NetworkZone>> UpdateNetworkZoneWithHttpInfoAsync(string zoneId, NetworkZone zone, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<NetworkZone>> UpdateNetworkZoneWithHttpInfoAsync(  string zoneId ,   NetworkZone zone , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'zoneId' is set
             if (zoneId == null)
@@ -919,12 +920,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
             localVarRequestOptions.Data = zone;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

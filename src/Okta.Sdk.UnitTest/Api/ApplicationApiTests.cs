@@ -47,7 +47,7 @@ namespace Okta.Sdk.UnitTest
 
             token.Should().NotBeNull();
             token.Id.Should().Be("oar579Mcp7OUsNTlo0g3");
-            token.Status.Should().Be("ACTIVE");
+            token.Status.Value.Should().Be("ACTIVE");
             token.Created.Date.Should().Be(new DateTime(2018, 3, 9));
             token.LastUpdated.Date.Should().Be(new DateTime(2018, 3, 9));
             token.ExpiresAt.Date.Should().Be(new DateTime(2018, 3, 16));
@@ -71,7 +71,7 @@ namespace Okta.Sdk.UnitTest
 
             tokens.FirstOrDefault().Should().NotBeNull();
             tokens.FirstOrDefault().Id.Should().Be("oar579Mcp7OUsNTlo0g3");
-            tokens.FirstOrDefault().Status.Should().Be("ACTIVE");
+            tokens.FirstOrDefault().Status.Value.Should().Be("ACTIVE");
             tokens.FirstOrDefault().Created.Date.Should().Be(new DateTime(2018, 3, 9));
             tokens.FirstOrDefault().LastUpdated.Date.Should().Be(new DateTime(2018, 3, 9));
             tokens.FirstOrDefault().ExpiresAt.Date.Should().Be(new DateTime(2018, 3, 16));
@@ -135,9 +135,9 @@ namespace Okta.Sdk.UnitTest
             mockClient.ReceivedBody.Should().Be(expectedBody);
 
             feature.Should().NotBeNull();
-            feature.Status.Should().Be("ENABLED");
+            feature.Status.Value.Should().Be("ENABLED");
             feature.Name.Should().Be("USER_PROVISIONING");
-            feature.Capabilities.Create.LifecycleCreate.Status.Should().Be("DISABLED");
+            feature.Capabilities.Create.LifecycleCreate.Status.Value.Should().Be("DISABLED");
 
         }
 
@@ -178,9 +178,9 @@ namespace Okta.Sdk.UnitTest
             mockClient.ReceivedPathParams["name"].Should().Contain("bar");
 
             feature.Should().NotBeNull();
-            feature.Status.Should().Be("ENABLED");
+            feature.Status.Value.Should().Be("ENABLED");
             feature.Name.Should().Be("USER_PROVISIONING");
-            feature.Capabilities.Create.LifecycleCreate.Status.Should().Be("DISABLED");
+            feature.Capabilities.Create.LifecycleCreate.Status.Value.Should().Be("DISABLED");
         }
 
         [Fact]
@@ -219,9 +219,9 @@ namespace Okta.Sdk.UnitTest
             mockClient.ReceivedPathParams["appId"].Should().Contain("foo");
 
             features.Should().NotBeNull();
-            features.FirstOrDefault().Status.Should().Be("ENABLED");
+            features.FirstOrDefault().Status.Value.Should().Be("ENABLED");
             features.FirstOrDefault().Name.Should().Be("USER_PROVISIONING");
-            features.FirstOrDefault().Capabilities.Create.LifecycleCreate.Status.Should().Be("DISABLED");
+            features.FirstOrDefault().Capabilities.Create.LifecycleCreate.Status.Value.Should().Be("DISABLED");
         }
 
         [Fact]
@@ -292,8 +292,8 @@ namespace Okta.Sdk.UnitTest
 
             var expectedBody = @"{""profile"":{""authScheme"":""TOKEN"",""token"":""foo""}}";
             mockClient.ReceivedBody.Should().Be(expectedBody);
-            response.Status.Should().Be("ENABLED");
-            response.AuthScheme.Should().Be("TOKEN");
+            response.Status.Value.Should().Be("ENABLED");
+            response.AuthScheme.Value.Should().Be("TOKEN");
         }
 
         private string GetListOAuthTokensStubResponse()

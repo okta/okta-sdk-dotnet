@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,12 +33,26 @@ namespace Okta.Sdk.Model
     
     public partial class Domain : IEquatable<Domain>
     {
-        
+
         /// <summary>
         /// Gets or Sets CertificateSourceType
         /// </summary>
         [DataMember(Name = "certificateSourceType", EmitDefaultValue = false)]
-        public string CertificateSourceType { get; set; }
+        
+        public DomainCertificateSourceType CertificateSourceType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ValidationStatus
+        /// </summary>
+        [DataMember(Name = "validationStatus", EmitDefaultValue = false)]
+        
+        public DomainValidationStatus ValidationStatus { get; set; }
+        
+        /// <summary>
+        /// Gets or Sets BrandId
+        /// </summary>
+        [DataMember(Name = "brandId", EmitDefaultValue = false)]
+        public string BrandId { get; set; }
 
         /// <summary>
         /// Gets or Sets DnsRecords
@@ -65,12 +79,6 @@ namespace Okta.Sdk.Model
         public DomainCertificateMetadata PublicCertificate { get; set; }
 
         /// <summary>
-        /// Gets or Sets ValidationStatus
-        /// </summary>
-        [DataMember(Name = "validationStatus", EmitDefaultValue = false)]
-        public string ValidationStatus { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -78,6 +86,7 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Domain {\n");
+            sb.Append("  BrandId: ").Append(BrandId).Append("\n");
             sb.Append("  CertificateSourceType: ").Append(CertificateSourceType).Append("\n");
             sb.Append("  DnsRecords: ").Append(DnsRecords).Append("\n");
             sb.Append("  _Domain: ").Append(_Domain).Append("\n");
@@ -120,9 +129,13 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
+                    this.BrandId == input.BrandId ||
+                    (this.BrandId != null &&
+                    this.BrandId.Equals(input.BrandId))
+                ) && 
+                (
                     this.CertificateSourceType == input.CertificateSourceType ||
-                    (this.CertificateSourceType != null &&
-                    this.CertificateSourceType.Equals(input.CertificateSourceType))
+                    this.CertificateSourceType.Equals(input.CertificateSourceType)
                 ) && 
                 (
                     this.DnsRecords == input.DnsRecords ||
@@ -147,8 +160,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.ValidationStatus == input.ValidationStatus ||
-                    (this.ValidationStatus != null &&
-                    this.ValidationStatus.Equals(input.ValidationStatus))
+                    this.ValidationStatus.Equals(input.ValidationStatus)
                 );
         }
 
@@ -162,10 +174,11 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.CertificateSourceType != null)
+                if (this.BrandId != null)
                 {
-                    hashCode = (hashCode * 59) + this.CertificateSourceType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.BrandId.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.CertificateSourceType.GetHashCode();
                 if (this.DnsRecords != null)
                 {
                     hashCode = (hashCode * 59) + this.DnsRecords.GetHashCode();
@@ -182,10 +195,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PublicCertificate.GetHashCode();
                 }
-                if (this.ValidationStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.ValidationStatus.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.ValidationStatus.GetHashCode();
                 return hashCode;
             }
         }

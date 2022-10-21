@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Issuer** | **string** |  | [optional] 
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
 **Scopes** | **List&lt;string&gt;** |  | [optional] 
-**Status** | **string** |  | [optional] 
+**Status** | **GrantOrTokenStatus** |  | [optional] 
 **UserId** | **string** |  | [optional] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 

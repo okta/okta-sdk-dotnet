@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,27 @@ namespace Okta.Sdk.Model
     
     public partial class NetworkZone : IEquatable<NetworkZone>
     {
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        
+        public NetworkZoneStatus Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        
+        public NetworkZoneType Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Usage
+        /// </summary>
+        [DataMember(Name = "usage", EmitDefaultValue = false)]
+        
+        public NetworkZoneUsage Usage { get; set; }
         
         /// <summary>
         /// Gets or Sets Asns
@@ -113,28 +134,10 @@ namespace Okta.Sdk.Model
         public string ProxyType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string Status { get; set; }
-
-        /// <summary>
         /// Gets or Sets System
         /// </summary>
         [DataMember(Name = "system", EmitDefaultValue = true)]
         public bool System { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Usage
-        /// </summary>
-        [DataMember(Name = "usage", EmitDefaultValue = false)]
-        public string Usage { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -258,8 +261,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status.Equals(input.Status)
                 ) && 
                 (
                     this.System == input.System ||
@@ -267,13 +269,11 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
                     this.Usage == input.Usage ||
-                    (this.Usage != null &&
-                    this.Usage.Equals(input.Usage))
+                    this.Usage.Equals(input.Usage)
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -329,19 +329,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ProxyType.GetHashCode();
                 }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 hashCode = (hashCode * 59) + this.System.GetHashCode();
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
-                if (this.Usage != null)
-                {
-                    hashCode = (hashCode * 59) + this.Usage.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                hashCode = (hashCode * 59) + this.Usage.GetHashCode();
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

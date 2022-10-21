@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,18 +33,19 @@ namespace Okta.Sdk.Model
     
     public partial class PasswordPolicyRecoveryEmail : IEquatable<PasswordPolicyRecoveryEmail>
     {
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        
+        public LifecycleStatus Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Properties
         /// </summary>
         [DataMember(Name = "properties", EmitDefaultValue = false)]
         public PasswordPolicyRecoveryEmailProperties Properties { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -98,8 +99,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status.Equals(input.Status)
                 );
         }
 
@@ -117,10 +117,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 return hashCode;
             }
         }

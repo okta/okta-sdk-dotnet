@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,18 +33,19 @@ namespace Okta.Sdk.Model
     
     public partial class TrustedOriginScope : IEquatable<TrustedOriginScope>
     {
-        
-        /// <summary>
-        /// Gets or Sets AllowedOktaApps
-        /// </summary>
-        [DataMember(Name = "allowedOktaApps", EmitDefaultValue = false)]
-        public List<string> AllowedOktaApps { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
+        
+        public TrustedOriginScopeType Type { get; set; }
+        
+        /// <summary>
+        /// Gets or Sets AllowedOktaApps
+        /// </summary>
+        [DataMember(Name = "allowedOktaApps", EmitDefaultValue = false)]
+        public List<IframeEmbedScopeAllowedApps> AllowedOktaApps { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -99,8 +100,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 );
         }
 
@@ -118,10 +118,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.AllowedOktaApps.GetHashCode();
                 }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 return hashCode;
             }
         }

@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,29 +33,12 @@ namespace Okta.Sdk.Model
     
     public partial class SignInPage : IEquatable<SignInPage>
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SignInPage" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        public SignInPage() { }
         
         /// <summary>
         /// Gets or Sets PageContent
         /// </summary>
-        [DataMember(Name = "pageContent", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "pageContent", EmitDefaultValue = false)]
         public string PageContent { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Url
-        /// </summary>
-        [DataMember(Name = "url", EmitDefaultValue = false)]
-        public string Url { get; set; }
 
         /// <summary>
         /// Gets or Sets WidgetCustomizations
@@ -79,8 +62,6 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class SignInPage {\n");
             sb.Append("  PageContent: ").Append(PageContent).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  WidgetCustomizations: ").Append(WidgetCustomizations).Append("\n");
             sb.Append("  WidgetVersion: ").Append(WidgetVersion).Append("\n");
             sb.Append("}\n");
@@ -124,16 +105,6 @@ namespace Okta.Sdk.Model
                     this.PageContent.Equals(input.PageContent))
                 ) && 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.Url == input.Url ||
-                    (this.Url != null &&
-                    this.Url.Equals(input.Url))
-                ) && 
-                (
                     this.WidgetCustomizations == input.WidgetCustomizations ||
                     (this.WidgetCustomizations != null &&
                     this.WidgetCustomizations.Equals(input.WidgetCustomizations))
@@ -158,14 +129,6 @@ namespace Okta.Sdk.Model
                 if (this.PageContent != null)
                 {
                     hashCode = (hashCode * 59) + this.PageContent.GetHashCode();
-                }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
-                if (this.Url != null)
-                {
-                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
                 }
                 if (this.WidgetCustomizations != null)
                 {

@@ -16,10 +16,10 @@ Name | Type | Description | Notes
 **OneOf** | [**List&lt;UserSchemaAttributeEnum&gt;**](UserSchemaAttributeEnum.md) |  | [optional] 
 **Permissions** | [**List&lt;UserSchemaAttributePermission&gt;**](UserSchemaAttributePermission.md) |  | [optional] 
 **Required** | **bool** |  | [optional] 
-**Scope** | **string** |  | [optional] 
+**Scope** | **UserSchemaAttributeScope** |  | [optional] 
 **Title** | **string** |  | [optional] 
-**Type** | **string** |  | [optional] 
-**Union** | **string** |  | [optional] 
+**Type** | **UserSchemaAttributeType** |  | [optional] 
+**Union** | **UserSchemaAttributeUnion** |  | [optional] 
 **Unique** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

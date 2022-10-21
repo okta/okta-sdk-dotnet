@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,13 @@ namespace Okta.Sdk.Model
     
     public partial class DeviceAssurance : IEquatable<DeviceAssurance>
     {
+
+        /// <summary>
+        /// Gets or Sets Platform
+        /// </summary>
+        [DataMember(Name = "platform", EmitDefaultValue = false)]
+        
+        public Platform Platform { get; set; }
         
         /// <summary>
         /// Gets or Sets CreatedBy
@@ -128,12 +135,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "osVersion", EmitDefaultValue = false)]
         public VersionObject OsVersion { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Platform
-        /// </summary>
-        [DataMember(Name = "platform", EmitDefaultValue = false)]
-        public string Platform { get; set; }
 
         /// <summary>
         /// Gets or Sets ScreenLockType
@@ -255,8 +256,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Platform == input.Platform ||
-                    (this.Platform != null &&
-                    this.Platform.Equals(input.Platform))
+                    this.Platform.Equals(input.Platform)
                 ) && 
                 (
                     this.ScreenLockType == input.ScreenLockType ||
@@ -317,10 +317,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.OsVersion.GetHashCode();
                 }
-                if (this.Platform != null)
-                {
-                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Platform.GetHashCode();
                 if (this.ScreenLockType != null)
                 {
                     hashCode = (hashCode * 59) + this.ScreenLockType.GetHashCode();
