@@ -2,7 +2,7 @@
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/). In short, we don't make breaking changes unless the major version changes!
 
-## Migrating from 5.x to 6.x-beta
+## Migrating from 5.x to 6.x
 
 In releases prior to version 6 we use an Open API v2 specification, and an Okta custom client generator to partially generate our SDK. A new version of the Open API specification (V3) has been released, and new well-known generators are now available and well received by the community. Planning the future of this SDK, we consider this a good opportunity to modernize by aligning with established standards for API client generation. 
 
@@ -28,25 +28,69 @@ var apps = await appApiClient.ListApplications().ToListAsync();
 
 ### Enums
 
-In the initial beta version, enums are not supported and have been converted to strings.  This is due to the potential for the future introduction of new values that cause runtime failures which would require the release of a new version.  We will continue iterating in order to provide the best experience possible. 
+`StringEnums` are still supported. However, format might slightly change depending on the OpenAPI specification and codegen.
 
 ### Features parity
 
-In the first beta version we ported some of the existent features to the new SDK:
+The following features have been ported to 6.x:
 
 * Iniline configuration, configuration via environment variables, appsettings.json or YAML files
 * Manual pagination for collections
 * Default retry strategy for 429 HTTP responses and ability to provide your own strategy
-* Web proxy is only available via inline configuration
-
-#### What's next?
-
-In future releases we will provide support for the following features:
-
+* Web proxy 
 * OAuth for Okta
-* Extend proxy configuration to env vars, appsettings.json and YAML files
-* Call other API endpoints
 
+
+### Dependencies
+
+We now use [RestSharp](https://restsharp.dev/) as our intermal REST API client library unlike previous versions which were using `HttpClient`. For more details about other dependencies, please check out the Dependencies section [here](API_README.md).
+
+### New APIs
+
+In order to provide better structuring, some endpoints have been moved from an existing client/API to their own API client:
+
+_Before:_
+
+```csharp
+
+var oktaClient = new OktaClient();
+
+await oktaClient.Groups.AssignRoleAsync(groupId, new AssignRoleRequest
+                {
+                    Type = RoleType.UserAdmin,
+                });
+
+var roles = await oktaClient.Groups.ListGroupAssignedRoles(createdGroup.Id).ToListAsync();
+
+/// ...
+
+await oktaClient.Groups.AddGroupTargetToGroupAdministratorRoleForGroupAsync(createdGroup1.Id, role.Id, createdGroup2.Id);
+
+var groups = await oktaClient.Groups.ListGroupTargetsForGroupRole(createdGroup1.Id, role.Id).ToListAsync();
+```
+
+_Now:_
+
+```csharp
+var _roleAssignmentApi = new RoleAssignmentApi();
+
+var role1 = await _roleAssignmentApi.AssignRoleToGroupAsync(createdGroup.Id, new AssignRoleRequest
+                {
+                    Type = "SUPER_ADMIN"
+                });
+
+var roles = await _roleAssignmentApi.ListGroupAssignedRoles(createdGroup.Id).ToListAsync();
+
+/// ...
+
+var _roleTargetApi = new RoleTargetApi();
+
+await _roleTargetApi.AddGroupTargetToGroupAdministratorRoleForGroupAsync(group1.Id, role1.Id, group2.Id);
+
+var groupTargetList = await _roleTargetApi.ListGroupTargetsForGroupRole(createdGroup1.Id, role1.Id).ToListAsync();
+```
+
+For more details about other APIs, please check out [here](API_README.md#Documentation_for_API_Endpoints).
 
 ## Migrating from 4.x to 5.x
 

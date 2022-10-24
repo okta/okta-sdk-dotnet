@@ -1,6 +1,11 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 6.0.0
+
+- Add support for StringEnum
+- Update OpenAPI spec
+
 ## 6.0.0-beta02
 
 - Add support for OAuth for Okta
