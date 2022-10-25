@@ -54,6 +54,7 @@ This library uses semantic versioning and follows Okta's [library version policy
 | ------- | ------------------------- |
 | 6.x | :heavy_check_mark: Stable ([migration guide](MIGRATING.md))|
 | 5.x | :warning: Retiring |
+| 6.x | :warning: Beta ([branch oasv3](https://github.com/okta/okta-sdk-dotnet/blob/oasv3)) |
 
 
  
@@ -388,6 +389,17 @@ while (await enumerator.MoveNextAsync())
 ## Call other API endpoints
 
 This feature is not available yet, and it will be released in the next beta release.
+
+## Get data from `_links`
+
+All models inherit from [Resource](https://github.com/okta/okta-sdk-dotnet/blob/master/src/Okta.Sdk/Resource.cs) which provides convenience methods to access the raw data. You can access `_links` and any other properties by using the `GetResource<T>` method:
+
+```csharp
+var identityProvider = await client.IdentityProviders.CreateOktaIDPAsync(idp);
+var links = identityProvider.GetProperty<Resource>("_links");
+var acs = links.GetProperty<Resource>("acs"); // Use Resource when what you'retriving is an object
+var acsType = acs.GetProperty<string>("type"); // Use the specific type for primitive types
+```
 
 ## Rate Limiting
 
