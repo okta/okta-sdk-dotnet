@@ -43,7 +43,7 @@ The following features have been ported to 6.x:
 
 ### Dependencies
 
-We now use [RestSharp](https://restsharp.dev/) as our intermal REST API client library unlike previous versions which were using `HttpClient`. For more details about other dependencies, please check out the Dependencies section [here](API_README.md).
+We now use [RestSharp](https://restsharp.dev/) as our internal REST API client library unlike previous versions which were using `HttpClient`. For more details about other dependencies, please check out the _Dependencies_ section [here](API_README.md).
 
 ### New APIs
 
