@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,14 @@ namespace Okta.Sdk.Model
     
     public partial class ProvisioningConnectionProfile : IEquatable<ProvisioningConnectionProfile>
     {
-        
+
         /// <summary>
         /// Gets or Sets AuthScheme
         /// </summary>
         [DataMember(Name = "authScheme", EmitDefaultValue = false)]
-        public string AuthScheme { get; set; }
-
+        
+        public ProvisioningConnectionAuthScheme AuthScheme { get; set; }
+        
         /// <summary>
         /// Gets or Sets Token
         /// </summary>
@@ -93,8 +94,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.AuthScheme == input.AuthScheme ||
-                    (this.AuthScheme != null &&
-                    this.AuthScheme.Equals(input.AuthScheme))
+                    this.AuthScheme.Equals(input.AuthScheme)
                 ) && 
                 (
                     this.Token == input.Token ||
@@ -113,10 +113,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.AuthScheme != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
                 if (this.Token != null)
                 {
                     hashCode = (hashCode * 59) + this.Token.GetHashCode();

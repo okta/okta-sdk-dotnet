@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,18 +33,19 @@ namespace Okta.Sdk.Model
     
     public partial class OpenIdConnectApplicationSettingsRefreshToken : IEquatable<OpenIdConnectApplicationSettingsRefreshToken>
     {
+
+        /// <summary>
+        /// Gets or Sets RotationType
+        /// </summary>
+        [DataMember(Name = "rotation_type", EmitDefaultValue = false)]
+        
+        public OpenIdConnectRefreshTokenRotationType RotationType { get; set; }
         
         /// <summary>
         /// Gets or Sets Leeway
         /// </summary>
         [DataMember(Name = "leeway", EmitDefaultValue = false)]
         public int Leeway { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RotationType
-        /// </summary>
-        [DataMember(Name = "rotation_type", EmitDefaultValue = false)]
-        public string RotationType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,8 +98,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.RotationType == input.RotationType ||
-                    (this.RotationType != null &&
-                    this.RotationType.Equals(input.RotationType))
+                    this.RotationType.Equals(input.RotationType)
                 );
         }
 
@@ -113,10 +113,7 @@ namespace Okta.Sdk.Model
                 int hashCode = 41;
                 
                 hashCode = (hashCode * 59) + this.Leeway.GetHashCode();
-                if (this.RotationType != null)
-                {
-                    hashCode = (hashCode * 59) + this.RotationType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.RotationType.GetHashCode();
                 return hashCode;
             }
         }

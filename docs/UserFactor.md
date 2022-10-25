@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
-**FactorType** | **string** |  | [optional] 
+**FactorType** | **FactorType** |  | [optional] 
 **Id** | **string** |  | [optional] [readonly] 
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
-**Provider** | **string** |  | [optional] 
-**Status** | **string** |  | [optional] 
+**Provider** | **FactorProvider** |  | [optional] 
+**Status** | **FactorStatus** |  | [optional] 
 **Verify** | [**VerifyFactorRequest**](VerifyFactorRequest.md) |  | [optional] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 

@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="mappingId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProfileMapping</returns>
-        System.Threading.Tasks.Task<ProfileMapping> GetProfileMappingAsync(string mappingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProfileMapping> GetProfileMappingAsync(  string mappingId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Profile Mapping
         /// </summary>
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <param name="mappingId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProfileMapping)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProfileMapping>> GetProfileMappingWithHttpInfoAsync(string mappingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProfileMapping>> GetProfileMappingWithHttpInfoAsync(  string mappingId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Profile Mappings
         /// </summary>
@@ -63,7 +63,7 @@ namespace Okta.Sdk.Api
         /// <param name="targetId"> (optional, default to &quot;&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ProfileMapping&gt;</returns>
-        IOktaCollectionClient<ProfileMapping> ListProfileMappings(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<ProfileMapping> ListProfileMappings(  string after = default(string) ,   int? limit = default(int?) ,   string sourceId = default(string) ,   string targetId = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Profile Mappings
         /// </summary>
@@ -77,7 +77,7 @@ namespace Okta.Sdk.Api
         /// <param name="targetId"> (optional, default to &quot;&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ProfileMapping&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ProfileMapping>>> ListProfileMappingsWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ProfileMapping>>> ListProfileMappingsWithHttpInfoAsync(  string after = default(string) ,   int? limit = default(int?) ,   string sourceId = default(string) ,   string targetId = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update a Profile Mapping
         /// </summary>
@@ -89,7 +89,7 @@ namespace Okta.Sdk.Api
         /// <param name="profileMapping"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProfileMapping</returns>
-        System.Threading.Tasks.Task<ProfileMapping> UpdateProfileMappingAsync(string mappingId, ProfileMapping profileMapping, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProfileMapping> UpdateProfileMappingAsync(  string mappingId ,   ProfileMapping profileMapping , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update a Profile Mapping
         /// </summary>
@@ -101,7 +101,7 @@ namespace Okta.Sdk.Api
         /// <param name="profileMapping"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProfileMapping)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProfileMapping>> UpdateProfileMappingWithHttpInfoAsync(string mappingId, ProfileMapping profileMapping, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProfileMapping>> UpdateProfileMappingWithHttpInfoAsync(  string mappingId ,   ProfileMapping profileMapping , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -214,7 +214,7 @@ namespace Okta.Sdk.Api
         /// <param name="mappingId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProfileMapping</returns>
-        public async System.Threading.Tasks.Task<ProfileMapping> GetProfileMappingAsync(string mappingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProfileMapping> GetProfileMappingAsync(  string mappingId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<ProfileMapping> localVarResponse = await GetProfileMappingWithHttpInfoAsync(mappingId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -226,7 +226,7 @@ namespace Okta.Sdk.Api
         /// <param name="mappingId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProfileMapping)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ProfileMapping>> GetProfileMappingWithHttpInfoAsync(string mappingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ProfileMapping>> GetProfileMappingWithHttpInfoAsync(  string mappingId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'mappingId' is set
             if (mappingId == null)
@@ -259,12 +259,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("mappingId", Okta.Sdk.Client.ClientUtils.ParameterToString(mappingId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -302,7 +302,8 @@ namespace Okta.Sdk.Api
         /// <param name="targetId"> (optional, default to &quot;&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ProfileMapping&gt;</returns>
-        public IOktaCollectionClient<ProfileMapping> ListProfileMappings(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        //a
+        public IOktaCollectionClient<ProfileMapping> ListProfileMappings(  string after = default(string) ,   int? limit = default(int?) ,   string sourceId = default(string) ,   string targetId = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -344,12 +345,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "targetId", targetId));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -370,7 +371,7 @@ namespace Okta.Sdk.Api
         /// <param name="targetId"> (optional, default to &quot;&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ProfileMapping&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<ProfileMapping>>> ListProfileMappingsWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<ProfileMapping>>> ListProfileMappingsWithHttpInfoAsync(  string after = default(string) ,   int? limit = default(int?) ,   string sourceId = default(string) ,   string targetId = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -412,12 +413,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "targetId", targetId));
             }
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -449,7 +450,7 @@ namespace Okta.Sdk.Api
         /// <param name="profileMapping"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProfileMapping</returns>
-        public async System.Threading.Tasks.Task<ProfileMapping> UpdateProfileMappingAsync(string mappingId, ProfileMapping profileMapping, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProfileMapping> UpdateProfileMappingAsync(  string mappingId ,   ProfileMapping profileMapping , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<ProfileMapping> localVarResponse = await UpdateProfileMappingWithHttpInfoAsync(mappingId, profileMapping, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -462,7 +463,7 @@ namespace Okta.Sdk.Api
         /// <param name="profileMapping"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProfileMapping)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ProfileMapping>> UpdateProfileMappingWithHttpInfoAsync(string mappingId, ProfileMapping profileMapping, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ProfileMapping>> UpdateProfileMappingWithHttpInfoAsync(  string mappingId ,   ProfileMapping profileMapping , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'mappingId' is set
             if (mappingId == null)
@@ -503,12 +504,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("mappingId", Okta.Sdk.Client.ClientUtils.ParameterToString(mappingId)); // path parameter
             localVarRequestOptions.Data = profileMapping;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

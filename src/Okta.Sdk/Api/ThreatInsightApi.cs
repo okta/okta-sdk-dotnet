@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -58,7 +58,7 @@ namespace Okta.Sdk.Api
         /// <param name="threatInsightConfiguration"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ThreatInsightConfiguration</returns>
-        System.Threading.Tasks.Task<ThreatInsightConfiguration> UpdateConfigurationAsync(ThreatInsightConfiguration threatInsightConfiguration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ThreatInsightConfiguration> UpdateConfigurationAsync(  ThreatInsightConfiguration threatInsightConfiguration , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update the ThreatInsight Configuration
         /// </summary>
@@ -69,7 +69,7 @@ namespace Okta.Sdk.Api
         /// <param name="threatInsightConfiguration"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ThreatInsightConfiguration)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ThreatInsightConfiguration>> UpdateConfigurationWithHttpInfoAsync(ThreatInsightConfiguration threatInsightConfiguration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ThreatInsightConfiguration>> UpdateConfigurationWithHttpInfoAsync(  ThreatInsightConfiguration threatInsightConfiguration , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -218,12 +218,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -258,7 +258,7 @@ namespace Okta.Sdk.Api
         /// <param name="threatInsightConfiguration"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ThreatInsightConfiguration</returns>
-        public async System.Threading.Tasks.Task<ThreatInsightConfiguration> UpdateConfigurationAsync(ThreatInsightConfiguration threatInsightConfiguration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ThreatInsightConfiguration> UpdateConfigurationAsync(  ThreatInsightConfiguration threatInsightConfiguration , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<ThreatInsightConfiguration> localVarResponse = await UpdateConfigurationWithHttpInfoAsync(threatInsightConfiguration, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -270,7 +270,7 @@ namespace Okta.Sdk.Api
         /// <param name="threatInsightConfiguration"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ThreatInsightConfiguration)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ThreatInsightConfiguration>> UpdateConfigurationWithHttpInfoAsync(ThreatInsightConfiguration threatInsightConfiguration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ThreatInsightConfiguration>> UpdateConfigurationWithHttpInfoAsync(  ThreatInsightConfiguration threatInsightConfiguration , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'threatInsightConfiguration' is set
             if (threatInsightConfiguration == null)
@@ -304,12 +304,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = threatInsightConfiguration;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

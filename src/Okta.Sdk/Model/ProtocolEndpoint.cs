@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,24 +33,26 @@ namespace Okta.Sdk.Model
     
     public partial class ProtocolEndpoint : IEquatable<ProtocolEndpoint>
     {
-        
+
         /// <summary>
         /// Gets or Sets Binding
         /// </summary>
         [DataMember(Name = "binding", EmitDefaultValue = false)]
-        public string Binding { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Destination
-        /// </summary>
-        [DataMember(Name = "destination", EmitDefaultValue = false)]
-        public string Destination { get; set; }
+        
+        public ProtocolEndpointBinding Binding { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
+        
+        public ProtocolEndpointType Type { get; set; }
+        
+        /// <summary>
+        /// Gets or Sets Destination
+        /// </summary>
+        [DataMember(Name = "destination", EmitDefaultValue = false)]
+        public string Destination { get; set; }
 
         /// <summary>
         /// Gets or Sets Url
@@ -107,8 +109,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Binding == input.Binding ||
-                    (this.Binding != null &&
-                    this.Binding.Equals(input.Binding))
+                    this.Binding.Equals(input.Binding)
                 ) && 
                 (
                     this.Destination == input.Destination ||
@@ -117,8 +118,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
                     this.Url == input.Url ||
@@ -137,18 +137,12 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Binding != null)
-                {
-                    hashCode = (hashCode * 59) + this.Binding.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Binding.GetHashCode();
                 if (this.Destination != null)
                 {
                     hashCode = (hashCode * 59) + this.Destination.GetHashCode();
                 }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 if (this.Url != null)
                 {
                     hashCode = (hashCode * 59) + this.Url.GetHashCode();

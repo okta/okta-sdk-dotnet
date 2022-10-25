@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets ErrorCauses
         /// </summary>
         [DataMember(Name = "errorCauses", EmitDefaultValue = false)]
-        public List<ErrorErrorCauses> ErrorCauses { get; set; }
+        public List<ErrorErrorCausesInner> ErrorCauses { get; set; }
 
         /// <summary>
         /// An Okta code for this type of error

@@ -52,8 +52,9 @@ This library uses semantic versioning and follows Okta's [library version policy
 
 | Version | Status                    |
 | ------- | ------------------------- |
-| 5.x | :heavy_check_mark: Stable |
-| 6.x | :warning: Beta ([migration guide](MIGRATING.md))|
+| 6.x | :heavy_check_mark: Stable ([migration guide](MIGRATING.md))|
+| 5.x | :warning: Retiring |
+
 
  
 The latest release can always be found on the [releases page][github-releases].
@@ -83,8 +84,6 @@ Visual Studio 2017 or newer is required as previous versions are not compatible 
 
 ### Install using The Package Manager Console
 Simply run `install-package Okta.Sdk`. Done!
-
-> Note: The 6.x *BETA* series can be found [here](https://github.com/okta/okta-sdk-dotnet/tree/oasv3)
 
 You'll also need:
 

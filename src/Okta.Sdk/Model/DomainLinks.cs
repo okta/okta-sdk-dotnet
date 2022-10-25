@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -35,22 +35,28 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
+        /// Gets or Sets Brand
+        /// </summary>
+        [DataMember(Name = "brand", EmitDefaultValue = false)]
+        public HrefObject Brand { get; set; }
+
+        /// <summary>
         /// Gets or Sets Certificate
         /// </summary>
         [DataMember(Name = "certificate", EmitDefaultValue = false)]
-        public Object Certificate { get; set; }
+        public HrefObject Certificate { get; set; }
 
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
         [DataMember(Name = "self", EmitDefaultValue = false)]
-        public Object Self { get; set; }
+        public HrefObject Self { get; set; }
 
         /// <summary>
         /// Gets or Sets Verify
         /// </summary>
         [DataMember(Name = "verify", EmitDefaultValue = false)]
-        public Object Verify { get; set; }
+        public HrefObject Verify { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,6 +66,7 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class DomainLinks {\n");
+            sb.Append("  Brand: ").Append(Brand).Append("\n");
             sb.Append("  Certificate: ").Append(Certificate).Append("\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
             sb.Append("  Verify: ").Append(Verify).Append("\n");
@@ -99,6 +106,11 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
+                    this.Brand == input.Brand ||
+                    (this.Brand != null &&
+                    this.Brand.Equals(input.Brand))
+                ) && 
+                (
                     this.Certificate == input.Certificate ||
                     (this.Certificate != null &&
                     this.Certificate.Equals(input.Certificate))
@@ -125,6 +137,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
+                if (this.Brand != null)
+                {
+                    hashCode = (hashCode * 59) + this.Brand.GetHashCode();
+                }
                 if (this.Certificate != null)
                 {
                     hashCode = (hashCode * 59) + this.Certificate.GetHashCode();

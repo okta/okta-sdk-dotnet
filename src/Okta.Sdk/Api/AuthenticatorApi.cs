@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Authenticator</returns>
-        System.Threading.Tasks.Task<Authenticator> ActivateAuthenticatorAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Authenticator> ActivateAuthenticatorAsync(  string authenticatorId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Activate an Authenticator
         /// </summary>
@@ -49,7 +49,31 @@ namespace Okta.Sdk.Api
         /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Authenticator)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Authenticator>> ActivateAuthenticatorWithHttpInfoAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Authenticator>> ActivateAuthenticatorWithHttpInfoAsync(  string authenticatorId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Create an Authenticator
+        /// </summary>
+        /// <remarks>
+        /// Creates an authenticator. You can use this operation as part of the \&quot;Create a custom authenticator\&quot; flow. See the [Custom authenticator integration guide](https://developer.okta.com/docs/guides/authenticators-custom-authenticator/android/main/).
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authenticator"></param>
+        /// <param name="activate">Whether to execute the activation lifecycle operation when Okta creates the authenticator (optional, default to false)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Authenticator</returns>
+        System.Threading.Tasks.Task<Authenticator> CreateAuthenticatorAsync(  Authenticator authenticator ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Create an Authenticator
+        /// </summary>
+        /// <remarks>
+        /// Creates an authenticator. You can use this operation as part of the \&quot;Create a custom authenticator\&quot; flow. See the [Custom authenticator integration guide](https://developer.okta.com/docs/guides/authenticators-custom-authenticator/android/main/).
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authenticator"></param>
+        /// <param name="activate">Whether to execute the activation lifecycle operation when Okta creates the authenticator (optional, default to false)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Authenticator)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Authenticator>> CreateAuthenticatorWithHttpInfoAsync(  Authenticator authenticator ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deactivate an Authenticator
         /// </summary>
@@ -60,7 +84,7 @@ namespace Okta.Sdk.Api
         /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Authenticator</returns>
-        System.Threading.Tasks.Task<Authenticator> DeactivateAuthenticatorAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Authenticator> DeactivateAuthenticatorAsync(  string authenticatorId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deactivate an Authenticator
         /// </summary>
@@ -71,7 +95,7 @@ namespace Okta.Sdk.Api
         /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Authenticator)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Authenticator>> DeactivateAuthenticatorWithHttpInfoAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Authenticator>> DeactivateAuthenticatorWithHttpInfoAsync(  string authenticatorId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve an Authenticator
         /// </summary>
@@ -82,7 +106,7 @@ namespace Okta.Sdk.Api
         /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Authenticator</returns>
-        System.Threading.Tasks.Task<Authenticator> GetAuthenticatorAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Authenticator> GetAuthenticatorAsync(  string authenticatorId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve an Authenticator
         /// </summary>
@@ -93,7 +117,7 @@ namespace Okta.Sdk.Api
         /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Authenticator)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Authenticator>> GetAuthenticatorWithHttpInfoAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Authenticator>> GetAuthenticatorWithHttpInfoAsync(  string authenticatorId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Authenticators
         /// </summary>
@@ -125,7 +149,7 @@ namespace Okta.Sdk.Api
         /// <param name="authenticator"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Authenticator</returns>
-        System.Threading.Tasks.Task<Authenticator> UpdateAuthenticatorAsync(string authenticatorId, Authenticator authenticator, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Authenticator> UpdateAuthenticatorAsync(  string authenticatorId ,   Authenticator authenticator , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace an Authenticator
         /// </summary>
@@ -137,7 +161,7 @@ namespace Okta.Sdk.Api
         /// <param name="authenticator"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Authenticator)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Authenticator>> UpdateAuthenticatorWithHttpInfoAsync(string authenticatorId, Authenticator authenticator, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Authenticator>> UpdateAuthenticatorWithHttpInfoAsync(  string authenticatorId ,   Authenticator authenticator , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -250,7 +274,7 @@ namespace Okta.Sdk.Api
         /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Authenticator</returns>
-        public async System.Threading.Tasks.Task<Authenticator> ActivateAuthenticatorAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Authenticator> ActivateAuthenticatorAsync(  string authenticatorId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<Authenticator> localVarResponse = await ActivateAuthenticatorWithHttpInfoAsync(authenticatorId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -262,7 +286,7 @@ namespace Okta.Sdk.Api
         /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Authenticator)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Authenticator>> ActivateAuthenticatorWithHttpInfoAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Authenticator>> ActivateAuthenticatorWithHttpInfoAsync(  string authenticatorId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authenticatorId' is set
             if (authenticatorId == null)
@@ -295,12 +319,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -329,13 +353,105 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
+        /// Create an Authenticator Creates an authenticator. You can use this operation as part of the \&quot;Create a custom authenticator\&quot; flow. See the [Custom authenticator integration guide](https://developer.okta.com/docs/guides/authenticators-custom-authenticator/android/main/).
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authenticator"></param>
+        /// <param name="activate">Whether to execute the activation lifecycle operation when Okta creates the authenticator (optional, default to false)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Authenticator</returns>
+        public async System.Threading.Tasks.Task<Authenticator> CreateAuthenticatorAsync(  Authenticator authenticator ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<Authenticator> localVarResponse = await CreateAuthenticatorWithHttpInfoAsync(authenticator, activate, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Create an Authenticator Creates an authenticator. You can use this operation as part of the \&quot;Create a custom authenticator\&quot; flow. See the [Custom authenticator integration guide](https://developer.okta.com/docs/guides/authenticators-custom-authenticator/android/main/).
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authenticator"></param>
+        /// <param name="activate">Whether to execute the activation lifecycle operation when Okta creates the authenticator (optional, default to false)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Authenticator)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Authenticator>> CreateAuthenticatorWithHttpInfoAsync(  Authenticator authenticator ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'authenticator' is set
+            if (authenticator == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'authenticator' when calling AuthenticatorApi->CreateAuthenticator");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (activate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "activate", activate));
+            }
+            localVarRequestOptions.Data = authenticator;
+
+            // authentication (apiToken) required
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (oauth2) required
+            // oauth required
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Authenticator>("/api/v1/authenticators", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateAuthenticator", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Deactivate an Authenticator Deactivates an authenticator by &#x60;authenticatorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Authenticator</returns>
-        public async System.Threading.Tasks.Task<Authenticator> DeactivateAuthenticatorAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Authenticator> DeactivateAuthenticatorAsync(  string authenticatorId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<Authenticator> localVarResponse = await DeactivateAuthenticatorWithHttpInfoAsync(authenticatorId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -347,7 +463,7 @@ namespace Okta.Sdk.Api
         /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Authenticator)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Authenticator>> DeactivateAuthenticatorWithHttpInfoAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Authenticator>> DeactivateAuthenticatorWithHttpInfoAsync(  string authenticatorId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authenticatorId' is set
             if (authenticatorId == null)
@@ -380,12 +496,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -420,7 +536,7 @@ namespace Okta.Sdk.Api
         /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Authenticator</returns>
-        public async System.Threading.Tasks.Task<Authenticator> GetAuthenticatorAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Authenticator> GetAuthenticatorAsync(  string authenticatorId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<Authenticator> localVarResponse = await GetAuthenticatorWithHttpInfoAsync(authenticatorId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -432,7 +548,7 @@ namespace Okta.Sdk.Api
         /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Authenticator)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Authenticator>> GetAuthenticatorWithHttpInfoAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Authenticator>> GetAuthenticatorWithHttpInfoAsync(  string authenticatorId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authenticatorId' is set
             if (authenticatorId == null)
@@ -465,12 +581,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -504,6 +620,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Authenticator&gt;</returns>
+        //a
         public IOktaCollectionClient<Authenticator> ListAuthenticators(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
@@ -530,12 +647,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -578,12 +695,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -615,7 +732,7 @@ namespace Okta.Sdk.Api
         /// <param name="authenticator"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Authenticator</returns>
-        public async System.Threading.Tasks.Task<Authenticator> UpdateAuthenticatorAsync(string authenticatorId, Authenticator authenticator, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Authenticator> UpdateAuthenticatorAsync(  string authenticatorId ,   Authenticator authenticator , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<Authenticator> localVarResponse = await UpdateAuthenticatorWithHttpInfoAsync(authenticatorId, authenticator, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -628,7 +745,7 @@ namespace Okta.Sdk.Api
         /// <param name="authenticator"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Authenticator)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Authenticator>> UpdateAuthenticatorWithHttpInfoAsync(string authenticatorId, Authenticator authenticator, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Authenticator>> UpdateAuthenticatorWithHttpInfoAsync(  string authenticatorId ,   Authenticator authenticator , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authenticatorId' is set
             if (authenticatorId == null)
@@ -669,12 +786,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
             localVarRequestOptions.Data = authenticator;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

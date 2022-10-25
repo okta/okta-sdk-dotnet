@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,14 @@ namespace Okta.Sdk.Model
     
     public partial class PolicyRuleActionsEnroll : IEquatable<PolicyRuleActionsEnroll>
     {
-        
+
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
         [DataMember(Name = "self", EmitDefaultValue = false)]
-        public string Self { get; set; }
-
+        
+        public PolicyRuleActionsEnrollSelf Self { get; set; }
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -86,8 +87,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Self == input.Self ||
-                    (this.Self != null &&
-                    this.Self.Equals(input.Self))
+                    this.Self.Equals(input.Self)
                 );
         }
 
@@ -101,10 +101,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Self != null)
-                {
-                    hashCode = (hashCode * 59) + this.Self.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Self.GetHashCode();
                 return hashCode;
             }
         }

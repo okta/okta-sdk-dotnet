@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
 **Priority** | **int** |  | [optional] 
-**Status** | **string** |  | [optional] 
+**Status** | **LifecycleStatus** |  | [optional] 
 **System** | **bool** |  | [optional] 
-**Type** | **string** |  | [optional] 
+**Type** | **PolicyType** |  | [optional] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 

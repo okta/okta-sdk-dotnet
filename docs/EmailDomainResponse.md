@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **DnsValidationRecords** | [**List&lt;DNSRecord&gt;**](DNSRecord.md) |  | [optional] 
 **Domain** | **string** |  | [optional] 
 **Id** | **string** |  | [optional] 
-**ValidationStatus** | **string** |  | [optional] 
+**ValidationStatus** | **EmailDomainStatus** |  | [optional] 
 **DisplayName** | **string** |  | 
 **UserName** | **string** |  | 
 

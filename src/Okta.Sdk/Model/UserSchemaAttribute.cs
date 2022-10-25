@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,27 @@ namespace Okta.Sdk.Model
     
     public partial class UserSchemaAttribute : IEquatable<UserSchemaAttribute>
     {
+
+        /// <summary>
+        /// Gets or Sets Scope
+        /// </summary>
+        [DataMember(Name = "scope", EmitDefaultValue = false)]
+        
+        public UserSchemaAttributeScope Scope { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        
+        public UserSchemaAttributeType Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Union
+        /// </summary>
+        [DataMember(Name = "union", EmitDefaultValue = false)]
+        
+        public UserSchemaAttributeUnion Union { get; set; }
         
         /// <summary>
         /// Gets or Sets Description
@@ -113,28 +134,10 @@ namespace Okta.Sdk.Model
         public bool Required { get; set; }
 
         /// <summary>
-        /// Gets or Sets Scope
-        /// </summary>
-        [DataMember(Name = "scope", EmitDefaultValue = false)]
-        public string Scope { get; set; }
-
-        /// <summary>
         /// Gets or Sets Title
         /// </summary>
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Union
-        /// </summary>
-        [DataMember(Name = "union", EmitDefaultValue = false)]
-        public string Union { get; set; }
 
         /// <summary>
         /// Gets or Sets Unique
@@ -270,8 +273,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Scope == input.Scope ||
-                    (this.Scope != null &&
-                    this.Scope.Equals(input.Scope))
+                    this.Scope.Equals(input.Scope)
                 ) && 
                 (
                     this.Title == input.Title ||
@@ -280,13 +282,11 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
                     this.Union == input.Union ||
-                    (this.Union != null &&
-                    this.Union.Equals(input.Union))
+                    this.Union.Equals(input.Union)
                 ) && 
                 (
                     this.Unique == input.Unique ||
@@ -348,22 +348,13 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Required.GetHashCode();
-                if (this.Scope != null)
-                {
-                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Scope.GetHashCode();
                 if (this.Title != null)
                 {
                     hashCode = (hashCode * 59) + this.Title.GetHashCode();
                 }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
-                if (this.Union != null)
-                {
-                    hashCode = (hashCode * 59) + this.Union.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                hashCode = (hashCode * 59) + this.Union.GetHashCode();
                 if (this.Unique != null)
                 {
                     hashCode = (hashCode * 59) + this.Unique.GetHashCode();

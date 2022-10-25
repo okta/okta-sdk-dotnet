@@ -72,9 +72,9 @@ namespace Okta.Sdk.UnitTest.Api
                                 ]";
 
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
-            var groupApi = new GroupApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+            var roleTargetApi = new RoleTargetApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
-            var apps = await groupApi.ListApplicationTargetsForApplicationAdministratorRoleForGroup("foo", "bar")
+            var apps = await roleTargetApi.ListApplicationTargetsForApplicationAdministratorRoleForGroup("foo", "bar")
                 .ToListAsync();
 
             mockClient.ReceivedPath.Should().StartWith("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps");
@@ -86,7 +86,7 @@ namespace Okta.Sdk.UnitTest.Api
             apps.Should().NotBeNullOrEmpty();
             apps.Should().HaveCount(2);
             apps.FirstOrDefault().Name.Should().Be("facebook");
-            apps.FirstOrDefault().Status.Should().Be("ACTIVE");
+            apps.FirstOrDefault().Status.Value.Should().Be("ACTIVE");
             apps.FirstOrDefault().Id.Should().BeNullOrEmpty();
             apps.FirstOrDefault().Description.Should().Be("Description");
             apps.FirstOrDefault().DisplayName.Should().Be("Facebook");
@@ -96,7 +96,7 @@ namespace Okta.Sdk.UnitTest.Api
             apps.FirstOrDefault().SignOnModes.Should().Contain("BROWSER_PLUGIN");
 
             apps[1].Name.Should().Be("24 Seven Office 0");
-            apps[1].Status.Should().Be("ACTIVE");
+            apps[1].Status.Value.Should().Be("ACTIVE");
             apps[1].Id.Should().Be("0oasrudLtMlzAsTxk0g3");
         }
 
@@ -105,9 +105,9 @@ namespace Okta.Sdk.UnitTest.Api
         {
        
             var mockClient = new MockAsyncClient(String.Empty, HttpStatusCode.OK);
-            var groupApi = new GroupApi(mockClient, new Configuration { BasePath = "https://foo.com" });
-            
-            await groupApi.AddApplicationTargetToAdminRoleGivenToGroupAsync("foo", "bar", "baz");
+            var roleTargetApi = new RoleTargetApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+
+            await roleTargetApi.AddApplicationTargetToAdminRoleGivenToGroupAsync("foo", "bar", "baz");
 
             mockClient.ReceivedPath.Should().StartWith("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}");
             mockClient.ReceivedPathParams["groupId"].Should().Contain("foo");
@@ -119,10 +119,10 @@ namespace Okta.Sdk.UnitTest.Api
         public async Task AddApplicationInstanceTargetToAppAdminRoleGivenToGroup()
         {
             var mockClient = new MockAsyncClient(String.Empty, HttpStatusCode.NoContent);
-            var groupApi = new GroupApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+            var roleTargetApi = new RoleTargetApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
 
-            await groupApi.AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync("foo", "bar", "baz", "bax");
+            await roleTargetApi.AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync("foo", "bar", "baz", "bax");
             
             mockClient.ReceivedPath.Should().StartWith("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId}");
             mockClient.ReceivedPathParams["groupId"].Should().Contain("foo");
@@ -136,9 +136,9 @@ namespace Okta.Sdk.UnitTest.Api
         public async Task RemoveApplicationTargetFromAdministratorRoleGivenToGroup()
         {
             var mockClient = new MockAsyncClient(String.Empty, HttpStatusCode.NoContent);
-            var groupApi = new GroupApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+            var roleTargetApi = new RoleTargetApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
-            await groupApi.RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync("foo", "bar", "baz", "bax");
+            await roleTargetApi.RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync("foo", "bar", "baz", "bax");
 
             mockClient.ReceivedPath.Should().StartWith("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId}");
             mockClient.ReceivedPathParams["groupId"].Should().Contain("foo");
@@ -151,9 +151,9 @@ namespace Okta.Sdk.UnitTest.Api
         public async Task RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup()
         {
             var mockClient = new MockAsyncClient(String.Empty, HttpStatusCode.NoContent);
-            var groupApi = new GroupApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+            var roleTargetApi = new RoleTargetApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
-            await groupApi.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync("foo", "bar", "baz");
+            await roleTargetApi.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync("foo", "bar", "baz");
 
             mockClient.ReceivedPath.Should().StartWith("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}");
             mockClient.ReceivedPathParams["groupId"].Should().Contain("foo");

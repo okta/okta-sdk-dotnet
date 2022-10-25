@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,13 @@ namespace Okta.Sdk.Model
     
     public partial class DNSRecord : IEquatable<DNSRecord>
     {
+
+        /// <summary>
+        /// Gets or Sets RecordType
+        /// </summary>
+        [DataMember(Name = "recordType", EmitDefaultValue = false)]
+        
+        public DNSRecordType RecordType { get; set; }
         
         /// <summary>
         /// Gets or Sets Expiration
@@ -45,12 +52,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "fqdn", EmitDefaultValue = false)]
         public string Fqdn { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RecordType
-        /// </summary>
-        [DataMember(Name = "recordType", EmitDefaultValue = false)]
-        public string RecordType { get; set; }
 
         /// <summary>
         /// Gets or Sets Values
@@ -117,8 +118,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.RecordType == input.RecordType ||
-                    (this.RecordType != null &&
-                    this.RecordType.Equals(input.RecordType))
+                    this.RecordType.Equals(input.RecordType)
                 ) && 
                 (
                     this.Values == input.Values ||
@@ -146,10 +146,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Fqdn.GetHashCode();
                 }
-                if (this.RecordType != null)
-                {
-                    hashCode = (hashCode * 59) + this.RecordType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.RecordType.GetHashCode();
                 if (this.Values != null)
                 {
                     hashCode = (hashCode * 59) + this.Values.GetHashCode();

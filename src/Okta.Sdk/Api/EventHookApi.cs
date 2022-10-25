@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -32,117 +32,117 @@ namespace Okta.Sdk.Api
         /// Activate an Event Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Activates an event hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventHook</returns>
-        System.Threading.Tasks.Task<EventHook> ActivateEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EventHook> ActivateEventHookAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Activate an Event Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Activates an event hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventHook)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EventHook>> ActivateEventHookWithHttpInfoAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EventHook>> ActivateEventHookWithHttpInfoAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create an Event Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Creates an event hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventHook</returns>
-        System.Threading.Tasks.Task<EventHook> CreateEventHookAsync(EventHook eventHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EventHook> CreateEventHookAsync(  EventHook eventHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create an Event Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Creates an event hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventHook)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EventHook>> CreateEventHookWithHttpInfoAsync(EventHook eventHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EventHook>> CreateEventHookWithHttpInfoAsync(  EventHook eventHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deactivate an Event Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Deactivates an event hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventHook</returns>
-        System.Threading.Tasks.Task<EventHook> DeactivateEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EventHook> DeactivateEventHookAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deactivate an Event Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Deactivates an event hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventHook)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EventHook>> DeactivateEventHookWithHttpInfoAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EventHook>> DeactivateEventHookWithHttpInfoAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete an Event Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Deletes an event hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteEventHookAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete an Event Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Deletes an event hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEventHookWithHttpInfoAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEventHookWithHttpInfoAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve an Event Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Retrieves an event hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventHook</returns>
-        System.Threading.Tasks.Task<EventHook> GetEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EventHook> GetEventHookAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve an Event Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Retrieves an event hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventHook)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EventHook>> GetEventHookWithHttpInfoAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EventHook>> GetEventHookWithHttpInfoAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Event Hooks
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Lists all event hooks
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -152,7 +152,7 @@ namespace Okta.Sdk.Api
         /// List all Event Hooks
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Lists all event hooks
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -162,48 +162,48 @@ namespace Okta.Sdk.Api
         /// Replace an Event Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Replaces an event hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="eventHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventHook</returns>
-        System.Threading.Tasks.Task<EventHook> UpdateEventHookAsync(string eventHookId, EventHook eventHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EventHook> UpdateEventHookAsync(  string eventHookId ,   EventHook eventHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace an Event Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Replaces an event hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="eventHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventHook)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EventHook>> UpdateEventHookWithHttpInfoAsync(string eventHookId, EventHook eventHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EventHook>> UpdateEventHookWithHttpInfoAsync(  string eventHookId ,   EventHook eventHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Verify an Event Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Verifies an event hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventHook</returns>
-        System.Threading.Tasks.Task<EventHook> VerifyEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EventHook> VerifyEventHookAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Verify an Event Hook
         /// </summary>
         /// <remarks>
-        /// Success
+        /// Verifies an event hook
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventHook)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EventHook>> VerifyEventHookWithHttpInfoAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EventHook>> VerifyEventHookWithHttpInfoAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -310,25 +310,25 @@ namespace Okta.Sdk.Api
         }
          
         /// <summary>
-        /// Activate an Event Hook Success
+        /// Activate an Event Hook Activates an event hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventHook</returns>
-        public async System.Threading.Tasks.Task<EventHook> ActivateEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EventHook> ActivateEventHookAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<EventHook> localVarResponse = await ActivateEventHookWithHttpInfoAsync(eventHookId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Activate an Event Hook Success
+        /// Activate an Event Hook Activates an event hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventHook)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EventHook>> ActivateEventHookWithHttpInfoAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EventHook>> ActivateEventHookWithHttpInfoAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'eventHookId' is set
             if (eventHookId == null)
@@ -361,12 +361,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -395,25 +395,25 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create an Event Hook Success
+        /// Create an Event Hook Creates an event hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventHook</returns>
-        public async System.Threading.Tasks.Task<EventHook> CreateEventHookAsync(EventHook eventHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EventHook> CreateEventHookAsync(  EventHook eventHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<EventHook> localVarResponse = await CreateEventHookWithHttpInfoAsync(eventHook, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Create an Event Hook Success
+        /// Create an Event Hook Creates an event hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventHook)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EventHook>> CreateEventHookWithHttpInfoAsync(EventHook eventHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EventHook>> CreateEventHookWithHttpInfoAsync(  EventHook eventHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'eventHook' is set
             if (eventHook == null)
@@ -447,12 +447,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = eventHook;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -481,25 +481,25 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate an Event Hook Success
+        /// Deactivate an Event Hook Deactivates an event hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventHook</returns>
-        public async System.Threading.Tasks.Task<EventHook> DeactivateEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EventHook> DeactivateEventHookAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<EventHook> localVarResponse = await DeactivateEventHookWithHttpInfoAsync(eventHookId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Deactivate an Event Hook Success
+        /// Deactivate an Event Hook Deactivates an event hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventHook)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EventHook>> DeactivateEventHookWithHttpInfoAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EventHook>> DeactivateEventHookWithHttpInfoAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'eventHookId' is set
             if (eventHookId == null)
@@ -532,12 +532,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -566,24 +566,24 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete an Event Hook Success
+        /// Delete an Event Hook Deletes an event hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteEventHookAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteEventHookWithHttpInfoAsync(eventHookId, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an Event Hook Success
+        /// Delete an Event Hook Deletes an event hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteEventHookWithHttpInfoAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteEventHookWithHttpInfoAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'eventHookId' is set
             if (eventHookId == null)
@@ -616,12 +616,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -650,25 +650,25 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve an Event Hook Success
+        /// Retrieve an Event Hook Retrieves an event hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventHook</returns>
-        public async System.Threading.Tasks.Task<EventHook> GetEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EventHook> GetEventHookAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<EventHook> localVarResponse = await GetEventHookWithHttpInfoAsync(eventHookId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Retrieve an Event Hook Success
+        /// Retrieve an Event Hook Retrieves an event hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventHook)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EventHook>> GetEventHookWithHttpInfoAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EventHook>> GetEventHookWithHttpInfoAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'eventHookId' is set
             if (eventHookId == null)
@@ -701,12 +701,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -735,11 +735,12 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List all Event Hooks Success
+        /// List all Event Hooks Lists all event hooks
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;EventHook&gt;</returns>
+        //a
         public IOktaCollectionClient<EventHook> ListEventHooks(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
@@ -766,12 +767,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -783,7 +784,7 @@ namespace Okta.Sdk.Api
             return new OktaCollectionClient<EventHook>(localVarRequestOptions, "/api/v1/eventHooks", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
         }
         /// <summary>
-        /// List all Event Hooks Success
+        /// List all Event Hooks Lists all event hooks
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -814,12 +815,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -844,27 +845,27 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Replace an Event Hook Success
+        /// Replace an Event Hook Replaces an event hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="eventHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventHook</returns>
-        public async System.Threading.Tasks.Task<EventHook> UpdateEventHookAsync(string eventHookId, EventHook eventHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EventHook> UpdateEventHookAsync(  string eventHookId ,   EventHook eventHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<EventHook> localVarResponse = await UpdateEventHookWithHttpInfoAsync(eventHookId, eventHook, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Replace an Event Hook Success
+        /// Replace an Event Hook Replaces an event hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="eventHook"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventHook)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EventHook>> UpdateEventHookWithHttpInfoAsync(string eventHookId, EventHook eventHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EventHook>> UpdateEventHookWithHttpInfoAsync(  string eventHookId ,   EventHook eventHook , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'eventHookId' is set
             if (eventHookId == null)
@@ -905,12 +906,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
             localVarRequestOptions.Data = eventHook;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -939,25 +940,25 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Verify an Event Hook Success
+        /// Verify an Event Hook Verifies an event hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventHook</returns>
-        public async System.Threading.Tasks.Task<EventHook> VerifyEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EventHook> VerifyEventHookAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<EventHook> localVarResponse = await VerifyEventHookWithHttpInfoAsync(eventHookId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Verify an Event Hook Success
+        /// Verify an Event Hook Verifies an event hook
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventHook)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EventHook>> VerifyEventHookWithHttpInfoAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EventHook>> VerifyEventHookWithHttpInfoAsync(  string eventHookId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'eventHookId' is set
             if (eventHookId == null)
@@ -990,12 +991,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="createSessionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Session</returns>
-        System.Threading.Tasks.Task<Session> CreateSessionAsync(CreateSessionRequest createSessionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Session> CreateSessionAsync(  CreateSessionRequest createSessionRequest , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Session with Session Token
         /// </summary>
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <param name="createSessionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Session)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Session>> CreateSessionWithHttpInfoAsync(CreateSessionRequest createSessionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Session>> CreateSessionWithHttpInfoAsync(  CreateSessionRequest createSessionRequest , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Session
         /// </summary>
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         /// <param name="sessionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task EndSessionAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task EndSessionAsync(  string sessionId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Session
         /// </summary>
@@ -71,7 +71,7 @@ namespace Okta.Sdk.Api
         /// <param name="sessionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> EndSessionWithHttpInfoAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> EndSessionWithHttpInfoAsync(  string sessionId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Session
         /// </summary>
@@ -82,7 +82,7 @@ namespace Okta.Sdk.Api
         /// <param name="sessionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Session</returns>
-        System.Threading.Tasks.Task<Session> GetSessionAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Session> GetSessionAsync(  string sessionId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Session
         /// </summary>
@@ -93,7 +93,7 @@ namespace Okta.Sdk.Api
         /// <param name="sessionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Session)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Session>> GetSessionWithHttpInfoAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Session>> GetSessionWithHttpInfoAsync(  string sessionId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Refresh a Session
         /// </summary>
@@ -104,7 +104,7 @@ namespace Okta.Sdk.Api
         /// <param name="sessionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Session</returns>
-        System.Threading.Tasks.Task<Session> RefreshSessionAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Session> RefreshSessionAsync(  string sessionId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Refresh a Session
         /// </summary>
@@ -115,7 +115,7 @@ namespace Okta.Sdk.Api
         /// <param name="sessionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Session)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Session>> RefreshSessionWithHttpInfoAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Session>> RefreshSessionWithHttpInfoAsync(  string sessionId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -228,7 +228,7 @@ namespace Okta.Sdk.Api
         /// <param name="createSessionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Session</returns>
-        public async System.Threading.Tasks.Task<Session> CreateSessionAsync(CreateSessionRequest createSessionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Session> CreateSessionAsync(  CreateSessionRequest createSessionRequest , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<Session> localVarResponse = await CreateSessionWithHttpInfoAsync(createSessionRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -240,7 +240,7 @@ namespace Okta.Sdk.Api
         /// <param name="createSessionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Session)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Session>> CreateSessionWithHttpInfoAsync(CreateSessionRequest createSessionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Session>> CreateSessionWithHttpInfoAsync(  CreateSessionRequest createSessionRequest , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'createSessionRequest' is set
             if (createSessionRequest == null)
@@ -274,7 +274,7 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = createSessionRequest;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
@@ -302,7 +302,7 @@ namespace Okta.Sdk.Api
         /// <param name="sessionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task EndSessionAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task EndSessionAsync(  string sessionId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await EndSessionWithHttpInfoAsync(sessionId, cancellationToken).ConfigureAwait(false);
         }
@@ -313,7 +313,7 @@ namespace Okta.Sdk.Api
         /// <param name="sessionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> EndSessionWithHttpInfoAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> EndSessionWithHttpInfoAsync(  string sessionId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'sessionId' is set
             if (sessionId == null)
@@ -346,12 +346,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("sessionId", Okta.Sdk.Client.ClientUtils.ParameterToString(sessionId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -386,7 +386,7 @@ namespace Okta.Sdk.Api
         /// <param name="sessionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Session</returns>
-        public async System.Threading.Tasks.Task<Session> GetSessionAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Session> GetSessionAsync(  string sessionId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<Session> localVarResponse = await GetSessionWithHttpInfoAsync(sessionId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -398,7 +398,7 @@ namespace Okta.Sdk.Api
         /// <param name="sessionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Session)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Session>> GetSessionWithHttpInfoAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Session>> GetSessionWithHttpInfoAsync(  string sessionId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'sessionId' is set
             if (sessionId == null)
@@ -431,12 +431,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("sessionId", Okta.Sdk.Client.ClientUtils.ParameterToString(sessionId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -471,7 +471,7 @@ namespace Okta.Sdk.Api
         /// <param name="sessionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Session</returns>
-        public async System.Threading.Tasks.Task<Session> RefreshSessionAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Session> RefreshSessionAsync(  string sessionId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<Session> localVarResponse = await RefreshSessionWithHttpInfoAsync(sessionId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -483,7 +483,7 @@ namespace Okta.Sdk.Api
         /// <param name="sessionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Session)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Session>> RefreshSessionWithHttpInfoAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Session>> RefreshSessionWithHttpInfoAsync(  string sessionId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'sessionId' is set
             if (sessionId == null)
@@ -516,12 +516,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("sessionId", Okta.Sdk.Client.ClientUtils.ParameterToString(sessionId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

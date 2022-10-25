@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,20 @@ namespace Okta.Sdk.Model
     
     public partial class AgentPool : IEquatable<AgentPool>
     {
+
+        /// <summary>
+        /// Gets or Sets OperationalStatus
+        /// </summary>
+        [DataMember(Name = "operationalStatus", EmitDefaultValue = false)]
+        
+        public OperationalStatus OperationalStatus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        
+        public AgentType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Agents
@@ -59,20 +73,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
-
-        /// <summary>
-        /// Operational status of a given agent
-        /// </summary>
-        /// <value>Operational status of a given agent</value>
-        [DataMember(Name = "operationalStatus", EmitDefaultValue = false)]
-        public string OperationalStatus { get; set; }
-
-        /// <summary>
-        /// Agent types that are being monitored
-        /// </summary>
-        /// <value>Agent types that are being monitored</value>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -140,13 +140,11 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.OperationalStatus == input.OperationalStatus ||
-                    (this.OperationalStatus != null &&
-                    this.OperationalStatus.Equals(input.OperationalStatus))
+                    this.OperationalStatus.Equals(input.OperationalStatus)
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 );
         }
 
@@ -172,14 +170,8 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                if (this.OperationalStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.OperationalStatus.GetHashCode();
-                }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.OperationalStatus.GetHashCode();
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 return hashCode;
             }
         }

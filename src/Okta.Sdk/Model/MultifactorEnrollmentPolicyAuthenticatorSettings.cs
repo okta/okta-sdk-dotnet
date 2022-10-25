@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,18 +33,19 @@ namespace Okta.Sdk.Model
     
     public partial class MultifactorEnrollmentPolicyAuthenticatorSettings : IEquatable<MultifactorEnrollmentPolicyAuthenticatorSettings>
     {
+
+        /// <summary>
+        /// Gets or Sets Key
+        /// </summary>
+        [DataMember(Name = "key", EmitDefaultValue = false)]
+        
+        public MultifactorEnrollmentPolicyAuthenticatorType Key { get; set; }
         
         /// <summary>
         /// Gets or Sets Enroll
         /// </summary>
         [DataMember(Name = "enroll", EmitDefaultValue = false)]
         public MultifactorEnrollmentPolicyAuthenticatorSettingsEnroll Enroll { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Key
-        /// </summary>
-        [DataMember(Name = "key", EmitDefaultValue = false)]
-        public string Key { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -98,8 +99,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Key == input.Key ||
-                    (this.Key != null &&
-                    this.Key.Equals(input.Key))
+                    this.Key.Equals(input.Key)
                 );
         }
 
@@ -117,10 +117,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Enroll.GetHashCode();
                 }
-                if (this.Key != null)
-                {
-                    hashCode = (hashCode * 59) + this.Key.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Key.GetHashCode();
                 return hashCode;
             }
         }

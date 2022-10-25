@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -45,12 +45,26 @@ namespace Okta.Sdk.Model
     
     public partial class PolicyRule : IEquatable<PolicyRule>
     {
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        
+        public LifecycleStatus Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        
+        public PolicyRuleType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
-        public DateTimeOffset Created { get; private set; }
+        [DataMember(Name = "created", EmitDefaultValue = true)]
+        public DateTimeOffset? Created { get; private set; }
 
         /// <summary>
         /// Returns false as Created should not be serialized given that it's read-only.
@@ -69,8 +83,8 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
-        public DateTimeOffset LastUpdated { get; private set; }
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
+        public DateTimeOffset? LastUpdated { get; private set; }
 
         /// <summary>
         /// Returns false as LastUpdated should not be serialized given that it's read-only.
@@ -93,22 +107,10 @@ namespace Okta.Sdk.Model
         public int Priority { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string Status { get; set; }
-
-        /// <summary>
         /// Gets or Sets System
         /// </summary>
         [DataMember(Name = "system", EmitDefaultValue = true)]
         public bool System { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -187,8 +189,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status.Equals(input.Status)
                 ) && 
                 (
                     this.System == input.System ||
@@ -196,8 +197,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 );
         }
 
@@ -228,15 +228,9 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Priority.GetHashCode();
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 hashCode = (hashCode * 59) + this.System.GetHashCode();
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 return hashCode;
             }
         }

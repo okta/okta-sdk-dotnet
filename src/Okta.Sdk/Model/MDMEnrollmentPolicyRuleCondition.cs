@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,18 +33,19 @@ namespace Okta.Sdk.Model
     
     public partial class MDMEnrollmentPolicyRuleCondition : IEquatable<MDMEnrollmentPolicyRuleCondition>
     {
+
+        /// <summary>
+        /// Gets or Sets Enrollment
+        /// </summary>
+        [DataMember(Name = "enrollment", EmitDefaultValue = false)]
+        
+        public MDMEnrollmentPolicyEnrollment Enrollment { get; set; }
         
         /// <summary>
         /// Gets or Sets BlockNonSafeAndroid
         /// </summary>
         [DataMember(Name = "blockNonSafeAndroid", EmitDefaultValue = true)]
         public bool BlockNonSafeAndroid { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Enrollment
-        /// </summary>
-        [DataMember(Name = "enrollment", EmitDefaultValue = false)]
-        public string Enrollment { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,8 +98,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Enrollment == input.Enrollment ||
-                    (this.Enrollment != null &&
-                    this.Enrollment.Equals(input.Enrollment))
+                    this.Enrollment.Equals(input.Enrollment)
                 );
         }
 
@@ -113,10 +113,7 @@ namespace Okta.Sdk.Model
                 int hashCode = 41;
                 
                 hashCode = (hashCode * 59) + this.BlockNonSafeAndroid.GetHashCode();
-                if (this.Enrollment != null)
-                {
-                    hashCode = (hashCode * 59) + this.Enrollment.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Enrollment.GetHashCode();
                 return hashCode;
             }
         }

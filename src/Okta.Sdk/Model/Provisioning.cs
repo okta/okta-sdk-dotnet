@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,14 @@ namespace Okta.Sdk.Model
     
     public partial class Provisioning : IEquatable<Provisioning>
     {
-        
+
         /// <summary>
         /// Gets or Sets Action
         /// </summary>
         [DataMember(Name = "action", EmitDefaultValue = false)]
-        public string Action { get; set; }
-
+        
+        public ProvisioningAction Action { get; set; }
+        
         /// <summary>
         /// Gets or Sets Conditions
         /// </summary>
@@ -107,8 +108,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Action == input.Action ||
-                    (this.Action != null &&
-                    this.Action.Equals(input.Action))
+                    this.Action.Equals(input.Action)
                 ) && 
                 (
                     this.Conditions == input.Conditions ||
@@ -136,10 +136,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Action != null)
-                {
-                    hashCode = (hashCode * 59) + this.Action.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Action.GetHashCode();
                 if (this.Conditions != null)
                 {
                     hashCode = (hashCode * 59) + this.Conditions.GetHashCode();

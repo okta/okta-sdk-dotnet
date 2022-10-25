@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Enroll** | [**MultifactorEnrollmentPolicyAuthenticatorSettingsEnroll**](MultifactorEnrollmentPolicyAuthenticatorSettingsEnroll.md) |  | [optional] 
-**Key** | **string** |  | [optional] 
+**Key** | **MultifactorEnrollmentPolicyAuthenticatorType** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

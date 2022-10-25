@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,18 +33,19 @@ namespace Okta.Sdk.Model
     
     public partial class PasswordPolicyAuthenticationProviderCondition : IEquatable<PasswordPolicyAuthenticationProviderCondition>
     {
+
+        /// <summary>
+        /// Gets or Sets Provider
+        /// </summary>
+        [DataMember(Name = "provider", EmitDefaultValue = false)]
+        
+        public PasswordPolicyAuthenticationProviderType Provider { get; set; }
         
         /// <summary>
         /// Gets or Sets Include
         /// </summary>
         [DataMember(Name = "include", EmitDefaultValue = false)]
         public List<string> Include { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Provider
-        /// </summary>
-        [DataMember(Name = "provider", EmitDefaultValue = false)]
-        public string Provider { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -99,8 +100,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Provider == input.Provider ||
-                    (this.Provider != null &&
-                    this.Provider.Equals(input.Provider))
+                    this.Provider.Equals(input.Provider)
                 );
         }
 
@@ -118,10 +118,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Include.GetHashCode();
                 }
-                if (this.Provider != null)
-                {
-                    hashCode = (hashCode * 59) + this.Provider.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
                 return hashCode;
             }
         }

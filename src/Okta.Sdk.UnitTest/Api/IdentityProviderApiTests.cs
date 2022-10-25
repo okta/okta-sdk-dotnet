@@ -248,7 +248,7 @@ namespace Okta.Sdk.UnitTest
 
             var createdIdp = await idpApi.CreateIdentityProviderAsync(idp);
 
-            var expectedBody = $"{{\"name\":\"dotnet-sdk:Custom Idp\",\"type\":\"CUSTOM TYPE IDP\"}}";
+            var expectedBody = $"{{\"type\":\"CUSTOM TYPE IDP\",\"name\":\"dotnet-sdk:Custom Idp\"}}";
             mockClient.ReceivedPath.Should().StartWith("/api/v1/idps");
             mockClient.ReceivedBody.Should().Be(expectedBody);
         }

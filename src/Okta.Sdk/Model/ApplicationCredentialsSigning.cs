@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,13 @@ namespace Okta.Sdk.Model
     
     public partial class ApplicationCredentialsSigning : IEquatable<ApplicationCredentialsSigning>
     {
+
+        /// <summary>
+        /// Gets or Sets Use
+        /// </summary>
+        [DataMember(Name = "use", EmitDefaultValue = false)]
+        
+        public ApplicationCredentialsSigningUse Use { get; set; }
         
         /// <summary>
         /// Gets or Sets Kid
@@ -73,12 +80,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "rotationMode", EmitDefaultValue = false)]
         public string RotationMode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Use
-        /// </summary>
-        [DataMember(Name = "use", EmitDefaultValue = false)]
-        public string Use { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -150,8 +151,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Use == input.Use ||
-                    (this.Use != null &&
-                    this.Use.Equals(input.Use))
+                    this.Use.Equals(input.Use)
                 );
         }
 
@@ -181,10 +181,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.RotationMode.GetHashCode();
                 }
-                if (this.Use != null)
-                {
-                    hashCode = (hashCode * 59) + this.Use.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Use.GetHashCode();
                 return hashCode;
             }
         }

@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,14 @@ namespace Okta.Sdk.Model
     
     public partial class PolicyNetworkCondition : IEquatable<PolicyNetworkCondition>
     {
-        
+
         /// <summary>
         /// Gets or Sets Connection
         /// </summary>
         [DataMember(Name = "connection", EmitDefaultValue = false)]
-        public string Connection { get; set; }
-
+        
+        public PolicyNetworkConnection Connection { get; set; }
+        
         /// <summary>
         /// Gets or Sets Exclude
         /// </summary>
@@ -100,8 +101,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Connection == input.Connection ||
-                    (this.Connection != null &&
-                    this.Connection.Equals(input.Connection))
+                    this.Connection.Equals(input.Connection)
                 ) && 
                 (
                     this.Exclude == input.Exclude ||
@@ -127,10 +127,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Connection != null)
-                {
-                    hashCode = (hashCode * 59) + this.Connection.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Connection.GetHashCode();
                 if (this.Exclude != null)
                 {
                     hashCode = (hashCode * 59) + this.Exclude.GetHashCode();

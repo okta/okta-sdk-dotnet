@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomain"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailDomainResponse</returns>
-        System.Threading.Tasks.Task<EmailDomainResponse> CreateEmailDomainAsync(EmailDomain emailDomain, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailDomainResponse> CreateEmailDomainAsync(  EmailDomain emailDomain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create an Email Domain
         /// </summary>
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomain"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailDomainResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailDomainResponse>> CreateEmailDomainWithHttpInfoAsync(EmailDomain emailDomain, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailDomainResponse>> CreateEmailDomainWithHttpInfoAsync(  EmailDomain emailDomain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete an Email Domain
         /// </summary>
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteEmailDomainAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteEmailDomainAsync(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete an Email Domain
         /// </summary>
@@ -71,7 +71,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEmailDomainWithHttpInfoAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEmailDomainWithHttpInfoAsync(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Email Domain
         /// </summary>
@@ -82,7 +82,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailDomainResponse</returns>
-        System.Threading.Tasks.Task<EmailDomainResponse> GetEmailDomainAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailDomainResponse> GetEmailDomainAsync(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Email Domain
         /// </summary>
@@ -93,7 +93,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailDomainResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailDomainResponse>> GetEmailDomainWithHttpInfoAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailDomainResponse>> GetEmailDomainWithHttpInfoAsync(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all brands linked to an email domain
         /// </summary>
@@ -104,7 +104,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Brand&gt;</returns>
-        IOktaCollectionClient<Brand> ListEmailDomainBrands(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<Brand> ListEmailDomainBrands(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all brands linked to an email domain
         /// </summary>
@@ -115,7 +115,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Brand&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Brand>>> ListEmailDomainBrandsWithHttpInfoAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Brand>>> ListEmailDomainBrandsWithHttpInfoAsync(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all email domains
         /// </summary>
@@ -137,51 +137,51 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (EmailDomainListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailDomainListResponse>> ListEmailDomainsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update an Email Domain
+        /// Replace an Email Domain
         /// </summary>
         /// <remarks>
-        /// Updates an email domain by &#x60;emailDomainId&#x60;
+        /// Replaces an email domain by &#x60;emailDomainId&#x60;
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailDomainId"></param>
         /// <param name="updateEmailDomain"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailDomainResponse</returns>
-        System.Threading.Tasks.Task<EmailDomainResponse> UpdateEmailDomainAsync(string emailDomainId, UpdateEmailDomain updateEmailDomain, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailDomainResponse> UpdateEmailDomainAsync(  string emailDomainId ,   UpdateEmailDomain updateEmailDomain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update an Email Domain
+        /// Replace an Email Domain
         /// </summary>
         /// <remarks>
-        /// Updates an email domain by &#x60;emailDomainId&#x60;
+        /// Replaces an email domain by &#x60;emailDomainId&#x60;
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailDomainId"></param>
         /// <param name="updateEmailDomain"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailDomainResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailDomainResponse>> UpdateEmailDomainWithHttpInfoAsync(string emailDomainId, UpdateEmailDomain updateEmailDomain, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailDomainResponse>> UpdateEmailDomainWithHttpInfoAsync(  string emailDomainId ,   UpdateEmailDomain updateEmailDomain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Verify Email Domain
+        /// Verify an Email Domain
         /// </summary>
         /// <remarks>
-        /// Verifies the Email Domain by &#x60;id&#x60;.
+        /// Verifies an Email Domain by &#x60;emailDomainId&#x60;.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailDomainResponse</returns>
-        System.Threading.Tasks.Task<EmailDomainResponse> VerifyEmailDomainAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailDomainResponse> VerifyEmailDomainAsync(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Verify Email Domain
+        /// Verify an Email Domain
         /// </summary>
         /// <remarks>
-        /// Verifies the Email Domain by &#x60;id&#x60;.
+        /// Verifies an Email Domain by &#x60;emailDomainId&#x60;.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailDomainResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailDomainResponse>> VerifyEmailDomainWithHttpInfoAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailDomainResponse>> VerifyEmailDomainWithHttpInfoAsync(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -294,7 +294,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomain"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailDomainResponse</returns>
-        public async System.Threading.Tasks.Task<EmailDomainResponse> CreateEmailDomainAsync(EmailDomain emailDomain, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailDomainResponse> CreateEmailDomainAsync(  EmailDomain emailDomain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<EmailDomainResponse> localVarResponse = await CreateEmailDomainWithHttpInfoAsync(emailDomain, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -306,7 +306,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomain"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailDomainResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EmailDomainResponse>> CreateEmailDomainWithHttpInfoAsync(EmailDomain emailDomain, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EmailDomainResponse>> CreateEmailDomainWithHttpInfoAsync(  EmailDomain emailDomain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'emailDomain' is set
             if (emailDomain == null)
@@ -340,12 +340,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = emailDomain;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -380,7 +380,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteEmailDomainAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteEmailDomainAsync(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteEmailDomainWithHttpInfoAsync(emailDomainId, cancellationToken).ConfigureAwait(false);
         }
@@ -391,7 +391,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteEmailDomainWithHttpInfoAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteEmailDomainWithHttpInfoAsync(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'emailDomainId' is set
             if (emailDomainId == null)
@@ -424,12 +424,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("emailDomainId", Okta.Sdk.Client.ClientUtils.ParameterToString(emailDomainId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -464,7 +464,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailDomainResponse</returns>
-        public async System.Threading.Tasks.Task<EmailDomainResponse> GetEmailDomainAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailDomainResponse> GetEmailDomainAsync(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<EmailDomainResponse> localVarResponse = await GetEmailDomainWithHttpInfoAsync(emailDomainId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -476,7 +476,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailDomainResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EmailDomainResponse>> GetEmailDomainWithHttpInfoAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EmailDomainResponse>> GetEmailDomainWithHttpInfoAsync(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'emailDomainId' is set
             if (emailDomainId == null)
@@ -509,12 +509,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("emailDomainId", Okta.Sdk.Client.ClientUtils.ParameterToString(emailDomainId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -549,7 +549,8 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Brand&gt;</returns>
-        public IOktaCollectionClient<Brand> ListEmailDomainBrands(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        //a
+        public IOktaCollectionClient<Brand> ListEmailDomainBrands(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'emailDomainId' is set
             if (emailDomainId == null)
@@ -582,12 +583,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("emailDomainId", Okta.Sdk.Client.ClientUtils.ParameterToString(emailDomainId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -605,7 +606,7 @@ namespace Okta.Sdk.Api
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Brand&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Brand>>> ListEmailDomainBrandsWithHttpInfoAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Brand>>> ListEmailDomainBrandsWithHttpInfoAsync(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'emailDomainId' is set
             if (emailDomainId == null)
@@ -638,12 +639,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("emailDomainId", Okta.Sdk.Client.ClientUtils.ParameterToString(emailDomainId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -710,12 +711,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -744,27 +745,27 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update an Email Domain Updates an email domain by &#x60;emailDomainId&#x60;
+        /// Replace an Email Domain Replaces an email domain by &#x60;emailDomainId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailDomainId"></param>
         /// <param name="updateEmailDomain"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailDomainResponse</returns>
-        public async System.Threading.Tasks.Task<EmailDomainResponse> UpdateEmailDomainAsync(string emailDomainId, UpdateEmailDomain updateEmailDomain, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailDomainResponse> UpdateEmailDomainAsync(  string emailDomainId ,   UpdateEmailDomain updateEmailDomain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<EmailDomainResponse> localVarResponse = await UpdateEmailDomainWithHttpInfoAsync(emailDomainId, updateEmailDomain, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Update an Email Domain Updates an email domain by &#x60;emailDomainId&#x60;
+        /// Replace an Email Domain Replaces an email domain by &#x60;emailDomainId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailDomainId"></param>
         /// <param name="updateEmailDomain"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailDomainResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EmailDomainResponse>> UpdateEmailDomainWithHttpInfoAsync(string emailDomainId, UpdateEmailDomain updateEmailDomain, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EmailDomainResponse>> UpdateEmailDomainWithHttpInfoAsync(  string emailDomainId ,   UpdateEmailDomain updateEmailDomain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'emailDomainId' is set
             if (emailDomainId == null)
@@ -805,12 +806,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("emailDomainId", Okta.Sdk.Client.ClientUtils.ParameterToString(emailDomainId)); // path parameter
             localVarRequestOptions.Data = updateEmailDomain;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -839,25 +840,25 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Verify Email Domain Verifies the Email Domain by &#x60;id&#x60;.
+        /// Verify an Email Domain Verifies an Email Domain by &#x60;emailDomainId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailDomainResponse</returns>
-        public async System.Threading.Tasks.Task<EmailDomainResponse> VerifyEmailDomainAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmailDomainResponse> VerifyEmailDomainAsync(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<EmailDomainResponse> localVarResponse = await VerifyEmailDomainWithHttpInfoAsync(emailDomainId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
-        /// Verify Email Domain Verifies the Email Domain by &#x60;id&#x60;.
+        /// Verify an Email Domain Verifies an Email Domain by &#x60;emailDomainId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailDomainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmailDomainResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EmailDomainResponse>> VerifyEmailDomainWithHttpInfoAsync(string emailDomainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<EmailDomainResponse>> VerifyEmailDomainWithHttpInfoAsync(  string emailDomainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'emailDomainId' is set
             if (emailDomainId == null)
@@ -890,12 +891,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("emailDomainId", Okta.Sdk.Client.ClientUtils.ParameterToString(emailDomainId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

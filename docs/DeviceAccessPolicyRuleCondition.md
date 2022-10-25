@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Migrated** | **bool** |  | [optional] 
 **Platform** | [**DevicePolicyRuleConditionPlatform**](DevicePolicyRuleConditionPlatform.md) |  | [optional] 
 **Rooted** | **bool** |  | [optional] 
-**TrustLevel** | **string** |  | [optional] 
+**TrustLevel** | **DevicePolicyTrustLevel** |  | [optional] 
 **Managed** | **bool** |  | [optional] 
 **Registered** | **bool** |  | [optional] 
 

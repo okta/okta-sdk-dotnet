@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,14 @@ namespace Okta.Sdk.Model
     
     public partial class ChannelBinding : IEquatable<ChannelBinding>
     {
-        
+
         /// <summary>
         /// Gets or Sets Required
         /// </summary>
         [DataMember(Name = "required", EmitDefaultValue = false)]
-        public string Required { get; set; }
-
+        
+        public RequiredEnum Required { get; set; }
+        
         /// <summary>
         /// Gets or Sets Style
         /// </summary>
@@ -93,8 +94,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Required == input.Required ||
-                    (this.Required != null &&
-                    this.Required.Equals(input.Required))
+                    this.Required.Equals(input.Required)
                 ) && 
                 (
                     this.Style == input.Style ||
@@ -113,10 +113,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Required != null)
-                {
-                    hashCode = (hashCode * 59) + this.Required.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Required.GetHashCode();
                 if (this.Style != null)
                 {
                     hashCode = (hashCode * 59) + this.Style.GetHashCode();

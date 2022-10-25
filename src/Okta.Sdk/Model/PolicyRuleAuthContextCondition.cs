@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,13 +33,14 @@ namespace Okta.Sdk.Model
     
     public partial class PolicyRuleAuthContextCondition : IEquatable<PolicyRuleAuthContextCondition>
     {
-        
+
         /// <summary>
         /// Gets or Sets AuthType
         /// </summary>
         [DataMember(Name = "authType", EmitDefaultValue = false)]
-        public string AuthType { get; set; }
-
+        
+        public PolicyRuleAuthContextType AuthType { get; set; }
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -86,8 +87,7 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.AuthType == input.AuthType ||
-                    (this.AuthType != null &&
-                    this.AuthType.Equals(input.AuthType))
+                    this.AuthType.Equals(input.AuthType)
                 );
         }
 
@@ -101,10 +101,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.AuthType != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.AuthType.GetHashCode();
                 return hashCode;
             }
         }

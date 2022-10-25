@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Consent** | **string** |  | [optional] 
+**Consent** | **OAuth2ScopeConsentType** |  | [optional] 
 **Default** | **bool** |  | [optional] 
 **Description** | **string** |  | [optional] 
 **DisplayName** | **string** |  | [optional] 
 **Id** | **string** |  | [optional] [readonly] 
-**MetadataPublish** | **string** |  | [optional] 
+**MetadataPublish** | **OAuth2ScopeMetadataPublish** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **System** | **bool** |  | [optional] 
 

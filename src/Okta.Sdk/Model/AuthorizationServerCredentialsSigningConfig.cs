@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,20 @@ namespace Okta.Sdk.Model
     
     public partial class AuthorizationServerCredentialsSigningConfig : IEquatable<AuthorizationServerCredentialsSigningConfig>
     {
+
+        /// <summary>
+        /// Gets or Sets RotationMode
+        /// </summary>
+        [DataMember(Name = "rotationMode", EmitDefaultValue = false)]
+        
+        public AuthorizationServerCredentialsRotationMode RotationMode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Use
+        /// </summary>
+        [DataMember(Name = "use", EmitDefaultValue = false)]
+        
+        public AuthorizationServerCredentialsUse Use { get; set; }
         
         /// <summary>
         /// Gets or Sets Kid
@@ -68,18 +82,6 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
-        /// <summary>
-        /// Gets or Sets RotationMode
-        /// </summary>
-        [DataMember(Name = "rotationMode", EmitDefaultValue = false)]
-        public string RotationMode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Use
-        /// </summary>
-        [DataMember(Name = "use", EmitDefaultValue = false)]
-        public string Use { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -145,13 +147,11 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.RotationMode == input.RotationMode ||
-                    (this.RotationMode != null &&
-                    this.RotationMode.Equals(input.RotationMode))
+                    this.RotationMode.Equals(input.RotationMode)
                 ) && 
                 (
                     this.Use == input.Use ||
-                    (this.Use != null &&
-                    this.Use.Equals(input.Use))
+                    this.Use.Equals(input.Use)
                 );
         }
 
@@ -177,14 +177,8 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.NextRotation.GetHashCode();
                 }
-                if (this.RotationMode != null)
-                {
-                    hashCode = (hashCode * 59) + this.RotationMode.GetHashCode();
-                }
-                if (this.Use != null)
-                {
-                    hashCode = (hashCode * 59) + this.Use.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.RotationMode.GetHashCode();
+                hashCode = (hashCode * 59) + this.Use.GetHashCode();
                 return hashCode;
             }
         }

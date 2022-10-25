@@ -19,12 +19,16 @@ namespace Okta.Sdk.IntegrationTest
         private UserApi _userApi;
         private GroupApi _groupApi;
         private ApplicationApi _appsApi;
+        private RoleAssignmentApi _roleAssignmentApi;
+        private RoleTargetApi _roleTargetApi;
 
         public GroupScenarios()
         {
             _userApi = new UserApi();
             _groupApi = new GroupApi();
             _appsApi = new ApplicationApi();
+            _roleAssignmentApi = new RoleAssignmentApi();
+            _roleTargetApi = new RoleTargetApi();
         }
 
         [Fact]
@@ -291,17 +295,17 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var role1 = await _groupApi.AssignRoleToGroupAsync(createdGroup.Id, new AssignRoleRequest
+                var role1 = await _roleAssignmentApi.AssignRoleToGroupAsync(createdGroup.Id, new AssignRoleRequest
                 {
                     Type = "SUPER_ADMIN"
                 });
 
-                var role2 = await _groupApi.AssignRoleToGroupAsync(createdGroup.Id, new AssignRoleRequest
+                var role2 = await _roleAssignmentApi.AssignRoleToGroupAsync(createdGroup.Id, new AssignRoleRequest
                 {
                     Type = "APP_ADMIN"
                 });
 
-                var roles = await _groupApi.ListGroupAssignedRoles(createdGroup.Id).ToListAsync();
+                var roles = await _roleAssignmentApi.ListGroupAssignedRoles(createdGroup.Id).ToListAsync();
 
                 roles.Should().NotBeNullOrEmpty();
                 roles.Should().Contain(x => x.Id == role1.Id);
@@ -331,19 +335,19 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var role1 = await _groupApi.AssignRoleToGroupAsync(createdGroup.Id, new AssignRoleRequest
+                var role1 = await _roleAssignmentApi.AssignRoleToGroupAsync(createdGroup.Id, new AssignRoleRequest
                 {
                     Type = "SUPER_ADMIN"
                 });
                 
-                var roles = await _groupApi.ListGroupAssignedRoles(createdGroup.Id).ToListAsync();
+                var roles = await _roleAssignmentApi.ListGroupAssignedRoles(createdGroup.Id).ToListAsync();
 
                 roles.Should().NotBeNullOrEmpty();
                 roles.Should().Contain(x => x.Id == role1.Id);
 
-                await _groupApi.RemoveRoleFromGroupAsync(createdGroup.Id, role1.Id);
+                await _roleAssignmentApi.UnassignRoleFromGroupAsync(createdGroup.Id, role1.Id);
 
-                roles = await _groupApi.ListGroupAssignedRoles(createdGroup.Id).ToListAsync();
+                roles = await _roleAssignmentApi.ListGroupAssignedRoles(createdGroup.Id).ToListAsync();
                 roles.Should().BeNullOrEmpty();
 
             }
@@ -380,17 +384,17 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var role1 = await _groupApi.AssignRoleToGroupAsync(createdGroup1.Id, new AssignRoleRequest
+                var role1 = await _roleAssignmentApi.AssignRoleToGroupAsync(createdGroup1.Id, new AssignRoleRequest
                 {
                     Type = "USER_ADMIN"
                 });
 
 
-                await _groupApi.AddGroupTargetToGroupAdministratorRoleForGroupAsync(createdGroup1.Id, role1.Id,
+                await _roleTargetApi.AddGroupTargetToGroupAdministratorRoleForGroupAsync(createdGroup1.Id, role1.Id,
                     createdGroup2.Id);
 
                 var groupTargetList =
-                    await _groupApi.ListGroupTargetsForGroupRole(createdGroup1.Id, role1.Id).ToListAsync();
+                    await _roleTargetApi.ListGroupTargetsForGroupRole(createdGroup1.Id, role1.Id).ToListAsync();
                 
                 groupTargetList.Should().NotBeNullOrEmpty();
                 groupTargetList.Should().Contain(x => x.Id == createdGroup2.Id);
@@ -440,29 +444,29 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var role1 = await _groupApi.AssignRoleToGroupAsync(createdGroup1.Id, new AssignRoleRequest
+                var role1 = await _roleAssignmentApi.AssignRoleToGroupAsync(createdGroup1.Id, new AssignRoleRequest
                 {
-                    Type = "USER_ADMIN"
+                    Type = RoleType.USERADMIN
                 });
 
 
-                await _groupApi.AddGroupTargetToGroupAdministratorRoleForGroupAsync(createdGroup1.Id, role1.Id,
+                await _roleTargetApi.AddGroupTargetToGroupAdministratorRoleForGroupAsync(createdGroup1.Id, role1.Id,
                     createdGroup2.Id);
-                await _groupApi.AddGroupTargetToGroupAdministratorRoleForGroupAsync(createdGroup1.Id, role1.Id,
+                await _roleTargetApi.AddGroupTargetToGroupAdministratorRoleForGroupAsync(createdGroup1.Id, role1.Id,
                     createdGroup3.Id);
 
                 var groupTargetList =
-                    await _groupApi.ListGroupTargetsForGroupRole(createdGroup1.Id, role1.Id).ToListAsync();
+                    await _roleTargetApi.ListGroupTargetsForGroupRole(createdGroup1.Id, role1.Id).ToListAsync();
 
                 groupTargetList.Should().NotBeNullOrEmpty();
                 groupTargetList.Should().Contain(x => x.Id == createdGroup2.Id);
                 groupTargetList.Should().Contain(x => x.Id == createdGroup3.Id);
 
-                await _groupApi.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(createdGroup1.Id, role1.Id,
+                await _roleTargetApi.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(createdGroup1.Id, role1.Id,
                     createdGroup2.Id);
 
                 groupTargetList =
-                    await _groupApi.ListGroupTargetsForGroupRole(createdGroup1.Id, role1.Id).ToListAsync();
+                    await _roleTargetApi.ListGroupTargetsForGroupRole(createdGroup1.Id, role1.Id).ToListAsync();
                 groupTargetList.Should().NotContain(x => x.Id == createdGroup2.Id);
 
 
@@ -983,7 +987,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 createdGroupRule.Should().NotBeNull();
-                createdGroupRule.Status.Should().Be("INACTIVE");
+                createdGroupRule.Status.Should().Be(GroupRuleStatus.INACTIVE);
 
                 await _groupApi.ActivateGroupRuleAsync(createdGroupRule.Id);
 
@@ -991,7 +995,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 var retrievedGroupRule = await _groupApi.GetGroupRuleAsync(createdGroupRule.Id);
                 retrievedGroupRule.Should().NotBeNull();
-                retrievedGroupRule.Status.Should().Be("ACTIVE");
+                retrievedGroupRule.Status.Should().Be(GroupRuleStatus.ACTIVE);
 
                 await _groupApi.DeactivateGroupRuleAsync(createdGroupRule.Id);
 
@@ -999,7 +1003,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 retrievedGroupRule = await _groupApi.GetGroupRuleAsync(createdGroupRule.Id);
                 retrievedGroupRule.Should().NotBeNull();
-                retrievedGroupRule.Status.Should().Be("INACTIVE");
+                retrievedGroupRule.Status.Should().Be(GroupRuleStatus.INACTIVE);
             }
             finally
             {

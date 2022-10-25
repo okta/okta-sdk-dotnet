@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         /// <param name="certificate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateCertificateAsync(string domainId, DomainCertificate certificate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task CreateCertificateAsync(  string domainId ,   DomainCertificate certificate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace the Certificate
         /// </summary>
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Api
         /// <param name="certificate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateCertificateWithHttpInfoAsync(string domainId, DomainCertificate certificate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> CreateCertificateWithHttpInfoAsync(  string domainId ,   DomainCertificate certificate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Domain
         /// </summary>
@@ -62,7 +62,7 @@ namespace Okta.Sdk.Api
         /// <param name="domain"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DomainResponse</returns>
-        System.Threading.Tasks.Task<DomainResponse> CreateDomainAsync(Domain domain, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DomainResponse> CreateDomainAsync(  Domain domain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Domain
         /// </summary>
@@ -73,7 +73,7 @@ namespace Okta.Sdk.Api
         /// <param name="domain"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DomainResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DomainResponse>> CreateDomainWithHttpInfoAsync(Domain domain, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DomainResponse>> CreateDomainWithHttpInfoAsync(  Domain domain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Domain
         /// </summary>
@@ -84,7 +84,7 @@ namespace Okta.Sdk.Api
         /// <param name="domainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteDomainAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteDomainAsync(  string domainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Domain
         /// </summary>
@@ -95,7 +95,7 @@ namespace Okta.Sdk.Api
         /// <param name="domainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDomainWithHttpInfoAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDomainWithHttpInfoAsync(  string domainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Domain
         /// </summary>
@@ -106,7 +106,7 @@ namespace Okta.Sdk.Api
         /// <param name="domainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DomainResponse</returns>
-        System.Threading.Tasks.Task<DomainResponse> GetDomainAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DomainResponse> GetDomainAsync(  string domainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Domain
         /// </summary>
@@ -117,7 +117,7 @@ namespace Okta.Sdk.Api
         /// <param name="domainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DomainResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DomainResponse>> GetDomainWithHttpInfoAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DomainResponse>> GetDomainWithHttpInfoAsync(  string domainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Domains
         /// </summary>
@@ -139,6 +139,30 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (DomainListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DomainListResponse>> ListDomainsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Replace a Domain&#39;s brandId
+        /// </summary>
+        /// <remarks>
+        /// Updates a Domain by &#x60;id&#x60;.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domainId"></param>
+        /// <param name="updateDomain"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DomainResponse</returns>
+        System.Threading.Tasks.Task<DomainResponse> UpdateDomainAsync(  string domainId ,   UpdateDomain updateDomain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Replace a Domain&#39;s brandId
+        /// </summary>
+        /// <remarks>
+        /// Updates a Domain by &#x60;id&#x60;.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domainId"></param>
+        /// <param name="updateDomain"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DomainResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DomainResponse>> UpdateDomainWithHttpInfoAsync(  string domainId ,   UpdateDomain updateDomain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Verify a Domain
         /// </summary>
         /// <remarks>
@@ -148,7 +172,7 @@ namespace Okta.Sdk.Api
         /// <param name="domainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DomainResponse</returns>
-        System.Threading.Tasks.Task<DomainResponse> VerifyDomainAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DomainResponse> VerifyDomainAsync(  string domainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Verify a Domain
         /// </summary>
@@ -159,7 +183,7 @@ namespace Okta.Sdk.Api
         /// <param name="domainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DomainResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DomainResponse>> VerifyDomainWithHttpInfoAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DomainResponse>> VerifyDomainWithHttpInfoAsync(  string domainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -273,7 +297,7 @@ namespace Okta.Sdk.Api
         /// <param name="certificate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateCertificateAsync(string domainId, DomainCertificate certificate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task CreateCertificateAsync(  string domainId ,   DomainCertificate certificate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await CreateCertificateWithHttpInfoAsync(domainId, certificate, cancellationToken).ConfigureAwait(false);
         }
@@ -285,7 +309,7 @@ namespace Okta.Sdk.Api
         /// <param name="certificate"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> CreateCertificateWithHttpInfoAsync(string domainId, DomainCertificate certificate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> CreateCertificateWithHttpInfoAsync(  string domainId ,   DomainCertificate certificate , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'domainId' is set
             if (domainId == null)
@@ -326,12 +350,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("domainId", Okta.Sdk.Client.ClientUtils.ParameterToString(domainId)); // path parameter
             localVarRequestOptions.Data = certificate;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -366,7 +390,7 @@ namespace Okta.Sdk.Api
         /// <param name="domain"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DomainResponse</returns>
-        public async System.Threading.Tasks.Task<DomainResponse> CreateDomainAsync(Domain domain, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DomainResponse> CreateDomainAsync(  Domain domain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<DomainResponse> localVarResponse = await CreateDomainWithHttpInfoAsync(domain, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -378,7 +402,7 @@ namespace Okta.Sdk.Api
         /// <param name="domain"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DomainResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<DomainResponse>> CreateDomainWithHttpInfoAsync(Domain domain, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<DomainResponse>> CreateDomainWithHttpInfoAsync(  Domain domain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -412,12 +436,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = domain;
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -452,7 +476,7 @@ namespace Okta.Sdk.Api
         /// <param name="domainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteDomainAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteDomainAsync(  string domainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteDomainWithHttpInfoAsync(domainId, cancellationToken).ConfigureAwait(false);
         }
@@ -463,7 +487,7 @@ namespace Okta.Sdk.Api
         /// <param name="domainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteDomainWithHttpInfoAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteDomainWithHttpInfoAsync(  string domainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'domainId' is set
             if (domainId == null)
@@ -496,12 +520,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("domainId", Okta.Sdk.Client.ClientUtils.ParameterToString(domainId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -536,7 +560,7 @@ namespace Okta.Sdk.Api
         /// <param name="domainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DomainResponse</returns>
-        public async System.Threading.Tasks.Task<DomainResponse> GetDomainAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DomainResponse> GetDomainAsync(  string domainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<DomainResponse> localVarResponse = await GetDomainWithHttpInfoAsync(domainId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -548,7 +572,7 @@ namespace Okta.Sdk.Api
         /// <param name="domainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DomainResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<DomainResponse>> GetDomainWithHttpInfoAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<DomainResponse>> GetDomainWithHttpInfoAsync(  string domainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'domainId' is set
             if (domainId == null)
@@ -581,12 +605,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("domainId", Okta.Sdk.Client.ClientUtils.ParameterToString(domainId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -657,12 +681,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -691,13 +715,108 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
+        /// Replace a Domain&#39;s brandId Updates a Domain by &#x60;id&#x60;.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domainId"></param>
+        /// <param name="updateDomain"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DomainResponse</returns>
+        public async System.Threading.Tasks.Task<DomainResponse> UpdateDomainAsync(  string domainId ,   UpdateDomain updateDomain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<DomainResponse> localVarResponse = await UpdateDomainWithHttpInfoAsync(domainId, updateDomain, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Replace a Domain&#39;s brandId Updates a Domain by &#x60;id&#x60;.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domainId"></param>
+        /// <param name="updateDomain"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DomainResponse)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<DomainResponse>> UpdateDomainWithHttpInfoAsync(  string domainId ,   UpdateDomain updateDomain , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'domainId' is set
+            if (domainId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'domainId' when calling DomainApi->UpdateDomain");
+            }
+
+            // verify the required parameter 'updateDomain' is set
+            if (updateDomain == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'updateDomain' when calling DomainApi->UpdateDomain");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("domainId", Okta.Sdk.Client.ClientUtils.ParameterToString(domainId)); // path parameter
+            localVarRequestOptions.Data = updateDomain;
+
+            // authentication (apiToken) required
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (oauth2) required
+            // oauth required
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<DomainResponse>("/api/v1/domains/{domainId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateDomain", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Verify a Domain Verifies the Domain by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DomainResponse</returns>
-        public async System.Threading.Tasks.Task<DomainResponse> VerifyDomainAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DomainResponse> VerifyDomainAsync(  string domainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<DomainResponse> localVarResponse = await VerifyDomainWithHttpInfoAsync(domainId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -709,7 +828,7 @@ namespace Okta.Sdk.Api
         /// <param name="domainId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DomainResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<DomainResponse>> VerifyDomainWithHttpInfoAsync(string domainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<DomainResponse>> VerifyDomainWithHttpInfoAsync(  string domainId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'domainId' is set
             if (domainId == null)
@@ -742,12 +861,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("domainId", Okta.Sdk.Client.ClientUtils.ParameterToString(domainId)); // path parameter
 
-            // authentication (API_Token) required
+            // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth_2.0) required
+            // authentication (oauth2) required
             // oauth required
             if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

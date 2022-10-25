@@ -154,30 +154,30 @@ namespace Okta.Sdk.IntegrationTest
             {
                 createdIdp.Should().NotBeNull();
                 createdIdp.Name.Should().Be($"dotnet-sdk:AddGeneric{randomSuffix}");
-                createdIdp.Type.Should().Be("OIDC");
-                createdIdp.Status.Should().Be("ACTIVE");
-                createdIdp.Protocol.Type.Should().Be("OIDC");
+                createdIdp.Type.Should().Be(IdentityProviderType.OIDC);
+                createdIdp.Status.Value.Should().Be("ACTIVE");
+                createdIdp.Protocol.Type.Should().Be(ProtocolType.OIDC);
                 createdIdp.Protocol.Endpoints.Authorization.Url.Should().Be("https://idp.example.com/authorize");
-                createdIdp.Protocol.Endpoints.Authorization.Binding.Should().Be("HTTP-REDIRECT");
+                createdIdp.Protocol.Endpoints.Authorization.Binding.Should().Be(ProtocolEndpointBinding.REDIRECT);
                 createdIdp.Protocol.Endpoints.Token.Url.Should().Be("https://idp.example.com/token");
-                createdIdp.Protocol.Endpoints.Token.Binding.Should().Be("HTTP-POST");
+                createdIdp.Protocol.Endpoints.Token.Binding.Should().Be(ProtocolEndpointBinding.POST);
                 createdIdp.Protocol.Endpoints.UserInfo.Url.Should().Be("https://idp.example.com/userinfo");
-                createdIdp.Protocol.Endpoints.UserInfo.Binding.Should().Be("HTTP-REDIRECT");
+                createdIdp.Protocol.Endpoints.UserInfo.Binding.Should().Be(ProtocolEndpointBinding.REDIRECT);
                 createdIdp.Protocol.Endpoints.Jwks.Url.Should().Be("https://idp.example.com/keys");
-                createdIdp.Protocol.Endpoints.Jwks.Binding.Should().Be("HTTP-REDIRECT");
+                createdIdp.Protocol.Endpoints.Jwks.Binding.Should().Be(ProtocolEndpointBinding.REDIRECT);
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("openid", "profile", "email");
                 createdIdp.Protocol.Issuer.Url.Should().Be("https://idp.example.com");
                 createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
                 createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
-                createdIdp.Policy.Provisioning.Action.Should().Be("AUTO");
+                createdIdp.Policy.Provisioning.Action.Should().Be(ProvisioningAction.AUTO);
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeFalse();
-                createdIdp.Policy.Provisioning.Groups.Action.Should().Be("NONE");
-                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be("NONE");
-                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
-                createdIdp.Policy.AccountLink.Action.Should().Be("AUTO");
+                createdIdp.Policy.Provisioning.Groups.Action.Should().Be(ProvisioningGroupsAction.NONE);
+                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be(ProvisioningDeprovisionedAction.NONE);
+                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be(ProvisioningSuspendedAction.NONE);
+                createdIdp.Policy.AccountLink.Action.Should().Be(PolicyAccountLinkAction.AUTO);
                 createdIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.email");
                 createdIdp.Policy.Subject.Filter.Should().BeNull();
-                createdIdp.Policy.Subject.MatchType.Should().Be("USERNAME");
+                createdIdp.Policy.Subject.MatchType.Should().Be(PolicySubjectMatchType.USERNAME);
                 createdIdp.Policy.Subject.MatchAttribute.Should().BeNull();
             }
             finally
@@ -255,21 +255,21 @@ namespace Okta.Sdk.IntegrationTest
             {
                 createdIdp.Should().NotBeNull();
                 createdIdp.Name.Should().Be($"dotnet-sdk:AddFacebook{randomSuffix}");
-                createdIdp.Type.Should().Be("FACEBOOK");
-                createdIdp.Status.Should().Be("ACTIVE");
-                createdIdp.Protocol.Type.Should().Be("OAUTH2");
+                createdIdp.Type.Value.Should().Be("FACEBOOK");
+                createdIdp.Status.Value.Should().Be("ACTIVE");
+                createdIdp.Protocol.Type.Value.Should().Be("OAUTH2");
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("public_profile", "email");
                 createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
                 createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
-                createdIdp.Policy.Provisioning.Action.Should().Be("AUTO");
+                createdIdp.Policy.Provisioning.Action.Value.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
-                createdIdp.Policy.Provisioning.Groups.Action.Should().Be("NONE");
-                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be("NONE");
-                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
-                createdIdp.Policy.AccountLink.Action.Should().Be("AUTO");
+                createdIdp.Policy.Provisioning.Groups.Action.Value.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Value.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Value.Should().Be("NONE");
+                createdIdp.Policy.AccountLink.Action.Value.Should().Be("AUTO");
                 createdIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.email");
                 createdIdp.Policy.Subject.Filter.Should().BeNull();
-                createdIdp.Policy.Subject.MatchType.Should().Be("USERNAME");
+                createdIdp.Policy.Subject.MatchType.Value.Should().Be("USERNAME");
             }
             finally
             {
@@ -346,21 +346,21 @@ namespace Okta.Sdk.IntegrationTest
             {
                 createdIdp.Should().NotBeNull();
                 createdIdp.Name.Should().Be($"dotnet-sdk:AddGoogleIdp{randomSuffix}");
-                createdIdp.Type.Should().Be("GOOGLE");
-                createdIdp.Status.Should().Be("ACTIVE");
-                createdIdp.Protocol.Type.Should().Be("OIDC");
+                createdIdp.Type.Value.Should().Be("GOOGLE");
+                createdIdp.Status.Value.Should().Be("ACTIVE");
+                createdIdp.Protocol.Type.Value.Should().Be("OIDC");
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("public_profile", "email", "openid");
                 createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
                 createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
-                createdIdp.Policy.Provisioning.Action.Should().Be("AUTO");
+                createdIdp.Policy.Provisioning.Action.Value.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
-                createdIdp.Policy.Provisioning.Groups.Action.Should().Be("NONE");
-                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be("NONE");
-                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
-                createdIdp.Policy.AccountLink.Action.Should().Be("AUTO");
+                createdIdp.Policy.Provisioning.Groups.Action.Value.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Value.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Value.Should().Be("NONE");
+                createdIdp.Policy.AccountLink.Action.Value.Should().Be("AUTO");
                 createdIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.email");
                 createdIdp.Policy.Subject.Filter.Should().BeNull();
-                createdIdp.Policy.Subject.MatchType.Should().Be("USERNAME");
+                createdIdp.Policy.Subject.MatchType.Value.Should().Be("USERNAME");
             }
             finally
             {
@@ -437,21 +437,21 @@ namespace Okta.Sdk.IntegrationTest
             {
                 createdIdp.Should().NotBeNull();
                 createdIdp.Name.Should().Be($"dotnet-sdk:AddLinkedInIdp{randomSuffix}");
-                createdIdp.Type.Should().Be("LINKEDIN");
-                createdIdp.Status.Should().Be("ACTIVE");
-                createdIdp.Protocol.Type.Should().Be("OAUTH2");
+                createdIdp.Type.Value.Should().Be("LINKEDIN");
+                createdIdp.Status.Value.Should().Be("ACTIVE");
+                createdIdp.Protocol.Type.Value.Should().Be("OAUTH2");
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("r_basicprofile", "r_emailaddress");
                 createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
                 createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
-                createdIdp.Policy.Provisioning.Action.Should().Be("AUTO");
+                createdIdp.Policy.Provisioning.Action.Value.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
-                createdIdp.Policy.Provisioning.Groups.Action.Should().Be("NONE");
-                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be("NONE");
-                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
-                createdIdp.Policy.AccountLink.Action.Should().Be("AUTO");
+                createdIdp.Policy.Provisioning.Groups.Action.Value.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Value.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Value.Should().Be("NONE");
+                createdIdp.Policy.AccountLink.Action.Value.Should().Be("AUTO");
                 createdIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.email");
                 createdIdp.Policy.Subject.Filter.Should().BeNull();
-                createdIdp.Policy.Subject.MatchType.Should().Be("USERNAME");
+                createdIdp.Policy.Subject.MatchType.Value.Should().Be("USERNAME");
             }
             finally
             {
@@ -528,21 +528,21 @@ namespace Okta.Sdk.IntegrationTest
             {
                 createdIdp.Should().NotBeNull();
                 createdIdp.Name.Should().Be($"dotnet-sdk:AddMicrosoftIdp{randomSuffix}");
-                createdIdp.Type.Should().Be("MICROSOFT");
-                createdIdp.Status.Should().Be("ACTIVE");
-                createdIdp.Protocol.Type.Should().Be("OIDC");
+                createdIdp.Type.Value.Should().Be("MICROSOFT");
+                createdIdp.Status.Value.Should().Be("ACTIVE");
+                createdIdp.Protocol.Type.Value.Should().Be("OIDC");
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("openid", "email", "profile", "https://graph.microsoft.com/User.Read");
                 createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
                 createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
-                createdIdp.Policy.Provisioning.Action.Should().Be("AUTO");
+                createdIdp.Policy.Provisioning.Action.Value.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
-                createdIdp.Policy.Provisioning.Groups.Action.Should().Be("NONE");
-                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be("NONE");
-                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
-                createdIdp.Policy.AccountLink.Action.Should().Be("AUTO");
+                createdIdp.Policy.Provisioning.Groups.Action.Value.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Value.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Value.Should().Be("NONE");
+                createdIdp.Policy.AccountLink.Action.Value.Should().Be("AUTO");
                 createdIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.userPrincipalName");
                 createdIdp.Policy.Subject.Filter.Should().BeNull();
-                createdIdp.Policy.Subject.MatchType.Should().Be("USERNAME");
+                createdIdp.Policy.Subject.MatchType.Value.Should().Be("USERNAME");
             }
             finally
             {
@@ -620,21 +620,21 @@ namespace Okta.Sdk.IntegrationTest
                 var retrievedIdp = await _idpApi.GetIdentityProviderAsync(createdIdp.Id);
                 retrievedIdp.Should().NotBeNull();
                 retrievedIdp.Name.Should().Be($"dotnet-sdk:GetIdp{randomSuffix}");
-                retrievedIdp.Type.Should().Be("LINKEDIN");
-                retrievedIdp.Status.Should().Be("ACTIVE");
-                retrievedIdp.Protocol.Type.Should().Be("OAUTH2");
+                retrievedIdp.Type.Value.Should().Be("LINKEDIN");
+                retrievedIdp.Status.Value.Should().Be("ACTIVE");
+                retrievedIdp.Protocol.Type.Value.Should().Be("OAUTH2");
                 retrievedIdp.Protocol.Scopes.Should().ContainInOrder("r_basicprofile", "r_emailaddress");
                 retrievedIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
                 retrievedIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
-                retrievedIdp.Policy.Provisioning.Action.Should().Be("AUTO");
+                retrievedIdp.Policy.Provisioning.Action.Value.Should().Be("AUTO");
                 retrievedIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
-                retrievedIdp.Policy.Provisioning.Groups.Action.Should().Be("NONE");
-                retrievedIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be("NONE");
-                retrievedIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
-                retrievedIdp.Policy.AccountLink.Action.Should().Be("AUTO");
+                retrievedIdp.Policy.Provisioning.Groups.Action.Value.Should().Be("NONE");
+                retrievedIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Value.Should().Be("NONE");
+                retrievedIdp.Policy.Provisioning.Conditions.Suspended.Action.Value.Should().Be("NONE");
+                retrievedIdp.Policy.AccountLink.Action.Value.Should().Be("AUTO");
                 retrievedIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.email");
                 retrievedIdp.Policy.Subject.Filter.Should().BeNull();
-                retrievedIdp.Policy.Subject.MatchType.Should().Be("USERNAME");
+                retrievedIdp.Policy.Subject.MatchType.Value.Should().Be("USERNAME");
             }
             finally
             {
@@ -786,10 +786,10 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                createdIdp.Status.Should().Be("ACTIVE");
+                createdIdp.Status.Should().Be(LifecycleStatus.ACTIVE);
                 await _idpApi.DeactivateIdentityProviderAsync(createdIdp.Id);
                 var retrievedIdp = await _idpApi.GetIdentityProviderAsync(createdIdp.Id);
-                retrievedIdp.Status.Should().Be("INACTIVE");
+                retrievedIdp.Status.Should().Be(LifecycleStatus.INACTIVE);
             }
             finally
             {
@@ -864,14 +864,14 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                createdIdp.Status.Should().Be("ACTIVE");
+                createdIdp.Status.Should().Be(LifecycleStatus.ACTIVE);
                 await _idpApi.DeactivateIdentityProviderAsync(createdIdp.Id);
                 var retrievedIdp = await _idpApi.GetIdentityProviderAsync(createdIdp.Id);
-                retrievedIdp.Status.Should().Be("INACTIVE");
+                retrievedIdp.Status.Should().Be(LifecycleStatus.INACTIVE);
 
                 await _idpApi.ActivateIdentityProviderAsync(createdIdp.Id);
                 retrievedIdp = await _idpApi.GetIdentityProviderAsync(createdIdp.Id);
-                retrievedIdp.Status.Should().Be("ACTIVE");
+                retrievedIdp.Status.Should().Be(LifecycleStatus.ACTIVE);
             }
             finally
             {
@@ -1515,27 +1515,27 @@ namespace Okta.Sdk.IntegrationTest
             {
                 createdIdp.Should().NotBeNull();
                 createdIdp.Name.Should().Be($"dotnet-sdk:AddSAML{randomSuffix}");
-                createdIdp.Type.Should().Be("SAML2");
-                createdIdp.Status.Should().Be("ACTIVE");
-                createdIdp.Protocol.Type.Should().Be("SAML2");
+                createdIdp.Type.Value.Should().Be("SAML2");
+                createdIdp.Status.Value.Should().Be("ACTIVE");
+                createdIdp.Protocol.Type.Value.Should().Be("SAML2");
                 createdIdp.Protocol.Endpoints.Sso.Url.Should().Be("https://idp.example.com");
-                createdIdp.Protocol.Endpoints.Sso.Binding.Should().Be("HTTP-POST");
+                createdIdp.Protocol.Endpoints.Sso.Binding.Value.Should().Be("HTTP-POST");
                 createdIdp.Protocol.Endpoints.Sso.Destination.Should().Be("https://idp.example.com");
-                createdIdp.Protocol.Endpoints.Acs.Type.Should().Be("INSTANCE");
-                createdIdp.Protocol.Endpoints.Acs.Binding.Should().Be("HTTP-POST");
+                createdIdp.Protocol.Endpoints.Acs.Type.Value.Should().Be("INSTANCE");
+                createdIdp.Protocol.Endpoints.Acs.Binding.Value.Should().Be("HTTP-POST");
                 createdIdp.Protocol.Settings.NameFormat.Should().Be("urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified");
                 createdIdp.Protocol.Credentials.Trust.Issuer.Should().Be("https://idp.example.com");
                 createdIdp.Protocol.Credentials.Trust.Audience.Should().Be("http://www.okta.com/123");
-                createdIdp.Policy.Provisioning.Action.Should().Be("AUTO");
+                createdIdp.Policy.Provisioning.Action.Value.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
-                createdIdp.Policy.Provisioning.Groups.Action.Should().Be("NONE");
-                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Should().Be("NONE");
-                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Groups.Action.Value.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Deprovisioned.Action.Value.Should().Be("NONE");
+                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Value.Should().Be("NONE");
 
-                createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
-                createdIdp.Policy.AccountLink.Action.Should().Be("AUTO");
+                
+                createdIdp.Policy.AccountLink.Action.Value.Should().Be("AUTO");
                 createdIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.subjectNameId");
-                createdIdp.Policy.Subject.MatchType.Should().Be("USERNAME");
+                createdIdp.Policy.Subject.MatchType.Value.Should().Be("USERNAME");
                 createdIdp.Policy.Subject.MatchAttribute.Should().BeNull();
             }
             finally

@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
@@ -30,22 +31,22 @@ namespace Okta.Sdk.Model
     /// InlineHookChannel
     /// </summary>
     [DataContract(Name = "InlineHookChannel")]
+    [JsonConverter(typeof(JsonSubtypes), "Type")]
+    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelHttp), "HTTP")]
+    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelHttp), "InlineHookChannelHttp")]
+    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelOAuth), "InlineHookChannelOAuth")]
+    [JsonSubtypes.KnownSubType(typeof(InlineHookChannelOAuth), "OAUTH")]
     
     public partial class InlineHookChannel : IEquatable<InlineHookChannel>
     {
-        
-        /// <summary>
-        /// Gets or Sets Config
-        /// </summary>
-        [DataMember(Name = "config", EmitDefaultValue = false)]
-        public InlineHookChannelConfig Config { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
-
+        
+        public InlineHookChannelType Type { get; set; }
+        
         /// <summary>
         /// Gets or Sets _Version
         /// </summary>
@@ -60,7 +61,6 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineHookChannel {\n");
-            sb.Append("  Config: ").Append(Config).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("}\n");
@@ -99,14 +99,8 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Config == input.Config ||
-                    (this.Config != null &&
-                    this.Config.Equals(input.Config))
-                ) && 
-                (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
                     this._Version == input._Version ||
@@ -125,14 +119,7 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Config != null)
-                {
-                    hashCode = (hashCode * 59) + this.Config.GetHashCode();
-                }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();

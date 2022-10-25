@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -33,6 +33,13 @@ namespace Okta.Sdk.Model
     
     public partial class OrgOktaSupportSettingsObj : IEquatable<OrgOktaSupportSettingsObj>
     {
+
+        /// <summary>
+        /// Gets or Sets Support
+        /// </summary>
+        [DataMember(Name = "support", EmitDefaultValue = false)]
+        
+        public OrgOktaSupportSetting Support { get; set; }
         
         /// <summary>
         /// Gets or Sets Expiration
@@ -48,12 +55,6 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
-        /// <summary>
-        /// Gets or Sets Support
-        /// </summary>
-        [DataMember(Name = "support", EmitDefaultValue = false)]
-        public string Support { get; set; }
-
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
@@ -113,8 +114,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Support == input.Support ||
-                    (this.Support != null &&
-                    this.Support.Equals(input.Support))
+                    this.Support.Equals(input.Support)
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -138,10 +138,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Expiration.GetHashCode();
                 }
-                if (this.Support != null)
-                {
-                    hashCode = (hashCode * 59) + this.Support.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Support.GetHashCode();
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

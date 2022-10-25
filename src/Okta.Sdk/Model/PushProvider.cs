@@ -1,7 +1,7 @@
 /*
- * Okta API
+ * Okta Management
  *
- * Allows customers to easily access the Okta API
+ * Allows customers to easily access the Okta Management APIs
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: devex-public@okta.com
@@ -39,6 +39,13 @@ namespace Okta.Sdk.Model
     
     public partial class PushProvider : IEquatable<PushProvider>
     {
+
+        /// <summary>
+        /// Gets or Sets ProviderType
+        /// </summary>
+        [DataMember(Name = "providerType", EmitDefaultValue = false)]
+        
+        public ProviderType ProviderType { get; set; }
         
         /// <summary>
         /// Gets or Sets Id
@@ -74,12 +81,6 @@ namespace Okta.Sdk.Model
         /// <value>Display name of the push provider</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ProviderType
-        /// </summary>
-        [DataMember(Name = "providerType", EmitDefaultValue = false)]
-        public string ProviderType { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -152,8 +153,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.ProviderType == input.ProviderType ||
-                    (this.ProviderType != null &&
-                    this.ProviderType.Equals(input.ProviderType))
+                    this.ProviderType.Equals(input.ProviderType)
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -184,10 +184,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                if (this.ProviderType != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProviderType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.ProviderType.GetHashCode();
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();
