@@ -47,16 +47,13 @@ You can learn more on the [Okta + .NET][lang-landing] page in our documentation.
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/).
 
-:heavy_check_mark: The current stable major version series is: 5.x
-:heavy_check_mark: The 6.x series is now beta and it's located in the `oasv3` [branch](https://github.com/okta/okta-sdk-dotnet/tree/oasv3)
+:heavy_check_mark: The current stable major version series is: 6.x
+:heavy_check_mark: The 5.x series is retiring and it's located in the `legacy-5.x-series` [branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy-5.x-series)
 
 | Version | Status                    |
 | ------- | ------------------------- |
 | 6.x | :heavy_check_mark: Stable ([migration guide](MIGRATING.md))|
 | 5.x | :warning: Retiring |
-| 6.x | :warning: Beta ([branch oasv3](https://github.com/okta/okta-sdk-dotnet/blob/oasv3)) |
-
-
  
 The latest release can always be found on the [releases page][github-releases].
 
