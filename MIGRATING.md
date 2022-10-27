@@ -92,6 +92,11 @@ var groupTargetList = await _roleTargetApi.ListGroupTargetsForGroupRole(createdG
 
 For more details about other APIs, please check out [here](API_README.md#Documentation_for_API_Endpoints).
 
+### Rate Limit
+
+The SDK uses [Polly](https://github.com/App-vNext/Polly) to implement the retry strategy when rate limit has been exceeded. The default retry strategy behavior and the way you configure it remains the same. However, if you want to provide your own retry logic you have to use Polly. Check out the [README](README#Custom_Retry) for more details.
+
+
 ## Migrating from 4.x to 5.x
 
 In previous versions, null resource properties would result in a resource object with all its properties set to `null`. Now, null resource properties will result in `null` property value.

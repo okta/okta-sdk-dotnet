@@ -90,7 +90,7 @@ You'll also need:
  
 ### Initialize an API client 
 
-Construct an API client instance by it your Okta domain and API token.
+Construct a client instance by passing it your Okta domain name and API token:
 
 ```csharp
 using System.Collections.Generic;
@@ -283,7 +283,7 @@ var updateUserRequest = new UpdateUserRequest
 
 var updatedUser = await _userApi.UpdateUserAsync(createdUser.Id, updateUserRequest);
 
-var userHomeworld= updatedUser.Profile.AdditionalProperties["homeworld"];
+var userHomeworld = updatedUser.Profile.AdditionalProperties["homeworld"];
 ```
 
 ### Remove a User
@@ -294,19 +294,19 @@ var userHomeworld= updatedUser.Profile.AdditionalProperties["homeworld"];
 ### List all Applications
 ``` csharp
 // List all applications
-var appList = await client.Applications.ListApplications().ToArrayAsync();
+var appList = await _applicationApi.ListApplications().ToArrayAsync();
 ```
 
 ### Get an Application
 ``` csharp
-var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
+var createdApp = await _applicationApi.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
                 {
                     Label = "Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
 
-var retrievedById = await appsApi.GetApplicationAsync(createdApp.Id);
+var retrievedById = await _applicationApi.GetApplicationAsync(createdApp.Id);
 ```
 
 ### Create an OpenID Application
@@ -371,7 +371,7 @@ Collections can be fetched with manually controlled pagination, see the followin
 
 ```csharp
 var retrievedUsers = new List<IUser>();
-var users = oktaClient.Users.ListUsers(limit: 5); // 5 records per a page
+var users = _userApi.ListUsers(limit: 5); // 5 records per a page
 var enumerator = users.GetPagedEnumerator();
 
 while (await enumerator.MoveNextAsync())
@@ -381,22 +381,7 @@ while (await enumerator.MoveNextAsync())
 }
 ```
 
-> Note: For more API samples checkout our [tests](https://github.com/okta/okta-sdk-dotnet/tree/oasv3/src/Okta.Sdk.IntegrationTest)
-
-## Call other API endpoints
-
-This feature is not available yet, and it will be released in the next beta release.
-
-## Get data from `_links`
-
-All models inherit from [Resource](https://github.com/okta/okta-sdk-dotnet/blob/master/src/Okta.Sdk/Resource.cs) which provides convenience methods to access the raw data. You can access `_links` and any other properties by using the `GetResource<T>` method:
-
-```csharp
-var identityProvider = await client.IdentityProviders.CreateOktaIDPAsync(idp);
-var links = identityProvider.GetProperty<Resource>("_links");
-var acs = links.GetProperty<Resource>("acs"); // Use Resource when what you'retriving is an object
-var acsType = acs.GetProperty<string>("type"); // Use the specific type for primitive types
-```
+> Note: For more API samples checkout our [tests](https://github.com/okta/okta-sdk-dotnet/tree/master/src/Okta.Sdk.IntegrationTest)
 
 ## Rate Limiting
 
@@ -414,8 +399,6 @@ You can configure the following options when using the built-in retry strategy:
 | MaxRetries             | The number of times to retry. |
 
 Check out the [Configuration Reference section](#configuration-reference) for more details about how to set these values via configuration.
-
-> Note: The default retry strategy will be automatically added to the client for 2.x series.
 
 ### Custom Retry
 
