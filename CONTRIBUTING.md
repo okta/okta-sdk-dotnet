@@ -31,7 +31,6 @@ $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-
 Making changes
 --------------
 
@@ -76,6 +75,9 @@ Make a GitHub Pull Request to contribute your changes
 -----------------------------------------------------
 
 When you are happy with your changes and you are ready to contribute them, you will create a Pull Request on GitHub to do so.  This is done by pushing your local changes to your forked repository (default remote name is `origin`) and then initiating a pull request on GitHub.
+
+
+> **Note**: Some contributions will require work that must be verified by other teams at Okta. In the event your contribution requires more verification, we may close your pull request and link your contribution to a pull request submitted by our internal teams. This is to make sure your additions are shared with the broader team so we can improve our APIs and SDKs.
 
 > **IMPORTANT:** Make sure you have rebased your `feature_x` branch to include the latest code from `upstream/master` _before_ you do this.
 
