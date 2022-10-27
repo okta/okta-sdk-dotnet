@@ -94,7 +94,7 @@ For more details about other APIs, please check out [here](API_README.md#Documen
 
 ### Rate Limit
 
-The SDK uses [Polly](https://github.com/App-vNext/Polly) to implement the retry strategy when rate limit has been exceeded. The default retry strategy behavior and the way you configure it remains the same. However, if you want to provide your own retry logic you have to use Polly. Check out the [README](README#Custom_Retry) for more details.
+The SDK uses [Polly](https://github.com/App-vNext/Polly) to implement the retry strategy when rate limit has been exceeded. The default retry strategy behavior and the way you configure it remains the same. However, if you want to provide your own retry logic you have to use Polly. Check out the [README](README.md#custom-retry) for more details.
 
 
 ## Migrating from 4.x to 5.x
