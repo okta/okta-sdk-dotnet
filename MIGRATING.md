@@ -2,6 +2,101 @@
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/). In short, we don't make breaking changes unless the major version changes!
 
+## Migrating from 5.x to 6.x
+
+In releases prior to version 6 we use an Open API v2 specification, and an Okta custom client generator to partially generate our SDK. A new version of the Open API specification (V3) has been released, and new well-known generators are now available and well received by the community. Planning the future of this SDK, we consider this a good opportunity to modernize by aligning with established standards for API client generation. 
+
+### OktaClient vs API clients
+
+In releases prior to version 6, you would instantiate a global `OktaClient` and access specific API clients via its properties. Now, each API has its own client and you only instantiate those clients you are interested in:
+
+_Before:_
+
+```csharp
+
+var oktaClient = new OktaClient();
+var apps = await oktaClient.Applications.ListApplications().ToListAsync();
+
+```
+
+_Now:_
+
+```csharp
+var appApiClient = new ApplicationApi();
+var apps = await appApiClient.ListApplications().ToListAsync();
+```
+
+### Enums
+
+`StringEnums` are still supported. However, format might slightly change depending on the OpenAPI specification and codegen.
+
+### Features parity
+
+The following features have been ported to 6.x:
+
+* Iniline configuration, configuration via environment variables, appsettings.json or YAML files
+* Manual pagination for collections
+* Default retry strategy for 429 HTTP responses and ability to provide your own strategy
+* Web proxy 
+* OAuth for Okta
+
+
+### Dependencies
+
+We now use [RestSharp](https://restsharp.dev/) as our internal REST API client library unlike previous versions which were using `HttpClient`. For more details about other dependencies, please check out the _Dependencies_ section [here](API_README.md).
+
+### New APIs
+
+In order to provide better structuring, some endpoints have been moved from an existing client/API to their own API client:
+
+_Before:_
+
+```csharp
+
+var oktaClient = new OktaClient();
+
+await oktaClient.Groups.AssignRoleAsync(groupId, new AssignRoleRequest
+                {
+                    Type = RoleType.UserAdmin,
+                });
+
+var roles = await oktaClient.Groups.ListGroupAssignedRoles(createdGroup.Id).ToListAsync();
+
+/// ...
+
+await oktaClient.Groups.AddGroupTargetToGroupAdministratorRoleForGroupAsync(createdGroup1.Id, role.Id, createdGroup2.Id);
+
+var groups = await oktaClient.Groups.ListGroupTargetsForGroupRole(createdGroup1.Id, role.Id).ToListAsync();
+```
+
+_Now:_
+
+```csharp
+var _roleAssignmentApi = new RoleAssignmentApi();
+
+var role1 = await _roleAssignmentApi.AssignRoleToGroupAsync(createdGroup.Id, new AssignRoleRequest
+                {
+                    Type = "SUPER_ADMIN"
+                });
+
+var roles = await _roleAssignmentApi.ListGroupAssignedRoles(createdGroup.Id).ToListAsync();
+
+/// ...
+
+var _roleTargetApi = new RoleTargetApi();
+
+await _roleTargetApi.AddGroupTargetToGroupAdministratorRoleForGroupAsync(group1.Id, role1.Id, group2.Id);
+
+var groupTargetList = await _roleTargetApi.ListGroupTargetsForGroupRole(createdGroup1.Id, role1.Id).ToListAsync();
+```
+
+For more details about other APIs, please check out [here](API_README.md#documentation-for-API-Endpoints).
+
+### Rate Limit
+
+The SDK uses [Polly](https://github.com/App-vNext/Polly) to implement the retry strategy when rate limit has been exceeded. The default retry strategy behavior and the way you configure it remains the same. However, if you want to provide your own retry logic you have to use Polly. Check out the [README](README.md#custom-retry) for more details.
+
+
 ## Migrating from 4.x to 5.x
 
 In previous versions, null resource properties would result in a resource object with all its properties set to `null`. Now, null resource properties will result in `null` property value.

@@ -1,6 +1,23 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 6.0.0
+
+- Add support for StringEnum
+- Update OpenAPI spec
+
+## 6.0.0-beta02
+
+- Add support for OAuth for Okta
+- Add support for Proxy configuration 
+- Add support for dynamic properties
+
+## 6.0.0-beta01
+
+- Update Open API spec to 3.0.0
+- Migrate from Okta-custom generator to [openapi-generator.tech/](https://openapi-generator.tech/) 
+- Check out the [MIGRATING guide](./MIGRATING.md) for more details about migrating to 6.0.0
+
 ## 5.6.2
 
 ### Bug Fixes

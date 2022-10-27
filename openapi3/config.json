@@ -1,0 +1,106 @@
+{
+    "useDateTimeOffset": true,
+    "returnICollection": true,
+    "validatable": false,
+    "templateDir" : "./templates",
+    "packageName" : "Okta.Sdk",
+    "outputDir" : "../",
+    "inputSpec" : "./management.yaml", 
+    "packageVersion" : "6.0.0",
+    "packageDescription" : "Official .NET SDK for the Okta API",
+    "packageTitle" : "Official .NET SDK for the Okta API",
+    "packageCompany" : "Okta, Inc.",
+    "packageAuthors" : "Okta, Inc.",
+    "packageTags" : "okta api authentication identity management",
+    "packageCopyright" : "Okta, Inc.",
+    "gitHost": "github.com",
+    "gitUserId" : "okta",
+    "gitRepoId" : "okta-sdk-dotnet", 
+    "globalProperties": {
+        "apiTests": false,
+        "modelTests": false,
+        "isOAuth": true
+    },
+    "files": {
+        "WebLink.mustache":{
+            "destinationFilename": "WebLink.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "OktaCollectionClient.mustache":{
+            "destinationFilename": "OktaCollectionClient.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "OktaCollectionPage.mustache":{
+            "destinationFilename": "OktaCollectionPage.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "OktaPagedCollectionEnumerator.mustache":{
+            "destinationFilename": "OktaPagedCollectionEnumerator.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "OktaCollectionAsyncEnumerator.mustache":{
+            "destinationFilename": "OktaCollectionAsyncEnumerator.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "OAuthApi.mustache":{
+            "destinationFilename": "OAuthApi.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Api"
+        },
+        "OAuthTokenResponse.mustache":{
+            "destinationFilename": "OAuthTokenResponse.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "AuthorizationMode.mustache":{
+            "destinationFilename": "AuthorizationMode.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "DefaultJwtGenerator.mustache":{
+            "destinationFilename": "DefaultJwtGenerator.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "DefaultOAuthTokenProvider.mustache":{
+            "destinationFilename": "DefaultOAuthTokenProvider.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "NullOAuthTokenProvider.mustache":{
+            "destinationFilename": "NullOAuthTokenProvider.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "JsonWebKeyConfiguration.mustache":{
+            "destinationFilename": "JsonWebKeyConfiguration.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "ProxyConfiguration.mustache":{
+            "destinationFilename": "ProxyConfiguration.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "api_README.mustache":{
+            "destinationFilename":"API_README.md",
+            "templateType": "SupportingFiles",
+            "folder": "/"
+        },
+        "StringEnum.mustache":{
+            "destinationFilename": "StringEnum.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "StringEnumSerializingConverter.mustache":{
+            "destinationFilename": "StringEnumSerializingConverter.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Model"
+        }
+    }
+}

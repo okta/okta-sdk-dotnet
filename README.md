@@ -34,6 +34,7 @@ This repository contains the Okta management SDK for .NET. This SDK can be used 
 * Manage network zones with the [Zones API's endpoints](https://developer.okta.com/docs/reference/api/zones/).
 * Much more!
 
+> Note: For more details about the APIs and models the SDK support, check out the [API docs](/API_README.md) 
 
 We also publish these other libraries for .NET:
  
@@ -46,18 +47,13 @@ You can learn more on the [Okta + .NET][lang-landing] page in our documentation.
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/).
 
-:heavy_check_mark: The current stable major version series is: 5.x
+:heavy_check_mark: The current stable major version series is: 6.x
+:heavy_check_mark: The 5.x series is retiring and it's located in the `legacy-5.x-series` [branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy-5.x-series)
 
 | Version | Status                    |
 | ------- | ------------------------- |
-| 0.3.3   | :warning: Retired on 2019-12-11 ([migration guide](MIGRATING.md))  |
-| 1.x | :warning: Retired on 2020-12-27 |
-| 2.x | :warning: Retiring on 2021-04-10 ([migration guide](MIGRATING.md))  |
-| 3.x | :warning: Retiring on 2021-08-11 ([migration guide](MIGRATING.md)) |
-| 4.x | :warning: Retiring on 2021-12-25 ([migration guide](MIGRATING.md)) |
-| 5.x | :heavy_check_mark: Stable |
-| 6.x | :warning: Beta ([branch oasv3](https://github.com/okta/okta-sdk-dotnet/blob/oasv3)) |
-
+| 6.x | :heavy_check_mark: Stable ([migration guide](MIGRATING.md))|
+| 5.x | :warning: Retiring |
  
 The latest release can always be found on the [releases page][github-releases].
 
@@ -73,10 +69,10 @@ If you run into problems using the SDK, you can
 
 The SDK is compatible with:
 
-* [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/library) 2.0 and 2.1
+* [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/library) 2.0
 * .NET Framework 4.6.1 or higher
 * .NET Core 3.0 or higher
-* .NET 5.0
+* .NET 5.0 or higher
 
 Visual Studio 2017 or newer is required as previous versions are not compatible with the above frameworks.
 
@@ -87,51 +83,79 @@ Visual Studio 2017 or newer is required as previous versions are not compatible 
 ### Install using The Package Manager Console
 Simply run `install-package Okta.Sdk`. Done!
 
-The [`legacy` branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy) is published on NuGet as [Okta.Core.Client 0.3.3](https://www.nuget.org/packages/Okta.Core.Client/0.3.3).  This version is *retired* and is no longer supported. 
-
-The [1.x series](https://github.com/okta/okta-sdk-dotnet/tree/legacy-1.x-series) will not be supported past December 27, 2020.  It will likely remain working after that date but you should make a plan to migrate to the new 3.x version.
-
 You'll also need:
 
 * An Okta account, called an _organization_ (sign up for a free [developer organization](https://developer.okta.com/signup) if you need one)
 * An [API token](https://developer.okta.com/docs/api/getting_started/getting_a_token)
  
-### Initialize a client 
+### Initialize an API client 
+
 Construct a client instance by passing it your Okta domain name and API token:
- 
-``` csharp
-var client = new OktaClient(new OktaClientConfiguration
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
 {
-    OktaDomain = "https://{{yourOktaDomain}}",
-    Token = "{{yourApiToken}}"
-});
+    public class Example
+    {
+        public static void Main()
+        {
+
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API_Token
+            config.Token.Add("Authorization", "YOUR_API_KEY");
+            
+            var apiInstance = new AgentPoolsApi(config);
+            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
+            var updateId = "updateId_example";  // string | Id of the update
+
+            try
+            {
+                // Activate an Agent Pool update
+                AgentPoolUpdate result = apiInstance.ActivateAgentPoolsUpdate(poolId, updateId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling AgentPoolsApi.ActivateAgentPoolsUpdate: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+
+        }
+    }
+}
 ```
 
-Hard-coding the Okta domain and API token works for quick tests, but for real projects you should use a more secure way of storing these values (such as environment variables). This library supports a few different configuration sources, covered in the [configuration reference](#configuration-reference) section.
 
-### Create a scoped client
-Create a client scoped to a specific context to specify a custom content type:
-``` csharp
-var client = new OktaClient(new OktaClientConfiguration
-{
-    OktaDomain = "https://{{yourOktaDomain}}",
-    Token = "{{yourApiToken}}"
-});
+> Hard-coding the Okta domain and API token works for quick tests, but for real projects you should use a more secure way of storing these values (such as environment variables). This library supports a few different configuration sources, covered in the [configuration reference](#configuration-reference) section.
 
-var scopedClient = client.CreateScoped(new RequestContext { ContentType = "my-custom-content-type" });
+To use the API client with an HTTP proxy, you can either setup your proxy via different configuration sources, covered in the [configuration reference](#configuration-reference) section, or via API constructor. If you have both, the proxy passed via constructor will take precedence.
+
+
+```csharp
+System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:80/");
+webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
+
+var appsApi = new ApplicationApi(webProxy : webProxy);
 ```
-The content type specified in a scoped client overrides the content type specified on a request, see also [Call other API endpoints](#call-other-api-endpoints).
 
 ### OAuth 2.0
 
-Okta allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains. 
+Okta allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
-This SDK supports this feature only for service-to-service applications. Check out [our guides](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/overview/) to learn more about how to register a new service application using a private and public key pair.
+This SDK supports this feature only for service-to-service applications. Check out our guides to learn more about how to register a new service application using a private and public key pair.
 
-When using this approach you won't need an API Token because the SDK will request an access token for you. In order to use OAuth 2.0, construct a client instance by passing the following parameters:
+When using this approach you won't need an API Token because the SDK will request an access token for you. In order to use OAuth 2.0, construct an API client instance by passing the following parameters:
 
-``` csharp
-var client = new OktaClient(new OktaClientConfiguration
+```csharp
+var oauthAppsApi = new ApplicationApi(new Configuration
 {
     OktaDomain = "https://{{yourOktaDomain}}",
     AuthorizationMode = AuthorizationMode.PrivateKey,
@@ -143,7 +167,7 @@ var client = new OktaClient(new OktaClientConfiguration
 
 Key object for assigning to the PrivateKey can be created and initialized inline like in this example for RSA key:
 
-``` csharp
+```csharp
 var privateKey = new JsonWebKeyConfiguration
 {
     P = "{{P}}",
@@ -155,7 +179,7 @@ var privateKey = new JsonWebKeyConfiguration
     Qi = "{{Qi}}"
 };
 
-var clientConfiguration = new OktaClientConfiguration
+var configuration = new Configuration
 {
     OktaDomain = "https://{{yourOktaDomain}}",
     AuthorizationMode = AuthorizationMode.PrivateKey,
@@ -164,45 +188,21 @@ var clientConfiguration = new OktaClientConfiguration
     PrivateKey = privateKey
 };
 
-var client = new OktaClient(clientConfiguration);
+var oauthAppsApi = new ApplicationApi(configuration);
 ```
 
-It is possible to use an access token you retrieved outside of the SDK for authentication. For that, set `OktaClientConfiguration.AuthorizationMode` configuration property to `AuthorizationMode.BearerToken` and `OktaClientConfiguration.BearerToken` to the token string. 
+It is possible to use an access token you retrieved outside of the SDK for authentication. For that, set `Configuration.AuthorizationMode` configuration property to `AuthorizationMode.BearerToken` and `Configuration.AccessToken` to the token string.
 
-In addition to passing the token via configuration, you can inject your own implementation of the `IOAuthTokenProvider` interface via the OktaClient constructor. This strategy is useful when you want to refresh a token that has been expired.
-
-You can provide a value for `OktaClientConfiguration.BearerToken` option along with a custom `IOAuthTokenProvider` implementation. In this case, the SDK will try to use the  `OktaClientConfiguration.BearerToken` first and if the request fails (for example when the token expires) then the SDK will retry with the custom token provider.
-
-
- See [Get an access token and make a request](https://developer.okta.com/docs/guides/implement-oauth-for-okta/request-access-token/) for additional information.
-
-
-```csharp
-    // myOAuthTokenProvider implements the Okta.Sdk.Internal.IOAuthTokenProvider interface
-	
-    var client = new OktaClient(new OktaClientConfiguration
-        {
-            ClientId = "{{clientId}}",
-            AuthorizationMode = AuthorizationMode.BearerToken,
-            BearerToken = "{{preRequestedAccessToken}}",
-        },
-        oAuthTokenProvider: myOAuthTokenProvider
-    );
-```
 ## Usage guide
 
 These examples will help you understand how to use this library. You can also browse the full [API reference documentation][dotnetdocs].
 
-Once you initialize an `OktaClient`, you can call methods to make requests to the Okta API.
-
-### Authenticate a User
-
-This library should be used with the Okta management API. For authentication, we recommend using an OAuth 2.0 or OpenID Connect library such as [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet).
+Once you initialize an API client, you can call methods to make requests to the Okta API.
 
 ### Get a User
 ``` csharp
 // Get the user with a user ID or login
-var vader = await client.Users.GetUserAsync("<Some user ID or login>");
+var user = await userApi.GetUserAsync("<Some user ID or login>");
 ```
 
 The string argument for `GetUserAsync` can be the user's ID or the user's login (usually their email).
@@ -213,14 +213,13 @@ The SDK will automatically [paginate](https://developer.okta.com/docs/api/gettin
 
 ``` csharp
 // These different styles all perform the same action:
-var allUsers = await client.Users.ToArrayAsync();
-var allUsers = await client.Users.ToListAsync();
-var allUsers = await client.Users.ListUsers().ToArrayAsync();
+var allUsers = await userApi.ListUsers().ToListAsync();
+var allUsers = await userApi.ListUsers().ToArrayAsync();
 ```
 
 ### Filter or search for Users
 ``` csharp
-var foundUsers = await client.Users
+var foundUsers = await userApi
                         .ListUsers(search: $"profile.nickName eq \"Skywalker\"")
                         .ToArrayAsync();
 ```
@@ -229,35 +228,44 @@ var foundUsers = await client.Users
 
 ``` csharp
 // Create a user with the specified password
-var vader = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
-{
-    // User profile object
-    Profile = new UserProfile
-    {
-        FirstName = "Anakin",
-        LastName = "Skywalker",
-        Email = "darth.vader@imperial-senate.gov",
-        Login = "darth.vader@imperial-senate.gov",
-    },
-    Password = "D1sturB1ng!",
-    Activate = false,
-});
+var createUserRequest = new CreateUserRequest
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "Anakin",
+                    LastName = "Skywalker",
+                    Email = "darth.vader@imperial-senate.gov",
+                    Login = "darth.vader@imperial-senate.gov",
+                },
+                Credentials = new UserCredentials
+                {
+                    Password = new PasswordCredential
+                    {
+                        Value = "D1sturB1ng"
+                    }
+                }
+            };
+
+var createdUser = await _userApi.CreateUserAsync(createUserRequest);
 ```
 
 ### Activate a User
 
 ``` csharp
-// With an existing user, call
-await vader.ActivateAsync();
+// Activate the user
+await _userApi.ActivateUserAsync(createdUser.Id, false);
 ```
 
 ### Update a User
 ``` csharp
-// Set the nickname in the user's profile
-vader.Profile["nickName"] = "Lord Vader";
+// Update profile
+createdUser.Profile.NickName = nickName;
+var updateUserRequest = new UpdateUserRequest
+{
+    Profile = createdUser.Profile
+};
 
-// Then, save the user
-await vader.UpdateAsync();
+var updatedUser = await _userApi.UpdateUserAsync(createdUser.Id, updateUserRequest);
 ```
 
 ### Get and set custom attributes
@@ -265,188 +273,96 @@ await vader.UpdateAsync();
 You can't create attributes via code right now, but you can get and set their values. To create them you have to use the Profile Editor in the Developer Console web UI. Once you have created them, you can use the code below:
 
 ```csharp
-vader.Profile["homeworld"] = "Tattooine";
-await vader.UpdateAsync();
+user.Profile.AdditionalProperties = new Dictionary<string, object>();
+user.Profile.AdditionalProperties["homeworld"] = "Planet Earth";
+
+var updateUserRequest = new UpdateUserRequest
+{
+    Profile = user.Profile
+};
+
+var updatedUser = await _userApi.UpdateUserAsync(createdUser.Id, updateUserRequest);
+
+var userHomeworld = updatedUser.Profile.AdditionalProperties["homeworld"];
 ```
 
 ### Remove a User
 ``` csharp
-// First, deactivate the user
-await vader.DeactivateAsync();
-
-// Then delete the user
-await vader.DeactivateOrDeleteAsync();
-```
-
-### List a User's Groups
-
-``` csharp
-// Retrieve the desired user
-var user = await client.Users.GetUserAsync("darth.vader@imperial-senate.gov");
-
-// get the user's groups
-var groups = await user.Groups.ToListAsync();
-```
-
-### Create a Group
-``` csharp
-await client.Groups.CreateGroupAsync(new CreateGroupOptions()
-{
-    Name = "Stormtroopers",
-    Description = "The 501st"
-});
-```
-
-### Add a User to a Group
-``` csharp
-// Retrieve the desired user
-var user = await client.Users.GetUserAsync("darth.vader@imperial-senate.gov");
-
-// find the desired group
-var group = await client.Groups.FirstOrDefaultAsync(x => x.Profile.Name == "Stormtroopers");
-
-// add the user to the group by using their id's
-if (group != null && user != null)
-{
-    await client.Groups.AddUserToGroupAsync(group.Id, user.Id);
-}
-```
-
-### List a User's enrolled Factors
-
-``` csharp
-// Find the desired user
-var user = await client.Users.FirstOrDefaultAsync(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
-
-// Get user factors
-var factors = await user.ListFactors().ToListAsync();
-```
-
-### Enroll a User in a new Factor
-``` csharp
-// Retrieve the desired user
-var user = await client.Users.GetUserAsync("darth.vader@imperial-senate.gov");
-
-// Enroll in Okta SMS factor
-await user.AddFactorAsync(new AddSmsFactorOptions
-{
-    PhoneNumber = "+99999999999",
-});
-```
-### Activate a Factor
-``` csharp
-// Find the desired user
-var user = await client.Users.FirstAsync(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
-
-// Find the desired factor
-var smsFactor = await user.Factors.FirstAsync(x => x.FactorType == FactorType.Sms);
-
-// Activate sms factor
-var activateFactorRequest = new ActivateFactorRequest()
-{
-    PassCode = "foo",
-};
-
-await client.UserFactors.ActivateFactorAsync(activateFactorRequest, user.Id, smsFactor.Id);
-```
-
-### Verify a Factor
-``` csharp
-// Retrieve the desired user
-var user = await client.Users.GetUserAsync("darth.vader@imperial-senate.gov");
-
-// Find the desired factor
-var smsFactor = await user.Factors.FirstOrDefaultAsync(x => x.FactorType == FactorType.Sms);
-
-// Verify sms factor
-var verifyFactorRequest = new VerifyFactorRequest()
-{
-    PassCode = "foo",
-};
-
-var response = await client.UserFactors.VerifyFactorAsync(verifyFactorRequest, user.Id, smsFactor.Id);
-```
-
-### Issuing an SMS Factor Challenge Using a Custom Template
-
-You can customize and optionally localize the SMS message sent to the user on verification. For more information about this feature and the underlying API call, see the related [developer documentation](https://developer.okta.com/docs/reference/api/factors/#issuing-an-sms-factor-challenge-using-a-custom-template).
-
-If you need to send additional information via the `AcceptLanguage` header, use an scoped client and pass a `RequestContext` object with your desired headers:
-
-```csharp
-// Create scoped client with specific headers
-var scopedClient = client.CreateScoped(new RequestContext() { AcceptLanguage = "de" });
-
-await scopedClient.UserFactors.VerifyFactorAsync(userId, factorId, templateId);
+ await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
 ```
 
 ### List all Applications
 ``` csharp
 // List all applications
-var appList = await client.Applications.ListApplications().ToArrayAsync();
-
-// List all applications of a specific type
-var bookmarkAppList = await client.Applications.ListApplications().OfType<IBookmarkApplication>().ToArrayAsync();
+var appList = await _applicationApi.ListApplications().ToArrayAsync();
 ```
 
 ### Get an Application
 ``` csharp
-var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
+var createdApp = await _applicationApi.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
                 {
                     Label = "Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
 
-var retrievedById = await client.Applications.GetApplicationAsync(createdApp.Id);
-```
-
-### Create a SWA Application
-
-``` csharp
-var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaApplicationOptions
-{ 
-    Label = "Sample Plugin App",
-    ButtonField = "btn-login",
-    PasswordField = "txtbox-password",
-    UsernameField = "txtbox-username",
-    Url = "https://example.com/login.html",
-    LoginUrlRegex = "^https://example.com/login.html",
-});
-
+var retrievedById = await _applicationApi.GetApplicationAsync(createdApp.Id);
 ```
 
 ### Create an OpenID Application
 
 ``` csharp
-var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
-{
-    Label = "Sample Client",
-    ClientId = "0oae8mnt9tZexampl3",
-    TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
-    AutoKeyRotation = true,
-    ClientUri = "https://example.com/client",
-    LogoUri = "https://example.com/assets/images/logo-new.png",
-    ResponseTypes = new List<OAuthResponseType>
-    {
-        OAuthResponseType.Token,
-        OAuthResponseType.IdToken,
-        OAuthResponseType.Code,
-    },
-    RedirectUris = new List<string>
-    {
-            "https://example.com/oauth2/callback",
-            "myapp://callback",
-    },
-    GrantTypes = new List<OAuthGrantType>
-    {
-        OAuthGrantType.Implicit,
-        OAuthGrantType.AuthorizationCode,
-    },
-    ApplicationType = OpenIdConnectApplicationType.Native,
-    TermsOfServiceUri = "https://example.com/client/tos",
-    PolicyUri = "https://example.com/client/policy",
-});
+var app = new OpenIdConnectApplication
+        {
+            Name = "oidc_client",
+            SignOnMode = "OPENID_CONNECT",
+            Label = $"dotnet-sdk: AddOpenIdConnectApp",
+            Credentials = new OAuthApplicationCredentials()
+            {
+                OauthClient = new ApplicationCredentialsOAuthClient()
+                {
+                    ClientId = testClientId,
+                    TokenEndpointAuthMethod = "client_secret_post",
+                    AutoKeyRotation = true,
+                },
+            },
+            Settings = new OpenIdConnectApplicationSettings
+            {
+                OauthClient = new OpenIdConnectApplicationSettingsClient()
+                {
+                    ClientUri = "https://example.com/client",
+                    LogoUri = "https://example.com/assets/images/logo-new.png",
+                    ResponseTypes = new List<string>
+                    {
+                        "token",
+                        "id_token",
+                        "code",
+                    },
+                    RedirectUris = new List<string>
+                    {
+                        "https://example.com/oauth2/callback",
+                        "myapp://callback",
+                    },
+                    PostLogoutRedirectUris = new List<string>
+                    {
+                        "https://example.com/postlogout",
+                        "myapp://postlogoutcallback",
+                    },
+                    GrantTypes = new List<string>
+                    {
+                        "implicit",
+                        "authorization_code",
+                    },
+                    ApplicationType = "native",
+
+                    TosUri = "https://example.com/client/tos",
+                    PolicyUri = "https://example.com/client/policy",
+                },
+            }
+        };
+
+var createdApp = await _applicationApi.CreateApplicationAsync(app);
+
 ```
 
 ## Manual pagination
@@ -455,7 +371,7 @@ Collections can be fetched with manually controlled pagination, see the followin
 
 ```csharp
 var retrievedUsers = new List<IUser>();
-var users = oktaClient.Users.ListUsers(limit: 5); // 5 records per a page
+var users = _userApi.ListUsers(limit: 5); // 5 records per a page
 var enumerator = users.GetPagedEnumerator();
 
 while (await enumerator.MoveNextAsync())
@@ -465,39 +381,7 @@ while (await enumerator.MoveNextAsync())
 }
 ```
 
-## Call other API endpoints
-
-The SDK client object can be used to make calls to any Okta API (not just the endpoints officially supported by the SDK) via the `GetAsync`, `PostAsync`, `PutAsync` and `DeleteAsync` methods.
-
-For example, to activate a user using the `PostAsync` method (instead of `user.ActivateAsync`):
-
-```csharp
-await client.PostAsync(new Okta.Sdk.HttpRequest
-{
-    Uri = $"/api/v1/users/{userId}/lifecycle/activate",
-    PathParameters = new Dictionary<string, object>()
-    {
-        ["userId"] = userId,
-    },
-    QueryParameters = new Dictionary<string, object>()
-    {
-        ["sendEmail"] = true,
-    }
-});
-```
-
-In this case, there is no benefit to using `PostAsync` instead of `user.ActivateAsync`. However, this approach can be used to call any endpoints that are not represented by methods in the SDK.
-
-## Get data from `_links`
-
-All models inherit from [Resource](https://github.com/okta/okta-sdk-dotnet/blob/master/src/Okta.Sdk/Resource.cs) which provides convenience methods to access the raw data. You can access `_links` and any other properties by using the `GetResource<T>` method:
-
-```csharp
-var identityProvider = await client.IdentityProviders.CreateOktaIDPAsync(idp);
-var links = identityProvider.GetProperty<Resource>("_links");
-var acs = links.GetProperty<Resource>("acs"); // Use Resource when what you'retriving is an object
-var acsType = acs.GetProperty<string>("type"); // Use the specific type for primitive types
-```
+> Note: For more API samples checkout our [tests](https://github.com/okta/okta-sdk-dotnet/tree/master/src/Okta.Sdk.IntegrationTest)
 
 ## Rate Limiting
 
@@ -516,47 +400,23 @@ You can configure the following options when using the built-in retry strategy:
 
 Check out the [Configuration Reference section](#configuration-reference) for more details about how to set these values via configuration.
 
-> Note: The default retry strategy will be automatically added to the client for 2.x series.
-
 ### Custom Retry
 
-You can build your own retry strategy by implementing the `IRetryStrategy` interface and pass it to the `OktaClient`.
+You can implement your own retry strategy via [Polly](https://github.com/App-vNext/Polly), and assign it to the `RetryConfiguration.AsyncPolicy` property. 
+
+```csharp
+ AsyncPolicy<IRestResponse> retryAsyncPolicy = Policy
+                .Handle<ApiException>(ex => ex.ErrorCode == 429)
+                .OrResult<IRestResponse>(r => (int)r.StatusCode == 429)
+                .WaitAndRetryAsync(configuration.MaxRetries.Value, 
+                                   sleepDurationProvider: (retryAttempt, response,
+                                   context) => MyCalculateDelayMethod(retryAttempt, response, context)
+                );
+
+RetryPolicy.AsyncPolicy = retryAsyncPolicy;
+```
+
 You will have to read the `X-Rate-Limit-Reset` header on the 429 response.  This will tell you the time at which you can retry.  Because this is an absolute time value, we recommend calculating the wait time by using the `Date` header on the response, as it is in sync with the API servers, whereas your local clock may not be.  We also recommend adding 1 second to ensure that you will be retrying after the window has expired (there may be a sub-second relative time skew between the `X-Rate-Limit-Reset` and `Date` headers).
-
-## JSON Serialization
-
-This SDK provides a `DefaultSerializer` which has all the logic needed by this SDK to work properly. While the `OktaClient` constructor allows a custom `ISerializer` to be set, we highly recommend using the `DefaultSerializer`, otherwise it is the developer's responsibility to add all the logic required by this SDK to continue working properly. This change was added to support edge cases with custom attributes, but will be removed in the next major release, where the default behavior will be to treat all the custom attributes as strings or arrays when applicable.
-
-### Default Serializer Settings
-
-In 2.x series all date formatted strings attributes are deserialized as strings by default. This was not true in previous versions where date-formatted strings were deserialized as `DateTime`. The default configuration for date parsing is now [`DateParseHandling.None`](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_DateParseHandling.htm).
-
-If you are using an older version of the SDK and you have date-formatted strings among your Okta custom attributes and you don't want them to be parsed to a date type and read them as strings instead, use the following code:
-
-```csharp
-var serializer = new DefaultSerializer(new JsonSerializerSettings()
-{
-    DateParseHandling = DateParseHandling.None,
-});
-
-var client = new Okta.Sdk.OktaClient(new Okta.Sdk.Configuration.OktaClientConfiguration
-{
-    OktaDomain = "https://{yourOktaDomain}",
-    Token = "{apiToken}"
-}, serializer: serializer);
-
-var user = await client.Users.GetUserAsync("user@test.com");
-var stringDate = user.Profile["myCustomDate"];
-```
-
-You can still use the `GetProperty<T>` method to return a `DateTimeOffset?`:
-
-```csharp
-DateTimeOffset? myCustomDateTimeOffset = user.Profile.GetProperty<DateTimeOffset?>("myCustomDate");
-```
-
-Since the `DefaultSerializer` is used to parse other `DateTime` fields across the SDK, such as `User.LastLogin`,
-keep in mind that this configuration will also affect how all other date-formatted strings are parsed. For example, if you choose `DateParseHandling.DateTime` your original timezone could be ignored. For more details check out [DateParseHandling](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_DateParseHandling.htm).
 
 ## Configuration reference
   
@@ -582,16 +442,16 @@ okta:
     connectionTimeout: 30 # seconds
     oktaDomain: "https://{yourOktaDomain}"
     proxy:
-      port: null
-      host: null
-      username: null
-      password: null
+        port: null
+        host: null
+        username: null
+        password: null
     token: {apiToken}
     requestTimeout: 0 # seconds
     rateLimit:
       maxRetries: 4
 ```
- 
+
 When you use OAuth 2.0 the full YAML configuration looks like this when using EC key:
 
 ```yaml

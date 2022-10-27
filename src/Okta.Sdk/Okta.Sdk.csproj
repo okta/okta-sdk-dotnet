@@ -1,44 +1,33 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1</TargetFrameworks>
-    <Version>5.6.2</Version>
-    <LangVersion>7.3</LangVersion>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
-    <PackageReference Include="Okta.Sdk.Abstractions" Version="4.0.3" />
-    <PackageReference Include="System.Diagnostics.TraceSource" Version="4.3.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.1" />
-    <PackageReference Include="System.Interactive.Async" Version="5.0.0" />
-    <AdditionalFiles Include="..\stylecop.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="AsyncUsageAnalyzers" Version="1.0.0-alpha003" PrivateAssets="All" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
-    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
-  </ItemGroup>
-
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\OktaSdk.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <Description>Official .NET SDK for the Okta API.</Description>
-    <DocumentationFile>bin\Debug\netstandard2.1\Okta.Sdk.xml</DocumentationFile>
-    <RepositoryUrl>https://github.com/okta/okta-sdk-dotnet</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/okta/okta-sdk-dotnet</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/okta/okta-sdk-dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Okta.Sdk</AssemblyName>
+    <PackageId>Okta.Sdk</PackageId>
+    <OutputType>Library</OutputType>
     <Authors>Okta, Inc.</Authors>
+    <Company>Okta, Inc.</Company>
+    <AssemblyTitle>Official .NET SDK for the Okta API</AssemblyTitle>
+    <Description>Official .NET SDK for the Okta API</Description>
+    <Copyright>Okta, Inc.</Copyright>
+    <RootNamespace>Okta.Sdk</RootNamespace>
+    <Version>6.0.0</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Okta.Sdk.xml</DocumentationFile>
+    <RepositoryUrl>https://github.com/okta/okta-sdk-dotnet.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
     <PackageTags>okta api authentication identity management</PackageTags>
-    <PackageIconUrl>https://raw.githubusercontent.com/okta/okta-sdk-dotnet/master/icon.png</PackageIconUrl>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>1701;1702;1705;1591</NoWarn>
-  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="JsonSubTypes" Version="1.8.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="Okta.Sdk.Abstractions" Version="4.0.4" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.22.0" />
+     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.22.0" />
+    <PackageReference Include="RestSharp" Version="106.13.0" />
+    <PackageReference Include="Polly" Version="7.2.3" />
+  </ItemGroup>
+
 </Project>

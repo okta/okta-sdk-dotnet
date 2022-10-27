@@ -1,0 +1,44 @@
+    /// <summary>
+    /// {{description}}{{^description}}Defines {{{name}}}{{/description}}
+    /// </summary>
+    {{#description}}
+    /// <value>{{.}}</value>
+    {{/description}}
+    {{#allowableValues}}
+    {{#enumVars}}
+    {{#-first}}
+    {{#isString}}
+    {{^useGenericHost}}
+    [JsonConverter(typeof(StringEnumSerializingConverter))]
+    {{/useGenericHost}}
+    {{/isString}}
+    {{/-first}}
+    {{/enumVars}}
+    {{/allowableValues}}
+    public sealed class {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} : StringEnum
+    {
+        {{#allowableValues}}
+        {{#enumVars}}
+        /// <summary>
+        /// StringEnum {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} for value: {{{value}}}
+        /// </summary>
+        public static {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} {{{name}}} = new {{datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}("{{value}}");
+        {{/enumVars}}
+        {{/allowableValues}}
+
+        /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="{{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}(string value) => new {{datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}(value);
+
+        /// <summary>
+        /// Creates a new <see cref="{{name}}"/> instance.
+        /// </summary>
+        /// <param name="value">The value to use.</param>
+        public {{#datatypeWithEnum}}{{.}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}(string value)
+            : base(value)
+        {
+        }
+    }
+
