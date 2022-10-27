@@ -90,7 +90,7 @@ await _roleTargetApi.AddGroupTargetToGroupAdministratorRoleForGroupAsync(group1.
 var groupTargetList = await _roleTargetApi.ListGroupTargetsForGroupRole(createdGroup1.Id, role1.Id).ToListAsync();
 ```
 
-For more details about other APIs, please check out [here](API_README.md#Documentation_for_API_Endpoints).
+For more details about other APIs, please check out [here](API_README.md#documentation-for-API-Endpoints).
 
 ### Rate Limit
 
