@@ -710,6 +710,199 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
+        public async Task DeactivateRoutingRulesWhenDeactivateIdp()
+        {
+            var client = TestClient.Create();
+            var randomSuffix = DateTime.UtcNow.ToString();
+
+            var key = @"MIIDnjCCAoagAwIBAgIGAVG3MN+PMA0GCSqGSIb3DQEBBQUAMIGPMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5p
+                    YTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEDAOBgNVBAMM
+                    B2V4YW1wbGUxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTUxMjE4MjIyMjMyWhcNMjUxMjE4MjIyMzMyWjCB
+                    jzELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoMBE9r
+                    dGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRAwDgYDVQQDDAdleGFtcGxlMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29t
+                    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtcnyvuVCrsFEKCwHDenS3Ocjed8eWDv3zLtD2K/iZfE8BMj2wpTf
+                    n6Ry8zCYey3mWlKdxIybnV9amrujGRnE0ab6Q16v9D6RlFQLOG6dwqoRKuZy33Uyg8PGdEudZjGbWuKCqqXEp+UKALJHV+k4
+                    wWeVH8g5d1n3KyR2TVajVJpCrPhLFmq1Il4G/IUnPe4MvjXqB6CpKkog1+ThWsItPRJPAM+RweFHXq7KfChXsYE7Mmfuly8s
+                    DQlvBmQyxZnFHVuiPfCvGHJjpvHy11YlHdOjfgqHRvZbmo30+y0X/oY/yV4YEJ00LL6eJWU4wi7ViY3HP6/VCdRjHoRdr5L/
+                    DwIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQCzzhOFkvyYLNFj2WDcq1YqD4sBy1iCia9QpRH3rjQvMKDwQDYWbi6EdOX0TQ/I
+                    YR7UWGj+2pXd6v0t33lYtoKocp/4lUvT3tfBnWZ5KnObi+J2uY2teUqoYkASN7F+GRPVOuMVoVgm05ss8tuMb2dLc9vsx93s
+                    Dt+XlMTv/2qi5VPwaDtqduKkzwW9lUfn4xIMkTiVvCpe0X2HneD2Bpuao3/U8Rk0uiPfq6TooWaoW3kjsmErhEAs9bA7xuqo
+                    1KKY9CdHcFhkSsMhoeaZylZHtzbnoipUlQKSLMdJQiiYZQ0bYL83/Ta9fulr1EERICMFt3GUmtYaZZKHpWSfdJp9";
+
+            var createdKey = await client.IdentityProviders.CreateIdentityProviderKeyAsync(new JsonWebKey()
+            {
+                X5C = new List<string>() { key },
+            });
+
+            var idp = new IdentityProvider()
+            {
+                Type = "SAML2",
+                Name = $"dotnet-sdk:DeactivateRoutingRules{randomSuffix}",
+                Protocol = new Protocol()
+                {
+                    Algorithms = new ProtocolAlgorithms()
+                    {
+                        Request = new ProtocolAlgorithmType()
+                        {
+                            Signature = new ProtocolAlgorithmTypeSignature()
+                            {
+                                Algorithm = "SHA-256",
+                                Scope = "REQUEST",
+                            },
+                        },
+                        Response = new ProtocolAlgorithmType()
+                        {
+                            Signature = new ProtocolAlgorithmTypeSignature()
+                            {
+                                Algorithm = "SHA-256",
+                                Scope = "ANY",
+                            },
+                        },
+                    },
+                    Endpoints = new ProtocolEndpoints()
+                    {
+                        Acs = new ProtocolEndpoint()
+                        {
+                            Binding = "HTTP-POST",
+                            Type = "INSTANCE",
+                        },
+                        Sso = new ProtocolEndpoint()
+                        {
+                            Url = "https://idp.example.com",
+                            Binding = "HTTP-POST",
+                            Destination = "https://idp.example.com",
+                        },
+                    },
+                    Scopes = new List<string>() { "openid", "profile", "email" },
+                    Type = "SAML2",
+                    Credentials = new IdentityProviderCredentials()
+                    {
+                        Trust = new IdentityProviderCredentialsTrust()
+                        {
+                            Issuer = "https://idp.example.com",
+                            Audience = "http://www.okta.com/123",
+                            Kid = createdKey.Kid,
+                        },
+                    },
+                    Issuer = new ProtocolEndpoint()
+                    {
+                        Url = "https://idp.example.com",
+                    },
+                },
+                Policy = new IdentityProviderPolicy()
+                {
+                    AccountLink = new PolicyAccountLink()
+                    {
+                        Action = "AUTO",
+                        Filter = null,
+                    },
+                    Provisioning = new Provisioning()
+                    {
+                        Action = "AUTO",
+                        ProfileMaster = true,
+                        Conditions = new ProvisioningConditions()
+                        {
+                            Deprovisioned = new ProvisioningDeprovisionedCondition()
+                            {
+                                Action = "NONE",
+                            },
+                            Suspended = new ProvisioningSuspendedCondition()
+                            {
+                                Action = "NONE",
+                            },
+                        },
+                        Groups = new ProvisioningGroups()
+                        {
+                            Action = "NONE",
+                        },
+                    },
+                    Subject = new PolicySubject()
+                    {
+                        UserNameTemplate = new PolicyUserNameTemplate()
+                        {
+                            Template = "idpuser.subjectNameId",
+                        },
+                        Format = new List<string>() { "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified" },
+                        Filter = "(\\S+@example\\.com)",
+                        MatchType = "USERNAME",
+                    },
+                },
+            };
+
+            var createdIdp = await client.IdentityProviders.CreateIdentityProviderAsync(idp);
+            var policyId = string.Empty;
+            var policyRuleId = string.Empty;
+
+            try
+            {
+                createdIdp.Should().NotBeNull();
+
+                var policies = await client.Policies.ListPolicies("IDP_DISCOVERY").ToListAsync();
+
+                policyId = policies.FirstOrDefault().Id;
+                var idpPolicyRuleActionProvider = new IdpPolicyRuleActionProvider();
+                idpPolicyRuleActionProvider.SetProperty("id", createdIdp.Id);
+
+                var policyRule = new PolicyRule
+                {
+                    Type = "IDP_DISCOVERY",
+                    Name = $"dotnet-sdk: DeactivateRoutingRuleIDP",
+                    Actions = new PolicyRuleActions
+                    {
+                        Idp = new IdpPolicyRuleAction
+                        {
+                            Providers = new List<IIdpPolicyRuleActionProvider>()
+                            {
+                                idpPolicyRuleActionProvider,
+                            },
+                        },
+                    },
+                    Conditions = new PolicyRuleConditions
+                    {
+                        Network = new PolicyNetworkCondition
+                        {
+                            Connection = "ANYWHERE",
+                        },
+                        Platform = new PlatformPolicyRuleCondition
+                        {
+                            Include = new List<IPlatformConditionEvaluatorPlatform>
+                            {
+                                new PlatformConditionEvaluatorPlatform
+                                {
+                                    Type = "ANY",
+                                    Os = new PlatformConditionEvaluatorPlatformOperatingSystem
+                                    {
+                                        Type = "ANY",
+                                    },
+                                },
+                            },
+                        },
+                    },
+                };
+
+                var createdPolicyRule = await client.Policies.CreatePolicyRuleAsync(policyRule, policyId);
+                policyRuleId = createdPolicyRule.Id;
+
+                createdPolicyRule.Status.Should().Be("ACTIVE");
+                createdIdp.Status.Should().Be("ACTIVE");
+
+                await client.IdentityProviders.DeactivateIdentityProviderAsync(createdIdp.Id);
+
+                var retrievedIdp = await client.IdentityProviders.GetIdentityProviderAsync(createdIdp.Id);
+                retrievedIdp.Status.Should().Be("INACTIVE");
+
+                var retrievedPolicyRule = await client.Policies.GetPolicyRuleAsync(policyId, policyRuleId);
+                retrievedPolicyRule.Status.Should().Be("INACTIVE");
+            }
+            finally
+            {
+                await createdIdp.DeactivateAsync();
+                await client.IdentityProviders.DeleteIdentityProviderAsync(createdIdp.Id);
+                await client.IdentityProviders.DeleteIdentityProviderKeyAsync(createdKey.Kid);
+            }
+        }
+
+        [Fact]
         public async Task DeactivateIdp()
         {
             var client = TestClient.Create();
@@ -765,7 +958,7 @@ namespace Okta.Sdk.IntegrationTests
             try
             {
                 createdIdp.Status.Should().Be("ACTIVE");
-                await createdIdp.DeactivateAsync();
+                await client.IdentityProviders.DeactivateIdentityProviderAsync(createdIdp.Id);
                 var retrievedIdp = await client.IdentityProviders.GetIdentityProviderAsync(createdIdp.Id);
                 retrievedIdp.Status.Should().Be("INACTIVE");
             }
