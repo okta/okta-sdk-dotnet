@@ -1,6 +1,10 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 6.0.1
+
+- Make `AppUser.PasswordChanged` property nullable (#599)
+
 ## 6.0.0
 
 - Add support for StringEnum

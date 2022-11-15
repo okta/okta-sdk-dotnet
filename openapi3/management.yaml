@@ -18773,6 +18773,7 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         profile:
           type: object
           additionalProperties:
