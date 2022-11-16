@@ -99,7 +99,7 @@ namespace Okta.Sdk.Client
                     { "iat", (int)timeSpanIat.TotalSeconds },
                     { "exp", (int)timeSpanExp.TotalSeconds },
                     { "iss", _configuration.ClientId },
-                    { "aud", $"{_configuration.OktaDomain}/oauth2/v1/token" },
+                    { "aud", $"{ClientUtils.EnsureTrailingSlash(_configuration.OktaDomain)}oauth2/v1/token" },
                     { "jti", Guid.NewGuid() },
                 };
 
