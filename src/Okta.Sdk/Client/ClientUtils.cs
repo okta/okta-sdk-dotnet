@@ -263,5 +263,22 @@ namespace Okta.Sdk.Client
         /// </returns>
         public static IEnumerable<WebLink> Parse(IEnumerable<string> headerValues)
             => Parse(headerValues?.ToArray() ?? new string[0]);
+
+        /// <summary>
+        /// Ensures that this URI ends with a trailing slash <c>/</c>.
+        /// </summary>
+        /// <param name="uri">The URI string.</param>
+        /// <returns>The URI string, appended with <c>/</c> if necessary.</returns>
+        public static string EnsureTrailingSlash(string uri)
+        {
+            if (string.IsNullOrEmpty(uri))
+            {
+                throw new ArgumentNullException(nameof(uri));
+            }
+
+            return uri.EndsWith("/")
+                ? uri
+                : $"{uri}/";
+        }
     }
 }

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | [optional] 
 **LastSync** | **DateTimeOffset** |  | [optional] [readonly] 
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
-**PasswordChanged** | **DateTimeOffset** |  | [optional] [readonly] 
+**PasswordChanged** | **DateTimeOffset?** |  | [optional] [readonly] 
 **Profile** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
 **Scope** | **string** |  | [optional] 
 **Status** | **string** |  | [optional] [readonly] 

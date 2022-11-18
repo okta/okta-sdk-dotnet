@@ -828,59 +828,63 @@ namespace Okta.Sdk.IntegrationTest
         public async Task GetAssignedUsersForApplication()
         {
             var guid = Guid.NewGuid();
-
-            var userRequest = new CreateUserRequest
-            {
-                Profile = new UserProfile
-                {
-                    FirstName = "John",
-                    LastName = "Okta",
-                    Email = $"john-assigned-user-dotnet-sdk-{guid}@example.com",
-                    Login = $"john-assigned-user-dotnet-sdk-{guid}@example.com",
-                },
-                Credentials = new UserCredentials
-                {
-                    Password = new PasswordCredential
-                    {
-                        Value = "Okta1234",
-                    }
-                },
-            };
-
-            // Create a user
-            var createdUser = await _userApi.CreateUserAsync(userRequest, true);
-
-
-            var app = new BasicAuthApplication
-            {
-                Name = "template_basic_auth",
-                Label = $"dotnet-sdk: CreateAssignUserForSSOApplication {Guid.NewGuid()}",
-                SignOnMode = "BASICAUTH",
-                Settings = new BasicApplicationSettings
-                {
-                    App = new BasicApplicationSettingsApplication
-                    {
-                        Url = "https://example.com/login.html",
-                        AuthURL = "https://example.com/auth.html",
-                    },
-                },
-            };
-
-            var createdApp = await _applicationApi.CreateApplicationAsync(app, true);
-
-            var appUser = new AppUser
-            {
-                Id = createdUser.Id,
-
-                Credentials = new AppUserCredentials()
-                {
-                    Password = new AppUserPasswordCredential() { Value = "Okta1234" },
-                    UserName = createdUser.Profile.Email,
-                },
-            };
-
+            var userId = string.Empty;
+            var appId = string.Empty;
+            
             try
             {
+                var userRequest = new CreateUserRequest
+                {
+                    Profile = new UserProfile
+                    {
+                        FirstName = "John",
+                        LastName = "Okta",
+                        Email = $"john-assigned-user-dotnet-sdk-{guid}@example.com",
+                        Login = $"john-assigned-user-dotnet-sdk-{guid}@example.com",
+                    },
+                    Credentials = new UserCredentials
+                    {
+                        Password = new PasswordCredential
+                        {
+                            Value = "Okta1234",
+                        }
+                    },
+                };
+
+                // Create a user
+                var createdUser = await _userApi.CreateUserAsync(userRequest, true);
+                userId = createdUser.Id;
+
+                var app = new BasicAuthApplication
+                {
+                    Name = "template_basic_auth",
+                    Label = $"dotnet-sdk: CreateAssignUserForSSOApplication {Guid.NewGuid()}",
+                    SignOnMode = "BASICAUTH",
+                    Settings = new BasicApplicationSettings
+                    {
+                        App = new BasicApplicationSettingsApplication
+                        {
+                            Url = "https://example.com/login.html",
+                            AuthURL = "https://example.com/auth.html",
+                        },
+                    },
+                };
+
+                var createdApp = await _applicationApi.CreateApplicationAsync(app, true);
+                appId = createdApp.Id;
+
+                var appUser = new AppUser
+                {
+                    Id = createdUser.Id,
+
+                    Credentials = new AppUserCredentials()
+                    {
+                        Password = new AppUserPasswordCredential() { Value = "Okta1234" },
+                        UserName = createdUser.Profile.Email,
+                    },
+                };
+
+
                 var createdAppUser = await _applicationApi.AssignUserToApplicationAsync(createdApp.Id, appUser);
                 var retrievedAppUser = await _applicationApi.GetApplicationUserAsync(createdApp.Id, createdUser.Id);
 
@@ -891,13 +895,98 @@ namespace Okta.Sdk.IntegrationTest
             }
             finally
             {
-                // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                if (!string.IsNullOrEmpty(userId))
+                {
+                    // Remove the user
+                    await _userApi.DeactivateOrDeleteUserAsync(userId);
+                    await _userApi.DeactivateOrDeleteUserAsync(userId);
+                }
 
-                // Remove App
-                await _applicationApi.DeactivateApplicationAsync(createdApp.Id);
-                await _applicationApi.DeleteApplicationAsync(createdApp.Id);
+                if (!string.IsNullOrEmpty(appId))
+                {
+                    // Remove App
+                    await _applicationApi.DeactivateApplicationAsync(appId);
+                    await _applicationApi.DeleteApplicationAsync(appId);
+                }
+            }
+        }
+
+        [Fact]
+        public async Task GetAssignedUsersWithoutCredentialsForApplication()
+        {
+            var guid = Guid.NewGuid();
+            var userId = string.Empty;
+            var appId = string.Empty;
+
+            try
+            {
+                var userRequest = new CreateUserRequest
+                {
+                    Profile = new UserProfile
+                    {
+                        FirstName = "John",
+                        LastName = "Okta",
+                        Email = $"john-assigned-user-dotnet-sdk-no-creds-{guid}@example.com",
+                        Login = $"john-assigned-user-dotnet-sdk-no-creds-{guid}@example.com",
+                    },
+                };
+
+                // Create a user
+                var createdUser = await _userApi.CreateUserAsync(userRequest, true);
+                userId = createdUser.Id;
+
+                var app = new BasicAuthApplication
+                {
+                    Name = "template_basic_auth",
+                    Label = $"dotnet-sdk: CreateAssignUserForSSOApplication {Guid.NewGuid()}",
+                    SignOnMode = "BASICAUTH",
+                    Settings = new BasicApplicationSettings
+                    {
+                        App = new BasicApplicationSettingsApplication
+                        {
+                            Url = "https://example.com/login.html",
+                            AuthURL = "https://example.com/auth.html",
+                        },
+                    },
+                };
+
+                var createdApp = await _applicationApi.CreateApplicationAsync(app, true);
+                appId = createdApp.Id;
+
+                var appUser = new AppUser
+                {
+                    Id = createdUser.Id,
+
+                    Credentials = new AppUserCredentials()
+                    {
+                        UserName = createdUser.Profile.Email,
+                    },
+                };
+
+                var createdAppUser = await _applicationApi.AssignUserToApplicationAsync(createdApp.Id, appUser);
+                var retrievedAppUser = await _applicationApi.GetApplicationUserAsync(createdApp.Id, createdUser.Id);
+
+                retrievedAppUser.Should().NotBeNull();
+                retrievedAppUser.Id.Should().Be(createdAppUser.Id);
+                retrievedAppUser.Scope.Should().Be("USER");
+                retrievedAppUser.Credentials.UserName.Should().Be($"john-assigned-user-dotnet-sdk-no-creds-{guid}@example.com");
+                retrievedAppUser.PasswordChanged.Should().BeNull();
+            }
+            finally
+            {
+                if (!string.IsNullOrEmpty(userId))
+                {
+                    // Remove the user
+                    await _userApi.DeactivateOrDeleteUserAsync(userId);
+                    await _userApi.DeactivateOrDeleteUserAsync(userId);
+                }
+
+                if (!string.IsNullOrEmpty(appId))
+                {
+                    // Remove App
+                    await _applicationApi.DeactivateApplicationAsync(appId);
+                    await _applicationApi.DeleteApplicationAsync(appId);
+                }
             }
         }
 
