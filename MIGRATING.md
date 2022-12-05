@@ -75,11 +75,11 @@ app.MapGet("/users", async (IUserApi api) =>
 
 `StringEnums` are still supported. However, format might slightly change depending on the OpenAPI specification and codegen.
 
-### Resource model
+### Resource model removed
 
 In previous versions, all models inherited from `Resource` to facilitate the JSON serialization process and manipulate raw data. In series 6.x, this is no longer the case; The SDK now uses the JSON SubTypes dependency. 
 
-### Custom Attributes
+### Manipulate Custom Attributes
 
 Models that support dynamic properties now expose the `AdditionalProperties` property:
 
