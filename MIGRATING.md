@@ -36,6 +36,8 @@ var appApiClient = new ApplicationApi();
 var apps = await appApiClient.ListApplications().ToListAsync();
 ```
 
+> Note: Check out the [SDK tests](https://github.com/okta/okta-sdk-dotnet/tree/master/src/Okta.Sdk.IntegrationTest) to see more 6.x APIs examples.
+
 #### Dependency Injection in ASP.NET Core
 
 In order to implement DI, you have to register your APIs in the Dependency Injection Container:
@@ -70,6 +72,10 @@ app.MapGet("/users", async (IUserApi api) =>
 ```
 
 > Note: Consider [registering groups of services](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-7.0#register-groups-of-services-with-extension-methods) if you need to configure DI for multiple APIs. 
+
+### Configuration
+
+Unlike previous versions, `ConnectionTimeout`and `RequestTimeout` should now expressed in milliseconds.
 
 ### Enums
 

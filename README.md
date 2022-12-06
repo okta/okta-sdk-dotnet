@@ -395,7 +395,7 @@ You can configure the following options when using the built-in retry strategy:
 
 | Configuration Option | Description |
 | ---------------------- | -------------- |
-| RequestTimeout         | The waiting time in seconds for a request to be resolved by the client. Less than or equal to 0 means "no timeout". The default value is `0` (None). |
+| RequestTimeout         | The waiting time in milliseconds for a request to be resolved by the client. Less than or equal to 0 means "no timeout". The default value is `0` (None). |
 | MaxRetries             | The number of times to retry. |
 
 Check out the [Configuration Reference section](#configuration-reference) for more details about how to set these values via configuration.
@@ -439,7 +439,7 @@ When you use an API Token instead of OAuth 2.0 the full YAML configuration looks
 ```yaml
 okta:
   client:
-    connectionTimeout: 30 # seconds
+    connectionTimeout: 30000 # milliseconds
     oktaDomain: "https://{yourOktaDomain}"
     proxy:
         port: null
@@ -447,7 +447,7 @@ okta:
         username: null
         password: null
     token: {apiToken}
-    requestTimeout: 0 # seconds
+    requestTimeout: 0 # milliseconds
     rateLimit:
       maxRetries: 4
 ```
@@ -457,7 +457,7 @@ When you use OAuth 2.0 the full YAML configuration looks like this when using EC
 ```yaml
 okta:
   client:
-    connectionTimeout: 30 # seconds
+    connectionTimeout: 30000 # milliseconds
     oktaDomain: "https://{yourOktaDomain}"
     proxy:
       port: null
@@ -474,7 +474,7 @@ okta:
         crv: "P-256"
         x: "{x}"
         y: "{y}"
-    requestTimeout: 0 # seconds
+    requestTimeout: 0 # milliseconds
     rateLimit:
       maxRetries: 4
 ```
@@ -484,7 +484,7 @@ Or like this for RSA key:
 ```yaml
 okta:
   client:
-    connectionTimeout: 30 # seconds
+    connectionTimeout: 30000 # milliseconds
     oktaDomain: "https://{yourOktaDomain}"
     proxy:
       port: null
@@ -504,7 +504,7 @@ okta:
       "e": "{e}"
       "kid": "{kid}"
       "qi": "{qi}"
-    requestTimeout: 0 # seconds
+    requestTimeout: 0 # milliseconds
     rateLimit:
       maxRetries: 4
 ```
