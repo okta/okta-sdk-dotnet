@@ -42,6 +42,39 @@ var apps = await appApiClient.ListApplications().ToListAsync();
 
 In order to implement DI, you have to register your APIs in the Dependency Injection Container:
 
+_Before:_
+
+1- Register your `OktaClient` in the `Startup.cs` or `Program.cs` file.
+```csharp
+// Startup.cs or Program.cs
+// ...
+// This sample uses OAuth but you can also use your API Token
+builder.Services.AddScoped<IOktaClient>(_ => new OktaClient(
+    new Configuration
+    {
+        OktaDomain = "https://myOktaDomain.com/",
+        Scopes = new List<string> { "okta.users.read" },
+        ClientId = "CLIENT_ID",
+        AuthorizationMode = AuthorizationMode.PrivateKey,
+        PrivateKey = new JsonWebKeyConfiguration("JSON_PRIVATE_KEY"),
+    }));
+
+var app = builder.Build();
+
+```
+
+2- Inject your `OktaClient` in your controllers or Minimal APIs
+
+```csharp
+app.MapGet("/users", async (IOktaClient oktaClient) =>
+    {
+        return await oktaClient.Users.ListUsers().ToListAsync();
+    });
+
+```
+
+_Now:_
+
 1- Register your APIs in the `Startup.cs` or `Program.cs` file.
 ```csharp
 // Startup.cs or Program.cs
@@ -75,7 +108,7 @@ app.MapGet("/users", async (IUserApi api) =>
 
 ### Configuration
 
-Unlike previous versions, `ConnectionTimeout`and `RequestTimeout` should now expressed in milliseconds.
+Unlike previous versions, `ConnectionTimeout`and `RequestTimeout` should now expressed in milliseconds. Also, `Scopes` is now a `HashSet<string>` to avoid duplicated entries.
 
 ### Enums
 
