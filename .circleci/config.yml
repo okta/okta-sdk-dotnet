@@ -2,38 +2,55 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+orbs:
+  platform-orb: azuqua/platform-helpers-general@1.0.1
+  windows: circleci/windows@2.2.0
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  build:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+  cache-secrets:
+    machine: true
+    resource_class: azuqua/generic-linux-x86
+    environment:
+      VAULT_ADDR: https://vault.aue1e.saasure.net
+    steps:
+      - checkout
+      - platform-orb/save-dependencies
+  load-secrets:
     docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+      - image: cimg/openjdk:11.0
+    steps:
+      - checkout
+      - platform-orb/load-dependencies
+
+  test:
+    description: Run tests
+    executor:
+      name: windows/default
     steps:
       - checkout
       - run:
-          name: "build stage"
-          command: "echo build stage"
-  test:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run:
-          name: "test stage"
-          command: "echo test stage"
+          name: "Test Runner"
+          command: |
+            if [ -n "$CIRCLE_PULL_REQUEST" ]; then
+              ./build.sh;
+            else
+              ./build.sh --target DefaultIT;
+            fi
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  build-and-test:
+  "Circle CI Tests":
     jobs:
-      - build
+      - cache-secrets
+      - load-secrets:
+          requires:
+            - cache-secrets
       - test:
           requires:
-            - build
-      - package:
-          requires:
-            - test
+            - load-secrets
+
+
+# VS Code Extension Version: 1.4.0
