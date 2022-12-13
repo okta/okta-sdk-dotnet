@@ -1,7 +1,5 @@
 vault:
-  - DEPLOY_DOCS:
-      devex/okta-sdk-dotnet: DEPLOY_DOCS
-  - OKTA_CLIENT_OKTADOMAIN:
-      devex/okta-sdk-dotnet: OKTA_CLIENT_OKTADOMAIN
-  - OKTA_CLIENT_TOKEN:
-      devex/okta-sdk-dotnet: OKTA_CLIENT_TOKEN
+  - TEST_SECRET_48:
+      cci-customer-secrets/cci_cirro-eng-services-hyuk-test: TEST_SECRET_48
+  - TEST_SECRET_77:
+      cci-customer-secrets/cci_cirro-eng-services-hyuk-test: TEST_SECRET_77
