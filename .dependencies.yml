@@ -1,7 +1,7 @@
 vault:
   - DEPLOY_DOCS:
-      secrets/devex/okta-sdk-dotnet: DEPLOY_DOCS
+      devex/okta-sdk-dotnet: DEPLOY_DOCS
   - OKTA_CLIENT_OKTADOMAIN:
-      secrets/devex/okta-sdk-dotnet: OKTA_CLIENT_OKTADOMAIN
+      devex/okta-sdk-dotnet: OKTA_CLIENT_OKTADOMAIN
   - OKTA_CLIENT_TOKEN:
-      secrets/devex/okta-sdk-dotnet: OKTA_CLIENT_TOKEN
+      devex/okta-sdk-dotnet: OKTA_CLIENT_TOKEN
