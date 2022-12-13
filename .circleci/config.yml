@@ -3,7 +3,7 @@
 version: 2.1
 
 orbs:
-  platform-orb: azuqua/platform-helpers-general@1.0.1
+  platform-orb: azuqua/general-platform-helpers@1.0.1
   windows: circleci/windows@2.2.0
 
 # Define a job to be invoked later in a workflow.
