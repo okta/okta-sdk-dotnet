@@ -3,7 +3,7 @@
 version: 2.1
 
 orbs:
-  platform-orb: azuqua/general-platform-helpers@1.0.1
+  general-platform-helpers: azuqua/general-platform-helpers@1.0.1
   windows: circleci/windows@2.2.0
 
 # Define a job to be invoked later in a workflow.
@@ -16,13 +16,13 @@ jobs:
       VAULT_ADDR: https://vault.aue1e.saasure.net
     steps:
       - checkout
-      - platform-orb/save-dependencies
+      - general-platform-helpers/save-dependencies
   load-secrets:
     docker:
       - image: cimg/openjdk:11.0
     steps:
       - checkout
-      - platform-orb/load-dependencies
+      - general-platform-helpers/load-dependencies
 
   test:
     description: Run tests
