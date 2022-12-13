@@ -3,7 +3,7 @@
 version: 2.1
 
 orbs:
-  general-platform-helpers: azuqua/general-platform-helpers@1.0.1
+  general-platform-helpers: okta/general-platform-helpers@1.0.1
   windows: circleci/windows@2.2.0
 
 # Define a job to be invoked later in a workflow.
@@ -11,7 +11,7 @@ orbs:
 jobs:
   cache-secrets:
     machine: true
-    resource_class: azuqua/generic-linux-x86
+    resource_class: okta/generic-linux-x86
     environment:
       VAULT_ADDR: https://vault.aue1e.saasure.net
     steps:
