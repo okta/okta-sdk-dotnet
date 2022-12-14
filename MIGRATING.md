@@ -6,6 +6,16 @@ This library uses semantic versioning and follows Okta's [library version policy
 
 In releases prior to version 6 we use an Open API v2 specification, and an Okta custom client generator to partially generate our SDK. A new version of the Open API specification (V3) has been released, and new well-known generators are now available and well received by the community. Planning the future of this SDK, we consider this a good opportunity to modernize by aligning with established standards for API client generation. 
 
+We acknowledge that migrating from v5 to v6 will require considerable effort, but we expect this change to benefit our customers in the long term.
+
+As it's mentioned above, in previous versions we used an OpenAPI v2 specification with many custom attributes and vendor extensions that required us to implement a custom client generator that should work for all the languages Okta supports. Our process to release support for new APIs and endpoints could have been better since, most of the time we needed to add new APIs, the generator required some adjustments to support new attributes added to the spec. This process caused delays in releases that could be available for our customers sooner.
+
+With OpenAPI v3, we saw an opportunity for improvement in several areas:
+
+* We can provide an API specification that follows the OpenAPI v3 standard and eliminate custom attributes and vendor extensions.
+* Given that our specification is now compliant with OASv3, we can use well-known generators used and maintained by the community. In this case, we chose openapi-generator.tech.
+* Given that we eliminated custom attributes, we can speed up our release process and let our customers access new APIs sooner. Also, everyone will have access to the OpenAPI specification and will be able to generate their own clients in other languages of their choice.
+
 ### OktaClient vs API clients
 
 In releases prior to version 6, you would instantiate a global `OktaClient` and access specific API clients via its properties. Now, each API has its own client and you only instantiate those clients you are interested in:
@@ -26,9 +36,178 @@ var appApiClient = new ApplicationApi();
 var apps = await appApiClient.ListApplications().ToListAsync();
 ```
 
+> Note: Check out the [SDK tests](https://github.com/okta/okta-sdk-dotnet/tree/master/src/Okta.Sdk.IntegrationTest) to see more 6.x APIs examples.
+
+#### Dependency Injection in ASP.NET Core
+
+In order to implement DI, you have to register your APIs in the Dependency Injection Container:
+
+_Before:_
+
+1- Register your `OktaClient` in the `Startup.cs` or `Program.cs` file.
+```csharp
+// Startup.cs or Program.cs
+// ...
+// This sample uses OAuth but you can also use your API Token
+builder.Services.AddScoped<IOktaClient>(_ => new OktaClient(
+    new Configuration
+    {
+        OktaDomain = "https://myOktaDomain.com/",
+        Scopes = new List<string> { "okta.users.read" },
+        ClientId = "CLIENT_ID",
+        AuthorizationMode = AuthorizationMode.PrivateKey,
+        PrivateKey = new JsonWebKeyConfiguration("JSON_PRIVATE_KEY"),
+    }));
+
+var app = builder.Build();
+
+```
+
+2- Inject your `OktaClient` in your controllers or Minimal APIs
+
+```csharp
+app.MapGet("/users", async (IOktaClient oktaClient) =>
+    {
+        return await oktaClient.Users.ListUsers().ToListAsync();
+    });
+
+```
+
+_Now:_
+
+1- Register your APIs in the `Startup.cs` or `Program.cs` file.
+```csharp
+// Startup.cs or Program.cs
+// ...
+// This sample uses OAuth but you can also use your API Token
+builder.Services.AddScoped<IUserApi>(_ => new UserApi(
+    new Configuration
+    {
+        OktaDomain = "https://myOktaDomain.com/",
+        Scopes = new HashSet<string> { "okta.users.read" },
+        ClientId = "CLIENT_ID",
+        AuthorizationMode = AuthorizationMode.PrivateKey,
+        PrivateKey = new JsonWebKeyConfiguration("JSON_PRIVATE_KEY"),
+    }));
+
+var app = builder.Build();
+
+```
+
+2- Inject your APIs in your controllers or Minimal APIs
+
+```csharp
+app.MapGet("/users", async (IUserApi api) =>
+    {
+        return await api.ListUsers().ToListAsync();
+    });
+
+```
+
+> Note: Consider [registering groups of services](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-7.0#register-groups-of-services-with-extension-methods) if you need to configure DI for multiple APIs. 
+
+### Configuration
+
+Unlike previous versions, `ConnectionTimeout`and `RequestTimeout` should now expressed in milliseconds. Also, `Scopes` is now a `HashSet<string>` to avoid duplicated entries.
+
 ### Enums
 
 `StringEnums` are still supported. However, format might slightly change depending on the OpenAPI specification and codegen.
+
+### Resource model removed
+
+In previous versions, all models inherited from `Resource` to facilitate the JSON serialization process and manipulate raw data. In series 6.x, this is no longer the case; The SDK now uses the JSON SubTypes dependency. 
+
+### Manipulate Custom Attributes
+
+Models that support dynamic properties now expose the `AdditionalProperties` property:
+
+_Before:_
+
+```csharp
+user.Profile["homeworld"] = "Tattooine";
+```
+
+_Now:_
+
+```csharp
+user.Profile.AdditionalProperties = new Dictionary<string, object>();
+user.Profile.AdditionalProperties["homeworld"] = "Planet Earth";
+```
+
+### Get data from _links
+
+In previous versions, you had to manipulate raw data via the `Resource` convenience methods to access `Links`. Now, `Links` are exposed are standard properties:
+
+_Before:_
+
+```csharp
+var accessPolicyHref = createdApp.GetProperty<Resource>("_links")?
+          .GetProperty<Resource>("accessPolicy")?
+          .GetProperty<string>("href");
+```
+
+_Now:_
+
+```csharp
+var accessPolicyHref = createdApp.Links.AccessPolicy.Href;
+```
+
+### Cast polymorphic models
+
+In previous versions, the OktaClient provided a generic `Get` method where devs could provide a specifc type to cast a model. Now, you have to cast a model after a `Get` method using `as`:
+
+_Before:_
+
+```csharp
+var retrievedApp = await client.Applications.GetApplicationAsync<IBookmarkApplication>(createdApp.Id);
+```
+
+_Now:_
+
+```csharp
+var retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id) as BookmarkApplication;
+```
+
+### Handling errors
+
+The now SDK throws an `ApiException` every time the server responds with an invalid status code, or there is an internal error.
+
+_Before:_
+
+```csharp
+try
+{
+    // ...
+    var retrievedApp = await client.Applications.GetApplicationAsync<IBookmarkApplication>("unknownId");
+}    
+catch (OktaApiException apiException)
+{
+    var message = apiException.Message; //"Not found: Resource not found: foo (AppInstance) (404, E0000007)"
+    var statusCode = apiException.StatusCode; //404
+    var errorSummary = apiException.ErrorSummary; //"Not found: Resource not found: foo (AppInstance)"
+    var errorId = apiException.ErrorId; //"E0000007"
+    var errorCode = apiException.ErrorCode; //"E0000007"
+}
+```
+
+_Now:_
+
+```csharp
+try
+{
+    //...
+    var retrievedApp = await _applicationApi.GetApplicationAsync("unknownId") as BookmarkApplication;
+}
+catch (ApiException apiException)
+{
+    var message = apiException.Message; //Error calling GetApplication: {"errorCode":"E0000007","errorSummary":"Not found: Resource not found: foo (AppInstance)","errorLink":"E0000007","errorId":"oaeWzp-a2A0TCOm7D0FtnHcbg","errorCauses":[]}
+    var statusCode = apiException.ErrorCode; //404
+    var errorContent = apiException.ErrorContent; //{"errorCode":"E0000007","errorSummary":"Not found: Resource not found: foo (AppInstance)","errorLink":"E0000007","errorId":"oaeWzp-a2A0TCOm7D0FtnHcbg","errorCauses":[]}
+    
+    //ErrorId and ErrorCode should be parsed from ErrorContent at the moment, but convenience methods will be added soon. OKTA-555564
+}
+```
 
 ### Features parity
 

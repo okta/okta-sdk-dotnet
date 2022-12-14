@@ -145,10 +145,10 @@ namespace Okta.Sdk.Client
         public const int DefaultRequestTimeout = 0;
 
         /// <summary>
-        /// Gets or sets the HTTP connection timeout in seconds. If <c>null</c>, the default timeout is used.
+        /// Gets or sets the HTTP connection timeout in milliseconds. If <c>null</c>, the default timeout is used.
         /// </summary>
         /// <value>
-        /// The HTTP connection timeout in seconds.
+        /// The HTTP connection timeout in milliseconds.
         /// </value>
         public int? ConnectionTimeout { get; set; } = DefaultConnectionTimeout;
 
@@ -156,7 +156,7 @@ namespace Okta.Sdk.Client
         /// Gets or sets the time to waiting time for the client to resolve the request (includes retries). Less than or equal to 0 means "no timeout".
         /// </summary>
         /// <value>
-        /// The request timeout in seconds.
+        /// The request timeout in milliseconds.
         /// </value>
         public int? RequestTimeout { get; set; } = DefaultRequestTimeout;
 

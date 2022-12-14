@@ -48,14 +48,14 @@ You can learn more on the [Okta + .NET][lang-landing] page in our documentation.
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/).
 
 :heavy_check_mark: The current stable major version series is: 6.x
-:heavy_check_mark: The 5.x series is retiring and it's located in the `legacy-5.x-series` [branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy-5.x-series)
+:heavy_check_mark: The 5.x series is retiring on June 8th 2023. Until then, we will only fix high-risk security vulnerabilities and other issues will be reviewed on a case-by-case basis. New APIs will be added only on series 6.x, but you can still use the 5.x series to call any new endpoint. The SDK will be still available on Nuget, and the source-code is located in the `legacy-5.x-series` [branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy-5.x-series). Please, reach out to the Okta Customer Support Team at developers@okta.com if you have any questions or issues.
 
 | Version | Status                    |
 | ------- | ------------------------- |
 | 6.x | :heavy_check_mark: Stable ([migration guide](MIGRATING.md))|
-| 5.x | :warning: Retiring |
+| 5.x | :warning: Retiring on June 8th 2023 |
  
-The latest release can always be found on the [releases page][github-releases].
+The latest release can always be found on the [releases page][github-releases]. For more information about our SDKs' lifecycle, check out [our docs](https://developer.okta.com/code/library-versions/).
 
 ## Need help?
  
@@ -395,7 +395,7 @@ You can configure the following options when using the built-in retry strategy:
 
 | Configuration Option | Description |
 | ---------------------- | -------------- |
-| RequestTimeout         | The waiting time in seconds for a request to be resolved by the client. Less than or equal to 0 means "no timeout". The default value is `0` (None). |
+| RequestTimeout         | The waiting time in milliseconds for a request to be resolved by the client. Less than or equal to 0 means "no timeout". The default value is `0` (None). |
 | MaxRetries             | The number of times to retry. |
 
 Check out the [Configuration Reference section](#configuration-reference) for more details about how to set these values via configuration.
@@ -439,7 +439,7 @@ When you use an API Token instead of OAuth 2.0 the full YAML configuration looks
 ```yaml
 okta:
   client:
-    connectionTimeout: 30 # seconds
+    connectionTimeout: 30000 # milliseconds
     oktaDomain: "https://{yourOktaDomain}"
     proxy:
         port: null
@@ -447,7 +447,7 @@ okta:
         username: null
         password: null
     token: {apiToken}
-    requestTimeout: 0 # seconds
+    requestTimeout: 0 # milliseconds
     rateLimit:
       maxRetries: 4
 ```
@@ -457,7 +457,7 @@ When you use OAuth 2.0 the full YAML configuration looks like this when using EC
 ```yaml
 okta:
   client:
-    connectionTimeout: 30 # seconds
+    connectionTimeout: 30000 # milliseconds
     oktaDomain: "https://{yourOktaDomain}"
     proxy:
       port: null
@@ -474,7 +474,7 @@ okta:
         crv: "P-256"
         x: "{x}"
         y: "{y}"
-    requestTimeout: 0 # seconds
+    requestTimeout: 0 # milliseconds
     rateLimit:
       maxRetries: 4
 ```
@@ -484,7 +484,7 @@ Or like this for RSA key:
 ```yaml
 okta:
   client:
-    connectionTimeout: 30 # seconds
+    connectionTimeout: 30000 # milliseconds
     oktaDomain: "https://{yourOktaDomain}"
     proxy:
       port: null
@@ -504,7 +504,7 @@ okta:
       "e": "{e}"
       "kid": "{kid}"
       "qi": "{qi}"
-    requestTimeout: 0 # seconds
+    requestTimeout: 0 # milliseconds
     rateLimit:
       maxRetries: 4
 ```
