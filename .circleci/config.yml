@@ -37,11 +37,7 @@ jobs:
       - run:
           name: "Test Runner"
           command: |
-            if [ -n "$CIRCLE_PULL_REQUEST" ]; then
               ./build.sh;
-            else
-              ./build.sh --target DefaultIT;
-            fi
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
