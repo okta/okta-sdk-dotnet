@@ -96,7 +96,18 @@ namespace Okta.Sdk.Client
             if (Okta.Sdk.Client.Configuration.IsPrivateKeyMode(_configuration))
             {
                  var accessToken = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: _cancellationToken);
-                _nextRequest.HeaderParameters.Add("Authorization", $"Bearer {accessToken}");
+
+                 if (_nextRequest.HeaderParameters.ContainsKey("Authorization"))
+                 {
+                     var bearerHeaderValue = _nextRequest.HeaderParameters["Authorization"].FirstOrDefault(x => x.StartsWith("Bearer"));
+
+                     if (bearerHeaderValue != null)
+                     {
+                         _nextRequest.HeaderParameters["Authorization"].Remove(bearerHeaderValue);
+                     }
+                 }
+
+                 _nextRequest.HeaderParameters.Add("Authorization", $"Bearer {accessToken}");
             }
             
             var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, null, _cancellationToken).ConfigureAwait(false);
