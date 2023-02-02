@@ -98,7 +98,7 @@ void (empty response body)
 
 <a name="createrole"></a>
 # **CreateRole**
-> IamRole CreateRole (IamRole instance)
+> IamRole CreateRole (CreateIamRoleRequest instance)
 
 Create a Role
 
@@ -126,7 +126,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RoleApi(config);
-            var instance = new IamRole(); // IamRole | 
+            var instance = new CreateIamRoleRequest(); // CreateIamRoleRequest | 
 
             try
             {
@@ -149,7 +149,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **instance** | [**IamRole**](IamRole.md)|  | 
+ **instance** | [**CreateIamRoleRequest**](CreateIamRoleRequest.md)|  | 
 
 ### Return type
 

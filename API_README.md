@@ -672,6 +672,7 @@ Class | Method | HTTP request | Description
  - [Model.ContextPolicyRuleConditionAllOf](docs/ContextPolicyRuleConditionAllOf.md)
  - [Model.CreateBrandDomainRequest](docs/CreateBrandDomainRequest.md)
  - [Model.CreateBrandRequest](docs/CreateBrandRequest.md)
+ - [Model.CreateIamRoleRequest](docs/CreateIamRoleRequest.md)
  - [Model.CreateSessionRequest](docs/CreateSessionRequest.md)
  - [Model.CreateUserRequest](docs/CreateUserRequest.md)
  - [Model.Csr](docs/Csr.md)

@@ -132,6 +132,7 @@ docs/Compliance.md
 docs/ContextPolicyRuleCondition.md
 docs/CreateBrandDomainRequest.md
 docs/CreateBrandRequest.md
+docs/CreateIamRoleRequest.md
 docs/CreateSessionRequest.md
 docs/CreateUserRequest.md
 docs/Csr.md
@@ -882,6 +883,7 @@ src/Okta.Sdk/Model/Compliance.cs
 src/Okta.Sdk/Model/ContextPolicyRuleCondition.cs
 src/Okta.Sdk/Model/CreateBrandDomainRequest.cs
 src/Okta.Sdk/Model/CreateBrandRequest.cs
+src/Okta.Sdk/Model/CreateIamRoleRequest.cs
 src/Okta.Sdk/Model/CreateSessionRequest.cs
 src/Okta.Sdk/Model/CreateUserRequest.cs
 src/Okta.Sdk/Model/Csr.cs

@@ -8978,7 +8978,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/IamRole'
+              $ref: '#/components/schemas/CreateIamRoleRequest'
             examples:
               Example Request:
                 $ref: '#/components/examples/RoleRequest'
@@ -21158,6 +21158,33 @@ components:
         - GET
         - POST
         - PUT
+    CreateIamRoleRequest:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+          description: Timestamp when the role was created
+          readOnly: true
+        description:
+          type: string
+          description: Description of the role
+        id:
+          type: string
+          description: Unique key for the role
+          readOnly: true
+        label:
+          type: string
+          description: Unique label for the role
+        permissions:
+          type: array
+          description: Array of permissions that the role will grant. See [Permission Types](https://developer.okta.com/docs/concepts/role-assignment/#permission-types).
+          items:
+            $ref: '#/components/schemas/RolePermissionType'
+      required:
+        - label
+        - description
+        - permissions
     IamRole:
       type: object
       properties:
@@ -21181,11 +21208,6 @@ components:
           format: date-time
           description: Timestamp when the role was last updated
           readOnly: true
-        permissions:
-          type: array
-          description: Array of permissions that the role will grant. See [Permission Types](https://developer.okta.com/docs/concepts/role-assignment/#permission-types).
-          items:
-            $ref: '#/components/schemas/RolePermissionType'
         _links:
           type: object
           properties:
@@ -21197,7 +21219,6 @@ components:
       required:
         - label
         - description
-        - permissions
     IamRoles:
       type: object
       properties:
