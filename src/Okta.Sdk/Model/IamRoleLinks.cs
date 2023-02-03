@@ -35,16 +35,10 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets Self
-        /// </summary>
-        [DataMember(Name = "self", EmitDefaultValue = false)]
-        public HrefObject Self { get; set; }
-
-        /// <summary>
         /// Gets or Sets Permissions
         /// </summary>
         [DataMember(Name = "permissions", EmitDefaultValue = false)]
-        public HrefObject Permissions { get; set; }
+        public Object Permissions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,7 +48,6 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class IamRoleLinks {\n");
-            sb.Append("  Self: ").Append(Self).Append("\n");
             sb.Append("  Permissions: ").Append(Permissions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -92,11 +85,6 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Self == input.Self ||
-                    (this.Self != null &&
-                    this.Self.Equals(input.Self))
-                ) && 
-                (
                     this.Permissions == input.Permissions ||
                     (this.Permissions != null &&
                     this.Permissions.Equals(input.Permissions))
@@ -113,10 +101,6 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Self != null)
-                {
-                    hashCode = (hashCode * 59) + this.Self.GetHashCode();
-                }
                 if (this.Permissions != null)
                 {
                     hashCode = (hashCode * 59) + this.Permissions.GetHashCode();

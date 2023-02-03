@@ -800,6 +800,7 @@ Class | Method | HTTP request | Description
  - [Model.HttpMethod](docs/HttpMethod.md)
  - [Model.IamRole](docs/IamRole.md)
  - [Model.IamRoleLinks](docs/IamRoleLinks.md)
+ - [Model.IamRoleLinksAllOf](docs/IamRoleLinksAllOf.md)
  - [Model.IamRoles](docs/IamRoles.md)
  - [Model.IamRolesLinks](docs/IamRolesLinks.md)
  - [Model.IdentityProvider](docs/IdentityProvider.md)
