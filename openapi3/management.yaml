@@ -9050,7 +9050,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/IamRole'
+              $ref: '#/components/schemas/UpdateIamRoleRequest'
             examples:
               Example Request:
                 $ref: '#/components/examples/RoleRequest'
@@ -21185,6 +21185,18 @@ components:
         - label
         - description
         - permissions
+    UpdateIamRoleRequest:
+      type: object
+      properties:
+        description:
+          type: string
+          description: Description of the role
+        label:
+          type: string
+          description: Unique label for the role
+      required:
+        - label
+        - description
     IamRole:
       type: object
       properties:
@@ -24049,6 +24061,24 @@ components:
         resetPasswordUrl:
           type: string
           readOnly: true
+    CreateResourceSetRequest:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+          description: Timestamp when the role was created
+          readOnly: true
+        description:
+          type: string
+          description: Description of the resource set
+        label:
+          type: string
+          description: Unique label for the resource set
+        resources:
+          type: array
+          items:
+            type: string
     ResourceSet:
       type: object
       properties:

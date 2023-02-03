@@ -13,16 +13,10 @@ namespace Okta.Sdk.IntegrationTest
 {
     public class AdminRolesScenarios
     {
-        private ApplicationApi _applicationApi;
-        private UserApi _userApi;
-        private GroupApi _groupApi;
         private RoleApi _roleApi;
         
         public AdminRolesScenarios()
         {
-            _applicationApi = new ApplicationApi();
-            _userApi = new UserApi();
-            _groupApi = new GroupApi();
             _roleApi = new RoleApi();
         }
 
@@ -183,13 +177,17 @@ namespace Okta.Sdk.IntegrationTest
                 permissions._Permissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
                 permissions._Permissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
 
-                newRole.Label = newRole.Label + " updated";
+                var updateRole = new UpdateIamRoleRequest
+                {
+                    Label = newRole.Label + " updated",
+                    Description = newRole.Description,
+                };
 
-                var updatedRole = await _roleApi.ReplaceRoleAsync(newRole.Id, newRole);
+                var updatedRole = await _roleApi.ReplaceRoleAsync(newRole.Id, updateRole);
 
                 updatedRole.Label.Should().Be($"dotnet-sdk: {nameof(UpdateIamRole)} {guid} updated");
 
-                newRole.Description.Should().Be("Create Users");
+                updateRole.Description.Should().Be("Create Users");
 
                 updatedRole.Links.Permissions.Should().NotBeNull();
                 permissions = await _roleApi.ListRolePermissionsAsync(updatedRole.Id);
@@ -236,10 +234,10 @@ namespace Okta.Sdk.IntegrationTest
                 permissions._Permissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
                 permissions._Permissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
 
-                await _roleApi.AddRolePermissionAsync(newRole.Id, "okta.users.update");
+                await _roleApi.AddRolePermissionAsync(newRole.Id, "okta.users.manage");
                 
                 permissions = await _roleApi.ListRolePermissionsAsync(newRole.Id);
-                permissions._Permissions.Any(x => x.Label == "okta.users.update").Should().BeTrue();
+                permissions._Permissions.Any(x => x.Label == "okta.users.manage").Should().BeTrue();
             }
             finally
             {
@@ -320,8 +318,6 @@ namespace Okta.Sdk.IntegrationTest
 
             // Getting by ID should result in 404 Not found
             await Assert.ThrowsAsync<ApiException>(async () => await _roleApi.GetRoleAsync(newRole.Id));
-                
         }
-
     }
 }

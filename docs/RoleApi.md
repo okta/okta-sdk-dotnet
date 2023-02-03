@@ -652,7 +652,7 @@ Name | Type | Description  | Notes
 
 <a name="replacerole"></a>
 # **ReplaceRole**
-> IamRole ReplaceRole (string roleIdOrLabel, IamRole instance)
+> IamRole ReplaceRole (string roleIdOrLabel, UpdateIamRoleRequest instance)
 
 Replace a Role
 
@@ -681,7 +681,7 @@ namespace Example
 
             var apiInstance = new RoleApi(config);
             var roleIdOrLabel = cr0Yq6IJxGIr0ouum0g3;  // string | `id` or `label` of the role
-            var instance = new IamRole(); // IamRole | 
+            var instance = new UpdateIamRoleRequest(); // UpdateIamRoleRequest | 
 
             try
             {
@@ -705,7 +705,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **roleIdOrLabel** | **string**| &#x60;id&#x60; or &#x60;label&#x60; of the role | 
- **instance** | [**IamRole**](IamRole.md)|  | 
+ **instance** | [**UpdateIamRoleRequest**](UpdateIamRoleRequest.md)|  | 
 
 ### Return type
 
