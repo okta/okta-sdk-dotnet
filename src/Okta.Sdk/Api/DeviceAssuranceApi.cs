@@ -25,7 +25,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IDeviceAssuranceApiAsync : IApiAccessor
+    public partial interface IDeviceAssuranceApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -144,7 +144,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IDeviceAssuranceApi :  IDeviceAssuranceApiAsync
+    public partial interface IDeviceAssuranceApi :  IDeviceAssuranceApiAsync
     {
 
     }

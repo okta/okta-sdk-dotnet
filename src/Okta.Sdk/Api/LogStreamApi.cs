@@ -25,7 +25,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ILogStreamApiAsync : IApiAccessor
+    public partial interface ILogStreamApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -194,7 +194,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ILogStreamApi :  ILogStreamApiAsync
+    public partial interface ILogStreamApi :  ILogStreamApiAsync
     {
 
     }

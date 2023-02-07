@@ -240,7 +240,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IRoleApi :  IRoleApiAsync
+    public partial interface IRoleApi :  IRoleApiAsync
     {
 
     }

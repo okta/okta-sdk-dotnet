@@ -1,6 +1,10 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 6.0.3
+
+- Fix "Listing IAM roles doesn't work" (#617)
+
 ## 6.0.2
 
 - Fix "Pagination not working when using PrivateKey Authorization Mode" issue (#613)

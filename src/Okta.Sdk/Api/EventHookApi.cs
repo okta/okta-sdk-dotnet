@@ -25,7 +25,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IEventHookApiAsync : IApiAccessor
+    public partial interface IEventHookApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -210,7 +210,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IEventHookApi :  IEventHookApiAsync
+    public partial interface IEventHookApi :  IEventHookApiAsync
     {
 
     }

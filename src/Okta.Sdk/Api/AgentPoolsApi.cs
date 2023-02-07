@@ -25,7 +25,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IAgentPoolsApiAsync : IApiAccessor
+    public partial interface IAgentPoolsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -372,7 +372,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IAgentPoolsApi :  IAgentPoolsApiAsync
+    public partial interface IAgentPoolsApi :  IAgentPoolsApiAsync
     {
 
     }

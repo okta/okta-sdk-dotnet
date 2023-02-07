@@ -41,7 +41,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                newRole = await _roleApi.CreateRoleAsync(iamRole);
-               
+
                newRole.Should().NotBeNull();
                newRole.Description.Should().Be("Create Users");
 

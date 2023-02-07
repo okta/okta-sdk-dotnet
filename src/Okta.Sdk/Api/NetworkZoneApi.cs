@@ -25,7 +25,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface INetworkZoneApiAsync : IApiAccessor
+    public partial interface INetworkZoneApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -194,7 +194,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface INetworkZoneApi :  INetworkZoneApiAsync
+    public partial interface INetworkZoneApi :  INetworkZoneApiAsync
     {
 
     }
