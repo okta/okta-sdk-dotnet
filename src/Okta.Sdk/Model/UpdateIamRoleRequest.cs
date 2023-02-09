@@ -27,18 +27,31 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// IamRoleLinks
+    /// UpdateIamRoleRequest
     /// </summary>
-    [DataContract(Name = "IamRole__links")]
+    [DataContract(Name = "UpdateIamRoleRequest")]
     
-    public partial class IamRoleLinks : IEquatable<IamRoleLinks>
+    public partial class UpdateIamRoleRequest : IEquatable<UpdateIamRoleRequest>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpdateIamRoleRequest" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        public UpdateIamRoleRequest() { }
         
         /// <summary>
-        /// Gets or Sets Permissions
+        /// Description of the role
         /// </summary>
-        [DataMember(Name = "permissions", EmitDefaultValue = false)]
-        public Object Permissions { get; set; }
+        /// <value>Description of the role</value>
+        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = false)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Unique label for the role
+        /// </summary>
+        /// <value>Unique label for the role</value>
+        [DataMember(Name = "label", IsRequired = true, EmitDefaultValue = false)]
+        public string Label { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -47,8 +60,9 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class IamRoleLinks {\n");
-            sb.Append("  Permissions: ").Append(Permissions).Append("\n");
+            sb.Append("class UpdateIamRoleRequest {\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -69,15 +83,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as IamRoleLinks);
+            return this.Equals(input as UpdateIamRoleRequest);
         }
 
         /// <summary>
-        /// Returns true if IamRoleLinks instances are equal
+        /// Returns true if UpdateIamRoleRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of IamRoleLinks to be compared</param>
+        /// <param name="input">Instance of UpdateIamRoleRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(IamRoleLinks input)
+        public bool Equals(UpdateIamRoleRequest input)
         {
             if (input == null)
             {
@@ -85,9 +99,14 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Permissions == input.Permissions ||
-                    (this.Permissions != null &&
-                    this.Permissions.Equals(input.Permissions))
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Label == input.Label ||
+                    (this.Label != null &&
+                    this.Label.Equals(input.Label))
                 );
         }
 
@@ -101,9 +120,13 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Permissions != null)
+                if (this.Description != null)
                 {
-                    hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.Label != null)
+                {
+                    hashCode = (hashCode * 59) + this.Label.GetHashCode();
                 }
                 return hashCode;
             }

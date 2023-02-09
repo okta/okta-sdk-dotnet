@@ -25,7 +25,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITrustedOriginApiAsync : IApiAccessor
+    public partial interface ITrustedOriginApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -196,7 +196,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITrustedOriginApi :  ITrustedOriginApiAsync
+    public partial interface ITrustedOriginApi :  ITrustedOriginApiAsync
     {
 
     }

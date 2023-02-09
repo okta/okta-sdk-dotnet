@@ -25,7 +25,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IRoleApiAsync : IApiAccessor
+    public partial interface IRoleApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -62,7 +62,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IamRole</returns>
-        System.Threading.Tasks.Task<IamRole> CreateRoleAsync(  IamRole instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IamRole> CreateRoleAsync(  CreateIamRoleRequest instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Role
         /// </summary>
@@ -73,7 +73,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IamRole)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IamRole>> CreateRoleWithHttpInfoAsync(  IamRole instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IamRole>> CreateRoleWithHttpInfoAsync(  CreateIamRoleRequest instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Role
         /// </summary>
@@ -221,7 +221,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IamRole</returns>
-        System.Threading.Tasks.Task<IamRole> ReplaceRoleAsync(  string roleIdOrLabel ,   IamRole instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IamRole> ReplaceRoleAsync(  string roleIdOrLabel ,   UpdateIamRoleRequest instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Role
         /// </summary>
@@ -233,14 +233,14 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IamRole)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IamRole>> ReplaceRoleWithHttpInfoAsync(  string roleIdOrLabel ,   IamRole instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IamRole>> ReplaceRoleWithHttpInfoAsync(  string roleIdOrLabel ,   UpdateIamRoleRequest instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IRoleApi :  IRoleApiAsync
+    public partial interface IRoleApi :  IRoleApiAsync
     {
 
     }
@@ -439,7 +439,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IamRole</returns>
-        public async System.Threading.Tasks.Task<IamRole> CreateRoleAsync(  IamRole instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IamRole> CreateRoleAsync(  CreateIamRoleRequest instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<IamRole> localVarResponse = await CreateRoleWithHttpInfoAsync(instance, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -451,7 +451,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IamRole)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<IamRole>> CreateRoleWithHttpInfoAsync(  IamRole instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<IamRole>> CreateRoleWithHttpInfoAsync(  CreateIamRoleRequest instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'instance' is set
             if (instance == null)
@@ -1049,7 +1049,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IamRole</returns>
-        public async System.Threading.Tasks.Task<IamRole> ReplaceRoleAsync(  string roleIdOrLabel ,   IamRole instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IamRole> ReplaceRoleAsync(  string roleIdOrLabel ,   UpdateIamRoleRequest instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<IamRole> localVarResponse = await ReplaceRoleWithHttpInfoAsync(roleIdOrLabel, instance, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1062,7 +1062,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IamRole)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<IamRole>> ReplaceRoleWithHttpInfoAsync(  string roleIdOrLabel ,   IamRole instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<IamRole>> ReplaceRoleWithHttpInfoAsync(  string roleIdOrLabel ,   UpdateIamRoleRequest instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'roleIdOrLabel' is set
             if (roleIdOrLabel == null)

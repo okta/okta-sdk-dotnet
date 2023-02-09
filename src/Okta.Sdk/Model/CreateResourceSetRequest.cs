@@ -27,17 +27,12 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// IamRole
+    /// CreateResourceSetRequest
     /// </summary>
-    [DataContract(Name = "IamRole")]
+    [DataContract(Name = "CreateResourceSetRequest")]
     
-    public partial class IamRole : IEquatable<IamRole>
+    public partial class CreateResourceSetRequest : IEquatable<CreateResourceSetRequest>
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="IamRole" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        public IamRole() { }
         
         /// <summary>
         /// Timestamp when the role was created
@@ -55,54 +50,24 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
-        /// Description of the role
+        /// Description of the resource set
         /// </summary>
-        /// <value>Description of the role</value>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = false)]
+        /// <value>Description of the resource set</value>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Unique key for the role
+        /// Unique label for the resource set
         /// </summary>
-        /// <value>Unique key for the role</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; private set; }
-
-        /// <summary>
-        /// Returns false as Id should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeId()
-        {
-            return false;
-        }
-        /// <summary>
-        /// Unique label for the role
-        /// </summary>
-        /// <value>Unique label for the role</value>
-        [DataMember(Name = "label", IsRequired = true, EmitDefaultValue = false)]
+        /// <value>Unique label for the resource set</value>
+        [DataMember(Name = "label", EmitDefaultValue = false)]
         public string Label { get; set; }
 
         /// <summary>
-        /// Timestamp when the role was last updated
+        /// Gets or Sets Resources
         /// </summary>
-        /// <value>Timestamp when the role was last updated</value>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
-        public DateTimeOffset LastUpdated { get; private set; }
-
-        /// <summary>
-        /// Returns false as LastUpdated should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeLastUpdated()
-        {
-            return false;
-        }
-        /// <summary>
-        /// Gets or Sets Links
-        /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
-        public IamRoleLinks Links { get; set; }
+        [DataMember(Name = "resources", EmitDefaultValue = false)]
+        public List<string> Resources { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -111,13 +76,11 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class IamRole {\n");
+            sb.Append("class CreateResourceSetRequest {\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
-            sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  Resources: ").Append(Resources).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,15 +101,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as IamRole);
+            return this.Equals(input as CreateResourceSetRequest);
         }
 
         /// <summary>
-        /// Returns true if IamRole instances are equal
+        /// Returns true if CreateResourceSetRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of IamRole to be compared</param>
+        /// <param name="input">Instance of CreateResourceSetRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(IamRole input)
+        public bool Equals(CreateResourceSetRequest input)
         {
             if (input == null)
             {
@@ -164,24 +127,15 @@ namespace Okta.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
                     this.Label == input.Label ||
                     (this.Label != null &&
                     this.Label.Equals(input.Label))
                 ) && 
                 (
-                    this.LastUpdated == input.LastUpdated ||
-                    (this.LastUpdated != null &&
-                    this.LastUpdated.Equals(input.LastUpdated))
-                ) && 
-                (
-                    this.Links == input.Links ||
-                    (this.Links != null &&
-                    this.Links.Equals(input.Links))
+                    this.Resources == input.Resources ||
+                    this.Resources != null &&
+                    input.Resources != null &&
+                    this.Resources.SequenceEqual(input.Resources)
                 );
         }
 
@@ -203,21 +157,13 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
                 if (this.Label != null)
                 {
                     hashCode = (hashCode * 59) + this.Label.GetHashCode();
                 }
-                if (this.LastUpdated != null)
+                if (this.Resources != null)
                 {
-                    hashCode = (hashCode * 59) + this.LastUpdated.GetHashCode();
-                }
-                if (this.Links != null)
-                {
-                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Resources.GetHashCode();
                 }
                 return hashCode;
             }

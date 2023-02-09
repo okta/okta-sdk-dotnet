@@ -25,7 +25,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IRiskEventApiAsync : IApiAccessor
+    public partial interface IRiskEventApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -56,7 +56,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IRiskEventApi :  IRiskEventApiAsync
+    public partial interface IRiskEventApi :  IRiskEventApiAsync
     {
 
     }

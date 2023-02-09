@@ -25,7 +25,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ICAPTCHAApiAsync : IApiAccessor
+    public partial interface ICAPTCHAApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -168,7 +168,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ICAPTCHAApi :  ICAPTCHAApiAsync
+    public partial interface ICAPTCHAApi :  ICAPTCHAApiAsync
     {
 
     }

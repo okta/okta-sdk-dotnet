@@ -132,6 +132,8 @@ docs/Compliance.md
 docs/ContextPolicyRuleCondition.md
 docs/CreateBrandDomainRequest.md
 docs/CreateBrandRequest.md
+docs/CreateIamRoleRequest.md
+docs/CreateResourceSetRequest.md
 docs/CreateSessionRequest.md
 docs/CreateUserRequest.md
 docs/Csr.md
@@ -627,6 +629,7 @@ docs/U2fUserFactor.md
 docs/U2fUserFactorProfile.md
 docs/UpdateDomain.md
 docs/UpdateEmailDomain.md
+docs/UpdateIamRoleRequest.md
 docs/UpdateUserRequest.md
 docs/User.md
 docs/UserActivationToken.md
@@ -882,6 +885,8 @@ src/Okta.Sdk/Model/Compliance.cs
 src/Okta.Sdk/Model/ContextPolicyRuleCondition.cs
 src/Okta.Sdk/Model/CreateBrandDomainRequest.cs
 src/Okta.Sdk/Model/CreateBrandRequest.cs
+src/Okta.Sdk/Model/CreateIamRoleRequest.cs
+src/Okta.Sdk/Model/CreateResourceSetRequest.cs
 src/Okta.Sdk/Model/CreateSessionRequest.cs
 src/Okta.Sdk/Model/CreateUserRequest.cs
 src/Okta.Sdk/Model/Csr.cs
@@ -1345,6 +1350,7 @@ src/Okta.Sdk/Model/U2fUserFactor.cs
 src/Okta.Sdk/Model/U2fUserFactorProfile.cs
 src/Okta.Sdk/Model/UpdateDomain.cs
 src/Okta.Sdk/Model/UpdateEmailDomain.cs
+src/Okta.Sdk/Model/UpdateIamRoleRequest.cs
 src/Okta.Sdk/Model/UpdateUserRequest.cs
 src/Okta.Sdk/Model/User.cs
 src/Okta.Sdk/Model/UserActivationToken.cs

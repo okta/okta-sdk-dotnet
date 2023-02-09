@@ -25,7 +25,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IEmailDomainApiAsync : IApiAccessor
+    public partial interface IEmailDomainApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -188,7 +188,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IEmailDomainApi :  IEmailDomainApiAsync
+    public partial interface IEmailDomainApi :  IEmailDomainApiAsync
     {
 
     }

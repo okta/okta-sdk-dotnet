@@ -25,7 +25,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IPrincipalRateLimitApiAsync : IApiAccessor
+    public partial interface IPrincipalRateLimitApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -128,7 +128,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IPrincipalRateLimitApi :  IPrincipalRateLimitApiAsync
+    public partial interface IPrincipalRateLimitApi :  IPrincipalRateLimitApiAsync
     {
 
     }

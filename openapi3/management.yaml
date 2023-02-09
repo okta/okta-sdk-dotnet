@@ -8978,7 +8978,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/IamRole'
+              $ref: '#/components/schemas/CreateIamRoleRequest'
             examples:
               Example Request:
                 $ref: '#/components/examples/RoleRequest'
@@ -9050,7 +9050,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/IamRole'
+              $ref: '#/components/schemas/UpdateIamRoleRequest'
             examples:
               Example Request:
                 $ref: '#/components/examples/RoleRequest'
@@ -21181,23 +21181,45 @@ components:
           format: date-time
           description: Timestamp when the role was last updated
           readOnly: true
+        _links:
+          allOf:
+            - $ref: ./Common.yaml#/components/schemas/LinksSelf
+            - properties:
+                permissions:
+                  $ref: ./Common.yaml#/components/schemas/HrefObject
+      required:
+        - label
+        - description
+    CreateIamRoleRequest:
+      type: object
+      properties:
+        description:
+          type: string
+          description: Description of the role
+        label:
+          type: string
+          description: Unique label for the role
         permissions:
           type: array
           description: Array of permissions that the role will grant. See [Permission Types](https://developer.okta.com/docs/concepts/role-assignment/#permission-types).
           items:
             $ref: '#/components/schemas/RolePermissionType'
-        _links:
-          type: object
-          properties:
-            self:
-              $ref: '#/components/schemas/HrefObject'
-            permissions:
-              $ref: '#/components/schemas/HrefObject'
-          readOnly: true
       required:
         - label
         - description
         - permissions
+    UpdateIamRoleRequest:
+      type: object
+      properties:
+        description:
+          type: string
+          description: Description of the role
+        label:
+          type: string
+          description: Unique label for the role
+      required:
+        - label
+        - description
     IamRoles:
       type: object
       properties:
@@ -24028,6 +24050,24 @@ components:
         resetPasswordUrl:
           type: string
           readOnly: true
+    CreateResourceSetRequest:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+          description: Timestamp when the role was created
+          readOnly: true
+        description:
+          type: string
+          description: Description of the resource set
+        label:
+          type: string
+          description: Unique label for the resource set
+        resources:
+          type: array
+          items:
+            type: string
     ResourceSet:
       type: object
       properties:

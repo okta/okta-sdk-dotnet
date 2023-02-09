@@ -27,33 +27,18 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// IamRole
+    /// CreateIamRoleRequest
     /// </summary>
-    [DataContract(Name = "IamRole")]
+    [DataContract(Name = "CreateIamRoleRequest")]
     
-    public partial class IamRole : IEquatable<IamRole>
+    public partial class CreateIamRoleRequest : IEquatable<CreateIamRoleRequest>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="IamRole" /> class.
+        /// Initializes a new instance of the <see cref="CreateIamRoleRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public IamRole() { }
+        public CreateIamRoleRequest() { }
         
-        /// <summary>
-        /// Timestamp when the role was created
-        /// </summary>
-        /// <value>Timestamp when the role was created</value>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
-        public DateTimeOffset Created { get; private set; }
-
-        /// <summary>
-        /// Returns false as Created should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeCreated()
-        {
-            return false;
-        }
         /// <summary>
         /// Description of the role
         /// </summary>
@@ -62,21 +47,6 @@ namespace Okta.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Unique key for the role
-        /// </summary>
-        /// <value>Unique key for the role</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; private set; }
-
-        /// <summary>
-        /// Returns false as Id should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeId()
-        {
-            return false;
-        }
-        /// <summary>
         /// Unique label for the role
         /// </summary>
         /// <value>Unique label for the role</value>
@@ -84,25 +54,11 @@ namespace Okta.Sdk.Model
         public string Label { get; set; }
 
         /// <summary>
-        /// Timestamp when the role was last updated
+        /// Array of permissions that the role will grant. See [Permission Types](https://developer.okta.com/docs/concepts/role-assignment/#permission-types).
         /// </summary>
-        /// <value>Timestamp when the role was last updated</value>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
-        public DateTimeOffset LastUpdated { get; private set; }
-
-        /// <summary>
-        /// Returns false as LastUpdated should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeLastUpdated()
-        {
-            return false;
-        }
-        /// <summary>
-        /// Gets or Sets Links
-        /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
-        public IamRoleLinks Links { get; set; }
+        /// <value>Array of permissions that the role will grant. See [Permission Types](https://developer.okta.com/docs/concepts/role-assignment/#permission-types).</value>
+        [DataMember(Name = "permissions", IsRequired = true, EmitDefaultValue = false)]
+        public List<RolePermissionType> Permissions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -111,13 +67,10 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class IamRole {\n");
-            sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("class CreateIamRoleRequest {\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
-            sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  Permissions: ").Append(Permissions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,15 +91,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as IamRole);
+            return this.Equals(input as CreateIamRoleRequest);
         }
 
         /// <summary>
-        /// Returns true if IamRole instances are equal
+        /// Returns true if CreateIamRoleRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of IamRole to be compared</param>
+        /// <param name="input">Instance of CreateIamRoleRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(IamRole input)
+        public bool Equals(CreateIamRoleRequest input)
         {
             if (input == null)
             {
@@ -154,19 +107,9 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Created == input.Created ||
-                    (this.Created != null &&
-                    this.Created.Equals(input.Created))
-                ) && 
-                (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
                 ) && 
                 (
                     this.Label == input.Label ||
@@ -174,14 +117,10 @@ namespace Okta.Sdk.Model
                     this.Label.Equals(input.Label))
                 ) && 
                 (
-                    this.LastUpdated == input.LastUpdated ||
-                    (this.LastUpdated != null &&
-                    this.LastUpdated.Equals(input.LastUpdated))
-                ) && 
-                (
-                    this.Links == input.Links ||
-                    (this.Links != null &&
-                    this.Links.Equals(input.Links))
+                    this.Permissions == input.Permissions ||
+                    this.Permissions != null &&
+                    input.Permissions != null &&
+                    this.Permissions.SequenceEqual(input.Permissions)
                 );
         }
 
@@ -195,29 +134,17 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Created != null)
-                {
-                    hashCode = (hashCode * 59) + this.Created.GetHashCode();
-                }
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
                 if (this.Label != null)
                 {
                     hashCode = (hashCode * 59) + this.Label.GetHashCode();
                 }
-                if (this.LastUpdated != null)
+                if (this.Permissions != null)
                 {
-                    hashCode = (hashCode * 59) + this.LastUpdated.GetHashCode();
-                }
-                if (this.Links != null)
-                {
-                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
                 }
                 return hashCode;
             }

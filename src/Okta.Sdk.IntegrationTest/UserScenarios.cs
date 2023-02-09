@@ -6,6 +6,7 @@ using Polly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
@@ -27,6 +28,21 @@ namespace Okta.Sdk.IntegrationTest
             _linkedObjectApi = new LinkedObjectApi();
             _roleAssignmentApi = new RoleAssignmentApi();
             _roleTargetApi = new RoleTargetApi();
+            CleanUsers().Wait();
+        }
+
+        private async Task CleanUsers()
+        {
+            var foundUsers = await _userApi.ListUsers(search: $"profile.Email sw \"john\"").ToArrayAsync();
+
+            if (foundUsers != null)
+            {
+                foreach (var user in foundUsers)
+                {
+                    await _userApi.DeactivateOrDeleteUserAsync(user.Id);
+                    await _userApi.DeactivateOrDeleteUserAsync(user.Id);
+                }
+            }
         }
             
         [Fact]

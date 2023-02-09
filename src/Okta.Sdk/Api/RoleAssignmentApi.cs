@@ -25,7 +25,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IRoleAssignmentApiAsync : IApiAccessor
+    public partial interface IRoleAssignmentApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -230,7 +230,7 @@ namespace Okta.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IRoleAssignmentApi :  IRoleAssignmentApiAsync
+    public partial interface IRoleAssignmentApi :  IRoleAssignmentApiAsync
     {
 
     }

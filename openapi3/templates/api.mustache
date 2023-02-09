@@ -19,7 +19,7 @@ namespace {{packageName}}.{{apiPackage}}
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    {{>visibility}} interface {{interfacePrefix}}{{classname}}Async : IApiAccessor
+    {{>visibility}} partial interface {{interfacePrefix}}{{classname}}Async : IApiAccessor
     {
         #region Asynchronous Operations
         {{#operation}}
@@ -68,7 +68,7 @@ namespace {{packageName}}.{{apiPackage}}
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    {{>visibility}} interface {{interfacePrefix}}{{classname}} : {{#supportsAsync}} {{interfacePrefix}}{{classname}}Async{{/supportsAsync}}
+    {{>visibility}} partial interface {{interfacePrefix}}{{classname}} : {{#supportsAsync}} {{interfacePrefix}}{{classname}}Async{{/supportsAsync}}
     {
 
     }
