@@ -48,31 +48,54 @@ namespace Okta.Sdk.IntegrationTest
         [Fact]
         public async Task PartialUpdateUser()
         {
-            var guid = Guid.NewGuid();
-
             var createUserRequest = new CreateUserRequest
             {
+
                 Profile = new UserProfile
                 {
-                    FirstName = "John",
-                    LastName = nameof(PartialUpdateUser),
-                    Email = $"john-{nameof(PartialUpdateUser)}-dotnet-sdk-{guid}@example.com",
-                    Login = $"john-{nameof(PartialUpdateUser)}-dotnet-sdk-{guid}@example.com",
-                    NickName = $"johny-{nameof(PartialUpdateUser)}-{guid}",
-                },
-                Credentials = new UserCredentials
-                {
-                    Password = new PasswordCredential
-                    {
-                        Value = "Abcd1234"
-                    }
+                    FirstName = "FirstName",
+                    LastName = "LastName",
+                    Login = $"{Guid.NewGuid()}@login.com",
+                    Email = $"{Guid.NewGuid()}@email.com",
+                    PrimaryPhone = "123-321-4444",
+                    MobilePhone = "321-123-5555",
+                    Locale = "en_US",
+                    SecondEmail = $"{Guid.NewGuid()}@second.com",
+                    Timezone = "Japan",
                 }
             };
 
             var createdUser = await _userApi.CreateUserAsync(createUserRequest);
 
-            await Task.Delay(3000);
+            try
+            {
+                var updateUserRequest = new UpdateUserRequest
+                {
+                    Profile = new UserProfile
+                    {
+                        //NickName = "new_nickname",
+                        PrimaryPhone = "321-123-1000",
+                    }
+                };
 
+                var updatedUser = await _userApi.PartialUpdateUserAsync(createdUser.Id, updateUserRequest);
+                updatedUser.Profile.PrimaryPhone.Should().Be("321-123-1000");
+                updatedUser.Profile.FirstName.Should().Be("FirstName");
+                updatedUser.Profile.LastName.Should().Be("LastName");
+                updatedUser.Profile.Login.Should().Contain("login.com");
+                updatedUser.Profile.Email.Should().Contain("email.com");
+                updatedUser.Profile.MobilePhone.Should().Be("321-123-5555");
+                updatedUser.Profile.Locale.Should().Be("en_US");
+                updatedUser.Profile.SecondEmail.Should().Contain("second.com");
+                updatedUser.Profile.Timezone.Should().Be("Japan");
+
+            }
+            finally
+            {
+                // Remove the user
+                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+            }
 
         }
 
@@ -132,20 +155,24 @@ namespace Okta.Sdk.IntegrationTest
         [Fact]
         public async Task GetUser()
         {
+            var guid = Guid.NewGuid();
+
             var createUserRequest = new CreateUserRequest
             {
-
                 Profile = new UserProfile
                 {
-                    FirstName = "FirstName",
-                    LastName = "LastName",
-                    Login = $"{Guid.NewGuid()}@login.com",
-                    Email = $"{Guid.NewGuid()}@email.com",
-                    PrimaryPhone = "123-321-4444",
-                    MobilePhone = "321-123-5555",
-                    Locale = "en_US",
-                    SecondEmail = $"{Guid.NewGuid()}@second.com",
-                    Timezone = "Japan",
+                    FirstName = "John",
+                    LastName = nameof(GetUser),
+                    Email = $"john-{nameof(GetUser)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-{nameof(GetUser)}-dotnet-sdk-{guid}@example.com",
+                    NickName = $"johny-{nameof(GetUser)}-{guid}",
+                },
+                Credentials = new UserCredentials
+                {
+                    Password = new PasswordCredential
+                    {
+                        Value = "Abcd1234"
+                    }
                 }
             };
 
@@ -153,26 +180,19 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var updateUserRequest = new UpdateUserRequest
-                {
-                    Profile = new UserProfile
-                    {
-                        //NickName = "new_nickname",
-                        PrimaryPhone = "321-123-1000",
-                    }
-                };
+                // Retrieve by ID
+                var retrievedById = await _userApi.GetUserAsync(createdUser.Id);
+                retrievedById.Profile.FirstName.Should().Be("John");
+                retrievedById.Profile.LastName.Should().Be(nameof(GetUser));
+                retrievedById.Profile.Email.Should().Be($"john-{nameof(GetUser)}-dotnet-sdk-{guid}@example.com");
+                retrievedById.Profile.Login.Should().Be($"john-{nameof(GetUser)}-dotnet-sdk-{guid}@example.com");
 
-                var updatedUser = await _userApi.PartialUpdateUserAsync(createdUser.Id, updateUserRequest);
-                updatedUser.Profile.PrimaryPhone.Should().Be("321-123-1000");
-                updatedUser.Profile.FirstName.Should().Be("FirstName");
-                updatedUser.Profile.LastName.Should().Be("LastName");
-                updatedUser.Profile.Login.Should().Contain("login.com");
-                updatedUser.Profile.Email.Should().Contain("email.com");
-                updatedUser.Profile.MobilePhone.Should().Be("321-123-5555");
-                updatedUser.Profile.Locale.Should().Be("en_US");
-                updatedUser.Profile.SecondEmail.Should().Contain("second.com");
-                updatedUser.Profile.Timezone.Should().Be("Japan");
-
+                // Retrieve by login
+                var retrievedByLogin = await _userApi.GetUserAsync(createdUser.Profile.Login);
+                retrievedByLogin.Profile.FirstName.Should().Be("John");
+                retrievedByLogin.Profile.LastName.Should().Be(nameof(GetUser));
+                retrievedByLogin.Profile.Email.Should().Be($"john-{nameof(GetUser)}-dotnet-sdk-{guid}@example.com");
+                retrievedByLogin.Profile.Login.Should().Be($"john-{nameof(GetUser)}-dotnet-sdk-{guid}@example.com");
             }
             finally
             {
