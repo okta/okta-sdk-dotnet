@@ -48,7 +48,7 @@ namespace Okta.Sdk.Client
         {
             // OpenAPI generated types generally hide default constructors.
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
-            //NullValueHandling = NullValueHandling.Ignore,
+            NullValueHandling = NullValueHandling.Ignore,
             ContractResolver = new DefaultContractResolver
             {
                 NamingStrategy = new CamelCaseNamingStrategy
@@ -186,7 +186,8 @@ namespace Okta.Sdk.Client
                 {
                     OverrideSpecifiedNames = false
                 }
-            }
+            },
+            NullValueHandling = NullValueHandling.Ignore,
         };
 
         /// <summary>
