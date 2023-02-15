@@ -73,7 +73,6 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Profile = new UserProfile
                     {
-                        //NickName = "new_nickname",
                         PrimaryPhone = "321-123-1000",
                     }
                 };
