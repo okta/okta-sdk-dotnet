@@ -1,6 +1,11 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 6.0.4
+
+- Fix "PartialUpdateUserAsync behaves differently in Okta.Sdk v6" issue (#614)
+- Ignore null values during JSON serialization.
+
 ## 6.0.3
 
 - Fix "Listing IAM roles doesn't work" (#617)

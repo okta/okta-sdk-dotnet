@@ -54,7 +54,8 @@ namespace Okta.Sdk.Client
                 {
                     OverrideSpecifiedNames = false
                 }
-            }
+            },
+            NullValueHandling = NullValueHandling.Ignore
         };
 
         public CustomJsonCodec(IReadableConfiguration configuration)
@@ -185,7 +186,8 @@ namespace Okta.Sdk.Client
                 {
                     OverrideSpecifiedNames = false
                 }
-            }
+            },
+            NullValueHandling = NullValueHandling.Ignore,
         };
 
         /// <summary>

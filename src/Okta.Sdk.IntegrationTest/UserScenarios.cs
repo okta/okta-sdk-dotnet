@@ -44,7 +44,60 @@ namespace Okta.Sdk.IntegrationTest
                 }
             }
         }
-            
+
+        [Fact]
+        public async Task PartialUpdateUser()
+        {
+            var createUserRequest = new CreateUserRequest
+            {
+
+                Profile = new UserProfile
+                {
+                    FirstName = "FirstName",
+                    LastName = "LastName",
+                    Login = $"{Guid.NewGuid()}@login.com",
+                    Email = $"{Guid.NewGuid()}@email.com",
+                    PrimaryPhone = "123-321-4444",
+                    MobilePhone = "321-123-5555",
+                    Locale = "en_US",
+                    SecondEmail = $"{Guid.NewGuid()}@second.com",
+                    Timezone = "Japan",
+                }
+            };
+
+            var createdUser = await _userApi.CreateUserAsync(createUserRequest);
+
+            try
+            {
+                var updateUserRequest = new UpdateUserRequest
+                {
+                    Profile = new UserProfile
+                    {
+                        PrimaryPhone = "321-123-1000",
+                    }
+                };
+
+                var updatedUser = await _userApi.PartialUpdateUserAsync(createdUser.Id, updateUserRequest);
+                updatedUser.Profile.PrimaryPhone.Should().Be("321-123-1000");
+                updatedUser.Profile.FirstName.Should().Be("FirstName");
+                updatedUser.Profile.LastName.Should().Be("LastName");
+                updatedUser.Profile.Login.Should().Contain("login.com");
+                updatedUser.Profile.Email.Should().Contain("email.com");
+                updatedUser.Profile.MobilePhone.Should().Be("321-123-5555");
+                updatedUser.Profile.Locale.Should().Be("en_US");
+                updatedUser.Profile.SecondEmail.Should().Contain("second.com");
+                updatedUser.Profile.Timezone.Should().Be("Japan");
+
+            }
+            finally
+            {
+                // Remove the user
+                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+            }
+
+        }
+
         [Fact]
         public async Task ListUsers()
         {
