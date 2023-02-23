@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -585,7 +586,9 @@ namespace Okta.Sdk.IntegrationTest
                 configuration.AuthorizationMode = AuthorizationMode.PrivateKey;
                 configuration.OktaDomain = oktaDomain;
 
-                var oauthUsersApi = new UserApi(configuration, new MockOAuthProvider(new DefaultOAuthTokenProvider(configuration)));
+
+                var mockOauthProvider = new MockOAuthProvider(new DefaultOAuthTokenProvider(configuration));
+                var oauthUsersApi = new UserApi(configuration, mockOauthProvider);
 
                 var usersCollection = oauthUsersApi.ListUsers(limit: 1);
                 var pagedEnumerator = usersCollection.GetPagedEnumerator();
@@ -597,7 +600,19 @@ namespace Okta.Sdk.IntegrationTest
                 }
 
                 retrievedUsers.Count.Should().BeGreaterOrEqualTo(2);
+                var invalidTokensCounter = 0;
 
+                while (mockOauthProvider.TokensQueue.Count > 0)
+                {
+                    var queueValue = mockOauthProvider.TokensQueue.Dequeue();
+
+                    if (queueValue.Equals("invalidToken", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        invalidTokensCounter++;
+                    }
+                }
+
+                invalidTokensCounter.Should().Be(1);
             }
             finally
             {

@@ -97,6 +97,11 @@ namespace {{packageName}}.Client
         {
             if (context.Keys.Contains("access_token"))
             {
+                foreach (var oldAuthHeader in request.Parameters.Where(p => p.Name.Equals("Authorization", StringComparison.OrdinalIgnoreCase)).ToArray())
+                {
+                    request.Parameters.Remove(oldAuthHeader);
+                }
+                
                 request.AddOrUpdateHeader("Authorization", $"Bearer {context["access_token"].ToString()}");
             }
         }
