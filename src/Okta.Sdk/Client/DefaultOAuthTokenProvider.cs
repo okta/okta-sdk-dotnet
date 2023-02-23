@@ -91,7 +91,7 @@ namespace Okta.Sdk.Client
             AsyncPolicy<IRestResponse> retryAsyncPolicy = Policy
                 .Handle<ApiException>(ex => ex.ErrorCode == 401)
                 .OrResult<IRestResponse>(r => (int)r.StatusCode == 401)
-                .RetryAsync(1, onRetry: async (response, retryCount, context) 
+                .RetryAsync(2, onRetryAsync: async (response, retryCount, context) 
                     => await OnOAuthRetryAsync(response, retryCount, context, onRetryAsyncFunc));
 
             return retryAsyncPolicy;
