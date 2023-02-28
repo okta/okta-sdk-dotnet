@@ -95,11 +95,12 @@ namespace Okta.Sdk.Client
             
             if (Okta.Sdk.Client.Configuration.IsPrivateKeyMode(_configuration))
             {
-                 var accessToken = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: _cancellationToken);
+                var accessToken = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: _cancellationToken);
+                _nextRequest.HeaderParameters.Remove("Authorization");
                 _nextRequest.HeaderParameters.Add("Authorization", $"Bearer {accessToken}");
             }
             
-            var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, null, _cancellationToken).ConfigureAwait(false);
+            var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, _configuration, _cancellationToken).ConfigureAwait(false);
 
 
             var items = response?.Data ?? Array.Empty<T>();

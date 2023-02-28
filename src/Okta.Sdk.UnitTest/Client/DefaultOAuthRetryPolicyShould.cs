@@ -62,7 +62,7 @@ namespace Okta.Sdk.UnitTest.Client
             _ = await defaultOAuthPolicy.ExecuteAndCaptureAsync(action =>
                 mockClient.ExecuteAsync(new RestRequest()), CancellationToken.None);
 
-            globalRetry.Should().Be(1);
+            globalRetry.Should().Be(2);
         }
 
         [Fact]

@@ -587,11 +587,11 @@ namespace Okta.Sdk.Client
             return result;
         }
         
-        private Task<IRestResponse> ExecuteAsyncWithRetryHeaders(Context context, IRestRequest request, RestClient client)
+        private async Task<IRestResponse> ExecuteAsyncWithRetryHeaders(Context context, IRestRequest request, RestClient client)
         {
             DefaultRetryStrategy.AddRetryHeaders(context, request);
             DefaultOAuthTokenProvider.AddOrUpdateAuthorizationHeader(context, request);
-            return client.ExecuteAsync(request);
+            return await client.ExecuteAsync(request);
         }
 
         #region IAsynchronousClient

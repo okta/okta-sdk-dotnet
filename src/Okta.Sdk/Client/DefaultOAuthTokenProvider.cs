@@ -91,7 +91,7 @@ namespace Okta.Sdk.Client
             AsyncPolicy<IRestResponse> retryAsyncPolicy = Policy
                 .Handle<ApiException>(ex => ex.ErrorCode == 401)
                 .OrResult<IRestResponse>(r => (int)r.StatusCode == 401)
-                .RetryAsync(1, onRetry: async (response, retryCount, context) 
+                .RetryAsync(2, onRetryAsync: async (response, retryCount, context) 
                     => await OnOAuthRetryAsync(response, retryCount, context, onRetryAsyncFunc));
 
             return retryAsyncPolicy;
@@ -106,6 +106,11 @@ namespace Okta.Sdk.Client
         {
             if (context.Keys.Contains("access_token"))
             {
+                foreach (var oldAuthHeader in request.Parameters.Where(p => p.Name.Equals("Authorization", StringComparison.OrdinalIgnoreCase)).ToArray())
+                {
+                    request.Parameters.Remove(oldAuthHeader);
+                }
+                
                 request.AddOrUpdateHeader("Authorization", $"Bearer {context["access_token"].ToString()}");
             }
         }
