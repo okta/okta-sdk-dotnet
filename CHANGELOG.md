@@ -1,6 +1,10 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 6.0.5
+
+- Fix "SDK calls with private key authorization mode start returning empty results after inner access token expired" issue (#616)
+
 ## 6.0.4
 
 - Fix "PartialUpdateUserAsync behaves differently in Okta.Sdk v6" issue (#614)
