@@ -8440,7 +8440,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ResourceSet'
+              $ref: '#/components/schemas/CreateResourceSetRequest'
             examples:
               Example Request:
                 $ref: '#/components/examples/ResourceSetRequest'
@@ -24058,6 +24058,19 @@ components:
           format: date-time
           description: Timestamp when the role was created
           readOnly: true
+        description:
+          type: string
+          description: Description of the resource set
+        label:
+          type: string
+          description: Unique label for the resource set
+        resources:
+          type: array
+          items:
+            type: string
+    CreateResourceSetRequest:
+      type: object
+      properties:
         description:
           type: string
           description: Description of the resource set

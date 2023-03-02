@@ -88,7 +88,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceSet</returns>
-        System.Threading.Tasks.Task<ResourceSet> CreateResourceSetAsync(  ResourceSet instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceSet> CreateResourceSetAsync(  CreateResourceSetRequest instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Resource Set
         /// </summary>
@@ -99,7 +99,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceSet>> CreateResourceSetWithHttpInfoAsync(  ResourceSet instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceSet>> CreateResourceSetWithHttpInfoAsync(  CreateResourceSetRequest instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Resource Set Binding
         /// </summary>
@@ -721,7 +721,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceSet</returns>
-        public async System.Threading.Tasks.Task<ResourceSet> CreateResourceSetAsync(  ResourceSet instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceSet> CreateResourceSetAsync(  CreateResourceSetRequest instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<ResourceSet> localVarResponse = await CreateResourceSetWithHttpInfoAsync(instance, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -733,7 +733,7 @@ namespace Okta.Sdk.Api
         /// <param name="instance"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceSet)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ResourceSet>> CreateResourceSetWithHttpInfoAsync(  ResourceSet instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ResourceSet>> CreateResourceSetWithHttpInfoAsync(  CreateResourceSetRequest instance , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'instance' is set
             if (instance == null)
