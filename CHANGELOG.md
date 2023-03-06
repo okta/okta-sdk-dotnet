@@ -1,6 +1,10 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 6.0.6
+
+- Fix ResourceSet API and keep previous interface marked as obsolete for backwards compatibility.
+
 ## 6.0.5
 
 - Fix "SDK calls with private key authorization mode start returning empty results after inner access token expired" issue (#616)

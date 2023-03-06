@@ -12,7 +12,7 @@
     <Description>Official .NET SDK for the Okta API</Description>
     <Copyright>Okta, Inc.</Copyright>
     <RootNamespace>Okta.Sdk</RootNamespace>
-    <Version>6.0.5</Version>
+    <Version>6.0.6</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Okta.Sdk.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/okta/okta-sdk-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
