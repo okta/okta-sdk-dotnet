@@ -35,21 +35,6 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Timestamp when the role was created
-        /// </summary>
-        /// <value>Timestamp when the role was created</value>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
-        public DateTimeOffset Created { get; private set; }
-
-        /// <summary>
-        /// Returns false as Created should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeCreated()
-        {
-            return false;
-        }
-        /// <summary>
         /// Description of the resource set
         /// </summary>
         /// <value>Description of the resource set</value>
@@ -77,7 +62,6 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class CreateResourceSetRequest {\n");
-            sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("  Resources: ").Append(Resources).Append("\n");
@@ -117,11 +101,6 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Created == input.Created ||
-                    (this.Created != null &&
-                    this.Created.Equals(input.Created))
-                ) && 
-                (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
@@ -149,10 +128,6 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Created != null)
-                {
-                    hashCode = (hashCode * 59) + this.Created.GetHashCode();
-                }
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();

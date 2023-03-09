@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 <a name="createresourceset"></a>
 # **CreateResourceSet**
-> ResourceSet CreateResourceSet (ResourceSet instance)
+> ResourceSet CreateResourceSet (CreateResourceSetRequest instance)
 
 Create a Resource Set
 
@@ -218,7 +218,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var instance = new ResourceSet(); // ResourceSet | 
+            var instance = new CreateResourceSetRequest(); // CreateResourceSetRequest | 
 
             try
             {
@@ -241,7 +241,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **instance** | [**ResourceSet**](ResourceSet.md)|  | 
+ **instance** | [**CreateResourceSetRequest**](CreateResourceSetRequest.md)|  | 
 
 ### Return type
 
