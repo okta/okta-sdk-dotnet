@@ -52,16 +52,8 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Properties
         /// </summary>
         [DataMember(Name = "properties", EmitDefaultValue = false)]
-        public Dictionary<string, ProfileMappingProperty> Properties { get; private set; }
+        public Dictionary<string, ProfileMappingProperty> Properties { get; set; }
 
-        /// <summary>
-        /// Returns false as Properties should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeProperties()
-        {
-            return false;
-        }
         /// <summary>
         /// Gets or Sets Source
         /// </summary>

@@ -23699,7 +23699,7 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/ProfileMappingProperty'
-          readOnly: true
+          readOnly: false
         source:
           $ref: '#/components/schemas/ProfileMappingSource'
         target:
