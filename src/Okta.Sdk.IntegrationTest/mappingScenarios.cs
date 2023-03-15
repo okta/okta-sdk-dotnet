@@ -19,14 +19,12 @@ namespace Okta.Sdk.IntegrationTest
     {
         private UserTypeApi _userTypeApi;
         private ProfileMappingApi _profileMappingApi;
-        private ApplicationApi _applicationApi;
         private IdentityProviderApi _idpApi;
 
         public mappingScenarios()
         {
             _profileMappingApi = new ProfileMappingApi();
             _userTypeApi = new UserTypeApi();
-            _applicationApi = new ApplicationApi();
             _idpApi = new IdentityProviderApi();
 
         }
