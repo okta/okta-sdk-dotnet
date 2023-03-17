@@ -18,6 +18,8 @@ jobs:
           name: "Test Runner"
           command: |
               ./build.ps1;
+      - store_artifacts:
+          path: artifacts
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
