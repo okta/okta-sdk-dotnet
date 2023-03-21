@@ -3,7 +3,7 @@
 version: 2.1
 
 orbs:
-  windows: circleci/windows@2.2.0
+  windows: circleci/windows@5.0
   general-platform-helpers: okta/general-platform-helpers@1.2
 
 # Define a job to be invoked later in a workflow.
@@ -12,7 +12,7 @@ jobs:
   test:
     description: Run tests
     executor:
-      name: windows/default
+      name: win/default
     steps:
       - checkout
       - run:
