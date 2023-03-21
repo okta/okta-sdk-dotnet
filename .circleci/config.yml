@@ -12,7 +12,7 @@ jobs:
   test:
     description: Run tests
     executor:
-      name: win/default
+      name: windows/default
     steps:
       - checkout
       - run:
