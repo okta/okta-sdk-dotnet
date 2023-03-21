@@ -23,9 +23,13 @@ jobs:
           name: "Test Runner"
           command: |
               ./build.ps1;
-      - general-platform-helpers/step-artifacts-prepare-and-upload-windows:
-          files-to-upload: "artifacts"
-          location: "com/okta/okta-sdk-dotnet"
+      - when:
+          condition:
+            equal: [ "<<pipeline.git.branch>>", "master" ]
+          steps:
+            - general-platform-helpers/step-artifacts-prepare-and-upload-windows:
+                files-to-upload: "artifacts"
+                location: "com/okta/okta-sdk-dotnet"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
