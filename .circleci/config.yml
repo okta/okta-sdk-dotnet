@@ -4,6 +4,7 @@ version: 2.1
 
 orbs:
   windows: circleci/windows@2.2.0
+  general-platform-helpers: cirro-eng-services/general-platform-helpers@1.2
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -18,6 +19,9 @@ jobs:
           name: "Test Runner"
           command: |
               ./build.ps1;
+      - general-platform-helpers/step-artifacts-prepare-and-upload-windows:
+          files-to-upload: "artifacts"
+          location: "com/okta/okta-sdk-dotnet"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
