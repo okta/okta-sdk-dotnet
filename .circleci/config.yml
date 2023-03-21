@@ -16,6 +16,10 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "Install required components"
+          command: |
+              choco install -y dotnetcore-sdk
+      - run:
           name: "Test Runner"
           command: |
               ./build.ps1;
