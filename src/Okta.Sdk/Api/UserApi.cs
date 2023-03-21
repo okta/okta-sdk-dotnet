@@ -960,7 +960,7 @@ namespace Okta.Sdk.Api
         /// <param name="strict"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> UpdateUserAsync(  string userId ,   UpdateUserRequest user ,   bool? strict = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<User> UpdateUserAsync(  string userId ,   User user ,   bool? strict = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a User
         /// </summary>
@@ -973,7 +973,7 @@ namespace Okta.Sdk.Api
         /// <param name="strict"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> UpdateUserWithHttpInfoAsync(  string userId ,   UpdateUserRequest user ,   bool? strict = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<User>> UpdateUserWithHttpInfoAsync(  string userId ,   User user ,   bool? strict = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -5041,7 +5041,7 @@ namespace Okta.Sdk.Api
         /// <param name="strict"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> UpdateUserAsync(  string userId ,   UpdateUserRequest user ,   bool? strict = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User> UpdateUserAsync(  string userId ,   User user ,   bool? strict = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<User> localVarResponse = await UpdateUserWithHttpInfoAsync(userId, user, strict, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5055,7 +5055,7 @@ namespace Okta.Sdk.Api
         /// <param name="strict"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<User>> UpdateUserWithHttpInfoAsync(  string userId ,   UpdateUserRequest user ,   bool? strict = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<User>> UpdateUserWithHttpInfoAsync(  string userId ,   User user ,   bool? strict = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)

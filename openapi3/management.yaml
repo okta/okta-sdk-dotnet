@@ -13930,7 +13930,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateUserRequest'
+              $ref: '#/components/schemas/User'
         required: true
       responses:
         '200':
