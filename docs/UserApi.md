@@ -3063,7 +3063,7 @@ void (empty response body)
 
 <a name="updateuser"></a>
 # **UpdateUser**
-> User UpdateUser (string userId, UpdateUserRequest user, bool? strict = null)
+> User UpdateUser (string userId, User user, bool? strict = null)
 
 Replace a User
 
@@ -3092,7 +3092,7 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var userId = "userId_example";  // string | 
-            var user = new UpdateUserRequest(); // UpdateUserRequest | 
+            var user = new User(); // User | 
             var strict = true;  // bool? |  (optional) 
 
             try
@@ -3117,7 +3117,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **user** | [**UpdateUserRequest**](UpdateUserRequest.md)|  | 
+ **user** | [**User**](User.md)|  | 
  **strict** | **bool?**|  | [optional] 
 
 ### Return type
