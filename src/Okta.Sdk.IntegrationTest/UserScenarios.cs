@@ -5,6 +5,8 @@ using Okta.Sdk.Model;
 using Polly;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Dynamic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -20,6 +22,7 @@ namespace Okta.Sdk.IntegrationTest
         private LinkedObjectApi _linkedObjectApi;
         private RoleAssignmentApi _roleAssignmentApi;
         private RoleTargetApi _roleTargetApi;
+        private UserTypeApi _userTypeApi;
 
         public UserScenarios()
         {
@@ -28,6 +31,7 @@ namespace Okta.Sdk.IntegrationTest
             _linkedObjectApi = new LinkedObjectApi();
             _roleAssignmentApi = new RoleAssignmentApi();
             _roleTargetApi = new RoleTargetApi();
+            _userTypeApi = new UserTypeApi();
             CleanUsers().Wait();
         }
 
@@ -383,7 +387,7 @@ namespace Okta.Sdk.IntegrationTest
                     Profile = createdUser.Profile
                 };
 
-                var updatedUser = await _userApi.UpdateUserAsync(createdUser.Id, updateUserRequest);
+                var updatedUser = await _userApi.PartialUpdateUserAsync(createdUser.Id, updateUserRequest);
                 updatedUser.Profile.NickName.Should().Be(nickName);
                 updatedUser.Profile.AdditionalProperties["homeworld"].Should().Be("Planet Earth");
 
@@ -396,6 +400,68 @@ namespace Okta.Sdk.IntegrationTest
                 // Remove the user
                 await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
                 await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+            }
+        }
+
+        [Fact]
+        public async Task UpdateUserUserType()
+        {
+            var guid = Guid.NewGuid();
+
+            var createUserRequest = new CreateUserRequest
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = nameof(UpdateUserUserType),
+                    Email = $"john-{nameof(UpdateUserUserType)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-{nameof(UpdateUserUserType)}-dotnet-sdk-{guid}@example.com",
+                    NickName = $"johny-{nameof(UpdateUserUserType)}-{guid}",
+                },
+                Credentials = new UserCredentials
+                {
+                    Password = new PasswordCredential
+                    {
+                        Value = "Abcd1234"
+                    }
+                }
+            };
+
+            User createdUser = null;
+            UserType createdUserType = null;
+
+            try
+            {
+                createdUser = await _userApi.CreateUserAsync(createUserRequest);
+
+                createdUserType = await _userTypeApi.CreateUserTypeAsync(
+                    new UserType
+                    {
+                        Name = $"oktasdk{nameof(UpdateUserUserType)}",
+                        DisplayName = nameof(UpdateUserUserType),
+                    });
+
+                createdUser.Type.Id = createdUserType.Id;
+
+                var updatedUser = await _userApi.UpdateUserAsync(createdUser.Id, createdUser);
+
+                updatedUser = await _userApi.GetUserAsync(createdUser.Id);
+
+                updatedUser.Type.Id.Should().Be(createdUserType.Id);
+            }
+            finally
+            {
+                if (createdUser != null)
+                {
+                    // Remove the user
+                    await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                    await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                }
+
+                if (createdUserType != null)
+                {
+                    await _userTypeApi.DeleteUserTypeAsync(createdUserType.Id);
+                }
             }
         }
 

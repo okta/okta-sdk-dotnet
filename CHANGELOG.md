@@ -1,6 +1,11 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 6.0.7
+
+- Fix `UpdateProfileMappingAsync doesn't update properties` issue (#618)
+- Fix `UpdateUserAsync should allow updating the user type` issue (#615)
+
 ## 6.0.6
 
 - Fix ResourceSet API and keep previous interface marked as obsolete for backwards compatibility.

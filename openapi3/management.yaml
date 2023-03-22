@@ -13930,7 +13930,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateUserRequest'
+              $ref: '#/components/schemas/User'
         required: true
       responses:
         '200':
@@ -23699,7 +23699,7 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/ProfileMappingProperty'
-          readOnly: true
+          readOnly: false
         source:
           $ref: '#/components/schemas/ProfileMappingSource'
         target:
