@@ -450,7 +450,6 @@ namespace Okta.Sdk.Client
         internal RestClient GetConfiguredClient(IReadableConfiguration configuration, IDeserializer serializer)
         {
             RestClient client = new RestClient(_baseUrl);
-
             client.ClearHandlers();
             var existingDeserializer = serializer;
             if (existingDeserializer != null)
@@ -518,14 +517,14 @@ namespace Okta.Sdk.Client
             {
                 policy = _authTokenProvider.GetOAuthRetryPolicy();
             }
-            
+
             if (RetryConfiguration.AsyncRetryPolicy != null || configuration.MaxRetries.HasValue && configuration.MaxRetries > 0)
             {
                 var retryPolicy = RetryConfiguration.AsyncRetryPolicy ?? DefaultRetryStrategy.GetRetryPolicy(configuration);
                 policy = policy?.WrapAsync(retryPolicy) ?? retryPolicy;
             }
-            
-            
+
+
             if (policy != null)
             {
                 var policyResult = await policy.ExecuteAndCaptureAsync(action: (ctx) => ExecuteAsyncWithRetryHeaders(ctx, req, client), new Context()).ConfigureAwait(false);
@@ -538,6 +537,12 @@ namespace Okta.Sdk.Client
             else
             {
                 response = await client.ExecuteAsync<T>(req, cancellationToken).ConfigureAwait(false);
+            }
+
+
+            if (response.ResponseStatus == ResponseStatus.TimedOut)
+            {
+                throw new TimeoutException(response.ErrorMessage, response.ErrorException);
             }
             
             // if the response type is oneOf/anyOf, call FromJSON to deserialize the data

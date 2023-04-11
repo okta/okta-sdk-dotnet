@@ -9,6 +9,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using Xunit;
@@ -18,6 +19,10 @@ using Okta.Sdk.UnitTest.Internal;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
+using WireMock.Logging;
+using WireMock.RequestBuilders;
+using WireMock.ResponseBuilders;
+using WireMock.Server;
 
 namespace Okta.Sdk.UnitTest.Api
 {
@@ -30,6 +35,45 @@ namespace Okta.Sdk.UnitTest.Api
     /// </remarks>
     public class GroupApiTests
     {
+        private WireMockServer _server;
+        public GroupApiTests()
+        {
+            _server = WireMockServer.StartWithAdminInterface(9876);
+            _server.AllowPartialMapping(false);
+            _server.AddCatchAllMapping();
+        }
+
+        public void Dispose()
+        {
+            _server.Stop();
+        }
+
+        private void CreateStubReturningDelayedResponse()
+        {
+            _server.Given(
+                    Request.Create().WithPath("/api/v1/groups*")
+                )
+                .RespondWith(
+                    Response.Create()
+                        .WithStatusCode(200)
+                        .WithHeader("Content-Type", "text/json")
+                        .WithBody(@"{}")
+                        // this returns the response after a 5000ms delay
+                        .WithDelay(TimeSpan.FromMilliseconds(5000))
+                );
+        }
+
+        [Fact]
+        public async Task ThrowOnTimeout()
+        {
+            var groupsApi = new GroupApi(new Configuration {OktaDomain = "http://localhost:9876", Token = "foo", ConnectionTimeout = 1000, DisableOktaDomainCheck = true});
+            
+                CreateStubReturningDelayedResponse();
+
+                await Assert.ThrowsAsync<TimeoutException>(async () => await groupsApi.GetGroupAsync("foo"));
+                await Assert.ThrowsAsync<TimeoutException>(async () => await groupsApi.ListGroups().ToListAsync());
+        }
+
         [Fact]
         public async Task ListApplicationTargetsForApplicationAdministratorRoleForGroup()
         {
@@ -104,6 +148,21 @@ namespace Okta.Sdk.UnitTest.Api
         public async Task AddApplicationTargetToAdminRoleGivenToGroup()
         {
        
+            var mockClient = new MockAsyncClient(String.Empty, HttpStatusCode.OK);
+            var roleTargetApi = new RoleTargetApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+
+            await roleTargetApi.AddApplicationTargetToAdminRoleGivenToGroupAsync("foo", "bar", "baz");
+
+            mockClient.ReceivedPath.Should().StartWith("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}");
+            mockClient.ReceivedPathParams["groupId"].Should().Contain("foo");
+            mockClient.ReceivedPathParams["roleId"].Should().Contain("bar");
+            mockClient.ReceivedPathParams["appName"].Should().Contain("baz");
+        }
+
+        [Fact]
+        public async Task GetGroupWithTimeout()
+        {
+
             var mockClient = new MockAsyncClient(String.Empty, HttpStatusCode.OK);
             var roleTargetApi = new RoleTargetApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
