@@ -160,21 +160,6 @@ namespace Okta.Sdk.UnitTest.Api
         }
 
         [Fact]
-        public async Task GetGroupWithTimeout()
-        {
-
-            var mockClient = new MockAsyncClient(String.Empty, HttpStatusCode.OK);
-            var roleTargetApi = new RoleTargetApi(mockClient, new Configuration { BasePath = "https://foo.com" });
-
-            await roleTargetApi.AddApplicationTargetToAdminRoleGivenToGroupAsync("foo", "bar", "baz");
-
-            mockClient.ReceivedPath.Should().StartWith("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}");
-            mockClient.ReceivedPathParams["groupId"].Should().Contain("foo");
-            mockClient.ReceivedPathParams["roleId"].Should().Contain("bar");
-            mockClient.ReceivedPathParams["appName"].Should().Contain("baz");
-        }
-
-        [Fact]
         public async Task AddApplicationInstanceTargetToAppAdminRoleGivenToGroup()
         {
             var mockClient = new MockAsyncClient(String.Empty, HttpStatusCode.NoContent);
