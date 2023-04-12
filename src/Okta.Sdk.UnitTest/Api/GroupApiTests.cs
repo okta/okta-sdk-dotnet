@@ -41,7 +41,7 @@ namespace Okta.Sdk.UnitTest.Api
         public GroupApiTests()
         {
             _port = FindFreeTcpPort();
-            _server = WireMockServer.StartWithAdminInterface(9876);
+            _server = WireMockServer.StartWithAdminInterface(_port);
         }
 
         public void Dispose()
