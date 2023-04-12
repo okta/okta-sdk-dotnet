@@ -39,7 +39,7 @@ namespace Okta.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "6.0.7";
+        public const string Version = "6.0.8";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -53,7 +53,6 @@ namespace Okta.Sdk.Client
         #region Okta Members
         
         private bool? _disableHttpsCheck = false;
-
         private bool? _disableOktaDomainCheck;
 
         /// <summary>
@@ -377,7 +376,6 @@ namespace Okta.Sdk.Client
         /// </summary>
         /// <value>The servers</value>
         private IList<IReadOnlyDictionary<string, object>> _servers;
-
         #endregion Private Members
 
         #region Constructors
@@ -760,7 +758,7 @@ namespace Okta.Sdk.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 3.0.0\n";
-            report += "    SDK Package Version: 6.0.7\n";
+            report += "    SDK Package Version: 6.0.8\n";
 
             return report;
         }

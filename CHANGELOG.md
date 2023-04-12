@@ -1,10 +1,14 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 6.0.8
+
+- Fix "API Calls Trap Request Timeout Exceptions" issue (#632)
+
 ## 6.0.7
 
-- Fix `UpdateProfileMappingAsync doesn't update properties` issue (#618)
-- Fix `UpdateUserAsync should allow updating the user type` issue (#615)
+- Fix "UpdateProfileMappingAsync doesn't update properties" issue (#618)
+- Fix "UpdateUserAsync should allow updating the user type" issue (#615)
 
 ## 6.0.6
 
