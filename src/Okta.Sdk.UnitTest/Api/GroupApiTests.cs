@@ -23,6 +23,7 @@ using WireMock.Logging;
 using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;
 using WireMock.Server;
+using System.Net.Sockets;
 
 namespace Okta.Sdk.UnitTest.Api
 {
@@ -36,16 +37,25 @@ namespace Okta.Sdk.UnitTest.Api
     public class GroupApiTests
     {
         private WireMockServer _server;
+        private int _port;
         public GroupApiTests()
         {
+            _port = FindFreeTcpPort();
             _server = WireMockServer.StartWithAdminInterface(9876);
-            _server.AllowPartialMapping(false);
-            _server.AddCatchAllMapping();
         }
 
         public void Dispose()
         {
             _server.Stop();
+        }
+
+        private static int FindFreeTcpPort()
+        {
+            TcpListener l = new TcpListener(IPAddress.Loopback, 0);
+            l.Start();
+            int port = ((IPEndPoint)l.LocalEndpoint).Port;
+            l.Stop();
+            return port;
         }
 
         private void CreateStubReturningDelayedResponse()
@@ -66,7 +76,7 @@ namespace Okta.Sdk.UnitTest.Api
         [Fact]
         public async Task ThrowOnTimeout()
         {
-            var groupsApi = new GroupApi(new Configuration {OktaDomain = "http://localhost:9876", Token = "foo", ConnectionTimeout = 1000, DisableOktaDomainCheck = true});
+            var groupsApi = new GroupApi(new Configuration {OktaDomain = $"http://localhost:{_port}", Token = "foo", ConnectionTimeout = 1000, DisableOktaDomainCheck = true});
             
                 CreateStubReturningDelayedResponse();
 
