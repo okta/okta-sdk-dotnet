@@ -39,7 +39,7 @@ namespace Okta.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "6.0.7";
+        public const string Version = "6.0.8";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -52,7 +52,8 @@ namespace Okta.Sdk.Client
         
         #region Okta Members
         
-        private bool _disableHttpsCheck = false;
+        private bool? _disableHttpsCheck = false;
+        private bool? _disableOktaDomainCheck;
 
         /// <summary>
         /// Gets or sets the Okta API token.
@@ -88,7 +89,7 @@ namespace Okta.Sdk.Client
         /// Gets or sets the flag to disable https check.
         /// This allows for insecure configurations and is NOT recommended for production use.
         /// </summary>
-        public bool DisableHttpsCheck
+        public bool? DisableHttpsCheck
         {
             get
             {
@@ -97,12 +98,34 @@ namespace Okta.Sdk.Client
 
             set
             {
-                if (value)
+                if (value.HasValue && value.Value)
                 {
                     Trace.TraceWarning("Warning: HTTPS check is disabled. This allows for insecure configurations and is NOT recommended for production use.");
                 }
 
                 _disableHttpsCheck = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the flag to disable Okta domain check.
+        /// This allows for insecure configurations and is NOT recommended for production use.
+        /// </summary>
+        public bool? DisableOktaDomainCheck
+        {
+            get
+            {
+                return _disableOktaDomainCheck;
+            }
+
+            set
+            {
+                if (value.HasValue && value.Value)
+                {
+                    Trace.TraceWarning("Warning: Okta domain check is disabled. This allows for insecure configurations and is NOT recommended for production use.");
+                }
+
+                _disableOktaDomainCheck = value;
             }
         }
 
@@ -236,28 +259,35 @@ namespace Okta.Sdk.Client
                 throw new ArgumentNullException(nameof(configuration.OktaDomain), "Your Okta URL is missing. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
             }
 
-            if (!configuration.DisableHttpsCheck && !configuration.OktaDomain.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+            if ((!configuration.DisableOktaDomainCheck.GetValueOrDefault() && !configuration.DisableHttpsCheck.GetValueOrDefault()) && !configuration.OktaDomain.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
             {
                 throw new ArgumentException($"Your Okta URL must start with https. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain", nameof(configuration.OktaDomain));
             }
 
-            if (configuration.OktaDomain.IndexOf("{yourOktaDomain}", StringComparison.OrdinalIgnoreCase) >= 0)
+            if (!configuration.DisableOktaDomainCheck.GetValueOrDefault())
             {
-                throw new ArgumentNullException(nameof(configuration.OktaDomain), "Replace {yourOktaDomain} with your Okta domain. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
+                if (configuration.OktaDomain.IndexOf("{yourOktaDomain}", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    throw new ArgumentNullException(nameof(configuration.OktaDomain),
+                        "Replace {yourOktaDomain} with your Okta domain. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
+                }
+
+                if (configuration.OktaDomain.IndexOf("-admin.okta.com", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    configuration.OktaDomain.IndexOf("-admin.oktapreview.com", StringComparison.OrdinalIgnoreCase) >=
+                    0 ||
+                    configuration.OktaDomain.IndexOf("-admin.okta-emea.com", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    throw new ArgumentNullException(nameof(configuration.OktaDomain),
+                        $"Your Okta domain should not contain -admin. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
+                }
+
+                if (configuration.OktaDomain.IndexOf(".com.com", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    throw new ArgumentNullException(nameof(configuration.OktaDomain),
+                        $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
+                }
             }
 
-            if (configuration.OktaDomain.IndexOf("-admin.okta.com", StringComparison.OrdinalIgnoreCase) >= 0 ||
-                configuration.OktaDomain.IndexOf("-admin.oktapreview.com", StringComparison.OrdinalIgnoreCase) >= 0 ||
-                configuration.OktaDomain.IndexOf("-admin.okta-emea.com", StringComparison.OrdinalIgnoreCase) >= 0)
-            {
-                throw new ArgumentNullException(nameof(configuration.OktaDomain), $"Your Okta domain should not contain -admin. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
-            }
-
-            if (configuration.OktaDomain.IndexOf(".com.com", StringComparison.OrdinalIgnoreCase) >= 0)
-            {
-                throw new ArgumentNullException(nameof(configuration.OktaDomain), $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
-            }
-           
             if (Configuration.IsSswsMode(configuration))
             {
                 if (Regex.Matches(configuration.OktaDomain, "://").Count != 1)
@@ -728,7 +758,7 @@ namespace Okta.Sdk.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 3.0.0\n";
-            report += "    SDK Package Version: 6.0.7\n";
+            report += "    SDK Package Version: 6.0.8\n";
 
             return report;
         }
@@ -796,7 +826,9 @@ namespace Okta.Sdk.Client
                 AuthorizationMode = second.AuthorizationMode ?? first.AuthorizationMode,
                 ClientId = second.ClientId ?? first.ClientId,
                 Scopes = second.Scopes ?? first.Scopes,
-                PrivateKey = second.PrivateKey ?? first.PrivateKey
+                PrivateKey = second.PrivateKey ?? first.PrivateKey,
+                DisableOktaDomainCheck = second.DisableOktaDomainCheck ?? first.DisableOktaDomainCheck,
+                DisableHttpsCheck = second.DisableHttpsCheck ?? first.DisableHttpsCheck,
             };
             return config;
         }

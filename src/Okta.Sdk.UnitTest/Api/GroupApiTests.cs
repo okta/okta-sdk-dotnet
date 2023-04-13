@@ -9,6 +9,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using Xunit;
@@ -18,6 +19,11 @@ using Okta.Sdk.UnitTest.Internal;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
+using WireMock.Logging;
+using WireMock.RequestBuilders;
+using WireMock.ResponseBuilders;
+using WireMock.Server;
+using System.Net.Sockets;
 
 namespace Okta.Sdk.UnitTest.Api
 {
@@ -30,6 +36,54 @@ namespace Okta.Sdk.UnitTest.Api
     /// </remarks>
     public class GroupApiTests
     {
+        private WireMockServer _server;
+        private int _port;
+        public GroupApiTests()
+        {
+            _port = FindFreeTcpPort();
+            _server = WireMockServer.StartWithAdminInterface(_port);
+        }
+
+        public void Dispose()
+        {
+            _server.Stop();
+        }
+
+        private static int FindFreeTcpPort()
+        {
+            TcpListener l = new TcpListener(IPAddress.Loopback, 0);
+            l.Start();
+            int port = ((IPEndPoint)l.LocalEndpoint).Port;
+            l.Stop();
+            return port;
+        }
+
+        private void CreateStubReturningDelayedResponse()
+        {
+            _server.Given(
+                    Request.Create().WithPath("/api/v1/groups*")
+                )
+                .RespondWith(
+                    Response.Create()
+                        .WithStatusCode(200)
+                        .WithHeader("Content-Type", "text/json")
+                        .WithBody(@"{}")
+                        // this returns the response after a 5000ms delay
+                        .WithDelay(TimeSpan.FromMilliseconds(5000))
+                );
+        }
+
+        [Fact]
+        public async Task ThrowOnTimeout()
+        {
+            var groupsApi = new GroupApi(new Configuration {OktaDomain = $"http://localhost:{_port}", Token = "foo", ConnectionTimeout = 1000, DisableOktaDomainCheck = true});
+            
+                CreateStubReturningDelayedResponse();
+
+                await Assert.ThrowsAsync<TimeoutException>(async () => await groupsApi.GetGroupAsync("foo"));
+                await Assert.ThrowsAsync<TimeoutException>(async () => await groupsApi.ListGroups().ToListAsync());
+        }
+
         [Fact]
         public async Task ListApplicationTargetsForApplicationAdministratorRoleForGroup()
         {

@@ -539,6 +539,11 @@ namespace Okta.Sdk.Client
             {
                 response = await client.ExecuteAsync<T>(req, cancellationToken).ConfigureAwait(false);
             }
+
+            if (response.ResponseStatus == ResponseStatus.TimedOut)
+            {
+                throw new TimeoutException(response.ErrorMessage, response.ErrorException);
+            }
             
             // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
             if (typeof(Okta.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
