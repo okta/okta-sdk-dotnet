@@ -511,6 +511,7 @@ Class | Method | HTTP request | Description
 *UserFactorApi* | [**ListFactors**](docs/UserFactorApi.md#listfactors) | **GET** /api/v1/users/{userId}/factors | List all Factors
 *UserFactorApi* | [**ListSupportedFactors**](docs/UserFactorApi.md#listsupportedfactors) | **GET** /api/v1/users/{userId}/factors/catalog | List all Supported Factors
 *UserFactorApi* | [**ListSupportedSecurityQuestions**](docs/UserFactorApi.md#listsupportedsecurityquestions) | **GET** /api/v1/users/{userId}/factors/questions | List all Supported Security Questions
+*UserFactorApi* | [**ResendEnrollFactor**](docs/UserFactorApi.md#resendenrollfactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/resend | Resend factor enrollment
 *UserFactorApi* | [**VerifyFactor**](docs/UserFactorApi.md#verifyfactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/verify | Verify an MFA Factor
 *UserTypeApi* | [**CreateUserType**](docs/UserTypeApi.md#createusertype) | **POST** /api/v1/meta/types/user | Create a User Type
 *UserTypeApi* | [**DeleteUserType**](docs/UserTypeApi.md#deleteusertype) | **DELETE** /api/v1/meta/types/user/{typeId} | Delete a User Type
