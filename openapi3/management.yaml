@@ -14620,13 +14620,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserFactor'
         '400':
-          $ref: ./Common.yaml#/components/responses/ErrorApiValidationFailed400
+          $ref: '#/components/responses/ErrorApiValidationFailed400'
         '403':
-          $ref: ./Common.yaml#/components/responses/ErrorAccessDenied403
+          $ref: '#/components/responses/ErrorAccessDenied403'
         '404':
-          $ref: ./Common.yaml#/components/responses/ErrorResourceNotFound404
+          $ref: '#/components/responses/ErrorResourceNotFound404'
         '429':
-          $ref: ./Common.yaml#/components/responses/ErrorTooManyRequests429
+          $ref: '#/components/responses/ErrorTooManyRequests429'
       security:
         - apiToken: []
         - oauth2:
@@ -21234,10 +21234,10 @@ components:
           readOnly: true
         _links:
           allOf:
-            - $ref: ./Common.yaml#/components/schemas/LinksSelf
+            - $ref: '#/components/schemas/LinksSelf'
             - properties:
                 permissions:
-                  $ref: ./Common.yaml#/components/schemas/HrefObject
+                  $ref: '#/components/schemas/HrefObject'
       required:
         - label
         - description

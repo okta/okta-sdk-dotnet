@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Permissions
         /// </summary>
         [DataMember(Name = "permissions", EmitDefaultValue = false)]
-        public Object Permissions { get; set; }
+        public HrefObject Permissions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
