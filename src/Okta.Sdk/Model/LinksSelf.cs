@@ -27,11 +27,11 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// IamRoleLinks
+    /// Specifies link relations (see [Web Linking](https://www.rfc-editor.org/rfc/rfc8288)) available for the current status of an application using the [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.
     /// </summary>
-    [DataContract(Name = "IamRole__links")]
+    [DataContract(Name = "LinksSelf")]
     
-    public partial class IamRoleLinks : IEquatable<IamRoleLinks>
+    public partial class LinksSelf : IEquatable<LinksSelf>
     {
         
         /// <summary>
@@ -41,21 +41,14 @@ namespace Okta.Sdk.Model
         public HrefObjectSelfLink Self { get; set; }
 
         /// <summary>
-        /// Gets or Sets Permissions
-        /// </summary>
-        [DataMember(Name = "permissions", EmitDefaultValue = false)]
-        public HrefObject Permissions { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class IamRoleLinks {\n");
+            sb.Append("class LinksSelf {\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
-            sb.Append("  Permissions: ").Append(Permissions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -76,15 +69,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as IamRoleLinks);
+            return this.Equals(input as LinksSelf);
         }
 
         /// <summary>
-        /// Returns true if IamRoleLinks instances are equal
+        /// Returns true if LinksSelf instances are equal
         /// </summary>
-        /// <param name="input">Instance of IamRoleLinks to be compared</param>
+        /// <param name="input">Instance of LinksSelf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(IamRoleLinks input)
+        public bool Equals(LinksSelf input)
         {
             if (input == null)
             {
@@ -95,11 +88,6 @@ namespace Okta.Sdk.Model
                     this.Self == input.Self ||
                     (this.Self != null &&
                     this.Self.Equals(input.Self))
-                ) && 
-                (
-                    this.Permissions == input.Permissions ||
-                    (this.Permissions != null &&
-                    this.Permissions.Equals(input.Permissions))
                 );
         }
 
@@ -116,10 +104,6 @@ namespace Okta.Sdk.Model
                 if (this.Self != null)
                 {
                     hashCode = (hashCode * 59) + this.Self.GetHashCode();
-                }
-                if (this.Permissions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
                 }
                 return hashCode;
             }
