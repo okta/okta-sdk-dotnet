@@ -677,7 +677,7 @@ Name | Type | Description  | Notes
 
 Resend factor enrollment
 
-Resends an SMS/Voice Call/Email as part of enrollment
+Resends a factor challenge (SMS/call/email OTP) as part of an enrollment flow. The current rate limit is one OTP challenge (call or SMS) per device every 30 seconds. Okta round-robins between SMS providers with every resend request to help ensure delivery of an SMS OTP across different carriers.
 
 ### Example
 ```csharp
