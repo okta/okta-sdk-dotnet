@@ -14582,6 +14582,57 @@ paths:
             - okta.users.manage
       tags:
         - UserFactor
+  /api/v1/users/{userId}/factors/{factorId}/resend:
+    post:
+      summary: Resend factor enrollment
+      description: Resends a factor challenge (SMS/call/email OTP) as part of an enrollment flow. 
+                   The current rate limit is one OTP challenge (call or SMS) per device every 30 seconds. 
+                   Okta round-robins between SMS providers with every resend request to help ensure delivery of an SMS OTP across different carriers.
+      operationId: resendEnrollFactor
+      parameters:
+        - name: templateId
+          in: query
+          description: id of SMS template (only for SMS factor)
+          schema:
+            type: string
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: factorId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Factor
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserFactor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserFactor'
+        '400':
+          $ref: '#/components/responses/ErrorApiValidationFailed400'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.users.manage
+      tags:
+        - UserFactor
   /api/v1/users/{userId}/factors/catalog:
     get:
       summary: List all Supported Factors
@@ -21158,6 +21209,17 @@ components:
         - GET
         - POST
         - PUT
+    LinksSelf:
+      description: Specifies link relations (see [Web Linking](https://www.rfc-editor.org/rfc/rfc8288)) available for the current status of an application using the [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HrefObjectSelfLink'
+      readOnly: true
+    HrefObjectSelfLink:
+      allOf:
+        - $ref: '#/components/schemas/HrefObject'
+        - description: Link to the resource (self)
     IamRole:
       type: object
       properties:
@@ -21183,10 +21245,10 @@ components:
           readOnly: true
         _links:
           allOf:
-            - $ref: ./Common.yaml#/components/schemas/LinksSelf
+            - $ref: '#/components/schemas/LinksSelf'
             - properties:
                 permissions:
-                  $ref: ./Common.yaml#/components/schemas/HrefObject
+                  $ref: '#/components/schemas/HrefObject'
       required:
         - label
         - description

@@ -229,6 +229,34 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;SecurityQuestion&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<SecurityQuestion>>> ListSupportedSecurityQuestionsWithHttpInfoAsync(  string userId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Resend factor enrollment
+        /// </summary>
+        /// <remarks>
+        /// Resends a factor challenge (SMS/call/email OTP) as part of an enrollment flow. The current rate limit is one OTP challenge (call or SMS) per device every 30 seconds. Okta round-robins between SMS providers with every resend request to help ensure delivery of an SMS OTP across different carriers.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="factorId"></param>
+        /// <param name="userFactor">Factor</param>
+        /// <param name="templateId">id of SMS template (only for SMS factor) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of UserFactor</returns>
+        System.Threading.Tasks.Task<UserFactor> ResendEnrollFactorAsync(  string userId ,   string factorId ,   UserFactor userFactor ,   string templateId = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Resend factor enrollment
+        /// </summary>
+        /// <remarks>
+        /// Resends a factor challenge (SMS/call/email OTP) as part of an enrollment flow. The current rate limit is one OTP challenge (call or SMS) per device every 30 seconds. Okta round-robins between SMS providers with every resend request to help ensure delivery of an SMS OTP across different carriers.
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="factorId"></param>
+        /// <param name="userFactor">Factor</param>
+        /// <param name="templateId">id of SMS template (only for SMS factor) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (UserFactor)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserFactor>> ResendEnrollFactorWithHttpInfoAsync(  string userId ,   string factorId ,   UserFactor userFactor ,   string templateId = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Verify an MFA Factor
         /// </summary>
         /// <remarks>
@@ -1235,6 +1263,116 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListSupportedSecurityQuestions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Resend factor enrollment Resends a factor challenge (SMS/call/email OTP) as part of an enrollment flow. The current rate limit is one OTP challenge (call or SMS) per device every 30 seconds. Okta round-robins between SMS providers with every resend request to help ensure delivery of an SMS OTP across different carriers.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="factorId"></param>
+        /// <param name="userFactor">Factor</param>
+        /// <param name="templateId">id of SMS template (only for SMS factor) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of UserFactor</returns>
+        public async System.Threading.Tasks.Task<UserFactor> ResendEnrollFactorAsync(  string userId ,   string factorId ,   UserFactor userFactor ,   string templateId = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<UserFactor> localVarResponse = await ResendEnrollFactorWithHttpInfoAsync(userId, factorId, userFactor, templateId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Resend factor enrollment Resends a factor challenge (SMS/call/email OTP) as part of an enrollment flow. The current rate limit is one OTP challenge (call or SMS) per device every 30 seconds. Okta round-robins between SMS providers with every resend request to help ensure delivery of an SMS OTP across different carriers.
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="factorId"></param>
+        /// <param name="userFactor">Factor</param>
+        /// <param name="templateId">id of SMS template (only for SMS factor) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (UserFactor)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserFactor>> ResendEnrollFactorWithHttpInfoAsync(  string userId ,   string factorId ,   UserFactor userFactor ,   string templateId = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserFactorApi->ResendEnrollFactor");
+            }
+
+            // verify the required parameter 'factorId' is set
+            if (factorId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'factorId' when calling UserFactorApi->ResendEnrollFactor");
+            }
+
+            // verify the required parameter 'userFactor' is set
+            if (userFactor == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userFactor' when calling UserFactorApi->ResendEnrollFactor");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("factorId", Okta.Sdk.Client.ClientUtils.ParameterToString(factorId)); // path parameter
+            if (templateId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "templateId", templateId));
+            }
+            localVarRequestOptions.Data = userFactor;
+
+            // authentication (apiToken) required
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (oauth2) required
+            // oauth required
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<UserFactor>("/api/v1/users/{userId}/factors/{factorId}/resend", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResendEnrollFactor", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

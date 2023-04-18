@@ -259,6 +259,7 @@ docs/HostedPage.md
 docs/HostedPageType.md
 docs/HrefObject.md
 docs/HrefObjectHints.md
+docs/HrefObjectSelfLink.md
 docs/HttpMethod.md
 docs/IamRole.md
 docs/IamRoleLinks.md
@@ -313,6 +314,7 @@ docs/LinkedObject.md
 docs/LinkedObjectApi.md
 docs/LinkedObjectDetails.md
 docs/LinkedObjectDetailsType.md
+docs/LinksSelf.md
 docs/LoadingPageTouchPointVariant.md
 docs/LocationGranularity.md
 docs/LogActor.md
@@ -1003,6 +1005,7 @@ src/Okta.Sdk/Model/HostedPage.cs
 src/Okta.Sdk/Model/HostedPageType.cs
 src/Okta.Sdk/Model/HrefObject.cs
 src/Okta.Sdk/Model/HrefObjectHints.cs
+src/Okta.Sdk/Model/HrefObjectSelfLink.cs
 src/Okta.Sdk/Model/HttpMethod.cs
 src/Okta.Sdk/Model/IamRole.cs
 src/Okta.Sdk/Model/IamRoleLinks.cs
@@ -1054,6 +1057,7 @@ src/Okta.Sdk/Model/LifecycleStatus.cs
 src/Okta.Sdk/Model/LinkedObject.cs
 src/Okta.Sdk/Model/LinkedObjectDetails.cs
 src/Okta.Sdk/Model/LinkedObjectDetailsType.cs
+src/Okta.Sdk/Model/LinksSelf.cs
 src/Okta.Sdk/Model/LoadingPageTouchPointVariant.cs
 src/Okta.Sdk/Model/LocationGranularity.cs
 src/Okta.Sdk/Model/LogActor.cs

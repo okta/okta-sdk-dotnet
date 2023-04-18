@@ -4,6 +4,9 @@ Running changelog of releases since `3.1.1`
 ## 6.0.8
 
 - Fix "API Calls Trap Request Timeout Exceptions" issue (#632)
+- Fix "Resend SMS as part of enrollment" issue (#633)
+- Update `IamRoles.Permissions` object type from `Object` to `HrefObject`.
+- Add `IamRoles.Self` property.
 
 ## 6.0.7
 
