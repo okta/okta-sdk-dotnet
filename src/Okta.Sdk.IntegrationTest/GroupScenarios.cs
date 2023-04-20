@@ -50,6 +50,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 var retrievedGroup = await _groupApi.GetGroupAsync(createdGroup.Id);
+                retrievedGroup.Profile.Name.Should().Be(group.Profile.Name);
                 retrievedGroup.Should().NotBeNull();
 
             }

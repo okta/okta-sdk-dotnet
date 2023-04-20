@@ -157,7 +157,34 @@ namespace Okta.Sdk.UnitTest.Api
         [Fact]
         public async Task AddApplicationTargetToAdminRoleGivenToGroup()
         {
-       
+
+            var response = @"{
+                               ""id"":""foo"",
+                               ""created"":""2021-09-24T17:52:26.000Z"",
+                               ""lastUpdated"":""2021-09-24T17:52:26.000Z"",
+                               ""lastMembershipUpdated"":""2021-09-27T19:44:46.000Z"",
+                               ""objectClass"":[
+                                  ""okta:user_group""
+                               ],
+                               ""type"":""OKTA_GROUP"",
+                               ""profile"":{
+                                  ""name"":""Admins"",
+                                  ""description"":""Admin Group"",
+                                  ""customProp"":""customValue""
+                               }
+                            }";
+            var mockClient = new MockAsyncClient(response, HttpStatusCode.OK);
+            var groupApi = new GroupApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+
+            var retrievedGroup = await groupApi.GetGroupAsync("foo");
+
+            retrievedGroup.Profile.AdditionalProperties["customProp"].Should().Be("customValue");
+        }
+
+        [Fact]
+        public async Task GetGroupWithCustomProperties()
+        {
+
             var mockClient = new MockAsyncClient(String.Empty, HttpStatusCode.OK);
             var roleTargetApi = new RoleTargetApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 

@@ -1,6 +1,10 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 6.0.9
+
+- Fix "Retrieving Group no Longer Retrieves Additional Profile Data" issue (#634)
+
 ## 6.0.8
 
 - Fix "API Calls Trap Request Timeout Exceptions" issue (#632)
