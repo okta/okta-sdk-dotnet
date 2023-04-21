@@ -9,21 +9,17 @@
  */
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using Xunit;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Okta.Sdk.UnitTest.Internal;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-using WireMock.Logging;
+using Okta.Sdk.UnitTest.Internal;
 using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;
 using WireMock.Server;
-using System.Net.Sockets;
+using Xunit;
 
 namespace Okta.Sdk.UnitTest.Api
 {
@@ -36,26 +32,16 @@ namespace Okta.Sdk.UnitTest.Api
     /// </remarks>
     public class GroupApiTests
     {
-        private WireMockServer _server;
-        private int _port;
+        private readonly WireMockServer _server;
+
         public GroupApiTests()
         {
-            _port = FindFreeTcpPort();
-            _server = WireMockServer.StartWithAdminInterface(_port);
+            _server = WireMockServer.Start();
         }
 
         public void Dispose()
         {
             _server.Stop();
-        }
-
-        private static int FindFreeTcpPort()
-        {
-            TcpListener l = new TcpListener(IPAddress.Loopback, 0);
-            l.Start();
-            int port = ((IPEndPoint)l.LocalEndpoint).Port;
-            l.Stop();
-            return port;
         }
 
         private void CreateStubReturningDelayedResponse()
@@ -76,12 +62,12 @@ namespace Okta.Sdk.UnitTest.Api
         [Fact]
         public async Task ThrowOnTimeout()
         {
-            var groupsApi = new GroupApi(new Configuration {OktaDomain = $"http://localhost:{_port}", Token = "foo", ConnectionTimeout = 1000, DisableOktaDomainCheck = true});
-            
-                CreateStubReturningDelayedResponse();
+            var groupsApi = new GroupApi(new Configuration { OktaDomain = _server.Url!, Token = "foo", ConnectionTimeout = 1000, DisableOktaDomainCheck = true });
 
-                await Assert.ThrowsAsync<TimeoutException>(async () => await groupsApi.GetGroupAsync("foo"));
-                await Assert.ThrowsAsync<TimeoutException>(async () => await groupsApi.ListGroups().ToListAsync());
+            CreateStubReturningDelayedResponse();
+
+            await Assert.ThrowsAsync<TimeoutException>(async () => await groupsApi.GetGroupAsync("foo"));
+            await Assert.ThrowsAsync<TimeoutException>(async () => await groupsApi.ListGroups().ToListAsync());
         }
 
         [Fact]
@@ -135,7 +121,7 @@ namespace Okta.Sdk.UnitTest.Api
             mockClient.ReceivedPathParams["groupId"].Should().Contain("foo");
             mockClient.ReceivedPathParams["roleId"].Should().Contain("bar");
 
-            
+
 
             apps.Should().NotBeNullOrEmpty();
             apps.Should().HaveCount(2);
@@ -155,7 +141,7 @@ namespace Okta.Sdk.UnitTest.Api
         }
 
         [Fact]
-        public async Task AddApplicationTargetToAdminRoleGivenToGroup()
+        public async Task GetGroupWithCustomProperties()
         {
 
             var response = @"{
@@ -182,7 +168,7 @@ namespace Okta.Sdk.UnitTest.Api
         }
 
         [Fact]
-        public async Task GetGroupWithCustomProperties()
+        public async Task AddApplicationTargetToAdminRoleGivenToGroup()
         {
 
             var mockClient = new MockAsyncClient(String.Empty, HttpStatusCode.OK);
@@ -204,13 +190,12 @@ namespace Okta.Sdk.UnitTest.Api
 
 
             await roleTargetApi.AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync("foo", "bar", "baz", "bax");
-            
+
             mockClient.ReceivedPath.Should().StartWith("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId}");
             mockClient.ReceivedPathParams["groupId"].Should().Contain("foo");
             mockClient.ReceivedPathParams["roleId"].Should().Contain("bar");
             mockClient.ReceivedPathParams["appName"].Should().Contain("baz");
             mockClient.ReceivedPathParams["applicationId"].Should().Contain("bax");
-
         }
 
         [Fact]
