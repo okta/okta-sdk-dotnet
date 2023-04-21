@@ -20910,6 +20910,7 @@ components:
           items:
             type: string
     GroupProfile:
+      additionalProperties: true
       type: object
       properties:
         description:
