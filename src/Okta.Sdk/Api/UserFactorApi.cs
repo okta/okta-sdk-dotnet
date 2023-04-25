@@ -63,10 +63,10 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="factorId"></param>
-        /// <param name="removeEnrollmentRecovery"> (optional, default to false)</param>
+        /// <param name="removeRecoveryEnrollment"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteFactorAsync(  string userId ,   string factorId ,   bool? removeEnrollmentRecovery = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteFactorAsync(  string userId ,   string factorId ,   bool? removeRecoveryEnrollment = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Factor
         /// </summary>
@@ -76,10 +76,10 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="factorId"></param>
-        /// <param name="removeEnrollmentRecovery"> (optional, default to false)</param>
+        /// <param name="removeRecoveryEnrollment"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFactorWithHttpInfoAsync(  string userId ,   string factorId ,   bool? removeEnrollmentRecovery = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFactorWithHttpInfoAsync(  string userId ,   string factorId ,   bool? removeRecoveryEnrollment = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Enroll a Factor
         /// </summary>
@@ -501,12 +501,12 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="factorId"></param>
-        /// <param name="removeEnrollmentRecovery"> (optional, default to false)</param>
+        /// <param name="removeRecoveryEnrollment"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteFactorAsync(  string userId ,   string factorId ,   bool? removeEnrollmentRecovery = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteFactorAsync(  string userId ,   string factorId ,   bool? removeRecoveryEnrollment = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await DeleteFactorWithHttpInfoAsync(userId, factorId, removeEnrollmentRecovery, cancellationToken).ConfigureAwait(false);
+            await DeleteFactorWithHttpInfoAsync(userId, factorId, removeRecoveryEnrollment, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete a Factor Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
@@ -514,10 +514,10 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="factorId"></param>
-        /// <param name="removeEnrollmentRecovery"> (optional, default to false)</param>
+        /// <param name="removeRecoveryEnrollment"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteFactorWithHttpInfoAsync(  string userId ,   string factorId ,   bool? removeEnrollmentRecovery = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteFactorWithHttpInfoAsync(  string userId ,   string factorId ,   bool? removeRecoveryEnrollment = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -556,9 +556,9 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("factorId", Okta.Sdk.Client.ClientUtils.ParameterToString(factorId)); // path parameter
-            if (removeEnrollmentRecovery != null)
+            if (removeRecoveryEnrollment != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "removeEnrollmentRecovery", removeEnrollmentRecovery));
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "removeRecoveryEnrollment", removeRecoveryEnrollment));
             }
 
             // authentication (apiToken) required

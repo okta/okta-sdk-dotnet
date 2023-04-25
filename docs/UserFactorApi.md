@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 <a name="deletefactor"></a>
 # **DeleteFactor**
-> void DeleteFactor (string userId, string factorId, bool? removeEnrollmentRecovery = null)
+> void DeleteFactor (string userId, string factorId, bool? removeRecoveryEnrollment = null)
 
 Delete a Factor
 
@@ -132,12 +132,12 @@ namespace Example
             var apiInstance = new UserFactorApi(config);
             var userId = "userId_example";  // string | 
             var factorId = "factorId_example";  // string | 
-            var removeEnrollmentRecovery = false;  // bool? |  (optional)  (default to false)
+            var removeRecoveryEnrollment = false;  // bool? |  (optional)  (default to false)
 
             try
             {
                 // Delete a Factor
-                apiInstance.DeleteFactor(userId, factorId, removeEnrollmentRecovery);
+                apiInstance.DeleteFactor(userId, factorId, removeRecoveryEnrollment);
             }
             catch (ApiException  e)
             {
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
  **factorId** | **string**|  | 
- **removeEnrollmentRecovery** | **bool?**|  | [optional] [default to false]
+ **removeRecoveryEnrollment** | **bool?**|  | [optional] [default to false]
 
 ### Return type
 
