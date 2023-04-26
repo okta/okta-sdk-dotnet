@@ -131,5 +131,71 @@ namespace Okta.Sdk.IntegrationTest
                 }
             }
         }
+
+        [Fact]
+        public async Task ResetFactor()
+        {
+            var guid = Guid.NewGuid();
+            User createdUser = null;
+
+            var createUserRequest = new CreateUserRequest
+            {
+
+                Profile = new UserProfile
+                {
+                    FirstName = "FirstName",
+                    LastName = "LastName",
+                    Login = $"{Guid.NewGuid()}@login.com",
+                    Email = $"{Guid.NewGuid()}@email.com",
+                    PrimaryPhone = "123-321-4444",
+                    MobilePhone = "321-123-5555",
+                    Locale = "en_US",
+                    SecondEmail = $"{Guid.NewGuid()}@second.com",
+                    Timezone = "Japan",
+                }
+            };
+
+            try
+            {
+                createdUser = await _userApi.CreateUserAsync(createUserRequest);
+
+                var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new SmsUserFactor
+                {
+                    FactorType = FactorType.Sms,
+                    Profile = new SmsUserFactorProfile
+                    {
+                        PhoneNumber = "+16284001133",
+                    }
+                }, activate:true);
+
+                createdUserFactor.Should().NotBeNull();
+                createdUserFactor.FactorType.Should().Be(FactorType.Sms);
+                createdUserFactor.Status.Should().Be(FactorStatus.ACTIVE);
+                ((SmsUserFactor)createdUserFactor).Profile.PhoneNumber.Should().Be("+16284001133");
+
+                var userFactorsCatalog = await _userFactorApi.ListSupportedFactors(createdUser.Id).ToListAsync();
+
+                userFactorsCatalog.Any(x => x.FactorType == FactorType.Sms).Should().BeTrue();
+
+                await _userFactorApi.DeleteFactorAsync(createdUser.Id, createdUserFactor.Id, removeRecoveryEnrollment: true);
+
+                userFactorsCatalog = await _userFactorApi.ListSupportedFactors(createdUser.Id).ToListAsync();
+
+                var smsFactor = userFactorsCatalog.FirstOrDefault(x => x.FactorType == FactorType.Sms);
+
+                smsFactor.Should().NotBeNull();
+                smsFactor.Status.Should().Be(FactorStatus.NOTSETUP);
+                //smsFactor.Embedded?.Should().NotContainKey("phones")
+
+            }
+            finally
+            {
+                if (createdUser != null)
+                {
+                    await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                    await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                }
+            }
+        }
     }
 }

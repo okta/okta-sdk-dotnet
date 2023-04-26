@@ -14745,7 +14745,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: removeEnrollmentRecovery
+        - name: removeRecoveryEnrollment
           in: query
           schema:
             type: boolean
