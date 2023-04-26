@@ -47,6 +47,12 @@ namespace Okta.Sdk.Model
         public PasswordCredential OldPassword { get; set; }
 
         /// <summary>
+        /// Gets or Sets RevokeSessions
+        /// </summary>
+        [DataMember(Name = "revokeSessions", EmitDefaultValue = true)]
+        public bool RevokeSessions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -56,6 +62,7 @@ namespace Okta.Sdk.Model
             sb.Append("class ChangePasswordRequest {\n");
             sb.Append("  NewPassword: ").Append(NewPassword).Append("\n");
             sb.Append("  OldPassword: ").Append(OldPassword).Append("\n");
+            sb.Append("  RevokeSessions: ").Append(RevokeSessions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,6 +107,10 @@ namespace Okta.Sdk.Model
                     this.OldPassword == input.OldPassword ||
                     (this.OldPassword != null &&
                     this.OldPassword.Equals(input.OldPassword))
+                ) && 
+                (
+                    this.RevokeSessions == input.RevokeSessions ||
+                    this.RevokeSessions.Equals(input.RevokeSessions)
                 );
         }
 
@@ -121,6 +132,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.OldPassword.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.RevokeSessions.GetHashCode();
                 return hashCode;
             }
         }

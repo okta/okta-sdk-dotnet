@@ -19866,6 +19866,8 @@ components:
           $ref: '#/components/schemas/PasswordCredential'
         oldPassword:
           $ref: '#/components/schemas/PasswordCredential'
+        revokeSessions:
+          type: boolean
     ChannelBinding:
       type: object
       properties:
