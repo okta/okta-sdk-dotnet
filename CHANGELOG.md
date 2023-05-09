@@ -1,6 +1,11 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 6.0.10
+
+- Fix "DeleteFactorAsync not removing phone with removeEnrollmentRecovery" issue (#630)
+- Fix "ChangePasswordRequest.revokeSessions does not exist" issue (#624)
+
 ## 6.0.9
 
 - Fix "Retrieving Group no Longer Retrieves Additional Profile Data" issue (#634)

@@ -185,8 +185,6 @@ namespace Okta.Sdk.IntegrationTest
 
                 smsFactor.Should().NotBeNull();
                 smsFactor.Status.Should().Be(FactorStatus.NOTSETUP);
-                //smsFactor.Embedded?.Should().NotContainKey("phones")
-
             }
             finally
             {
