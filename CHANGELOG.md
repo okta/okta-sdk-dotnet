@@ -1,6 +1,10 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 6.0.11
+
+- Fix "Create/Update Account returns NULL when okta tenant hits rate limits" issue (#638)
+
 ## 6.0.10
 
 - Fix "DeleteFactorAsync not removing phone with removeEnrollmentRecovery" issue (#630)

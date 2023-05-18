@@ -529,11 +529,27 @@ namespace {{packageName}}.Client
             if (policy != null)
             {
                 var policyResult = await policy.ExecuteAndCaptureAsync(action: (ctx) => ExecuteAsyncWithRetryHeaders(ctx, req, client), new Context()).ConfigureAwait(false);
-                response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>
+
+                if (policyResult.Outcome == OutcomeType.Successful)
                 {
-                    Request = req,
-                    ErrorException = policyResult.FinalException
-                };
+                    response = client.Deserialize<T>(policyResult.Result);
+                }
+                else //Failure
+                {
+                    if (policyResult.FinalHandledResult != null)
+                    {
+                        RestResponse finalHandledResult = (RestResponse)policyResult.FinalHandledResult;
+                        response = (RestResponse<T>)finalHandledResult;
+                    }
+                    else
+                    {
+                        response = new RestResponse<T>
+                        {
+                            Request = req,
+                            ErrorException = policyResult.FinalException
+                        };
+                    }
+                }
             }
             else
             {
