@@ -30,6 +30,32 @@ namespace Okta.Sdk.UnitTest.Api
             _server.Stop();
         }
 
+        private void CreateDefaultStubRateLimitResponse()
+        {
+            var dateHeader = new DateTimeOffset(DateTime.Now);
+            var resetTime = dateHeader.AddSeconds(1).ToUnixTimeSeconds();
+
+            _server.Given(
+                    Request.Create().WithPath("*")
+                ).AtPriority(10)
+                .RespondWith(
+                    Response.Create()
+                        .WithStatusCode(429)
+                        .WithHeader("Content-Type", "text/json")
+                        .WithHeader("Date", dateHeader.ToString())
+                        .WithHeader("x-rate-limit-reset", resetTime.ToString())
+                        .WithHeader(DefaultRetryStrategy.XOktaRequestId, "foo")
+                        .WithBody(@"{
+                                        ""errorCode"": ""E0000047"",
+                                        ""errorSummary"": ""API call exceeded rate limit due to too many requests."",
+                                        ""errorLink"": E0000047,
+                                        ""errorId"": ""sample0eww_TKcLhu8FoK7qM4"",
+                                        ""errorCauses"": []
+                                    }")
+
+                );
+        }
+
         private void CreateStubReturningRateLimitResponse()
         {
             var dateHeader = new DateTimeOffset(DateTime.Now);
@@ -37,7 +63,7 @@ namespace Okta.Sdk.UnitTest.Api
             
             _server.Given(
                     Request.Create().WithPath("/api/v1/users*")
-                )
+                ).AtPriority(1)
                 .RespondWith(
                     Response.Create()
                         .WithStatusCode(429)
@@ -60,7 +86,7 @@ namespace Okta.Sdk.UnitTest.Api
         {
             _server.Given(
                     Request.Create().WithPath("/oauth2/v1/token*")
-                )
+                ).AtPriority(1)
                 .RespondWith(
                     Response.Create()
                         .WithStatusCode(200)
@@ -145,6 +171,7 @@ namespace Okta.Sdk.UnitTest.Api
             
             CreateStubReturningOAuthTokenResponse();
             CreateStubReturningRateLimitResponse();
+            CreateDefaultStubRateLimitResponse();
 
             var exception = await Assert.ThrowsAsync<ApiException>(async () => await userApi.PartialUpdateUserAsync("foo",
                 new UpdateUserRequest
