@@ -29,40 +29,14 @@ namespace Okta.Sdk.UnitTest.Api
         {
             _server.Stop();
         }
-
-        private void CreateDefaultStubRateLimitResponse()
-        {
-            var dateHeader = new DateTimeOffset(DateTime.Now);
-            var resetTime = dateHeader.AddSeconds(1).ToUnixTimeSeconds();
-
-            _server.Given(
-                    Request.Create().WithPath("*")
-                ).AtPriority(10)
-                .RespondWith(
-                    Response.Create()
-                        .WithStatusCode(429)
-                        .WithHeader("Content-Type", "text/json")
-                        .WithHeader("Date", dateHeader.ToString())
-                        .WithHeader("x-rate-limit-reset", resetTime.ToString())
-                        .WithHeader(DefaultRetryStrategy.XOktaRequestId, "foo")
-                        .WithBody(@"{
-                                        ""errorCode"": ""E0000047"",
-                                        ""errorSummary"": ""API call exceeded rate limit due to too many requests."",
-                                        ""errorLink"": E0000047,
-                                        ""errorId"": ""sample0eww_TKcLhu8FoK7qM4"",
-                                        ""errorCauses"": []
-                                    }")
-
-                );
-        }
-
+        
         private void CreateStubReturningRateLimitResponse()
         {
             var dateHeader = new DateTimeOffset(DateTime.Now);
             var resetTime = dateHeader.AddSeconds(1).ToUnixTimeSeconds();
             
             _server.Given(
-                    Request.Create().WithPath("/api/v1/users*")
+                    Request.Create().WithPath("/api/v1/users/foo")
                 ).AtPriority(1)
                 .RespondWith(
                     Response.Create()
@@ -74,7 +48,7 @@ namespace Okta.Sdk.UnitTest.Api
                         .WithBody(@"{
                                         ""errorCode"": ""E0000047"",
                                         ""errorSummary"": ""API call exceeded rate limit due to too many requests."",
-                                        ""errorLink"": E0000047,
+                                        ""errorLink"": ""E0000047"",
                                         ""errorId"": ""sample0eww_TKcLhu8FoK7qM4"",
                                         ""errorCauses"": []
                                     }")
@@ -84,36 +58,30 @@ namespace Okta.Sdk.UnitTest.Api
 
         private void CreateStubReturningOAuthTokenResponse()
         {
-            _server.Given(
+            var tokenResponse =
+                @"{""access_token"" : ""eyJhbGciOiJSUzI1NiJ9.eyJ2ZXIiOjEsImlzcyI6Imh0dHA6Ly9yYWluLm9rdGExLmNvbToxODAyIiwiaWF0IjoxNDQ5NjI0MDI2LCJleHAiOjE0NDk2Mjc2MjYsImp0aSI6IlVmU0lURzZCVVNfdHA3N21BTjJxIiwic2NvcGVzIjpbIm9wZW5pZCIsImVtYWlsIl0sImNsaWVudF9pZCI6InVBYXVub2ZXa2FESnh1a0NGZUJ4IiwidXNlcl9pZCI6IjAwdWlkNEJ4WHc2STZUVjRtMGczIn0.HaBu5oQxdVCIvea88HPgr2O5evqZlCT4UXH4UKhJnZ5px-ArNRqwhxXWhHJisslswjPpMkx1IgrudQIjzGYbtLFjrrg2ueiU5-YfmKuJuD6O2yPWGTsV7X6i7ABT6P-t8PRz_RNbk-U1GXWIEkNnEWbPqYDAm_Ofh7iW0Y8WDA5ez1jbtMvd-oXMvJLctRiACrTMLJQ2e5HkbUFxgXQ_rFPNHJbNSUBDLqdi2rg_ND64DLRlXRY7hupNsvWGo0gF4WEUk8IZeaLjKw8UoIs-ETEwJlAMcvkhoVVOsN5dPAaEKvbyvPC1hUGXb4uuThlwdD3ECJrtwgKqLqcWonNtiw"",
+                    ""token_type"" : ""Bearer"",
+                    ""expires_in"" : 3600,
+                    ""scope""      : ""openid email"",
+                    ""refresh_token"" : ""a9VpZDRCeFh3Nkk2VdY"",
+                    ""id_token"" : ""eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIwMHVpZDRCeFh3Nkk2VFY0bTBnMyIsImVtYWlsIjoid2VibWFzdGVyQGNsb3VkaXR1ZG
+                                  UubmV0IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInZlciI6MSwiaXNzIjoiaHR0cDovL3JhaW4ub2t0YTEuY29tOjE4MDIiLCJsb
+                                  2dpbiI6ImFkbWluaXN0cmF0b3IxQGNsb3VkaXR1ZGUubmV0IiwiYXVkIjoidUFhdW5vZldrYURKeHVrQ0ZlQngiLCJpYXQiOjE0
+                                  NDk2MjQwMjYsImV4cCI6MTQ0OTYyNzYyNiwiYW1yIjpbInB3ZCJdLCJqdGkiOiI0ZUFXSk9DTUIzU1g4WGV3RGZWUiIsImF1dGh
+                                  fdGltZSI6MTQ0OTYyNDAyNiwiYXRfaGFzaCI6ImNwcUtmZFFBNWVIODkxRmY1b0pyX1EifQ.Btw6bUbZhRa89DsBb8KmL9rfhku
+                                  --_mbNC2pgC8yu8obJnwO12nFBepui9KzbpJhGM91PqJwi_AylE6rp-ehamfnUAO4JL14PkemF45Pn3u_6KKwxJnxcWxLvMuuis
+                                  nvIs7NScKpOAab6ayZU0VL8W6XAijQmnYTtMWQfSuaaR8rYOaWHrffh3OypvDdrQuYacbkT0csxdrayXfBG3UF5-ZAlhfch1fhF
+                                  T3yZFdWwzkSDc0BGygfiFyNhCezfyT454wbciSZgrA9ROeHkfPCaX7KCFO8GgQEkGRoQntFBNjluFhNLJIUkEFovEDlfuB4tv_M
+                                  8BM75celdy3jkpOurg""
+                }";
+_server.Given(
                     Request.Create().WithPath("/oauth2/v1/token*")
                 ).AtPriority(1)
                 .RespondWith(
                     Response.Create()
                         .WithStatusCode(200)
                         .WithHeader("Content-Type", "text/json")
-                        .WithBody(@"{
-                                        ""access_token"" : ""eyJhbGciOiJSUzI1NiJ9.eyJ2ZXIiOjEsImlzcyI6Imh0dHA6Ly9yYWluLm9rdGExLmNvbToxODAyIiwiaWF0IjoxNDQ5Nj
-                                                          I0MDI2LCJleHAiOjE0NDk2Mjc2MjYsImp0aSI6IlVmU0lURzZCVVNfdHA3N21BTjJxIiwic2NvcGVzIjpbIm9wZW5pZCIsI
-                                                          mVtYWlsIl0sImNsaWVudF9pZCI6InVBYXVub2ZXa2FESnh1a0NGZUJ4IiwidXNlcl9pZCI6IjAwdWlkNEJ4WHc2STZUVjRt
-                                                          MGczIn0.HaBu5oQxdVCIvea88HPgr2O5evqZlCT4UXH4UKhJnZ5px-ArNRqwhxXWhHJisslswjPpMkx1IgrudQIjzGYbtLF
-                                                          jrrg2ueiU5-YfmKuJuD6O2yPWGTsV7X6i7ABT6P-t8PRz_RNbk-U1GXWIEkNnEWbPqYDAm_Ofh7iW0Y8WDA5ez1jbtMvd-o
-                                                          XMvJLctRiACrTMLJQ2e5HkbUFxgXQ_rFPNHJbNSUBDLqdi2rg_ND64DLRlXRY7hupNsvWGo0gF4WEUk8IZeaLjKw8UoIs-E
-                                                          TEwJlAMcvkhoVVOsN5dPAaEKvbyvPC1hUGXb4uuThlwdD3ECJrtwgKqLqcWonNtiw"",
-                                        ""token_type"" : ""Bearer"",
-                                        ""expires_in"" : 3600,
-                                        ""scope""      : ""openid email"",
-                                        ""refresh_token"" : ""a9VpZDRCeFh3Nkk2VdY"",
-                                        ""id_token"" : ""eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIwMHVpZDRCeFh3Nkk2VFY0bTBnMyIsImVtYWlsIjoid2VibWFzdGVyQGNsb3VkaXR1ZG
-                                                      UubmV0IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInZlciI6MSwiaXNzIjoiaHR0cDovL3JhaW4ub2t0YTEuY29tOjE4MDIiLCJsb
-                                                      2dpbiI6ImFkbWluaXN0cmF0b3IxQGNsb3VkaXR1ZGUubmV0IiwiYXVkIjoidUFhdW5vZldrYURKeHVrQ0ZlQngiLCJpYXQiOjE0
-                                                      NDk2MjQwMjYsImV4cCI6MTQ0OTYyNzYyNiwiYW1yIjpbInB3ZCJdLCJqdGkiOiI0ZUFXSk9DTUIzU1g4WGV3RGZWUiIsImF1dGh
-                                                      fdGltZSI6MTQ0OTYyNDAyNiwiYXRfaGFzaCI6ImNwcUtmZFFBNWVIODkxRmY1b0pyX1EifQ.Btw6bUbZhRa89DsBb8KmL9rfhku
-                                                      --_mbNC2pgC8yu8obJnwO12nFBepui9KzbpJhGM91PqJwi_AylE6rp-ehamfnUAO4JL14PkemF45Pn3u_6KKwxJnxcWxLvMuuis
-                                                      nvIs7NScKpOAab6ayZU0VL8W6XAijQmnYTtMWQfSuaaR8rYOaWHrffh3OypvDdrQuYacbkT0csxdrayXfBG3UF5-ZAlhfch1fhF
-                                                      T3yZFdWwzkSDc0BGygfiFyNhCezfyT454wbciSZgrA9ROeHkfPCaX7KCFO8GgQEkGRoQntFBNjluFhNLJIUkEFovEDlfuB4tv_M
-                                                      8BM75celdy3jkpOurg""
-                                    }")
-
+                        .WithBody(tokenResponse.Replace("\r|\n", string.Empty))
                 );
         }
 
@@ -159,7 +127,7 @@ namespace Okta.Sdk.UnitTest.Api
                                  }";
 
             var configuration = new Configuration();
-            configuration.Scopes = new HashSet<string> { "okta.apps.read" };
+            configuration.Scopes = new HashSet<string> { "okta.user.read" };
             configuration.ClientId = "foo";
             configuration.PrivateKey = new JsonWebKeyConfiguration(jsonPrivateKey);
             configuration.AuthorizationMode = AuthorizationMode.PrivateKey;
@@ -171,7 +139,6 @@ namespace Okta.Sdk.UnitTest.Api
             
             CreateStubReturningOAuthTokenResponse();
             CreateStubReturningRateLimitResponse();
-            CreateDefaultStubRateLimitResponse();
 
             var exception = await Assert.ThrowsAsync<ApiException>(async () => await userApi.PartialUpdateUserAsync("foo",
                 new UpdateUserRequest
