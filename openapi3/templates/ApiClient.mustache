@@ -577,8 +577,7 @@ namespace {{packageName}}.Client
                 {
                     if (policyResult.FinalHandledResult != null)
                     {
-                        RestResponse finalHandledResult = (RestResponse)policyResult.FinalHandledResult;
-                        response = (RestResponse<T>)finalHandledResult;
+                           response = client.Deserialize<T>(policyResult.FinalHandledResult);
                     }
                     else
                     {
@@ -595,7 +594,7 @@ namespace {{packageName}}.Client
                 response = await client.ExecuteAsync<T>(req, cancellationToken).ConfigureAwait(false);
             }
 
-            if (response.ResponseStatus == ResponseStatus.TimedOut)
+            if (response.ResponseStatus == ResponseStatus.TimedOut || response.ResponseStatus == ResponseStatus.Aborted)
             {
                 throw new TimeoutException(response.ErrorMessage, response.ErrorException);
             }

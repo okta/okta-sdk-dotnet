@@ -52,9 +52,9 @@ namespace Okta.Sdk.Client
         }
 
         /// <inheritdoc/>
-        public AsyncPolicy<IRestResponse> GetOAuthRetryPolicy(Func<DelegateResult<IRestResponse>, int, Context, Task> onRetryAsyncFunc = null)
+        public AsyncPolicy<RestResponse> GetOAuthRetryPolicy(Func<DelegateResult<RestResponse>, int, Context, Task> onRetryAsyncFunc = null)
         {
-            return Policy.NoOpAsync<IRestResponse>();
+            return Policy.NoOpAsync<RestResponse>();
         }
     }
 }

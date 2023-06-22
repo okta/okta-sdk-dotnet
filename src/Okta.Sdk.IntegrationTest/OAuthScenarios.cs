@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -696,7 +697,7 @@ namespace Okta.Sdk.IntegrationTest
                 return _defaulTokenProvider.GetAccessTokenAsync(forceRenew);
             }
 
-            public AsyncPolicy<IRestResponse> GetOAuthRetryPolicy(Func<DelegateResult<IRestResponse>, int, Context, Task> onRetryAsyncFunc = null)
+            public AsyncPolicy<RestResponse> GetOAuthRetryPolicy(Func<DelegateResult<RestResponse>, int, Context, Task> onRetryAsyncFunc = null)
             {
                 return _defaulTokenProvider.GetOAuthRetryPolicy(onRetryAsyncFunc);
             }
