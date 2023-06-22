@@ -437,7 +437,7 @@ namespace Okta.Sdk.IntegrationTest
                 createdUserType = await _userTypeApi.CreateUserTypeAsync(
                     new UserType
                     {
-                        Name = $"oktasdk{nameof(UpdateUserUserType)}",
+                        Name = nameof(UpdateUserUserType),
                         DisplayName = nameof(UpdateUserUserType),
                     });
 
