@@ -158,9 +158,15 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.Access.GetHashCode();
+                if (this.Access != null)
+                {
+                    hashCode = (hashCode * 59) + this.Access.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.FactorLifetime.GetHashCode();
-                hashCode = (hashCode * 59) + this.FactorPromptMode.GetHashCode();
+                if (this.FactorPromptMode != null)
+                {
+                    hashCode = (hashCode * 59) + this.FactorPromptMode.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.RememberDeviceByDefault.GetHashCode();
                 hashCode = (hashCode * 59) + this.RequireFactor.GetHashCode();
                 if (this.Session != null)

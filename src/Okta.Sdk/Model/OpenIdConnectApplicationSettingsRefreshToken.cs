@@ -113,7 +113,10 @@ namespace Okta.Sdk.Model
                 int hashCode = 41;
                 
                 hashCode = (hashCode * 59) + this.Leeway.GetHashCode();
-                hashCode = (hashCode * 59) + this.RotationType.GetHashCode();
+                if (this.RotationType != null)
+                {
+                    hashCode = (hashCode * 59) + this.RotationType.GetHashCode();
+                }
                 return hashCode;
             }
         }

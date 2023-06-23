@@ -180,7 +180,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.AgentType.GetHashCode();
+                if (this.AgentType != null)
+                {
+                    hashCode = (hashCode * 59) + this.AgentType.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.ContinueOnError.GetHashCode();
                 if (this.LatestVersion != null)
                 {
@@ -198,7 +201,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PoolName.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ReleaseChannel.GetHashCode();
+                if (this.ReleaseChannel != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReleaseChannel.GetHashCode();
+                }
                 return hashCode;
             }
         }

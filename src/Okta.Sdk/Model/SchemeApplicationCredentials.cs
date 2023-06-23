@@ -173,7 +173,10 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Password.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.RevealPassword.GetHashCode();
-                hashCode = (hashCode * 59) + this.Scheme.GetHashCode();
+                if (this.Scheme != null)
+                {
+                    hashCode = (hashCode * 59) + this.Scheme.GetHashCode();
+                }
                 if (this.UserName != null)
                 {
                     hashCode = (hashCode * 59) + this.UserName.GetHashCode();

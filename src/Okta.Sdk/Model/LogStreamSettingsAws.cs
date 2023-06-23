@@ -135,7 +135,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EventSourceName.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Region.GetHashCode();
+                if (this.Region != null)
+                {
+                    hashCode = (hashCode * 59) + this.Region.GetHashCode();
+                }
                 return hashCode;
             }
         }

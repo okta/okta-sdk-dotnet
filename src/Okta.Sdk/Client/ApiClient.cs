@@ -41,7 +41,7 @@ namespace Okta.Sdk.Client
     /// <summary>
     /// Allows RestSharp to Serialize/Deserialize JSON using our custom logic, but only when ContentType is JSON.
     /// </summary>
-    internal class CustomJsonCodec : IRestSerializer, ISerializer,IDeserializer
+    internal class CustomJsonCodec : IRestSerializer, ISerializer, IDeserializer
     {
         private readonly IReadableConfiguration _configuration;
         private static readonly string _contentType = "application/json";
@@ -158,16 +158,16 @@ namespace Okta.Sdk.Client
         public string RootElement { get; set; }
         public string Namespace { get; set; }
         public string DateFormat { get; set; }
-         public ISerializer Serializer => this;
+        public ISerializer Serializer => this;
         public IDeserializer Deserializer => this;
 
-        public string[] AcceptedContentTypes => RestSharp.Serializers.ContentType.JsonAccept;
+         public string[] AcceptedContentTypes => RestSharp.ContentType.JsonAccept;
 
         public SupportsContentType SupportsContentType => contentType =>
-            contentType.EndsWith("json", StringComparison.InvariantCultureIgnoreCase) ||
-            contentType.EndsWith("javascript", StringComparison.InvariantCultureIgnoreCase);
+            contentType.Value.EndsWith("json", StringComparison.InvariantCultureIgnoreCase) ||
+            contentType.Value.EndsWith("javascript", StringComparison.InvariantCultureIgnoreCase);
 
-        public string ContentType
+        public RestSharp.ContentType ContentType
         {
             get { return _contentType; }
             set { throw new InvalidOperationException("Not allowed to set content type."); }
@@ -460,8 +460,6 @@ namespace Okta.Sdk.Client
         
         internal RestClient GetConfiguredClient(IReadableConfiguration configuration)
         {
-            var clientOptions = new RestClientOptions(_baseUrl);
-            
             /*RestClient client = new RestClient(_baseUrl);
 
             client.ClearHandlers();
@@ -516,10 +514,12 @@ namespace Okta.Sdk.Client
 
             return client;*/
 
-            var oktaUserAgent = new UserAgentBuilder("Okta.Sdk",
+            var clientOptions = new RestClientOptions(_baseUrl);
+            
+            var oktaUserAgent = new UserAgentBuilder("okta-sdk-dotnet",
                 typeof(ApiClient).GetTypeInfo().Assembly.GetName().Version).GetUserAgent();
 
-            clientOptions.Timeout = configuration.ConnectionTimeout ?? Configuration.DefaultConnectionTimeout;
+            clientOptions.MaxTimeout = configuration.ConnectionTimeout ?? Configuration.DefaultConnectionTimeout;
 
             if (_proxy != null)
             {
@@ -543,16 +543,15 @@ namespace Okta.Sdk.Client
                 clientOptions.ClientCertificates = configuration.ClientCertificates;
             }
 
-            RestClient client = new RestClient(clientOptions)
-                .UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration));
-
-            return client;
+           RestClient client = new RestClient(clientOptions, configureSerialization: config => config.UseOnlySerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
+            
+           return client;
         }
         
         private async Task<ApiResponse<T>> ExecAsync<T>(RestRequest req, IReadableConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var client = GetConfiguredClient(configuration);
-            
+
             InterceptRequest(req);
 
             RestResponse<T> response;
@@ -583,13 +582,12 @@ namespace Okta.Sdk.Client
                 {
                     if (policyResult.FinalHandledResult != null)
                     {
-                        response = client.Deserialize<T>(policyResult.FinalHandledResult);
+                           response = client.Deserialize<T>(policyResult.FinalHandledResult);
                     }
                     else
                     {
-                        response = new RestResponse<T>
+                        response = new RestResponse<T>(req)
                         {
-                            Request = req,
                             ErrorException = policyResult.FinalException
                         };
                     }

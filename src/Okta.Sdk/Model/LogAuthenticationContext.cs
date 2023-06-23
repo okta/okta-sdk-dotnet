@@ -196,10 +196,19 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.AuthenticationProvider.GetHashCode();
+                if (this.AuthenticationProvider != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthenticationProvider.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.AuthenticationStep.GetHashCode();
-                hashCode = (hashCode * 59) + this.CredentialProvider.GetHashCode();
-                hashCode = (hashCode * 59) + this.CredentialType.GetHashCode();
+                if (this.CredentialProvider != null)
+                {
+                    hashCode = (hashCode * 59) + this.CredentialProvider.GetHashCode();
+                }
+                if (this.CredentialType != null)
+                {
+                    hashCode = (hashCode * 59) + this.CredentialType.GetHashCode();
+                }
                 if (this.ExternalSessionId != null)
                 {
                     hashCode = (hashCode * 59) + this.ExternalSessionId.GetHashCode();

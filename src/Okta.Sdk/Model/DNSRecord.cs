@@ -146,7 +146,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Fqdn.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.RecordType.GetHashCode();
+                if (this.RecordType != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecordType.GetHashCode();
+                }
                 if (this.Values != null)
                 {
                     hashCode = (hashCode * 59) + this.Values.GetHashCode();

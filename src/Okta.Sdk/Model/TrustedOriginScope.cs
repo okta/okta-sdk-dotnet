@@ -118,7 +118,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.AllowedOktaApps.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 return hashCode;
             }
         }

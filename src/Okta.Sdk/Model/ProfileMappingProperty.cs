@@ -117,7 +117,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Expression.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PushStatus.GetHashCode();
+                if (this.PushStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.PushStatus.GetHashCode();
+                }
                 return hashCode;
             }
         }

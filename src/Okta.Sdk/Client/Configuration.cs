@@ -387,7 +387,7 @@ namespace Okta.Sdk.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = null;
+            UserAgent = "/okta-sdk-dotnet/csharp/oasv3";
             OktaDomain = "https://subdomain.okta.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();

@@ -160,7 +160,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.AllowedFor.GetHashCode();
+                if (this.AllowedFor != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllowedFor.GetHashCode();
+                }
                 if (this.AppInstanceId != null)
                 {
                     hashCode = (hashCode * 59) + this.AppInstanceId.GetHashCode();
@@ -174,7 +177,10 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Compliance.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.TokenLifetimeInMinutes.GetHashCode();
-                hashCode = (hashCode * 59) + this.UserVerification.GetHashCode();
+                if (this.UserVerification != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserVerification.GetHashCode();
+                }
                 return hashCode;
             }
         }
