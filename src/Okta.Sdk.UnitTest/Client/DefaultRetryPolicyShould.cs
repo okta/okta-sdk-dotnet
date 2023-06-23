@@ -51,35 +51,6 @@ namespace Okta.Sdk.UnitTest.Client
                     return Task.CompletedTask;
                 });
 
-            //var headers = new List<HeaderParameter>();
-            //headers.Add(new HeaderParameter("Date", dateHeader.ToString()));
-            //headers.Add(new HeaderParameter("x-rate-limit-reset", resetTime.ToString()));
-            //headers.Add(new HeaderParameter(DefaultRetryStrategy.XOktaRequestId, "foo"));
-
-            //var mockClient = TestUtils.MockRestClient(HttpStatusCode.TooManyRequests, "{}", headers);
-
-
-            //var mockResponse = new HttpResponseMessage();
-            //mockResponse.StatusCode = HttpStatusCode.TooManyRequests;
-            //mockResponse.Headers.Add("Date", dateHeader.ToString());
-            //mockResponse.Headers.Add("x-rate-limit-reset", resetTime.ToString());
-            //mockResponse.Headers.Add(DefaultRetryStrategy.XOktaRequestId, "foo");
-
-
-            // Instantiate the mock object
-            //var httpMessageHandlerMock = new Mock<HttpMessageHandler>();
-            //// Set up the SendAsync method behavior.
-            //httpMessageHandlerMock
-            //    .Protected() // <= here is the trick to set up protected!!!
-            //    .Setup<Task<HttpResponseMessage>>(
-            //        "SendAsync",
-            //        ItExpr.IsAny<HttpRequestMessage>(),
-            //        ItExpr.IsAny<CancellationToken>())
-            //    .ReturnsAsync(mockResponse);
-
-            //var groupApi = new GroupApi();
-            //_ = await defaultRetryPolicy.ExecuteAndCaptureAsync(action =>
-            //    new RestClient(new RestClientOptions() {ConfigureMessageHandler = _ => httpMessageHandlerMock.Object }).ExecuteAsync(new RestRequest()), CancellationToken.None);
 
             var mockHttp = new MockHttpMessageHandler();
 
