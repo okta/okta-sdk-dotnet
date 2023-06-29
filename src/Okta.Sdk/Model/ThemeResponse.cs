@@ -302,9 +302,18 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.BackgroundImage.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.EmailTemplateTouchPointVariant.GetHashCode();
-                hashCode = (hashCode * 59) + this.EndUserDashboardTouchPointVariant.GetHashCode();
-                hashCode = (hashCode * 59) + this.ErrorPageTouchPointVariant.GetHashCode();
+                if (this.EmailTemplateTouchPointVariant != null)
+                {
+                    hashCode = (hashCode * 59) + this.EmailTemplateTouchPointVariant.GetHashCode();
+                }
+                if (this.EndUserDashboardTouchPointVariant != null)
+                {
+                    hashCode = (hashCode * 59) + this.EndUserDashboardTouchPointVariant.GetHashCode();
+                }
+                if (this.ErrorPageTouchPointVariant != null)
+                {
+                    hashCode = (hashCode * 59) + this.ErrorPageTouchPointVariant.GetHashCode();
+                }
                 if (this.Favicon != null)
                 {
                     hashCode = (hashCode * 59) + this.Favicon.GetHashCode();
@@ -313,7 +322,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.LoadingPageTouchPointVariant.GetHashCode();
+                if (this.LoadingPageTouchPointVariant != null)
+                {
+                    hashCode = (hashCode * 59) + this.LoadingPageTouchPointVariant.GetHashCode();
+                }
                 if (this.Logo != null)
                 {
                     hashCode = (hashCode * 59) + this.Logo.GetHashCode();
@@ -334,7 +346,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.SecondaryColorHex.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.SignInPageTouchPointVariant.GetHashCode();
+                if (this.SignInPageTouchPointVariant != null)
+                {
+                    hashCode = (hashCode * 59) + this.SignInPageTouchPointVariant.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

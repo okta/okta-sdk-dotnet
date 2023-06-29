@@ -117,7 +117,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Enroll.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Key.GetHashCode();
+                if (this.Key != null)
+                {
+                    hashCode = (hashCode * 59) + this.Key.GetHashCode();
+                }
                 return hashCode;
             }
         }

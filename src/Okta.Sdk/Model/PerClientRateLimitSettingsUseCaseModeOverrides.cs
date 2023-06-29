@@ -125,9 +125,18 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.LOGIN_PAGE.GetHashCode();
-                hashCode = (hashCode * 59) + this.OAUTH2AUTHORIZE.GetHashCode();
-                hashCode = (hashCode * 59) + this.OIE_APP_INTENT.GetHashCode();
+                if (this.LOGIN_PAGE != null)
+                {
+                    hashCode = (hashCode * 59) + this.LOGIN_PAGE.GetHashCode();
+                }
+                if (this.OAUTH2AUTHORIZE != null)
+                {
+                    hashCode = (hashCode * 59) + this.OAUTH2AUTHORIZE.GetHashCode();
+                }
+                if (this.OIE_APP_INTENT != null)
+                {
+                    hashCode = (hashCode * 59) + this.OIE_APP_INTENT.GetHashCode();
+                }
                 return hashCode;
             }
         }

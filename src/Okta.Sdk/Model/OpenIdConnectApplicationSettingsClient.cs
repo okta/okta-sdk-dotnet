@@ -285,12 +285,18 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.ApplicationType.GetHashCode();
+                if (this.ApplicationType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApplicationType.GetHashCode();
+                }
                 if (this.ClientUri != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientUri.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ConsentMethod.GetHashCode();
+                if (this.ConsentMethod != null)
+                {
+                    hashCode = (hashCode * 59) + this.ConsentMethod.GetHashCode();
+                }
                 if (this.GrantTypes != null)
                 {
                     hashCode = (hashCode * 59) + this.GrantTypes.GetHashCode();
@@ -303,7 +309,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.InitiateLoginUri.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.IssuerMode.GetHashCode();
+                if (this.IssuerMode != null)
+                {
+                    hashCode = (hashCode * 59) + this.IssuerMode.GetHashCode();
+                }
                 if (this.Jwks != null)
                 {
                     hashCode = (hashCode * 59) + this.Jwks.GetHashCode();

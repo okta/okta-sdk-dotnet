@@ -137,12 +137,18 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.Binding.GetHashCode();
+                if (this.Binding != null)
+                {
+                    hashCode = (hashCode * 59) + this.Binding.GetHashCode();
+                }
                 if (this.Destination != null)
                 {
                     hashCode = (hashCode * 59) + this.Destination.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.Url != null)
                 {
                     hashCode = (hashCode * 59) + this.Url.GetHashCode();

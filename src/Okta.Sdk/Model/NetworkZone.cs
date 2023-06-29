@@ -329,10 +329,19 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ProxyType.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.System.GetHashCode();
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                hashCode = (hashCode * 59) + this.Usage.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                if (this.Usage != null)
+                {
+                    hashCode = (hashCode * 59) + this.Usage.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

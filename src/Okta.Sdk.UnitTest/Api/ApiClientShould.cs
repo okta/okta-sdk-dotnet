@@ -19,9 +19,9 @@ namespace Okta.Sdk.UnitTest.Api
         {
 
             var apiClient = new ApiClient();
-            var client = apiClient.GetConfiguredClient(new Configuration(), null);
+            var client = apiClient.GetConfiguredClient(new Configuration());
 
-            client.UserAgent.Should().Contain("okta-sdk-dotnet");
+            client.Options.UserAgent.Should().Contain("okta-sdk-dotnet");
         }
 
         [Fact]
@@ -41,10 +41,10 @@ namespace Okta.Sdk.UnitTest.Api
                 }
             };
 
-            var client = apiClient.GetConfiguredClient(configuration, null);
-            client.Proxy.Should().NotBeNull();
+            var client = apiClient.GetConfiguredClient(configuration);
+            client.Options.Proxy.Should().NotBeNull();
 
-            var webProxy = (WebProxy)client.Proxy;
+            var webProxy = (WebProxy)client.Options.Proxy;
             webProxy.Address.ToString().Should().Be("http://foo.com:8081/");
             webProxy.Credentials.Should().NotBeNull();
 
@@ -60,10 +60,10 @@ namespace Okta.Sdk.UnitTest.Api
             
             var apiClient = new ApiClient(webProxy: proxy);
 
-            var client = apiClient.GetConfiguredClient(new Configuration(), null);
-            client.Proxy.Should().NotBeNull();
+            var client = apiClient.GetConfiguredClient(new Configuration());
+            client.Options.Proxy.Should().NotBeNull();
 
-            var webProxy = (WebProxy)client.Proxy;
+            var webProxy = (WebProxy)client.Options.Proxy;
             webProxy.Address.ToString().Should().Be("http://foo.com:8081/");
             webProxy.Credentials.Should().NotBeNull();
 

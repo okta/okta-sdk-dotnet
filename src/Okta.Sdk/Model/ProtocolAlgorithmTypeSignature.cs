@@ -117,7 +117,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Algorithm.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Scope.GetHashCode();
+                if (this.Scope != null)
+                {
+                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
+                }
                 return hashCode;
             }
         }

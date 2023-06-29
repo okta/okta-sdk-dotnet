@@ -145,7 +145,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ClientSecret.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.TokenEndpointAuthMethod.GetHashCode();
+                if (this.TokenEndpointAuthMethod != null)
+                {
+                    hashCode = (hashCode * 59) + this.TokenEndpointAuthMethod.GetHashCode();
+                }
                 return hashCode;
             }
         }

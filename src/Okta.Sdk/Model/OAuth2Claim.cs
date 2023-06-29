@@ -237,12 +237,18 @@ namespace Okta.Sdk.Model
                 int hashCode = 41;
                 
                 hashCode = (hashCode * 59) + this.AlwaysIncludeInToken.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClaimType.GetHashCode();
+                if (this.ClaimType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClaimType.GetHashCode();
+                }
                 if (this.Conditions != null)
                 {
                     hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.GroupFilterType.GetHashCode();
+                if (this.GroupFilterType != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupFilterType.GetHashCode();
+                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
@@ -251,13 +257,19 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.System.GetHashCode();
                 if (this.Value != null)
                 {
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ValueType.GetHashCode();
+                if (this.ValueType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValueType.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

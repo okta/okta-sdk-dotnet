@@ -332,13 +332,22 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Required.GetHashCode();
-                hashCode = (hashCode * 59) + this.Scope.GetHashCode();
+                if (this.Scope != null)
+                {
+                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
+                }
                 if (this.Title != null)
                 {
                     hashCode = (hashCode * 59) + this.Title.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                hashCode = (hashCode * 59) + this.Union.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                if (this.Union != null)
+                {
+                    hashCode = (hashCode * 59) + this.Union.GetHashCode();
+                }
                 if (this.Unique != null)
                 {
                     hashCode = (hashCode * 59) + this.Unique.GetHashCode();

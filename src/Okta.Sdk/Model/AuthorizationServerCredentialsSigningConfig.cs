@@ -177,8 +177,14 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.NextRotation.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.RotationMode.GetHashCode();
-                hashCode = (hashCode * 59) + this.Use.GetHashCode();
+                if (this.RotationMode != null)
+                {
+                    hashCode = (hashCode * 59) + this.RotationMode.GetHashCode();
+                }
+                if (this.Use != null)
+                {
+                    hashCode = (hashCode * 59) + this.Use.GetHashCode();
+                }
                 return hashCode;
             }
         }

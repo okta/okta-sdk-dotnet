@@ -184,7 +184,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ProviderType.GetHashCode();
+                if (this.ProviderType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProviderType.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

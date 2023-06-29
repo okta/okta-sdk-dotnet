@@ -317,7 +317,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.OsVersion.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Platform.GetHashCode();
+                if (this.Platform != null)
+                {
+                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
+                }
                 if (this.ScreenLockType != null)
                 {
                     hashCode = (hashCode * 59) + this.ScreenLockType.GetHashCode();

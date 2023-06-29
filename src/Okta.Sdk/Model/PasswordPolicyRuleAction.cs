@@ -101,7 +101,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.Access.GetHashCode();
+                if (this.Access != null)
+                {
+                    hashCode = (hashCode * 59) + this.Access.GetHashCode();
+                }
                 return hashCode;
             }
         }
