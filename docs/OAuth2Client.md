@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **ClientName** | **string** |  | [optional] [readonly] 
 **ClientUri** | **string** |  | [optional] [readonly] 
 **LogoUri** | **string** |  | [optional] [readonly] 
-**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**Links** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

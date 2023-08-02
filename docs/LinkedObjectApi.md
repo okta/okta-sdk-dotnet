@@ -4,19 +4,19 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddLinkedObjectDefinition**](LinkedObjectApi.md#addlinkedobjectdefinition) | **POST** /api/v1/meta/schemas/user/linkedObjects | Create a Linked Object Definition
+[**CreateLinkedObjectDefinition**](LinkedObjectApi.md#createlinkedobjectdefinition) | **POST** /api/v1/meta/schemas/user/linkedObjects | Create a Linked Object Definition
 [**DeleteLinkedObjectDefinition**](LinkedObjectApi.md#deletelinkedobjectdefinition) | **DELETE** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Delete a Linked Object Definition
 [**GetLinkedObjectDefinition**](LinkedObjectApi.md#getlinkedobjectdefinition) | **GET** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Retrieve a Linked Object Definition
 [**ListLinkedObjectDefinitions**](LinkedObjectApi.md#listlinkedobjectdefinitions) | **GET** /api/v1/meta/schemas/user/linkedObjects | List all Linked Object Definitions
 
 
-<a name="addlinkedobjectdefinition"></a>
-# **AddLinkedObjectDefinition**
-> LinkedObject AddLinkedObjectDefinition (LinkedObject linkedObject)
+<a name="createlinkedobjectdefinition"></a>
+# **CreateLinkedObjectDefinition**
+> LinkedObject CreateLinkedObjectDefinition (LinkedObject linkedObject)
 
 Create a Linked Object Definition
 
-Create a linked object definition
+Creates a linked object definition
 
 ### Example
 ```csharp
@@ -28,7 +28,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class AddLinkedObjectDefinitionExample
+    public class CreateLinkedObjectDefinitionExample
     {
         public static void Main()
         {
@@ -45,12 +45,12 @@ namespace Example
             try
             {
                 // Create a Linked Object Definition
-                LinkedObject result = apiInstance.AddLinkedObjectDefinition(linkedObject);
+                LinkedObject result = apiInstance.CreateLinkedObjectDefinition(linkedObject);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling LinkedObjectApi.AddLinkedObjectDefinition: " + e.Message );
+                Debug.Print("Exception when calling LinkedObjectApi.CreateLinkedObjectDefinition: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 Delete a Linked Object Definition
 
-Delete a linked object definition
+Deletes a linked object definition
 
 ### Example
 ```csharp
@@ -173,7 +173,7 @@ void (empty response body)
 
 Retrieve a Linked Object Definition
 
-Retrieve a linked object definition
+Retrieves a linked object definition
 
 ### Example
 ```csharp
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 List all Linked Object Definitions
 
-List all linked object definitions
+Lists all linked object definitions
 
 ### Example
 ```csharp

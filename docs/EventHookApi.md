@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**DeleteEventHook**](EventHookApi.md#deleteeventhook) | **DELETE** /api/v1/eventHooks/{eventHookId} | Delete an Event Hook
 [**GetEventHook**](EventHookApi.md#geteventhook) | **GET** /api/v1/eventHooks/{eventHookId} | Retrieve an Event Hook
 [**ListEventHooks**](EventHookApi.md#listeventhooks) | **GET** /api/v1/eventHooks | List all Event Hooks
-[**UpdateEventHook**](EventHookApi.md#updateeventhook) | **PUT** /api/v1/eventHooks/{eventHookId} | Replace an Event Hook
+[**ReplaceEventHook**](EventHookApi.md#replaceeventhook) | **PUT** /api/v1/eventHooks/{eventHookId} | Replace an Event Hook
 [**VerifyEventHook**](EventHookApi.md#verifyeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/verify | Verify an Event Hook
 
 
@@ -44,7 +44,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
-            var eventHookId = "eventHookId_example";  // string | 
+            var eventHookId = YTDQbItFfFuy9RdHrvly;  // string | `id` of the Event Hook
 
             try
             {
@@ -67,7 +67,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eventHookId** | **string**|  | 
+ **eventHookId** | **string**| &#x60;id&#x60; of the Event Hook | 
 
 ### Return type
 
@@ -202,7 +202,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
-            var eventHookId = "eventHookId_example";  // string | 
+            var eventHookId = YTDQbItFfFuy9RdHrvly;  // string | `id` of the Event Hook
 
             try
             {
@@ -225,7 +225,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eventHookId** | **string**|  | 
+ **eventHookId** | **string**| &#x60;id&#x60; of the Event Hook | 
 
 ### Return type
 
@@ -281,7 +281,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
-            var eventHookId = "eventHookId_example";  // string | 
+            var eventHookId = YTDQbItFfFuy9RdHrvly;  // string | `id` of the Event Hook
 
             try
             {
@@ -303,7 +303,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eventHookId** | **string**|  | 
+ **eventHookId** | **string**| &#x60;id&#x60; of the Event Hook | 
 
 ### Return type
 
@@ -359,7 +359,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
-            var eventHookId = "eventHookId_example";  // string | 
+            var eventHookId = YTDQbItFfFuy9RdHrvly;  // string | `id` of the Event Hook
 
             try
             {
@@ -382,7 +382,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eventHookId** | **string**|  | 
+ **eventHookId** | **string**| &#x60;id&#x60; of the Event Hook | 
 
 ### Return type
 
@@ -482,9 +482,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updateeventhook"></a>
-# **UpdateEventHook**
-> EventHook UpdateEventHook (string eventHookId, EventHook eventHook)
+<a name="replaceeventhook"></a>
+# **ReplaceEventHook**
+> EventHook ReplaceEventHook (string eventHookId, EventHook eventHook)
 
 Replace an Event Hook
 
@@ -500,7 +500,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class UpdateEventHookExample
+    public class ReplaceEventHookExample
     {
         public static void Main()
         {
@@ -512,18 +512,18 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
-            var eventHookId = "eventHookId_example";  // string | 
+            var eventHookId = YTDQbItFfFuy9RdHrvly;  // string | `id` of the Event Hook
             var eventHook = new EventHook(); // EventHook | 
 
             try
             {
                 // Replace an Event Hook
-                EventHook result = apiInstance.UpdateEventHook(eventHookId, eventHook);
+                EventHook result = apiInstance.ReplaceEventHook(eventHookId, eventHook);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EventHookApi.UpdateEventHook: " + e.Message );
+                Debug.Print("Exception when calling EventHookApi.ReplaceEventHook: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -536,7 +536,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eventHookId** | **string**|  | 
+ **eventHookId** | **string**| &#x60;id&#x60; of the Event Hook | 
  **eventHook** | [**EventHook**](EventHook.md)|  | 
 
 ### Return type
@@ -594,7 +594,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
-            var eventHookId = "eventHookId_example";  // string | 
+            var eventHookId = YTDQbItFfFuy9RdHrvly;  // string | `id` of the Event Hook
 
             try
             {
@@ -617,7 +617,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eventHookId** | **string**|  | 
+ **eventHookId** | **string**| &#x60;id&#x60; of the Event Hook | 
 
 ### Return type
 

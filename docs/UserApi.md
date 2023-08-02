@@ -7,41 +7,42 @@ Method | HTTP request | Description
 [**ActivateUser**](UserApi.md#activateuser) | **POST** /api/v1/users/{userId}/lifecycle/activate | Activate a User
 [**ChangePassword**](UserApi.md#changepassword) | **POST** /api/v1/users/{userId}/credentials/change_password | Change Password
 [**ChangeRecoveryQuestion**](UserApi.md#changerecoveryquestion) | **POST** /api/v1/users/{userId}/credentials/change_recovery_question | Change Recovery Question
-[**ClearUserSessions**](UserApi.md#clearusersessions) | **DELETE** /api/v1/users/{userId}/sessions | Delete all User Sessions
 [**CreateUser**](UserApi.md#createuser) | **POST** /api/v1/users | Create a User
-[**DeactivateOrDeleteUser**](UserApi.md#deactivateordeleteuser) | **DELETE** /api/v1/users/{userId} | Delete a User
 [**DeactivateUser**](UserApi.md#deactivateuser) | **POST** /api/v1/users/{userId}/lifecycle/deactivate | Deactivate a User
+[**DeleteLinkedObjectForUser**](UserApi.md#deletelinkedobjectforuser) | **DELETE** /api/v1/users/{userId}/linkedObjects/{relationshipName} | Delete a Linked Object
+[**DeleteUser**](UserApi.md#deleteuser) | **DELETE** /api/v1/users/{userId} | Delete a User
 [**ExpirePassword**](UserApi.md#expirepassword) | **POST** /api/v1/users/{userId}/lifecycle/expire_password | Expire Password
 [**ExpirePasswordAndGetTemporaryPassword**](UserApi.md#expirepasswordandgettemporarypassword) | **POST** /api/v1/users/{userId}/lifecycle/expire_password_with_temp_password | Expire Password and Set Temporary Password
 [**ForgotPassword**](UserApi.md#forgotpassword) | **POST** /api/v1/users/{userId}/credentials/forgot_password | Initiate Forgot Password
 [**ForgotPasswordSetNewPassword**](UserApi.md#forgotpasswordsetnewpassword) | **POST** /api/v1/users/{userId}/credentials/forgot_password_recovery_question | Reset Password with Recovery Question
-[**GetLinkedObjectsForUser**](UserApi.md#getlinkedobjectsforuser) | **GET** /api/v1/users/{userId}/linkedObjects/{relationshipName} | List all Linked Objects
+[**GenerateResetPasswordToken**](UserApi.md#generateresetpasswordtoken) | **POST** /api/v1/users/{userId}/lifecycle/reset_password | Generate a Reset Password Token
 [**GetRefreshTokenForUserAndClient**](UserApi.md#getrefreshtokenforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/tokens/{tokenId} | Retrieve a Refresh Token for a Client
 [**GetUser**](UserApi.md#getuser) | **GET** /api/v1/users/{userId} | Retrieve a User
 [**GetUserGrant**](UserApi.md#getusergrant) | **GET** /api/v1/users/{userId}/grants/{grantId} | Retrieve a User Grant
 [**ListAppLinks**](UserApi.md#listapplinks) | **GET** /api/v1/users/{userId}/appLinks | List all Assigned Application Links
 [**ListGrantsForUserAndClient**](UserApi.md#listgrantsforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/grants | List all Grants for a Client
+[**ListLinkedObjectsForUser**](UserApi.md#listlinkedobjectsforuser) | **GET** /api/v1/users/{userId}/linkedObjects/{relationshipName} | List all Linked Objects
 [**ListRefreshTokensForUserAndClient**](UserApi.md#listrefreshtokensforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/tokens | List all Refresh Tokens for a Client
+[**ListUserBlocks**](UserApi.md#listuserblocks) | **GET** /api/v1/users/{userId}/blocks | List all User Blocks
 [**ListUserClients**](UserApi.md#listuserclients) | **GET** /api/v1/users/{userId}/clients | List all Clients
 [**ListUserGrants**](UserApi.md#listusergrants) | **GET** /api/v1/users/{userId}/grants | List all User Grants
 [**ListUserGroups**](UserApi.md#listusergroups) | **GET** /api/v1/users/{userId}/groups | List all Groups
 [**ListUserIdentityProviders**](UserApi.md#listuseridentityproviders) | **GET** /api/v1/users/{userId}/idps | List all Identity Providers
 [**ListUsers**](UserApi.md#listusers) | **GET** /api/v1/users | List all Users
-[**PartialUpdateUser**](UserApi.md#partialupdateuser) | **POST** /api/v1/users/{userId} | Update a User
 [**ReactivateUser**](UserApi.md#reactivateuser) | **POST** /api/v1/users/{userId}/lifecycle/reactivate | Reactivate a User
-[**RemoveLinkedObjectForUser**](UserApi.md#removelinkedobjectforuser) | **DELETE** /api/v1/users/{userId}/linkedObjects/{relationshipName} | Delete a Linked Object
+[**ReplaceUser**](UserApi.md#replaceuser) | **PUT** /api/v1/users/{userId} | Replace a User
 [**ResetFactors**](UserApi.md#resetfactors) | **POST** /api/v1/users/{userId}/lifecycle/reset_factors | Reset all Factors
-[**ResetPassword**](UserApi.md#resetpassword) | **POST** /api/v1/users/{userId}/lifecycle/reset_password | Reset Password
 [**RevokeGrantsForUserAndClient**](UserApi.md#revokegrantsforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/grants | Revoke all Grants for a Client
 [**RevokeTokenForUserAndClient**](UserApi.md#revoketokenforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/tokens/{tokenId} | Revoke a Token for a Client
 [**RevokeTokensForUserAndClient**](UserApi.md#revoketokensforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/tokens | Revoke all Refresh Tokens for a Client
 [**RevokeUserGrant**](UserApi.md#revokeusergrant) | **DELETE** /api/v1/users/{userId}/grants/{grantId} | Revoke a User Grant
 [**RevokeUserGrants**](UserApi.md#revokeusergrants) | **DELETE** /api/v1/users/{userId}/grants | Revoke all User Grants
-[**SetLinkedObjectForUser**](UserApi.md#setlinkedobjectforuser) | **PUT** /api/v1/users/{associatedUserId}/linkedObjects/{primaryRelationshipName}/{primaryUserId} | Create a Linked Object for two User
+[**RevokeUserSessions**](UserApi.md#revokeusersessions) | **DELETE** /api/v1/users/{userId}/sessions | Revoke all User Sessions
+[**SetLinkedObjectForUser**](UserApi.md#setlinkedobjectforuser) | **PUT** /api/v1/users/{userId}/linkedObjects/{primaryRelationshipName}/{primaryUserId} | Create a Linked Object for two Users
 [**SuspendUser**](UserApi.md#suspenduser) | **POST** /api/v1/users/{userId}/lifecycle/suspend | Suspend a User
 [**UnlockUser**](UserApi.md#unlockuser) | **POST** /api/v1/users/{userId}/lifecycle/unlock | Unlock a User
 [**UnsuspendUser**](UserApi.md#unsuspenduser) | **POST** /api/v1/users/{userId}/lifecycle/unsuspend | Unsuspend a User
-[**UpdateUser**](UserApi.md#updateuser) | **PUT** /api/v1/users/{userId} | Replace a User
+[**UpdateUser**](UserApi.md#updateuser) | **POST** /api/v1/users/{userId} | Update a User
 
 
 <a name="activateuser"></a>
@@ -50,7 +51,7 @@ Method | HTTP request | Description
 
 Activate a User
 
-Activates a user.  This operation can only be performed on users with a `STAGED` status.  Activation of a user is an asynchronous operation. The user will have the `transitioningToStatus` property with a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.  The user will have a status of `ACTIVE` when the activation process is complete.
+Activates a user. This operation can only be performed on users with a `STAGED` or `DEPROVISIONED` status. Activation of a user is an asynchronous operation. The user will have the `transitioningToStatus` property with a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation. The user will have a status of `ACTIVE` when the activation process is complete. > **Multibrand and User activation**<br> If you want to send a branded User Activation email, change the subdomain of your request to the custom domain that's associated with the brand. For example, change `subdomain.okta.com` to `custom.domain.one`. See [Multibrand and custom domains](https://developer.okta.com/docs/concepts/brands/#multibrand-and-custom-domains). <br><br> > **Legal disclaimer**<br> After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta's service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email's content. You, and you alone, bear responsibility for the emails sent to any recipients.
 
 ### Example
 ```csharp
@@ -291,93 +292,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="clearusersessions"></a>
-# **ClearUserSessions**
-> void ClearUserSessions (string userId, bool? oauthTokens = null)
-
-Delete all User Sessions
-
-Removes all active identity provider sessions. This forces the user to authenticate on the next operation. Optionally revokes OpenID Connect and OAuth refresh and access tokens issued to the user.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class ClearUserSessionsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
-            var oauthTokens = false;  // bool? | Revoke issued OpenID Connect and OAuth refresh and access tokens (optional)  (default to false)
-
-            try
-            {
-                // Delete all User Sessions
-                apiInstance.ClearUserSessions(userId, oauthTokens);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling UserApi.ClearUserSessions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **oauthTokens** | **bool?**| Revoke issued OpenID Connect and OAuth refresh and access tokens | [optional] [default to false]
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="createuser"></a>
 # **CreateUser**
 > User CreateUser (CreateUserRequest body, bool? activate = null, bool? provider = null, UserNextLogin? nextLogin = null)
 
 Create a User
 
-Creates a new user in your Okta organization with or without credentials.
+Creates a new user in your Okta organization with or without credentials<br> > **Legal Disclaimer**<br> After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta's service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email's content. You, and you alone, bear responsibility for the emails sent to any recipients.
 
 ### Example
 ```csharp
@@ -452,87 +373,6 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="deactivateordeleteuser"></a>
-# **DeactivateOrDeleteUser**
-> void DeactivateOrDeleteUser (string userId, bool? sendEmail = null)
-
-Delete a User
-
-Deletes a user permanently.  This operation can only be performed on users that have a `DEPROVISIONED` status.  **This action cannot be recovered!**
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class DeactivateOrDeleteUserExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
-            var sendEmail = false;  // bool? |  (optional)  (default to false)
-
-            try
-            {
-                // Delete a User
-                apiInstance.DeactivateOrDeleteUser(userId, sendEmail);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling UserApi.DeactivateOrDeleteUser: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **sendEmail** | **bool?**|  | [optional] [default to false]
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -617,13 +457,174 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="deletelinkedobjectforuser"></a>
+# **DeleteLinkedObjectForUser**
+> void DeleteLinkedObjectForUser (string userId, string relationshipName)
+
+Delete a Linked Object
+
+Deletes linked objects for a user, relationshipName can be ONLY a primary relationship name
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class DeleteLinkedObjectForUserExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UserApi(config);
+            var userId = "userId_example";  // string | 
+            var relationshipName = "relationshipName_example";  // string | 
+
+            try
+            {
+                // Delete a Linked Object
+                apiInstance.DeleteLinkedObjectForUser(userId, relationshipName);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UserApi.DeleteLinkedObjectForUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**|  | 
+ **relationshipName** | **string**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deleteuser"></a>
+# **DeleteUser**
+> void DeleteUser (string userId, bool? sendEmail = null)
+
+Delete a User
+
+Deletes a user permanently. This operation can only be performed on users that have a `DEPROVISIONED` status.  **This action cannot be recovered!**. Calling this on an `ACTIVE` user will transition the user to `DEPROVISIONED`.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class DeleteUserExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UserApi(config);
+            var userId = "userId_example";  // string | 
+            var sendEmail = false;  // bool? |  (optional)  (default to false)
+
+            try
+            {
+                // Delete a User
+                apiInstance.DeleteUser(userId, sendEmail);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UserApi.DeleteUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**|  | 
+ **sendEmail** | **bool?**|  | [optional] [default to false]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="expirepassword"></a>
 # **ExpirePassword**
 > User ExpirePassword (string userId)
 
 Expire Password
 
-This operation transitions the user to the status of `PASSWORD_EXPIRED` so that the user is required to change their password at their next login.
+Expires a user's password and transitions the user to the status of `PASSWORD_EXPIRED` so that the user is required to change their password at their next login
 
 ### Example
 ```csharp
@@ -698,11 +699,11 @@ Name | Type | Description  | Notes
 
 <a name="expirepasswordandgettemporarypassword"></a>
 # **ExpirePasswordAndGetTemporaryPassword**
-> TempPassword ExpirePasswordAndGetTemporaryPassword (string userId)
+> TempPassword ExpirePasswordAndGetTemporaryPassword (string userId, bool? revokeSessions = null)
 
 Expire Password and Set Temporary Password
 
-This operation transitions the user to the status of `PASSWORD_EXPIRED` so that the user is required to change their password at their next login, and also sets the user's password to a temporary password returned in the response.
+Expires a user's password and transitions the user to the status of `PASSWORD_EXPIRED` so that the user is required to change their password at their next login, and also sets the user's password to a temporary password returned in the response
 
 ### Example
 ```csharp
@@ -727,11 +728,12 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var userId = "userId_example";  // string | 
+            var revokeSessions = false;  // bool? | When set to `true` (and the session is a user session), all user sessions are revoked except the current session. (optional)  (default to false)
 
             try
             {
                 // Expire Password and Set Temporary Password
-                TempPassword result = apiInstance.ExpirePasswordAndGetTemporaryPassword(userId);
+                TempPassword result = apiInstance.ExpirePasswordAndGetTemporaryPassword(userId, revokeSessions);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -750,6 +752,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
+ **revokeSessions** | **bool?**| When set to &#x60;true&#x60; (and the session is a user session), all user sessions are revoked except the current session. | [optional] [default to false]
 
 ### Return type
 
@@ -781,7 +784,7 @@ Name | Type | Description  | Notes
 
 Initiate Forgot Password
 
-Initiate forgot password flow. Generates a one-time token (OTT) that can be used to reset a user's password.
+Initiates the forgot password flow. Generates a one-time token (OTT) that can be used to reset a user's password.
 
 ### Example
 ```csharp
@@ -862,7 +865,7 @@ Name | Type | Description  | Notes
 
 Reset Password with Recovery Question
 
-Resets the user's password to the specified password if the provided answer to the recovery question is correct.
+Resets the user's password to the specified password if the provided answer to the recovery question is correct
 
 ### Example
 ```csharp
@@ -940,13 +943,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getlinkedobjectsforuser"></a>
-# **GetLinkedObjectsForUser**
-> List&lt;Object&gt; GetLinkedObjectsForUser (string userId, string relationshipName, string after = null, int? limit = null)
+<a name="generateresetpasswordtoken"></a>
+# **GenerateResetPasswordToken**
+> ResetPasswordToken GenerateResetPasswordToken (string userId, bool sendEmail, bool? revokeSessions = null)
 
-List all Linked Objects
+Generate a Reset Password Token
 
-Get linked objects for a user, relationshipName can be a primary or associated relationship name
+Generates a one-time token (OTT) that can be used to reset a user's password.  The OTT link can be automatically emailed to the user or returned to the API caller and distributed using a custom flow.
 
 ### Example
 ```csharp
@@ -958,7 +961,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class GetLinkedObjectsForUserExample
+    public class GenerateResetPasswordTokenExample
     {
         public static void Main()
         {
@@ -971,19 +974,18 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var userId = "userId_example";  // string | 
-            var relationshipName = "relationshipName_example";  // string | 
-            var after = "after_example";  // string |  (optional) 
-            var limit = -1;  // int? |  (optional)  (default to -1)
+            var sendEmail = true;  // bool | 
+            var revokeSessions = false;  // bool? | When set to `true` (and the session is a user session), all user sessions are revoked except the current session. (optional)  (default to false)
 
             try
             {
-                // List all Linked Objects
-                List<Object> result = apiInstance.GetLinkedObjectsForUser(userId, relationshipName, after, limit).ToListAsync();
+                // Generate a Reset Password Token
+                ResetPasswordToken result = apiInstance.GenerateResetPasswordToken(userId, sendEmail, revokeSessions);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UserApi.GetLinkedObjectsForUser: " + e.Message );
+                Debug.Print("Exception when calling UserApi.GenerateResetPasswordToken: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -997,13 +999,12 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **relationshipName** | **string**|  | 
- **after** | **string**|  | [optional] 
- **limit** | **int?**|  | [optional] [default to -1]
+ **sendEmail** | **bool**|  | 
+ **revokeSessions** | **bool?**| When set to &#x60;true&#x60; (and the session is a user session), all user sessions are revoked except the current session. | [optional] [default to false]
 
 ### Return type
 
-**List<Object>**
+[**ResetPasswordToken**](ResetPasswordToken.md)
 
 ### Authorization
 
@@ -1031,7 +1032,7 @@ Name | Type | Description  | Notes
 
 Retrieve a Refresh Token for a Client
 
-Gets a refresh token issued for the specified User and Client.
+Retrieves a refresh token issued for the specified User and Client
 
 ### Example
 ```csharp
@@ -1056,8 +1057,8 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var userId = "userId_example";  // string | 
-            var clientId = "clientId_example";  // string | 
-            var tokenId = "tokenId_example";  // string | 
+            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
+            var tokenId = sHHSth53yJAyNSTQKDJZ;  // string | `id` of Token
             var expand = "expand_example";  // string |  (optional) 
             var limit = 20;  // int? |  (optional)  (default to 20)
             var after = "after_example";  // string |  (optional) 
@@ -1084,8 +1085,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **clientId** | **string**|  | 
- **tokenId** | **string**|  | 
+ **clientId** | **string**| &#x60;client_id&#x60; of the app | 
+ **tokenId** | **string**| &#x60;id&#x60; of Token | 
  **expand** | **string**|  | [optional] 
  **limit** | **int?**|  | [optional] [default to 20]
  **after** | **string**|  | [optional] 
@@ -1120,7 +1121,7 @@ Name | Type | Description  | Notes
 
 Retrieve a User
 
-Fetches a user from your Okta organization.
+Retrieves a user from your Okta organization
 
 ### Example
 ```csharp
@@ -1199,7 +1200,7 @@ Name | Type | Description  | Notes
 
 Retrieve a User Grant
 
-Gets a grant for the specified user
+Retrieves a grant for the specified user
 
 ### Example
 ```csharp
@@ -1224,7 +1225,7 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var userId = "userId_example";  // string | 
-            var grantId = "grantId_example";  // string | 
+            var grantId = iJoqkwx50mrgX4T9LcaH;  // string | ID of the Grant
             var expand = "expand_example";  // string |  (optional) 
 
             try
@@ -1249,7 +1250,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **grantId** | **string**|  | 
+ **grantId** | **string**| ID of the Grant | 
  **expand** | **string**|  | [optional] 
 
 ### Return type
@@ -1282,7 +1283,7 @@ Name | Type | Description  | Notes
 
 List all Assigned Application Links
 
-Fetches appLinks for all direct or indirect (via group membership) assigned applications.
+Lists all appLinks for all direct or indirect (via group membership) assigned applications
 
 ### Example
 ```csharp
@@ -1386,7 +1387,7 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var userId = "userId_example";  // string | 
-            var clientId = "clientId_example";  // string | 
+            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
             var expand = "expand_example";  // string |  (optional) 
             var after = "after_example";  // string |  (optional) 
             var limit = 20;  // int? |  (optional)  (default to 20)
@@ -1413,7 +1414,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **clientId** | **string**|  | 
+ **clientId** | **string**| &#x60;client_id&#x60; of the app | 
  **expand** | **string**|  | [optional] 
  **after** | **string**|  | [optional] 
  **limit** | **int?**|  | [optional] [default to 20]
@@ -1442,13 +1443,98 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="listlinkedobjectsforuser"></a>
+# **ListLinkedObjectsForUser**
+> List&lt;Object&gt; ListLinkedObjectsForUser (string userId, string relationshipName, string after = null, int? limit = null)
+
+List all Linked Objects
+
+Lists all linked objects for a user, relationshipName can be a primary or associated relationship name
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ListLinkedObjectsForUserExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UserApi(config);
+            var userId = "userId_example";  // string | 
+            var relationshipName = "relationshipName_example";  // string | 
+            var after = "after_example";  // string |  (optional) 
+            var limit = -1;  // int? |  (optional)  (default to -1)
+
+            try
+            {
+                // List all Linked Objects
+                List<Object> result = apiInstance.ListLinkedObjectsForUser(userId, relationshipName, after, limit).ToListAsync();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UserApi.ListLinkedObjectsForUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**|  | 
+ **relationshipName** | **string**|  | 
+ **after** | **string**|  | [optional] 
+ **limit** | **int?**|  | [optional] [default to -1]
+
+### Return type
+
+**List<Object>**
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="listrefreshtokensforuserandclient"></a>
 # **ListRefreshTokensForUserAndClient**
 > List&lt;OAuth2RefreshToken&gt; ListRefreshTokensForUserAndClient (string userId, string clientId, string expand = null, string after = null, int? limit = null)
 
 List all Refresh Tokens for a Client
 
-Lists all refresh tokens issued for the specified User and Client.
+Lists all refresh tokens issued for the specified User and Client
 
 ### Example
 ```csharp
@@ -1473,7 +1559,7 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var userId = "userId_example";  // string | 
-            var clientId = "clientId_example";  // string | 
+            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
             var expand = "expand_example";  // string |  (optional) 
             var after = "after_example";  // string |  (optional) 
             var limit = 20;  // int? |  (optional)  (default to 20)
@@ -1500,7 +1586,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **clientId** | **string**|  | 
+ **clientId** | **string**| &#x60;client_id&#x60; of the app | 
  **expand** | **string**|  | [optional] 
  **after** | **string**|  | [optional] 
  **limit** | **int?**|  | [optional] [default to 20]
@@ -1529,13 +1615,92 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="listuserblocks"></a>
+# **ListUserBlocks**
+> List&lt;UserBlock&gt; ListUserBlocks (string userId)
+
+List all User Blocks
+
+Lists information about how the user is blocked from accessing their account
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ListUserBlocksExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UserApi(config);
+            var userId = "userId_example";  // string | 
+
+            try
+            {
+                // List all User Blocks
+                List<UserBlock> result = apiInstance.ListUserBlocks(userId).ToListAsync();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UserApi.ListUserBlocks: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**|  | 
+
+### Return type
+
+[**List&lt;UserBlock&gt;**](UserBlock.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="listuserclients"></a>
 # **ListUserClients**
 > List&lt;OAuth2Client&gt; ListUserClients (string userId)
 
 List all Clients
 
-Lists all client resources for which the specified user has grants or tokens.
+Lists all client resources for which the specified user has grants or tokens
 
 ### Example
 ```csharp
@@ -1701,7 +1866,7 @@ Name | Type | Description  | Notes
 
 List all Groups
 
-Fetches the groups of which the user is a member.
+Lists all groups of which the user is a member
 
 ### Example
 ```csharp
@@ -1780,7 +1945,7 @@ Name | Type | Description  | Notes
 
 List all Identity Providers
 
-Lists the IdPs associated with the user.
+Lists the IdPs associated with the user
 
 ### Example
 ```csharp
@@ -1859,7 +2024,7 @@ Name | Type | Description  | Notes
 
 List all Users
 
-Lists users in your organization with pagination in most cases.  A subset of users can be returned that match a supported filter expression or search criteria.
+Lists all users that do not have a status of 'DEPROVISIONED' (by default), up to the maximum (200 for most orgs), with pagination.  A subset of users can be returned that match a supported filter expression or search criteria.
 
 ### Example
 ```csharp
@@ -1889,7 +2054,7 @@ namespace Example
             var filter = "filter_example";  // string | Filters users with a supported expression for a subset of properties (optional) 
             var search = "search_example";  // string | Searches for users with a supported filtering expression for most properties. Okta recommends using this parameter for search for best performance. (optional) 
             var sortBy = "sortBy_example";  // string |  (optional) 
-            var sortOrder = "sortOrder_example";  // string |  (optional) 
+            var sortOrder = "sortOrder_example";  // string | Sorting is done in ASCII sort order (that is, by ASCII character value), but isn't case sensitive. (optional) 
 
             try
             {
@@ -1918,7 +2083,7 @@ Name | Type | Description  | Notes
  **filter** | **string**| Filters users with a supported expression for a subset of properties | [optional] 
  **search** | **string**| Searches for users with a supported filtering expression for most properties. Okta recommends using this parameter for search for best performance. | [optional] 
  **sortBy** | **string**|  | [optional] 
- **sortOrder** | **string**|  | [optional] 
+ **sortOrder** | **string**| Sorting is done in ASCII sort order (that is, by ASCII character value), but isn&#39;t case sensitive. | [optional] 
 
 ### Return type
 
@@ -1939,90 +2104,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 | **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="partialupdateuser"></a>
-# **PartialUpdateUser**
-> User PartialUpdateUser (string userId, UpdateUserRequest user, bool? strict = null)
-
-Update a User
-
-Fetch a user by `id`, `login`, or `login shortname` if the short name is unambiguous.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class PartialUpdateUserExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
-            var user = new UpdateUserRequest(); // UpdateUserRequest | 
-            var strict = true;  // bool? |  (optional) 
-
-            try
-            {
-                // Update a User
-                User result = apiInstance.PartialUpdateUser(userId, user, strict);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling UserApi.PartialUpdateUser: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **user** | [**UpdateUserRequest**](UpdateUserRequest.md)|  | 
- **strict** | **bool?**|  | [optional] 
-
-### Return type
-
-[**User**](User.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2108,13 +2189,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="removelinkedobjectforuser"></a>
-# **RemoveLinkedObjectForUser**
-> void RemoveLinkedObjectForUser (string userId, string relationshipName)
+<a name="replaceuser"></a>
+# **ReplaceUser**
+> User ReplaceUser (string userId, User user, bool? strict = null)
 
-Delete a Linked Object
+Replace a User
 
-Delete linked objects for a user, relationshipName can be ONLY a primary relationship name
+Replaces a user's profile and/or credentials using strict-update semantics
 
 ### Example
 ```csharp
@@ -2126,7 +2207,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class RemoveLinkedObjectForUserExample
+    public class ReplaceUserExample
     {
         public static void Main()
         {
@@ -2139,16 +2220,18 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var userId = "userId_example";  // string | 
-            var relationshipName = "relationshipName_example";  // string | 
+            var user = new User(); // User | 
+            var strict = true;  // bool? |  (optional) 
 
             try
             {
-                // Delete a Linked Object
-                apiInstance.RemoveLinkedObjectForUser(userId, relationshipName);
+                // Replace a User
+                User result = apiInstance.ReplaceUser(userId, user, strict);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UserApi.RemoveLinkedObjectForUser: " + e.Message );
+                Debug.Print("Exception when calling UserApi.ReplaceUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -2162,11 +2245,12 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **relationshipName** | **string**|  | 
+ **user** | [**User**](User.md)|  | 
+ **strict** | **bool?**|  | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**User**](User.md)
 
 ### Authorization
 
@@ -2174,14 +2258,15 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | No Content |  -  |
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
@@ -2194,7 +2279,7 @@ void (empty response body)
 
 Reset all Factors
 
-This operation resets all factors for the specified user. All MFA factor enrollments returned to the unenrolled state. The user's status remains ACTIVE. This link is present only if the user is currently enrolled in one or more MFA factors.
+Resets all factors for the specified user. All MFA factor enrollments returned to the unenrolled state. The user's status remains ACTIVE. This link is present only if the user is currently enrolled in one or more MFA factors.
 
 ### Example
 ```csharp
@@ -2266,87 +2351,6 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="resetpassword"></a>
-# **ResetPassword**
-> ResetPasswordToken ResetPassword (string userId, bool sendEmail)
-
-Reset Password
-
-Generates a one-time token (OTT) that can be used to reset a user's password.  The OTT link can be automatically emailed to the user or returned to the API caller and distributed using a custom flow.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class ResetPasswordExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
-            var sendEmail = true;  // bool | 
-
-            try
-            {
-                // Reset Password
-                ResetPasswordToken result = apiInstance.ResetPassword(userId, sendEmail);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling UserApi.ResetPassword: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **sendEmail** | **bool**|  | 
-
-### Return type
-
-[**ResetPasswordToken**](ResetPasswordToken.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="revokegrantsforuserandclient"></a>
 # **RevokeGrantsForUserAndClient**
 > void RevokeGrantsForUserAndClient (string userId, string clientId)
@@ -2378,7 +2382,7 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var userId = "userId_example";  // string | 
-            var clientId = "clientId_example";  // string | 
+            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
 
             try
             {
@@ -2401,7 +2405,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **clientId** | **string**|  | 
+ **clientId** | **string**| &#x60;client_id&#x60; of the app | 
 
 ### Return type
 
@@ -2433,7 +2437,7 @@ void (empty response body)
 
 Revoke a Token for a Client
 
-Revokes the specified refresh token.
+Revokes the specified refresh token
 
 ### Example
 ```csharp
@@ -2458,8 +2462,8 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var userId = "userId_example";  // string | 
-            var clientId = "clientId_example";  // string | 
-            var tokenId = "tokenId_example";  // string | 
+            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
+            var tokenId = sHHSth53yJAyNSTQKDJZ;  // string | `id` of Token
 
             try
             {
@@ -2482,8 +2486,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **clientId** | **string**|  | 
- **tokenId** | **string**|  | 
+ **clientId** | **string**| &#x60;client_id&#x60; of the app | 
+ **tokenId** | **string**| &#x60;id&#x60; of Token | 
 
 ### Return type
 
@@ -2515,7 +2519,7 @@ void (empty response body)
 
 Revoke all Refresh Tokens for a Client
 
-Revokes all refresh tokens issued for the specified User and Client.
+Revokes all refresh tokens issued for the specified User and Client
 
 ### Example
 ```csharp
@@ -2540,7 +2544,7 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var userId = "userId_example";  // string | 
-            var clientId = "clientId_example";  // string | 
+            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
 
             try
             {
@@ -2563,7 +2567,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **clientId** | **string**|  | 
+ **clientId** | **string**| &#x60;client_id&#x60; of the app | 
 
 ### Return type
 
@@ -2620,7 +2624,7 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var userId = "userId_example";  // string | 
-            var grantId = "grantId_example";  // string | 
+            var grantId = iJoqkwx50mrgX4T9LcaH;  // string | ID of the Grant
 
             try
             {
@@ -2643,7 +2647,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **grantId** | **string**|  | 
+ **grantId** | **string**| ID of the Grant | 
 
 ### Return type
 
@@ -2747,13 +2751,93 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="revokeusersessions"></a>
+# **RevokeUserSessions**
+> void RevokeUserSessions (string userId, bool? oauthTokens = null)
+
+Revoke all User Sessions
+
+Revokes all active identity provider sessions of the user. This forces the user to authenticate on the next operation. Optionally revokes OpenID Connect and OAuth refresh and access tokens issued to the user.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class RevokeUserSessionsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UserApi(config);
+            var userId = "userId_example";  // string | 
+            var oauthTokens = false;  // bool? | Revoke issued OpenID Connect and OAuth refresh and access tokens (optional)  (default to false)
+
+            try
+            {
+                // Revoke all User Sessions
+                apiInstance.RevokeUserSessions(userId, oauthTokens);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UserApi.RevokeUserSessions: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**|  | 
+ **oauthTokens** | **bool?**| Revoke issued OpenID Connect and OAuth refresh and access tokens | [optional] [default to false]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="setlinkedobjectforuser"></a>
 # **SetLinkedObjectForUser**
-> void SetLinkedObjectForUser (string associatedUserId, string primaryRelationshipName, string primaryUserId)
+> void SetLinkedObjectForUser (string userId, string primaryRelationshipName, string primaryUserId)
 
-Create a Linked Object for two User
+Create a Linked Object for two Users
 
-Sets a linked object for two users.
+Creates a Linked Object for two users
 
 ### Example
 ```csharp
@@ -2775,14 +2859,14 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var associatedUserId = "associatedUserId_example";  // string | 
+            var userId = "userId_example";  // string | 
             var primaryRelationshipName = "primaryRelationshipName_example";  // string | 
-            var primaryUserId = "primaryUserId_example";  // string | 
+            var primaryUserId = ctxeQ5JnAVdGFBB7Zr7W;  // string | `id` of primary User
 
             try
             {
-                // Create a Linked Object for two User
-                apiInstance.SetLinkedObjectForUser(associatedUserId, primaryRelationshipName, primaryUserId);
+                // Create a Linked Object for two Users
+                apiInstance.SetLinkedObjectForUser(userId, primaryRelationshipName, primaryUserId);
             }
             catch (ApiException  e)
             {
@@ -2799,9 +2883,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **associatedUserId** | **string**|  | 
+ **userId** | **string**|  | 
  **primaryRelationshipName** | **string**|  | 
- **primaryUserId** | **string**|  | 
+ **primaryUserId** | **string**| &#x60;id&#x60; of primary User | 
 
 ### Return type
 
@@ -2911,7 +2995,7 @@ void (empty response body)
 
 Unlock a User
 
-Unlocks a user with a `LOCKED_OUT` status and returns them to `ACTIVE` status.  Users will be able to login with their current password.
+Unlocks a user with a `LOCKED_OUT` status or unlocks a user with an `ACTIVE` status that is blocked from unknown devices. Unlocked users have an `ACTIVE` status and can sign in with their current password.
 
 ### Example
 ```csharp
@@ -3063,11 +3147,11 @@ void (empty response body)
 
 <a name="updateuser"></a>
 # **UpdateUser**
-> User UpdateUser (string userId, User user, bool? strict = null)
+> User UpdateUser (string userId, UpdateUserRequest user, bool? strict = null)
 
-Replace a User
+Update a User
 
-Update a user's profile and/or credentials using strict-update semantics.
+Updates a user partially determined by the request parameters
 
 ### Example
 ```csharp
@@ -3092,12 +3176,12 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var userId = "userId_example";  // string | 
-            var user = new User(); // User | 
+            var user = new UpdateUserRequest(); // UpdateUserRequest | 
             var strict = true;  // bool? |  (optional) 
 
             try
             {
-                // Replace a User
+                // Update a User
                 User result = apiInstance.UpdateUser(userId, user, strict);
                 Debug.WriteLine(result);
             }
@@ -3117,7 +3201,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **user** | [**User**](User.md)|  | 
+ **user** | [**UpdateUserRequest**](UpdateUserRequest.md)|  | 
  **strict** | **bool?**|  | [optional] 
 
 ### Return type

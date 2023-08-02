@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AlternateId** | **string** |  | [optional] [readonly] 
-**Detail** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**DetailEntry** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **DisplayName** | **string** |  | [optional] [readonly] 
 **Id** | **string** |  | [optional] [readonly] 
 **Type** | **string** |  | [optional] [readonly] 

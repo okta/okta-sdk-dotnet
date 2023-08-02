@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthScheme** | **ProvisioningConnectionAuthScheme** |  | [optional] 
-**Status** | **ProvisioningConnectionStatus** |  | [optional] 
-**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**AuthScheme** | **ProvisioningConnectionAuthScheme** |  | 
+**Status** | **ProvisioningConnectionStatus** |  | 
+**Links** | [**LinksSelfAndLifecycle**](LinksSelfAndLifecycle.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

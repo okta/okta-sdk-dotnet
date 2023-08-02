@@ -18,11 +18,25 @@ namespace Okta.Sdk.IntegrationTest
         private ApplicationApi _applicationApi;
         private UserApi _userApi;
         private GroupApi _groupApi;
+        private ApplicationTokensApi _applicationTokensApi;
+        private ApplicationLogosApi _applicationlogoApi;
+        private ApplicationUsersApi _applicationUsersApi;
+        private ApplicationGroupsApi _applicationGroupApi;
+        private ApplicationCredentialsApi _applicationCredentialsApi;
+        private ApplicationGrantsApi _applicationGrantsApi;
+        private ApplicationConnectionsApi _applicationConnectionsApi;
+
         public ApplicationScenarios()
         {
             _applicationApi = new ApplicationApi();
             _userApi = new UserApi();
             _groupApi = new GroupApi();
+            _applicationTokensApi = new ApplicationTokensApi();
+            _applicationlogoApi = new ApplicationLogosApi();
+            _applicationGroupApi = new ApplicationGroupsApi();
+            _applicationCredentialsApi = new ApplicationCredentialsApi();
+            _applicationGrantsApi = new ApplicationGrantsApi();
+            _applicationConnectionsApi = new ApplicationConnectionsApi();
         }
 
         [Fact]
@@ -91,7 +105,7 @@ namespace Okta.Sdk.IntegrationTest
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Assets/okta_logo_white.png");
                 var file = File.OpenRead(filePath);
 
-                await _applicationApi.UploadApplicationLogoAsync(createdApp.Id, file);
+                await _applicationlogoApi.UploadApplicationLogoAsync(createdApp.Id, file);
 
                 var retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id) as BookmarkApplication;
                 var updatedLogo = retrievedApp.Links.Logo.FirstOrDefault().Href.ToString();
@@ -502,7 +516,7 @@ namespace Okta.Sdk.IntegrationTest
                 retrieved.Credentials.UserNameTemplate.Template = "${source.login}";
                 retrieved.Credentials.UserNameTemplate.Type = "BUILT_IN";
 
-                retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
+                retrieved = await _applicationApi.ReplaceApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
 
                 retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.ADMINSETSCREDENTIALS);
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
@@ -551,7 +565,7 @@ namespace Okta.Sdk.IntegrationTest
                 retrieved.Credentials.UserNameTemplate.Template = "${source.login}";
                 retrieved.Credentials.UserNameTemplate.Type = "BUILT_IN";
 
-                retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
+                retrieved = await _applicationApi.ReplaceApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
 
                 retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.EDITPASSWORDONLY);
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
@@ -603,7 +617,7 @@ namespace Okta.Sdk.IntegrationTest
                 retrieved.Credentials.UserName = "sharedusername";
                 retrieved.Credentials.Password = new PasswordCredential() { Value = "sharedpassword" };
 
-                retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
+                retrieved = await _applicationApi.ReplaceApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
 
                 retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.SHAREDUSERNAMEANDPASSWORD);
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
@@ -805,9 +819,10 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var createdAppUser = await _applicationApi.AssignUserToApplicationAsync(createdApp.Id, appUser);
+                var createdAppUser = await _applicationUsersApi.AssignUserToApplicationAsync(createdApp.Id, appUser);
 
-                createdAppUser.Scope.Should().Be("USER");
+                // TODO: Revisit Enum
+                createdAppUser.Scope.Should().Be(AppUser.ScopeEnum.USER);
                 createdAppUser.Credentials.UserName.Should().Be($"john-sso-dotnet-sdk-{guid}@example.com");
                 createdAppUser.Status.Should().Be("ACTIVE");
                 createdAppUser.SyncState.Should().Be("DISABLED");
@@ -815,8 +830,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
 
                 // Remove App
                 await _applicationApi.DeactivateApplicationAsync(createdApp.Id);
@@ -885,12 +900,12 @@ namespace Okta.Sdk.IntegrationTest
                 };
 
 
-                var createdAppUser = await _applicationApi.AssignUserToApplicationAsync(createdApp.Id, appUser);
-                var retrievedAppUser = await _applicationApi.GetApplicationUserAsync(createdApp.Id, createdUser.Id);
+                var createdAppUser = await _applicationUsersApi.AssignUserToApplicationAsync(createdApp.Id, appUser);
+                var retrievedAppUser = await _applicationUsersApi.GetApplicationUserAsync(createdApp.Id, createdUser.Id);
 
                 retrievedAppUser.Should().NotBeNull();
                 retrievedAppUser.Id.Should().Be(createdAppUser.Id);
-                retrievedAppUser.Scope.Should().Be("USER");
+                retrievedAppUser.Scope.Should().Be(AppUser.ScopeEnum.USER);
                 retrievedAppUser.Credentials.UserName.Should().Be($"john-assigned-user-dotnet-sdk-{guid}@example.com");
             }
             finally
@@ -898,8 +913,8 @@ namespace Okta.Sdk.IntegrationTest
                 if (!string.IsNullOrEmpty(userId))
                 {
                     // Remove the user
-                    await _userApi.DeactivateOrDeleteUserAsync(userId);
-                    await _userApi.DeactivateOrDeleteUserAsync(userId);
+                    await _userApi.DeactivateUserAsync(userId);
+                    await _userApi.DeleteUserAsync(userId);
                 }
 
                 if (!string.IsNullOrEmpty(appId))
@@ -963,12 +978,12 @@ namespace Okta.Sdk.IntegrationTest
                     },
                 };
 
-                var createdAppUser = await _applicationApi.AssignUserToApplicationAsync(createdApp.Id, appUser);
-                var retrievedAppUser = await _applicationApi.GetApplicationUserAsync(createdApp.Id, createdUser.Id);
+                var createdAppUser = await _applicationUsersApi.AssignUserToApplicationAsync(createdApp.Id, appUser);
+                var retrievedAppUser = await _applicationUsersApi.GetApplicationUserAsync(createdApp.Id, createdUser.Id);
 
                 retrievedAppUser.Should().NotBeNull();
                 retrievedAppUser.Id.Should().Be(createdAppUser.Id);
-                retrievedAppUser.Scope.Should().Be("USER");
+                retrievedAppUser.Scope.Should().Be(AppUser.ScopeEnum.USER);
                 retrievedAppUser.Credentials.UserName.Should().Be($"john-assigned-user-dotnet-sdk-no-creds-{guid}@example.com");
                 retrievedAppUser.PasswordChanged.Should().BeNull();
             }
@@ -977,8 +992,8 @@ namespace Okta.Sdk.IntegrationTest
                 if (!string.IsNullOrEmpty(userId))
                 {
                     // Remove the user
-                    await _userApi.DeactivateOrDeleteUserAsync(userId);
-                    await _userApi.DeactivateOrDeleteUserAsync(userId);
+                    await _userApi.DeactivateUserAsync(userId);
+                    await _userApi.DeleteUserAsync(userId);
                 }
 
                 if (!string.IsNullOrEmpty(appId))
@@ -1078,10 +1093,10 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var createdAppUser1 = await _applicationApi.AssignUserToApplicationAsync(createdApp.Id, appUser1);
-                var createdAppUser2 = await _applicationApi.AssignUserToApplicationAsync(createdApp.Id, appUser2);
+                var createdAppUser1 = await _applicationUsersApi.AssignUserToApplicationAsync(createdApp.Id, appUser1);
+                var createdAppUser2 = await _applicationUsersApi.AssignUserToApplicationAsync(createdApp.Id, appUser2);
 
-                var appUserList = await _applicationApi.ListApplicationUsers(createdApp.Id).ToListAsync();
+                var appUserList = await _applicationUsersApi.ListApplicationUsers(createdApp.Id).ToListAsync();
 
                 appUserList.Should().NotBeNullOrEmpty();
                 appUserList.Should().HaveCount(2);
@@ -1093,10 +1108,10 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser1.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser1.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser2.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser2.Id);
+                await _userApi.DeactivateUserAsync(createdUser1.Id);
+                await _userApi.DeleteUserAsync(createdUser1.Id);
+                await _userApi.DeactivateUserAsync(createdUser2.Id);
+                await _userApi.DeleteUserAsync(createdUser2.Id);
 
                 // Remove App
                 await _applicationApi.DeactivateApplicationAsync(createdApp.Id);
@@ -1161,12 +1176,12 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var createdAppUser = await _applicationApi.AssignUserToApplicationAsync(createdApp.Id, appUser);
-                var retrievedAppUser = await _applicationApi.GetApplicationUserAsync(createdApp.Id, createdUser.Id);
+                var createdAppUser = await _applicationUsersApi.AssignUserToApplicationAsync(createdApp.Id, appUser);
+                var retrievedAppUser = await _applicationUsersApi.GetApplicationUserAsync(createdApp.Id, createdUser.Id);
 
                 retrievedAppUser.Should().NotBeNull();
                 retrievedAppUser.Id.Should().Be(createdAppUser.Id);
-                retrievedAppUser.Scope.Should().Be("USER");
+                retrievedAppUser.Scope.Should().Be(AppUser.ScopeEnum.USER);
                 retrievedAppUser.Credentials.UserName.Should().Be($"john-update-creds-dotnet-sdk-{guid}@example.com");
 
                 // Update credentials
@@ -1174,7 +1189,7 @@ namespace Okta.Sdk.IntegrationTest
                 retrievedAppUser.Credentials.Password = new AppUserPasswordCredential() { Value = "Okta12345" };
 
                 var updatedAppUser =
-                    await _applicationApi.UpdateApplicationUserAsync(createdApp.Id, createdUser.Id, retrievedAppUser);
+                    await _applicationUsersApi.UpdateApplicationUserAsync(createdApp.Id, createdUser.Id, retrievedAppUser);
 
                 updatedAppUser.Should().NotBeNull();
                 updatedAppUser.Credentials.UserName.Should()
@@ -1183,8 +1198,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
 
                 // Remove App
                 await _applicationApi.DeactivateApplicationAsync(createdApp.Id);
@@ -1249,24 +1264,24 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var createdAppUser = await _applicationApi.AssignUserToApplicationAsync(createdApp.Id, appUser);
-                var retrievedAppUser = await _applicationApi.GetApplicationUserAsync(createdApp.Id, createdUser.Id);
+                var createdAppUser = await _applicationUsersApi.AssignUserToApplicationAsync(createdApp.Id, appUser);
+                var retrievedAppUser = await _applicationUsersApi.GetApplicationUserAsync(createdApp.Id, createdUser.Id);
 
                 retrievedAppUser.Should().NotBeNull();
                 retrievedAppUser.Id.Should().Be(createdAppUser.Id);
-                retrievedAppUser.Scope.Should().Be("USER");
+                retrievedAppUser.Scope.Should().Be(AppUser.ScopeEnum.USER);
                 retrievedAppUser.Credentials.UserName.Should().Be($"john-remove-user-dotnet-sdk-{guid}@example.com");
 
-                await _applicationApi.DeleteApplicationUserAsync(createdApp.Id, createdUser.Id);
+                await _applicationUsersApi.UnassignUserFromApplicationAsync(createdApp.Id, createdUser.Id);
 
-                var appUserList = await _applicationApi.ListApplicationUsers(createdApp.Id).ToListAsync();
+                var appUserList = await _applicationUsersApi.ListApplicationUsers(createdApp.Id).ToListAsync();
                 appUserList.Should().BeNullOrEmpty();
             }
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
 
                 // Remove App
                 await _applicationApi.DeactivateApplicationAsync(createdApp.Id);
@@ -1315,7 +1330,7 @@ namespace Okta.Sdk.IntegrationTest
                 };
 
                 var createdAppGroup =
-                    await _applicationApi.CreateApplicationGroupAssignmentAsync(createdApp.Id, createdGroup.Id,
+                    await _applicationGroupApi.AssignGroupToApplicationAsync(createdApp.Id, createdGroup.Id,
                         groupAssignment);
                 createdAppGroup.Should().NotBeNull();
                 createdAppGroup.Priority.Should().Be(0);
@@ -1372,10 +1387,10 @@ namespace Okta.Sdk.IntegrationTest
                 };
 
                 var createdAppGroup =
-                    await _applicationApi.CreateApplicationGroupAssignmentAsync(createdApp.Id, createdGroup.Id,
+                    await _applicationGroupApi.AssignGroupToApplicationAsync(createdApp.Id, createdGroup.Id,
                         groupAssignment);
                 var retrievedAppGroup =
-                    await _applicationApi.GetApplicationGroupAssignmentAsync(createdApp.Id, createdGroup.Id);
+                    await _applicationGroupApi.GetApplicationGroupAssignmentAsync(createdApp.Id, createdGroup.Id);
 
                 retrievedAppGroup.Should().NotBeNull();
                 retrievedAppGroup.Priority.Should().Be(0);
@@ -1442,13 +1457,13 @@ namespace Okta.Sdk.IntegrationTest
                 };
 
                 var createdAppGroup1 =
-                    await _applicationApi.CreateApplicationGroupAssignmentAsync(createdApp.Id, createdGroup1.Id,
+                    await _applicationGroupApi.AssignGroupToApplicationAsync(createdApp.Id, createdGroup1.Id,
                         groupAssignment);
                 var createdAppGroup2 =
-                    await _applicationApi.CreateApplicationGroupAssignmentAsync(createdApp.Id, createdGroup2.Id,
+                    await _applicationGroupApi.AssignGroupToApplicationAsync(createdApp.Id, createdGroup2.Id,
                         groupAssignment);
 
-                var groupAssignmentList = await _applicationApi.ListApplicationGroupAssignments(createdApp.Id).ToListAsync();
+                var groupAssignmentList = await _applicationGroupApi.ListApplicationGroupAssignments(createdApp.Id).ToListAsync();
 
                 groupAssignmentList.Should().NotBeNullOrEmpty();
                 groupAssignmentList.Should().HaveCount(2);
@@ -1508,13 +1523,13 @@ namespace Okta.Sdk.IntegrationTest
                 };
 
                 var createdAppGroup =
-                    await _applicationApi.CreateApplicationGroupAssignmentAsync(createdApp.Id, createdGroup.Id,
+                    await _applicationGroupApi.AssignGroupToApplicationAsync(createdApp.Id, createdGroup.Id,
                         groupAssignment);
                 createdAppGroup.Should().NotBeNull();
 
-                await _applicationApi.DeleteApplicationGroupAssignmentAsync(createdApp.Id, createdGroup.Id);
+                await _applicationGroupApi.UnassignApplicationFromGroupAsync(createdApp.Id, createdGroup.Id);
 
-                var assignments = await _applicationApi.ListApplicationGroupAssignments(createdApp.Id).ToListAsync();
+                var assignments = await _applicationGroupApi.ListApplicationGroupAssignments(createdApp.Id).ToListAsync();
                 assignments.Should().BeNullOrEmpty();
             }
             finally
@@ -1552,7 +1567,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var appKeys = await _applicationApi.ListApplicationKeys(createdApp.Id).ToListAsync();
+                var appKeys = await _applicationCredentialsApi.ListApplicationKeys(createdApp.Id).ToListAsync();
 
                 // A key is created by default
                 appKeys.Should().NotBeNull();
@@ -1589,9 +1604,9 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var appKeys = await _applicationApi.ListApplicationKeys(createdApp.Id).ToListAsync();
+                var appKeys = await _applicationCredentialsApi.ListApplicationKeys(createdApp.Id).ToListAsync();
                 var defaultAppKey = appKeys.First();
-                var retrievedAppKey = await _applicationApi.GetApplicationKeyAsync(createdApp.Id, defaultAppKey.Kid);
+                var retrievedAppKey = await _applicationCredentialsApi.GetApplicationKeyAsync(createdApp.Id, defaultAppKey.Kid);
 
                 retrievedAppKey.Should().NotBeNull();
                 retrievedAppKey.Kid.Should().Be(defaultAppKey.Kid);
@@ -1630,9 +1645,9 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var generatedKey = await _applicationApi.GenerateApplicationKeyAsync(createdApp.Id, 2);
+                var generatedKey = await _applicationCredentialsApi.GenerateApplicationKeyAsync(createdApp.Id, 2);
                 
-                var retrievedAppKey = await _applicationApi.GetApplicationKeyAsync(createdApp.Id, generatedKey.Kid);
+                var retrievedAppKey = await _applicationCredentialsApi.GetApplicationKeyAsync(createdApp.Id, generatedKey.Kid);
 
                 retrievedAppKey.Should().NotBeNull();
                 retrievedAppKey.Kid.Should().Be(generatedKey.Kid);
@@ -1688,8 +1703,8 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var generatedKey1 = await _applicationApi.GenerateApplicationKeyAsync(createdApp1.Id, 2);
-                var clonedKey2 = await _applicationApi.CloneApplicationKeyAsync(createdApp1.Id, generatedKey1.Kid, createdApp2.Id);
+                var generatedKey1 = await _applicationCredentialsApi.GenerateApplicationKeyAsync(createdApp1.Id, 2);
+                var clonedKey2 = await _applicationCredentialsApi.CloneApplicationKeyAsync(createdApp1.Id, generatedKey1.Kid, createdApp2.Id);
                 
                 clonedKey2.Should().NotBeNull();
                 clonedKey2.Kid.Should().Be(generatedKey1.Kid);
@@ -1747,7 +1762,7 @@ namespace Okta.Sdk.IntegrationTest
                     },
                 };
 
-                var generatedCsr = await _applicationApi.GenerateCsrForApplicationAsync(createdApp.Id, csrMetadata);
+                var generatedCsr = await _applicationCredentialsApi.GenerateCsrForApplicationAsync(createdApp.Id, csrMetadata);
 
                 generatedCsr.Should().NotBeNull();
                 generatedCsr.Kty.Should().Be("RSA");
@@ -1802,9 +1817,9 @@ namespace Okta.Sdk.IntegrationTest
                     },
                 };
 
-                var generatedCsr = await _applicationApi.GenerateCsrForApplicationAsync(createdApp.Id, csrMetadata);
+                var generatedCsr = await _applicationCredentialsApi.GenerateCsrForApplicationAsync(createdApp.Id, csrMetadata);
 
-                var retrievedCsr = await _applicationApi.GetCsrForApplicationAsync(createdApp.Id, generatedCsr.Id);
+                var retrievedCsr = await _applicationCredentialsApi.GetCsrForApplicationAsync(createdApp.Id, generatedCsr.Id);
                 retrievedCsr.Should().NotBeNull();
             }
             finally
@@ -1855,14 +1870,14 @@ namespace Okta.Sdk.IntegrationTest
                     },
                 };
 
-                var generatedCsr = await _applicationApi.GenerateCsrForApplicationAsync(createdApp.Id, csrMetadata);
+                var generatedCsr = await _applicationCredentialsApi.GenerateCsrForApplicationAsync(createdApp.Id, csrMetadata);
 
-                var csrList = await _applicationApi.ListCsrsForApplication(createdApp.Id).ToListAsync();
+                var csrList = await _applicationCredentialsApi.ListCsrsForApplication(createdApp.Id).ToListAsync();
                 csrList.Any(x => x.Id == generatedCsr.Id).Should().BeTrue();
 
-                await _applicationApi.RevokeCsrFromApplicationAsync(createdApp.Id, generatedCsr.Id);
+                await _applicationCredentialsApi.RevokeCsrFromApplicationAsync(createdApp.Id, generatedCsr.Id);
 
-                csrList = await _applicationApi.ListCsrsForApplication(createdApp.Id).ToListAsync();
+                csrList = await _applicationCredentialsApi.ListCsrsForApplication(createdApp.Id).ToListAsync();
                 csrList.Any(x => x.Id == generatedCsr.Id).Should().BeFalse();
             }
             finally
@@ -1935,13 +1950,13 @@ namespace Okta.Sdk.IntegrationTest
                 var issuer = _applicationApi.Configuration.OktaDomain;
                 issuer = issuer.EndsWith("/") ? issuer.Substring(0, issuer.Length - 1) : issuer;
 
-                await _applicationApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()
+                await _applicationGrantsApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()
                 {
                     Issuer = issuer,
                     ScopeId = "okta.users.read",
                 });
                 
-                var appConsentGrants = await _applicationApi.ListScopeConsentGrants(createdApp.Id).ToListAsync();
+                var appConsentGrants = await _applicationGrantsApi.ListScopeConsentGrants(createdApp.Id).ToListAsync();
                 appConsentGrants.Should().NotBeNull();
 
                 var retrievedConsent = appConsentGrants.FirstOrDefault(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
@@ -2018,19 +2033,19 @@ namespace Okta.Sdk.IntegrationTest
                 issuer = issuer.EndsWith("/") ? issuer.Substring(0, issuer.Length - 1) : issuer;
 
                 // TODO: Review the spec. This method should return void
-                await _applicationApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()
+                await _applicationGrantsApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()
                 {
                     Issuer = issuer,
                     ScopeId = "okta.users.read",
                 });
 
-                var appConsentGrants = await _applicationApi.ListScopeConsentGrants(createdApp.Id).ToListAsync();
+                var appConsentGrants = await _applicationGrantsApi.ListScopeConsentGrants(createdApp.Id).ToListAsync();
                 var retrievedConsent = appConsentGrants.FirstOrDefault(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
                 retrievedConsent.Should().NotBeNull();
 
-                await _applicationApi.RevokeScopeConsentGrantAsync(createdApp.Id, retrievedConsent.Id);
+                await _applicationGrantsApi.RevokeScopeConsentGrantAsync(createdApp.Id, retrievedConsent.Id);
 
-                appConsentGrants = await _applicationApi.ListScopeConsentGrants(createdApp.Id).ToListAsync();
+                appConsentGrants = await _applicationGrantsApi.ListScopeConsentGrants(createdApp.Id).ToListAsync();
                 retrievedConsent = appConsentGrants.FirstOrDefault(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
                 retrievedConsent.Should().BeNull();
             }
@@ -2105,17 +2120,17 @@ namespace Okta.Sdk.IntegrationTest
                 var issuer = _applicationApi.Configuration.OktaDomain;
                 issuer = issuer.EndsWith("/") ? issuer.Substring(0, issuer.Length - 1) : issuer;
                 // TODO: Review the spec. This method should return void
-                await _applicationApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()
+                await _applicationGrantsApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()
                 {
                     Issuer = issuer,
                     ScopeId = "okta.users.read",
                 });
 
-                var appConsentGrants = await _applicationApi.ListScopeConsentGrants(createdApp.Id).ToListAsync();
+                var appConsentGrants = await _applicationGrantsApi.ListScopeConsentGrants(createdApp.Id).ToListAsync();
                 var retrievedConsent = appConsentGrants.FirstOrDefault(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
                 retrievedConsent.Should().NotBeNull();
 
-                retrievedConsent = await _applicationApi.GetScopeConsentGrantAsync(createdApp.Id, retrievedConsent.Id);
+                retrievedConsent = await _applicationGrantsApi.GetScopeConsentGrantAsync(createdApp.Id, retrievedConsent.Id);
                 retrievedConsent.Should().NotBeNull();
             }
             finally
@@ -2171,7 +2186,7 @@ namespace Okta.Sdk.IntegrationTest
                 createdApp.Profile = new Dictionary<string, object>();
                 createdApp.Profile.Add("somelist", new List<string> { "test" });
 
-                await _applicationApi.UpdateApplicationAsync(createdApp.Id, createdApp);
+                await _applicationApi.ReplaceApplicationAsync(createdApp.Id, createdApp);
                 var persistedApp = await _applicationApi.GetApplicationAsync(createdApp.Id) as OpenIdConnectApplication;
                 var listProperty = JsonConvert.DeserializeObject<List<string>>(persistedApp.Profile["somelist"].ToString());
                 listProperty.Should().HaveCount(1);
@@ -2228,7 +2243,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
 
-                var connection = await _applicationApi.GetDefaultProvisioningConnectionForApplicationAsync(createdApp.Id);
+                var connection = await _applicationConnectionsApi.GetDefaultProvisioningConnectionForApplicationAsync(createdApp.Id);
                 connection.AuthScheme.Should().Be(ProvisioningConnectionAuthScheme.UNKNOWN);
                 connection.Status.Should().Be(ProvisioningConnectionStatus.UNKNOWN);
 

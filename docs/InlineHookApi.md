@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**ExecuteInlineHook**](InlineHookApi.md#executeinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/execute | Execute an Inline Hook
 [**GetInlineHook**](InlineHookApi.md#getinlinehook) | **GET** /api/v1/inlineHooks/{inlineHookId} | Retrieve an Inline Hook
 [**ListInlineHooks**](InlineHookApi.md#listinlinehooks) | **GET** /api/v1/inlineHooks | List all Inline Hooks
-[**UpdateInlineHook**](InlineHookApi.md#updateinlinehook) | **PUT** /api/v1/inlineHooks/{inlineHookId} | Replace an Inline Hook
+[**ReplaceInlineHook**](InlineHookApi.md#replaceinlinehook) | **PUT** /api/v1/inlineHooks/{inlineHookId} | Replace an Inline Hook
 
 
 <a name="activateinlinehook"></a>
@@ -44,7 +44,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var inlineHookId = "inlineHookId_example";  // string | 
+            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the Inline Hook
 
             try
             {
@@ -67,7 +67,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineHookId** | **string**|  | 
+ **inlineHookId** | **string**| &#x60;id&#x60; of the Inline Hook | 
 
 ### Return type
 
@@ -202,7 +202,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var inlineHookId = "inlineHookId_example";  // string | 
+            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the Inline Hook
 
             try
             {
@@ -225,7 +225,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineHookId** | **string**|  | 
+ **inlineHookId** | **string**| &#x60;id&#x60; of the Inline Hook | 
 
 ### Return type
 
@@ -281,7 +281,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var inlineHookId = "inlineHookId_example";  // string | 
+            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the Inline Hook
 
             try
             {
@@ -303,7 +303,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineHookId** | **string**|  | 
+ **inlineHookId** | **string**| &#x60;id&#x60; of the Inline Hook | 
 
 ### Return type
 
@@ -359,7 +359,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var inlineHookId = "inlineHookId_example";  // string | 
+            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the Inline Hook
             var payloadData = null;  // Object | 
 
             try
@@ -383,7 +383,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineHookId** | **string**|  | 
+ **inlineHookId** | **string**| &#x60;id&#x60; of the Inline Hook | 
  **payloadData** | **Object**|  | 
 
 ### Return type
@@ -441,7 +441,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var inlineHookId = "inlineHookId_example";  // string | 
+            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the Inline Hook
 
             try
             {
@@ -464,7 +464,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineHookId** | **string**|  | 
+ **inlineHookId** | **string**| &#x60;id&#x60; of the Inline Hook | 
 
 ### Return type
 
@@ -568,9 +568,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updateinlinehook"></a>
-# **UpdateInlineHook**
-> InlineHook UpdateInlineHook (string inlineHookId, InlineHook inlineHook)
+<a name="replaceinlinehook"></a>
+# **ReplaceInlineHook**
+> InlineHook ReplaceInlineHook (string inlineHookId, InlineHook inlineHook)
 
 Replace an Inline Hook
 
@@ -586,7 +586,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class UpdateInlineHookExample
+    public class ReplaceInlineHookExample
     {
         public static void Main()
         {
@@ -598,18 +598,18 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var inlineHookId = "inlineHookId_example";  // string | 
+            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the Inline Hook
             var inlineHook = new InlineHook(); // InlineHook | 
 
             try
             {
                 // Replace an Inline Hook
-                InlineHook result = apiInstance.UpdateInlineHook(inlineHookId, inlineHook);
+                InlineHook result = apiInstance.ReplaceInlineHook(inlineHookId, inlineHook);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InlineHookApi.UpdateInlineHook: " + e.Message );
+                Debug.Print("Exception when calling InlineHookApi.ReplaceInlineHook: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -622,7 +622,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineHookId** | **string**|  | 
+ **inlineHookId** | **string**| &#x60;id&#x60; of the Inline Hook | 
  **inlineHook** | [**InlineHook**](InlineHook.md)|  | 
 
 ### Return type

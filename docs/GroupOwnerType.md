@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.GroupOwnerType
+The entity type of the owner
 
 ## Properties
 

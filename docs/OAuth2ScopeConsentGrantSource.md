@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.OAuth2ScopeConsentGrantSource
+User type source that granted consent
 
 ## Properties
 

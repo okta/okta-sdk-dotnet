@@ -37,7 +37,7 @@ namespace Okta.Sdk.UnitTest
         public async Task GetOAuthToken()
         {
             var mockClient = new MockAsyncClient(GetOAuthTokenStubResponse(), HttpStatusCode.OK);
-            var appApi = new ApplicationApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationTokensApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
             var token = await appApi.GetOAuth2TokenForApplicationAsync("foo", "oar579Mcp7OUsNTlo0g3");
 
@@ -62,7 +62,7 @@ namespace Okta.Sdk.UnitTest
         public async Task ListOAuthTokens()
         {
             var mockClient = new MockAsyncClient(GetListOAuthTokensStubResponse(), HttpStatusCode.OK);
-            var appApi = new ApplicationApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationTokensApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
             var tokens = await appApi.ListOAuth2TokensForApplication("foo").ToListAsync();
 
@@ -111,7 +111,7 @@ namespace Okta.Sdk.UnitTest
                                         }
                                     }";
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
-            var appApi = new ApplicationApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationFeaturesApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
             var capabilitiesObj = new CapabilitiesObject
             {
@@ -126,9 +126,9 @@ namespace Okta.Sdk.UnitTest
 
             var feature = await appApi.UpdateFeatureForApplicationAsync("foo", "bar", capabilitiesObj);
 
-            mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/features/{name}");
+            mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/features/{featureName}");
             mockClient.ReceivedPathParams["appId"].Should().Contain("foo");
-            mockClient.ReceivedPathParams["name"].Should().Contain("bar");
+            mockClient.ReceivedPathParams["featureName"].Should().Contain("bar");
 
             var expectedBody = @"{""create"":{""lifecycleCreate"":{""status"":""DISABLED""}}}";
 
@@ -136,7 +136,7 @@ namespace Okta.Sdk.UnitTest
 
             feature.Should().NotBeNull();
             feature.Status.Value.Should().Be("ENABLED");
-            feature.Name.Should().Be("USER_PROVISIONING");
+            feature.Name.Should().Be(ApplicationFeature.NameEnum.USERPROVISIONING);
             feature.Capabilities.Create.LifecycleCreate.Status.Value.Should().Be("DISABLED");
 
         }
@@ -170,16 +170,16 @@ namespace Okta.Sdk.UnitTest
                                         }
                                     }";
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
-            var appApi = new ApplicationApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationFeaturesApi(mockClient, new Configuration { BasePath = "https://foo.com" });
             var feature = await appApi.GetFeatureForApplicationAsync("foo", "bar");
 
-            mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/features/{name}");
+            mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/features/{featureName}");
             mockClient.ReceivedPathParams["appId"].Should().Contain("foo");
-            mockClient.ReceivedPathParams["name"].Should().Contain("bar");
+            mockClient.ReceivedPathParams["featureName"].Should().Contain("bar");
 
             feature.Should().NotBeNull();
             feature.Status.Value.Should().Be("ENABLED");
-            feature.Name.Should().Be("USER_PROVISIONING");
+            feature.Name.Should().Be(ApplicationFeature.NameEnum.USERPROVISIONING);
             feature.Capabilities.Create.LifecycleCreate.Status.Value.Should().Be("DISABLED");
         }
 
@@ -212,7 +212,7 @@ namespace Okta.Sdk.UnitTest
                                         }
                                     }]";
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
-            var appApi = new ApplicationApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationFeaturesApi(mockClient, new Configuration { BasePath = "https://foo.com" });
             var features = await appApi.ListFeaturesForApplication("foo").ToListAsync();
 
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/features");
@@ -220,7 +220,7 @@ namespace Okta.Sdk.UnitTest
 
             features.Should().NotBeNull();
             features.FirstOrDefault().Status.Value.Should().Be("ENABLED");
-            features.FirstOrDefault().Name.Should().Be("USER_PROVISIONING");
+            features.FirstOrDefault().Name.Should().Be(ApplicationFeature.NameEnum.USERPROVISIONING);
             features.FirstOrDefault().Capabilities.Create.LifecycleCreate.Status.Value.Should().Be("DISABLED");
         }
 
@@ -228,7 +228,7 @@ namespace Okta.Sdk.UnitTest
         public async Task ActivateDefaultConnection()
         {
             var mockClient = new MockAsyncClient(string.Empty, HttpStatusCode.OK);
-            var appApi = new ApplicationApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationConnectionsApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
             await appApi.ActivateDefaultProvisioningConnectionForApplicationAsync("foo");
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/connections/default/lifecycle/activate");
@@ -239,7 +239,7 @@ namespace Okta.Sdk.UnitTest
         public async Task DeactivateDefaultConnection()
         {
             var mockClient = new MockAsyncClient(string.Empty, HttpStatusCode.OK);
-            var appApi = new ApplicationApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationConnectionsApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
             await appApi.DeactivateDefaultProvisioningConnectionForApplicationAsync("foo");
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/connections/default/lifecycle/deactivate");
@@ -274,23 +274,23 @@ namespace Okta.Sdk.UnitTest
                                 }";
 
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
-            var appApi = new ApplicationApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationConnectionsApi(mockClient, new Configuration { BasePath = "https://foo.com" });
             var connectionProfile = new ProvisioningConnectionRequest
             {
-                Profile = new ProvisioningConnectionProfile
+                Profile = new ProvisioningConnectionProfile(new ProvisioningConnectionProfileOauth
                 {
-                    Token = "foo",
-                    AuthScheme = "TOKEN",
-                },
+                    ClientId = "foo",
+                    AuthScheme = ProvisioningConnectionAuthSchemeRequest.TOKEN
+                })
             };
 
-            var response = await appApi.SetDefaultProvisioningConnectionForApplicationAsync("bar", connectionProfile, true);
+            var response = await appApi.UpdateDefaultProvisioningConnectionForApplicationAsync("bar", connectionProfile, true);
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/connections/default");
             mockClient.ReceivedPathParams["appId"].Should().Contain("bar");
             mockClient.ReceivedQueryParams.ContainsKey("activate").Should().BeTrue();
             mockClient.ReceivedQueryParams["activate"].Should().Contain("true");
 
-            var expectedBody = @"{""profile"":{""authScheme"":""TOKEN"",""token"":""foo""}}";
+            var expectedBody = @"{""profile"":{""authScheme"":""TOKEN"",""clientId"":""foo""}}";
             mockClient.ReceivedBody.Should().Be(expectedBody);
             response.Status.Value.Should().Be("ENABLED");
             response.AuthScheme.Value.Should().Be("TOKEN");

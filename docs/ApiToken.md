@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **TokenWindow** | **string** | A time duration specified as an [ISO-8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). | [optional] 
 **UserId** | **string** |  | [optional] 
-**Link** | [**ApiTokenLink**](ApiTokenLink.md) |  | [optional] 
+**Link** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

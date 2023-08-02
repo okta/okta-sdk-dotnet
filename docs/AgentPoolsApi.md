@@ -8,16 +8,16 @@ Method | HTTP request | Description
 [**CreateAgentPoolsUpdate**](AgentPoolsApi.md#createagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates | Create an Agent Pool update
 [**DeactivateAgentPoolsUpdate**](AgentPoolsApi.md#deactivateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/deactivate | Deactivate an Agent Pool update
 [**DeleteAgentPoolsUpdate**](AgentPoolsApi.md#deleteagentpoolsupdate) | **DELETE** /api/v1/agentPools/{poolId}/updates/{updateId} | Delete an Agent Pool update
-[**GetAgentPools**](AgentPoolsApi.md#getagentpools) | **GET** /api/v1/agentPools | List all Agent Pools
 [**GetAgentPoolsUpdateInstance**](AgentPoolsApi.md#getagentpoolsupdateinstance) | **GET** /api/v1/agentPools/{poolId}/updates/{updateId} | Retrieve an Agent Pool update by id
 [**GetAgentPoolsUpdateSettings**](AgentPoolsApi.md#getagentpoolsupdatesettings) | **GET** /api/v1/agentPools/{poolId}/updates/settings | Retrieve an Agent Pool update&#39;s settings
-[**GetAgentPoolsUpdates**](AgentPoolsApi.md#getagentpoolsupdates) | **GET** /api/v1/agentPools/{poolId}/updates | List all Agent Pool updates
+[**ListAgentPools**](AgentPoolsApi.md#listagentpools) | **GET** /api/v1/agentPools | List all Agent Pools
+[**ListAgentPoolsUpdates**](AgentPoolsApi.md#listagentpoolsupdates) | **GET** /api/v1/agentPools/{poolId}/updates | List all Agent Pool updates
 [**PauseAgentPoolsUpdate**](AgentPoolsApi.md#pauseagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/pause | Pause an Agent Pool update
 [**ResumeAgentPoolsUpdate**](AgentPoolsApi.md#resumeagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/resume | Resume an Agent Pool update
 [**RetryAgentPoolsUpdate**](AgentPoolsApi.md#retryagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/retry | Retry an Agent Pool update
-[**SetAgentPoolsUpdateSettings**](AgentPoolsApi.md#setagentpoolsupdatesettings) | **POST** /api/v1/agentPools/{poolId}/updates/settings | Update an Agent Pool update settings
 [**StopAgentPoolsUpdate**](AgentPoolsApi.md#stopagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/stop | Stop an Agent Pool update
 [**UpdateAgentPoolsUpdate**](AgentPoolsApi.md#updateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId} | Update an Agent Pool update by id
+[**UpdateAgentPoolsUpdateSettings**](AgentPoolsApi.md#updateagentpoolsupdatesettings) | **POST** /api/v1/agentPools/{poolId}/updates/settings | Update an Agent Pool update settings
 
 
 <a name="activateagentpoolsupdate"></a>
@@ -344,95 +344,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getagentpools"></a>
-# **GetAgentPools**
-> List&lt;AgentPool&gt; GetAgentPools (int? limitPerPoolType = null, AgentType? poolType = null, string after = null)
-
-List all Agent Pools
-
-Fetches AgentPools based on request parameters for a given org
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class GetAgentPoolsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new AgentPoolsApi(config);
-            var limitPerPoolType = 5;  // int? | Maximum number of AgentPools being returned (optional)  (default to 5)
-            var poolType = (AgentType) "AD";  // AgentType? | Agent type to search for (optional) 
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
-
-            try
-            {
-                // List all Agent Pools
-                List<AgentPool> result = apiInstance.GetAgentPools(limitPerPoolType, poolType, after).ToListAsync();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling AgentPoolsApi.GetAgentPools: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limitPerPoolType** | **int?**| Maximum number of AgentPools being returned | [optional] [default to 5]
- **poolType** | **AgentType?**| Agent type to search for | [optional] 
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
-
-### Return type
-
-[**List&lt;AgentPool&gt;**](AgentPool.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="getagentpoolsupdateinstance"></a>
 # **GetAgentPoolsUpdateInstance**
 > AgentPoolUpdate GetAgentPoolsUpdateInstance (string poolId, string updateId)
 
 Retrieve an Agent Pool update by id
 
-Gets Agent pool update from updateId
+Retrieves Agent pool update from updateId
 
 ### Example
 ```csharp
@@ -513,7 +431,7 @@ Name | Type | Description  | Notes
 
 Retrieve an Agent Pool update's settings
 
-Gets the current state of the agent pool update instance settings
+Retrieves the current state of the agent pool update instance settings
 
 ### Example
 ```csharp
@@ -586,13 +504,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getagentpoolsupdates"></a>
-# **GetAgentPoolsUpdates**
-> List&lt;AgentPoolUpdate&gt; GetAgentPoolsUpdates (string poolId, bool? scheduled = null)
+<a name="listagentpools"></a>
+# **ListAgentPools**
+> List&lt;AgentPool&gt; ListAgentPools (int? limitPerPoolType = null, AgentType? poolType = null, string after = null)
 
-List all Agent Pool updates
+List all Agent Pools
 
-Gets List of Agent pool updates
+Lists all agent pools with pagination support
 
 ### Example
 ```csharp
@@ -604,7 +522,89 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class GetAgentPoolsUpdatesExample
+    public class ListAgentPoolsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AgentPoolsApi(config);
+            var limitPerPoolType = 5;  // int? | Maximum number of AgentPools being returned (optional)  (default to 5)
+            var poolType = (AgentType) "AD";  // AgentType? | Agent type to search for (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
+
+            try
+            {
+                // List all Agent Pools
+                List<AgentPool> result = apiInstance.ListAgentPools(limitPerPoolType, poolType, after).ToListAsync();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AgentPoolsApi.ListAgentPools: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limitPerPoolType** | **int?**| Maximum number of AgentPools being returned | [optional] [default to 5]
+ **poolType** | **AgentType?**| Agent type to search for | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
+
+### Return type
+
+[**List&lt;AgentPool&gt;**](AgentPool.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listagentpoolsupdates"></a>
+# **ListAgentPoolsUpdates**
+> List&lt;AgentPoolUpdate&gt; ListAgentPoolsUpdates (string poolId, bool? scheduled = null)
+
+List all Agent Pool updates
+
+Lists all agent pool updates
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ListAgentPoolsUpdatesExample
     {
         public static void Main()
         {
@@ -622,12 +622,12 @@ namespace Example
             try
             {
                 // List all Agent Pool updates
-                List<AgentPoolUpdate> result = apiInstance.GetAgentPoolsUpdates(poolId, scheduled).ToListAsync();
+                List<AgentPoolUpdate> result = apiInstance.ListAgentPoolsUpdates(poolId, scheduled).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AgentPoolsApi.GetAgentPoolsUpdates: " + e.Message );
+                Debug.Print("Exception when calling AgentPoolsApi.ListAgentPoolsUpdates: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -910,88 +910,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="setagentpoolsupdatesettings"></a>
-# **SetAgentPoolsUpdateSettings**
-> AgentPoolUpdateSetting SetAgentPoolsUpdateSettings (string poolId, AgentPoolUpdateSetting agentPoolUpdateSetting)
-
-Update an Agent Pool update settings
-
-Updates Agent pool update settings
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class SetAgentPoolsUpdateSettingsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
-            var agentPoolUpdateSetting = new AgentPoolUpdateSetting(); // AgentPoolUpdateSetting | 
-
-            try
-            {
-                // Update an Agent Pool update settings
-                AgentPoolUpdateSetting result = apiInstance.SetAgentPoolsUpdateSettings(poolId, agentPoolUpdateSetting);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling AgentPoolsApi.SetAgentPoolsUpdateSettings: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **poolId** | **string**| Id of the agent pool for which the settings will apply | 
- **agentPoolUpdateSetting** | [**AgentPoolUpdateSetting**](AgentPoolUpdateSetting.md)|  | 
-
-### Return type
-
-[**AgentPoolUpdateSetting**](AgentPoolUpdateSetting.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Updated |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="stopagentpoolsupdate"></a>
 # **StopAgentPoolsUpdate**
 > AgentPoolUpdate StopAgentPoolsUpdate (string poolId, string updateId)
@@ -1135,6 +1053,88 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AgentPoolUpdate**](AgentPoolUpdate.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Updated |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateagentpoolsupdatesettings"></a>
+# **UpdateAgentPoolsUpdateSettings**
+> AgentPoolUpdateSetting UpdateAgentPoolsUpdateSettings (string poolId, AgentPoolUpdateSetting agentPoolUpdateSetting)
+
+Update an Agent Pool update settings
+
+Updates an agent pool update settings
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class UpdateAgentPoolsUpdateSettingsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AgentPoolsApi(config);
+            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
+            var agentPoolUpdateSetting = new AgentPoolUpdateSetting(); // AgentPoolUpdateSetting | 
+
+            try
+            {
+                // Update an Agent Pool update settings
+                AgentPoolUpdateSetting result = apiInstance.UpdateAgentPoolsUpdateSettings(poolId, agentPoolUpdateSetting);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AgentPoolsApi.UpdateAgentPoolsUpdateSettings: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **poolId** | **string**| Id of the agent pool for which the settings will apply | 
+ **agentPoolUpdateSetting** | [**AgentPoolUpdateSetting**](AgentPoolUpdateSetting.md)|  | 
+
+### Return type
+
+[**AgentPoolUpdateSetting**](AgentPoolUpdateSetting.md)
 
 ### Authorization
 

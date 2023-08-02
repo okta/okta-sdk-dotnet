@@ -1,11 +1,10 @@
 # Okta.Sdk.Model.EmailPreviewLinks
-Links to resources related to this email preview.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Self** | [**HrefObject**](HrefObject.md) |  | [optional] 
+**Self** | [**HrefObjectSelfLink**](HrefObjectSelfLink.md) |  | [optional] 
 **ContentSource** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **Template** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **Test** | [**HrefObject**](HrefObject.md) |  | [optional] 

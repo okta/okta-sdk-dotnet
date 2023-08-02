@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**CreatePrincipalRateLimitEntity**](PrincipalRateLimitApi.md#createprincipalratelimitentity) | **POST** /api/v1/principal-rate-limits | Create a Principal Rate Limit
 [**GetPrincipalRateLimitEntity**](PrincipalRateLimitApi.md#getprincipalratelimitentity) | **GET** /api/v1/principal-rate-limits/{principalRateLimitId} | Retrieve a Principal Rate Limit
 [**ListPrincipalRateLimitEntities**](PrincipalRateLimitApi.md#listprincipalratelimitentities) | **GET** /api/v1/principal-rate-limits | List all Principal Rate Limits
-[**UpdatePrincipalRateLimitEntity**](PrincipalRateLimitApi.md#updateprincipalratelimitentity) | **PUT** /api/v1/principal-rate-limits/{principalRateLimitId} | Replace a Principal Rate Limit
+[**ReplacePrincipalRateLimitEntity**](PrincipalRateLimitApi.md#replaceprincipalratelimitentity) | **PUT** /api/v1/principal-rate-limits/{principalRateLimitId} | Replace a Principal Rate Limit
 
 
 <a name="createprincipalratelimitentity"></a>
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Create a Principal Rate Limit
 
-Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
+Creates a new Principal Rate Limit entity. In the current release, we only allow one Principal Rate Limit entity per org and principal.
 
 ### Example
 ```csharp
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 Retrieve a Principal Rate Limit
 
-Fetches a Principal Rate Limit entity by `principalRateLimitId`.
+Retrieves a Principal Rate Limit entity by `principalRateLimitId`
 
 ### Example
 ```csharp
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 List all Principal Rate Limits
 
-Lists all Principal Rate Limit entities considering the provided parameters.
+Lists all Principal Rate Limit entities considering the provided parameters
 
 ### Example
 ```csharp
@@ -252,13 +252,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updateprincipalratelimitentity"></a>
-# **UpdatePrincipalRateLimitEntity**
-> PrincipalRateLimitEntity UpdatePrincipalRateLimitEntity (string principalRateLimitId, PrincipalRateLimitEntity entity)
+<a name="replaceprincipalratelimitentity"></a>
+# **ReplacePrincipalRateLimitEntity**
+> PrincipalRateLimitEntity ReplacePrincipalRateLimitEntity (string principalRateLimitId, PrincipalRateLimitEntity entity)
 
 Replace a Principal Rate Limit
 
-Update a  Principal Rate Limit entity by `principalRateLimitId`.
+Replaces a principal rate limit entity by `principalRateLimitId`
 
 ### Example
 ```csharp
@@ -270,7 +270,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class UpdatePrincipalRateLimitEntityExample
+    public class ReplacePrincipalRateLimitEntityExample
     {
         public static void Main()
         {
@@ -288,12 +288,12 @@ namespace Example
             try
             {
                 // Replace a Principal Rate Limit
-                PrincipalRateLimitEntity result = apiInstance.UpdatePrincipalRateLimitEntity(principalRateLimitId, entity);
+                PrincipalRateLimitEntity result = apiInstance.ReplacePrincipalRateLimitEntity(principalRateLimitId, entity);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PrincipalRateLimitApi.UpdatePrincipalRateLimitEntity: " + e.Message );
+                Debug.Print("Exception when calling PrincipalRateLimitApi.ReplacePrincipalRateLimitEntity: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

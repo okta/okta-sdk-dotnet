@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**DeletePushProvider**](PushProviderApi.md#deletepushprovider) | **DELETE** /api/v1/push-providers/{pushProviderId} | Delete a Push Provider
 [**GetPushProvider**](PushProviderApi.md#getpushprovider) | **GET** /api/v1/push-providers/{pushProviderId} | Retrieve a Push Provider
 [**ListPushProviders**](PushProviderApi.md#listpushproviders) | **GET** /api/v1/push-providers | List all Push Providers
-[**UpdatePushProvider**](PushProviderApi.md#updatepushprovider) | **PUT** /api/v1/push-providers/{pushProviderId} | Replace a Push Provider
+[**ReplacePushProvider**](PushProviderApi.md#replacepushprovider) | **PUT** /api/v1/push-providers/{pushProviderId} | Replace a Push Provider
 
 
 <a name="createpushprovider"></a>
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Create a Push Provider
 
-Adds a new push provider to your organization.
+Creates a new push provider
 
 ### Example
 ```csharp
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 Delete a Push Provider
 
-Delete a push provider by `pushProviderId`. If the push provider is currently being used in the org by a custom authenticator, the delete will not be allowed.
+Deletes a push provider by `pushProviderId`. If the push provider is currently being used in the org by a custom authenticator, the delete will not be allowed.
 
 ### Example
 ```csharp
@@ -175,7 +175,7 @@ void (empty response body)
 
 Retrieve a Push Provider
 
-Fetches a push provider by `pushProviderId`.
+Retrieves a push provider by `pushProviderId`
 
 ### Example
 ```csharp
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 List all Push Providers
 
-Enumerates push providers in your organization.
+Lists all push providers
 
 ### Example
 ```csharp
@@ -326,13 +326,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatepushprovider"></a>
-# **UpdatePushProvider**
-> PushProvider UpdatePushProvider (string pushProviderId, PushProvider pushProvider)
+<a name="replacepushprovider"></a>
+# **ReplacePushProvider**
+> PushProvider ReplacePushProvider (string pushProviderId, PushProvider pushProvider)
 
 Replace a Push Provider
 
-Updates a push provider by `pushProviderId`.
+Replaces a push provider by `pushProviderId`
 
 ### Example
 ```csharp
@@ -344,7 +344,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class UpdatePushProviderExample
+    public class ReplacePushProviderExample
     {
         public static void Main()
         {
@@ -362,12 +362,12 @@ namespace Example
             try
             {
                 // Replace a Push Provider
-                PushProvider result = apiInstance.UpdatePushProvider(pushProviderId, pushProvider);
+                PushProvider result = apiInstance.ReplacePushProvider(pushProviderId, pushProvider);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PushProviderApi.UpdatePushProvider: " + e.Message );
+                Debug.Print("Exception when calling PushProviderApi.ReplacePushProvider: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**DeleteSmsTemplate**](TemplateApi.md#deletesmstemplate) | **DELETE** /api/v1/templates/sms/{templateId} | Delete an SMS Template
 [**GetSmsTemplate**](TemplateApi.md#getsmstemplate) | **GET** /api/v1/templates/sms/{templateId} | Retrieve an SMS Template
 [**ListSmsTemplates**](TemplateApi.md#listsmstemplates) | **GET** /api/v1/templates/sms | List all SMS Templates
-[**PartialUpdateSmsTemplate**](TemplateApi.md#partialupdatesmstemplate) | **POST** /api/v1/templates/sms/{templateId} | Update an SMS Template
-[**UpdateSmsTemplate**](TemplateApi.md#updatesmstemplate) | **PUT** /api/v1/templates/sms/{templateId} | Replace an SMS Template
+[**ReplaceSmsTemplate**](TemplateApi.md#replacesmstemplate) | **PUT** /api/v1/templates/sms/{templateId} | Replace an SMS Template
+[**UpdateSmsTemplate**](TemplateApi.md#updatesmstemplate) | **POST** /api/v1/templates/sms/{templateId} | Update an SMS Template
 
 
 <a name="createsmstemplate"></a>
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Create an SMS Template
 
-Adds a new custom SMS template to your organization.
+Creates a new custom SMS template
 
 ### Example
 ```csharp
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 Delete an SMS Template
 
-Removes an SMS template.
+Deletes an SMS template
 
 ### Example
 ```csharp
@@ -121,7 +121,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
-            var templateId = "templateId_example";  // string | 
+            var templateId = 6NQUJ5yR3bpgEiYmq8IC;  // string | `id` of the Template
 
             try
             {
@@ -143,7 +143,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **templateId** | **string**|  | 
+ **templateId** | **string**| &#x60;id&#x60; of the Template | 
 
 ### Return type
 
@@ -175,7 +175,7 @@ void (empty response body)
 
 Retrieve an SMS Template
 
-Fetches a specific template by `id`
+Retrieves a specific template by `id`
 
 ### Example
 ```csharp
@@ -199,7 +199,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
-            var templateId = "templateId_example";  // string | 
+            var templateId = 6NQUJ5yR3bpgEiYmq8IC;  // string | `id` of the Template
 
             try
             {
@@ -222,7 +222,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **templateId** | **string**|  | 
+ **templateId** | **string**| &#x60;id&#x60; of the Template | 
 
 ### Return type
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 List all SMS Templates
 
-Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
+Lists all custom SMS templates. A subset of templates can be returned that match a template type.
 
 ### Example
 ```csharp
@@ -326,13 +326,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="partialupdatesmstemplate"></a>
-# **PartialUpdateSmsTemplate**
-> SmsTemplate PartialUpdateSmsTemplate (string templateId, SmsTemplate smsTemplate)
+<a name="replacesmstemplate"></a>
+# **ReplaceSmsTemplate**
+> SmsTemplate ReplaceSmsTemplate (string templateId, SmsTemplate smsTemplate)
 
-Update an SMS Template
+Replace an SMS Template
 
-Updates only some of the SMS template properties:
+Replaces the SMS template
 
 ### Example
 ```csharp
@@ -344,7 +344,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class PartialUpdateSmsTemplateExample
+    public class ReplaceSmsTemplateExample
     {
         public static void Main()
         {
@@ -356,18 +356,18 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
-            var templateId = "templateId_example";  // string | 
+            var templateId = 6NQUJ5yR3bpgEiYmq8IC;  // string | `id` of the Template
             var smsTemplate = new SmsTemplate(); // SmsTemplate | 
 
             try
             {
-                // Update an SMS Template
-                SmsTemplate result = apiInstance.PartialUpdateSmsTemplate(templateId, smsTemplate);
+                // Replace an SMS Template
+                SmsTemplate result = apiInstance.ReplaceSmsTemplate(templateId, smsTemplate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TemplateApi.PartialUpdateSmsTemplate: " + e.Message );
+                Debug.Print("Exception when calling TemplateApi.ReplaceSmsTemplate: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -380,7 +380,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **templateId** | **string**|  | 
+ **templateId** | **string**| &#x60;id&#x60; of the Template | 
  **smsTemplate** | [**SmsTemplate**](SmsTemplate.md)|  | 
 
 ### Return type
@@ -412,9 +412,9 @@ Name | Type | Description  | Notes
 # **UpdateSmsTemplate**
 > SmsTemplate UpdateSmsTemplate (string templateId, SmsTemplate smsTemplate)
 
-Replace an SMS Template
+Update an SMS Template
 
-Updates the SMS template.
+Updates an SMS template
 
 ### Example
 ```csharp
@@ -438,12 +438,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
-            var templateId = "templateId_example";  // string | 
+            var templateId = 6NQUJ5yR3bpgEiYmq8IC;  // string | `id` of the Template
             var smsTemplate = new SmsTemplate(); // SmsTemplate | 
 
             try
             {
-                // Replace an SMS Template
+                // Update an SMS Template
                 SmsTemplate result = apiInstance.UpdateSmsTemplate(templateId, smsTemplate);
                 Debug.WriteLine(result);
             }
@@ -462,7 +462,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **templateId** | **string**|  | 
+ **templateId** | **string**| &#x60;id&#x60; of the Template | 
  **smsTemplate** | [**SmsTemplate**](SmsTemplate.md)|  | 
 
 ### Return type

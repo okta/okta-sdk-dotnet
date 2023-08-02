@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Self** | [**HrefObjectSelfLink**](HrefObjectSelfLink.md) |  | [optional] 
 **Apps** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **Logo** | [**List&lt;HrefObject&gt;**](HrefObject.md) |  | [optional] 
-**Self** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **Source** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **Users** | [**HrefObject**](HrefObject.md) |  | [optional] 
 

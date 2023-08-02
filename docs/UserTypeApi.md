@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Create a User Type
 
-Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
+Creates a new User Type. Okta automatically creates a `default` User Type for your org. You may add up to nine additional User Types. > **Note**: New User Types are based on the current default schema template. Modifications to this schema do not automatically propagate to previously created User Types.
 
 ### Example
 ```csharp
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 Delete a User Type
 
-Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
+Deletes a User Type permanently. > **Note**: You can't delete the default User Type or a User Type that is currently assigned to users.
 
 ### Example
 ```csharp
@@ -175,7 +175,7 @@ void (empty response body)
 
 Retrieve a User Type
 
-Fetches a User Type by ID. The special identifier `default` may be used to fetch the default User Type.
+Retrieves a User Type by ID. Use `default` to fetch the default User Type.
 
 ### Example
 ```csharp
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 List all User Types
 
-Fetches all User Types in your org
+Lists all User Types in your org
 
 ### Example
 ```csharp
@@ -324,11 +324,11 @@ This endpoint does not need any parameter.
 
 <a name="replaceusertype"></a>
 # **ReplaceUserType**
-> UserType ReplaceUserType (string typeId, UserType userType)
+> UserType ReplaceUserType (string typeId, UserTypePutRequest userType = null)
 
 Replace a User Type
 
-Replace an existing User Type
+Replaces an existing User Type. > **Note**: The `name` of an existing User Type can't be changed, but must be part of the request body. You can only replace the `displayName` and `description` elements.
 
 ### Example
 ```csharp
@@ -353,7 +353,7 @@ namespace Example
 
             var apiInstance = new UserTypeApi(config);
             var typeId = "typeId_example";  // string | 
-            var userType = new UserType(); // UserType | 
+            var userType = new UserTypePutRequest(); // UserTypePutRequest |  (optional) 
 
             try
             {
@@ -377,7 +377,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **typeId** | **string**|  | 
- **userType** | [**UserType**](UserType.md)|  | 
+ **userType** | [**UserTypePutRequest**](UserTypePutRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -406,11 +406,11 @@ Name | Type | Description  | Notes
 
 <a name="updateusertype"></a>
 # **UpdateUserType**
-> UserType UpdateUserType (string typeId, UserType userType)
+> UserType UpdateUserType (string typeId, UserTypePostRequest userType)
 
 Update a User Type
 
-Updates an existing User Type
+Updates an existing User Type. > **Note**: You can only update the `displayName` and `description` elements. The `name` of an existing User Type can't be changed.
 
 ### Example
 ```csharp
@@ -435,7 +435,7 @@ namespace Example
 
             var apiInstance = new UserTypeApi(config);
             var typeId = "typeId_example";  // string | 
-            var userType = new UserType(); // UserType | 
+            var userType = new UserTypePostRequest(); // UserTypePostRequest | 
 
             try
             {
@@ -459,7 +459,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **typeId** | **string**|  | 
- **userType** | [**UserType**](UserType.md)|  | 
+ **userType** | [**UserTypePostRequest**](UserTypePostRequest.md)|  | 
 
 ### Return type
 

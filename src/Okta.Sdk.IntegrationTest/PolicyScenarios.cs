@@ -21,11 +21,13 @@ namespace Okta.Sdk.IntegrationTest
         private PolicyApi _policyApi;
         private GroupApi _groupApi;
         private ApplicationApi _applicationApi;
+        private ApplicationPoliciesApi _applicationPolicyApi;
         public PolicyScenarios()
         {
             _policyApi = new PolicyApi();
             _groupApi = new GroupApi();
             _applicationApi = new ApplicationApi();
+            _applicationPolicyApi = new ApplicationPoliciesApi();
         }
 
         [Fact]
@@ -246,7 +248,7 @@ namespace Okta.Sdk.IntegrationTest
             createdPolicy.Name = $"dotnet-sdk: Updated UpdatePolicy {Guid.NewGuid()}".Substring(0, 50);
             createdPolicy.Description = "This description was updated";
 
-            await _policyApi.UpdatePolicyAsync(createdPolicy.Id, createdPolicy);
+            await _policyApi.ReplacePolicyAsync(createdPolicy.Id, createdPolicy);
 
             var updatedPolicy = await _policyApi.GetPolicyAsync(createdPolicy.Id);
 
@@ -457,7 +459,7 @@ namespace Okta.Sdk.IntegrationTest
                     Access = "ALLOW",
                     PreRegistrationInlineHooks = null,
                     ProfileAttributes = profileAttributes,
-                    UnknownUserAction = "DENY",
+                    UnknownUserAction = ProfileEnrollmentPolicyRuleAction.UnknownUserActionEnum.DENY,
                     TargetGroupIds = null,
                     ActivationRequirements = new ProfileEnrollmentPolicyRuleActivationRequirement
                     {
@@ -468,7 +470,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var createdPolicyRule = await _policyApi.UpdatePolicyRuleAsync( createdPolicy.Id, defaultPolicyRule.Id, defaultPolicyRule) as ProfileEnrollmentPolicyRule;
+                var createdPolicyRule = await _policyApi.ReplacePolicyRuleAsync( createdPolicy.Id, defaultPolicyRule.Id, defaultPolicyRule) as ProfileEnrollmentPolicyRule;
                 createdPolicyRule.Should().NotBeNull();
                 createdPolicyRule.Name.Should().Be(defaultPolicyRule.Name);
                 createdPolicyRule.Type.Should().Be(PolicyRuleType.PROFILEENROLLMENT);
@@ -476,7 +478,7 @@ namespace Okta.Sdk.IntegrationTest
                 createdPolicyRule.Actions.ProfileEnrollment.Should().NotBeNull();
                 createdPolicyRule.Actions.ProfileEnrollment.Access.Should().Be("ALLOW");
                 createdPolicyRule.Actions.ProfileEnrollment.PreRegistrationInlineHooks.Should().BeNullOrEmpty();
-                createdPolicyRule.Actions.ProfileEnrollment.UnknownUserAction.Should().Be("DENY");
+                createdPolicyRule.Actions.ProfileEnrollment.UnknownUserAction.Should().Be(ProfileEnrollmentPolicyRuleAction.UnknownUserActionEnum.DENY);
                 createdPolicyRule.Actions.ProfileEnrollment.TargetGroupIds.Should().BeNullOrEmpty();
                 createdPolicyRule.Actions.ProfileEnrollment.ActivationRequirements.EmailVerification.Should().BeTrue();
                 createdPolicyRule.Actions.ProfileEnrollment.ProfileAttributes.Should().HaveCount(1);
@@ -757,7 +759,7 @@ namespace Okta.Sdk.IntegrationTest
                 createdPolicyRule.Name = $"dotnet-sdk: Updated {createdPolicyRule.Name}".Substring(0, 50);
                 createdPolicyRule.Conditions.Network = new PolicyNetworkCondition() { Connection = "ANYWHERE" };
 
-                var updatedPolicyRule = await _policyApi.UpdatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id, createdPolicyRule) as OktaSignOnPolicyRule;
+                var updatedPolicyRule = await _policyApi.ReplacePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id, createdPolicyRule) as OktaSignOnPolicyRule;
 
                 updatedPolicyRule.Name.Should().StartWith("dotnet-sdk: Updated");
                 updatedPolicyRule.Type.Value.Should().Be("SIGN_ON");
@@ -953,7 +955,7 @@ namespace Okta.Sdk.IntegrationTest
                 retrievedPolicyRule.Actions.SelfServicePasswordReset.Access = "DENY";
                 retrievedPolicyRule.Name = $"dotnet-sdk: Updated {policyRule.Name}".Substring(0, 50);
 
-                var updatedPolicyRule = await _policyApi.UpdatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id, retrievedPolicyRule) as PasswordPolicyRule;
+                var updatedPolicyRule = await _policyApi.ReplacePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id, retrievedPolicyRule) as PasswordPolicyRule;
 
                 updatedPolicyRule.Actions.PasswordChange.Access.Value.Should().Be("DENY");
                 updatedPolicyRule.Actions.SelfServicePasswordReset.Access.Value.Should().Be("DENY");
@@ -1173,13 +1175,14 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                await _applicationApi.AssignApplicationPolicyAsync(createdApp.Id, createdPolicy1.Id);
+                // TODO: Migration guide 
+                await _applicationPolicyApi.AssignApplicationPolicyAsync(createdApp.Id, createdPolicy1.Id);
                 var updatedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
                 var accessPolicyId = updatedApp.Links.AccessPolicy.Href.Split('/')?.LastOrDefault();
                 accessPolicyId.Should().Be(createdPolicy1.Id);
 
 
-                await _applicationApi.AssignApplicationPolicyAsync(createdApp.Id, createdPolicy2.Id);
+                await _applicationPolicyApi.AssignApplicationPolicyAsync(createdApp.Id, createdPolicy2.Id);
                 updatedApp = await _applicationApi.GetApplicationAsync(createdApp.Id);
                 accessPolicyId = updatedApp.Links.AccessPolicy.Href.Split('/')?.LastOrDefault();
                 accessPolicyId.Should().Be(createdPolicy2.Id);

@@ -6069,12 +6069,12 @@ paths:
               value: profile.platform eq "WINDOWS"
             Devices whose `sid` starts with `S-1`:
               value: profile.sid sw "S-1"
-        - in: query
-          name: expand
+        - name: expand
+          in: query
           schema:
             type: string
-            enum:
-              - user
+            # enum:
+            #   - user # TODO: REVISIT WITH API TEAM
           description: Lists associated users for the device in `_embedded` element
       responses:
         '200':
@@ -6314,36 +6314,36 @@ paths:
             - okta.domains.read
       tags:
         - CustomDomain
-    post:
-      summary: Create a Custom Domain
-      description: Creates your custom domain
-      operationId: createCustomDomain
-      x-codegen-request-body-name: domain
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DomainRequest'
-        required: true
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DomainResponse'
-        '400':
-          $ref: '#/components/responses/ErrorApiValidationFailed400'
-        '403':
-          $ref: '#/components/responses/ErrorAccessDenied403'
-        '429':
-          $ref: '#/components/responses/ErrorTooManyRequests429'
-      security:
-        - apiToken: []
-        - oauth2:
-            - okta.domains.manage
-      tags:
-        - CustomDomain
+    # post:
+    #   summary: Create a Custom Domain
+    #   description: Creates your custom domain
+    #   operationId: createCustomDomain
+    #   x-codegen-request-body-name: domain
+    #   requestBody:
+    #     content:
+    #       application/json:
+    #         schema:
+    #           $ref: '#/components/schemas/DomainRequest'
+    #     required: true
+    #   responses:
+    #     '200':
+    #       description: Success
+    #       content:
+    #         application/json:
+    #           schema:
+    #             $ref: '#/components/schemas/DomainResponse'
+    #     '400':
+    #       $ref: '#/components/responses/ErrorApiValidationFailed400'
+    #     '403':
+    #       $ref: '#/components/responses/ErrorAccessDenied403'
+    #     '429':
+    #       $ref: '#/components/responses/ErrorTooManyRequests429'
+    #   security:
+    #     - apiToken: []
+    #     - oauth2:
+    #         - okta.domains.manage
+    #   tags:
+    #     - CustomDomain
   /api/v1/domains/{domainId}:
     parameters:
       - $ref: '#/components/parameters/pathDomainId'
@@ -29015,7 +29015,7 @@ components:
           type: array
         unknownUserAction:
           type: string
-          enum:
+          enum: #TODO: Convert to StringEnum
             - DENY
             - REGISTER
     ProfileEnrollmentPolicyRuleActions:
@@ -29317,7 +29317,7 @@ components:
       enum:
         - OAUTH2
         - TOKEN
-    ProvisioningConnectionProfile:
+    ProvisioningConnectionProfile: #TODO: Review inheritance
       description: |
         The profile used to configure the connection method of authentication and the credentials.
         Currently, token-based and OAuth 2.0-based authentication are supported.
@@ -30386,12 +30386,7 @@ components:
         policyTypes:
           type: array
           description: Supported policy types for a simulate operation. The default value, `null`, returns all types.
-          enum:
-            - - OKTA_SIGN_ON
-            - - MFA_ENROLL
-            - - PROFILE_ENROLLMENT
-            - - ACCESS_POLICY
-            - - null
+          $ref: '#/components/schemas/PolicyType' #TODO: Revisit with API team
       required:
         - appInstance
     SimulatePolicyEvaluations:
@@ -30406,12 +30401,7 @@ components:
         policyType:
           type: array
           description: The policy type of the simulate operation
-          enum:
-            - - OKTA_SIGN_ON
-            - - MFA_ENROLL
-            - - PROFILE_ENROLLMENT
-            - - ACCESS_POLICY
-            - - null
+          $ref: '#/components/schemas/PolicyType' #TODO: Revisit with API TEAM
         result:
           $ref: '#/components/schemas/SimulatePolicyResult'
         status:
@@ -31309,7 +31299,7 @@ components:
         userLifecycleAttribute:
           $ref: '#/components/schemas/UserLifecycleAttributePolicyRuleCondition'
     UserProfile:
-      additionalProperties: {}
+      additionalProperties: true # TODO: revisit
       type: object
       properties:
         city:

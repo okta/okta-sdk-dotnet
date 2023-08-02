@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.NotificationType
+The type of notification
 
 ## Properties
 

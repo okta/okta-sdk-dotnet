@@ -949,7 +949,7 @@ namespace Okta.Sdk.IntegrationTest
                createdIdp.Name = $"dotnet-sdk:UpdateIdp{randomSuffix}-upd";
                Thread.Sleep(3000); // allow for user replication prior to read attempt
 
-               var updatedIdp = await _idpApi.UpdateIdentityProviderAsync(createdIdp.Id, createdIdp);
+               var updatedIdp = await _idpApi.ReplaceIdentityProviderAsync(createdIdp.Id, createdIdp);
                updatedIdp.Name.Should().Be($"dotnet-sdk:UpdateIdp{randomSuffix}-upd");
 
             }

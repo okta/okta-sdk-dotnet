@@ -43,8 +43,8 @@ namespace Okta.Sdk.IntegrationTest
             {
                 foreach (var user in foundUsers)
                 {
-                    await _userApi.DeactivateOrDeleteUserAsync(user.Id);
-                    await _userApi.DeactivateOrDeleteUserAsync(user.Id);
+                    await _userApi.DeactivateUserAsync(user.Id);
+                    await _userApi.DeleteUserAsync(user.Id);
                 }
             }
         }
@@ -81,7 +81,7 @@ namespace Okta.Sdk.IntegrationTest
                     }
                 };
 
-                var updatedUser = await _userApi.PartialUpdateUserAsync(createdUser.Id, updateUserRequest);
+                var updatedUser = await _userApi.UpdateUserAsync(createdUser.Id, updateUserRequest);
                 updatedUser.Profile.PrimaryPhone.Should().Be("321-123-1000");
                 updatedUser.Profile.FirstName.Should().Be("FirstName");
                 updatedUser.Profile.LastName.Should().Be("LastName");
@@ -96,8 +96,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
 
         }
@@ -150,8 +150,8 @@ namespace Okta.Sdk.IntegrationTest
             }
             finally
             {
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -200,8 +200,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -243,8 +243,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -293,8 +293,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -343,8 +343,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -387,7 +387,7 @@ namespace Okta.Sdk.IntegrationTest
                     Profile = createdUser.Profile
                 };
 
-                var updatedUser = await _userApi.PartialUpdateUserAsync(createdUser.Id, updateUserRequest);
+                var updatedUser = await _userApi.UpdateUserAsync(createdUser.Id, updateUserRequest);
                 updatedUser.Profile.NickName.Should().Be(nickName);
                 updatedUser.Profile.AdditionalProperties["homeworld"].Should().Be("Planet Earth");
 
@@ -398,8 +398,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -437,13 +437,13 @@ namespace Okta.Sdk.IntegrationTest
                 createdUserType = await _userTypeApi.CreateUserTypeAsync(
                     new UserType
                     {
-                        Name = $"oktasdk{nameof(UpdateUserUserType)}",
+                        Name = nameof(UpdateUserUserType),
                         DisplayName = nameof(UpdateUserUserType),
                     });
 
-                createdUser.Type.Id = createdUserType.Id;
+                createdUser.Type = createdUserType;
 
-                var updatedUser = await _userApi.UpdateUserAsync(createdUser.Id, createdUser);
+                var updatedUser = await _userApi.ReplaceUserAsync(createdUser.Id, createdUser);
 
                 updatedUser = await _userApi.GetUserAsync(createdUser.Id);
 
@@ -454,8 +454,8 @@ namespace Okta.Sdk.IntegrationTest
                 if (createdUser != null)
                 {
                     // Remove the user
-                    await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                    await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                    await _userApi.DeactivateUserAsync(createdUser.Id);
+                    await _userApi.DeleteUserAsync(createdUser.Id);
                 }
 
                 if (createdUserType != null)
@@ -494,14 +494,14 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
 
-                var resetPasswordToken = await _userApi.ResetPasswordAsync(createdUser.Id, false);
+                var resetPasswordToken = await _userApi.GenerateResetPasswordTokenAsync(createdUser.Id, false);
                 resetPasswordToken.ResetPasswordUrl.Should().NotBeNullOrEmpty();
             }
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -548,8 +548,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -603,8 +603,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -644,8 +644,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -696,8 +696,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -740,8 +740,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -785,8 +785,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -841,8 +841,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -903,8 +903,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -949,7 +949,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Type = "USER_ADMIN"
                 });
-                await _roleTargetApi.AddGroupTargetToRoleAsync(createdUser.Id, role.Id, createdGroup.Id);
+                await _roleTargetApi.AssignGroupTargetToUserRoleAsync(createdUser.Id, role.Id, createdGroup.Id);
 
                 var retrievedGroupsForRole = await _roleTargetApi.ListGroupTargetsForRole(createdUser.Id, role.Id).ToListAsync();
                 retrievedGroupsForRole.Should().Contain(x => x.Id == createdGroup.Id);
@@ -957,8 +957,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
                 // Remove the group
                 await _groupApi.DeleteGroupAsync(createdGroup.Id);
             }
@@ -1016,14 +1016,14 @@ namespace Okta.Sdk.IntegrationTest
                 });
 
                 // Need 2 groups, because if you remove the last one it throws an (expected) exception.
-                await _roleTargetApi.AddGroupTargetToRoleAsync(createdUser.Id, role.Id, createdGroup1.Id);
-                await _roleTargetApi.AddGroupTargetToRoleAsync(createdUser.Id, role.Id, createdGroup2.Id);
+                await _roleTargetApi.AssignGroupTargetToUserRoleAsync(createdUser.Id, role.Id, createdGroup1.Id);
+                await _roleTargetApi.AssignGroupTargetToUserRoleAsync(createdUser.Id, role.Id, createdGroup2.Id);
 
                 var retrievedGroupsForRole = await _roleTargetApi.ListGroupTargetsForRole(createdUser.Id, role.Id).ToListAsync();
                 retrievedGroupsForRole.Should().Contain(x => x.Id == createdGroup1.Id);
                 retrievedGroupsForRole.Should().Contain(x => x.Id == createdGroup2.Id);
 
-                await _roleTargetApi.RemoveGroupTargetFromRoleAsync(createdUser.Id, role.Id, createdGroup1.Id);
+                await _roleTargetApi.UnassignGroupTargetFromUserAdminRoleAsync(createdUser.Id, role.Id, createdGroup1.Id);
 
                 retrievedGroupsForRole = await _roleTargetApi.ListGroupTargetsForRole(createdUser.Id, role.Id).ToListAsync(); 
                 retrievedGroupsForRole.Should().NotContain(x => x.Id == createdGroup1.Id);
@@ -1031,8 +1031,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
                 // Remove the groups
                 await _groupApi.DeleteGroupAsync(createdGroup1.Id);
                 await _groupApi.DeleteGroupAsync(createdGroup2.Id);
@@ -1082,8 +1082,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -1140,8 +1140,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -1187,8 +1187,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -1246,7 +1246,7 @@ namespace Okta.Sdk.IntegrationTest
                 }
             });
 
-            var createdLinkedObjectDefinition = _linkedObjectApi.AddLinkedObjectDefinitionAsync(new LinkedObject
+            var createdLinkedObjectDefinition = _linkedObjectApi.CreateLinkedObjectDefinitionAsync(new LinkedObject
             {
                 Primary = new LinkedObjectDetails
                 {
@@ -1270,17 +1270,17 @@ namespace Okta.Sdk.IntegrationTest
             {
                 await _userApi.SetLinkedObjectForUserAsync(createdAssociatedUser.Id, primaryRelationshipName, createdPrimaryUser.Id);
 
-                var links = await _userApi.GetLinkedObjectsForUser(createdAssociatedUser.Id, primaryRelationshipName).ToListAsync();
+                var links = await _userApi.ListLinkedObjectsForUser(createdAssociatedUser.Id, primaryRelationshipName).ToListAsync();
                 links.Should().NotBeNull();
                 links.Count.Should().Be(1);
             }
             finally
             {
-                await _userApi.DeactivateOrDeleteUserAsync(createdPrimaryUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdPrimaryUser.Id);
+                await _userApi.DeactivateUserAsync(createdPrimaryUser.Id);
+                await _userApi.DeleteUserAsync(createdPrimaryUser.Id);
 
-                await _userApi.DeactivateOrDeleteUserAsync(createdAssociatedUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdAssociatedUser.Id);
+                await _userApi.DeactivateUserAsync(createdAssociatedUser.Id);
+                await _userApi.DeleteUserAsync(createdAssociatedUser.Id);
 
                 await _linkedObjectApi.DeleteLinkedObjectDefinitionAsync(primaryRelationshipName);
             }
@@ -1340,7 +1340,7 @@ namespace Okta.Sdk.IntegrationTest
                 }
             });
 
-            var createdLinkedObjectDefinition = _linkedObjectApi.AddLinkedObjectDefinitionAsync(new LinkedObject
+            var createdLinkedObjectDefinition = _linkedObjectApi.CreateLinkedObjectDefinitionAsync(new LinkedObject
             {
                 Primary = new LinkedObjectDetails
                 {
@@ -1364,22 +1364,22 @@ namespace Okta.Sdk.IntegrationTest
             {
                 await _userApi.SetLinkedObjectForUserAsync(createdAssociatedUser.Id, primaryRelationshipName, createdPrimaryUser.Id);
 
-                var links = await _userApi.GetLinkedObjectsForUser(createdAssociatedUser.Id, primaryRelationshipName).ToListAsync();
+                var links = await _userApi.ListLinkedObjectsForUser(createdAssociatedUser.Id, primaryRelationshipName).ToListAsync();
                 links.Should().NotBeNull();
                 links.Count.Should().Be(1);
 
-                await _userApi.RemoveLinkedObjectForUserAsync(createdAssociatedUser.Id, primaryRelationshipName);//await createdAssociatedUser.RemoveLinkedObjectAsync(primaryRelationshipName);
-                links = await _userApi.GetLinkedObjectsForUser(createdAssociatedUser.Id, primaryRelationshipName).ToListAsync();
+                await _userApi.DeleteLinkedObjectForUserAsync(createdAssociatedUser.Id, primaryRelationshipName);//await createdAssociatedUser.RemoveLinkedObjectAsync(primaryRelationshipName);
+                links = await _userApi.ListLinkedObjectsForUser(createdAssociatedUser.Id, primaryRelationshipName).ToListAsync();
                 links.Should().NotBeNull();
                 links.Count.Should().Be(0);
             }
             finally
             {
-                await _userApi.DeactivateOrDeleteUserAsync(createdPrimaryUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdPrimaryUser.Id);
+                await _userApi.DeactivateUserAsync(createdPrimaryUser.Id);
+                await _userApi.DeleteUserAsync(createdPrimaryUser.Id);
 
-                await _userApi.DeactivateOrDeleteUserAsync(createdAssociatedUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdAssociatedUser.Id);
+                await _userApi.DeactivateUserAsync(createdAssociatedUser.Id);
+                await _userApi.DeleteUserAsync(createdAssociatedUser.Id);
 
                 await _linkedObjectApi.DeleteLinkedObjectDefinitionAsync(primaryRelationshipName);
             }
@@ -1436,8 +1436,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Remove the user
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 

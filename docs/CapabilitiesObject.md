@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.CapabilitiesObject
+Defines the configurations related to an application feature
 
 ## Properties
 

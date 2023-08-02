@@ -302,8 +302,8 @@ namespace Okta.Sdk.IntegrationTest
             {
                 requestOptions = getBasicRequestOptions();
                 await apiClient.DeleteAsync<JsonObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
-                await userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await userApi.DeactivateUserAsync(createdUser.Id);
+                await userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -458,10 +458,10 @@ namespace Okta.Sdk.IntegrationTest
             {
                 requestOptions = getBasicRequestOptions();
                 await apiClient.DeleteAsync<JsonObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
-                await userApi.DeactivateOrDeleteUserAsync(createdUser1.Id);
-                await userApi.DeactivateOrDeleteUserAsync(createdUser1.Id);
-                await userApi.DeactivateOrDeleteUserAsync(createdUser2.Id);
-                await userApi.DeactivateOrDeleteUserAsync(createdUser2.Id);
+                await userApi.DeactivateUserAsync(createdUser1.Id);
+                await userApi.DeleteUserAsync(createdUser1.Id);
+                await userApi.DeactivateUserAsync(createdUser2.Id);
+                await userApi.DeleteUserAsync(createdUser2.Id);
             }
         }
 
@@ -618,10 +618,10 @@ namespace Okta.Sdk.IntegrationTest
             {
                 requestOptions = getBasicRequestOptions();
                 await apiClient.DeleteAsync<JsonObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
-                await userApi.DeactivateOrDeleteUserAsync(createdUser1.Id);
-                await userApi.DeactivateOrDeleteUserAsync(createdUser1.Id);
-                await userApi.DeactivateOrDeleteUserAsync(createdUser2.Id);
-                await userApi.DeactivateOrDeleteUserAsync(createdUser2.Id);
+                await userApi.DeactivateUserAsync(createdUser1.Id);
+                await userApi.DeleteUserAsync(createdUser1.Id);
+                await userApi.DeactivateUserAsync(createdUser2.Id);
+                await userApi.DeleteUserAsync(createdUser2.Id);
             }
         }
 

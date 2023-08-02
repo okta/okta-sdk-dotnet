@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ip** | **string** | Either an IpV4 or IpV6 address. | 
-**Message** | **string** | Any additional message that the provider can send specifying the reason for the risk level of the IP. | [optional] 
-**RiskLevel** | **RiskEventSubjectRiskLevel** |  | [optional] 
+**Ip** | **string** | The risk event subject IP address (either an IPv4 or IPv6 address) | 
+**Message** | **string** | Additional reasons for the risk level of the IP | [optional] 
+**RiskLevel** | **RiskEventSubjectRiskLevel** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

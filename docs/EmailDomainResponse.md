@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DnsValidationRecords** | [**List&lt;DNSRecord&gt;**](DNSRecord.md) |  | [optional] 
+**DnsValidationRecords** | [**List&lt;EmailDomainDNSRecord&gt;**](EmailDomainDNSRecord.md) |  | [optional] 
 **Domain** | **string** |  | [optional] 
 **Id** | **string** |  | [optional] 
 **ValidationStatus** | **EmailDomainStatus** |  | [optional] 
