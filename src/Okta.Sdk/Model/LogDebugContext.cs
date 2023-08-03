@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets DebugData
         /// </summary>
-        [DataMember(Name = "debugData", EmitDefaultValue = false)]
+        [DataMember(Name = "debugData", EmitDefaultValue = true)]
         public Dictionary<string, Object> DebugData { get; private set; }
 
         /// <summary>

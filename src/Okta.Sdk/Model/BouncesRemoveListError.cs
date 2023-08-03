@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets EmailAddress
         /// </summary>
-        [DataMember(Name = "emailAddress", EmitDefaultValue = false)]
+        [DataMember(Name = "emailAddress", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 
         /// <summary>
         /// Gets or Sets Reason
         /// </summary>
-        [DataMember(Name = "reason", EmitDefaultValue = false)]
+        [DataMember(Name = "reason", EmitDefaultValue = true)]
         public string Reason { get; set; }
 
         /// <summary>

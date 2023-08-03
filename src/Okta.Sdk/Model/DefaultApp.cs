@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AppInstanceId
         /// </summary>
-        [DataMember(Name = "appInstanceId", EmitDefaultValue = false)]
+        [DataMember(Name = "appInstanceId", EmitDefaultValue = true)]
         public string AppInstanceId { get; set; }
 
         /// <summary>
         /// Gets or Sets AppLinkName
         /// </summary>
-        [DataMember(Name = "appLinkName", EmitDefaultValue = false)]
+        [DataMember(Name = "appLinkName", EmitDefaultValue = true)]
         public string AppLinkName { get; set; }
 
         /// <summary>
         /// Gets or Sets ClassicApplicationUri
         /// </summary>
-        [DataMember(Name = "classicApplicationUri", EmitDefaultValue = false)]
+        [DataMember(Name = "classicApplicationUri", EmitDefaultValue = true)]
         public string ClassicApplicationUri { get; set; }
 
         /// <summary>

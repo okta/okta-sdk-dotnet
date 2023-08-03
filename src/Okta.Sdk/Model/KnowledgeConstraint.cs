@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Methods
         /// </summary>
-        [DataMember(Name = "methods", EmitDefaultValue = false)]
+        [DataMember(Name = "methods", EmitDefaultValue = true)]
         public List<string> Methods { get; set; }
 
         /// <summary>
         /// Gets or Sets ReauthenticateIn
         /// </summary>
-        [DataMember(Name = "reauthenticateIn", EmitDefaultValue = false)]
+        [DataMember(Name = "reauthenticateIn", EmitDefaultValue = true)]
         public string ReauthenticateIn { get; set; }
 
         /// <summary>
         /// Gets or Sets Types
         /// </summary>
-        [DataMember(Name = "types", EmitDefaultValue = false)]
+        [DataMember(Name = "types", EmitDefaultValue = true)]
         public List<string> Types { get; set; }
 
         /// <summary>

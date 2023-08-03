@@ -37,38 +37,38 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public CatalogApplicationStatus Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Category
         /// </summary>
-        [DataMember(Name = "category", EmitDefaultValue = false)]
+        [DataMember(Name = "category", EmitDefaultValue = true)]
         public string Category { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets Features
         /// </summary>
-        [DataMember(Name = "features", EmitDefaultValue = false)]
+        [DataMember(Name = "features", EmitDefaultValue = true)]
         public List<string> Features { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -96,31 +96,31 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets SignOnModes
         /// </summary>
-        [DataMember(Name = "signOnModes", EmitDefaultValue = false)]
+        [DataMember(Name = "signOnModes", EmitDefaultValue = true)]
         public List<string> SignOnModes { get; set; }
 
         /// <summary>
         /// Gets or Sets VerificationStatus
         /// </summary>
-        [DataMember(Name = "verificationStatus", EmitDefaultValue = false)]
+        [DataMember(Name = "verificationStatus", EmitDefaultValue = true)]
         public string VerificationStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets Website
         /// </summary>
-        [DataMember(Name = "website", EmitDefaultValue = false)]
+        [DataMember(Name = "website", EmitDefaultValue = true)]
         public string Website { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

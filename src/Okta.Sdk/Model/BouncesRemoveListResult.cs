@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Errors
         /// </summary>
-        [DataMember(Name = "errors", EmitDefaultValue = false)]
+        [DataMember(Name = "errors", EmitDefaultValue = true)]
         public List<BouncesRemoveListError> Errors { get; set; }
 
         /// <summary>

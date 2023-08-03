@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Signing
         /// </summary>
-        [DataMember(Name = "signing", EmitDefaultValue = false)]
+        [DataMember(Name = "signing", EmitDefaultValue = true)]
         public ApplicationCredentialsSigning Signing { get; set; }
 
         /// <summary>
         /// Gets or Sets UserNameTemplate
         /// </summary>
-        [DataMember(Name = "userNameTemplate", EmitDefaultValue = false)]
+        [DataMember(Name = "userNameTemplate", EmitDefaultValue = true)]
         public ApplicationCredentialsUsernameTemplate UserNameTemplate { get; set; }
 
         /// <summary>

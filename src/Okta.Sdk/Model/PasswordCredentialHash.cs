@@ -37,51 +37,51 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Algorithm
         /// </summary>
-        [DataMember(Name = "algorithm", EmitDefaultValue = false)]
+        [DataMember(Name = "algorithm", EmitDefaultValue = true)]
         
         public PasswordCredentialHashAlgorithm Algorithm { get; set; }
 
         /// <summary>
         /// Gets or Sets DigestAlgorithm
         /// </summary>
-        [DataMember(Name = "digestAlgorithm", EmitDefaultValue = false)]
+        [DataMember(Name = "digestAlgorithm", EmitDefaultValue = true)]
         
         public DigestAlgorithm DigestAlgorithm { get; set; }
         
         /// <summary>
         /// Gets or Sets IterationCount
         /// </summary>
-        [DataMember(Name = "iterationCount", EmitDefaultValue = false)]
+        [DataMember(Name = "iterationCount", EmitDefaultValue = true)]
         public int IterationCount { get; set; }
 
         /// <summary>
         /// Gets or Sets KeySize
         /// </summary>
-        [DataMember(Name = "keySize", EmitDefaultValue = false)]
+        [DataMember(Name = "keySize", EmitDefaultValue = true)]
         public int KeySize { get; set; }
 
         /// <summary>
         /// Gets or Sets Salt
         /// </summary>
-        [DataMember(Name = "salt", EmitDefaultValue = false)]
+        [DataMember(Name = "salt", EmitDefaultValue = true)]
         public string Salt { get; set; }
 
         /// <summary>
         /// Gets or Sets SaltOrder
         /// </summary>
-        [DataMember(Name = "saltOrder", EmitDefaultValue = false)]
+        [DataMember(Name = "saltOrder", EmitDefaultValue = true)]
         public string SaltOrder { get; set; }
 
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
         /// Gets or Sets WorkFactor
         /// </summary>
-        [DataMember(Name = "workFactor", EmitDefaultValue = false)]
+        [DataMember(Name = "workFactor", EmitDefaultValue = true)]
         public int WorkFactor { get; set; }
 
         /// <summary>

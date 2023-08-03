@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Options
         /// </summary>
-        [DataMember(Name = "options", EmitDefaultValue = false)]
+        [DataMember(Name = "options", EmitDefaultValue = true)]
         public PasswordPolicyDelegationSettingsOptions Options { get; set; }
 
         /// <summary>

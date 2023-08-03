@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets PushStatus
         /// </summary>
-        [DataMember(Name = "pushStatus", EmitDefaultValue = false)]
+        [DataMember(Name = "pushStatus", EmitDefaultValue = true)]
         
         public ProfileMappingPropertyPushStatus PushStatus { get; set; }
         
@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         /// Combination or single source properties that are mapped to the target property
         /// </summary>
         /// <value>Combination or single source properties that are mapped to the target property</value>
-        [DataMember(Name = "expression", EmitDefaultValue = false)]
+        [DataMember(Name = "expression", EmitDefaultValue = true)]
         public string Expression { get; set; }
 
         /// <summary>

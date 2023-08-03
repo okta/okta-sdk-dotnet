@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AppSignOn
         /// </summary>
-        [DataMember(Name = "appSignOn", EmitDefaultValue = false)]
+        [DataMember(Name = "appSignOn", EmitDefaultValue = true)]
         public AccessPolicyRuleApplicationSignOn AppSignOn { get; set; }
 
         /// <summary>

@@ -42,39 +42,39 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Device
         /// </summary>
-        [DataMember(Name = "device", EmitDefaultValue = false)]
+        [DataMember(Name = "device", EmitDefaultValue = true)]
         public PolicyContextDevice Device { get; set; }
 
         /// <summary>
         /// An array of Group IDs for the simulate operation. Only user IDs or Group IDs are allowed, not both.
         /// </summary>
         /// <value>An array of Group IDs for the simulate operation. Only user IDs or Group IDs are allowed, not both.</value>
-        [DataMember(Name = "groups", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "groups", EmitDefaultValue = true)]
         public Object Groups { get; set; }
 
         /// <summary>
         /// The network rule condition, zone, or IP address
         /// </summary>
         /// <value>The network rule condition, zone, or IP address</value>
-        [DataMember(Name = "ip", EmitDefaultValue = false)]
+        [DataMember(Name = "ip", EmitDefaultValue = true)]
         public string Ip { get; set; }
 
         /// <summary>
         /// Gets or Sets Risk
         /// </summary>
-        [DataMember(Name = "risk", EmitDefaultValue = false)]
+        [DataMember(Name = "risk", EmitDefaultValue = true)]
         public PolicyContextRisk Risk { get; set; }
 
         /// <summary>
         /// Gets or Sets User
         /// </summary>
-        [DataMember(Name = "user", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "user", EmitDefaultValue = true)]
         public PolicyContextUser User { get; set; }
 
         /// <summary>
         /// Gets or Sets Zones
         /// </summary>
-        [DataMember(Name = "zones", EmitDefaultValue = false)]
+        [DataMember(Name = "zones", EmitDefaultValue = true)]
         public PolicyContextZones Zones { get; set; }
 
         /// <summary>

@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// The URL to the API service integration configuration guide
         /// </summary>
         /// <value>The URL to the API service integration configuration guide</value>
-        [DataMember(Name = "configGuideUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "configGuideUrl", EmitDefaultValue = true)]
         public string ConfigGuideUrl { get; private set; }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the API Service Integration instance was created
         /// </summary>
         /// <value>Timestamp when the API Service Integration instance was created</value>
-        [DataMember(Name = "createdAt", EmitDefaultValue = false)]
+        [DataMember(Name = "createdAt", EmitDefaultValue = true)]
         public string CreatedAt { get; private set; }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Okta.Sdk.Model
         /// The user ID of the API Service Integration instance creator
         /// </summary>
         /// <value>The user ID of the API Service Integration instance creator</value>
-        [DataMember(Name = "createdBy", EmitDefaultValue = false)]
+        [DataMember(Name = "createdBy", EmitDefaultValue = true)]
         public string CreatedBy { get; private set; }
 
         /// <summary>
@@ -83,14 +83,14 @@ namespace Okta.Sdk.Model
         /// The list of Okta management scopes granted to the API Service Integration instance. See [Okta management OAuth 2.0 scopes](/oauth2/#okta-admin-management).
         /// </summary>
         /// <value>The list of Okta management scopes granted to the API Service Integration instance. See [Okta management OAuth 2.0 scopes](/oauth2/#okta-admin-management).</value>
-        [DataMember(Name = "grantedScopes", EmitDefaultValue = false)]
+        [DataMember(Name = "grantedScopes", EmitDefaultValue = true)]
         public List<string> GrantedScopes { get; set; }
 
         /// <summary>
         /// The ID of the API Service Integration instance
         /// </summary>
         /// <value>The ID of the API Service Integration instance</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace Okta.Sdk.Model
         /// The name of the API service integration that corresponds with the &#x60;type&#x60; property. This is the full name of the API service integration listed in the Okta Integration Network (OIN) catalog.
         /// </summary>
         /// <value>The name of the API service integration that corresponds with the &#x60;type&#x60; property. This is the full name of the API service integration listed in the Okta Integration Network (OIN) catalog.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; private set; }
 
         /// <summary>
@@ -120,20 +120,20 @@ namespace Okta.Sdk.Model
         /// The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name. For example, &#x60;my_api_log_integration&#x60;.
         /// </summary>
         /// <value>The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name. For example, &#x60;my_api_log_integration&#x60;.</value>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public APIServiceIntegrationLinks Links { get; set; }
 
         /// <summary>
         /// The client secret for the API Service Integration instance. This property is only returned in a POST response.
         /// </summary>
         /// <value>The client secret for the API Service Integration instance. This property is only returned in a POST response.</value>
-        [DataMember(Name = "clientSecret", EmitDefaultValue = false)]
+        [DataMember(Name = "clientSecret", EmitDefaultValue = true)]
         public string ClientSecret { get; private set; }
 
         /// <summary>

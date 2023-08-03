@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name = "_embedded", EmitDefaultValue = false)]
+        [DataMember(Name = "_embedded", EmitDefaultValue = true)]
         public PageRootEmbedded Embedded { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public PageRootLinks Links { get; set; }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -65,19 +65,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Priority
         /// </summary>
-        [DataMember(Name = "priority", EmitDefaultValue = false)]
+        [DataMember(Name = "priority", EmitDefaultValue = true)]
         public int Priority { get; set; }
 
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
-        [DataMember(Name = "profile", EmitDefaultValue = false)]
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
         public Dictionary<string, Object> Profile { get; set; }
 
         /// <summary>
         /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name = "_embedded", EmitDefaultValue = false)]
+        [DataMember(Name = "_embedded", EmitDefaultValue = true)]
         public Dictionary<string, Object> Embedded { get; private set; }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

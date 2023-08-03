@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Vpn
         /// </summary>
-        [DataMember(Name = "vpn", EmitDefaultValue = false)]
+        [DataMember(Name = "vpn", EmitDefaultValue = true)]
         public ApplicationSettingsNotificationsVpn Vpn { get; set; }
 
         /// <summary>

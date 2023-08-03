@@ -43,14 +43,14 @@ namespace Okta.Sdk.Model
         /// An email address to send the test email from
         /// </summary>
         /// <value>An email address to send the test email from</value>
-        [DataMember(Name = "from", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "from", EmitDefaultValue = true)]
         public string From { get; set; }
 
         /// <summary>
         /// An email address to send the test email to
         /// </summary>
         /// <value>An email address to send the test email to</value>
-        [DataMember(Name = "to", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "to", EmitDefaultValue = true)]
         public string To { get; set; }
 
         /// <summary>

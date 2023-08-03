@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public SessionIdentityProviderType Type { get; set; }
         
@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         /// Identity Provider ID. If the &#x60;type&#x60; is &#x60;OKTA&#x60;, then the &#x60;id&#x60; is the org ID.
         /// </summary>
         /// <value>Identity Provider ID. If the &#x60;type&#x60; is &#x60;OKTA&#x60;, then the &#x60;id&#x60; is the org ID.</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>

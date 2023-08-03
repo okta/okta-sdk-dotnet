@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// The session token obtained during authentication
         /// </summary>
         /// <value>The session token obtained during authentication</value>
-        [DataMember(Name = "sessionToken", EmitDefaultValue = false)]
+        [DataMember(Name = "sessionToken", EmitDefaultValue = true)]
         public string SessionToken { get; set; }
 
         /// <summary>

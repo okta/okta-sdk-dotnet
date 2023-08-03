@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets IpChain
         /// </summary>
-        [DataMember(Name = "ipChain", EmitDefaultValue = false)]
+        [DataMember(Name = "ipChain", EmitDefaultValue = true)]
         public List<LogIpAddress> IpChain { get; private set; }
 
         /// <summary>

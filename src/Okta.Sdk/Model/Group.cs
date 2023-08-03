@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public GroupType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastMembershipUpdated
         /// </summary>
-        [DataMember(Name = "lastMembershipUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastMembershipUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastMembershipUpdated { get; private set; }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ObjectClass
         /// </summary>
-        [DataMember(Name = "objectClass", EmitDefaultValue = false)]
+        [DataMember(Name = "objectClass", EmitDefaultValue = true)]
         public List<string> ObjectClass { get; private set; }
 
         /// <summary>
@@ -114,13 +114,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
-        [DataMember(Name = "profile", EmitDefaultValue = false)]
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
         public GroupProfile Profile { get; set; }
 
         /// <summary>
         /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name = "_embedded", EmitDefaultValue = false)]
+        [DataMember(Name = "_embedded", EmitDefaultValue = true)]
         public Dictionary<string, Object> Embedded { get; private set; }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public GroupLinks Links { get; set; }
 
         /// <summary>

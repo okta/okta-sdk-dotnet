@@ -37,20 +37,20 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Action
         /// </summary>
-        [DataMember(Name = "action", EmitDefaultValue = false)]
+        [DataMember(Name = "action", EmitDefaultValue = true)]
         
         public ProvisioningAction Action { get; set; }
         
         /// <summary>
         /// Gets or Sets Conditions
         /// </summary>
-        [DataMember(Name = "conditions", EmitDefaultValue = false)]
+        [DataMember(Name = "conditions", EmitDefaultValue = true)]
         public ProvisioningConditions Conditions { get; set; }
 
         /// <summary>
         /// Gets or Sets Groups
         /// </summary>
-        [DataMember(Name = "groups", EmitDefaultValue = false)]
+        [DataMember(Name = "groups", EmitDefaultValue = true)]
         public ProvisioningGroups Groups { get; set; }
 
         /// <summary>

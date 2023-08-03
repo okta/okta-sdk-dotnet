@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ValidationStatus
         /// </summary>
-        [DataMember(Name = "validationStatus", EmitDefaultValue = false)]
+        [DataMember(Name = "validationStatus", EmitDefaultValue = true)]
         
         public EmailDomainStatus ValidationStatus { get; set; }
         /// <summary>
@@ -49,31 +49,31 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets DnsValidationRecords
         /// </summary>
-        [DataMember(Name = "dnsValidationRecords", EmitDefaultValue = false)]
+        [DataMember(Name = "dnsValidationRecords", EmitDefaultValue = true)]
         public List<EmailDomainDNSRecord> DnsValidationRecords { get; set; }
 
         /// <summary>
         /// Gets or Sets Domain
         /// </summary>
-        [DataMember(Name = "domain", EmitDefaultValue = false)]
+        [DataMember(Name = "domain", EmitDefaultValue = true)]
         public string Domain { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets UserName
         /// </summary>
-        [DataMember(Name = "userName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "userName", EmitDefaultValue = true)]
         public string UserName { get; set; }
 
         /// <summary>

@@ -43,7 +43,7 @@ namespace Okta.Sdk.Model
         /// The threshold value (percentage) of a rate limit that, when exceeded, triggers a warning notification. By default, this value is 90 for Workforce orgs and 60 for CIAM orgs.
         /// </summary>
         /// <value>The threshold value (percentage) of a rate limit that, when exceeded, triggers a warning notification. By default, this value is 90 for Workforce orgs and 60 for CIAM orgs.</value>
-        [DataMember(Name = "warningThreshold", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "warningThreshold", EmitDefaultValue = true)]
         public int WarningThreshold { get; set; }
 
         /// <summary>

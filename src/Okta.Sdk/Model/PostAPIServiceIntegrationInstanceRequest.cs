@@ -43,14 +43,14 @@ namespace Okta.Sdk.Model
         /// The list of Okta management scopes granted to the API Service Integration instance. See [Okta management OAuth 2.0 scopes](/oauth2/#okta-admin-management).
         /// </summary>
         /// <value>The list of Okta management scopes granted to the API Service Integration instance. See [Okta management OAuth 2.0 scopes](/oauth2/#okta-admin-management).</value>
-        [DataMember(Name = "grantedScopes", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "grantedScopes", EmitDefaultValue = true)]
         public List<string> GrantedScopes { get; set; }
 
         /// <summary>
         /// The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name. For example, &#x60;my_api_log_integration&#x60;.
         /// </summary>
         /// <value>The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name. For example, &#x60;my_api_log_integration&#x60;.</value>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>

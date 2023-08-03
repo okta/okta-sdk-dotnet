@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public UserSchemaAttributeMasterType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Priority
         /// </summary>
-        [DataMember(Name = "priority", EmitDefaultValue = false)]
+        [DataMember(Name = "priority", EmitDefaultValue = true)]
         public List<UserSchemaAttributeMasterPriority> Priority { get; set; }
 
         /// <summary>

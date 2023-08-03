@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public DomainCertificateType Type { get; set; }
         /// <summary>
@@ -50,21 +50,21 @@ namespace Okta.Sdk.Model
         /// Certificate content
         /// </summary>
         /// <value>Certificate content</value>
-        [DataMember(Name = "certificate", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "certificate", EmitDefaultValue = true)]
         public string Certificate { get; set; }
 
         /// <summary>
         /// Certificate chain
         /// </summary>
         /// <value>Certificate chain</value>
-        [DataMember(Name = "certificateChain", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "certificateChain", EmitDefaultValue = true)]
         public string CertificateChain { get; set; }
 
         /// <summary>
         /// Certificate private key
         /// </summary>
         /// <value>Certificate private key</value>
-        [DataMember(Name = "privateKey", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "privateKey", EmitDefaultValue = true)]
         public string PrivateKey { get; set; }
 
         /// <summary>

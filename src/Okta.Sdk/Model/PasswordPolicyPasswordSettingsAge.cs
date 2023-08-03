@@ -37,25 +37,25 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ExpireWarnDays
         /// </summary>
-        [DataMember(Name = "expireWarnDays", EmitDefaultValue = false)]
+        [DataMember(Name = "expireWarnDays", EmitDefaultValue = true)]
         public int ExpireWarnDays { get; set; }
 
         /// <summary>
         /// Gets or Sets HistoryCount
         /// </summary>
-        [DataMember(Name = "historyCount", EmitDefaultValue = false)]
+        [DataMember(Name = "historyCount", EmitDefaultValue = true)]
         public int HistoryCount { get; set; }
 
         /// <summary>
         /// Gets or Sets MaxAgeDays
         /// </summary>
-        [DataMember(Name = "maxAgeDays", EmitDefaultValue = false)]
+        [DataMember(Name = "maxAgeDays", EmitDefaultValue = true)]
         public int MaxAgeDays { get; set; }
 
         /// <summary>
         /// Gets or Sets MinAgeMinutes
         /// </summary>
-        [DataMember(Name = "minAgeMinutes", EmitDefaultValue = false)]
+        [DataMember(Name = "minAgeMinutes", EmitDefaultValue = true)]
         public int MinAgeMinutes { get; set; }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Use
         /// </summary>
-        [DataMember(Name = "use", EmitDefaultValue = false)]
+        [DataMember(Name = "use", EmitDefaultValue = true)]
         
         public JwkUseType Use { get; set; }
         

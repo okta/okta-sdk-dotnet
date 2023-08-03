@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// The name of this email template
         /// </summary>
         /// <value>The name of this email template</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; private set; }
 
         /// <summary>
@@ -52,13 +52,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name = "_embedded", EmitDefaultValue = false)]
+        [DataMember(Name = "_embedded", EmitDefaultValue = true)]
         public EmailTemplateEmbedded Embedded { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public EmailTemplateLinks Links { get; set; }
 
         /// <summary>

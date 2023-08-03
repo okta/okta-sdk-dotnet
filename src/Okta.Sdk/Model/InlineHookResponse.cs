@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Commands
         /// </summary>
-        [DataMember(Name = "commands", EmitDefaultValue = false)]
+        [DataMember(Name = "commands", EmitDefaultValue = true)]
         public List<InlineHookResponseCommands> Commands { get; set; }
 
         /// <summary>

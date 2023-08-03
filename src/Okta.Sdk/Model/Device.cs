@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public DeviceStatus Status { get; set; }
         
@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the device was created
         /// </summary>
         /// <value>Timestamp when the device was created</value>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Model
         /// Unique key for the device
         /// </summary>
         /// <value>Unique key for the device</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the device record was last updated. Updates occur when Okta collects and saves device signals during authentication, and when the lifecycle state of the device changes.
         /// </summary>
         /// <value>Timestamp when the device record was last updated. Updates occur when Okta collects and saves device signals during authentication, and when the lifecycle state of the device changes.</value>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -89,13 +89,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
-        [DataMember(Name = "profile", EmitDefaultValue = false)]
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
         public DeviceProfile Profile { get; set; }
 
         /// <summary>
         /// Gets or Sets ResourceAlternateId
         /// </summary>
-        [DataMember(Name = "resourceAlternateId", EmitDefaultValue = false)]
+        [DataMember(Name = "resourceAlternateId", EmitDefaultValue = true)]
         public string ResourceAlternateId { get; private set; }
 
         /// <summary>
@@ -109,14 +109,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ResourceDisplayName
         /// </summary>
-        [DataMember(Name = "resourceDisplayName", EmitDefaultValue = false)]
+        [DataMember(Name = "resourceDisplayName", EmitDefaultValue = true)]
         public DeviceDisplayName ResourceDisplayName { get; set; }
 
         /// <summary>
         /// Alternate key for the &#x60;id&#x60;
         /// </summary>
         /// <value>Alternate key for the &#x60;id&#x60;</value>
-        [DataMember(Name = "resourceId", EmitDefaultValue = false)]
+        [DataMember(Name = "resourceId", EmitDefaultValue = true)]
         public string ResourceId { get; private set; }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ResourceType
         /// </summary>
-        [DataMember(Name = "resourceType", EmitDefaultValue = false)]
+        [DataMember(Name = "resourceType", EmitDefaultValue = true)]
         public string ResourceType { get; private set; }
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelfAndFullUsersLifecycle Links { get; set; }
 
         /// <summary>

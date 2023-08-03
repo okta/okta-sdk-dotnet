@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
-        [DataMember(Name = "self", EmitDefaultValue = false)]
+        [DataMember(Name = "self", EmitDefaultValue = true)]
         public HrefObjectSelfLink Self { get; set; }
 
         /// <summary>
         /// Gets or Sets Permissions
         /// </summary>
-        [DataMember(Name = "permissions", EmitDefaultValue = false)]
+        [DataMember(Name = "permissions", EmitDefaultValue = true)]
         public HrefObject Permissions { get; set; }
 
         /// <summary>

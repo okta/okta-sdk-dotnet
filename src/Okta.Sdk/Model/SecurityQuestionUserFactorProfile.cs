@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Answer
         /// </summary>
-        [DataMember(Name = "answer", EmitDefaultValue = false)]
+        [DataMember(Name = "answer", EmitDefaultValue = true)]
         public string Answer { get; set; }
 
         /// <summary>
         /// Gets or Sets Question
         /// </summary>
-        [DataMember(Name = "question", EmitDefaultValue = false)]
+        [DataMember(Name = "question", EmitDefaultValue = true)]
         public string Question { get; set; }
 
         /// <summary>
         /// Gets or Sets QuestionText
         /// </summary>
-        [DataMember(Name = "questionText", EmitDefaultValue = false)]
+        [DataMember(Name = "questionText", EmitDefaultValue = true)]
         public string QuestionText { get; set; }
 
         /// <summary>

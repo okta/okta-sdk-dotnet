@@ -37,26 +37,26 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets PageContent
         /// </summary>
-        [DataMember(Name = "pageContent", EmitDefaultValue = false)]
+        [DataMember(Name = "pageContent", EmitDefaultValue = true)]
         public string PageContent { get; set; }
 
         /// <summary>
         /// Gets or Sets ContentSecurityPolicySetting
         /// </summary>
-        [DataMember(Name = "contentSecurityPolicySetting", EmitDefaultValue = false)]
+        [DataMember(Name = "contentSecurityPolicySetting", EmitDefaultValue = true)]
         public ContentSecurityPolicySetting ContentSecurityPolicySetting { get; set; }
 
         /// <summary>
         /// Gets or Sets WidgetCustomizations
         /// </summary>
-        [DataMember(Name = "widgetCustomizations", EmitDefaultValue = false)]
+        [DataMember(Name = "widgetCustomizations", EmitDefaultValue = true)]
         public SignInPageAllOfWidgetCustomizations WidgetCustomizations { get; set; }
 
         /// <summary>
         /// The version specified as a [Semantic Version](https://semver.org/).
         /// </summary>
         /// <value>The version specified as a [Semantic Version](https://semver.org/).</value>
-        [DataMember(Name = "widgetVersion", EmitDefaultValue = false)]
+        [DataMember(Name = "widgetVersion", EmitDefaultValue = true)]
         public string WidgetVersion { get; set; }
 
         /// <summary>

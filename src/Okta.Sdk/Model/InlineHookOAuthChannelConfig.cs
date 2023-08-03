@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AuthType
         /// </summary>
-        [DataMember(Name = "authType", EmitDefaultValue = false)]
+        [DataMember(Name = "authType", EmitDefaultValue = true)]
         public string AuthType { get; set; }
 
         /// <summary>

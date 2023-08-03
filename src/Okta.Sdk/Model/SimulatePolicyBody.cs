@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets PolicyTypes
         /// </summary>
-        [DataMember(Name = "policyTypes", EmitDefaultValue = false)]
+        [DataMember(Name = "policyTypes", EmitDefaultValue = true)]
         
         public PolicyType PolicyTypes { get; set; }
         /// <summary>
@@ -50,13 +50,13 @@ namespace Okta.Sdk.Model
         /// The application instance ID for a simulate operation
         /// </summary>
         /// <value>The application instance ID for a simulate operation</value>
-        [DataMember(Name = "appInstance", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "appInstance", EmitDefaultValue = true)]
         public string AppInstance { get; set; }
 
         /// <summary>
         /// Gets or Sets PolicyContext
         /// </summary>
-        [DataMember(Name = "policyContext", EmitDefaultValue = false)]
+        [DataMember(Name = "policyContext", EmitDefaultValue = true)]
         public PolicyContext PolicyContext { get; set; }
 
         /// <summary>

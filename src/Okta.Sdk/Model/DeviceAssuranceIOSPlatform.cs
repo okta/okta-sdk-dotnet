@@ -44,7 +44,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets DiskEncryptionType
         /// </summary>
-        [DataMember(Name = "diskEncryptionType", EmitDefaultValue = false)]
+        [DataMember(Name = "diskEncryptionType", EmitDefaultValue = true)]
         public DeviceAssuranceAndroidPlatformAllOfDiskEncryptionType DiskEncryptionType { get; set; }
 
         /// <summary>
@@ -56,13 +56,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets OsVersion
         /// </summary>
-        [DataMember(Name = "osVersion", EmitDefaultValue = false)]
+        [DataMember(Name = "osVersion", EmitDefaultValue = true)]
         public OSVersion OsVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets ScreenLockType
         /// </summary>
-        [DataMember(Name = "screenLockType", EmitDefaultValue = false)]
+        [DataMember(Name = "screenLockType", EmitDefaultValue = true)]
         public DeviceAssuranceAndroidPlatformAllOfScreenLockType ScreenLockType { get; set; }
 
         /// <summary>

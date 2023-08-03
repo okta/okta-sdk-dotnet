@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public SessionStatus Status { get; set; }
         
@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         /// Authentication method reference
         /// </summary>
         /// <value>Authentication method reference</value>
-        [DataMember(Name = "amr", EmitDefaultValue = false)]
+        [DataMember(Name = "amr", EmitDefaultValue = true)]
         public List<SessionAuthenticationMethod> Amr { get; private set; }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "createdAt", EmitDefaultValue = false)]
+        [DataMember(Name = "createdAt", EmitDefaultValue = true)]
         public DateTimeOffset CreatedAt { get; private set; }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace Okta.Sdk.Model
         /// A timestamp when the Session expires
         /// </summary>
         /// <value>A timestamp when the Session expires</value>
-        [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
+        [DataMember(Name = "expiresAt", EmitDefaultValue = true)]
         public DateTimeOffset ExpiresAt { get; private set; }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Okta.Sdk.Model
         /// A unique key for the Session
         /// </summary>
         /// <value>A unique key for the Session</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -103,14 +103,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Idp
         /// </summary>
-        [DataMember(Name = "idp", EmitDefaultValue = false)]
+        [DataMember(Name = "idp", EmitDefaultValue = true)]
         public SessionIdentityProvider Idp { get; set; }
 
         /// <summary>
         /// A timestamp when the user last performed multifactor authentication
         /// </summary>
         /// <value>A timestamp when the user last performed multifactor authentication</value>
-        [DataMember(Name = "lastFactorVerification", EmitDefaultValue = false)]
+        [DataMember(Name = "lastFactorVerification", EmitDefaultValue = true)]
         public DateTimeOffset LastFactorVerification { get; private set; }
 
         /// <summary>
@@ -125,7 +125,7 @@ namespace Okta.Sdk.Model
         /// A timestamp when the user last performed the primary or step-up authentication with a password
         /// </summary>
         /// <value>A timestamp when the user last performed the primary or step-up authentication with a password</value>
-        [DataMember(Name = "lastPasswordVerification", EmitDefaultValue = false)]
+        [DataMember(Name = "lastPasswordVerification", EmitDefaultValue = true)]
         public DateTimeOffset LastPasswordVerification { get; private set; }
 
         /// <summary>
@@ -140,7 +140,7 @@ namespace Okta.Sdk.Model
         /// A unique identifier for the user (username)
         /// </summary>
         /// <value>A unique identifier for the user (username)</value>
-        [DataMember(Name = "login", EmitDefaultValue = false)]
+        [DataMember(Name = "login", EmitDefaultValue = true)]
         public string Login { get; private set; }
 
         /// <summary>
@@ -155,7 +155,7 @@ namespace Okta.Sdk.Model
         /// A unique key for the user
         /// </summary>
         /// <value>A unique key for the user</value>
-        [DataMember(Name = "userId", EmitDefaultValue = false)]
+        [DataMember(Name = "userId", EmitDefaultValue = true)]
         public string UserId { get; private set; }
 
         /// <summary>
@@ -169,7 +169,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

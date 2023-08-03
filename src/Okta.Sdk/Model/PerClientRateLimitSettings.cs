@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets DefaultMode
         /// </summary>
-        [DataMember(Name = "defaultMode", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "defaultMode", EmitDefaultValue = true)]
         
         public PerClientRateLimitMode DefaultMode { get; set; }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets UseCaseModeOverrides
         /// </summary>
-        [DataMember(Name = "useCaseModeOverrides", EmitDefaultValue = false)]
+        [DataMember(Name = "useCaseModeOverrides", EmitDefaultValue = true)]
         public PerClientRateLimitSettingsUseCaseModeOverrides UseCaseModeOverrides { get; set; }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AssignUserToGroups
         /// </summary>
-        [DataMember(Name = "assignUserToGroups", EmitDefaultValue = false)]
+        [DataMember(Name = "assignUserToGroups", EmitDefaultValue = true)]
         public GroupRuleGroupAssignment AssignUserToGroups { get; set; }
 
         /// <summary>

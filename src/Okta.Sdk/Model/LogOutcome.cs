@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Reason
         /// </summary>
-        [DataMember(Name = "reason", EmitDefaultValue = false)]
+        [DataMember(Name = "reason", EmitDefaultValue = true)]
         public string Reason { get; private set; }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Result
         /// </summary>
-        [DataMember(Name = "result", EmitDefaultValue = false)]
+        [DataMember(Name = "result", EmitDefaultValue = true)]
         public string Result { get; private set; }
 
         /// <summary>

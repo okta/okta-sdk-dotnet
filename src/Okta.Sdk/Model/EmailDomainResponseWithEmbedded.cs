@@ -42,7 +42,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name = "_embedded", EmitDefaultValue = false)]
+        [DataMember(Name = "_embedded", EmitDefaultValue = true)]
         public Object Embedded { get; private set; }
 
         /// <summary>
@@ -56,13 +56,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets UserName
         /// </summary>
-        [DataMember(Name = "userName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "userName", EmitDefaultValue = true)]
         public string UserName { get; set; }
 
         /// <summary>

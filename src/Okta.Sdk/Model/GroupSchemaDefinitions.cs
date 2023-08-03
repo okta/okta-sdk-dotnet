@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Base
         /// </summary>
-        [DataMember(Name = "base", EmitDefaultValue = false)]
+        [DataMember(Name = "base", EmitDefaultValue = true)]
         public GroupSchemaBase Base { get; set; }
 
         /// <summary>
         /// Gets or Sets Custom
         /// </summary>
-        [DataMember(Name = "custom", EmitDefaultValue = false)]
+        [DataMember(Name = "custom", EmitDefaultValue = true)]
         public GroupSchemaCustom Custom { get; set; }
 
         /// <summary>

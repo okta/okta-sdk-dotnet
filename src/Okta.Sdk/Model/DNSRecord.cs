@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets RecordType
         /// </summary>
-        [DataMember(Name = "recordType", EmitDefaultValue = false)]
+        [DataMember(Name = "recordType", EmitDefaultValue = true)]
         
         public DNSRecordType RecordType { get; set; }
         
@@ -45,21 +45,21 @@ namespace Okta.Sdk.Model
         /// DNS TXT record expiration
         /// </summary>
         /// <value>DNS TXT record expiration</value>
-        [DataMember(Name = "expiration", EmitDefaultValue = false)]
+        [DataMember(Name = "expiration", EmitDefaultValue = true)]
         public string Expiration { get; set; }
 
         /// <summary>
         /// DNS record name
         /// </summary>
         /// <value>DNS record name</value>
-        [DataMember(Name = "fqdn", EmitDefaultValue = false)]
+        [DataMember(Name = "fqdn", EmitDefaultValue = true)]
         public string Fqdn { get; set; }
 
         /// <summary>
         /// DNS record value
         /// </summary>
         /// <value>DNS record value</value>
-        [DataMember(Name = "values", EmitDefaultValue = false)]
+        [DataMember(Name = "values", EmitDefaultValue = true)]
         public List<string> Values { get; set; }
 
         /// <summary>

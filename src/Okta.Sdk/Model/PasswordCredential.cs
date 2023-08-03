@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Hash
         /// </summary>
-        [DataMember(Name = "hash", EmitDefaultValue = false)]
+        [DataMember(Name = "hash", EmitDefaultValue = true)]
         public PasswordCredentialHash Hash { get; set; }
 
         /// <summary>
         /// Gets or Sets Hook
         /// </summary>
-        [DataMember(Name = "hook", EmitDefaultValue = false)]
+        [DataMember(Name = "hook", EmitDefaultValue = true)]
         public PasswordCredentialHook Hook { get; set; }
 
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>

@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public PolicyPlatformType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Os
         /// </summary>
-        [DataMember(Name = "os", EmitDefaultValue = false)]
+        [DataMember(Name = "os", EmitDefaultValue = true)]
         public PlatformConditionEvaluatorPlatformOperatingSystem Os { get; set; }
 
         /// <summary>

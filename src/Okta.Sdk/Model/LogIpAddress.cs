@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets GeographicalContext
         /// </summary>
-        [DataMember(Name = "geographicalContext", EmitDefaultValue = false)]
+        [DataMember(Name = "geographicalContext", EmitDefaultValue = true)]
         public LogGeographicalContext GeographicalContext { get; set; }
 
         /// <summary>
         /// Gets or Sets Ip
         /// </summary>
-        [DataMember(Name = "ip", EmitDefaultValue = false)]
+        [DataMember(Name = "ip", EmitDefaultValue = true)]
         public string Ip { get; private set; }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "source", EmitDefaultValue = false)]
+        [DataMember(Name = "source", EmitDefaultValue = true)]
         public string Source { get; private set; }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets _Version
         /// </summary>
-        [DataMember(Name = "version", EmitDefaultValue = false)]
+        [DataMember(Name = "version", EmitDefaultValue = true)]
         public string _Version { get; private set; }
 
         /// <summary>

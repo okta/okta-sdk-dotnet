@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Ref
         /// </summary>
-        [DataMember(Name = "$ref", EmitDefaultValue = false)]
+        [DataMember(Name = "$ref", EmitDefaultValue = true)]
         public string Ref { get; set; }
 
         /// <summary>

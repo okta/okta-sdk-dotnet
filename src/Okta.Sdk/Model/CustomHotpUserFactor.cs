@@ -52,13 +52,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets FactorProfileId
         /// </summary>
-        [DataMember(Name = "factorProfileId", EmitDefaultValue = false)]
+        [DataMember(Name = "factorProfileId", EmitDefaultValue = true)]
         public string FactorProfileId { get; set; }
 
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
-        [DataMember(Name = "profile", EmitDefaultValue = false)]
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
         public CustomHotpUserFactorProfile Profile { get; set; }
 
         /// <summary>

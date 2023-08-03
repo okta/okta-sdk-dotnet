@@ -37,31 +37,31 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets HookKeyId
         /// </summary>
-        [DataMember(Name = "hookKeyId", EmitDefaultValue = false)]
+        [DataMember(Name = "hookKeyId", EmitDefaultValue = true)]
         public string HookKeyId { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthScheme
         /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = false)]
+        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
         public InlineHookChannelConfigAuthScheme AuthScheme { get; set; }
 
         /// <summary>
         /// Gets or Sets Headers
         /// </summary>
-        [DataMember(Name = "headers", EmitDefaultValue = false)]
+        [DataMember(Name = "headers", EmitDefaultValue = true)]
         public List<InlineHookChannelConfigHeaders> Headers { get; set; }
 
         /// <summary>
         /// Gets or Sets Method
         /// </summary>
-        [DataMember(Name = "method", EmitDefaultValue = false)]
+        [DataMember(Name = "method", EmitDefaultValue = true)]
         public string Method { get; set; }
 
         /// <summary>
         /// Gets or Sets Uri
         /// </summary>
-        [DataMember(Name = "uri", EmitDefaultValue = false)]
+        [DataMember(Name = "uri", EmitDefaultValue = true)]
         public string Uri { get; set; }
 
         /// <summary>

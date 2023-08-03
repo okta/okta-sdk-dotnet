@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets MaxSessionIdleMinutes
         /// </summary>
-        [DataMember(Name = "maxSessionIdleMinutes", EmitDefaultValue = false)]
+        [DataMember(Name = "maxSessionIdleMinutes", EmitDefaultValue = true)]
         public int MaxSessionIdleMinutes { get; set; }
 
         /// <summary>
         /// Gets or Sets MaxSessionLifetimeMinutes
         /// </summary>
-        [DataMember(Name = "maxSessionLifetimeMinutes", EmitDefaultValue = false)]
+        [DataMember(Name = "maxSessionLifetimeMinutes", EmitDefaultValue = true)]
         public int MaxSessionLifetimeMinutes { get; set; }
 
         /// <summary>

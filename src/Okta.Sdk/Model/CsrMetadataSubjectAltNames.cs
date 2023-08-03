@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets DnsNames
         /// </summary>
-        [DataMember(Name = "dnsNames", EmitDefaultValue = false)]
+        [DataMember(Name = "dnsNames", EmitDefaultValue = true)]
         public List<string> DnsNames { get; set; }
 
         /// <summary>

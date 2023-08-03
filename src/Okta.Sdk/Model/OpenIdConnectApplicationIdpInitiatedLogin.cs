@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets DefaultScope
         /// </summary>
-        [DataMember(Name = "default_scope", EmitDefaultValue = false)]
+        [DataMember(Name = "default_scope", EmitDefaultValue = true)]
         public List<string> DefaultScope { get; set; }
 
         /// <summary>
         /// Gets or Sets Mode
         /// </summary>
-        [DataMember(Name = "mode", EmitDefaultValue = false)]
+        [DataMember(Name = "mode", EmitDefaultValue = true)]
         public string Mode { get; set; }
 
         /// <summary>

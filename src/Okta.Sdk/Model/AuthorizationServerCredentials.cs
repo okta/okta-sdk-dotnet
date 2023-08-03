@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Signing
         /// </summary>
-        [DataMember(Name = "signing", EmitDefaultValue = false)]
+        [DataMember(Name = "signing", EmitDefaultValue = true)]
         public AuthorizationServerCredentialsSigningConfig Signing { get; set; }
 
         /// <summary>

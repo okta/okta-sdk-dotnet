@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AuthScheme
         /// </summary>
-        [DataMember(Name = "authScheme", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
         
         public ProvisioningConnectionAuthScheme AuthScheme { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public ProvisioningConnectionStatus Status { get; set; }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelfAndLifecycle Links { get; set; }
 
         /// <summary>

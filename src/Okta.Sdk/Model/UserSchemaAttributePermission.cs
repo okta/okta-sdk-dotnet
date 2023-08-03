@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Action
         /// </summary>
-        [DataMember(Name = "action", EmitDefaultValue = false)]
+        [DataMember(Name = "action", EmitDefaultValue = true)]
         public string Action { get; set; }
 
         /// <summary>
         /// Gets or Sets Principal
         /// </summary>
-        [DataMember(Name = "principal", EmitDefaultValue = false)]
+        [DataMember(Name = "principal", EmitDefaultValue = true)]
         public string Principal { get; set; }
 
         /// <summary>

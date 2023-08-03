@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Access
         /// </summary>
-        [DataMember(Name = "access", EmitDefaultValue = false)]
+        [DataMember(Name = "access", EmitDefaultValue = true)]
         
         public PolicyAccess Access { get; set; }
         /// <summary>
@@ -75,7 +75,7 @@ namespace Okta.Sdk.Model
         /// The type of rule action
         /// </summary>
         /// <value>The type of rule action</value>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public TypeEnum Type { get; set; }
 
@@ -91,7 +91,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Requirement
         /// </summary>
-        [DataMember(Name = "requirement", EmitDefaultValue = false)]
+        [DataMember(Name = "requirement", EmitDefaultValue = true)]
         public SsprRequirement Requirement { get; set; }
 
         /// <summary>

@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Scope
         /// </summary>
-        [DataMember(Name = "scope", EmitDefaultValue = false)]
+        [DataMember(Name = "scope", EmitDefaultValue = true)]
         
         public ProtocolAlgorithmTypeSignatureScope Scope { get; set; }
         
         /// <summary>
         /// Gets or Sets Algorithm
         /// </summary>
-        [DataMember(Name = "algorithm", EmitDefaultValue = false)]
+        [DataMember(Name = "algorithm", EmitDefaultValue = true)]
         public string Algorithm { get; set; }
 
         /// <summary>

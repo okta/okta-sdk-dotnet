@@ -98,7 +98,7 @@ namespace Okta.Sdk.Model
         /// Specifies how the input appears
         /// </summary>
         /// <value>Specifies how the input appears</value>
-        [DataMember(Name = "format", EmitDefaultValue = false)]
+        [DataMember(Name = "format", EmitDefaultValue = true)]
         
         public FormatEnum Format { get; set; }
         

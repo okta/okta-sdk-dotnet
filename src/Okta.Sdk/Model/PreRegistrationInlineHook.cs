@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets InlineHookId
         /// </summary>
-        [DataMember(Name = "inlineHookId", EmitDefaultValue = false)]
+        [DataMember(Name = "inlineHookId", EmitDefaultValue = true)]
         public string InlineHookId { get; set; }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets TrustLevel
         /// </summary>
-        [DataMember(Name = "trustLevel", EmitDefaultValue = false)]
+        [DataMember(Name = "trustLevel", EmitDefaultValue = true)]
         
         public DevicePolicyTrustLevel TrustLevel { get; set; }
         
@@ -50,7 +50,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Platform
         /// </summary>
-        [DataMember(Name = "platform", EmitDefaultValue = false)]
+        [DataMember(Name = "platform", EmitDefaultValue = true)]
         public DevicePolicyRuleConditionPlatform Platform { get; set; }
 
         /// <summary>

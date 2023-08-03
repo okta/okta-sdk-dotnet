@@ -37,28 +37,28 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AssignmentType
         /// </summary>
-        [DataMember(Name = "assignmentType", EmitDefaultValue = false)]
+        [DataMember(Name = "assignmentType", EmitDefaultValue = true)]
         
         public RoleAssignmentType AssignmentType { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public LifecycleStatus Status { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public RoleType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -72,13 +72,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Label
         /// </summary>
-        [DataMember(Name = "label", EmitDefaultValue = false)]
+        [DataMember(Name = "label", EmitDefaultValue = true)]
         public string Label { get; private set; }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name = "_embedded", EmitDefaultValue = false)]
+        [DataMember(Name = "_embedded", EmitDefaultValue = true)]
         public Dictionary<string, Object> Embedded { get; private set; }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

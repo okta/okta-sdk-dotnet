@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Associated
         /// </summary>
-        [DataMember(Name = "associated", EmitDefaultValue = false)]
+        [DataMember(Name = "associated", EmitDefaultValue = true)]
         public LinkedObjectDetails Associated { get; set; }
 
         /// <summary>
         /// Gets or Sets Primary
         /// </summary>
-        [DataMember(Name = "primary", EmitDefaultValue = false)]
+        [DataMember(Name = "primary", EmitDefaultValue = true)]
         public LinkedObjectDetails Primary { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

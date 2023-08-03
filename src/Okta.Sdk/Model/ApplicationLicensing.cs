@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets SeatCount
         /// </summary>
-        [DataMember(Name = "seatCount", EmitDefaultValue = false)]
+        [DataMember(Name = "seatCount", EmitDefaultValue = true)]
         public int SeatCount { get; set; }
 
         /// <summary>

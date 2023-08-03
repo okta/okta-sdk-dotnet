@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets MatchType
         /// </summary>
-        [DataMember(Name = "matchType", EmitDefaultValue = false)]
+        [DataMember(Name = "matchType", EmitDefaultValue = true)]
         
         public PlatformConditionOperatingSystemVersionMatchType MatchType { get; set; }
         
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>

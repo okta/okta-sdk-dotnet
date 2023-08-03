@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Condition
         /// </summary>
-        [DataMember(Name = "condition", EmitDefaultValue = false)]
+        [DataMember(Name = "condition", EmitDefaultValue = true)]
         public string Condition { get; set; }
 
         /// <summary>

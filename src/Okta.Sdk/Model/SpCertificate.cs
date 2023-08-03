@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets X5c
         /// </summary>
-        [DataMember(Name = "x5c", EmitDefaultValue = false)]
+        [DataMember(Name = "x5c", EmitDefaultValue = true)]
         public List<string> X5c { get; set; }
 
         /// <summary>

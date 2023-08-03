@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the Realm was created
         /// </summary>
         /// <value>Timestamp when the Realm was created</value>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Okta.Sdk.Model
         /// Unique key for the Realm
         /// </summary>
         /// <value>Unique key for the Realm</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the Realm was last updated
         /// </summary>
         /// <value>Timestamp when the Realm was last updated</value>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -97,13 +97,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
-        [DataMember(Name = "profile", EmitDefaultValue = false)]
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
         public RealmProfile Profile { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

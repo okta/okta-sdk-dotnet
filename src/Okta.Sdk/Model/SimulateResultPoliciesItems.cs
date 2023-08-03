@@ -37,31 +37,31 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Conditions
         /// </summary>
-        [DataMember(Name = "conditions", EmitDefaultValue = false)]
+        [DataMember(Name = "conditions", EmitDefaultValue = true)]
         public SimulateResultConditions Conditions { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Rules
         /// </summary>
-        [DataMember(Name = "rules", EmitDefaultValue = false)]
+        [DataMember(Name = "rules", EmitDefaultValue = true)]
         public SimulateResultRules Rules { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         public string Status { get; set; }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AppliesTo
         /// </summary>
-        [DataMember(Name = "appliesTo", EmitDefaultValue = false)]
+        [DataMember(Name = "appliesTo", EmitDefaultValue = true)]
         public string AppliesTo { get; private set; }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; private set; }
 
         /// <summary>

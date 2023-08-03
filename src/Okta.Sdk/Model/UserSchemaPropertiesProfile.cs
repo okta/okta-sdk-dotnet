@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AllOf
         /// </summary>
-        [DataMember(Name = "allOf", EmitDefaultValue = false)]
+        [DataMember(Name = "allOf", EmitDefaultValue = true)]
         public List<UserSchemaPropertiesProfileItem> AllOf { get; set; }
 
         /// <summary>

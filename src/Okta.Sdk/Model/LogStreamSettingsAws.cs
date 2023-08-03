@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Region
         /// </summary>
-        [DataMember(Name = "region", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "region", EmitDefaultValue = true)]
         
         public AwsRegion Region { get; set; }
         /// <summary>
@@ -50,14 +50,14 @@ namespace Okta.Sdk.Model
         /// Your AWS account ID
         /// </summary>
         /// <value>Your AWS account ID</value>
-        [DataMember(Name = "accountId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "accountId", EmitDefaultValue = true)]
         public string AccountId { get; set; }
 
         /// <summary>
         /// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge
         /// </summary>
         /// <value>An alphanumeric name (no spaces) to identify this event source in AWS EventBridge</value>
-        [DataMember(Name = "eventSourceName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "eventSourceName", EmitDefaultValue = true)]
         public string EventSourceName { get; set; }
 
         /// <summary>

@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets RotationType
         /// </summary>
-        [DataMember(Name = "rotation_type", EmitDefaultValue = false)]
+        [DataMember(Name = "rotation_type", EmitDefaultValue = true)]
         
         public OpenIdConnectRefreshTokenRotationType RotationType { get; set; }
         
         /// <summary>
         /// Gets or Sets Leeway
         /// </summary>
-        [DataMember(Name = "leeway", EmitDefaultValue = false)]
+        [DataMember(Name = "leeway", EmitDefaultValue = true)]
         public int Leeway { get; set; }
 
         /// <summary>

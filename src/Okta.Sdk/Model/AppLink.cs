@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AppAssignmentId
         /// </summary>
-        [DataMember(Name = "appAssignmentId", EmitDefaultValue = false)]
+        [DataMember(Name = "appAssignmentId", EmitDefaultValue = true)]
         public string AppAssignmentId { get; private set; }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AppInstanceId
         /// </summary>
-        [DataMember(Name = "appInstanceId", EmitDefaultValue = false)]
+        [DataMember(Name = "appInstanceId", EmitDefaultValue = true)]
         public string AppInstanceId { get; private set; }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AppName
         /// </summary>
-        [DataMember(Name = "appName", EmitDefaultValue = false)]
+        [DataMember(Name = "appName", EmitDefaultValue = true)]
         public string AppName { get; private set; }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Label
         /// </summary>
-        [DataMember(Name = "label", EmitDefaultValue = false)]
+        [DataMember(Name = "label", EmitDefaultValue = true)]
         public string Label { get; private set; }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LinkUrl
         /// </summary>
-        [DataMember(Name = "linkUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "linkUrl", EmitDefaultValue = true)]
         public string LinkUrl { get; private set; }
 
         /// <summary>
@@ -149,7 +149,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LogoUrl
         /// </summary>
-        [DataMember(Name = "logoUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "logoUrl", EmitDefaultValue = true)]
         public string LogoUrl { get; private set; }
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets SortOrder
         /// </summary>
-        [DataMember(Name = "sortOrder", EmitDefaultValue = false)]
+        [DataMember(Name = "sortOrder", EmitDefaultValue = true)]
         public int SortOrder { get; private set; }
 
         /// <summary>

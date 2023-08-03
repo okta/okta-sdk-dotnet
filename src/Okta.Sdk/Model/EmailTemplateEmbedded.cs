@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Settings
         /// </summary>
-        [DataMember(Name = "settings", EmitDefaultValue = false)]
+        [DataMember(Name = "settings", EmitDefaultValue = true)]
         public EmailSettings Settings { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomizationCount
         /// </summary>
-        [DataMember(Name = "customizationCount", EmitDefaultValue = false)]
+        [DataMember(Name = "customizationCount", EmitDefaultValue = true)]
         public int CustomizationCount { get; set; }
 
         /// <summary>

@@ -64,28 +64,28 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets FactorType
         /// </summary>
-        [DataMember(Name = "factorType", EmitDefaultValue = false)]
+        [DataMember(Name = "factorType", EmitDefaultValue = true)]
         
         public FactorType FactorType { get; set; }
 
         /// <summary>
         /// Gets or Sets Provider
         /// </summary>
-        [DataMember(Name = "provider", EmitDefaultValue = false)]
+        [DataMember(Name = "provider", EmitDefaultValue = true)]
         
         public FactorProvider Provider { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public FactorStatus Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -128,19 +128,19 @@ namespace Okta.Sdk.Model
         /// Factor-specific attributes
         /// </summary>
         /// <value>Factor-specific attributes</value>
-        [DataMember(Name = "profile", EmitDefaultValue = false)]
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
         public Object Profile { get; set; }
 
         /// <summary>
         /// Gets or Sets Verify
         /// </summary>
-        [DataMember(Name = "verify", EmitDefaultValue = false)]
+        [DataMember(Name = "verify", EmitDefaultValue = true)]
         public VerifyFactorRequest Verify { get; set; }
 
         /// <summary>
         /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name = "_embedded", EmitDefaultValue = false)]
+        [DataMember(Name = "_embedded", EmitDefaultValue = true)]
         public Dictionary<string, Object> Embedded { get; private set; }
 
         /// <summary>
@@ -154,7 +154,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

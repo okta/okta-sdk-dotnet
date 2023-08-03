@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// The email&#39;s HTML body
         /// </summary>
         /// <value>The email&#39;s HTML body</value>
-        [DataMember(Name = "body", EmitDefaultValue = false)]
+        [DataMember(Name = "body", EmitDefaultValue = true)]
         public string Body { get; private set; }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Okta.Sdk.Model
         /// The email&#39;s subject
         /// </summary>
         /// <value>The email&#39;s subject</value>
-        [DataMember(Name = "subject", EmitDefaultValue = false)]
+        [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; private set; }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public EmailPreviewLinks Links { get; set; }
 
         /// <summary>

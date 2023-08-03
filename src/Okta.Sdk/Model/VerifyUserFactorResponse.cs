@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets FactorResult
         /// </summary>
-        [DataMember(Name = "factorResult", EmitDefaultValue = false)]
+        [DataMember(Name = "factorResult", EmitDefaultValue = true)]
         
         public VerifyUserFactorResult FactorResult { get; set; }
         
         /// <summary>
         /// Gets or Sets ExpiresAt
         /// </summary>
-        [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
+        [DataMember(Name = "expiresAt", EmitDefaultValue = true)]
         public DateTimeOffset ExpiresAt { get; private set; }
 
         /// <summary>
@@ -58,13 +58,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets FactorResultMessage
         /// </summary>
-        [DataMember(Name = "factorResultMessage", EmitDefaultValue = false)]
+        [DataMember(Name = "factorResultMessage", EmitDefaultValue = true)]
         public string FactorResultMessage { get; set; }
 
         /// <summary>
         /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name = "_embedded", EmitDefaultValue = false)]
+        [DataMember(Name = "_embedded", EmitDefaultValue = true)]
         public Dictionary<string, Object> Embedded { get; private set; }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

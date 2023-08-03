@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Template
         /// </summary>
-        [DataMember(Name = "template", EmitDefaultValue = false)]
+        [DataMember(Name = "template", EmitDefaultValue = true)]
         public string Template { get; set; }
 
         /// <summary>

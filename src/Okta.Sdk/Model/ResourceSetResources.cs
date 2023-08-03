@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Resources
         /// </summary>
-        [DataMember(Name = "resources", EmitDefaultValue = false)]
+        [DataMember(Name = "resources", EmitDefaultValue = true)]
         public List<ResourceSetResource> Resources { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public ResourceSetResourcesLinks Links { get; set; }
 
         /// <summary>

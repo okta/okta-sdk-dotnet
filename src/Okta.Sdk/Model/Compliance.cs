@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Fips
         /// </summary>
-        [DataMember(Name = "fips", EmitDefaultValue = false)]
+        [DataMember(Name = "fips", EmitDefaultValue = true)]
         
         public FipsEnum Fips { get; set; }
         

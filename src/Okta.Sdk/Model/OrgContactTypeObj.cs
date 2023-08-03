@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ContactType
         /// </summary>
-        [DataMember(Name = "contactType", EmitDefaultValue = false)]
+        [DataMember(Name = "contactType", EmitDefaultValue = true)]
         
         public OrgContactType ContactType { get; set; }
         
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

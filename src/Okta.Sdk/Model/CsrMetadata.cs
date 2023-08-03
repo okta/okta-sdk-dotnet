@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Subject
         /// </summary>
-        [DataMember(Name = "subject", EmitDefaultValue = false)]
+        [DataMember(Name = "subject", EmitDefaultValue = true)]
         public CsrMetadataSubject Subject { get; set; }
 
         /// <summary>
         /// Gets or Sets SubjectAltNames
         /// </summary>
-        [DataMember(Name = "subjectAltNames", EmitDefaultValue = false)]
+        [DataMember(Name = "subjectAltNames", EmitDefaultValue = true)]
         public CsrMetadataSubjectAltNames SubjectAltNames { get; set; }
 
         /// <summary>

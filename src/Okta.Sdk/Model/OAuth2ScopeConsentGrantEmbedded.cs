@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Scope
         /// </summary>
-        [DataMember(Name = "scope", EmitDefaultValue = false)]
+        [DataMember(Name = "scope", EmitDefaultValue = true)]
         public OAuth2ScopeConsentGrantEmbeddedScope Scope { get; set; }
 
         /// <summary>

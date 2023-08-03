@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Expression
         /// </summary>
-        [DataMember(Name = "expression", EmitDefaultValue = false)]
+        [DataMember(Name = "expression", EmitDefaultValue = true)]
         public GroupRuleExpression Expression { get; set; }
 
         /// <summary>
         /// Gets or Sets People
         /// </summary>
-        [DataMember(Name = "people", EmitDefaultValue = false)]
+        [DataMember(Name = "people", EmitDefaultValue = true)]
         public GroupRulePeopleCondition People { get; set; }
 
         /// <summary>

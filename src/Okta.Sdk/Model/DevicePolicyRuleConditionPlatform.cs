@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets SupportedMDMFrameworks
         /// </summary>
-        [DataMember(Name = "supportedMDMFrameworks", EmitDefaultValue = false)]
+        [DataMember(Name = "supportedMDMFrameworks", EmitDefaultValue = true)]
         public List<DevicePolicyMDMFramework> SupportedMDMFrameworks { get; set; }
 
         /// <summary>
         /// Gets or Sets Types
         /// </summary>
-        [DataMember(Name = "types", EmitDefaultValue = false)]
+        [DataMember(Name = "types", EmitDefaultValue = true)]
         public List<DevicePolicyPlatformType> Types { get; set; }
 
         /// <summary>

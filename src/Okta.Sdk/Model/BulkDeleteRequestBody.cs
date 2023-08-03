@@ -66,14 +66,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets EntityType
         /// </summary>
-        [DataMember(Name = "entityType", EmitDefaultValue = false)]
+        [DataMember(Name = "entityType", EmitDefaultValue = true)]
         
         public EntityTypeEnum EntityType { get; set; }
         
         /// <summary>
         /// Gets or Sets Profiles
         /// </summary>
-        [DataMember(Name = "profiles", EmitDefaultValue = false)]
+        [DataMember(Name = "profiles", EmitDefaultValue = true)]
         public List<IdentitySourceUserProfileForDelete> Profiles { get; set; }
 
         /// <summary>

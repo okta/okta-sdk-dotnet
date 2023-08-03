@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Minimum
         /// </summary>
-        [DataMember(Name = "minimum", EmitDefaultValue = false)]
+        [DataMember(Name = "minimum", EmitDefaultValue = true)]
         public string Minimum { get; set; }
 
         /// <summary>

@@ -68,7 +68,7 @@ namespace Okta.Sdk.Model
         /// Authenticator methods required for secondary authentication step of password recovery. Specify this value only when &#x60;required&#x60; is true and &#x60;security_question&#x60; is permitted for the secondary authentication.
         /// </summary>
         /// <value>Authenticator methods required for secondary authentication step of password recovery. Specify this value only when &#x60;required&#x60; is true and &#x60;security_question&#x60; is permitted for the secondary authentication.</value>
-        [DataMember(Name = "methods", EmitDefaultValue = false)]
+        [DataMember(Name = "methods", EmitDefaultValue = true)]
         
         public List<MethodsEnum> Methods { get; set; }
         

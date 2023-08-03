@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets _Permissions
         /// </summary>
-        [DataMember(Name = "permissions", EmitDefaultValue = false)]
+        [DataMember(Name = "permissions", EmitDefaultValue = true)]
         public List<Permission> _Permissions { get; set; }
 
         /// <summary>

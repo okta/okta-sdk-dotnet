@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Complexity
         /// </summary>
-        [DataMember(Name = "complexity", EmitDefaultValue = false)]
+        [DataMember(Name = "complexity", EmitDefaultValue = true)]
         public PasswordPolicyRecoveryQuestionComplexity Complexity { get; set; }
 
         /// <summary>

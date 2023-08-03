@@ -43,7 +43,7 @@ namespace Okta.Sdk.Model
         /// The &#x60;id&#x60; of the brand used to replace the existing brand.
         /// </summary>
         /// <value>The &#x60;id&#x60; of the brand used to replace the existing brand.</value>
-        [DataMember(Name = "brandId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "brandId", EmitDefaultValue = true)]
         public string BrandId { get; set; }
 
         /// <summary>

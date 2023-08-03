@@ -38,27 +38,27 @@ namespace Okta.Sdk.Model
         /// Specifies the button label for the &#x60;Submit&#x60; button at the bottom of the enrollment form.
         /// </summary>
         /// <value>Specifies the button label for the &#x60;Submit&#x60; button at the bottom of the enrollment form.</value>
-        [DataMember(Name = "buttonLabel", EmitDefaultValue = false)]
+        [DataMember(Name = "buttonLabel", EmitDefaultValue = true)]
         public string ButtonLabel { get; set; }
 
         /// <summary>
         /// Gets or Sets Elements
         /// </summary>
-        [DataMember(Name = "elements", EmitDefaultValue = false)]
+        [DataMember(Name = "elements", EmitDefaultValue = true)]
         public UIElement Elements { get; set; }
 
         /// <summary>
         /// Specifies the label at the top of the enrollment form under the logo.
         /// </summary>
         /// <value>Specifies the label at the top of the enrollment form under the logo.</value>
-        [DataMember(Name = "label", EmitDefaultValue = false)]
+        [DataMember(Name = "label", EmitDefaultValue = true)]
         public string Label { get; set; }
 
         /// <summary>
         /// Specifies the type of layout
         /// </summary>
         /// <value>Specifies the type of layout</value>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>

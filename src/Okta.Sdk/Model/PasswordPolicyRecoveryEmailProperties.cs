@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets RecoveryToken
         /// </summary>
-        [DataMember(Name = "recoveryToken", EmitDefaultValue = false)]
+        [DataMember(Name = "recoveryToken", EmitDefaultValue = true)]
         public PasswordPolicyRecoveryEmailRecoveryToken RecoveryToken { get; set; }
 
         /// <summary>

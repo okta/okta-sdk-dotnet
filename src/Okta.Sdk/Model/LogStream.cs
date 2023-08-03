@@ -80,7 +80,7 @@ namespace Okta.Sdk.Model
         /// Lifecycle status of the Log Stream object
         /// </summary>
         /// <value>Lifecycle status of the Log Stream object</value>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public StatusEnum Status { get; set; }
 
@@ -96,7 +96,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public LogStreamType Type { get; set; }
         /// <summary>
@@ -109,7 +109,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the Log Stream object was created
         /// </summary>
         /// <value>Timestamp when the Log Stream object was created</value>
-        [DataMember(Name = "created", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace Okta.Sdk.Model
         /// Unique identifier for the Log Stream
         /// </summary>
         /// <value>Unique identifier for the Log Stream</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the Log Stream object was last updated
         /// </summary>
         /// <value>Timestamp when the Log Stream object was last updated</value>
-        [DataMember(Name = "lastUpdated", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -154,13 +154,13 @@ namespace Okta.Sdk.Model
         /// Unique name for the Log Stream object
         /// </summary>
         /// <value>Unique name for the Log Stream object</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LogStreamLinksSelfAndLifecycle Links { get; set; }
 
         /// <summary>

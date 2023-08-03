@@ -37,28 +37,28 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets KeyTrustLevel
         /// </summary>
-        [DataMember(Name = "keyTrustLevel", EmitDefaultValue = false)]
+        [DataMember(Name = "keyTrustLevel", EmitDefaultValue = true)]
         
         public KeyTrustLevelBrowserKey KeyTrustLevel { get; set; }
 
         /// <summary>
         /// Gets or Sets PasswordProtectionWarningTrigger
         /// </summary>
-        [DataMember(Name = "passwordProtectionWarningTrigger", EmitDefaultValue = false)]
+        [DataMember(Name = "passwordProtectionWarningTrigger", EmitDefaultValue = true)]
         
         public PasswordProtectionWarningTrigger PasswordProtectionWarningTrigger { get; set; }
 
         /// <summary>
         /// Gets or Sets SafeBrowsingProtectionLevel
         /// </summary>
-        [DataMember(Name = "safeBrowsingProtectionLevel", EmitDefaultValue = false)]
+        [DataMember(Name = "safeBrowsingProtectionLevel", EmitDefaultValue = true)]
         
         public SafeBrowsingProtectionLevel SafeBrowsingProtectionLevel { get; set; }
         
         /// <summary>
         /// Gets or Sets BrowserVersion
         /// </summary>
-        [DataMember(Name = "browserVersion", EmitDefaultValue = false)]
+        [DataMember(Name = "browserVersion", EmitDefaultValue = true)]
         public ChromeBrowserVersion BrowserVersion { get; set; }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace Okta.Sdk.Model
         /// Enrollment domain of the customer that is currently managing the device
         /// </summary>
         /// <value>Enrollment domain of the customer that is currently managing the device</value>
-        [DataMember(Name = "deviceEnrollmentDomain", EmitDefaultValue = false)]
+        [DataMember(Name = "deviceEnrollmentDomain", EmitDefaultValue = true)]
         public string DeviceEnrollmentDomain { get; set; }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets OsVersion
         /// </summary>
-        [DataMember(Name = "osVersion", EmitDefaultValue = false)]
+        [DataMember(Name = "osVersion", EmitDefaultValue = true)]
         public OSVersion OsVersion { get; set; }
 
         /// <summary>

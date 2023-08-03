@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AttributeName
         /// </summary>
-        [DataMember(Name = "attributeName", EmitDefaultValue = false)]
+        [DataMember(Name = "attributeName", EmitDefaultValue = true)]
         public string AttributeName { get; set; }
 
         /// <summary>
         /// Gets or Sets MatchingValue
         /// </summary>
-        [DataMember(Name = "matchingValue", EmitDefaultValue = false)]
+        [DataMember(Name = "matchingValue", EmitDefaultValue = true)]
         public string MatchingValue { get; set; }
 
         /// <summary>

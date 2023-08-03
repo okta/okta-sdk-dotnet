@@ -42,7 +42,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
-        [DataMember(Name = "profile", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
         public ProvisioningConnectionProfile Profile { get; set; }
 
         /// <summary>

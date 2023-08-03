@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets EmailServers
         /// </summary>
-        [DataMember(Name = "email-servers", EmitDefaultValue = false)]
+        [DataMember(Name = "email-servers", EmitDefaultValue = true)]
         public List<EmailServerResponse> EmailServers { get; set; }
 
         /// <summary>

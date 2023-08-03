@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Include
         /// </summary>
-        [DataMember(Name = "include", EmitDefaultValue = false)]
+        [DataMember(Name = "include", EmitDefaultValue = true)]
         public List<string> Include { get; set; }
 
         /// <summary>

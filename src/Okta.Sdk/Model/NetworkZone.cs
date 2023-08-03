@@ -86,28 +86,28 @@ namespace Okta.Sdk.Model
         /// Dynamic network zone property: the proxy type used
         /// </summary>
         /// <value>Dynamic network zone property: the proxy type used</value>
-        [DataMember(Name = "proxyType", EmitDefaultValue = false)]
+        [DataMember(Name = "proxyType", EmitDefaultValue = true)]
         
         public ProxyTypeEnum ProxyType { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public NetworkZoneStatus Status { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public NetworkZoneType Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Usage
         /// </summary>
-        [DataMember(Name = "usage", EmitDefaultValue = false)]
+        [DataMember(Name = "usage", EmitDefaultValue = true)]
         
         public NetworkZoneUsage Usage { get; set; }
         
@@ -115,14 +115,14 @@ namespace Okta.Sdk.Model
         /// Dynamic network zone property. array of strings that represent an ASN numeric value
         /// </summary>
         /// <value>Dynamic network zone property. array of strings that represent an ASN numeric value</value>
-        [DataMember(Name = "asns", EmitDefaultValue = false)]
+        [DataMember(Name = "asns", EmitDefaultValue = true)]
         public List<string> Asns { get; set; }
 
         /// <summary>
         /// Timestamp when the network zone was created
         /// </summary>
         /// <value>Timestamp when the network zone was created</value>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -137,14 +137,14 @@ namespace Okta.Sdk.Model
         /// IP network zone property: the IP addresses (range or CIDR form) of this zone. The maximum array length is 150 entries for admin-created IP zones, 1000 entries for IP blocklist zones, and 5000 entries for the default system IP Zone.
         /// </summary>
         /// <value>IP network zone property: the IP addresses (range or CIDR form) of this zone. The maximum array length is 150 entries for admin-created IP zones, 1000 entries for IP blocklist zones, and 5000 entries for the default system IP Zone.</value>
-        [DataMember(Name = "gateways", EmitDefaultValue = false)]
+        [DataMember(Name = "gateways", EmitDefaultValue = true)]
         public List<NetworkZoneAddress> Gateways { get; set; }
 
         /// <summary>
         /// Unique identifier for the network zone
         /// </summary>
         /// <value>Unique identifier for the network zone</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the network zone was last modified
         /// </summary>
         /// <value>Timestamp when the network zone was last modified</value>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -174,14 +174,14 @@ namespace Okta.Sdk.Model
         /// Dynamic network zone property: an array of geolocations of this network zone
         /// </summary>
         /// <value>Dynamic network zone property: an array of geolocations of this network zone</value>
-        [DataMember(Name = "locations", EmitDefaultValue = false)]
+        [DataMember(Name = "locations", EmitDefaultValue = true)]
         public List<NetworkZoneLocation> Locations { get; set; }
 
         /// <summary>
         /// Unique name for this network zone. Maximum of 128 characters.
         /// </summary>
         /// <value>Unique name for this network zone. Maximum of 128 characters.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -201,7 +201,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public NetworkZoneLinks Links { get; set; }
 
         /// <summary>

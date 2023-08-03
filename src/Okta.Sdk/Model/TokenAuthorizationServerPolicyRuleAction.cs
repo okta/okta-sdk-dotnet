@@ -37,25 +37,25 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AccessTokenLifetimeMinutes
         /// </summary>
-        [DataMember(Name = "accessTokenLifetimeMinutes", EmitDefaultValue = false)]
+        [DataMember(Name = "accessTokenLifetimeMinutes", EmitDefaultValue = true)]
         public int AccessTokenLifetimeMinutes { get; set; }
 
         /// <summary>
         /// Gets or Sets InlineHook
         /// </summary>
-        [DataMember(Name = "inlineHook", EmitDefaultValue = false)]
+        [DataMember(Name = "inlineHook", EmitDefaultValue = true)]
         public TokenAuthorizationServerPolicyRuleActionInlineHook InlineHook { get; set; }
 
         /// <summary>
         /// Gets or Sets RefreshTokenLifetimeMinutes
         /// </summary>
-        [DataMember(Name = "refreshTokenLifetimeMinutes", EmitDefaultValue = false)]
+        [DataMember(Name = "refreshTokenLifetimeMinutes", EmitDefaultValue = true)]
         public int RefreshTokenLifetimeMinutes { get; set; }
 
         /// <summary>
         /// Gets or Sets RefreshTokenWindowMinutes
         /// </summary>
-        [DataMember(Name = "refreshTokenWindowMinutes", EmitDefaultValue = false)]
+        [DataMember(Name = "refreshTokenWindowMinutes", EmitDefaultValue = true)]
         public int RefreshTokenWindowMinutes { get; set; }
 
         /// <summary>

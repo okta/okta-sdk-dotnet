@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets _Csr
         /// </summary>
-        [DataMember(Name = "csr", EmitDefaultValue = false)]
+        [DataMember(Name = "csr", EmitDefaultValue = true)]
         public string _Csr { get; private set; }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Kty
         /// </summary>
-        [DataMember(Name = "kty", EmitDefaultValue = false)]
+        [DataMember(Name = "kty", EmitDefaultValue = true)]
         public string Kty { get; private set; }
 
         /// <summary>

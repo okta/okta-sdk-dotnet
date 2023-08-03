@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets OriginType
         /// </summary>
-        [DataMember(Name = "originType", EmitDefaultValue = false)]
+        [DataMember(Name = "originType", EmitDefaultValue = true)]
         
         public GroupOwnerOriginType OriginType { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public GroupOwnerType Type { get; set; }
         
@@ -52,7 +52,7 @@ namespace Okta.Sdk.Model
         /// The display name of the group owner
         /// </summary>
         /// <value>The display name of the group owner</value>
-        [DataMember(Name = "displayName", EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; private set; }
 
         /// <summary>
@@ -67,14 +67,14 @@ namespace Okta.Sdk.Model
         /// The &#x60;id&#x60; of the group owner
         /// </summary>
         /// <value>The &#x60;id&#x60; of the group owner</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Timestamp when the group owner was last updated
         /// </summary>
         /// <value>Timestamp when the group owner was last updated</value>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Okta.Sdk.Model
         /// The ID of the app instance if the &#x60;originType&#x60; is &#x60;APPLICATION&#x60;. This value is &#x60;NULL&#x60; if &#x60;originType&#x60; is &#x60;OKTA_DIRECTORY&#x60;.
         /// </summary>
         /// <value>The ID of the app instance if the &#x60;originType&#x60; is &#x60;APPLICATION&#x60;. This value is &#x60;NULL&#x60; if &#x60;originType&#x60; is &#x60;OKTA_DIRECTORY&#x60;.</value>
-        [DataMember(Name = "originId", EmitDefaultValue = false)]
+        [DataMember(Name = "originId", EmitDefaultValue = true)]
         public string OriginId { get; set; }
 
         /// <summary>

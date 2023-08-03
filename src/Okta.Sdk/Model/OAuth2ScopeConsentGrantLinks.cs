@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
-        [DataMember(Name = "self", EmitDefaultValue = false)]
+        [DataMember(Name = "self", EmitDefaultValue = true)]
         public HrefObjectSelfLink Self { get; set; }
 
         /// <summary>
         /// Gets or Sets App
         /// </summary>
-        [DataMember(Name = "app", EmitDefaultValue = false)]
+        [DataMember(Name = "app", EmitDefaultValue = true)]
         public OAuth2ScopeConsentGrantLinksAllOfApp App { get; set; }
 
         /// <summary>
         /// Gets or Sets _Client
         /// </summary>
-        [DataMember(Name = "client", EmitDefaultValue = false)]
+        [DataMember(Name = "client", EmitDefaultValue = true)]
         public OAuth2ScopeConsentGrantLinksAllOfClient _Client { get; set; }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Browser
         /// </summary>
-        [DataMember(Name = "browser", EmitDefaultValue = false)]
+        [DataMember(Name = "browser", EmitDefaultValue = true)]
         public string Browser { get; private set; }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Os
         /// </summary>
-        [DataMember(Name = "os", EmitDefaultValue = false)]
+        [DataMember(Name = "os", EmitDefaultValue = true)]
         public string Os { get; private set; }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets RawUserAgent
         /// </summary>
-        [DataMember(Name = "rawUserAgent", EmitDefaultValue = false)]
+        [DataMember(Name = "rawUserAgent", EmitDefaultValue = true)]
         public string RawUserAgent { get; private set; }
 
         /// <summary>

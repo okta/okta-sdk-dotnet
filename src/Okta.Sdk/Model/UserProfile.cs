@@ -43,7 +43,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets CostCenter
         /// </summary>
-        [DataMember(Name = "costCenter", EmitDefaultValue = false)]
+        [DataMember(Name = "costCenter", EmitDefaultValue = true)]
         public string CostCenter { get; set; }
 
         /// <summary>
@@ -55,31 +55,31 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Department
         /// </summary>
-        [DataMember(Name = "department", EmitDefaultValue = false)]
+        [DataMember(Name = "department", EmitDefaultValue = true)]
         public string Department { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets Division
         /// </summary>
-        [DataMember(Name = "division", EmitDefaultValue = false)]
+        [DataMember(Name = "division", EmitDefaultValue = true)]
         public string Division { get; set; }
 
         /// <summary>
         /// Gets or Sets Email
         /// </summary>
-        [DataMember(Name = "email", EmitDefaultValue = false)]
+        [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// Gets or Sets EmployeeNumber
         /// </summary>
-        [DataMember(Name = "employeeNumber", EmitDefaultValue = false)]
+        [DataMember(Name = "employeeNumber", EmitDefaultValue = true)]
         public string EmployeeNumber { get; set; }
 
         /// <summary>
@@ -91,13 +91,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets HonorificPrefix
         /// </summary>
-        [DataMember(Name = "honorificPrefix", EmitDefaultValue = false)]
+        [DataMember(Name = "honorificPrefix", EmitDefaultValue = true)]
         public string HonorificPrefix { get; set; }
 
         /// <summary>
         /// Gets or Sets HonorificSuffix
         /// </summary>
-        [DataMember(Name = "honorificSuffix", EmitDefaultValue = false)]
+        [DataMember(Name = "honorificSuffix", EmitDefaultValue = true)]
         public string HonorificSuffix { get; set; }
 
         /// <summary>
@@ -110,31 +110,31 @@ namespace Okta.Sdk.Model
         /// The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646)
         /// </summary>
         /// <value>The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646)</value>
-        [DataMember(Name = "locale", EmitDefaultValue = false)]
+        [DataMember(Name = "locale", EmitDefaultValue = true)]
         public string Locale { get; set; }
 
         /// <summary>
         /// Gets or Sets Login
         /// </summary>
-        [DataMember(Name = "login", EmitDefaultValue = false)]
+        [DataMember(Name = "login", EmitDefaultValue = true)]
         public string Login { get; set; }
 
         /// <summary>
         /// Gets or Sets Manager
         /// </summary>
-        [DataMember(Name = "manager", EmitDefaultValue = false)]
+        [DataMember(Name = "manager", EmitDefaultValue = true)]
         public string Manager { get; set; }
 
         /// <summary>
         /// Gets or Sets ManagerId
         /// </summary>
-        [DataMember(Name = "managerId", EmitDefaultValue = false)]
+        [DataMember(Name = "managerId", EmitDefaultValue = true)]
         public string ManagerId { get; set; }
 
         /// <summary>
         /// Gets or Sets MiddleName
         /// </summary>
-        [DataMember(Name = "middleName", EmitDefaultValue = false)]
+        [DataMember(Name = "middleName", EmitDefaultValue = true)]
         public string MiddleName { get; set; }
 
         /// <summary>
@@ -146,13 +146,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets NickName
         /// </summary>
-        [DataMember(Name = "nickName", EmitDefaultValue = false)]
+        [DataMember(Name = "nickName", EmitDefaultValue = true)]
         public string NickName { get; set; }
 
         /// <summary>
         /// Gets or Sets Organization
         /// </summary>
-        [DataMember(Name = "organization", EmitDefaultValue = false)]
+        [DataMember(Name = "organization", EmitDefaultValue = true)]
         public string Organization { get; set; }
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets PreferredLanguage
         /// </summary>
-        [DataMember(Name = "preferredLanguage", EmitDefaultValue = false)]
+        [DataMember(Name = "preferredLanguage", EmitDefaultValue = true)]
         public string PreferredLanguage { get; set; }
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ProfileUrl
         /// </summary>
-        [DataMember(Name = "profileUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "profileUrl", EmitDefaultValue = true)]
         public string ProfileUrl { get; set; }
 
         /// <summary>
@@ -200,19 +200,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Timezone
         /// </summary>
-        [DataMember(Name = "timezone", EmitDefaultValue = false)]
+        [DataMember(Name = "timezone", EmitDefaultValue = true)]
         public string Timezone { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
-        [DataMember(Name = "title", EmitDefaultValue = false)]
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets UserType
         /// </summary>
-        [DataMember(Name = "userType", EmitDefaultValue = false)]
+        [DataMember(Name = "userType", EmitDefaultValue = true)]
         public string UserType { get; set; }
 
         /// <summary>

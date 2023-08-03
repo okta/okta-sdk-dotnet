@@ -37,27 +37,27 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public LifecycleStatus Status { get; set; }
 
         /// <summary>
         /// Gets or Sets VerificationStatus
         /// </summary>
-        [DataMember(Name = "verificationStatus", EmitDefaultValue = false)]
+        [DataMember(Name = "verificationStatus", EmitDefaultValue = true)]
         
         public EventHookVerificationStatus VerificationStatus { get; set; }
         
         /// <summary>
         /// Gets or Sets Channel
         /// </summary>
-        [DataMember(Name = "channel", EmitDefaultValue = false)]
+        [DataMember(Name = "channel", EmitDefaultValue = true)]
         public EventHookChannel Channel { get; set; }
 
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -71,19 +71,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets CreatedBy
         /// </summary>
-        [DataMember(Name = "createdBy", EmitDefaultValue = false)]
+        [DataMember(Name = "createdBy", EmitDefaultValue = true)]
         public string CreatedBy { get; set; }
 
         /// <summary>
         /// Gets or Sets Events
         /// </summary>
-        [DataMember(Name = "events", EmitDefaultValue = false)]
+        [DataMember(Name = "events", EmitDefaultValue = true)]
         public EventSubscriptions Events { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -111,13 +111,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

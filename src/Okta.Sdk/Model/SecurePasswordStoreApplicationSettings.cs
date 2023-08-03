@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets IdentityStoreId
         /// </summary>
-        [DataMember(Name = "identityStoreId", EmitDefaultValue = false)]
+        [DataMember(Name = "identityStoreId", EmitDefaultValue = true)]
         public string IdentityStoreId { get; set; }
 
         /// <summary>
@@ -49,25 +49,25 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets InlineHookId
         /// </summary>
-        [DataMember(Name = "inlineHookId", EmitDefaultValue = false)]
+        [DataMember(Name = "inlineHookId", EmitDefaultValue = true)]
         public string InlineHookId { get; set; }
 
         /// <summary>
         /// Gets or Sets Notes
         /// </summary>
-        [DataMember(Name = "notes", EmitDefaultValue = false)]
+        [DataMember(Name = "notes", EmitDefaultValue = true)]
         public ApplicationSettingsNotes Notes { get; set; }
 
         /// <summary>
         /// Gets or Sets Notifications
         /// </summary>
-        [DataMember(Name = "notifications", EmitDefaultValue = false)]
+        [DataMember(Name = "notifications", EmitDefaultValue = true)]
         public ApplicationSettingsNotifications Notifications { get; set; }
 
         /// <summary>
         /// Gets or Sets App
         /// </summary>
-        [DataMember(Name = "app", EmitDefaultValue = false)]
+        [DataMember(Name = "app", EmitDefaultValue = true)]
         public SecurePasswordStoreApplicationSettingsApplication App { get; set; }
 
         /// <summary>

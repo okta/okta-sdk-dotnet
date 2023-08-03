@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// Unique identifier for the application instance or UserType
         /// </summary>
         /// <value>Unique identifier for the application instance or UserType</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Okta.Sdk.Model
         /// Variable name of the application instance or name of the referenced userType
         /// </summary>
         /// <value>Variable name of the application instance or name of the referenced userType</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; private set; }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Okta.Sdk.Model
         /// Type of user referenced in the mapping
         /// </summary>
         /// <value>Type of user referenced in the mapping</value>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; private set; }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public SourceLinks Links { get; set; }
 
         /// <summary>

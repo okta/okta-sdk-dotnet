@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ClientId
         /// </summary>
-        [DataMember(Name = "client_id", EmitDefaultValue = false)]
+        [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; private set; }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ClientName
         /// </summary>
-        [DataMember(Name = "client_name", EmitDefaultValue = false)]
+        [DataMember(Name = "client_name", EmitDefaultValue = true)]
         public string ClientName { get; private set; }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ClientUri
         /// </summary>
-        [DataMember(Name = "client_uri", EmitDefaultValue = false)]
+        [DataMember(Name = "client_uri", EmitDefaultValue = true)]
         public string ClientUri { get; private set; }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LogoUri
         /// </summary>
-        [DataMember(Name = "logo_uri", EmitDefaultValue = false)]
+        [DataMember(Name = "logo_uri", EmitDefaultValue = true)]
         public string LogoUri { get; private set; }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

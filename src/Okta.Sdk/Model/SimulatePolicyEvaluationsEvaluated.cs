@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Policies
         /// </summary>
-        [DataMember(Name = "policies", EmitDefaultValue = false)]
+        [DataMember(Name = "policies", EmitDefaultValue = true)]
         public List<SimulateResultPoliciesItems> Policies { get; set; }
 
         /// <summary>

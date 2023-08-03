@@ -42,19 +42,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Activate
         /// </summary>
-        [DataMember(Name = "activate", EmitDefaultValue = false)]
+        [DataMember(Name = "activate", EmitDefaultValue = true)]
         public LogStreamActivateLink Activate { get; set; }
 
         /// <summary>
         /// Gets or Sets Deactivate
         /// </summary>
-        [DataMember(Name = "deactivate", EmitDefaultValue = false)]
+        [DataMember(Name = "deactivate", EmitDefaultValue = true)]
         public LogStreamDeactivateLink Deactivate { get; set; }
 
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
-        [DataMember(Name = "self", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "self", EmitDefaultValue = true)]
         public LogStreamSelfLink Self { get; set; }
 
         /// <summary>

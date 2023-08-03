@@ -37,31 +37,31 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Default
         /// </summary>
-        [DataMember(Name = "default", EmitDefaultValue = false)]
+        [DataMember(Name = "default", EmitDefaultValue = true)]
         public CustomizablePage Default { get; set; }
 
         /// <summary>
         /// Gets or Sets Customized
         /// </summary>
-        [DataMember(Name = "customized", EmitDefaultValue = false)]
+        [DataMember(Name = "customized", EmitDefaultValue = true)]
         public CustomizablePage Customized { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomizedUrl
         /// </summary>
-        [DataMember(Name = "customizedUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "customizedUrl", EmitDefaultValue = true)]
         public string CustomizedUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Preview
         /// </summary>
-        [DataMember(Name = "preview", EmitDefaultValue = false)]
+        [DataMember(Name = "preview", EmitDefaultValue = true)]
         public CustomizablePage Preview { get; set; }
 
         /// <summary>
         /// Gets or Sets PreviewUrl
         /// </summary>
-        [DataMember(Name = "previewUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "previewUrl", EmitDefaultValue = true)]
         public string PreviewUrl { get; set; }
 
         /// <summary>

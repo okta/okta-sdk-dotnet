@@ -78,7 +78,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Level
         /// </summary>
-        [DataMember(Name = "level", EmitDefaultValue = false)]
+        [DataMember(Name = "level", EmitDefaultValue = true)]
         
         public LevelEnum Level { get; set; }
         

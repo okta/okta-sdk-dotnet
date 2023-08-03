@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets PolicyType
         /// </summary>
-        [DataMember(Name = "policyType", EmitDefaultValue = false)]
+        [DataMember(Name = "policyType", EmitDefaultValue = true)]
         
         public PolicyType PolicyType { get; set; }
         /// <summary>
@@ -87,26 +87,26 @@ namespace Okta.Sdk.Model
         /// The result of this entity evaluation
         /// </summary>
         /// <value>The result of this entity evaluation</value>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public StatusEnum Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Evaluated
         /// </summary>
-        [DataMember(Name = "evaluated", EmitDefaultValue = false)]
+        [DataMember(Name = "evaluated", EmitDefaultValue = true)]
         public SimulatePolicyEvaluationsEvaluated Evaluated { get; set; }
 
         /// <summary>
         /// Gets or Sets Result
         /// </summary>
-        [DataMember(Name = "result", EmitDefaultValue = false)]
+        [DataMember(Name = "result", EmitDefaultValue = true)]
         public SimulatePolicyResult Result { get; set; }
 
         /// <summary>
         /// Gets or Sets Undefined
         /// </summary>
-        [DataMember(Name = "undefined", EmitDefaultValue = false)]
+        [DataMember(Name = "undefined", EmitDefaultValue = true)]
         public SimulatePolicyEvaluationsUndefined Undefined { get; set; }
 
         /// <summary>

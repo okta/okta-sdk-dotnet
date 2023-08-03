@@ -37,28 +37,28 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets OperationalStatus
         /// </summary>
-        [DataMember(Name = "operationalStatus", EmitDefaultValue = false)]
+        [DataMember(Name = "operationalStatus", EmitDefaultValue = true)]
         
         public OperationalStatus OperationalStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public AgentType Type { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdateStatus
         /// </summary>
-        [DataMember(Name = "updateStatus", EmitDefaultValue = false)]
+        [DataMember(Name = "updateStatus", EmitDefaultValue = true)]
         
         public AgentUpdateInstanceStatus UpdateStatus { get; set; }
         
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -84,37 +84,37 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastConnection
         /// </summary>
-        [DataMember(Name = "lastConnection", EmitDefaultValue = false)]
+        [DataMember(Name = "lastConnection", EmitDefaultValue = true)]
         public DateTimeOffset LastConnection { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets PoolId
         /// </summary>
-        [DataMember(Name = "poolId", EmitDefaultValue = false)]
+        [DataMember(Name = "poolId", EmitDefaultValue = true)]
         public string PoolId { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdateMessage
         /// </summary>
-        [DataMember(Name = "updateMessage", EmitDefaultValue = false)]
+        [DataMember(Name = "updateMessage", EmitDefaultValue = true)]
         public string UpdateMessage { get; set; }
 
         /// <summary>
         /// Gets or Sets _Version
         /// </summary>
-        [DataMember(Name = "version", EmitDefaultValue = false)]
+        [DataMember(Name = "version", EmitDefaultValue = true)]
         public string _Version { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

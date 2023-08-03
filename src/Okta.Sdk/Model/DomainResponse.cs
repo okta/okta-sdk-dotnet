@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets CertificateSourceType
         /// </summary>
-        [DataMember(Name = "certificateSourceType", EmitDefaultValue = false)]
+        [DataMember(Name = "certificateSourceType", EmitDefaultValue = true)]
         
         public DomainCertificateSourceType CertificateSourceType { get; set; }
 
         /// <summary>
         /// Gets or Sets ValidationStatus
         /// </summary>
-        [DataMember(Name = "validationStatus", EmitDefaultValue = false)]
+        [DataMember(Name = "validationStatus", EmitDefaultValue = true)]
         
         public DomainValidationStatus ValidationStatus { get; set; }
         
@@ -52,39 +52,39 @@ namespace Okta.Sdk.Model
         /// The ID number of the brand
         /// </summary>
         /// <value>The ID number of the brand</value>
-        [DataMember(Name = "brandId", EmitDefaultValue = false)]
+        [DataMember(Name = "brandId", EmitDefaultValue = true)]
         public string BrandId { get; set; }
 
         /// <summary>
         /// Gets or Sets DnsRecords
         /// </summary>
-        [DataMember(Name = "dnsRecords", EmitDefaultValue = false)]
+        [DataMember(Name = "dnsRecords", EmitDefaultValue = true)]
         public List<DNSRecord> DnsRecords { get; set; }
 
         /// <summary>
         /// Custom domain name
         /// </summary>
         /// <value>Custom domain name</value>
-        [DataMember(Name = "domain", EmitDefaultValue = false)]
+        [DataMember(Name = "domain", EmitDefaultValue = true)]
         public string Domain { get; set; }
 
         /// <summary>
         /// Unique ID of the domain
         /// </summary>
         /// <value>Unique ID of the domain</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets PublicCertificate
         /// </summary>
-        [DataMember(Name = "publicCertificate", EmitDefaultValue = false)]
+        [DataMember(Name = "publicCertificate", EmitDefaultValue = true)]
         public DomainCertificateMetadata PublicCertificate { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public DomainLinks Links { get; set; }
 
         /// <summary>

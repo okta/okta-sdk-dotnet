@@ -74,21 +74,21 @@ namespace Okta.Sdk.Model
         /// Toggles the assignment between user or group scope
         /// </summary>
         /// <value>Toggles the assignment between user or group scope</value>
-        [DataMember(Name = "scope", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "scope", EmitDefaultValue = true)]
         
         public ScopeEnum Scope { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public AppUserStatus Status { get; set; }
 
         /// <summary>
         /// Gets or Sets SyncState
         /// </summary>
-        [DataMember(Name = "syncState", EmitDefaultValue = false)]
+        [DataMember(Name = "syncState", EmitDefaultValue = true)]
         
         public AppUserSyncState SyncState { get; set; }
         /// <summary>
@@ -101,7 +101,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the App User object was created
         /// </summary>
         /// <value>Timestamp when the App User object was created</value>
-        [DataMember(Name = "created", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -115,14 +115,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Credentials
         /// </summary>
-        [DataMember(Name = "credentials", EmitDefaultValue = false)]
+        [DataMember(Name = "credentials", EmitDefaultValue = true)]
         public AppUserCredentials Credentials { get; set; }
 
         /// <summary>
         /// The ID of the user in the target app that&#39;s linked to the Okta App User object. This value is the native app-specific identifier or primary key for the user in the target app.  The &#x60;externalId&#x60; is set during import when the user is confirmed (reconciled) or during provisioning when the user has been successfully created in the target app. This value isn&#39;t populated for SSO app assignments (for example, SAML or SWA) because it isn&#39;t synchronized with a target app.
         /// </summary>
         /// <value>The ID of the user in the target app that&#39;s linked to the Okta App User object. This value is the native app-specific identifier or primary key for the user in the target app.  The &#x60;externalId&#x60; is set during import when the user is confirmed (reconciled) or during provisioning when the user has been successfully created in the target app. This value isn&#39;t populated for SSO app assignments (for example, SAML or SWA) because it isn&#39;t synchronized with a target app.</value>
-        [DataMember(Name = "externalId", EmitDefaultValue = false)]
+        [DataMember(Name = "externalId", EmitDefaultValue = true)]
         public string ExternalId { get; private set; }
 
         /// <summary>
@@ -137,14 +137,14 @@ namespace Okta.Sdk.Model
         /// Unique identifier of the App User object (only required for apps with &#x60;signOnMode&#x60; or authentication schemes that don&#39;t require credentials)
         /// </summary>
         /// <value>Unique identifier of the App User object (only required for apps with &#x60;signOnMode&#x60; or authentication schemes that don&#39;t require credentials)</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Timestamp of the last synchronization operation. This value is only updated for apps with the &#x60;IMPORT_PROFILE_UPDATES&#x60; or &#x60;PUSH PROFILE_UPDATES&#x60; feature.
         /// </summary>
         /// <value>Timestamp of the last synchronization operation. This value is only updated for apps with the &#x60;IMPORT_PROFILE_UPDATES&#x60; or &#x60;PUSH PROFILE_UPDATES&#x60; feature.</value>
-        [DataMember(Name = "lastSync", EmitDefaultValue = false)]
+        [DataMember(Name = "lastSync", EmitDefaultValue = true)]
         public DateTimeOffset LastSync { get; private set; }
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when App User was last updated
         /// </summary>
         /// <value>Timestamp when App User was last updated</value>
-        [DataMember(Name = "lastUpdated", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -189,14 +189,14 @@ namespace Okta.Sdk.Model
         /// App user profiles are app-specific and can be customized by the Profile Editor in the Admin Console. SSO apps typically don&#39;t support app user profiles, while apps with user provisioning features have app-specific profiles. Properties that are visible in the Admin Console for an app assignment can also be assigned through the API. Some properties are reference properties that are imported from the target app and can&#39;t be configured.
         /// </summary>
         /// <value>App user profiles are app-specific and can be customized by the Profile Editor in the Admin Console. SSO apps typically don&#39;t support app user profiles, while apps with user provisioning features have app-specific profiles. Properties that are visible in the Admin Console for an app assignment can also be assigned through the API. Some properties are reference properties that are imported from the target app and can&#39;t be configured.</value>
-        [DataMember(Name = "profile", EmitDefaultValue = false)]
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
         public Dictionary<string, Object> Profile { get; set; }
 
         /// <summary>
         /// Timestamp when the App User status was last changed
         /// </summary>
         /// <value>Timestamp when the App User status was last changed</value>
-        [DataMember(Name = "statusChanged", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "statusChanged", EmitDefaultValue = true)]
         public DateTimeOffset StatusChanged { get; private set; }
 
         /// <summary>
@@ -211,7 +211,7 @@ namespace Okta.Sdk.Model
         /// Embedded resources related to the App User using the [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) specification
         /// </summary>
         /// <value>Embedded resources related to the App User using the [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) specification</value>
-        [DataMember(Name = "_embedded", EmitDefaultValue = false)]
+        [DataMember(Name = "_embedded", EmitDefaultValue = true)]
         public Dictionary<string, Object> Embedded { get; private set; }
 
         /// <summary>
@@ -225,7 +225,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksAppAndUser Links { get; set; }
 
         /// <summary>

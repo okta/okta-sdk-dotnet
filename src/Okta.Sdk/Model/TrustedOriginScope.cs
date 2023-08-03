@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public TrustedOriginScopeType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets AllowedOktaApps
         /// </summary>
-        [DataMember(Name = "allowedOktaApps", EmitDefaultValue = false)]
+        [DataMember(Name = "allowedOktaApps", EmitDefaultValue = true)]
         public List<IframeEmbedScopeAllowedApps> AllowedOktaApps { get; set; }
 
         /// <summary>

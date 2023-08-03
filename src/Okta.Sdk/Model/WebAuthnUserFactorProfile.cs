@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AuthenticatorName
         /// </summary>
-        [DataMember(Name = "authenticatorName", EmitDefaultValue = false)]
+        [DataMember(Name = "authenticatorName", EmitDefaultValue = true)]
         public string AuthenticatorName { get; set; }
 
         /// <summary>
         /// Gets or Sets CredentialId
         /// </summary>
-        [DataMember(Name = "credentialId", EmitDefaultValue = false)]
+        [DataMember(Name = "credentialId", EmitDefaultValue = true)]
         public string CredentialId { get; set; }
 
         /// <summary>

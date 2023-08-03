@@ -37,37 +37,37 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets CredentialId
         /// </summary>
-        [DataMember(Name = "credentialId", EmitDefaultValue = false)]
+        [DataMember(Name = "credentialId", EmitDefaultValue = true)]
         public string CredentialId { get; set; }
 
         /// <summary>
         /// Gets or Sets DeviceToken
         /// </summary>
-        [DataMember(Name = "deviceToken", EmitDefaultValue = false)]
+        [DataMember(Name = "deviceToken", EmitDefaultValue = true)]
         public string DeviceToken { get; set; }
 
         /// <summary>
         /// Gets or Sets DeviceType
         /// </summary>
-        [DataMember(Name = "deviceType", EmitDefaultValue = false)]
+        [DataMember(Name = "deviceType", EmitDefaultValue = true)]
         public string DeviceType { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Platform
         /// </summary>
-        [DataMember(Name = "platform", EmitDefaultValue = false)]
+        [DataMember(Name = "platform", EmitDefaultValue = true)]
         public string Platform { get; set; }
 
         /// <summary>
         /// Gets or Sets _Version
         /// </summary>
-        [DataMember(Name = "version", EmitDefaultValue = false)]
+        [DataMember(Name = "version", EmitDefaultValue = true)]
         public string _Version { get; set; }
 
         /// <summary>

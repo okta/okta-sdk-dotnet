@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Device
         /// </summary>
-        [DataMember(Name = "device", EmitDefaultValue = false)]
+        [DataMember(Name = "device", EmitDefaultValue = true)]
         public string Device { get; private set; }
 
         /// <summary>
@@ -51,13 +51,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets GeographicalContext
         /// </summary>
-        [DataMember(Name = "geographicalContext", EmitDefaultValue = false)]
+        [DataMember(Name = "geographicalContext", EmitDefaultValue = true)]
         public LogGeographicalContext GeographicalContext { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets IpAddress
         /// </summary>
-        [DataMember(Name = "ipAddress", EmitDefaultValue = false)]
+        [DataMember(Name = "ipAddress", EmitDefaultValue = true)]
         public string IpAddress { get; private set; }
 
         /// <summary>
@@ -85,13 +85,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets UserAgent
         /// </summary>
-        [DataMember(Name = "userAgent", EmitDefaultValue = false)]
+        [DataMember(Name = "userAgent", EmitDefaultValue = true)]
         public LogUserAgent UserAgent { get; set; }
 
         /// <summary>
         /// Gets or Sets Zone
         /// </summary>
-        [DataMember(Name = "zone", EmitDefaultValue = false)]
+        [DataMember(Name = "zone", EmitDefaultValue = true)]
         public string Zone { get; private set; }
 
         /// <summary>

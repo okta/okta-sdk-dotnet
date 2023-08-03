@@ -66,14 +66,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Method
         /// </summary>
-        [DataMember(Name = "method", EmitDefaultValue = false)]
+        [DataMember(Name = "method", EmitDefaultValue = true)]
         
         public MethodEnum Method { get; set; }
         
         /// <summary>
         /// Gets or Sets AllowedAuthenticators
         /// </summary>
-        [DataMember(Name = "allowedAuthenticators", EmitDefaultValue = false)]
+        [DataMember(Name = "allowedAuthenticators", EmitDefaultValue = true)]
         public List<AuthenticatorIdentity> AllowedAuthenticators { get; set; }
 
         /// <summary>

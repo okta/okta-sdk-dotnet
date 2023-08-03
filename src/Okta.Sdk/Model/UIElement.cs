@@ -38,27 +38,27 @@ namespace Okta.Sdk.Model
         /// Label name for the UI element
         /// </summary>
         /// <value>Label name for the UI element</value>
-        [DataMember(Name = "label", EmitDefaultValue = false)]
+        [DataMember(Name = "label", EmitDefaultValue = true)]
         public string Label { get; set; }
 
         /// <summary>
         /// Gets or Sets Options
         /// </summary>
-        [DataMember(Name = "options", EmitDefaultValue = false)]
+        [DataMember(Name = "options", EmitDefaultValue = true)]
         public UIElementOptions Options { get; set; }
 
         /// <summary>
         /// Specifies the property bound to the input field. It must follow the format &#x60;#/properties/PROPERTY_NAME&#x60; where &#x60;PROPERTY_NAME&#x60; is a variable name for an attribute in &#x60;profile editor&#x60;.
         /// </summary>
         /// <value>Specifies the property bound to the input field. It must follow the format &#x60;#/properties/PROPERTY_NAME&#x60; where &#x60;PROPERTY_NAME&#x60; is a variable name for an attribute in &#x60;profile editor&#x60;.</value>
-        [DataMember(Name = "scope", EmitDefaultValue = false)]
+        [DataMember(Name = "scope", EmitDefaultValue = true)]
         public string Scope { get; set; }
 
         /// <summary>
         /// Specifies the relationship between this input element and &#x60;scope&#x60;. The &#x60;Control&#x60; value specifies that this input controls the value represented by &#x60;scope&#x60;.
         /// </summary>
         /// <value>Specifies the relationship between this input element and &#x60;scope&#x60;. The &#x60;Control&#x60; value specifies that this input controls the value represented by &#x60;scope&#x60;.</value>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>

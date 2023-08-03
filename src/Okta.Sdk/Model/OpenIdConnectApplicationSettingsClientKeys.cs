@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Keys
         /// </summary>
-        [DataMember(Name = "keys", EmitDefaultValue = false)]
+        [DataMember(Name = "keys", EmitDefaultValue = true)]
         public List<JsonWebKey> Keys { get; set; }
 
         /// <summary>

@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Provider
         /// </summary>
-        [DataMember(Name = "provider", EmitDefaultValue = false)]
+        [DataMember(Name = "provider", EmitDefaultValue = true)]
         
         public IdentityProviderPolicyProvider Provider { get; set; }
         
         /// <summary>
         /// Gets or Sets IdpIds
         /// </summary>
-        [DataMember(Name = "idpIds", EmitDefaultValue = false)]
+        [DataMember(Name = "idpIds", EmitDefaultValue = true)]
         public List<string> IdpIds { get; set; }
 
         /// <summary>

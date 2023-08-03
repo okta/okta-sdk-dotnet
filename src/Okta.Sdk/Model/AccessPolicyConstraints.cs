@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Knowledge
         /// </summary>
-        [DataMember(Name = "knowledge", EmitDefaultValue = false)]
+        [DataMember(Name = "knowledge", EmitDefaultValue = true)]
         public KnowledgeConstraint Knowledge { get; set; }
 
         /// <summary>
         /// Gets or Sets Possession
         /// </summary>
-        [DataMember(Name = "possession", EmitDefaultValue = false)]
+        [DataMember(Name = "possession", EmitDefaultValue = true)]
         public PossessionConstraint Possession { get; set; }
 
         /// <summary>

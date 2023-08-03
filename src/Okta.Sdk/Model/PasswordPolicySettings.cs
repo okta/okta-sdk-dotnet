@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Delegation
         /// </summary>
-        [DataMember(Name = "delegation", EmitDefaultValue = false)]
+        [DataMember(Name = "delegation", EmitDefaultValue = true)]
         public PasswordPolicyDelegationSettings Delegation { get; set; }
 
         /// <summary>
         /// Gets or Sets Password
         /// </summary>
-        [DataMember(Name = "password", EmitDefaultValue = false)]
+        [DataMember(Name = "password", EmitDefaultValue = true)]
         public PasswordPolicyPasswordSettings Password { get; set; }
 
         /// <summary>
         /// Gets or Sets Recovery
         /// </summary>
-        [DataMember(Name = "recovery", EmitDefaultValue = false)]
+        [DataMember(Name = "recovery", EmitDefaultValue = true)]
         public PasswordPolicyRecoverySettings Recovery { get; set; }
 
         /// <summary>

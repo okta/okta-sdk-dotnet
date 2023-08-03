@@ -37,34 +37,34 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Cron
         /// </summary>
-        [DataMember(Name = "cron", EmitDefaultValue = false)]
+        [DataMember(Name = "cron", EmitDefaultValue = true)]
         public string Cron { get; set; }
 
         /// <summary>
         /// delay in days
         /// </summary>
         /// <value>delay in days</value>
-        [DataMember(Name = "delay", EmitDefaultValue = false)]
+        [DataMember(Name = "delay", EmitDefaultValue = true)]
         public int Delay { get; set; }
 
         /// <summary>
         /// duration in minutes
         /// </summary>
         /// <value>duration in minutes</value>
-        [DataMember(Name = "duration", EmitDefaultValue = false)]
+        [DataMember(Name = "duration", EmitDefaultValue = true)]
         public int Duration { get; set; }
 
         /// <summary>
         /// last time when the updated finished (success or failed, exclude cancelled), null if job haven&#39;t finished once yet.
         /// </summary>
         /// <value>last time when the updated finished (success or failed, exclude cancelled), null if job haven&#39;t finished once yet.</value>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; set; }
 
         /// <summary>
         /// Gets or Sets Timezone
         /// </summary>
-        [DataMember(Name = "timezone", EmitDefaultValue = false)]
+        [DataMember(Name = "timezone", EmitDefaultValue = true)]
         public string Timezone { get; set; }
 
         /// <summary>

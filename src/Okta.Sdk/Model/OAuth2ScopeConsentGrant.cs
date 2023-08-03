@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "source", EmitDefaultValue = false)]
+        [DataMember(Name = "source", EmitDefaultValue = true)]
         
         public OAuth2ScopeConsentGrantSource Source { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public GrantOrTokenStatus Status { get; set; }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Okta.Sdk.Model
         /// Client ID of the app integration
         /// </summary>
         /// <value>Client ID of the app integration</value>
-        [DataMember(Name = "clientId", EmitDefaultValue = false)]
+        [DataMember(Name = "clientId", EmitDefaultValue = true)]
         public string ClientId { get; private set; }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the Grant object was created
         /// </summary>
         /// <value>Timestamp when the Grant object was created</value>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -86,14 +86,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets CreatedBy
         /// </summary>
-        [DataMember(Name = "createdBy", EmitDefaultValue = false)]
+        [DataMember(Name = "createdBy", EmitDefaultValue = true)]
         public OAuth2Actor CreatedBy { get; set; }
 
         /// <summary>
         /// ID of the Grant object
         /// </summary>
         /// <value>ID of the Grant object</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -108,14 +108,14 @@ namespace Okta.Sdk.Model
         /// The issuer of your org authorization server. This is typically your Okta domain.
         /// </summary>
         /// <value>The issuer of your org authorization server. This is typically your Okta domain.</value>
-        [DataMember(Name = "issuer", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "issuer", EmitDefaultValue = true)]
         public string Issuer { get; set; }
 
         /// <summary>
         /// Timestamp when the Grant object was last updated
         /// </summary>
         /// <value>Timestamp when the Grant object was last updated</value>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -130,14 +130,14 @@ namespace Okta.Sdk.Model
         /// The name of the [Okta scope](https://developer.okta.com/docs/api/oauth2/#oauth-20-scopes) for which consent is granted
         /// </summary>
         /// <value>The name of the [Okta scope](https://developer.okta.com/docs/api/oauth2/#oauth-20-scopes) for which consent is granted</value>
-        [DataMember(Name = "scopeId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "scopeId", EmitDefaultValue = true)]
         public string ScopeId { get; set; }
 
         /// <summary>
         /// User ID that granted consent (if &#x60;source&#x60; is &#x60;END_USER&#x60;)
         /// </summary>
         /// <value>User ID that granted consent (if &#x60;source&#x60; is &#x60;END_USER&#x60;)</value>
-        [DataMember(Name = "userId", EmitDefaultValue = false)]
+        [DataMember(Name = "userId", EmitDefaultValue = true)]
         public string UserId { get; private set; }
 
         /// <summary>
@@ -151,13 +151,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name = "_embedded", EmitDefaultValue = false)]
+        [DataMember(Name = "_embedded", EmitDefaultValue = true)]
         public OAuth2ScopeConsentGrantEmbedded Embedded { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public OAuth2ScopeConsentGrantLinks Links { get; set; }
 
         /// <summary>

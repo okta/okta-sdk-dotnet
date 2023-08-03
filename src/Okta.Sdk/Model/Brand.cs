@@ -43,25 +43,25 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets CustomPrivacyPolicyUrl
         /// </summary>
-        [DataMember(Name = "customPrivacyPolicyUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "customPrivacyPolicyUrl", EmitDefaultValue = true)]
         public string CustomPrivacyPolicyUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultApp
         /// </summary>
-        [DataMember(Name = "defaultApp", EmitDefaultValue = false)]
+        [DataMember(Name = "defaultApp", EmitDefaultValue = true)]
         public DefaultApp DefaultApp { get; set; }
 
         /// <summary>
         /// Gets or Sets EmailDomainId
         /// </summary>
-        [DataMember(Name = "emailDomainId", EmitDefaultValue = false)]
+        [DataMember(Name = "emailDomainId", EmitDefaultValue = true)]
         public string EmailDomainId { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -90,13 +90,13 @@ namespace Okta.Sdk.Model
         /// The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646)
         /// </summary>
         /// <value>The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646)</value>
-        [DataMember(Name = "locale", EmitDefaultValue = false)]
+        [DataMember(Name = "locale", EmitDefaultValue = true)]
         public string Locale { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>

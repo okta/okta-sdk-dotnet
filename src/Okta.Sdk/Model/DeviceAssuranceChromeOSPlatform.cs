@@ -44,7 +44,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ThirdPartySignalProviders
         /// </summary>
-        [DataMember(Name = "thirdPartySignalProviders", EmitDefaultValue = false)]
+        [DataMember(Name = "thirdPartySignalProviders", EmitDefaultValue = true)]
         public DeviceAssuranceChromeOSPlatformAllOfThirdPartySignalProviders ThirdPartySignalProviders { get; set; }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ActivationToken
         /// </summary>
-        [DataMember(Name = "activationToken", EmitDefaultValue = false)]
+        [DataMember(Name = "activationToken", EmitDefaultValue = true)]
         public string ActivationToken { get; private set; }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ActivationUrl
         /// </summary>
-        [DataMember(Name = "activationUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "activationUrl", EmitDefaultValue = true)]
         public string ActivationUrl { get; private set; }
 
         /// <summary>

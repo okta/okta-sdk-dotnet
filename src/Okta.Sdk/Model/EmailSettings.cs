@@ -78,7 +78,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Recipients
         /// </summary>
-        [DataMember(Name = "recipients", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "recipients", EmitDefaultValue = true)]
         
         public RecipientsEnum Recipients { get; set; }
         /// <summary>

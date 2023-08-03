@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Support
         /// </summary>
-        [DataMember(Name = "support", EmitDefaultValue = false)]
+        [DataMember(Name = "support", EmitDefaultValue = true)]
         
         public OrgOktaSupportSetting Support { get; set; }
         
         /// <summary>
         /// Gets or Sets Expiration
         /// </summary>
-        [DataMember(Name = "expiration", EmitDefaultValue = false)]
+        [DataMember(Name = "expiration", EmitDefaultValue = true)]
         public DateTimeOffset Expiration { get; private set; }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

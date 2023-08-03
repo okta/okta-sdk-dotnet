@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public LifecycleStatus Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Properties
         /// </summary>
-        [DataMember(Name = "properties", EmitDefaultValue = false)]
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
         public PasswordPolicyRecoveryQuestionProperties Properties { get; set; }
 
         /// <summary>

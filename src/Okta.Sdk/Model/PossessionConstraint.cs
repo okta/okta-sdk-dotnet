@@ -37,43 +37,43 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Methods
         /// </summary>
-        [DataMember(Name = "methods", EmitDefaultValue = false)]
+        [DataMember(Name = "methods", EmitDefaultValue = true)]
         public List<string> Methods { get; set; }
 
         /// <summary>
         /// Gets or Sets ReauthenticateIn
         /// </summary>
-        [DataMember(Name = "reauthenticateIn", EmitDefaultValue = false)]
+        [DataMember(Name = "reauthenticateIn", EmitDefaultValue = true)]
         public string ReauthenticateIn { get; set; }
 
         /// <summary>
         /// Gets or Sets Types
         /// </summary>
-        [DataMember(Name = "types", EmitDefaultValue = false)]
+        [DataMember(Name = "types", EmitDefaultValue = true)]
         public List<string> Types { get; set; }
 
         /// <summary>
         /// Gets or Sets DeviceBound
         /// </summary>
-        [DataMember(Name = "deviceBound", EmitDefaultValue = false)]
+        [DataMember(Name = "deviceBound", EmitDefaultValue = true)]
         public string DeviceBound { get; set; }
 
         /// <summary>
         /// Gets or Sets HardwareProtection
         /// </summary>
-        [DataMember(Name = "hardwareProtection", EmitDefaultValue = false)]
+        [DataMember(Name = "hardwareProtection", EmitDefaultValue = true)]
         public string HardwareProtection { get; set; }
 
         /// <summary>
         /// Gets or Sets PhishingResistant
         /// </summary>
-        [DataMember(Name = "phishingResistant", EmitDefaultValue = false)]
+        [DataMember(Name = "phishingResistant", EmitDefaultValue = true)]
         public string PhishingResistant { get; set; }
 
         /// <summary>
         /// Gets or Sets UserPresence
         /// </summary>
-        [DataMember(Name = "userPresence", EmitDefaultValue = false)]
+        [DataMember(Name = "userPresence", EmitDefaultValue = true)]
         public string UserPresence { get; set; }
 
         /// <summary>

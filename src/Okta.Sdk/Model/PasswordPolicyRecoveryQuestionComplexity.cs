@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets MinLength
         /// </summary>
-        [DataMember(Name = "minLength", EmitDefaultValue = false)]
+        [DataMember(Name = "minLength", EmitDefaultValue = true)]
         public int MinLength { get; private set; }
 
         /// <summary>

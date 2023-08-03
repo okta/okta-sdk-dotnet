@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the role was created
         /// </summary>
         /// <value>Timestamp when the role was created</value>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Model
         /// The permission type
         /// </summary>
         /// <value>The permission type</value>
-        [DataMember(Name = "label", EmitDefaultValue = false)]
+        [DataMember(Name = "label", EmitDefaultValue = true)]
         public string Label { get; private set; }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the role was last updated
         /// </summary>
         /// <value>Timestamp when the role was last updated</value>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public PermissionLinks Links { get; set; }
 
         /// <summary>

@@ -43,7 +43,7 @@ namespace Okta.Sdk.Model
         /// The unique ID number for the user.
         /// </summary>
         /// <value>The unique ID number for the user.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>

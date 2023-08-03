@@ -42,7 +42,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets VelocityKph
         /// </summary>
-        [DataMember(Name = "velocityKph", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "velocityKph", EmitDefaultValue = true)]
         public int VelocityKph { get; set; }
 
         /// <summary>

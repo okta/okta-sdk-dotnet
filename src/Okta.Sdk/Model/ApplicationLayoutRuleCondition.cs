@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Schema
         /// </summary>
-        [DataMember(Name = "schema", EmitDefaultValue = false)]
+        [DataMember(Name = "schema", EmitDefaultValue = true)]
         public Dictionary<string, Object> Schema { get; set; }
 
         /// <summary>
         /// Gets or Sets Scope
         /// </summary>
-        [DataMember(Name = "scope", EmitDefaultValue = false)]
+        [DataMember(Name = "scope", EmitDefaultValue = true)]
         public string Scope { get; set; }
 
         /// <summary>

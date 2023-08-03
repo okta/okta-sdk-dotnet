@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AppLinks
         /// </summary>
-        [DataMember(Name = "appLinks", EmitDefaultValue = false)]
+        [DataMember(Name = "appLinks", EmitDefaultValue = true)]
         public Dictionary<string, bool> AppLinks { get; set; }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Hide
         /// </summary>
-        [DataMember(Name = "hide", EmitDefaultValue = false)]
+        [DataMember(Name = "hide", EmitDefaultValue = true)]
         public ApplicationVisibilityHide Hide { get; set; }
 
         /// <summary>

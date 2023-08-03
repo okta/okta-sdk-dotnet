@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Exclude
         /// </summary>
-        [DataMember(Name = "exclude", EmitDefaultValue = false)]
+        [DataMember(Name = "exclude", EmitDefaultValue = true)]
         public List<PlatformConditionEvaluatorPlatform> Exclude { get; set; }
 
         /// <summary>
         /// Gets or Sets Include
         /// </summary>
-        [DataMember(Name = "include", EmitDefaultValue = false)]
+        [DataMember(Name = "include", EmitDefaultValue = true)]
         public List<PlatformConditionEvaluatorPlatform> Include { get; set; }
 
         /// <summary>

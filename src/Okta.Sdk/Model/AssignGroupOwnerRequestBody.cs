@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public GroupOwnerType Type { get; set; }
         
@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         /// The &#x60;id&#x60; of the group owner
         /// </summary>
         /// <value>The &#x60;id&#x60; of the group owner</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>

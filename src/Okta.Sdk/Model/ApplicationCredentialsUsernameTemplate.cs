@@ -37,25 +37,25 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets PushStatus
         /// </summary>
-        [DataMember(Name = "pushStatus", EmitDefaultValue = false)]
+        [DataMember(Name = "pushStatus", EmitDefaultValue = true)]
         public string PushStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets Template
         /// </summary>
-        [DataMember(Name = "template", EmitDefaultValue = false)]
+        [DataMember(Name = "template", EmitDefaultValue = true)]
         public string Template { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets UserSuffix
         /// </summary>
-        [DataMember(Name = "userSuffix", EmitDefaultValue = false)]
+        [DataMember(Name = "userSuffix", EmitDefaultValue = true)]
         public string UserSuffix { get; set; }
 
         /// <summary>

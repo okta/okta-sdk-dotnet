@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Behaviors
         /// </summary>
-        [DataMember(Name = "behaviors", EmitDefaultValue = false)]
+        [DataMember(Name = "behaviors", EmitDefaultValue = true)]
         public List<string> Behaviors { get; set; }
 
         /// <summary>

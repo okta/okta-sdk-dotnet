@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Primary
         /// </summary>
-        [DataMember(Name = "primary", EmitDefaultValue = false)]
+        [DataMember(Name = "primary", EmitDefaultValue = true)]
         public SsprPrimaryRequirement Primary { get; set; }
 
         /// <summary>
         /// Gets or Sets StepUp
         /// </summary>
-        [DataMember(Name = "stepUp", EmitDefaultValue = false)]
+        [DataMember(Name = "stepUp", EmitDefaultValue = true)]
         public SsprStepUpRequirement StepUp { get; set; }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Common
         /// </summary>
-        [DataMember(Name = "common", EmitDefaultValue = false)]
+        [DataMember(Name = "common", EmitDefaultValue = true)]
         public PasswordDictionaryCommon Common { get; set; }
 
         /// <summary>

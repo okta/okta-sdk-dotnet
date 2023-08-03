@@ -43,14 +43,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ProviderType
         /// </summary>
-        [DataMember(Name = "providerType", EmitDefaultValue = false)]
+        [DataMember(Name = "providerType", EmitDefaultValue = true)]
         
         public ProviderType ProviderType { get; set; }
         
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastUpdatedDate
         /// </summary>
-        [DataMember(Name = "lastUpdatedDate", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdatedDate", EmitDefaultValue = true)]
         public string LastUpdatedDate { get; private set; }
 
         /// <summary>
@@ -79,13 +79,13 @@ namespace Okta.Sdk.Model
         /// Display name of the push provider
         /// </summary>
         /// <value>Display name of the push provider</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

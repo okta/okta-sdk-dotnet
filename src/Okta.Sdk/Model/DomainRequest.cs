@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets CertificateSourceType
         /// </summary>
-        [DataMember(Name = "certificateSourceType", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "certificateSourceType", EmitDefaultValue = true)]
         
         public DomainCertificateSourceType CertificateSourceType { get; set; }
         /// <summary>
@@ -50,7 +50,7 @@ namespace Okta.Sdk.Model
         /// Custom domain name
         /// </summary>
         /// <value>Custom domain name</value>
-        [DataMember(Name = "domain", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "domain", EmitDefaultValue = true)]
         public string Domain { get; set; }
 
         /// <summary>

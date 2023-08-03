@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ClientId
         /// </summary>
-        [DataMember(Name = "client_id", EmitDefaultValue = false)]
+        [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
 
         /// <summary>
         /// Gets or Sets ClientSecret
         /// </summary>
-        [DataMember(Name = "client_secret", EmitDefaultValue = false)]
+        [DataMember(Name = "client_secret", EmitDefaultValue = true)]
         public string ClientSecret { get; set; }
 
         /// <summary>

@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Config
         /// </summary>
-        [DataMember(Name = "config", EmitDefaultValue = false)]
+        [DataMember(Name = "config", EmitDefaultValue = true)]
         public InlineHookChannelConfig Config { get; set; }
 
         /// <summary>

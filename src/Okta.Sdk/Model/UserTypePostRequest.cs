@@ -38,14 +38,14 @@ namespace Okta.Sdk.Model
         /// The updated human-readable description of the User Type
         /// </summary>
         /// <value>The updated human-readable description of the User Type</value>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
         /// The updated human-readable display name for the User Type
         /// </summary>
         /// <value>The updated human-readable display name for the User Type</value>
-        [DataMember(Name = "displayName", EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>

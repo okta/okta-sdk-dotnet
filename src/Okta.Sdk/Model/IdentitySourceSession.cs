@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public IdentitySourceSessionStatus Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets IdentitySourceId
         /// </summary>
-        [DataMember(Name = "identitySourceId", EmitDefaultValue = false)]
+        [DataMember(Name = "identitySourceId", EmitDefaultValue = true)]
         public string IdentitySourceId { get; private set; }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ImportType
         /// </summary>
-        [DataMember(Name = "importType", EmitDefaultValue = false)]
+        [DataMember(Name = "importType", EmitDefaultValue = true)]
         public string ImportType { get; private set; }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>

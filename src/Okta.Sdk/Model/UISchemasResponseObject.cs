@@ -43,7 +43,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the UI Schema was created (ISO-86001)
         /// </summary>
         /// <value>Timestamp when the UI Schema was created (ISO-86001)</value>
-        [DataMember(Name = "created", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Okta.Sdk.Model
         /// Unique identifier for the UI Schema
         /// </summary>
         /// <value>Unique identifier for the UI Schema</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the UI Schema was last modified (ISO-86001)
         /// </summary>
         /// <value>Timestamp when the UI Schema was last modified (ISO-86001)</value>
-        [DataMember(Name = "lastUpdated", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -87,13 +87,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets UiSchema
         /// </summary>
-        [DataMember(Name = "uiSchema", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "uiSchema", EmitDefaultValue = true)]
         public UISchemaObject UiSchema { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

@@ -37,25 +37,25 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets OktaCall
         /// </summary>
-        [DataMember(Name = "okta_call", EmitDefaultValue = false)]
+        [DataMember(Name = "okta_call", EmitDefaultValue = true)]
         public PasswordPolicyRecoveryFactorSettings OktaCall { get; set; }
 
         /// <summary>
         /// Gets or Sets OktaEmail
         /// </summary>
-        [DataMember(Name = "okta_email", EmitDefaultValue = false)]
+        [DataMember(Name = "okta_email", EmitDefaultValue = true)]
         public PasswordPolicyRecoveryEmail OktaEmail { get; set; }
 
         /// <summary>
         /// Gets or Sets OktaSms
         /// </summary>
-        [DataMember(Name = "okta_sms", EmitDefaultValue = false)]
+        [DataMember(Name = "okta_sms", EmitDefaultValue = true)]
         public PasswordPolicyRecoveryFactorSettings OktaSms { get; set; }
 
         /// <summary>
         /// Gets or Sets RecoveryQuestion
         /// </summary>
-        [DataMember(Name = "recovery_question", EmitDefaultValue = false)]
+        [DataMember(Name = "recovery_question", EmitDefaultValue = true)]
         public PasswordPolicyRecoveryQuestion RecoveryQuestion { get; set; }
 
         /// <summary>

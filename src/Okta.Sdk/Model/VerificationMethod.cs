@@ -37,25 +37,25 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Constraints
         /// </summary>
-        [DataMember(Name = "constraints", EmitDefaultValue = false)]
+        [DataMember(Name = "constraints", EmitDefaultValue = true)]
         public List<AccessPolicyConstraints> Constraints { get; set; }
 
         /// <summary>
         /// Gets or Sets FactorMode
         /// </summary>
-        [DataMember(Name = "factorMode", EmitDefaultValue = false)]
+        [DataMember(Name = "factorMode", EmitDefaultValue = true)]
         public string FactorMode { get; set; }
 
         /// <summary>
         /// Gets or Sets ReauthenticateIn
         /// </summary>
-        [DataMember(Name = "reauthenticateIn", EmitDefaultValue = false)]
+        [DataMember(Name = "reauthenticateIn", EmitDefaultValue = true)]
         public string ReauthenticateIn { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>

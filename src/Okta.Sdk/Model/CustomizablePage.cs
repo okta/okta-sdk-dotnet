@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets PageContent
         /// </summary>
-        [DataMember(Name = "pageContent", EmitDefaultValue = false)]
+        [DataMember(Name = "pageContent", EmitDefaultValue = true)]
         public string PageContent { get; set; }
 
         /// <summary>

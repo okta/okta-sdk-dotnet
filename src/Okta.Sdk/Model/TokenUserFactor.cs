@@ -52,7 +52,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
-        [DataMember(Name = "profile", EmitDefaultValue = false)]
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
         public TokenUserFactorProfile Profile { get; set; }
 
         /// <summary>

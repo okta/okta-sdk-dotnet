@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets PasswordChange
         /// </summary>
-        [DataMember(Name = "passwordChange", EmitDefaultValue = false)]
+        [DataMember(Name = "passwordChange", EmitDefaultValue = true)]
         public PasswordPolicyRuleAction PasswordChange { get; set; }
 
         /// <summary>
         /// Gets or Sets SelfServicePasswordReset
         /// </summary>
-        [DataMember(Name = "selfServicePasswordReset", EmitDefaultValue = false)]
+        [DataMember(Name = "selfServicePasswordReset", EmitDefaultValue = true)]
         public SelfServicePasswordResetAction SelfServicePasswordReset { get; set; }
 
         /// <summary>
         /// Gets or Sets SelfServiceUnlock
         /// </summary>
-        [DataMember(Name = "selfServiceUnlock", EmitDefaultValue = false)]
+        [DataMember(Name = "selfServiceUnlock", EmitDefaultValue = true)]
         public PasswordPolicyRuleAction SelfServiceUnlock { get; set; }
 
         /// <summary>

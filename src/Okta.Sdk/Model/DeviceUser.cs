@@ -74,7 +74,7 @@ namespace Okta.Sdk.Model
         /// The management status of the device
         /// </summary>
         /// <value>The management status of the device</value>
-        [DataMember(Name = "managementStatus", EmitDefaultValue = false)]
+        [DataMember(Name = "managementStatus", EmitDefaultValue = true)]
         
         public ManagementStatusEnum ManagementStatus { get; set; }
         /// <summary>
@@ -124,7 +124,7 @@ namespace Okta.Sdk.Model
         /// Screen lock type of the device
         /// </summary>
         /// <value>Screen lock type of the device</value>
-        [DataMember(Name = "screenLockType", EmitDefaultValue = false)]
+        [DataMember(Name = "screenLockType", EmitDefaultValue = true)]
         
         public ScreenLockTypeEnum ScreenLockType { get; set; }
         
@@ -132,13 +132,13 @@ namespace Okta.Sdk.Model
         /// Timestamp when device was created
         /// </summary>
         /// <value>Timestamp when device was created</value>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public string Created { get; set; }
 
         /// <summary>
         /// Gets or Sets User
         /// </summary>
-        [DataMember(Name = "user", EmitDefaultValue = false)]
+        [DataMember(Name = "user", EmitDefaultValue = true)]
         public User User { get; set; }
 
         /// <summary>

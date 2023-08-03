@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Alternate
         /// </summary>
-        [DataMember(Name = "alternate", EmitDefaultValue = false)]
+        [DataMember(Name = "alternate", EmitDefaultValue = true)]
         public HrefObject Alternate { get; set; }
 
         /// <summary>
         /// Gets or Sets Organization
         /// </summary>
-        [DataMember(Name = "organization", EmitDefaultValue = false)]
+        [DataMember(Name = "organization", EmitDefaultValue = true)]
         public HrefObject Organization { get; set; }
 
         /// <summary>

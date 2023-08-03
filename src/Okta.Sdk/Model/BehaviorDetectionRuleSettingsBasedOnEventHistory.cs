@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets MaxEventsUsedForEvaluation
         /// </summary>
-        [DataMember(Name = "maxEventsUsedForEvaluation", EmitDefaultValue = false)]
+        [DataMember(Name = "maxEventsUsedForEvaluation", EmitDefaultValue = true)]
         public int MaxEventsUsedForEvaluation { get; set; }
 
         /// <summary>
         /// Gets or Sets MinEventsNeededForEvaluation
         /// </summary>
-        [DataMember(Name = "minEventsNeededForEvaluation", EmitDefaultValue = false)]
+        [DataMember(Name = "minEventsNeededForEvaluation", EmitDefaultValue = true)]
         public int MinEventsNeededForEvaluation { get; set; }
 
         /// <summary>

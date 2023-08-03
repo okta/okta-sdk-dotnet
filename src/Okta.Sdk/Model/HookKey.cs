@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the key was created.
         /// </summary>
         /// <value>Timestamp when the key was created.</value>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Okta.Sdk.Model
         /// The unique identifier for the key.
         /// </summary>
         /// <value>The unique identifier for the key.</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -68,14 +68,14 @@ namespace Okta.Sdk.Model
         /// Whether this key is currently in use by other hooks.
         /// </summary>
         /// <value>Whether this key is currently in use by other hooks.</value>
-        [DataMember(Name = "isUsed", EmitDefaultValue = false)]
+        [DataMember(Name = "isUsed", EmitDefaultValue = true)]
         public bool IsUsed { get; set; }
 
         /// <summary>
         /// The alias of the public key.
         /// </summary>
         /// <value>The alias of the public key.</value>
-        [DataMember(Name = "keyId", EmitDefaultValue = false)]
+        [DataMember(Name = "keyId", EmitDefaultValue = true)]
         public string KeyId { get; private set; }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the key was updated.
         /// </summary>
         /// <value>Timestamp when the key was updated.</value>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -105,13 +105,13 @@ namespace Okta.Sdk.Model
         /// Display name of the key.
         /// </summary>
         /// <value>Display name of the key.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name = "_embedded", EmitDefaultValue = false)]
+        [DataMember(Name = "_embedded", EmitDefaultValue = true)]
         public JsonWebKey Embedded { get; set; }
 
         /// <summary>

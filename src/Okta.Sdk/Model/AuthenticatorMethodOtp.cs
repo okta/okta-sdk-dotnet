@@ -52,46 +52,46 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Algorithm
         /// </summary>
-        [DataMember(Name = "algorithm", EmitDefaultValue = false)]
+        [DataMember(Name = "algorithm", EmitDefaultValue = true)]
         
         public OtpTotpAlgorithm Algorithm { get; set; }
 
         /// <summary>
         /// Gets or Sets Encoding
         /// </summary>
-        [DataMember(Name = "encoding", EmitDefaultValue = false)]
+        [DataMember(Name = "encoding", EmitDefaultValue = true)]
         
         public OtpTotpEncoding Encoding { get; set; }
 
         /// <summary>
         /// Gets or Sets Protocol
         /// </summary>
-        [DataMember(Name = "protocol", EmitDefaultValue = false)]
+        [DataMember(Name = "protocol", EmitDefaultValue = true)]
         
         public OtpProtocol Protocol { get; set; }
         
         /// <summary>
         /// Gets or Sets AcceptableAdjacentIntervals
         /// </summary>
-        [DataMember(Name = "acceptableAdjacentIntervals", EmitDefaultValue = false)]
+        [DataMember(Name = "acceptableAdjacentIntervals", EmitDefaultValue = true)]
         public int AcceptableAdjacentIntervals { get; set; }
 
         /// <summary>
         /// Gets or Sets FactorProfileId
         /// </summary>
-        [DataMember(Name = "factorProfileId", EmitDefaultValue = false)]
+        [DataMember(Name = "factorProfileId", EmitDefaultValue = true)]
         public string FactorProfileId { get; set; }
 
         /// <summary>
         /// Gets or Sets PassCodeLength
         /// </summary>
-        [DataMember(Name = "passCodeLength", EmitDefaultValue = false)]
+        [DataMember(Name = "passCodeLength", EmitDefaultValue = true)]
         public int PassCodeLength { get; set; }
 
         /// <summary>
         /// Gets or Sets TimeIntervalInSeconds
         /// </summary>
-        [DataMember(Name = "timeIntervalInSeconds", EmitDefaultValue = false)]
+        [DataMember(Name = "timeIntervalInSeconds", EmitDefaultValue = true)]
         public int TimeIntervalInSeconds { get; set; }
 
         /// <summary>

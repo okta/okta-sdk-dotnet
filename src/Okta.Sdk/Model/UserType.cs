@@ -43,7 +43,7 @@ namespace Okta.Sdk.Model
         /// A timestamp from when the User Type was created
         /// </summary>
         /// <value>A timestamp from when the User Type was created</value>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Okta.Sdk.Model
         /// The user ID of the account that created the User Type
         /// </summary>
         /// <value>The user ID of the account that created the User Type</value>
-        [DataMember(Name = "createdBy", EmitDefaultValue = false)]
+        [DataMember(Name = "createdBy", EmitDefaultValue = true)]
         public string CreatedBy { get; private set; }
 
         /// <summary>
@@ -88,21 +88,21 @@ namespace Okta.Sdk.Model
         /// The human-readable description of the User Type
         /// </summary>
         /// <value>The human-readable description of the User Type</value>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
         /// The human-readable name of the User Type
         /// </summary>
         /// <value>The human-readable name of the User Type</value>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// The unique key for the User Type
         /// </summary>
         /// <value>The unique key for the User Type</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace Okta.Sdk.Model
         /// A timestamp from when the User Type was most recently updated
         /// </summary>
         /// <value>A timestamp from when the User Type was most recently updated</value>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace Okta.Sdk.Model
         /// The user ID of the most recent account to edit the User Type
         /// </summary>
         /// <value>The user ID of the most recent account to edit the User Type</value>
-        [DataMember(Name = "lastUpdatedBy", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdatedBy", EmitDefaultValue = true)]
         public string LastUpdatedBy { get; private set; }
 
         /// <summary>
@@ -147,13 +147,13 @@ namespace Okta.Sdk.Model
         /// The name of the User Type. The name must start with A-Z or a-z and contain only A-Z, a-z, 0-9, or underscore (_) characters.   This value becomes read-only after creation and can&#39;t be updated.
         /// </summary>
         /// <value>The name of the User Type. The name must start with A-Z or a-z and contain only A-Z, a-z, 0-9, or underscore (_) characters.   This value becomes read-only after creation and can&#39;t be updated.</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public UserTypeLinks Links { get; set; }
 
         /// <summary>

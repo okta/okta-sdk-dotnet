@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Kid
         /// </summary>
-        [DataMember(Name = "kid", EmitDefaultValue = false)]
+        [DataMember(Name = "kid", EmitDefaultValue = true)]
         public string Kid { get; set; }
 
         /// <summary>

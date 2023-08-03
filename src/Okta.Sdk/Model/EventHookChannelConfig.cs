@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AuthScheme
         /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = false)]
+        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
         public EventHookChannelConfigAuthScheme AuthScheme { get; set; }
 
         /// <summary>
         /// Gets or Sets Headers
         /// </summary>
-        [DataMember(Name = "headers", EmitDefaultValue = false)]
+        [DataMember(Name = "headers", EmitDefaultValue = true)]
         public List<EventHookChannelConfigHeader> Headers { get; set; }
 
         /// <summary>
         /// Gets or Sets Uri
         /// </summary>
-        [DataMember(Name = "uri", EmitDefaultValue = false)]
+        [DataMember(Name = "uri", EmitDefaultValue = true)]
         public string Uri { get; set; }
 
         /// <summary>

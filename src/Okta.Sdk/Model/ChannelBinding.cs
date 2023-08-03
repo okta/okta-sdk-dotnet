@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Required
         /// </summary>
-        [DataMember(Name = "required", EmitDefaultValue = false)]
+        [DataMember(Name = "required", EmitDefaultValue = true)]
         
         public RequiredEnum Required { get; set; }
         
         /// <summary>
         /// Gets or Sets Style
         /// </summary>
-        [DataMember(Name = "style", EmitDefaultValue = false)]
+        [DataMember(Name = "style", EmitDefaultValue = true)]
         public string Style { get; set; }
 
         /// <summary>

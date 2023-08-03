@@ -38,14 +38,14 @@ namespace Okta.Sdk.Model
         /// (Optional) File name for Admin Console display
         /// </summary>
         /// <value>(Optional) File name for Admin Console display</value>
-        [DataMember(Name = "fileName", EmitDefaultValue = false)]
+        [DataMember(Name = "fileName", EmitDefaultValue = true)]
         public string FileName { get; set; }
 
         /// <summary>
         /// Project ID of FCM configuration
         /// </summary>
         /// <value>Project ID of FCM configuration</value>
-        [DataMember(Name = "projectId", EmitDefaultValue = false)]
+        [DataMember(Name = "projectId", EmitDefaultValue = true)]
         public string ProjectId { get; private set; }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Model
         /// JSON containing the private service account key and service account details. See [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for more information on creating service account keys in JSON.
         /// </summary>
         /// <value>JSON containing the private service account key and service account details. See [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for more information on creating service account keys in JSON.</value>
-        [DataMember(Name = "serviceAccountJson", EmitDefaultValue = false)]
+        [DataMember(Name = "serviceAccountJson", EmitDefaultValue = true)]
         public Object ServiceAccountJson { get; set; }
 
         /// <summary>

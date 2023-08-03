@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Token
         /// </summary>
-        [DataMember(Name = "token", EmitDefaultValue = false)]
+        [DataMember(Name = "token", EmitDefaultValue = true)]
         public TokenAuthorizationServerPolicyRuleAction Token { get; set; }
 
         /// <summary>

@@ -37,26 +37,26 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Action
         /// </summary>
-        [DataMember(Name = "action", EmitDefaultValue = false)]
+        [DataMember(Name = "action", EmitDefaultValue = true)]
         
         public ProvisioningGroupsAction Action { get; set; }
         
         /// <summary>
         /// Gets or Sets Assignments
         /// </summary>
-        [DataMember(Name = "assignments", EmitDefaultValue = false)]
+        [DataMember(Name = "assignments", EmitDefaultValue = true)]
         public List<string> Assignments { get; set; }
 
         /// <summary>
         /// Gets or Sets Filter
         /// </summary>
-        [DataMember(Name = "filter", EmitDefaultValue = false)]
+        [DataMember(Name = "filter", EmitDefaultValue = true)]
         public List<string> Filter { get; set; }
 
         /// <summary>
         /// Gets or Sets SourceAttributeName
         /// </summary>
-        [DataMember(Name = "sourceAttributeName", EmitDefaultValue = false)]
+        [DataMember(Name = "sourceAttributeName", EmitDefaultValue = true)]
         public string SourceAttributeName { get; set; }
 
         /// <summary>

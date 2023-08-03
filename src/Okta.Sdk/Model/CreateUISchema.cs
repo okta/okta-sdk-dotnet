@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets UiSchema
         /// </summary>
-        [DataMember(Name = "uiSchema", EmitDefaultValue = false)]
+        [DataMember(Name = "uiSchema", EmitDefaultValue = true)]
         public UISchemaObject UiSchema { get; set; }
 
         /// <summary>

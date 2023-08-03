@@ -46,7 +46,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Settings
         /// </summary>
-        [DataMember(Name = "settings", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "settings", EmitDefaultValue = true)]
         public LogStreamSettingsSplunkPut Settings { get; set; }
 
         /// <summary>

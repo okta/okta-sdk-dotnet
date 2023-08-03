@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Consent
         /// </summary>
-        [DataMember(Name = "consent", EmitDefaultValue = false)]
+        [DataMember(Name = "consent", EmitDefaultValue = true)]
         
         public OAuth2ScopeConsentType Consent { get; set; }
 
         /// <summary>
         /// Gets or Sets MetadataPublish
         /// </summary>
-        [DataMember(Name = "metadataPublish", EmitDefaultValue = false)]
+        [DataMember(Name = "metadataPublish", EmitDefaultValue = true)]
         
         public OAuth2ScopeMetadataPublish MetadataPublish { get; set; }
         
@@ -57,19 +57,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>

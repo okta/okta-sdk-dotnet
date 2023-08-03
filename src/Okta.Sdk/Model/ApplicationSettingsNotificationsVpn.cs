@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets HelpUrl
         /// </summary>
-        [DataMember(Name = "helpUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "helpUrl", EmitDefaultValue = true)]
         public string HelpUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
-        [DataMember(Name = "message", EmitDefaultValue = false)]
+        [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>
         /// Gets or Sets Network
         /// </summary>
-        [DataMember(Name = "network", EmitDefaultValue = false)]
+        [DataMember(Name = "network", EmitDefaultValue = true)]
         public ApplicationSettingsNotificationsVpnNetwork Network { get; set; }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Enrollment
         /// </summary>
-        [DataMember(Name = "enrollment", EmitDefaultValue = false)]
+        [DataMember(Name = "enrollment", EmitDefaultValue = true)]
         
         public MDMEnrollmentPolicyEnrollment Enrollment { get; set; }
         

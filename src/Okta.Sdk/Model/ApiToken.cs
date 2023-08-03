@@ -42,7 +42,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ClientName
         /// </summary>
-        [DataMember(Name = "clientName", EmitDefaultValue = false)]
+        [DataMember(Name = "clientName", EmitDefaultValue = true)]
         public string ClientName { get; private set; }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ExpiresAt
         /// </summary>
-        [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
+        [DataMember(Name = "expiresAt", EmitDefaultValue = true)]
         public DateTimeOffset ExpiresAt { get; private set; }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -112,26 +112,26 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// A time duration specified as an [ISO-8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         /// </summary>
         /// <value>A time duration specified as an [ISO-8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).</value>
-        [DataMember(Name = "tokenWindow", EmitDefaultValue = false)]
+        [DataMember(Name = "tokenWindow", EmitDefaultValue = true)]
         public string TokenWindow { get; set; }
 
         /// <summary>
         /// Gets or Sets UserId
         /// </summary>
-        [DataMember(Name = "userId", EmitDefaultValue = false)]
+        [DataMember(Name = "userId", EmitDefaultValue = true)]
         public string UserId { get; set; }
 
         /// <summary>
         /// Gets or Sets Link
         /// </summary>
-        [DataMember(Name = "_link", EmitDefaultValue = false)]
+        [DataMember(Name = "_link", EmitDefaultValue = true)]
         public LinksSelf Link { get; set; }
 
         /// <summary>

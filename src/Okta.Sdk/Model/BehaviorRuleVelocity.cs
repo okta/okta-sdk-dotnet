@@ -48,7 +48,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Settings
         /// </summary>
-        [DataMember(Name = "settings", EmitDefaultValue = false)]
+        [DataMember(Name = "settings", EmitDefaultValue = true)]
         public BehaviorRuleSettingsVelocity Settings { get; set; }
 
         /// <summary>

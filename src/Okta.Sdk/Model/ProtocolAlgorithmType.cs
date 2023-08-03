@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Signature
         /// </summary>
-        [DataMember(Name = "signature", EmitDefaultValue = false)]
+        [DataMember(Name = "signature", EmitDefaultValue = true)]
         public ProtocolAlgorithmTypeSignature Signature { get; set; }
 
         /// <summary>

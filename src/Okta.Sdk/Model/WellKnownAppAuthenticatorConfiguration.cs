@@ -66,64 +66,64 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public TypeEnum Type { get; set; }
         
         /// <summary>
         /// Gets or Sets AppAuthenticatorEnrollEndpoint
         /// </summary>
-        [DataMember(Name = "appAuthenticatorEnrollEndpoint", EmitDefaultValue = false)]
+        [DataMember(Name = "appAuthenticatorEnrollEndpoint", EmitDefaultValue = true)]
         public string AppAuthenticatorEnrollEndpoint { get; set; }
 
         /// <summary>
         /// The unique identifier of the app authenticator
         /// </summary>
         /// <value>The unique identifier of the app authenticator</value>
-        [DataMember(Name = "authenticatorId", EmitDefaultValue = false)]
+        [DataMember(Name = "authenticatorId", EmitDefaultValue = true)]
         public string AuthenticatorId { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedDate
         /// </summary>
-        [DataMember(Name = "createdDate", EmitDefaultValue = false)]
+        [DataMember(Name = "createdDate", EmitDefaultValue = true)]
         public DateTimeOffset CreatedDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Key
         /// </summary>
-        [DataMember(Name = "key", EmitDefaultValue = false)]
+        [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; set; }
 
         /// <summary>
         /// The authenticator display name
         /// </summary>
         /// <value>The authenticator display name</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets OrgId
         /// </summary>
-        [DataMember(Name = "orgId", EmitDefaultValue = false)]
+        [DataMember(Name = "orgId", EmitDefaultValue = true)]
         public string OrgId { get; set; }
 
         /// <summary>
         /// Gets or Sets Settings
         /// </summary>
-        [DataMember(Name = "settings", EmitDefaultValue = false)]
+        [DataMember(Name = "settings", EmitDefaultValue = true)]
         public WellKnownAppAuthenticatorConfigurationSettings Settings { get; set; }
 
         /// <summary>
         /// Gets or Sets SupportedMethods
         /// </summary>
-        [DataMember(Name = "supportedMethods", EmitDefaultValue = false)]
+        [DataMember(Name = "supportedMethods", EmitDefaultValue = true)]
         public List<SupportedMethods> SupportedMethods { get; set; }
 
         /// <summary>

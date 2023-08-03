@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Key
         /// </summary>
-        [DataMember(Name = "key", EmitDefaultValue = false)]
+        [DataMember(Name = "key", EmitDefaultValue = true)]
         
         public MultifactorEnrollmentPolicyAuthenticatorType Key { get; set; }
         
@@ -50,7 +50,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Enroll
         /// </summary>
-        [DataMember(Name = "enroll", EmitDefaultValue = false)]
+        [DataMember(Name = "enroll", EmitDefaultValue = true)]
         public MultifactorEnrollmentPolicyAuthenticatorSettingsEnroll Enroll { get; set; }
 
         /// <summary>

@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Change
         /// </summary>
-        [DataMember(Name = "change", EmitDefaultValue = false)]
+        [DataMember(Name = "change", EmitDefaultValue = true)]
         
         public ChangeEnum Change { get; set; }
 
         /// <summary>
         /// Gets or Sets Seed
         /// </summary>
-        [DataMember(Name = "seed", EmitDefaultValue = false)]
+        [DataMember(Name = "seed", EmitDefaultValue = true)]
         
         public SeedEnum Seed { get; set; }
 

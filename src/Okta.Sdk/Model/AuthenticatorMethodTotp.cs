@@ -52,7 +52,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Settings
         /// </summary>
-        [DataMember(Name = "settings", EmitDefaultValue = false)]
+        [DataMember(Name = "settings", EmitDefaultValue = true)]
         public AuthenticatorMethodTotpAllOfSettings Settings { get; set; }
 
         /// <summary>

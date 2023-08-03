@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Dictionary
         /// </summary>
-        [DataMember(Name = "dictionary", EmitDefaultValue = false)]
+        [DataMember(Name = "dictionary", EmitDefaultValue = true)]
         public PasswordDictionary Dictionary { get; set; }
 
         /// <summary>
         /// Gets or Sets ExcludeAttributes
         /// </summary>
-        [DataMember(Name = "excludeAttributes", EmitDefaultValue = false)]
+        [DataMember(Name = "excludeAttributes", EmitDefaultValue = true)]
         public List<string> ExcludeAttributes { get; set; }
 
         /// <summary>
@@ -55,31 +55,31 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets MinLength
         /// </summary>
-        [DataMember(Name = "minLength", EmitDefaultValue = false)]
+        [DataMember(Name = "minLength", EmitDefaultValue = true)]
         public int MinLength { get; set; }
 
         /// <summary>
         /// Gets or Sets MinLowerCase
         /// </summary>
-        [DataMember(Name = "minLowerCase", EmitDefaultValue = false)]
+        [DataMember(Name = "minLowerCase", EmitDefaultValue = true)]
         public int MinLowerCase { get; set; }
 
         /// <summary>
         /// Gets or Sets MinNumber
         /// </summary>
-        [DataMember(Name = "minNumber", EmitDefaultValue = false)]
+        [DataMember(Name = "minNumber", EmitDefaultValue = true)]
         public int MinNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets MinSymbol
         /// </summary>
-        [DataMember(Name = "minSymbol", EmitDefaultValue = false)]
+        [DataMember(Name = "minSymbol", EmitDefaultValue = true)]
         public int MinSymbol { get; set; }
 
         /// <summary>
         /// Gets or Sets MinUpperCase
         /// </summary>
-        [DataMember(Name = "minUpperCase", EmitDefaultValue = false)]
+        [DataMember(Name = "minUpperCase", EmitDefaultValue = true)]
         public int MinUpperCase { get; set; }
 
         /// <summary>

@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ResourceType
         /// </summary>
-        [DataMember(Name = "resourceType", EmitDefaultValue = false)]
+        [DataMember(Name = "resourceType", EmitDefaultValue = true)]
         
         public PolicyMappingResourceType ResourceType { get; set; }
         
         /// <summary>
         /// Gets or Sets ResourceId
         /// </summary>
-        [DataMember(Name = "resourceId", EmitDefaultValue = false)]
+        [DataMember(Name = "resourceId", EmitDefaultValue = true)]
         public string ResourceId { get; set; }
 
         /// <summary>

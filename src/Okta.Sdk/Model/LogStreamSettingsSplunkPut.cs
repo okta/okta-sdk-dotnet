@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Edition
         /// </summary>
-        [DataMember(Name = "edition", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "edition", EmitDefaultValue = true)]
         
         public SplunkEdition Edition { get; set; }
         /// <summary>
@@ -50,7 +50,7 @@ namespace Okta.Sdk.Model
         /// The domain name for your Splunk Cloud instance. Don&#39;t include &#x60;http&#x60; or &#x60;https&#x60; in the string. For example: &#x60;acme.splunkcloud.com&#x60;
         /// </summary>
         /// <value>The domain name for your Splunk Cloud instance. Don&#39;t include &#x60;http&#x60; or &#x60;https&#x60; in the string. For example: &#x60;acme.splunkcloud.com&#x60;</value>
-        [DataMember(Name = "host", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "host", EmitDefaultValue = true)]
         public string Host { get; set; }
 
         /// <summary>

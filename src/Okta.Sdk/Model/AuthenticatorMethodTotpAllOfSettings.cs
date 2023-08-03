@@ -37,25 +37,25 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets TimeIntervalInSeconds
         /// </summary>
-        [DataMember(Name = "timeIntervalInSeconds", EmitDefaultValue = false)]
+        [DataMember(Name = "timeIntervalInSeconds", EmitDefaultValue = true)]
         public int TimeIntervalInSeconds { get; set; }
 
         /// <summary>
         /// Gets or Sets Encoding
         /// </summary>
-        [DataMember(Name = "encoding", EmitDefaultValue = false)]
+        [DataMember(Name = "encoding", EmitDefaultValue = true)]
         public string Encoding { get; set; }
 
         /// <summary>
         /// Gets or Sets Algorithm
         /// </summary>
-        [DataMember(Name = "algorithm", EmitDefaultValue = false)]
+        [DataMember(Name = "algorithm", EmitDefaultValue = true)]
         public string Algorithm { get; set; }
 
         /// <summary>
         /// Gets or Sets PassCodeLength
         /// </summary>
-        [DataMember(Name = "passCodeLength", EmitDefaultValue = false)]
+        [DataMember(Name = "passCodeLength", EmitDefaultValue = true)]
         public int PassCodeLength { get; set; }
 
         /// <summary>

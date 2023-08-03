@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Groups
         /// </summary>
-        [DataMember(Name = "groups", EmitDefaultValue = false)]
+        [DataMember(Name = "groups", EmitDefaultValue = true)]
         public GroupCondition Groups { get; set; }
 
         /// <summary>
         /// Gets or Sets Users
         /// </summary>
-        [DataMember(Name = "users", EmitDefaultValue = false)]
+        [DataMember(Name = "users", EmitDefaultValue = true)]
         public UserCondition Users { get; set; }
 
         /// <summary>

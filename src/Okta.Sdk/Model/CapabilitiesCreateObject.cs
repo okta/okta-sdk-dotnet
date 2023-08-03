@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LifecycleCreate
         /// </summary>
-        [DataMember(Name = "lifecycleCreate", EmitDefaultValue = false)]
+        [DataMember(Name = "lifecycleCreate", EmitDefaultValue = true)]
         public LifecycleCreateSettingObject LifecycleCreate { get; set; }
 
         /// <summary>

@@ -53,7 +53,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets VerifiableProperties
         /// </summary>
-        [DataMember(Name = "verifiableProperties", EmitDefaultValue = false)]
+        [DataMember(Name = "verifiableProperties", EmitDefaultValue = true)]
         public List<AuthenticatorMethodProperty> VerifiableProperties { get; set; }
 
         /// <summary>

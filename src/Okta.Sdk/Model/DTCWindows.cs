@@ -37,28 +37,28 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets KeyTrustLevel
         /// </summary>
-        [DataMember(Name = "keyTrustLevel", EmitDefaultValue = false)]
+        [DataMember(Name = "keyTrustLevel", EmitDefaultValue = true)]
         
         public KeyTrustLevelBrowserKey KeyTrustLevel { get; set; }
 
         /// <summary>
         /// Gets or Sets PasswordProtectionWarningTrigger
         /// </summary>
-        [DataMember(Name = "passwordProtectionWarningTrigger", EmitDefaultValue = false)]
+        [DataMember(Name = "passwordProtectionWarningTrigger", EmitDefaultValue = true)]
         
         public PasswordProtectionWarningTrigger PasswordProtectionWarningTrigger { get; set; }
 
         /// <summary>
         /// Gets or Sets SafeBrowsingProtectionLevel
         /// </summary>
-        [DataMember(Name = "safeBrowsingProtectionLevel", EmitDefaultValue = false)]
+        [DataMember(Name = "safeBrowsingProtectionLevel", EmitDefaultValue = true)]
         
         public SafeBrowsingProtectionLevel SafeBrowsingProtectionLevel { get; set; }
         
         /// <summary>
         /// Gets or Sets BrowserVersion
         /// </summary>
-        [DataMember(Name = "browserVersion", EmitDefaultValue = false)]
+        [DataMember(Name = "browserVersion", EmitDefaultValue = true)]
         public ChromeBrowserVersion BrowserVersion { get; set; }
 
         /// <summary>
@@ -79,21 +79,21 @@ namespace Okta.Sdk.Model
         /// Agent ID of an installed CrowdStrike agent
         /// </summary>
         /// <value>Agent ID of an installed CrowdStrike agent</value>
-        [DataMember(Name = "crowdStrikeAgentId", EmitDefaultValue = false)]
+        [DataMember(Name = "crowdStrikeAgentId", EmitDefaultValue = true)]
         public string CrowdStrikeAgentId { get; set; }
 
         /// <summary>
         /// Customer ID of an installed CrowdStrike agent
         /// </summary>
         /// <value>Customer ID of an installed CrowdStrike agent</value>
-        [DataMember(Name = "crowdStrikeCustomerId", EmitDefaultValue = false)]
+        [DataMember(Name = "crowdStrikeCustomerId", EmitDefaultValue = true)]
         public string CrowdStrikeCustomerId { get; set; }
 
         /// <summary>
         /// Enrollment domain of the customer that is currently managing the device
         /// </summary>
         /// <value>Enrollment domain of the customer that is currently managing the device</value>
-        [DataMember(Name = "deviceEnrollmentDomain", EmitDefaultValue = false)]
+        [DataMember(Name = "deviceEnrollmentDomain", EmitDefaultValue = true)]
         public string DeviceEnrollmentDomain { get; set; }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets OsVersion
         /// </summary>
-        [DataMember(Name = "osVersion", EmitDefaultValue = false)]
+        [DataMember(Name = "osVersion", EmitDefaultValue = true)]
         public OSVersion OsVersion { get; set; }
 
         /// <summary>
@@ -155,14 +155,14 @@ namespace Okta.Sdk.Model
         /// Windows domain that the current machine has joined
         /// </summary>
         /// <value>Windows domain that the current machine has joined</value>
-        [DataMember(Name = "windowsMachineDomain", EmitDefaultValue = false)]
+        [DataMember(Name = "windowsMachineDomain", EmitDefaultValue = true)]
         public string WindowsMachineDomain { get; set; }
 
         /// <summary>
         /// Windows domain for the current OS user
         /// </summary>
         /// <value>Windows domain for the current OS user</value>
-        [DataMember(Name = "windowsUserDomain", EmitDefaultValue = false)]
+        [DataMember(Name = "windowsUserDomain", EmitDefaultValue = true)]
         public string WindowsUserDomain { get; set; }
 
         /// <summary>

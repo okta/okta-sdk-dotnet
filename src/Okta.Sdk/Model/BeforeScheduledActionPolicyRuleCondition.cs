@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Duration
         /// </summary>
-        [DataMember(Name = "duration", EmitDefaultValue = false)]
+        [DataMember(Name = "duration", EmitDefaultValue = true)]
         public Duration Duration { get; set; }
 
         /// <summary>
         /// Gets or Sets LifecycleAction
         /// </summary>
-        [DataMember(Name = "lifecycleAction", EmitDefaultValue = false)]
+        [DataMember(Name = "lifecycleAction", EmitDefaultValue = true)]
         public ScheduledUserLifecycleAction LifecycleAction { get; set; }
 
         /// <summary>

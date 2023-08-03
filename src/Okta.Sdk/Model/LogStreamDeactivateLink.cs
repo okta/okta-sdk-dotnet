@@ -74,7 +74,7 @@ namespace Okta.Sdk.Model
         /// HTTP method allowed for the resource
         /// </summary>
         /// <value>HTTP method allowed for the resource</value>
-        [DataMember(Name = "method", EmitDefaultValue = false)]
+        [DataMember(Name = "method", EmitDefaultValue = true)]
         
         public MethodEnum Method { get; set; }
         /// <summary>
@@ -87,7 +87,7 @@ namespace Okta.Sdk.Model
         /// The URI of the resource
         /// </summary>
         /// <value>The URI of the resource</value>
-        [DataMember(Name = "href", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "href", EmitDefaultValue = true)]
         public string Href { get; set; }
 
         /// <summary>

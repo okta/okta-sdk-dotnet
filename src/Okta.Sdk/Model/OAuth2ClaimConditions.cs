@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Scopes
         /// </summary>
-        [DataMember(Name = "scopes", EmitDefaultValue = false)]
+        [DataMember(Name = "scopes", EmitDefaultValue = true)]
         public List<string> Scopes { get; set; }
 
         /// <summary>

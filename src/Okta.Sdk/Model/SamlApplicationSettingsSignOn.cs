@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AcsEndpoints
         /// </summary>
-        [DataMember(Name = "acsEndpoints", EmitDefaultValue = false)]
+        [DataMember(Name = "acsEndpoints", EmitDefaultValue = true)]
         public List<AcsEndpoint> AcsEndpoints { get; set; }
 
         /// <summary>
@@ -55,55 +55,55 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AttributeStatements
         /// </summary>
-        [DataMember(Name = "attributeStatements", EmitDefaultValue = false)]
+        [DataMember(Name = "attributeStatements", EmitDefaultValue = true)]
         public List<SamlAttributeStatement> AttributeStatements { get; set; }
 
         /// <summary>
         /// Gets or Sets Audience
         /// </summary>
-        [DataMember(Name = "audience", EmitDefaultValue = false)]
+        [DataMember(Name = "audience", EmitDefaultValue = true)]
         public string Audience { get; set; }
 
         /// <summary>
         /// Gets or Sets AudienceOverride
         /// </summary>
-        [DataMember(Name = "audienceOverride", EmitDefaultValue = false)]
+        [DataMember(Name = "audienceOverride", EmitDefaultValue = true)]
         public string AudienceOverride { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthnContextClassRef
         /// </summary>
-        [DataMember(Name = "authnContextClassRef", EmitDefaultValue = false)]
+        [DataMember(Name = "authnContextClassRef", EmitDefaultValue = true)]
         public string AuthnContextClassRef { get; set; }
 
         /// <summary>
         /// Gets or Sets ConfiguredAttributeStatements
         /// </summary>
-        [DataMember(Name = "configuredAttributeStatements", EmitDefaultValue = false)]
+        [DataMember(Name = "configuredAttributeStatements", EmitDefaultValue = true)]
         public List<SamlAttributeStatement> ConfiguredAttributeStatements { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultRelayState
         /// </summary>
-        [DataMember(Name = "defaultRelayState", EmitDefaultValue = false)]
+        [DataMember(Name = "defaultRelayState", EmitDefaultValue = true)]
         public string DefaultRelayState { get; set; }
 
         /// <summary>
         /// Gets or Sets Destination
         /// </summary>
-        [DataMember(Name = "destination", EmitDefaultValue = false)]
+        [DataMember(Name = "destination", EmitDefaultValue = true)]
         public string Destination { get; set; }
 
         /// <summary>
         /// Gets or Sets DestinationOverride
         /// </summary>
-        [DataMember(Name = "destinationOverride", EmitDefaultValue = false)]
+        [DataMember(Name = "destinationOverride", EmitDefaultValue = true)]
         public string DestinationOverride { get; set; }
 
         /// <summary>
         /// Gets or Sets DigestAlgorithm
         /// </summary>
-        [DataMember(Name = "digestAlgorithm", EmitDefaultValue = false)]
+        [DataMember(Name = "digestAlgorithm", EmitDefaultValue = true)]
         public string DigestAlgorithm { get; set; }
 
         /// <summary>
@@ -115,31 +115,31 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets IdpIssuer
         /// </summary>
-        [DataMember(Name = "idpIssuer", EmitDefaultValue = false)]
+        [DataMember(Name = "idpIssuer", EmitDefaultValue = true)]
         public string IdpIssuer { get; set; }
 
         /// <summary>
         /// Gets or Sets InlineHooks
         /// </summary>
-        [DataMember(Name = "inlineHooks", EmitDefaultValue = false)]
+        [DataMember(Name = "inlineHooks", EmitDefaultValue = true)]
         public List<SignOnInlineHook> InlineHooks { get; set; }
 
         /// <summary>
         /// Gets or Sets ParticipateSlo
         /// </summary>
-        [DataMember(Name = "participateSlo", EmitDefaultValue = false)]
+        [DataMember(Name = "participateSlo", EmitDefaultValue = true)]
         public SloParticipate ParticipateSlo { get; set; }
 
         /// <summary>
         /// Gets or Sets Recipient
         /// </summary>
-        [DataMember(Name = "recipient", EmitDefaultValue = false)]
+        [DataMember(Name = "recipient", EmitDefaultValue = true)]
         public string Recipient { get; set; }
 
         /// <summary>
         /// Gets or Sets RecipientOverride
         /// </summary>
-        [DataMember(Name = "recipientOverride", EmitDefaultValue = false)]
+        [DataMember(Name = "recipientOverride", EmitDefaultValue = true)]
         public string RecipientOverride { get; set; }
 
         /// <summary>
@@ -157,49 +157,49 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets SignatureAlgorithm
         /// </summary>
-        [DataMember(Name = "signatureAlgorithm", EmitDefaultValue = false)]
+        [DataMember(Name = "signatureAlgorithm", EmitDefaultValue = true)]
         public string SignatureAlgorithm { get; set; }
 
         /// <summary>
         /// Gets or Sets Slo
         /// </summary>
-        [DataMember(Name = "slo", EmitDefaultValue = false)]
+        [DataMember(Name = "slo", EmitDefaultValue = true)]
         public SingleLogout Slo { get; set; }
 
         /// <summary>
         /// Gets or Sets SpCertificate
         /// </summary>
-        [DataMember(Name = "spCertificate", EmitDefaultValue = false)]
+        [DataMember(Name = "spCertificate", EmitDefaultValue = true)]
         public SpCertificate SpCertificate { get; set; }
 
         /// <summary>
         /// Gets or Sets SpIssuer
         /// </summary>
-        [DataMember(Name = "spIssuer", EmitDefaultValue = false)]
+        [DataMember(Name = "spIssuer", EmitDefaultValue = true)]
         public string SpIssuer { get; set; }
 
         /// <summary>
         /// Gets or Sets SsoAcsUrl
         /// </summary>
-        [DataMember(Name = "ssoAcsUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "ssoAcsUrl", EmitDefaultValue = true)]
         public string SsoAcsUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets SsoAcsUrlOverride
         /// </summary>
-        [DataMember(Name = "ssoAcsUrlOverride", EmitDefaultValue = false)]
+        [DataMember(Name = "ssoAcsUrlOverride", EmitDefaultValue = true)]
         public string SsoAcsUrlOverride { get; set; }
 
         /// <summary>
         /// Gets or Sets SubjectNameIdFormat
         /// </summary>
-        [DataMember(Name = "subjectNameIdFormat", EmitDefaultValue = false)]
+        [DataMember(Name = "subjectNameIdFormat", EmitDefaultValue = true)]
         public string SubjectNameIdFormat { get; set; }
 
         /// <summary>
         /// Gets or Sets SubjectNameIdTemplate
         /// </summary>
-        [DataMember(Name = "subjectNameIdTemplate", EmitDefaultValue = false)]
+        [DataMember(Name = "subjectNameIdTemplate", EmitDefaultValue = true)]
         public string SubjectNameIdTemplate { get; set; }
 
         /// <summary>

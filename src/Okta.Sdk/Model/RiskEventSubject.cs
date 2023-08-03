@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets RiskLevel
         /// </summary>
-        [DataMember(Name = "riskLevel", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "riskLevel", EmitDefaultValue = true)]
         
         public RiskEventSubjectRiskLevel RiskLevel { get; set; }
         /// <summary>
@@ -50,14 +50,14 @@ namespace Okta.Sdk.Model
         /// The risk event subject IP address (either an IPv4 or IPv6 address)
         /// </summary>
         /// <value>The risk event subject IP address (either an IPv4 or IPv6 address)</value>
-        [DataMember(Name = "ip", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "ip", EmitDefaultValue = true)]
         public string Ip { get; set; }
 
         /// <summary>
         /// Additional reasons for the risk level of the IP
         /// </summary>
         /// <value>Additional reasons for the risk level of the IP</value>
-        [DataMember(Name = "message", EmitDefaultValue = false)]
+        [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>

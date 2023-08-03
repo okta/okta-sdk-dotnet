@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// Name of a Realm
         /// </summary>
         /// <value>Name of a Realm</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>

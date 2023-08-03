@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Factors
         /// </summary>
-        [DataMember(Name = "factors", EmitDefaultValue = false)]
+        [DataMember(Name = "factors", EmitDefaultValue = true)]
         public PasswordPolicyRecoveryFactors Factors { get; set; }
 
         /// <summary>

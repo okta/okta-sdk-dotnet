@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ProfileEnrollment
         /// </summary>
-        [DataMember(Name = "profileEnrollment", EmitDefaultValue = false)]
+        [DataMember(Name = "profileEnrollment", EmitDefaultValue = true)]
         public ProfileEnrollmentPolicyRuleAction ProfileEnrollment { get; set; }
 
         /// <summary>

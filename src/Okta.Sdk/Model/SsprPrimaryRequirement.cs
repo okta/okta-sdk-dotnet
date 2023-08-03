@@ -86,7 +86,7 @@ namespace Okta.Sdk.Model
         /// Authenticator methods allowed for the initial authentication step of password recovery
         /// </summary>
         /// <value>Authenticator methods allowed for the initial authentication step of password recovery</value>
-        [DataMember(Name = "methods", EmitDefaultValue = false)]
+        [DataMember(Name = "methods", EmitDefaultValue = true)]
         
         public List<MethodsEnum> Methods { get; set; }
         
@@ -94,7 +94,7 @@ namespace Okta.Sdk.Model
         /// Constraints on the values specified in the &#x60;methods&#x60; array. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint.
         /// </summary>
         /// <value>Constraints on the values specified in the &#x60;methods&#x60; array. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint.</value>
-        [DataMember(Name = "methodConstraints", EmitDefaultValue = false)]
+        [DataMember(Name = "methodConstraints", EmitDefaultValue = true)]
         public List<AuthenticatorMethodConstraint> MethodConstraints { get; set; }
 
         /// <summary>

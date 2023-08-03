@@ -48,19 +48,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Credentials
         /// </summary>
-        [DataMember(Name = "credentials", EmitDefaultValue = false)]
+        [DataMember(Name = "credentials", EmitDefaultValue = true)]
         public SchemeApplicationCredentials Credentials { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Settings
         /// </summary>
-        [DataMember(Name = "settings", EmitDefaultValue = false)]
+        [DataMember(Name = "settings", EmitDefaultValue = true)]
         public SecurePasswordStoreApplicationSettings Settings { get; set; }
 
         /// <summary>

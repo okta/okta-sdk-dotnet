@@ -38,20 +38,20 @@ namespace Okta.Sdk.Model
         /// Description of the Resource Set
         /// </summary>
         /// <value>Description of the Resource Set</value>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
         /// Unique label for the Resource Set
         /// </summary>
         /// <value>Unique label for the Resource Set</value>
-        [DataMember(Name = "label", EmitDefaultValue = false)]
+        [DataMember(Name = "label", EmitDefaultValue = true)]
         public string Label { get; set; }
 
         /// <summary>
         /// Gets or Sets Resources
         /// </summary>
-        [DataMember(Name = "resources", EmitDefaultValue = false)]
+        [DataMember(Name = "resources", EmitDefaultValue = true)]
         public List<string> Resources { get; set; }
 
         /// <summary>

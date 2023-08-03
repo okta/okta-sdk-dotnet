@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// Each element of the array defines an individual domain.
         /// </summary>
         /// <value>Each element of the array defines an individual domain.</value>
-        [DataMember(Name = "domains", EmitDefaultValue = false)]
+        [DataMember(Name = "domains", EmitDefaultValue = true)]
         public List<DomainResponse> Domains { get; set; }
 
         /// <summary>

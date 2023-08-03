@@ -37,26 +37,26 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Scheme
         /// </summary>
-        [DataMember(Name = "scheme", EmitDefaultValue = false)]
+        [DataMember(Name = "scheme", EmitDefaultValue = true)]
         
         public ApplicationCredentialsScheme Scheme { get; set; }
         
         /// <summary>
         /// Gets or Sets Signing
         /// </summary>
-        [DataMember(Name = "signing", EmitDefaultValue = false)]
+        [DataMember(Name = "signing", EmitDefaultValue = true)]
         public ApplicationCredentialsSigning Signing { get; set; }
 
         /// <summary>
         /// Gets or Sets UserNameTemplate
         /// </summary>
-        [DataMember(Name = "userNameTemplate", EmitDefaultValue = false)]
+        [DataMember(Name = "userNameTemplate", EmitDefaultValue = true)]
         public ApplicationCredentialsUsernameTemplate UserNameTemplate { get; set; }
 
         /// <summary>
         /// Gets or Sets Password
         /// </summary>
-        [DataMember(Name = "password", EmitDefaultValue = false)]
+        [DataMember(Name = "password", EmitDefaultValue = true)]
         public PasswordCredential Password { get; set; }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets UserName
         /// </summary>
-        [DataMember(Name = "userName", EmitDefaultValue = false)]
+        [DataMember(Name = "userName", EmitDefaultValue = true)]
         public string UserName { get; set; }
 
         /// <summary>

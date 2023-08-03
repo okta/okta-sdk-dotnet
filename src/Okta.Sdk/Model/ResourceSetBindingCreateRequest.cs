@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Members
         /// </summary>
-        [DataMember(Name = "members", EmitDefaultValue = false)]
+        [DataMember(Name = "members", EmitDefaultValue = true)]
         public List<string> Members { get; set; }
 
         /// <summary>
         /// Unique key for the role
         /// </summary>
         /// <value>Unique key for the role</value>
-        [DataMember(Name = "role", EmitDefaultValue = false)]
+        [DataMember(Name = "role", EmitDefaultValue = true)]
         public string Role { get; set; }
 
         /// <summary>

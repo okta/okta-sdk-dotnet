@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets NameFormat
         /// </summary>
-        [DataMember(Name = "nameFormat", EmitDefaultValue = false)]
+        [DataMember(Name = "nameFormat", EmitDefaultValue = true)]
         public string NameFormat { get; set; }
 
         /// <summary>

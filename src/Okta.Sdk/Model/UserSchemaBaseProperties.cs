@@ -37,187 +37,187 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets City
         /// </summary>
-        [DataMember(Name = "city", EmitDefaultValue = false)]
+        [DataMember(Name = "city", EmitDefaultValue = true)]
         public UserSchemaAttribute City { get; set; }
 
         /// <summary>
         /// Gets or Sets CostCenter
         /// </summary>
-        [DataMember(Name = "costCenter", EmitDefaultValue = false)]
+        [DataMember(Name = "costCenter", EmitDefaultValue = true)]
         public UserSchemaAttribute CostCenter { get; set; }
 
         /// <summary>
         /// Gets or Sets CountryCode
         /// </summary>
-        [DataMember(Name = "countryCode", EmitDefaultValue = false)]
+        [DataMember(Name = "countryCode", EmitDefaultValue = true)]
         public UserSchemaAttribute CountryCode { get; set; }
 
         /// <summary>
         /// Gets or Sets Department
         /// </summary>
-        [DataMember(Name = "department", EmitDefaultValue = false)]
+        [DataMember(Name = "department", EmitDefaultValue = true)]
         public UserSchemaAttribute Department { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public UserSchemaAttribute DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets Division
         /// </summary>
-        [DataMember(Name = "division", EmitDefaultValue = false)]
+        [DataMember(Name = "division", EmitDefaultValue = true)]
         public UserSchemaAttribute Division { get; set; }
 
         /// <summary>
         /// Gets or Sets Email
         /// </summary>
-        [DataMember(Name = "email", EmitDefaultValue = false)]
+        [DataMember(Name = "email", EmitDefaultValue = true)]
         public UserSchemaAttribute Email { get; set; }
 
         /// <summary>
         /// Gets or Sets EmployeeNumber
         /// </summary>
-        [DataMember(Name = "employeeNumber", EmitDefaultValue = false)]
+        [DataMember(Name = "employeeNumber", EmitDefaultValue = true)]
         public UserSchemaAttribute EmployeeNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets FirstName
         /// </summary>
-        [DataMember(Name = "firstName", EmitDefaultValue = false)]
+        [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public UserSchemaAttribute FirstName { get; set; }
 
         /// <summary>
         /// Gets or Sets HonorificPrefix
         /// </summary>
-        [DataMember(Name = "honorificPrefix", EmitDefaultValue = false)]
+        [DataMember(Name = "honorificPrefix", EmitDefaultValue = true)]
         public UserSchemaAttribute HonorificPrefix { get; set; }
 
         /// <summary>
         /// Gets or Sets HonorificSuffix
         /// </summary>
-        [DataMember(Name = "honorificSuffix", EmitDefaultValue = false)]
+        [DataMember(Name = "honorificSuffix", EmitDefaultValue = true)]
         public UserSchemaAttribute HonorificSuffix { get; set; }
 
         /// <summary>
         /// Gets or Sets LastName
         /// </summary>
-        [DataMember(Name = "lastName", EmitDefaultValue = false)]
+        [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public UserSchemaAttribute LastName { get; set; }
 
         /// <summary>
         /// Gets or Sets Locale
         /// </summary>
-        [DataMember(Name = "locale", EmitDefaultValue = false)]
+        [DataMember(Name = "locale", EmitDefaultValue = true)]
         public UserSchemaAttribute Locale { get; set; }
 
         /// <summary>
         /// Gets or Sets Login
         /// </summary>
-        [DataMember(Name = "login", EmitDefaultValue = false)]
+        [DataMember(Name = "login", EmitDefaultValue = true)]
         public UserSchemaAttribute Login { get; set; }
 
         /// <summary>
         /// Gets or Sets Manager
         /// </summary>
-        [DataMember(Name = "manager", EmitDefaultValue = false)]
+        [DataMember(Name = "manager", EmitDefaultValue = true)]
         public UserSchemaAttribute Manager { get; set; }
 
         /// <summary>
         /// Gets or Sets ManagerId
         /// </summary>
-        [DataMember(Name = "managerId", EmitDefaultValue = false)]
+        [DataMember(Name = "managerId", EmitDefaultValue = true)]
         public UserSchemaAttribute ManagerId { get; set; }
 
         /// <summary>
         /// Gets or Sets MiddleName
         /// </summary>
-        [DataMember(Name = "middleName", EmitDefaultValue = false)]
+        [DataMember(Name = "middleName", EmitDefaultValue = true)]
         public UserSchemaAttribute MiddleName { get; set; }
 
         /// <summary>
         /// Gets or Sets MobilePhone
         /// </summary>
-        [DataMember(Name = "mobilePhone", EmitDefaultValue = false)]
+        [DataMember(Name = "mobilePhone", EmitDefaultValue = true)]
         public UserSchemaAttribute MobilePhone { get; set; }
 
         /// <summary>
         /// Gets or Sets NickName
         /// </summary>
-        [DataMember(Name = "nickName", EmitDefaultValue = false)]
+        [DataMember(Name = "nickName", EmitDefaultValue = true)]
         public UserSchemaAttribute NickName { get; set; }
 
         /// <summary>
         /// Gets or Sets Organization
         /// </summary>
-        [DataMember(Name = "organization", EmitDefaultValue = false)]
+        [DataMember(Name = "organization", EmitDefaultValue = true)]
         public UserSchemaAttribute Organization { get; set; }
 
         /// <summary>
         /// Gets or Sets PostalAddress
         /// </summary>
-        [DataMember(Name = "postalAddress", EmitDefaultValue = false)]
+        [DataMember(Name = "postalAddress", EmitDefaultValue = true)]
         public UserSchemaAttribute PostalAddress { get; set; }
 
         /// <summary>
         /// Gets or Sets PreferredLanguage
         /// </summary>
-        [DataMember(Name = "preferredLanguage", EmitDefaultValue = false)]
+        [DataMember(Name = "preferredLanguage", EmitDefaultValue = true)]
         public UserSchemaAttribute PreferredLanguage { get; set; }
 
         /// <summary>
         /// Gets or Sets PrimaryPhone
         /// </summary>
-        [DataMember(Name = "primaryPhone", EmitDefaultValue = false)]
+        [DataMember(Name = "primaryPhone", EmitDefaultValue = true)]
         public UserSchemaAttribute PrimaryPhone { get; set; }
 
         /// <summary>
         /// Gets or Sets ProfileUrl
         /// </summary>
-        [DataMember(Name = "profileUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "profileUrl", EmitDefaultValue = true)]
         public UserSchemaAttribute ProfileUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets SecondEmail
         /// </summary>
-        [DataMember(Name = "secondEmail", EmitDefaultValue = false)]
+        [DataMember(Name = "secondEmail", EmitDefaultValue = true)]
         public UserSchemaAttribute SecondEmail { get; set; }
 
         /// <summary>
         /// Gets or Sets State
         /// </summary>
-        [DataMember(Name = "state", EmitDefaultValue = false)]
+        [DataMember(Name = "state", EmitDefaultValue = true)]
         public UserSchemaAttribute State { get; set; }
 
         /// <summary>
         /// Gets or Sets StreetAddress
         /// </summary>
-        [DataMember(Name = "streetAddress", EmitDefaultValue = false)]
+        [DataMember(Name = "streetAddress", EmitDefaultValue = true)]
         public UserSchemaAttribute StreetAddress { get; set; }
 
         /// <summary>
         /// Gets or Sets Timezone
         /// </summary>
-        [DataMember(Name = "timezone", EmitDefaultValue = false)]
+        [DataMember(Name = "timezone", EmitDefaultValue = true)]
         public UserSchemaAttribute Timezone { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
-        [DataMember(Name = "title", EmitDefaultValue = false)]
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public UserSchemaAttribute Title { get; set; }
 
         /// <summary>
         /// Gets or Sets UserType
         /// </summary>
-        [DataMember(Name = "userType", EmitDefaultValue = false)]
+        [DataMember(Name = "userType", EmitDefaultValue = true)]
         public UserSchemaAttribute UserType { get; set; }
 
         /// <summary>
         /// Gets or Sets ZipCode
         /// </summary>
-        [DataMember(Name = "zipCode", EmitDefaultValue = false)]
+        [DataMember(Name = "zipCode", EmitDefaultValue = true)]
         public UserSchemaAttribute ZipCode { get; set; }
 
         /// <summary>

@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Effect
         /// </summary>
-        [DataMember(Name = "effect", EmitDefaultValue = false)]
+        [DataMember(Name = "effect", EmitDefaultValue = true)]
         public string Effect { get; set; }
 
         /// <summary>
         /// Gets or Sets Condition
         /// </summary>
-        [DataMember(Name = "condition", EmitDefaultValue = false)]
+        [DataMember(Name = "condition", EmitDefaultValue = true)]
         public ApplicationLayoutRuleCondition Condition { get; set; }
 
         /// <summary>

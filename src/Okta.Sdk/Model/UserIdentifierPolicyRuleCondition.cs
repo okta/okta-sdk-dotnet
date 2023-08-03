@@ -37,20 +37,20 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public UserIdentifierType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Attribute
         /// </summary>
-        [DataMember(Name = "attribute", EmitDefaultValue = false)]
+        [DataMember(Name = "attribute", EmitDefaultValue = true)]
         public string Attribute { get; set; }
 
         /// <summary>
         /// Gets or Sets Patterns
         /// </summary>
-        [DataMember(Name = "patterns", EmitDefaultValue = false)]
+        [DataMember(Name = "patterns", EmitDefaultValue = true)]
         public List<UserIdentifierConditionEvaluatorPattern> Patterns { get; set; }
 
         /// <summary>

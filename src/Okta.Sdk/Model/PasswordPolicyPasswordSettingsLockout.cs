@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AutoUnlockMinutes
         /// </summary>
-        [DataMember(Name = "autoUnlockMinutes", EmitDefaultValue = false)]
+        [DataMember(Name = "autoUnlockMinutes", EmitDefaultValue = true)]
         public int AutoUnlockMinutes { get; set; }
 
         /// <summary>
         /// Gets or Sets MaxAttempts
         /// </summary>
-        [DataMember(Name = "maxAttempts", EmitDefaultValue = false)]
+        [DataMember(Name = "maxAttempts", EmitDefaultValue = true)]
         public int MaxAttempts { get; set; }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets UserLockoutNotificationChannels
         /// </summary>
-        [DataMember(Name = "userLockoutNotificationChannels", EmitDefaultValue = false)]
+        [DataMember(Name = "userLockoutNotificationChannels", EmitDefaultValue = true)]
         public List<string> UserLockoutNotificationChannels { get; set; }
 
         /// <summary>

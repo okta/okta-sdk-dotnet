@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets PageContent
         /// </summary>
-        [DataMember(Name = "pageContent", EmitDefaultValue = false)]
+        [DataMember(Name = "pageContent", EmitDefaultValue = true)]
         public string PageContent { get; set; }
 
         /// <summary>
         /// Gets or Sets ContentSecurityPolicySetting
         /// </summary>
-        [DataMember(Name = "contentSecurityPolicySetting", EmitDefaultValue = false)]
+        [DataMember(Name = "contentSecurityPolicySetting", EmitDefaultValue = true)]
         public ContentSecurityPolicySetting ContentSecurityPolicySetting { get; set; }
 
         /// <summary>

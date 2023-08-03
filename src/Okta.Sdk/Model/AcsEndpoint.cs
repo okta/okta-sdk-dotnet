@@ -43,14 +43,14 @@ namespace Okta.Sdk.Model
         /// Index of the URL in the array of ACS endpoints
         /// </summary>
         /// <value>Index of the URL in the array of ACS endpoints</value>
-        [DataMember(Name = "index", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "index", EmitDefaultValue = true)]
         public int Index { get; set; }
 
         /// <summary>
         /// URL of the ACS
         /// </summary>
         /// <value>URL of the ACS</value>
-        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>

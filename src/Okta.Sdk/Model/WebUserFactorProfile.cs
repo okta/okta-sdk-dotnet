@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets CredentialId
         /// </summary>
-        [DataMember(Name = "credentialId", EmitDefaultValue = false)]
+        [DataMember(Name = "credentialId", EmitDefaultValue = true)]
         public string CredentialId { get; set; }
 
         /// <summary>

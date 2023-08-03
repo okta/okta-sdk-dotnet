@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Schema
         /// </summary>
-        [DataMember(Name = "$schema", EmitDefaultValue = false)]
+        [DataMember(Name = "$schema", EmitDefaultValue = true)]
         public string Schema { get; private set; }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public string Created { get; private set; }
 
         /// <summary>
@@ -65,13 +65,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ErrorMessage
         /// </summary>
-        [DataMember(Name = "errorMessage", EmitDefaultValue = false)]
+        [DataMember(Name = "errorMessage", EmitDefaultValue = true)]
         public Object ErrorMessage { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public string LastUpdated { get; private set; }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; private set; }
 
         /// <summary>
@@ -113,25 +113,25 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Properties
         /// </summary>
-        [DataMember(Name = "properties", EmitDefaultValue = false)]
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Object Properties { get; set; }
 
         /// <summary>
         /// Gets or Sets Required
         /// </summary>
-        [DataMember(Name = "required", EmitDefaultValue = false)]
+        [DataMember(Name = "required", EmitDefaultValue = true)]
         public List<string> Required { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
-        [DataMember(Name = "title", EmitDefaultValue = false)]
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; private set; }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

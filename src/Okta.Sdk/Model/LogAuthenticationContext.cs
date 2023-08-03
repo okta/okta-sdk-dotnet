@@ -37,28 +37,28 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AuthenticationProvider
         /// </summary>
-        [DataMember(Name = "authenticationProvider", EmitDefaultValue = false)]
+        [DataMember(Name = "authenticationProvider", EmitDefaultValue = true)]
         
         public LogAuthenticationProvider AuthenticationProvider { get; set; }
 
         /// <summary>
         /// Gets or Sets CredentialProvider
         /// </summary>
-        [DataMember(Name = "credentialProvider", EmitDefaultValue = false)]
+        [DataMember(Name = "credentialProvider", EmitDefaultValue = true)]
         
         public LogCredentialProvider CredentialProvider { get; set; }
 
         /// <summary>
         /// Gets or Sets CredentialType
         /// </summary>
-        [DataMember(Name = "credentialType", EmitDefaultValue = false)]
+        [DataMember(Name = "credentialType", EmitDefaultValue = true)]
         
         public LogCredentialType CredentialType { get; set; }
         
         /// <summary>
         /// Gets or Sets AuthenticationStep
         /// </summary>
-        [DataMember(Name = "authenticationStep", EmitDefaultValue = false)]
+        [DataMember(Name = "authenticationStep", EmitDefaultValue = true)]
         public int AuthenticationStep { get; private set; }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ExternalSessionId
         /// </summary>
-        [DataMember(Name = "externalSessionId", EmitDefaultValue = false)]
+        [DataMember(Name = "externalSessionId", EmitDefaultValue = true)]
         public string ExternalSessionId { get; private set; }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Interface
         /// </summary>
-        [DataMember(Name = "interface", EmitDefaultValue = false)]
+        [DataMember(Name = "interface", EmitDefaultValue = true)]
         public string Interface { get; private set; }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Issuer
         /// </summary>
-        [DataMember(Name = "issuer", EmitDefaultValue = false)]
+        [DataMember(Name = "issuer", EmitDefaultValue = true)]
         public LogIssuer Issuer { get; set; }
 
         /// <summary>

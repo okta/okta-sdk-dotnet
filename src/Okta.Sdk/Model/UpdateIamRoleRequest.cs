@@ -43,14 +43,14 @@ namespace Okta.Sdk.Model
         /// Description of the role
         /// </summary>
         /// <value>Description of the role</value>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
         /// Unique label for the role
         /// </summary>
         /// <value>Unique label for the role</value>
-        [DataMember(Name = "label", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "label", EmitDefaultValue = true)]
         public string Label { get; set; }
 
         /// <summary>

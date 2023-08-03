@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AcsUrl
         /// </summary>
-        [DataMember(Name = "acsUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "acsUrl", EmitDefaultValue = true)]
         public string AcsUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets AudRestriction
         /// </summary>
-        [DataMember(Name = "audRestriction", EmitDefaultValue = false)]
+        [DataMember(Name = "audRestriction", EmitDefaultValue = true)]
         public string AudRestriction { get; set; }
 
         /// <summary>
         /// Gets or Sets BaseUrl
         /// </summary>
-        [DataMember(Name = "baseUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "baseUrl", EmitDefaultValue = true)]
         public string BaseUrl { get; set; }
 
         /// <summary>

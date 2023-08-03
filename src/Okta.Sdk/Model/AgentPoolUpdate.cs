@@ -37,21 +37,21 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AgentType
         /// </summary>
-        [DataMember(Name = "agentType", EmitDefaultValue = false)]
+        [DataMember(Name = "agentType", EmitDefaultValue = true)]
         
         public AgentType AgentType { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public AgentUpdateJobStatus Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Agents
         /// </summary>
-        [DataMember(Name = "agents", EmitDefaultValue = false)]
+        [DataMember(Name = "agents", EmitDefaultValue = true)]
         public List<Agent> Agents { get; set; }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -89,31 +89,31 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Reason
         /// </summary>
-        [DataMember(Name = "reason", EmitDefaultValue = false)]
+        [DataMember(Name = "reason", EmitDefaultValue = true)]
         public string Reason { get; set; }
 
         /// <summary>
         /// Gets or Sets Schedule
         /// </summary>
-        [DataMember(Name = "schedule", EmitDefaultValue = false)]
+        [DataMember(Name = "schedule", EmitDefaultValue = true)]
         public AutoUpdateSchedule Schedule { get; set; }
 
         /// <summary>
         /// Gets or Sets SortOrder
         /// </summary>
-        [DataMember(Name = "sortOrder", EmitDefaultValue = false)]
+        [DataMember(Name = "sortOrder", EmitDefaultValue = true)]
         public int SortOrder { get; set; }
 
         /// <summary>
         /// Gets or Sets TargetVersion
         /// </summary>
-        [DataMember(Name = "targetVersion", EmitDefaultValue = false)]
+        [DataMember(Name = "targetVersion", EmitDefaultValue = true)]
         public string TargetVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

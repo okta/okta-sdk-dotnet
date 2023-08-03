@@ -43,14 +43,14 @@ namespace Okta.Sdk.Model
         /// The email&#39;s HTML body. May contain [variable references](https://velocity.apache.org/engine/1.7/user-guide.html#references).
         /// </summary>
         /// <value>The email&#39;s HTML body. May contain [variable references](https://velocity.apache.org/engine/1.7/user-guide.html#references).</value>
-        [DataMember(Name = "body", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "body", EmitDefaultValue = true)]
         public string Body { get; set; }
 
         /// <summary>
         /// The email&#39;s subject. May contain [variable references](https://velocity.apache.org/engine/1.7/user-guide.html#references).
         /// </summary>
         /// <value>The email&#39;s subject. May contain [variable references](https://velocity.apache.org/engine/1.7/user-guide.html#references).</value>
-        [DataMember(Name = "subject", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
 
         /// <summary>

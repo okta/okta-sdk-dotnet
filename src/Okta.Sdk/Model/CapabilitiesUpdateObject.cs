@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LifecycleDeactivate
         /// </summary>
-        [DataMember(Name = "lifecycleDeactivate", EmitDefaultValue = false)]
+        [DataMember(Name = "lifecycleDeactivate", EmitDefaultValue = true)]
         public LifecycleDeactivateSettingObject LifecycleDeactivate { get; set; }
 
         /// <summary>
         /// Gets or Sets Password
         /// </summary>
-        [DataMember(Name = "password", EmitDefaultValue = false)]
+        [DataMember(Name = "password", EmitDefaultValue = true)]
         public PasswordSettingObject Password { get; set; }
 
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
-        [DataMember(Name = "profile", EmitDefaultValue = false)]
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
         public ProfileSettingObject Profile { get; set; }
 
         /// <summary>

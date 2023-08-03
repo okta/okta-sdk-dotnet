@@ -38,13 +38,13 @@ namespace Okta.Sdk.Model
         /// &#x60;id&#x60; of the role
         /// </summary>
         /// <value>&#x60;id&#x60; of the role</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public ResourceSetBindingResponseLinks Links { get; set; }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AsNumber
         /// </summary>
-        [DataMember(Name = "asNumber", EmitDefaultValue = false)]
+        [DataMember(Name = "asNumber", EmitDefaultValue = true)]
         public int AsNumber { get; private set; }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AsOrg
         /// </summary>
-        [DataMember(Name = "asOrg", EmitDefaultValue = false)]
+        [DataMember(Name = "asOrg", EmitDefaultValue = true)]
         public string AsOrg { get; private set; }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Domain
         /// </summary>
-        [DataMember(Name = "domain", EmitDefaultValue = false)]
+        [DataMember(Name = "domain", EmitDefaultValue = true)]
         public string Domain { get; private set; }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Isp
         /// </summary>
-        [DataMember(Name = "isp", EmitDefaultValue = false)]
+        [DataMember(Name = "isp", EmitDefaultValue = true)]
         public string Isp { get; private set; }
 
         /// <summary>

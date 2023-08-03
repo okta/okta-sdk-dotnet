@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AaguidGroups
         /// </summary>
-        [DataMember(Name = "aaguidGroups", EmitDefaultValue = false)]
+        [DataMember(Name = "aaguidGroups", EmitDefaultValue = true)]
         public List<string> AaguidGroups { get; set; }
 
         /// <summary>

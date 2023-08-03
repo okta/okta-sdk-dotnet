@@ -42,7 +42,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets NotificationsEnabled
         /// </summary>
-        [DataMember(Name = "notificationsEnabled", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "notificationsEnabled", EmitDefaultValue = true)]
         public bool NotificationsEnabled { get; set; }
 
         /// <summary>

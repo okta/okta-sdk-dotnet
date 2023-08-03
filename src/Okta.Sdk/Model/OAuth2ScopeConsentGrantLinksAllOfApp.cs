@@ -42,28 +42,28 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Hints
         /// </summary>
-        [DataMember(Name = "hints", EmitDefaultValue = false)]
+        [DataMember(Name = "hints", EmitDefaultValue = true)]
         public HrefObjectHints Hints { get; set; }
 
         /// <summary>
         /// Link URI
         /// </summary>
         /// <value>Link URI</value>
-        [DataMember(Name = "href", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "href", EmitDefaultValue = true)]
         public string Href { get; set; }
 
         /// <summary>
         /// Link name
         /// </summary>
         /// <value>Link name</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The media type of the link. If omitted, it is implicitly &#x60;application/json&#x60;.
         /// </summary>
         /// <value>The media type of the link. If omitted, it is implicitly &#x60;application/json&#x60;.</value>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>

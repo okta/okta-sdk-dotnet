@@ -80,7 +80,7 @@ namespace Okta.Sdk.Model
         /// The result of the entity evaluation
         /// </summary>
         /// <value>The result of the entity evaluation</value>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public StatusEnum Status { get; set; }
         
@@ -88,7 +88,7 @@ namespace Okta.Sdk.Model
         /// The type of condition
         /// </summary>
         /// <value>The type of condition</value>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>

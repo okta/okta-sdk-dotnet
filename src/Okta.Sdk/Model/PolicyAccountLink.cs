@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Action
         /// </summary>
-        [DataMember(Name = "action", EmitDefaultValue = false)]
+        [DataMember(Name = "action", EmitDefaultValue = true)]
         
         public PolicyAccountLinkAction Action { get; set; }
         
         /// <summary>
         /// Gets or Sets Filter
         /// </summary>
-        [DataMember(Name = "filter", EmitDefaultValue = false)]
+        [DataMember(Name = "filter", EmitDefaultValue = true)]
         public PolicyAccountLinkFilter Filter { get; set; }
 
         /// <summary>

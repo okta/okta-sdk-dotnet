@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ErrorSummary
         /// </summary>
-        [DataMember(Name = "errorSummary", EmitDefaultValue = false)]
+        [DataMember(Name = "errorSummary", EmitDefaultValue = true)]
         public string ErrorSummary { get; set; }
 
         /// <summary>

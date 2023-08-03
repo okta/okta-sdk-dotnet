@@ -37,28 +37,28 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ClaimType
         /// </summary>
-        [DataMember(Name = "claimType", EmitDefaultValue = false)]
+        [DataMember(Name = "claimType", EmitDefaultValue = true)]
         
         public OAuth2ClaimType ClaimType { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupFilterType
         /// </summary>
-        [DataMember(Name = "group_filter_type", EmitDefaultValue = false)]
+        [DataMember(Name = "group_filter_type", EmitDefaultValue = true)]
         
         public OAuth2ClaimGroupFilterType GroupFilterType { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public LifecycleStatus Status { get; set; }
 
         /// <summary>
         /// Gets or Sets ValueType
         /// </summary>
-        [DataMember(Name = "valueType", EmitDefaultValue = false)]
+        [DataMember(Name = "valueType", EmitDefaultValue = true)]
         
         public OAuth2ClaimValueType ValueType { get; set; }
         
@@ -71,13 +71,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Conditions
         /// </summary>
-        [DataMember(Name = "conditions", EmitDefaultValue = false)]
+        [DataMember(Name = "conditions", EmitDefaultValue = true)]
         public OAuth2ClaimConditions Conditions { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -103,13 +103,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

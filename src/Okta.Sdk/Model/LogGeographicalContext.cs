@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets City
         /// </summary>
-        [DataMember(Name = "city", EmitDefaultValue = false)]
+        [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; private set; }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Country
         /// </summary>
-        [DataMember(Name = "country", EmitDefaultValue = false)]
+        [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; private set; }
 
         /// <summary>
@@ -65,13 +65,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Geolocation
         /// </summary>
-        [DataMember(Name = "geolocation", EmitDefaultValue = false)]
+        [DataMember(Name = "geolocation", EmitDefaultValue = true)]
         public LogGeolocation Geolocation { get; set; }
 
         /// <summary>
         /// Gets or Sets PostalCode
         /// </summary>
-        [DataMember(Name = "postalCode", EmitDefaultValue = false)]
+        [DataMember(Name = "postalCode", EmitDefaultValue = true)]
         public string PostalCode { get; private set; }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets State
         /// </summary>
-        [DataMember(Name = "state", EmitDefaultValue = false)]
+        [DataMember(Name = "state", EmitDefaultValue = true)]
         public string State { get; private set; }
 
         /// <summary>

@@ -38,28 +38,28 @@ namespace Okta.Sdk.Model
         /// (Optional) File name for Admin Console display
         /// </summary>
         /// <value>(Optional) File name for Admin Console display</value>
-        [DataMember(Name = "fileName", EmitDefaultValue = false)]
+        [DataMember(Name = "fileName", EmitDefaultValue = true)]
         public string FileName { get; set; }
 
         /// <summary>
         /// 10-character Key ID obtained from the Apple developer account
         /// </summary>
         /// <value>10-character Key ID obtained from the Apple developer account</value>
-        [DataMember(Name = "keyId", EmitDefaultValue = false)]
+        [DataMember(Name = "keyId", EmitDefaultValue = true)]
         public string KeyId { get; set; }
 
         /// <summary>
         /// 10-character Team ID used to develop the iOS app
         /// </summary>
         /// <value>10-character Team ID used to develop the iOS app</value>
-        [DataMember(Name = "teamId", EmitDefaultValue = false)]
+        [DataMember(Name = "teamId", EmitDefaultValue = true)]
         public string TeamId { get; set; }
 
         /// <summary>
         /// APNs private authentication token signing key
         /// </summary>
         /// <value>APNs private authentication token signing key</value>
-        [DataMember(Name = "tokenSigningKey", EmitDefaultValue = false)]
+        [DataMember(Name = "tokenSigningKey", EmitDefaultValue = true)]
         public string TokenSigningKey { get; set; }
 
         /// <summary>

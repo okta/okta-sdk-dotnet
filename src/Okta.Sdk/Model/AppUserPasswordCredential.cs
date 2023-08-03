@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// Password value
         /// </summary>
         /// <value>Password value</value>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>

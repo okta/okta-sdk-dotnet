@@ -37,20 +37,20 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public EventHookChannelType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Config
         /// </summary>
-        [DataMember(Name = "config", EmitDefaultValue = false)]
+        [DataMember(Name = "config", EmitDefaultValue = true)]
         public EventHookChannelConfig Config { get; set; }
 
         /// <summary>
         /// Gets or Sets _Version
         /// </summary>
-        [DataMember(Name = "version", EmitDefaultValue = false)]
+        [DataMember(Name = "version", EmitDefaultValue = true)]
         public string _Version { get; set; }
 
         /// <summary>

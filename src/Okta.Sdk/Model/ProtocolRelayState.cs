@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Format
         /// </summary>
-        [DataMember(Name = "format", EmitDefaultValue = false)]
+        [DataMember(Name = "format", EmitDefaultValue = true)]
         
         public ProtocolRelayStateFormat Format { get; set; }
         

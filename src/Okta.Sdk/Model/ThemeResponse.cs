@@ -37,42 +37,42 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets EmailTemplateTouchPointVariant
         /// </summary>
-        [DataMember(Name = "emailTemplateTouchPointVariant", EmitDefaultValue = false)]
+        [DataMember(Name = "emailTemplateTouchPointVariant", EmitDefaultValue = true)]
         
         public EmailTemplateTouchPointVariant EmailTemplateTouchPointVariant { get; set; }
 
         /// <summary>
         /// Gets or Sets EndUserDashboardTouchPointVariant
         /// </summary>
-        [DataMember(Name = "endUserDashboardTouchPointVariant", EmitDefaultValue = false)]
+        [DataMember(Name = "endUserDashboardTouchPointVariant", EmitDefaultValue = true)]
         
         public EndUserDashboardTouchPointVariant EndUserDashboardTouchPointVariant { get; set; }
 
         /// <summary>
         /// Gets or Sets ErrorPageTouchPointVariant
         /// </summary>
-        [DataMember(Name = "errorPageTouchPointVariant", EmitDefaultValue = false)]
+        [DataMember(Name = "errorPageTouchPointVariant", EmitDefaultValue = true)]
         
         public ErrorPageTouchPointVariant ErrorPageTouchPointVariant { get; set; }
 
         /// <summary>
         /// Gets or Sets LoadingPageTouchPointVariant
         /// </summary>
-        [DataMember(Name = "loadingPageTouchPointVariant", EmitDefaultValue = false)]
+        [DataMember(Name = "loadingPageTouchPointVariant", EmitDefaultValue = true)]
         
         public LoadingPageTouchPointVariant LoadingPageTouchPointVariant { get; set; }
 
         /// <summary>
         /// Gets or Sets SignInPageTouchPointVariant
         /// </summary>
-        [DataMember(Name = "signInPageTouchPointVariant", EmitDefaultValue = false)]
+        [DataMember(Name = "signInPageTouchPointVariant", EmitDefaultValue = true)]
         
         public SignInPageTouchPointVariant SignInPageTouchPointVariant { get; set; }
         
         /// <summary>
         /// Gets or Sets BackgroundImage
         /// </summary>
-        [DataMember(Name = "backgroundImage", EmitDefaultValue = false)]
+        [DataMember(Name = "backgroundImage", EmitDefaultValue = true)]
         public string BackgroundImage { get; private set; }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Favicon
         /// </summary>
-        [DataMember(Name = "favicon", EmitDefaultValue = false)]
+        [DataMember(Name = "favicon", EmitDefaultValue = true)]
         public string Favicon { get; private set; }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Logo
         /// </summary>
-        [DataMember(Name = "logo", EmitDefaultValue = false)]
+        [DataMember(Name = "logo", EmitDefaultValue = true)]
         public string Logo { get; private set; }
 
         /// <summary>
@@ -128,31 +128,31 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets PrimaryColorContrastHex
         /// </summary>
-        [DataMember(Name = "primaryColorContrastHex", EmitDefaultValue = false)]
+        [DataMember(Name = "primaryColorContrastHex", EmitDefaultValue = true)]
         public string PrimaryColorContrastHex { get; set; }
 
         /// <summary>
         /// Gets or Sets PrimaryColorHex
         /// </summary>
-        [DataMember(Name = "primaryColorHex", EmitDefaultValue = false)]
+        [DataMember(Name = "primaryColorHex", EmitDefaultValue = true)]
         public string PrimaryColorHex { get; set; }
 
         /// <summary>
         /// Gets or Sets SecondaryColorContrastHex
         /// </summary>
-        [DataMember(Name = "secondaryColorContrastHex", EmitDefaultValue = false)]
+        [DataMember(Name = "secondaryColorContrastHex", EmitDefaultValue = true)]
         public string SecondaryColorContrastHex { get; set; }
 
         /// <summary>
         /// Gets or Sets SecondaryColorHex
         /// </summary>
-        [DataMember(Name = "secondaryColorHex", EmitDefaultValue = false)]
+        [DataMember(Name = "secondaryColorHex", EmitDefaultValue = true)]
         public string SecondaryColorHex { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets KeyProtection
         /// </summary>
-        [DataMember(Name = "keyProtection", EmitDefaultValue = false)]
+        [DataMember(Name = "keyProtection", EmitDefaultValue = true)]
         public string KeyProtection { get; set; }
 
         /// <summary>
         /// Gets or Sets Algorithms
         /// </summary>
-        [DataMember(Name = "algorithms", EmitDefaultValue = false)]
+        [DataMember(Name = "algorithms", EmitDefaultValue = true)]
         public List<AuthenticatorMethodAlgorithm> Algorithms { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionTypes
         /// </summary>
-        [DataMember(Name = "transactionTypes", EmitDefaultValue = false)]
+        [DataMember(Name = "transactionTypes", EmitDefaultValue = true)]
         public List<AuthenticatorMethodTransactionType> TransactionTypes { get; set; }
 
         /// <summary>

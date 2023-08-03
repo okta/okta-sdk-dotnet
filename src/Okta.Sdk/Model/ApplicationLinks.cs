@@ -37,49 +37,49 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AccessPolicy
         /// </summary>
-        [DataMember(Name = "accessPolicy", EmitDefaultValue = false)]
+        [DataMember(Name = "accessPolicy", EmitDefaultValue = true)]
         public HrefObject AccessPolicy { get; set; }
 
         /// <summary>
         /// Gets or Sets Activate
         /// </summary>
-        [DataMember(Name = "activate", EmitDefaultValue = false)]
+        [DataMember(Name = "activate", EmitDefaultValue = true)]
         public HrefObjectActivateLink Activate { get; set; }
 
         /// <summary>
         /// Gets or Sets Deactivate
         /// </summary>
-        [DataMember(Name = "deactivate", EmitDefaultValue = false)]
+        [DataMember(Name = "deactivate", EmitDefaultValue = true)]
         public HrefObjectDeactivateLink Deactivate { get; set; }
 
         /// <summary>
         /// Gets or Sets Groups
         /// </summary>
-        [DataMember(Name = "groups", EmitDefaultValue = false)]
+        [DataMember(Name = "groups", EmitDefaultValue = true)]
         public HrefObject Groups { get; set; }
 
         /// <summary>
         /// Gets or Sets Logo
         /// </summary>
-        [DataMember(Name = "logo", EmitDefaultValue = false)]
+        [DataMember(Name = "logo", EmitDefaultValue = true)]
         public List<HrefObject> Logo { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
         /// </summary>
-        [DataMember(Name = "metadata", EmitDefaultValue = false)]
+        [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public HrefObject Metadata { get; set; }
 
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
-        [DataMember(Name = "self", EmitDefaultValue = false)]
+        [DataMember(Name = "self", EmitDefaultValue = true)]
         public HrefObjectSelfLink Self { get; set; }
 
         /// <summary>
         /// Gets or Sets Users
         /// </summary>
-        [DataMember(Name = "users", EmitDefaultValue = false)]
+        [DataMember(Name = "users", EmitDefaultValue = true)]
         public HrefObject Users { get; set; }
 
         /// <summary>

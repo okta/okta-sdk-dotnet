@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Granularity
         /// </summary>
-        [DataMember(Name = "granularity", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "granularity", EmitDefaultValue = true)]
         
         public LocationGranularity Granularity { get; set; }
         /// <summary>
@@ -49,20 +49,20 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets MaxEventsUsedForEvaluation
         /// </summary>
-        [DataMember(Name = "maxEventsUsedForEvaluation", EmitDefaultValue = false)]
+        [DataMember(Name = "maxEventsUsedForEvaluation", EmitDefaultValue = true)]
         public int MaxEventsUsedForEvaluation { get; set; }
 
         /// <summary>
         /// Gets or Sets MinEventsNeededForEvaluation
         /// </summary>
-        [DataMember(Name = "minEventsNeededForEvaluation", EmitDefaultValue = false)]
+        [DataMember(Name = "minEventsNeededForEvaluation", EmitDefaultValue = true)]
         public int MinEventsNeededForEvaluation { get; set; }
 
         /// <summary>
         /// Required when &#x60;granularity&#x60; is &#x60;LAT_LONG&#x60;. Radius from the provided coordinates in kilometers.
         /// </summary>
         /// <value>Required when &#x60;granularity&#x60; is &#x60;LAT_LONG&#x60;. Radius from the provided coordinates in kilometers.</value>
-        [DataMember(Name = "radiusKilometers", EmitDefaultValue = false)]
+        [DataMember(Name = "radiusKilometers", EmitDefaultValue = true)]
         public int RadiusKilometers { get; set; }
 
         /// <summary>

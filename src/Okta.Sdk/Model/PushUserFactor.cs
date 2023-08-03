@@ -52,20 +52,20 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets FactorResult
         /// </summary>
-        [DataMember(Name = "factorResult", EmitDefaultValue = false)]
+        [DataMember(Name = "factorResult", EmitDefaultValue = true)]
         
         public FactorResultType FactorResult { get; set; }
         
         /// <summary>
         /// Gets or Sets ExpiresAt
         /// </summary>
-        [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
+        [DataMember(Name = "expiresAt", EmitDefaultValue = true)]
         public DateTimeOffset ExpiresAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
-        [DataMember(Name = "profile", EmitDefaultValue = false)]
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
         public PushUserFactorProfile Profile { get; set; }
 
         /// <summary>

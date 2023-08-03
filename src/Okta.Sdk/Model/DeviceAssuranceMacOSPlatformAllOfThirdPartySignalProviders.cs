@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Dtc
         /// </summary>
-        [DataMember(Name = "dtc", EmitDefaultValue = false)]
+        [DataMember(Name = "dtc", EmitDefaultValue = true)]
         public DTCMacOS Dtc { get; set; }
 
         /// <summary>

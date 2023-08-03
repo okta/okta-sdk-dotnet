@@ -37,97 +37,97 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Alg
         /// </summary>
-        [DataMember(Name = "alg", EmitDefaultValue = false)]
+        [DataMember(Name = "alg", EmitDefaultValue = true)]
         public string Alg { get; set; }
 
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; set; }
 
         /// <summary>
         /// Gets or Sets E
         /// </summary>
-        [DataMember(Name = "e", EmitDefaultValue = false)]
+        [DataMember(Name = "e", EmitDefaultValue = true)]
         public string E { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpiresAt
         /// </summary>
-        [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
+        [DataMember(Name = "expiresAt", EmitDefaultValue = true)]
         public DateTimeOffset ExpiresAt { get; set; }
 
         /// <summary>
         /// Gets or Sets KeyOps
         /// </summary>
-        [DataMember(Name = "key_ops", EmitDefaultValue = false)]
+        [DataMember(Name = "key_ops", EmitDefaultValue = true)]
         public List<string> KeyOps { get; set; }
 
         /// <summary>
         /// Gets or Sets Kid
         /// </summary>
-        [DataMember(Name = "kid", EmitDefaultValue = false)]
+        [DataMember(Name = "kid", EmitDefaultValue = true)]
         public string Kid { get; set; }
 
         /// <summary>
         /// Gets or Sets Kty
         /// </summary>
-        [DataMember(Name = "kty", EmitDefaultValue = false)]
+        [DataMember(Name = "kty", EmitDefaultValue = true)]
         public string Kty { get; set; }
 
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; set; }
 
         /// <summary>
         /// Gets or Sets N
         /// </summary>
-        [DataMember(Name = "n", EmitDefaultValue = false)]
+        [DataMember(Name = "n", EmitDefaultValue = true)]
         public string N { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         public string Status { get; set; }
 
         /// <summary>
         /// Gets or Sets Use
         /// </summary>
-        [DataMember(Name = "use", EmitDefaultValue = false)]
+        [DataMember(Name = "use", EmitDefaultValue = true)]
         public string Use { get; set; }
 
         /// <summary>
         /// Gets or Sets X5c
         /// </summary>
-        [DataMember(Name = "x5c", EmitDefaultValue = false)]
+        [DataMember(Name = "x5c", EmitDefaultValue = true)]
         public List<string> X5c { get; set; }
 
         /// <summary>
         /// Gets or Sets X5t
         /// </summary>
-        [DataMember(Name = "x5t", EmitDefaultValue = false)]
+        [DataMember(Name = "x5t", EmitDefaultValue = true)]
         public string X5t { get; set; }
 
         /// <summary>
         /// Gets or Sets X5tS256
         /// </summary>
-        [DataMember(Name = "x5t#S256", EmitDefaultValue = false)]
+        [DataMember(Name = "x5t#S256", EmitDefaultValue = true)]
         public string X5tS256 { get; set; }
 
         /// <summary>
         /// Gets or Sets X5u
         /// </summary>
-        [DataMember(Name = "x5u", EmitDefaultValue = false)]
+        [DataMember(Name = "x5u", EmitDefaultValue = true)]
         public string X5u { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

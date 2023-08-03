@@ -72,7 +72,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ProgressiveProfilingAction
         /// </summary>
-        [DataMember(Name = "progressiveProfilingAction", EmitDefaultValue = false)]
+        [DataMember(Name = "progressiveProfilingAction", EmitDefaultValue = true)]
         
         public ProgressiveProfilingActionEnum ProgressiveProfilingAction { get; set; }
         /// <summary>
@@ -114,38 +114,38 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets UnknownUserAction
         /// </summary>
-        [DataMember(Name = "unknownUserAction", EmitDefaultValue = false)]
+        [DataMember(Name = "unknownUserAction", EmitDefaultValue = true)]
         
         public UnknownUserActionEnum UnknownUserAction { get; set; }
         
         /// <summary>
         /// Gets or Sets Access
         /// </summary>
-        [DataMember(Name = "access", EmitDefaultValue = false)]
+        [DataMember(Name = "access", EmitDefaultValue = true)]
         public string Access { get; set; }
 
         /// <summary>
         /// Gets or Sets ActivationRequirements
         /// </summary>
-        [DataMember(Name = "activationRequirements", EmitDefaultValue = false)]
+        [DataMember(Name = "activationRequirements", EmitDefaultValue = true)]
         public ProfileEnrollmentPolicyRuleActivationRequirement ActivationRequirements { get; set; }
 
         /// <summary>
         /// Gets or Sets PreRegistrationInlineHooks
         /// </summary>
-        [DataMember(Name = "preRegistrationInlineHooks", EmitDefaultValue = false)]
+        [DataMember(Name = "preRegistrationInlineHooks", EmitDefaultValue = true)]
         public List<PreRegistrationInlineHook> PreRegistrationInlineHooks { get; set; }
 
         /// <summary>
         /// Gets or Sets ProfileAttributes
         /// </summary>
-        [DataMember(Name = "profileAttributes", EmitDefaultValue = false)]
+        [DataMember(Name = "profileAttributes", EmitDefaultValue = true)]
         public List<ProfileEnrollmentPolicyRuleProfileAttribute> ProfileAttributes { get; set; }
 
         /// <summary>
         /// Gets or Sets TargetGroupIds
         /// </summary>
-        [DataMember(Name = "targetGroupIds", EmitDefaultValue = false)]
+        [DataMember(Name = "targetGroupIds", EmitDefaultValue = true)]
         public List<string> TargetGroupIds { get; set; }
 
         /// <summary>

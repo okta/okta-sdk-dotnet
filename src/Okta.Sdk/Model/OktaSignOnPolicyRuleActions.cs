@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Signon
         /// </summary>
-        [DataMember(Name = "signon", EmitDefaultValue = false)]
+        [DataMember(Name = "signon", EmitDefaultValue = true)]
         public OktaSignOnPolicyRuleSignonActions Signon { get; set; }
 
         /// <summary>

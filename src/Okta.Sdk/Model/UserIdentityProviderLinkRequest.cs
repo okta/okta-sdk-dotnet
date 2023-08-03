@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ExternalId
         /// </summary>
-        [DataMember(Name = "externalId", EmitDefaultValue = false)]
+        [DataMember(Name = "externalId", EmitDefaultValue = true)]
         public string ExternalId { get; set; }
 
         /// <summary>

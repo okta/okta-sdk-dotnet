@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Create
         /// </summary>
-        [DataMember(Name = "create", EmitDefaultValue = false)]
+        [DataMember(Name = "create", EmitDefaultValue = true)]
         public CapabilitiesCreateObject Create { get; set; }
 
         /// <summary>
         /// Gets or Sets Update
         /// </summary>
-        [DataMember(Name = "update", EmitDefaultValue = false)]
+        [DataMember(Name = "update", EmitDefaultValue = true)]
         public CapabilitiesUpdateObject Update { get; set; }
 
         /// <summary>

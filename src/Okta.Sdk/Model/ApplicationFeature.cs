@@ -68,7 +68,7 @@ namespace Okta.Sdk.Model
         /// Identifying name of the feature
         /// </summary>
         /// <value>Identifying name of the feature</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         
         public NameEnum Name { get; set; }
 
@@ -91,14 +91,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Capabilities
         /// </summary>
-        [DataMember(Name = "capabilities", EmitDefaultValue = false)]
+        [DataMember(Name = "capabilities", EmitDefaultValue = true)]
         public ApplicationFeatureCapabilities Capabilities { get; set; }
 
         /// <summary>
         /// Description of the feature
         /// </summary>
         /// <value>Description of the feature</value>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; private set; }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public ApplicationFeatureLinks Links { get; set; }
 
         /// <summary>

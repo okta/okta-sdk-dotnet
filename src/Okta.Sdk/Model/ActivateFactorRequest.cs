@@ -37,31 +37,31 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Attestation
         /// </summary>
-        [DataMember(Name = "attestation", EmitDefaultValue = false)]
+        [DataMember(Name = "attestation", EmitDefaultValue = true)]
         public string Attestation { get; set; }
 
         /// <summary>
         /// Gets or Sets ClientData
         /// </summary>
-        [DataMember(Name = "clientData", EmitDefaultValue = false)]
+        [DataMember(Name = "clientData", EmitDefaultValue = true)]
         public string ClientData { get; set; }
 
         /// <summary>
         /// Gets or Sets PassCode
         /// </summary>
-        [DataMember(Name = "passCode", EmitDefaultValue = false)]
+        [DataMember(Name = "passCode", EmitDefaultValue = true)]
         public string PassCode { get; set; }
 
         /// <summary>
         /// Gets or Sets RegistrationData
         /// </summary>
-        [DataMember(Name = "registrationData", EmitDefaultValue = false)]
+        [DataMember(Name = "registrationData", EmitDefaultValue = true)]
         public string RegistrationData { get; set; }
 
         /// <summary>
         /// Gets or Sets StateToken
         /// </summary>
-        [DataMember(Name = "stateToken", EmitDefaultValue = false)]
+        [DataMember(Name = "stateToken", EmitDefaultValue = true)]
         public string StateToken { get; set; }
 
         /// <summary>

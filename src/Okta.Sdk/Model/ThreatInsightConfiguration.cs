@@ -80,7 +80,7 @@ namespace Okta.Sdk.Model
         /// Specifies how Okta responds to authentication requests from suspicious IP addresses
         /// </summary>
         /// <value>Specifies how Okta responds to authentication requests from suspicious IP addresses</value>
-        [DataMember(Name = "action", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "action", EmitDefaultValue = true)]
         
         public ActionEnum Action { get; set; }
         /// <summary>
@@ -93,7 +93,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the ThreatInsight Configuration object was created
         /// </summary>
         /// <value>Timestamp when the ThreatInsight Configuration object was created</value>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -108,14 +108,14 @@ namespace Okta.Sdk.Model
         /// Accepts a list of [Network Zone](/openapi/okta-management/management/tag/NetworkZone/) IDs. IPs in the excluded network zones aren&#39;t logged or blocked. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked.
         /// </summary>
         /// <value>Accepts a list of [Network Zone](/openapi/okta-management/management/tag/NetworkZone/) IDs. IPs in the excluded network zones aren&#39;t logged or blocked. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked.</value>
-        [DataMember(Name = "excludeZones", EmitDefaultValue = false)]
+        [DataMember(Name = "excludeZones", EmitDefaultValue = true)]
         public List<string> ExcludeZones { get; set; }
 
         /// <summary>
         /// Timestamp when the ThreatInsight Configuration object was last updated
         /// </summary>
         /// <value>Timestamp when the ThreatInsight Configuration object was last updated</value>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

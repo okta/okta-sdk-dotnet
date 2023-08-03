@@ -37,20 +37,20 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets RecordType
         /// </summary>
-        [DataMember(Name = "recordType", EmitDefaultValue = false)]
+        [DataMember(Name = "recordType", EmitDefaultValue = true)]
         
         public EmailDomainDNSRecordType RecordType { get; set; }
         
         /// <summary>
         /// Gets or Sets Fqdn
         /// </summary>
-        [DataMember(Name = "fqdn", EmitDefaultValue = false)]
+        [DataMember(Name = "fqdn", EmitDefaultValue = true)]
         public string Fqdn { get; set; }
 
         /// <summary>
         /// Gets or Sets VerificationValue
         /// </summary>
-        [DataMember(Name = "verificationValue", EmitDefaultValue = false)]
+        [DataMember(Name = "verificationValue", EmitDefaultValue = true)]
         public string VerificationValue { get; set; }
 
         /// <summary>

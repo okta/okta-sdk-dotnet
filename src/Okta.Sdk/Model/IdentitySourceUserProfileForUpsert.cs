@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Email
         /// </summary>
-        [DataMember(Name = "email", EmitDefaultValue = false)]
+        [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
@@ -67,13 +67,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets SecondEmail
         /// </summary>
-        [DataMember(Name = "secondEmail", EmitDefaultValue = false)]
+        [DataMember(Name = "secondEmail", EmitDefaultValue = true)]
         public string SecondEmail { get; set; }
 
         /// <summary>
         /// Gets or Sets UserName
         /// </summary>
-        [DataMember(Name = "userName", EmitDefaultValue = false)]
+        [DataMember(Name = "userName", EmitDefaultValue = true)]
         public string UserName { get; set; }
 
         /// <summary>

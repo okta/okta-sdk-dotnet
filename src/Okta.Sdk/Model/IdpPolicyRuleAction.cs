@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Providers
         /// </summary>
-        [DataMember(Name = "providers", EmitDefaultValue = false)]
+        [DataMember(Name = "providers", EmitDefaultValue = true)]
         public List<IdpPolicyRuleActionProvider> Providers { get; set; }
 
         /// <summary>

@@ -37,37 +37,37 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets FilterType
         /// </summary>
-        [DataMember(Name = "filterType", EmitDefaultValue = false)]
+        [DataMember(Name = "filterType", EmitDefaultValue = true)]
         public string FilterType { get; set; }
 
         /// <summary>
         /// Gets or Sets FilterValue
         /// </summary>
-        [DataMember(Name = "filterValue", EmitDefaultValue = false)]
+        [DataMember(Name = "filterValue", EmitDefaultValue = true)]
         public string FilterValue { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Namespace
         /// </summary>
-        [DataMember(Name = "namespace", EmitDefaultValue = false)]
+        [DataMember(Name = "namespace", EmitDefaultValue = true)]
         public string Namespace { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Values
         /// </summary>
-        [DataMember(Name = "values", EmitDefaultValue = false)]
+        [DataMember(Name = "values", EmitDefaultValue = true)]
         public List<string> Values { get; set; }
 
         /// <summary>

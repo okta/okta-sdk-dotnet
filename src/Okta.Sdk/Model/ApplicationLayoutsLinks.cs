@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets General
         /// </summary>
-        [DataMember(Name = "general", EmitDefaultValue = false)]
+        [DataMember(Name = "general", EmitDefaultValue = true)]
         public List<HrefObject> General { get; set; }
 
         /// <summary>
         /// Gets or Sets SignOn
         /// </summary>
-        [DataMember(Name = "signOn", EmitDefaultValue = false)]
+        [DataMember(Name = "signOn", EmitDefaultValue = true)]
         public List<HrefObject> SignOn { get; set; }
 
         /// <summary>
         /// Gets or Sets Provisioning
         /// </summary>
-        [DataMember(Name = "provisioning", EmitDefaultValue = false)]
+        [DataMember(Name = "provisioning", EmitDefaultValue = true)]
         public List<HrefObject> Provisioning { get; set; }
 
         /// <summary>

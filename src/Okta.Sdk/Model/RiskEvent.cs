@@ -43,21 +43,21 @@ namespace Okta.Sdk.Model
         /// Timestamp at which the event expires (expressed as a UTC time zone using ISO 8601 format: yyyy-MM-dd&#x60;T&#x60;HH:mm:ss.SSS&#x60;Z&#x60;). If this optional field is not included, Okta automatically expires the event 24 hours after the event is consumed.
         /// </summary>
         /// <value>Timestamp at which the event expires (expressed as a UTC time zone using ISO 8601 format: yyyy-MM-dd&#x60;T&#x60;HH:mm:ss.SSS&#x60;Z&#x60;). If this optional field is not included, Okta automatically expires the event 24 hours after the event is consumed.</value>
-        [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
+        [DataMember(Name = "expiresAt", EmitDefaultValue = true)]
         public DateTimeOffset ExpiresAt { get; set; }
 
         /// <summary>
         /// List of Risk Event Subjects
         /// </summary>
         /// <value>List of Risk Event Subjects</value>
-        [DataMember(Name = "subjects", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "subjects", EmitDefaultValue = true)]
         public List<RiskEventSubject> Subjects { get; set; }
 
         /// <summary>
         /// Timestamp of when the event is produced (expressed as a UTC time zone using ISO 8601 format: yyyy-MM-dd&#x60;T&#x60;HH:mm:ss.SSS&#x60;Z&#x60;)
         /// </summary>
         /// <value>Timestamp of when the event is produced (expressed as a UTC time zone using ISO 8601 format: yyyy-MM-dd&#x60;T&#x60;HH:mm:ss.SSS&#x60;Z&#x60;)</value>
-        [DataMember(Name = "timestamp", EmitDefaultValue = false)]
+        [DataMember(Name = "timestamp", EmitDefaultValue = true)]
         public DateTimeOffset Timestamp { get; set; }
 
         /// <summary>

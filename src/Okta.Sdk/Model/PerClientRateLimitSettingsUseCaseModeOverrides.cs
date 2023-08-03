@@ -37,21 +37,21 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LOGIN_PAGE
         /// </summary>
-        [DataMember(Name = "LOGIN_PAGE", EmitDefaultValue = false)]
+        [DataMember(Name = "LOGIN_PAGE", EmitDefaultValue = true)]
         
         public PerClientRateLimitMode LOGIN_PAGE { get; set; }
 
         /// <summary>
         /// Gets or Sets OAUTH2AUTHORIZE
         /// </summary>
-        [DataMember(Name = "OAUTH2_AUTHORIZE", EmitDefaultValue = false)]
+        [DataMember(Name = "OAUTH2_AUTHORIZE", EmitDefaultValue = true)]
         
         public PerClientRateLimitMode OAUTH2AUTHORIZE { get; set; }
 
         /// <summary>
         /// Gets or Sets OIE_APP_INTENT
         /// </summary>
-        [DataMember(Name = "OIE_APP_INTENT", EmitDefaultValue = false)]
+        [DataMember(Name = "OIE_APP_INTENT", EmitDefaultValue = true)]
         
         public PerClientRateLimitMode OIE_APP_INTENT { get; set; }
         

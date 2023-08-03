@@ -37,31 +37,31 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
-        [DataMember(Name = "self", EmitDefaultValue = false)]
+        [DataMember(Name = "self", EmitDefaultValue = true)]
         public HrefObjectSelfLink Self { get; set; }
 
         /// <summary>
         /// Gets or Sets ContentSource
         /// </summary>
-        [DataMember(Name = "contentSource", EmitDefaultValue = false)]
+        [DataMember(Name = "contentSource", EmitDefaultValue = true)]
         public HrefObject ContentSource { get; set; }
 
         /// <summary>
         /// Gets or Sets Template
         /// </summary>
-        [DataMember(Name = "template", EmitDefaultValue = false)]
+        [DataMember(Name = "template", EmitDefaultValue = true)]
         public HrefObject Template { get; set; }
 
         /// <summary>
         /// Gets or Sets Test
         /// </summary>
-        [DataMember(Name = "test", EmitDefaultValue = false)]
+        [DataMember(Name = "test", EmitDefaultValue = true)]
         public HrefObject Test { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultContent
         /// </summary>
-        [DataMember(Name = "defaultContent", EmitDefaultValue = false)]
+        [DataMember(Name = "defaultContent", EmitDefaultValue = true)]
         public HrefObject DefaultContent { get; set; }
 
         /// <summary>

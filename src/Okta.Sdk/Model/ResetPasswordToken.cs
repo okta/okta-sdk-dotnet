@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ResetPasswordUrl
         /// </summary>
-        [DataMember(Name = "resetPasswordUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "resetPasswordUrl", EmitDefaultValue = true)]
         public string ResetPasswordUrl { get; private set; }
 
         /// <summary>

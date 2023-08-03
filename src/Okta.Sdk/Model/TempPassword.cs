@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets _TempPassword
         /// </summary>
-        [DataMember(Name = "tempPassword", EmitDefaultValue = false)]
+        [DataMember(Name = "tempPassword", EmitDefaultValue = true)]
         public string _TempPassword { get; private set; }
 
         /// <summary>

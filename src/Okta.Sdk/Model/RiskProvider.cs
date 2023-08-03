@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Action
         /// </summary>
-        [DataMember(Name = "action", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "action", EmitDefaultValue = true)]
         
         public RiskProviderAction Action { get; set; }
         /// <summary>
@@ -50,14 +50,14 @@ namespace Okta.Sdk.Model
         /// The ID of the [OAuth service app](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-service-app-and-grant-scopes) that is used to send risk events to Okta
         /// </summary>
         /// <value>The ID of the [OAuth service app](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-service-app-and-grant-scopes) that is used to send risk events to Okta</value>
-        [DataMember(Name = "clientId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "clientId", EmitDefaultValue = true)]
         public string ClientId { get; set; }
 
         /// <summary>
         /// Timestamp when the Risk Provider object was created
         /// </summary>
         /// <value>Timestamp when the Risk Provider object was created</value>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Okta.Sdk.Model
         /// The ID of the Risk Provider object
         /// </summary>
         /// <value>The ID of the Risk Provider object</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the Risk Provider object was last updated
         /// </summary>
         /// <value>Timestamp when the Risk Provider object was last updated</value>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -102,13 +102,13 @@ namespace Okta.Sdk.Model
         /// Name of the risk provider
         /// </summary>
         /// <value>Name of the risk provider</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

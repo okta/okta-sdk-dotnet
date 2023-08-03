@@ -38,20 +38,20 @@ namespace Okta.Sdk.Model
         /// The unique key of the associated CAPTCHA instance
         /// </summary>
         /// <value>The unique key of the associated CAPTCHA instance</value>
-        [DataMember(Name = "captchaId", EmitDefaultValue = false)]
+        [DataMember(Name = "captchaId", EmitDefaultValue = true)]
         public string CaptchaId { get; set; }
 
         /// <summary>
         /// An array of pages that have CAPTCHA enabled
         /// </summary>
         /// <value>An array of pages that have CAPTCHA enabled</value>
-        [DataMember(Name = "enabledPages", EmitDefaultValue = false)]
+        [DataMember(Name = "enabledPages", EmitDefaultValue = true)]
         public List<EnabledPagesType> EnabledPages { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public OrgCAPTCHASettingsLinks Links { get; set; }
 
         /// <summary>

@@ -37,20 +37,20 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public PolicyPlatformOperatingSystemType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Expression
         /// </summary>
-        [DataMember(Name = "expression", EmitDefaultValue = false)]
+        [DataMember(Name = "expression", EmitDefaultValue = true)]
         public string Expression { get; set; }
 
         /// <summary>
         /// Gets or Sets _Version
         /// </summary>
-        [DataMember(Name = "version", EmitDefaultValue = false)]
+        [DataMember(Name = "version", EmitDefaultValue = true)]
         public PlatformConditionEvaluatorPlatformOperatingSystemVersion _Version { get; set; }
 
         /// <summary>

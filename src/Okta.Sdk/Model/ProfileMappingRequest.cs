@@ -42,7 +42,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Properties
         /// </summary>
-        [DataMember(Name = "properties", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, ProfileMappingProperty> Properties { get; set; }
 
         /// <summary>

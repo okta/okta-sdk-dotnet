@@ -43,13 +43,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Issuer
         /// </summary>
-        [DataMember(Name = "issuer", EmitDefaultValue = false)]
+        [DataMember(Name = "issuer", EmitDefaultValue = true)]
         public string Issuer { get; set; }
 
         /// <summary>
         /// Gets or Sets LogoutUrl
         /// </summary>
-        [DataMember(Name = "logoutUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "logoutUrl", EmitDefaultValue = true)]
         public string LogoutUrl { get; set; }
 
         /// <summary>

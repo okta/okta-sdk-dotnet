@@ -37,32 +37,32 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Revocation
         /// </summary>
-        [DataMember(Name = "revocation", EmitDefaultValue = false)]
+        [DataMember(Name = "revocation", EmitDefaultValue = true)]
         
         public IdentityProviderCredentialsTrustRevocation Revocation { get; set; }
         
         /// <summary>
         /// Gets or Sets Audience
         /// </summary>
-        [DataMember(Name = "audience", EmitDefaultValue = false)]
+        [DataMember(Name = "audience", EmitDefaultValue = true)]
         public string Audience { get; set; }
 
         /// <summary>
         /// Gets or Sets Issuer
         /// </summary>
-        [DataMember(Name = "issuer", EmitDefaultValue = false)]
+        [DataMember(Name = "issuer", EmitDefaultValue = true)]
         public string Issuer { get; set; }
 
         /// <summary>
         /// Gets or Sets Kid
         /// </summary>
-        [DataMember(Name = "kid", EmitDefaultValue = false)]
+        [DataMember(Name = "kid", EmitDefaultValue = true)]
         public string Kid { get; set; }
 
         /// <summary>
         /// Gets or Sets RevocationCacheLifetime
         /// </summary>
-        [DataMember(Name = "revocationCacheLifetime", EmitDefaultValue = false)]
+        [DataMember(Name = "revocationCacheLifetime", EmitDefaultValue = true)]
         public int RevocationCacheLifetime { get; set; }
 
         /// <summary>

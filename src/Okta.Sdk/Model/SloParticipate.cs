@@ -74,7 +74,7 @@ namespace Okta.Sdk.Model
         /// Request binding type
         /// </summary>
         /// <value>Request binding type</value>
-        [DataMember(Name = "bindingType", EmitDefaultValue = false)]
+        [DataMember(Name = "bindingType", EmitDefaultValue = true)]
         
         public BindingTypeEnum BindingType { get; set; }
         
@@ -89,7 +89,7 @@ namespace Okta.Sdk.Model
         /// URL where Okta sends the logout request.
         /// </summary>
         /// <value>URL where Okta sends the logout request.</value>
-        [DataMember(Name = "logoutRequestUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "logoutRequestUrl", EmitDefaultValue = true)]
         public string LogoutRequestUrl { get; set; }
 
         /// <summary>

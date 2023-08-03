@@ -43,21 +43,21 @@ namespace Okta.Sdk.Model
         /// The email&#39;s HTML body. May contain [variable references](https://velocity.apache.org/engine/1.7/user-guide.html#references).
         /// </summary>
         /// <value>The email&#39;s HTML body. May contain [variable references](https://velocity.apache.org/engine/1.7/user-guide.html#references).</value>
-        [DataMember(Name = "body", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "body", EmitDefaultValue = true)]
         public string Body { get; set; }
 
         /// <summary>
         /// The email&#39;s subject. May contain [variable references](https://velocity.apache.org/engine/1.7/user-guide.html#references).
         /// </summary>
         /// <value>The email&#39;s subject. May contain [variable references](https://velocity.apache.org/engine/1.7/user-guide.html#references).</value>
-        [DataMember(Name = "subject", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
 
         /// <summary>
         /// The UTC time at which this email customization was created.
         /// </summary>
         /// <value>The UTC time at which this email customization was created.</value>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Okta.Sdk.Model
         /// A unique identifier for this email customization
         /// </summary>
         /// <value>A unique identifier for this email customization</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -94,14 +94,14 @@ namespace Okta.Sdk.Model
         /// The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646)
         /// </summary>
         /// <value>The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646)</value>
-        [DataMember(Name = "language", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "language", EmitDefaultValue = true)]
         public string Language { get; set; }
 
         /// <summary>
         /// The UTC time at which this email customization was last updated.
         /// </summary>
         /// <value>The UTC time at which this email customization was last updated.</value>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>

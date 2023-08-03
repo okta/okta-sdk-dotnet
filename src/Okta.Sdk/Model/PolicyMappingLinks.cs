@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
-        [DataMember(Name = "self", EmitDefaultValue = false)]
+        [DataMember(Name = "self", EmitDefaultValue = true)]
         public HrefObjectSelfLink Self { get; set; }
 
         /// <summary>
         /// Gets or Sets Application
         /// </summary>
-        [DataMember(Name = "application", EmitDefaultValue = false)]
+        [DataMember(Name = "application", EmitDefaultValue = true)]
         public PolicyMappingLinksAllOfApplication Application { get; set; }
 
         /// <summary>

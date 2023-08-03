@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Age
         /// </summary>
-        [DataMember(Name = "age", EmitDefaultValue = false)]
+        [DataMember(Name = "age", EmitDefaultValue = true)]
         public PasswordPolicyPasswordSettingsAge Age { get; set; }
 
         /// <summary>
         /// Gets or Sets Complexity
         /// </summary>
-        [DataMember(Name = "complexity", EmitDefaultValue = false)]
+        [DataMember(Name = "complexity", EmitDefaultValue = true)]
         public PasswordPolicyPasswordSettingsComplexity Complexity { get; set; }
 
         /// <summary>
         /// Gets or Sets Lockout
         /// </summary>
-        [DataMember(Name = "lockout", EmitDefaultValue = false)]
+        [DataMember(Name = "lockout", EmitDefaultValue = true)]
         public PasswordPolicyPasswordSettingsLockout Lockout { get; set; }
 
         /// <summary>

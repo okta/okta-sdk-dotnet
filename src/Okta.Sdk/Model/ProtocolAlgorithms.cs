@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Request
         /// </summary>
-        [DataMember(Name = "request", EmitDefaultValue = false)]
+        [DataMember(Name = "request", EmitDefaultValue = true)]
         public ProtocolAlgorithmType Request { get; set; }
 
         /// <summary>
         /// Gets or Sets Response
         /// </summary>
-        [DataMember(Name = "response", EmitDefaultValue = false)]
+        [DataMember(Name = "response", EmitDefaultValue = true)]
         public ProtocolAlgorithmType Response { get; set; }
 
         /// <summary>

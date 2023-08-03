@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// A name to identify this configuration
         /// </summary>
         /// <value>A name to identify this configuration</value>
-        [DataMember(Name = "alias", EmitDefaultValue = false)]
+        [DataMember(Name = "alias", EmitDefaultValue = true)]
         public string Alias { get; set; }
 
         /// <summary>
@@ -52,21 +52,21 @@ namespace Okta.Sdk.Model
         /// The address of the SMTP Server
         /// </summary>
         /// <value>The address of the SMTP Server</value>
-        [DataMember(Name = "host", EmitDefaultValue = false)]
+        [DataMember(Name = "host", EmitDefaultValue = true)]
         public string Host { get; set; }
 
         /// <summary>
         /// The port number of the SMTP Server
         /// </summary>
         /// <value>The port number of the SMTP Server</value>
-        [DataMember(Name = "port", EmitDefaultValue = false)]
+        [DataMember(Name = "port", EmitDefaultValue = true)]
         public int Port { get; set; }
 
         /// <summary>
         /// The username to use with your SMTP Server
         /// </summary>
         /// <value>The username to use with your SMTP Server</value>
-        [DataMember(Name = "username", EmitDefaultValue = false)]
+        [DataMember(Name = "username", EmitDefaultValue = true)]
         public string Username { get; set; }
 
         /// <summary>

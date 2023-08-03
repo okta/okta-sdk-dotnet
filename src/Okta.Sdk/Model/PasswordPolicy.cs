@@ -45,13 +45,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Conditions
         /// </summary>
-        [DataMember(Name = "conditions", EmitDefaultValue = false)]
+        [DataMember(Name = "conditions", EmitDefaultValue = true)]
         public PasswordPolicyConditions Conditions { get; set; }
 
         /// <summary>
         /// Gets or Sets Settings
         /// </summary>
-        [DataMember(Name = "settings", EmitDefaultValue = false)]
+        [DataMember(Name = "settings", EmitDefaultValue = true)]
         public PasswordPolicySettings Settings { get; set; }
 
         /// <summary>

@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Next
         /// </summary>
-        [DataMember(Name = "next", EmitDefaultValue = false)]
+        [DataMember(Name = "next", EmitDefaultValue = true)]
         public HrefObject Next { get; set; }
 
         /// <summary>
         /// Gets or Sets ResourceSet
         /// </summary>
-        [DataMember(Name = "resource-set", EmitDefaultValue = false)]
+        [DataMember(Name = "resource-set", EmitDefaultValue = true)]
         public HrefObject ResourceSet { get; set; }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AuthScheme
         /// </summary>
-        [DataMember(Name = "authScheme", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
         
         public ProvisioningConnectionAuthSchemeRequest AuthScheme { get; set; }
         /// <summary>
@@ -50,7 +50,7 @@ namespace Okta.Sdk.Model
         /// Token used to authenticate with the app
         /// </summary>
         /// <value>Token used to authenticate with the app</value>
-        [DataMember(Name = "token", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
 
         /// <summary>

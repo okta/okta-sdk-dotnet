@@ -42,25 +42,25 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets BrandId
         /// </summary>
-        [DataMember(Name = "brandId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "brandId", EmitDefaultValue = true)]
         public string BrandId { get; set; }
 
         /// <summary>
         /// Gets or Sets Domain
         /// </summary>
-        [DataMember(Name = "domain", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "domain", EmitDefaultValue = true)]
         public string Domain { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets UserName
         /// </summary>
-        [DataMember(Name = "userName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "userName", EmitDefaultValue = true)]
         public string UserName { get; set; }
 
         /// <summary>

@@ -37,20 +37,20 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Credentials
         /// </summary>
-        [DataMember(Name = "credentials", EmitDefaultValue = false)]
+        [DataMember(Name = "credentials", EmitDefaultValue = true)]
         public UserCredentials Credentials { get; set; }
 
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
-        [DataMember(Name = "profile", EmitDefaultValue = false)]
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
         public UserProfile Profile { get; set; }
 
         /// <summary>
         /// The ID of the realm in which the user is residing
         /// </summary>
         /// <value>The ID of the realm in which the user is residing</value>
-        [DataMember(Name = "realmId", EmitDefaultValue = false)]
+        [DataMember(Name = "realmId", EmitDefaultValue = true)]
         public string RealmId { get; set; }
 
         /// <summary>

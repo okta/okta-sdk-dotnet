@@ -37,28 +37,28 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets ApplicationType
         /// </summary>
-        [DataMember(Name = "application_type", EmitDefaultValue = false)]
+        [DataMember(Name = "application_type", EmitDefaultValue = true)]
         
         public OpenIdConnectApplicationType ApplicationType { get; set; }
 
         /// <summary>
         /// Gets or Sets ConsentMethod
         /// </summary>
-        [DataMember(Name = "consent_method", EmitDefaultValue = false)]
+        [DataMember(Name = "consent_method", EmitDefaultValue = true)]
         
         public OpenIdConnectApplicationConsentMethod ConsentMethod { get; set; }
 
         /// <summary>
         /// Gets or Sets IssuerMode
         /// </summary>
-        [DataMember(Name = "issuer_mode", EmitDefaultValue = false)]
+        [DataMember(Name = "issuer_mode", EmitDefaultValue = true)]
         
         public OpenIdConnectApplicationIssuerMode IssuerMode { get; set; }
         
         /// <summary>
         /// Gets or Sets ClientUri
         /// </summary>
-        [DataMember(Name = "client_uri", EmitDefaultValue = false)]
+        [DataMember(Name = "client_uri", EmitDefaultValue = true)]
         public string ClientUri { get; set; }
 
         /// <summary>
@@ -79,44 +79,44 @@ namespace Okta.Sdk.Model
         /// URL where Okta sends the logout request.
         /// </summary>
         /// <value>URL where Okta sends the logout request.</value>
-        [DataMember(Name = "frontchannel_logout_uri", EmitDefaultValue = false)]
+        [DataMember(Name = "frontchannel_logout_uri", EmitDefaultValue = true)]
         public string FrontchannelLogoutUri { get; set; }
 
         /// <summary>
         /// Gets or Sets GrantTypes
         /// </summary>
-        [DataMember(Name = "grant_types", EmitDefaultValue = false)]
+        [DataMember(Name = "grant_types", EmitDefaultValue = true)]
         public List<OAuthGrantType> GrantTypes { get; set; }
 
         /// <summary>
         /// Gets or Sets IdpInitiatedLogin
         /// </summary>
-        [DataMember(Name = "idp_initiated_login", EmitDefaultValue = false)]
+        [DataMember(Name = "idp_initiated_login", EmitDefaultValue = true)]
         public OpenIdConnectApplicationIdpInitiatedLogin IdpInitiatedLogin { get; set; }
 
         /// <summary>
         /// Gets or Sets InitiateLoginUri
         /// </summary>
-        [DataMember(Name = "initiate_login_uri", EmitDefaultValue = false)]
+        [DataMember(Name = "initiate_login_uri", EmitDefaultValue = true)]
         public string InitiateLoginUri { get; set; }
 
         /// <summary>
         /// Gets or Sets Jwks
         /// </summary>
-        [DataMember(Name = "jwks", EmitDefaultValue = false)]
+        [DataMember(Name = "jwks", EmitDefaultValue = true)]
         public OpenIdConnectApplicationSettingsClientKeys Jwks { get; set; }
 
         /// <summary>
         /// URL string that references a JSON Web Key Set for validating JWTs presented to Okta.
         /// </summary>
         /// <value>URL string that references a JSON Web Key Set for validating JWTs presented to Okta.</value>
-        [DataMember(Name = "jwks_uri", EmitDefaultValue = false)]
+        [DataMember(Name = "jwks_uri", EmitDefaultValue = true)]
         public string JwksUri { get; set; }
 
         /// <summary>
         /// Gets or Sets LogoUri
         /// </summary>
-        [DataMember(Name = "logo_uri", EmitDefaultValue = false)]
+        [DataMember(Name = "logo_uri", EmitDefaultValue = true)]
         public string LogoUri { get; set; }
 
         /// <summary>
@@ -129,43 +129,43 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets PolicyUri
         /// </summary>
-        [DataMember(Name = "policy_uri", EmitDefaultValue = false)]
+        [DataMember(Name = "policy_uri", EmitDefaultValue = true)]
         public string PolicyUri { get; set; }
 
         /// <summary>
         /// Gets or Sets PostLogoutRedirectUris
         /// </summary>
-        [DataMember(Name = "post_logout_redirect_uris", EmitDefaultValue = false)]
+        [DataMember(Name = "post_logout_redirect_uris", EmitDefaultValue = true)]
         public List<string> PostLogoutRedirectUris { get; set; }
 
         /// <summary>
         /// Gets or Sets RedirectUris
         /// </summary>
-        [DataMember(Name = "redirect_uris", EmitDefaultValue = false)]
+        [DataMember(Name = "redirect_uris", EmitDefaultValue = true)]
         public List<string> RedirectUris { get; set; }
 
         /// <summary>
         /// Gets or Sets RefreshToken
         /// </summary>
-        [DataMember(Name = "refresh_token", EmitDefaultValue = false)]
+        [DataMember(Name = "refresh_token", EmitDefaultValue = true)]
         public OpenIdConnectApplicationSettingsRefreshToken RefreshToken { get; set; }
 
         /// <summary>
         /// Gets or Sets ResponseTypes
         /// </summary>
-        [DataMember(Name = "response_types", EmitDefaultValue = false)]
+        [DataMember(Name = "response_types", EmitDefaultValue = true)]
         public List<OAuthResponseType> ResponseTypes { get; set; }
 
         /// <summary>
         /// Gets or Sets TosUri
         /// </summary>
-        [DataMember(Name = "tos_uri", EmitDefaultValue = false)]
+        [DataMember(Name = "tos_uri", EmitDefaultValue = true)]
         public string TosUri { get; set; }
 
         /// <summary>
         /// Gets or Sets WildcardRedirect
         /// </summary>
-        [DataMember(Name = "wildcard_redirect", EmitDefaultValue = false)]
+        [DataMember(Name = "wildcard_redirect", EmitDefaultValue = true)]
         public string WildcardRedirect { get; set; }
 
         /// <summary>

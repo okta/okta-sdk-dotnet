@@ -43,7 +43,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public LogStreamType Type { get; set; }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Okta.Sdk.Model
         /// Unique name for the Log Stream object
         /// </summary>
         /// <value>Unique name for the Log Stream object</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>

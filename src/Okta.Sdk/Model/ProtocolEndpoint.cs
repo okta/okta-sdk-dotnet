@@ -37,27 +37,27 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Binding
         /// </summary>
-        [DataMember(Name = "binding", EmitDefaultValue = false)]
+        [DataMember(Name = "binding", EmitDefaultValue = true)]
         
         public ProtocolEndpointBinding Binding { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public ProtocolEndpointType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Destination
         /// </summary>
-        [DataMember(Name = "destination", EmitDefaultValue = false)]
+        [DataMember(Name = "destination", EmitDefaultValue = true)]
         public string Destination { get; set; }
 
         /// <summary>
         /// Gets or Sets Url
         /// </summary>
-        [DataMember(Name = "url", EmitDefaultValue = false)]
+        [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>

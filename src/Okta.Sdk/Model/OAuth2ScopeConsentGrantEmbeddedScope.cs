@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// The name of the Okta scope for which consent is granted
         /// </summary>
         /// <value>The name of the Okta scope for which consent is granted</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>

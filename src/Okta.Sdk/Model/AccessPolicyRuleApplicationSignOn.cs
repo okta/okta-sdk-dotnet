@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Access
         /// </summary>
-        [DataMember(Name = "access", EmitDefaultValue = false)]
+        [DataMember(Name = "access", EmitDefaultValue = true)]
         public string Access { get; set; }
 
         /// <summary>
         /// Gets or Sets VerificationMethod
         /// </summary>
-        [DataMember(Name = "verificationMethod", EmitDefaultValue = false)]
+        [DataMember(Name = "verificationMethod", EmitDefaultValue = true)]
         public VerificationMethod VerificationMethod { get; set; }
 
         /// <summary>

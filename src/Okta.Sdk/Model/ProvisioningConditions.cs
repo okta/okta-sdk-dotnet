@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Deprovisioned
         /// </summary>
-        [DataMember(Name = "deprovisioned", EmitDefaultValue = false)]
+        [DataMember(Name = "deprovisioned", EmitDefaultValue = true)]
         public ProvisioningDeprovisionedCondition Deprovisioned { get; set; }
 
         /// <summary>
         /// Gets or Sets Suspended
         /// </summary>
-        [DataMember(Name = "suspended", EmitDefaultValue = false)]
+        [DataMember(Name = "suspended", EmitDefaultValue = true)]
         public ProvisioningSuspendedCondition Suspended { get; set; }
 
         /// <summary>

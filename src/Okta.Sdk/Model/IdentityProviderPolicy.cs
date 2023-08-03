@@ -45,13 +45,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AccountLink
         /// </summary>
-        [DataMember(Name = "accountLink", EmitDefaultValue = false)]
+        [DataMember(Name = "accountLink", EmitDefaultValue = true)]
         public PolicyAccountLink AccountLink { get; set; }
 
         /// <summary>
         /// Gets or Sets Conditions
         /// </summary>
-        [DataMember(Name = "conditions", EmitDefaultValue = false)]
+        [DataMember(Name = "conditions", EmitDefaultValue = true)]
         public PolicyRuleConditions Conditions { get; set; }
 
         /// <summary>
@@ -64,19 +64,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets MaxClockSkew
         /// </summary>
-        [DataMember(Name = "maxClockSkew", EmitDefaultValue = false)]
+        [DataMember(Name = "maxClockSkew", EmitDefaultValue = true)]
         public int MaxClockSkew { get; set; }
 
         /// <summary>
         /// Gets or Sets Provisioning
         /// </summary>
-        [DataMember(Name = "provisioning", EmitDefaultValue = false)]
+        [DataMember(Name = "provisioning", EmitDefaultValue = true)]
         public Provisioning Provisioning { get; set; }
 
         /// <summary>
         /// Gets or Sets Subject
         /// </summary>
-        [DataMember(Name = "subject", EmitDefaultValue = false)]
+        [DataMember(Name = "subject", EmitDefaultValue = true)]
         public PolicySubject Subject { get; set; }
 
         /// <summary>

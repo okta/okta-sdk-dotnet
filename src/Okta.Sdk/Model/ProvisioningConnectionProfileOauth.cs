@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets AuthScheme
         /// </summary>
-        [DataMember(Name = "authScheme", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
         
         public ProvisioningConnectionAuthSchemeRequest AuthScheme { get; set; }
         /// <summary>
@@ -50,7 +50,7 @@ namespace Okta.Sdk.Model
         /// Unique client identifier for the OAuth 2.0 service app from the target org
         /// </summary>
         /// <value>Unique client identifier for the OAuth 2.0 service app from the target org</value>
-        [DataMember(Name = "clientId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "clientId", EmitDefaultValue = true)]
         public string ClientId { get; set; }
 
         /// <summary>

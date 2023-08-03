@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Lat
         /// </summary>
-        [DataMember(Name = "lat", EmitDefaultValue = false)]
+        [DataMember(Name = "lat", EmitDefaultValue = true)]
         public double Lat { get; private set; }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Lon
         /// </summary>
-        [DataMember(Name = "lon", EmitDefaultValue = false)]
+        [DataMember(Name = "lon", EmitDefaultValue = true)]
         public double Lon { get; private set; }
 
         /// <summary>

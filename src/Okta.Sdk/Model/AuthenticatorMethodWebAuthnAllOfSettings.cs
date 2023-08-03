@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets UserVerification
         /// </summary>
-        [DataMember(Name = "userVerification", EmitDefaultValue = false)]
+        [DataMember(Name = "userVerification", EmitDefaultValue = true)]
         
         public UserVerificationEnum UserVerification { get; set; }
 
         /// <summary>
         /// Gets or Sets Attachment
         /// </summary>
-        [DataMember(Name = "attachment", EmitDefaultValue = false)]
+        [DataMember(Name = "attachment", EmitDefaultValue = true)]
         
         public WebAuthnAttachment Attachment { get; set; }
         

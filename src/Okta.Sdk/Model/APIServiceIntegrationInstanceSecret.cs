@@ -74,7 +74,7 @@ namespace Okta.Sdk.Model
         /// Status of the API Service Integration instance Secret
         /// </summary>
         /// <value>Status of the API Service Integration instance Secret</value>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public StatusEnum Status { get; set; }
         /// <summary>
@@ -87,7 +87,7 @@ namespace Okta.Sdk.Model
         /// The OAuth 2.0 client secret string. The client secret string is returned in the response of a Secret creation request. In other responses (such as list, activate, or deactivate requests), the client secret is returned as an undisclosed hashed value.
         /// </summary>
         /// <value>The OAuth 2.0 client secret string. The client secret string is returned in the response of a Secret creation request. In other responses (such as list, activate, or deactivate requests), the client secret is returned as an undisclosed hashed value.</value>
-        [DataMember(Name = "client_secret", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "client_secret", EmitDefaultValue = true)]
         public string ClientSecret { get; private set; }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the API Service Integration instance Secret was created
         /// </summary>
         /// <value>Timestamp when the API Service Integration instance Secret was created</value>
-        [DataMember(Name = "created", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public string Created { get; private set; }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace Okta.Sdk.Model
         /// The ID of the API Service Integration instance Secret
         /// </summary>
         /// <value>The ID of the API Service Integration instance Secret</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace Okta.Sdk.Model
         /// Timestamp when the API Service Integration instance Secret was updated
         /// </summary>
         /// <value>Timestamp when the API Service Integration instance Secret was updated</value>
-        [DataMember(Name = "lastUpdated", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public string LastUpdated { get; private set; }
 
         /// <summary>
@@ -147,7 +147,7 @@ namespace Okta.Sdk.Model
         /// OAuth 2.0 client secret string hash
         /// </summary>
         /// <value>OAuth 2.0 client secret string hash</value>
-        [DataMember(Name = "secret_hash", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "secret_hash", EmitDefaultValue = true)]
         public string SecretHash { get; private set; }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public APIServiceIntegrationSecretLinks Links { get; set; }
 
         /// <summary>

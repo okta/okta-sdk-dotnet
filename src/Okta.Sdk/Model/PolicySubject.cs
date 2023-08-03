@@ -37,32 +37,32 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets MatchType
         /// </summary>
-        [DataMember(Name = "matchType", EmitDefaultValue = false)]
+        [DataMember(Name = "matchType", EmitDefaultValue = true)]
         
         public PolicySubjectMatchType MatchType { get; set; }
         
         /// <summary>
         /// Gets or Sets Filter
         /// </summary>
-        [DataMember(Name = "filter", EmitDefaultValue = false)]
+        [DataMember(Name = "filter", EmitDefaultValue = true)]
         public string Filter { get; set; }
 
         /// <summary>
         /// Gets or Sets Format
         /// </summary>
-        [DataMember(Name = "format", EmitDefaultValue = false)]
+        [DataMember(Name = "format", EmitDefaultValue = true)]
         public List<string> Format { get; set; }
 
         /// <summary>
         /// Gets or Sets MatchAttribute
         /// </summary>
-        [DataMember(Name = "matchAttribute", EmitDefaultValue = false)]
+        [DataMember(Name = "matchAttribute", EmitDefaultValue = true)]
         public string MatchAttribute { get; set; }
 
         /// <summary>
         /// Gets or Sets UserNameTemplate
         /// </summary>
-        [DataMember(Name = "userNameTemplate", EmitDefaultValue = false)]
+        [DataMember(Name = "userNameTemplate", EmitDefaultValue = true)]
         public PolicyUserNameTemplate UserNameTemplate { get; set; }
 
         /// <summary>

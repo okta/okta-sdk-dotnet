@@ -72,20 +72,20 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Mode
         /// </summary>
-        [DataMember(Name = "mode", EmitDefaultValue = false)]
+        [DataMember(Name = "mode", EmitDefaultValue = true)]
         
         public ModeEnum Mode { get; set; }
         
         /// <summary>
         /// Gets or Sets ReportUri
         /// </summary>
-        [DataMember(Name = "reportUri", EmitDefaultValue = false)]
+        [DataMember(Name = "reportUri", EmitDefaultValue = true)]
         public string ReportUri { get; set; }
 
         /// <summary>
         /// Gets or Sets SrcList
         /// </summary>
-        [DataMember(Name = "srcList", EmitDefaultValue = false)]
+        [DataMember(Name = "srcList", EmitDefaultValue = true)]
         public List<string> SrcList { get; set; }
 
         /// <summary>

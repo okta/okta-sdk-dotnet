@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public CAPTCHAType Type { get; set; }
         
@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         /// The unique key for the CAPTCHA instance
         /// </summary>
         /// <value>The unique key for the CAPTCHA instance</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -60,27 +60,27 @@ namespace Okta.Sdk.Model
         /// The name of the CAPTCHA instance
         /// </summary>
         /// <value>The name of the CAPTCHA instance</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The secret key issued from the CAPTCHA provider to perform server-side validation for a CAPTCHA token
         /// </summary>
         /// <value>The secret key issued from the CAPTCHA provider to perform server-side validation for a CAPTCHA token</value>
-        [DataMember(Name = "secretKey", EmitDefaultValue = false)]
+        [DataMember(Name = "secretKey", EmitDefaultValue = true)]
         public string SecretKey { get; set; }
 
         /// <summary>
         /// The site key issued from the CAPTCHA provider to render a CAPTCHA on a page
         /// </summary>
         /// <value>The site key issued from the CAPTCHA provider to render a CAPTCHA on a page</value>
-        [DataMember(Name = "siteKey", EmitDefaultValue = false)]
+        [DataMember(Name = "siteKey", EmitDefaultValue = true)]
         public string SiteKey { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

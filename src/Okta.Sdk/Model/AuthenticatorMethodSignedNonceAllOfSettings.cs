@@ -37,21 +37,21 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets KeyProtection
         /// </summary>
-        [DataMember(Name = "keyProtection", EmitDefaultValue = false)]
+        [DataMember(Name = "keyProtection", EmitDefaultValue = true)]
         
         public PushMethodKeyProtection KeyProtection { get; set; }
 
         /// <summary>
         /// Gets or Sets ShowSignInWithOV
         /// </summary>
-        [DataMember(Name = "showSignInWithOV", EmitDefaultValue = false)]
+        [DataMember(Name = "showSignInWithOV", EmitDefaultValue = true)]
         
         public ShowSignInWithOV ShowSignInWithOV { get; set; }
         
         /// <summary>
         /// Gets or Sets Algorithms
         /// </summary>
-        [DataMember(Name = "algorithms", EmitDefaultValue = false)]
+        [DataMember(Name = "algorithms", EmitDefaultValue = true)]
         public List<AuthenticatorMethodAlgorithm> Algorithms { get; set; }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets SharedSecret
         /// </summary>
-        [DataMember(Name = "sharedSecret", EmitDefaultValue = false)]
+        [DataMember(Name = "sharedSecret", EmitDefaultValue = true)]
         public string SharedSecret { get; set; }
 
         /// <summary>

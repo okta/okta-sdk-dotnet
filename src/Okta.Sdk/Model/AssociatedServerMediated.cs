@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// A list of the authorization server IDs
         /// </summary>
         /// <value>A list of the authorization server IDs</value>
-        [DataMember(Name = "trusted", EmitDefaultValue = false)]
+        [DataMember(Name = "trusted", EmitDefaultValue = true)]
         public List<string> Trusted { get; set; }
 
         /// <summary>

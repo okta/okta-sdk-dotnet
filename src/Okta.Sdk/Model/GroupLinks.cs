@@ -37,31 +37,31 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
-        [DataMember(Name = "self", EmitDefaultValue = false)]
+        [DataMember(Name = "self", EmitDefaultValue = true)]
         public HrefObjectSelfLink Self { get; set; }
 
         /// <summary>
         /// Gets or Sets Apps
         /// </summary>
-        [DataMember(Name = "apps", EmitDefaultValue = false)]
+        [DataMember(Name = "apps", EmitDefaultValue = true)]
         public HrefObject Apps { get; set; }
 
         /// <summary>
         /// Gets or Sets Logo
         /// </summary>
-        [DataMember(Name = "logo", EmitDefaultValue = false)]
+        [DataMember(Name = "logo", EmitDefaultValue = true)]
         public List<HrefObject> Logo { get; set; }
 
         /// <summary>
         /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "source", EmitDefaultValue = false)]
+        [DataMember(Name = "source", EmitDefaultValue = true)]
         public HrefObject Source { get; set; }
 
         /// <summary>
         /// Gets or Sets Users
         /// </summary>
-        [DataMember(Name = "users", EmitDefaultValue = false)]
+        [DataMember(Name = "users", EmitDefaultValue = true)]
         public HrefObject Users { get; set; }
 
         /// <summary>

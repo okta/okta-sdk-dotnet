@@ -80,28 +80,28 @@ namespace Okta.Sdk.Model
         /// The result of the entity evaluation
         /// </summary>
         /// <value>The result of the entity evaluation</value>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public StatusEnum Status { get; set; }
         
         /// <summary>
         /// Gets or Sets Conditions
         /// </summary>
-        [DataMember(Name = "conditions", EmitDefaultValue = false)]
+        [DataMember(Name = "conditions", EmitDefaultValue = true)]
         public SimulateResultConditions Conditions { get; set; }
 
         /// <summary>
         /// The unique ID number of the policy rule
         /// </summary>
         /// <value>The unique ID number of the policy rule</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The name of the policy rule
         /// </summary>
         /// <value>The name of the policy rule</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>

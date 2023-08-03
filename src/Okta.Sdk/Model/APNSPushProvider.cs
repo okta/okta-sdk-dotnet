@@ -41,7 +41,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets _Configuration
         /// </summary>
-        [DataMember(Name = "configuration", EmitDefaultValue = false)]
+        [DataMember(Name = "configuration", EmitDefaultValue = true)]
         public APNSConfiguration _Configuration { get; set; }
 
         /// <summary>

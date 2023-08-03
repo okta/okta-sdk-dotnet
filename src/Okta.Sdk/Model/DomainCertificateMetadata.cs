@@ -38,21 +38,21 @@ namespace Okta.Sdk.Model
         /// Certificate expiration
         /// </summary>
         /// <value>Certificate expiration</value>
-        [DataMember(Name = "expiration", EmitDefaultValue = false)]
+        [DataMember(Name = "expiration", EmitDefaultValue = true)]
         public string Expiration { get; set; }
 
         /// <summary>
         /// Certificate fingerprint
         /// </summary>
         /// <value>Certificate fingerprint</value>
-        [DataMember(Name = "fingerprint", EmitDefaultValue = false)]
+        [DataMember(Name = "fingerprint", EmitDefaultValue = true)]
         public string Fingerprint { get; set; }
 
         /// <summary>
         /// Certificate subject
         /// </summary>
         /// <value>Certificate subject</value>
-        [DataMember(Name = "subject", EmitDefaultValue = false)]
+        [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets TokenLifetimeMinutes
         /// </summary>
-        [DataMember(Name = "tokenLifetimeMinutes", EmitDefaultValue = false)]
+        [DataMember(Name = "tokenLifetimeMinutes", EmitDefaultValue = true)]
         public int TokenLifetimeMinutes { get; set; }
 
         /// <summary>

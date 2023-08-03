@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// Unique identifier for profile mapping
         /// </summary>
         /// <value>Unique identifier for profile mapping</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -52,19 +52,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "source", EmitDefaultValue = false)]
+        [DataMember(Name = "source", EmitDefaultValue = true)]
         public ProfileMappingSource Source { get; set; }
 
         /// <summary>
         /// Gets or Sets Target
         /// </summary>
-        [DataMember(Name = "target", EmitDefaultValue = false)]
+        [DataMember(Name = "target", EmitDefaultValue = true)]
         public ProfileMappingTarget Target { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

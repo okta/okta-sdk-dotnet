@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Level
         /// </summary>
-        [DataMember(Name = "level", EmitDefaultValue = false)]
+        [DataMember(Name = "level", EmitDefaultValue = true)]
         public string Level { get; set; }
 
         /// <summary>

@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LoginUrl
         /// </summary>
-        [DataMember(Name = "loginUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "loginUrl", EmitDefaultValue = true)]
         public string LoginUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets RedirectUrl
         /// </summary>
-        [DataMember(Name = "redirectUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "redirectUrl", EmitDefaultValue = true)]
         public string RedirectUrl { get; set; }
 
         /// <summary>

@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets NewPassword
         /// </summary>
-        [DataMember(Name = "newPassword", EmitDefaultValue = false)]
+        [DataMember(Name = "newPassword", EmitDefaultValue = true)]
         public PasswordCredential NewPassword { get; set; }
 
         /// <summary>
         /// Gets or Sets OldPassword
         /// </summary>
-        [DataMember(Name = "oldPassword", EmitDefaultValue = false)]
+        [DataMember(Name = "oldPassword", EmitDefaultValue = true)]
         public PasswordCredential OldPassword { get; set; }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Additions
         /// </summary>
-        [DataMember(Name = "additions", EmitDefaultValue = false)]
+        [DataMember(Name = "additions", EmitDefaultValue = true)]
         public List<string> Additions { get; set; }
 
         /// <summary>

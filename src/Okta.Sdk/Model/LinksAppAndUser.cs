@@ -37,13 +37,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets App
         /// </summary>
-        [DataMember(Name = "app", EmitDefaultValue = false)]
+        [DataMember(Name = "app", EmitDefaultValue = true)]
         public HrefObjectAppLink App { get; set; }
 
         /// <summary>
         /// Gets or Sets User
         /// </summary>
-        [DataMember(Name = "user", EmitDefaultValue = false)]
+        [DataMember(Name = "user", EmitDefaultValue = true)]
         public HrefObjectUserLink User { get; set; }
 
         /// <summary>

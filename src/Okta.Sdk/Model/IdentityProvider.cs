@@ -37,21 +37,21 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets IssuerMode
         /// </summary>
-        [DataMember(Name = "issuerMode", EmitDefaultValue = false)]
+        [DataMember(Name = "issuerMode", EmitDefaultValue = true)]
         
         public IssuerMode IssuerMode { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public LifecycleStatus Status { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public IdentityProviderType Type { get; set; }
         
@@ -72,7 +72,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -100,13 +100,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Policy
         /// </summary>
-        [DataMember(Name = "policy", EmitDefaultValue = false)]
+        [DataMember(Name = "policy", EmitDefaultValue = true)]
         public IdentityProviderPolicy Policy { get; set; }
 
         /// <summary>
@@ -118,13 +118,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Protocol
         /// </summary>
-        [DataMember(Name = "protocol", EmitDefaultValue = false)]
+        [DataMember(Name = "protocol", EmitDefaultValue = true)]
         public Protocol Protocol { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets DiskEncryptionType
         /// </summary>
-        [DataMember(Name = "diskEncryptionType", EmitDefaultValue = false)]
+        [DataMember(Name = "diskEncryptionType", EmitDefaultValue = true)]
         
         public DiskEncryptionTypeDef DiskEncryptionType { get; set; }
 
         /// <summary>
         /// Gets or Sets Platform
         /// </summary>
-        [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "platform", EmitDefaultValue = true)]
         
         public DevicePlatform Platform { get; set; }
         /// <summary>
@@ -57,14 +57,14 @@ namespace Okta.Sdk.Model
         /// Display name of the device
         /// </summary>
         /// <value>Display name of the device</value>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// International Mobile Equipment Identity (IMEI) of the device
         /// </summary>
         /// <value>International Mobile Equipment Identity (IMEI) of the device</value>
-        [DataMember(Name = "imei", EmitDefaultValue = false)]
+        [DataMember(Name = "imei", EmitDefaultValue = true)]
         public string Imei { get; set; }
 
         /// <summary>
@@ -78,35 +78,35 @@ namespace Okta.Sdk.Model
         /// Name of the manufacturer of the device
         /// </summary>
         /// <value>Name of the manufacturer of the device</value>
-        [DataMember(Name = "manufacturer", EmitDefaultValue = false)]
+        [DataMember(Name = "manufacturer", EmitDefaultValue = true)]
         public string Manufacturer { get; set; }
 
         /// <summary>
         /// Mobile equipment identifier of the device
         /// </summary>
         /// <value>Mobile equipment identifier of the device</value>
-        [DataMember(Name = "meid", EmitDefaultValue = false)]
+        [DataMember(Name = "meid", EmitDefaultValue = true)]
         public string Meid { get; set; }
 
         /// <summary>
         /// Model of the device
         /// </summary>
         /// <value>Model of the device</value>
-        [DataMember(Name = "model", EmitDefaultValue = false)]
+        [DataMember(Name = "model", EmitDefaultValue = true)]
         public string Model { get; set; }
 
         /// <summary>
         /// Version of the device OS
         /// </summary>
         /// <value>Version of the device OS</value>
-        [DataMember(Name = "osVersion", EmitDefaultValue = false)]
+        [DataMember(Name = "osVersion", EmitDefaultValue = true)]
         public string OsVersion { get; set; }
 
         /// <summary>
         /// Indicates if the device is registered at Okta
         /// </summary>
         /// <value>Indicates if the device is registered at Okta</value>
-        [DataMember(Name = "registered", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "registered", EmitDefaultValue = true)]
         public bool Registered { get; set; }
 
         /// <summary>
@@ -120,28 +120,28 @@ namespace Okta.Sdk.Model
         /// Serial number of the device
         /// </summary>
         /// <value>Serial number of the device</value>
-        [DataMember(Name = "serialNumber", EmitDefaultValue = false)]
+        [DataMember(Name = "serialNumber", EmitDefaultValue = true)]
         public string SerialNumber { get; set; }
 
         /// <summary>
         /// Windows Security identifier of the device
         /// </summary>
         /// <value>Windows Security identifier of the device</value>
-        [DataMember(Name = "sid", EmitDefaultValue = false)]
+        [DataMember(Name = "sid", EmitDefaultValue = true)]
         public string Sid { get; set; }
 
         /// <summary>
         /// Windows Trsted Platform Module hash value
         /// </summary>
         /// <value>Windows Trsted Platform Module hash value</value>
-        [DataMember(Name = "tpmPublicKeyHash", EmitDefaultValue = false)]
+        [DataMember(Name = "tpmPublicKeyHash", EmitDefaultValue = true)]
         public string TpmPublicKeyHash { get; set; }
 
         /// <summary>
         /// macOS Unique Device identifier of the device
         /// </summary>
         /// <value>macOS Unique Device identifier of the device</value>
-        [DataMember(Name = "udid", EmitDefaultValue = false)]
+        [DataMember(Name = "udid", EmitDefaultValue = true)]
         public string Udid { get; set; }
 
         /// <summary>

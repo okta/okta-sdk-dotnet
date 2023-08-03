@@ -37,37 +37,37 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Address1
         /// </summary>
-        [DataMember(Name = "address1", EmitDefaultValue = false)]
+        [DataMember(Name = "address1", EmitDefaultValue = true)]
         public string Address1 { get; set; }
 
         /// <summary>
         /// Gets or Sets Address2
         /// </summary>
-        [DataMember(Name = "address2", EmitDefaultValue = false)]
+        [DataMember(Name = "address2", EmitDefaultValue = true)]
         public string Address2 { get; set; }
 
         /// <summary>
         /// Gets or Sets City
         /// </summary>
-        [DataMember(Name = "city", EmitDefaultValue = false)]
+        [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
         /// Gets or Sets CompanyName
         /// </summary>
-        [DataMember(Name = "companyName", EmitDefaultValue = false)]
+        [DataMember(Name = "companyName", EmitDefaultValue = true)]
         public string CompanyName { get; set; }
 
         /// <summary>
         /// Gets or Sets Country
         /// </summary>
-        [DataMember(Name = "country", EmitDefaultValue = false)]
+        [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; set; }
 
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
+        [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
         /// <summary>
@@ -81,13 +81,13 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets EndUserSupportHelpURL
         /// </summary>
-        [DataMember(Name = "endUserSupportHelpURL", EmitDefaultValue = false)]
+        [DataMember(Name = "endUserSupportHelpURL", EmitDefaultValue = true)]
         public string EndUserSupportHelpURL { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpiresAt
         /// </summary>
-        [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
+        [DataMember(Name = "expiresAt", EmitDefaultValue = true)]
         public DateTimeOffset ExpiresAt { get; private set; }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LastUpdated
         /// </summary>
-        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
         /// <summary>
@@ -129,25 +129,25 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets PhoneNumber
         /// </summary>
-        [DataMember(Name = "phoneNumber", EmitDefaultValue = false)]
+        [DataMember(Name = "phoneNumber", EmitDefaultValue = true)]
         public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets PostalCode
         /// </summary>
-        [DataMember(Name = "postalCode", EmitDefaultValue = false)]
+        [DataMember(Name = "postalCode", EmitDefaultValue = true)]
         public string PostalCode { get; set; }
 
         /// <summary>
         /// Gets or Sets State
         /// </summary>
-        [DataMember(Name = "state", EmitDefaultValue = false)]
+        [DataMember(Name = "state", EmitDefaultValue = true)]
         public string State { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         public string Status { get; private set; }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Subdomain
         /// </summary>
-        [DataMember(Name = "subdomain", EmitDefaultValue = false)]
+        [DataMember(Name = "subdomain", EmitDefaultValue = true)]
         public string Subdomain { get; private set; }
 
         /// <summary>
@@ -175,19 +175,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets SupportPhoneNumber
         /// </summary>
-        [DataMember(Name = "supportPhoneNumber", EmitDefaultValue = false)]
+        [DataMember(Name = "supportPhoneNumber", EmitDefaultValue = true)]
         public string SupportPhoneNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets Website
         /// </summary>
-        [DataMember(Name = "website", EmitDefaultValue = false)]
+        [DataMember(Name = "website", EmitDefaultValue = true)]
         public string Website { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public LinksSelf Links { get; set; }
 
         /// <summary>

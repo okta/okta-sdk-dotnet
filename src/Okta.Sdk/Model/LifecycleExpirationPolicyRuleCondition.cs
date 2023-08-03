@@ -37,19 +37,19 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets LifecycleStatus
         /// </summary>
-        [DataMember(Name = "lifecycleStatus", EmitDefaultValue = false)]
+        [DataMember(Name = "lifecycleStatus", EmitDefaultValue = true)]
         public string LifecycleStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets Number
         /// </summary>
-        [DataMember(Name = "number", EmitDefaultValue = false)]
+        [DataMember(Name = "number", EmitDefaultValue = true)]
         public int Number { get; set; }
 
         /// <summary>
         /// Gets or Sets Unit
         /// </summary>
-        [DataMember(Name = "unit", EmitDefaultValue = false)]
+        [DataMember(Name = "unit", EmitDefaultValue = true)]
         public string Unit { get; set; }
 
         /// <summary>

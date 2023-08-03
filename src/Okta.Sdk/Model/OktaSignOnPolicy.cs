@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Conditions
         /// </summary>
-        [DataMember(Name = "conditions", EmitDefaultValue = false)]
+        [DataMember(Name = "conditions", EmitDefaultValue = true)]
         public OktaSignOnPolicyConditions Conditions { get; set; }
 
         /// <summary>

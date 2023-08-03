@@ -37,27 +37,27 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets OperationalStatus
         /// </summary>
-        [DataMember(Name = "operationalStatus", EmitDefaultValue = false)]
+        [DataMember(Name = "operationalStatus", EmitDefaultValue = true)]
         
         public OperationalStatus OperationalStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
         public AgentType Type { get; set; }
         
         /// <summary>
         /// Gets or Sets Agents
         /// </summary>
-        [DataMember(Name = "agents", EmitDefaultValue = false)]
+        [DataMember(Name = "agents", EmitDefaultValue = true)]
         public List<Agent> Agents { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>

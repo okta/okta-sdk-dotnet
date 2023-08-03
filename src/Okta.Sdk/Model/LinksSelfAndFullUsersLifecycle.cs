@@ -37,31 +37,31 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
-        [DataMember(Name = "self", EmitDefaultValue = false)]
+        [DataMember(Name = "self", EmitDefaultValue = true)]
         public HrefObjectSelfLink Self { get; set; }
 
         /// <summary>
         /// Gets or Sets Activate
         /// </summary>
-        [DataMember(Name = "activate", EmitDefaultValue = false)]
+        [DataMember(Name = "activate", EmitDefaultValue = true)]
         public HrefObjectActivateLink Activate { get; set; }
 
         /// <summary>
         /// Gets or Sets Deactivate
         /// </summary>
-        [DataMember(Name = "deactivate", EmitDefaultValue = false)]
+        [DataMember(Name = "deactivate", EmitDefaultValue = true)]
         public HrefObjectDeactivateLink Deactivate { get; set; }
 
         /// <summary>
         /// Gets or Sets Suspend
         /// </summary>
-        [DataMember(Name = "suspend", EmitDefaultValue = false)]
+        [DataMember(Name = "suspend", EmitDefaultValue = true)]
         public HrefObjectSuspendLink Suspend { get; set; }
 
         /// <summary>
         /// Gets or Sets Unsuspend
         /// </summary>
-        [DataMember(Name = "unsuspend", EmitDefaultValue = false)]
+        [DataMember(Name = "unsuspend", EmitDefaultValue = true)]
         public HrefObjectUnsuspendLink Unsuspend { get; set; }
 
         /// <summary>

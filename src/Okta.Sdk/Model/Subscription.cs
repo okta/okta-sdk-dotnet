@@ -37,14 +37,14 @@ namespace Okta.Sdk.Model
         /// <summary>
         /// Gets or Sets NotificationType
         /// </summary>
-        [DataMember(Name = "notificationType", EmitDefaultValue = false)]
+        [DataMember(Name = "notificationType", EmitDefaultValue = true)]
         
         public NotificationType NotificationType { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public SubscriptionStatus Status { get; set; }
         
@@ -52,13 +52,13 @@ namespace Okta.Sdk.Model
         /// An array of sources send notifications to users. &gt; **Note**: Currently, Okta only allows &#x60;email&#x60; channels.
         /// </summary>
         /// <value>An array of sources send notifications to users. &gt; **Note**: Currently, Okta only allows &#x60;email&#x60; channels.</value>
-        [DataMember(Name = "channels", EmitDefaultValue = false)]
+        [DataMember(Name = "channels", EmitDefaultValue = true)]
         public List<string> Channels { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = false)]
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
         public SubscriptionLinks Links { get; set; }
 
         /// <summary>

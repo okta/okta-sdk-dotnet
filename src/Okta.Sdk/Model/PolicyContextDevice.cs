@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// The platform of the device, for example, IOS.
         /// </summary>
         /// <value>The platform of the device, for example, IOS.</value>
-        [DataMember(Name = "platform", EmitDefaultValue = false)]
+        [DataMember(Name = "platform", EmitDefaultValue = true)]
         public string Platform { get; set; }
 
         /// <summary>
