@@ -155,6 +155,11 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
+                var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
+                var roleAssignmentRequest = getBasicRequestOptions();
+                roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
+
+                var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
 
                 requestOptions = getBasicRequestOptions();
                 requestOptions.Data = JObject.Parse(grantPayload);
@@ -239,7 +244,14 @@ namespace Okta.Sdk.IntegrationTest
             var serviceResponse = await apiClient.PostAsync<JsonObject>("/oauth2/v1/clients", requestOptions);
 
             var clientId = serviceResponse.Data["client_id"].ToString();
-            
+
+            var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
+            var roleAssignmentRequest = getBasicRequestOptions();
+            roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
+
+            var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
+
+
             var createUserRequest = new CreateUserRequest
             {
                 Profile = new UserProfile
@@ -267,6 +279,8 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
+                var roleApi = new RoleAssignmentApi();
+                await roleApi.AssignRoleToUserAsync(createdUser.Id, new AssignRoleRequest { Type = RoleType.SUPERADMIN });
 
                 requestOptions = getBasicRequestOptions();
                 requestOptions.Data = JObject.Parse(grantPayload);
@@ -353,6 +367,13 @@ namespace Okta.Sdk.IntegrationTest
             var serviceResponse = await apiClient.PostAsync<JsonObject>("/oauth2/v1/clients", requestOptions);
 
             var clientId = serviceResponse.Data["client_id"].ToString();
+
+            var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
+            var roleAssignmentRequest = getBasicRequestOptions();
+            roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
+
+            var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
+
 
             var createUserRequest1 = new CreateUserRequest
             {
@@ -511,6 +532,13 @@ namespace Okta.Sdk.IntegrationTest
             var serviceResponse = await apiClient.PostAsync<JsonObject>("/oauth2/v1/clients", requestOptions);
 
             var clientId = serviceResponse.Data["client_id"].ToString();
+
+            var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
+            var roleAssignmentRequest = getBasicRequestOptions();
+            roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
+
+            var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
+
 
             var createUserRequest1 = new CreateUserRequest
             {
