@@ -35,13 +35,6 @@ namespace Okta.Sdk.Model
     {
 
         /// <summary>
-        /// Gets or Sets AuthScheme
-        /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
-        
-        public ProvisioningConnectionAuthScheme AuthScheme { get; set; }
-
-        /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = true)]
@@ -53,6 +46,12 @@ namespace Okta.Sdk.Model
         [JsonConstructorAttribute]
         public ProvisioningConnection() { }
         
+        /// <summary>
+        /// Gets or Sets Profile
+        /// </summary>
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
+        public ProvisioningConnectionProfile Profile { get; set; }
+
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
@@ -67,7 +66,7 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProvisioningConnection {\n");
-            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
+            sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -106,8 +105,9 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
+                    this.Profile == input.Profile ||
+                    (this.Profile != null &&
+                    this.Profile.Equals(input.Profile))
                 ) && 
                 (
                     this.Status == input.Status ||
@@ -130,7 +130,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                if (this.Profile != null)
+                {
+                    hashCode = (hashCode * 59) + this.Profile.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.Links != null)
                 {

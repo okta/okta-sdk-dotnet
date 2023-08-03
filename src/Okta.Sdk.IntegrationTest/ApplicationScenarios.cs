@@ -37,6 +37,7 @@ namespace Okta.Sdk.IntegrationTest
             _applicationCredentialsApi = new ApplicationCredentialsApi();
             _applicationGrantsApi = new ApplicationGrantsApi();
             _applicationConnectionsApi = new ApplicationConnectionsApi();
+            _applicationUsersApi = new ApplicationUsersApi();
         }
 
         [Fact]
@@ -824,8 +825,8 @@ namespace Okta.Sdk.IntegrationTest
                 // TODO: Revisit Enum
                 createdAppUser.Scope.Should().Be(AppUser.ScopeEnum.USER);
                 createdAppUser.Credentials.UserName.Should().Be($"john-sso-dotnet-sdk-{guid}@example.com");
-                createdAppUser.Status.Should().Be("ACTIVE");
-                createdAppUser.SyncState.Should().Be("DISABLED");
+                createdAppUser.Status.Value.Should().Be("ACTIVE");
+                createdAppUser.SyncState.Value.Should().Be("DISABLED");
             }
             finally
             {
@@ -2244,7 +2245,7 @@ namespace Okta.Sdk.IntegrationTest
             {
 
                 var connection = await _applicationConnectionsApi.GetDefaultProvisioningConnectionForApplicationAsync(createdApp.Id);
-                connection.AuthScheme.Should().Be(ProvisioningConnectionAuthScheme.UNKNOWN);
+                connection.Profile.GetProvisioningConnectionProfileOauth().AuthScheme.Value.Should().Be("UNKNOWN");
                 connection.Status.Should().Be(ProvisioningConnectionStatus.UNKNOWN);
 
             }

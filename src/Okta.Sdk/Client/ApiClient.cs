@@ -58,6 +58,11 @@ namespace Okta.Sdk.Client
             NullValueHandling = NullValueHandling.Ignore
         };
 
+        internal JsonSerializerSettings JsonSerializer
+        {
+            get => _serializerSettings;
+        }
+
         public CustomJsonCodec(IReadableConfiguration configuration)
         {
             _configuration = configuration;

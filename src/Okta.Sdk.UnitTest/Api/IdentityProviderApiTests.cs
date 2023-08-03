@@ -238,8 +238,7 @@ namespace Okta.Sdk.UnitTest
 
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
             var idpApi = new IdentityProviderApi(mockClient, new Configuration { BasePath = "https://foo.com" });
-
-
+            
             var idp = new IdentityProvider()
             {
                 Type = "CUSTOM TYPE IDP",
@@ -248,7 +247,7 @@ namespace Okta.Sdk.UnitTest
 
             var createdIdp = await idpApi.CreateIdentityProviderAsync(idp);
 
-            var expectedBody = $"{{\"type\":\"CUSTOM TYPE IDP\",\"name\":\"dotnet-sdk:Custom Idp\",\"properties\":null}}";
+            var expectedBody = $"{{\"type\":\"CUSTOM TYPE IDP\",\"name\":\"dotnet-sdk:Custom Idp\"}}";
             mockClient.ReceivedPath.Should().StartWith("/api/v1/idps");
             mockClient.ReceivedBody.Should().Be(expectedBody);
         }

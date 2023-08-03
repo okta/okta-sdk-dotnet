@@ -29291,8 +29291,8 @@ components:
     ProvisioningConnection:
       type: object
       properties:
-        authScheme:
-          $ref: '#/components/schemas/ProvisioningConnectionAuthScheme'
+        profile:
+          $ref: '#/components/schemas/ProvisioningConnectionProfile'
         status:
           $ref: '#/components/schemas/ProvisioningConnectionStatus'
         _links:
@@ -29311,7 +29311,7 @@ components:
         TOKEN: A token is used to authenticate with the app.
         OAUTH2: OAuth 2.0 is used to authenticate with the app.
         UNKNOWN: The authentication scheme used by the app isn't supported, or the app doesn't support provisioning.
-    ProvisioningConnectionAuthSchemeRequest:
+    ProvisioningConnectionAuthSchemeRequest: # TODO: Review response contains UKNOWN
       description: Method of authentication for the connection
       type: string
       enum:

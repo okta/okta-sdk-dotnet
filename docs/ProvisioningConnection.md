@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthScheme** | **ProvisioningConnectionAuthScheme** |  | 
+**Profile** | [**ProvisioningConnectionProfile**](ProvisioningConnectionProfile.md) |  | [optional] 
 **Status** | **ProvisioningConnectionStatus** |  | 
 **Links** | [**LinksSelfAndLifecycle**](LinksSelfAndLifecycle.md) |  | [optional] 
 

@@ -45,6 +45,7 @@ namespace Okta.Sdk.IntegrationTest
                         Name = $"list_profile_mapping_{randomSuffix}",
                     });
 
+                Thread.Sleep(6000);
                 var mappings = await _profileMappingApi.ListProfileMappings(sourceId: userType.Id)
                     .ToListAsync();
 
@@ -224,7 +225,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 createdIdp = await _idpApi.CreateIdentityProviderAsync(idp);
                 
-                Thread.Sleep(2000);
+                Thread.Sleep(6000);
 
                 var mappings = await _profileMappingApi
                                                         .ListProfileMappings(sourceId: createdIdp.Id)

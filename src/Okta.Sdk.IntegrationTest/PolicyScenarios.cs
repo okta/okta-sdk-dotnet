@@ -657,6 +657,7 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         Access = "DENY",
                         RequireFactor = false,
+                        FactorLifetime = 1
                     },
                 },
                 Conditions = new OktaSignOnPolicyRuleConditions
@@ -758,6 +759,10 @@ namespace Okta.Sdk.IntegrationTest
 
                 createdPolicyRule.Name = $"dotnet-sdk: Updated {createdPolicyRule.Name}".Substring(0, 50);
                 createdPolicyRule.Conditions.Network = new PolicyNetworkCondition() { Connection = "ANYWHERE" };
+                // TODO: Revisit with API team. This is now required.
+                //{ "errorCode":"E0000001","errorSummary":"Api validation failed: actions.signon.factorLifetime","errorLink":"E0000001","errorId":"oaeI48hhM-0Q5qByiSSv6CV0Q","errorCauses":[{ "errorSummary":"actions.signon.factorLifetime: Field must be at least 1"}]}
+                
+                createdPolicyRule.Actions.Signon.FactorLifetime = 10;
 
                 var updatedPolicyRule = await _policyApi.ReplacePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id, createdPolicyRule) as OktaSignOnPolicyRule;
 
