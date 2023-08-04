@@ -787,6 +787,12 @@ namespace Okta.Sdk.Client
         #endregion Methods
 
         #region Static Members
+
+        /// <summary>
+        /// Allows a client application/api to set a configuration file path (i.e. secrets.json or appSettings.xxxxxx.json)
+        /// </summary>
+        public static Func<string> GetConfigFilePath { get; set; }
+
         /// <summary>
         /// Merge configurations.
         /// </summary>
@@ -832,34 +838,55 @@ namespace Okta.Sdk.Client
             };
             return config;
         }
-        
+
         public static Configuration GetConfigurationOrDefault(Configuration configuration = null)
         {
-            string configurationFileRoot = Directory.GetCurrentDirectory();
-
-            var homeOktaYamlLocation = HomePath.Resolve("~", ".okta", "okta.yaml");
-
-            var applicationAppSettingsLocation = Path.Combine(configurationFileRoot ?? string.Empty, "appsettings.json");
-            var applicationOktaYamlLocation = Path.Combine(configurationFileRoot ?? string.Empty, "okta.yaml");
-
-            var configBuilder = new ConfigurationBuilder()
-                .AddYamlFile(homeOktaYamlLocation, optional: true)
-                .AddJsonFile(applicationAppSettingsLocation, optional: true)
-                .AddYamlFile(applicationOktaYamlLocation, optional: true)
-                .AddEnvironmentVariables("okta", "_", root: "okta")
-                .AddEnvironmentVariables("okta_testing", "_", root: "okta")
-                .AddObject(configuration, root: "okta:client")
-                .AddObject(configuration, root: "okta:testing")
-                .AddObject(configuration);
-
             var compiledConfig = new Configuration();
-            configBuilder.Build().GetSection("okta").GetSection("client").Bind(compiledConfig);
-            configBuilder.Build().GetSection("okta").GetSection("testing").Bind(compiledConfig);
-            configBuilder.Build().Bind(compiledConfig);
+            var configBuilder = new ConfigurationBuilder();
 
-            return compiledConfig;
+            if (GetConfigFilePath != null)
+            {
+                string applicationAppSettingsLocation = GetConfigFilePath();
+
+                if (!File.Exists(applicationAppSettingsLocation))
+                    throw new FileNotFoundException($"Could not find configuration file at {applicationAppSettingsLocation}");
+
+                var builtConfig = configBuilder.AddJsonFile(applicationAppSettingsLocation)
+                                                .AddObject(configuration)
+                                                .Build();
+
+                builtConfig.GetSection("okta").GetSection("client").Bind(compiledConfig);
+
+                return compiledConfig;
+            }
+            else
+            {
+                string configurationFileRoot = Directory.GetCurrentDirectory();
+
+                var homeOktaYamlLocation = HomePath.Resolve("~", ".okta", "okta.yaml");
+
+                var applicationAppSettingsLocation = Path.Combine(configurationFileRoot ?? string.Empty, "appsettings.json");
+                var applicationOktaYamlLocation = Path.Combine(configurationFileRoot ?? string.Empty, "okta.yaml");
+
+                configBuilder.AddYamlFile(homeOktaYamlLocation, optional: true)
+                    .AddJsonFile(applicationAppSettingsLocation, optional: true)
+                    .AddYamlFile(applicationOktaYamlLocation, optional: true)
+                    .AddEnvironmentVariables("okta", "_", root: "okta")
+                    .AddEnvironmentVariables("okta_testing", "_", root: "okta")
+                    .AddObject(configuration, root: "okta:client")
+                    .AddObject(configuration, root: "okta:testing")
+                    .AddObject(configuration);
+
+                var config = configBuilder.Build();
+                config.GetSection("okta").GetSection("client").Bind(compiledConfig);
+                config.GetSection("okta").GetSection("testing").Bind(compiledConfig);
+                config.Bind(compiledConfig);
+
+
+                return compiledConfig;
+            }
         }
-        
+
         #endregion Static Members
     }
     
