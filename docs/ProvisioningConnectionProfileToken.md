@@ -5,7 +5,7 @@ The app provisioning connection profile used to configure the method of authenti
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthScheme** | **ProvisioningConnectionAuthSchemeRequest** |  | 
+**AuthScheme** | **ProvisioningConnectionAuthScheme** |  | 
 **Token** | **string** | Token used to authenticate with the app | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

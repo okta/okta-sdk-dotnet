@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Evaluated** | [**SimulatePolicyEvaluationsEvaluated**](SimulatePolicyEvaluationsEvaluated.md) |  | [optional] 
-**PolicyType** | **PolicyType** |  | [optional] 
+**PolicyType** | [**List&lt;PolicyType&gt;**](PolicyType.md) | The policy type of the simulate operation | [optional] 
 **Result** | [**SimulatePolicyResult**](SimulatePolicyResult.md) |  | [optional] 
 **Status** | **string** | The result of this entity evaluation | [optional] 
 **Undefined** | [**SimulatePolicyEvaluationsUndefined**](SimulatePolicyEvaluationsUndefined.md) |  | [optional] 

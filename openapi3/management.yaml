@@ -29291,6 +29291,8 @@ components:
     ProvisioningConnection:
       type: object
       properties:
+        authScheme:
+          $ref: '#/components/schemas/ProvisioningConnectionAuthScheme'
         profile:
           $ref: '#/components/schemas/ProvisioningConnectionProfile'
         status:
@@ -29311,12 +29313,12 @@ components:
         TOKEN: A token is used to authenticate with the app.
         OAUTH2: OAuth 2.0 is used to authenticate with the app.
         UNKNOWN: The authentication scheme used by the app isn't supported, or the app doesn't support provisioning.
-    ProvisioningConnectionAuthSchemeRequest: # TODO: Review response contains UKNOWN
-      description: Method of authentication for the connection
-      type: string
-      enum:
-        - OAUTH2
-        - TOKEN
+    # ProvisioningConnectionAuthSchemeRequest: # TODO: Review response contains UKNOWN
+    #   description: Method of authentication for the connection
+    #   type: string
+    #   enum:
+    #     - OAUTH2
+    #     - TOKEN
     ProvisioningConnectionProfile: #TODO: Review inheritance
       description: |
         The profile used to configure the connection method of authentication and the credentials.
@@ -29337,7 +29339,7 @@ components:
       type: object
       properties:
         authScheme:
-          $ref: '#/components/schemas/ProvisioningConnectionAuthSchemeRequest'
+          $ref: '#/components/schemas/ProvisioningConnectionAuthScheme'
         clientId:
           type: string
           description: Unique client identifier for the OAuth 2.0 service app from the target org
@@ -29351,7 +29353,7 @@ components:
       type: object
       properties:
         authScheme:
-          $ref: '#/components/schemas/ProvisioningConnectionAuthSchemeRequest'
+          $ref: '#/components/schemas/ProvisioningConnectionAuthScheme'
         token:
           type: string
           description: Token used to authenticate with the app
@@ -30386,7 +30388,8 @@ components:
         policyTypes:
           type: array
           description: Supported policy types for a simulate operation. The default value, `null`, returns all types.
-          $ref: '#/components/schemas/PolicyType' #TODO: Revisit with API team
+          items:
+            $ref: '#/components/schemas/PolicyType' #TODO: Revisit with API team
       required:
         - appInstance
     SimulatePolicyEvaluations:
@@ -30401,7 +30404,8 @@ components:
         policyType:
           type: array
           description: The policy type of the simulate operation
-          $ref: '#/components/schemas/PolicyType' #TODO: Revisit with API TEAM
+          items:
+            $ref: '#/components/schemas/PolicyType' #TODO: Revisit with API TEAM
         result:
           $ref: '#/components/schemas/SimulatePolicyResult'
         status:

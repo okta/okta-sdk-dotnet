@@ -250,6 +250,7 @@ namespace Okta.Sdk.UnitTest
         public async Task SetDefaultConnection()
         {
             var rawResponse = @"{
+                                    ""authScheme"": ""TOKEN"",
                                     ""profile"": {""authScheme"": ""TOKEN""},
                                     ""status"": ""ENABLED"",
                                     ""_links"": {
@@ -280,7 +281,7 @@ namespace Okta.Sdk.UnitTest
                 Profile = new ProvisioningConnectionProfile(new ProvisioningConnectionProfileOauth
                 {
                     ClientId = "foo",
-                    AuthScheme = ProvisioningConnectionAuthSchemeRequest.TOKEN
+                    AuthScheme = ProvisioningConnectionAuthScheme.TOKEN
                 })
             };
 
@@ -294,6 +295,7 @@ namespace Okta.Sdk.UnitTest
             mockClient.ReceivedBody.Should().Be(expectedBody);
             response.Status.Value.Should().Be("ENABLED");
             response.Profile.GetProvisioningConnectionProfileOauth().AuthScheme.Value.Should().Be("TOKEN");
+            response.AuthScheme.Value.Should().Be("TOKEN");
         }
 
         private string GetListOAuthTokensStubResponse()

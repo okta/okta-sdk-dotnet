@@ -1267,7 +1267,6 @@ Class | Method | HTTP request | Description
  - [Model.ProvisioningConditions](docs/ProvisioningConditions.md)
  - [Model.ProvisioningConnection](docs/ProvisioningConnection.md)
  - [Model.ProvisioningConnectionAuthScheme](docs/ProvisioningConnectionAuthScheme.md)
- - [Model.ProvisioningConnectionAuthSchemeRequest](docs/ProvisioningConnectionAuthSchemeRequest.md)
  - [Model.ProvisioningConnectionProfile](docs/ProvisioningConnectionProfile.md)
  - [Model.ProvisioningConnectionProfileOauth](docs/ProvisioningConnectionProfileOauth.md)
  - [Model.ProvisioningConnectionProfileToken](docs/ProvisioningConnectionProfileToken.md)

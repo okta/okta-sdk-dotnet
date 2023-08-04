@@ -21,6 +21,17 @@ namespace Okta.Sdk.IntegrationTest
 {
     public class OAuthScenarios
     {
+        public OAuthScenarios()
+        {
+            var userApi = new UserApi();
+
+            //userApi.ListUsers().ToListAsync();
+            //foreach (var VARIABLE in COLLECTION)
+            //{
+                
+            //}
+        }
+
         [Fact]
         public async Task RetrieveAccessToken()
         {

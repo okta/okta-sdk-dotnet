@@ -33,13 +33,6 @@ namespace Okta.Sdk.Model
     
     public partial class SimulatePolicyEvaluations : IEquatable<SimulatePolicyEvaluations>
     {
-
-        /// <summary>
-        /// Gets or Sets PolicyType
-        /// </summary>
-        [DataMember(Name = "policyType", EmitDefaultValue = true)]
-        
-        public PolicyType PolicyType { get; set; }
         /// <summary>
         /// The result of this entity evaluation
         /// </summary>
@@ -96,6 +89,13 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "evaluated", EmitDefaultValue = true)]
         public SimulatePolicyEvaluationsEvaluated Evaluated { get; set; }
+
+        /// <summary>
+        /// The policy type of the simulate operation
+        /// </summary>
+        /// <value>The policy type of the simulate operation</value>
+        [DataMember(Name = "policyType", EmitDefaultValue = true)]
+        public List<PolicyType> PolicyType { get; set; }
 
         /// <summary>
         /// Gets or Sets Result
@@ -164,7 +164,9 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.PolicyType == input.PolicyType ||
-                    this.PolicyType.Equals(input.PolicyType)
+                    this.PolicyType != null &&
+                    input.PolicyType != null &&
+                    this.PolicyType.SequenceEqual(input.PolicyType)
                 ) && 
                 (
                     this.Result == input.Result ||
@@ -196,7 +198,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Evaluated.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PolicyType.GetHashCode();
+                if (this.PolicyType != null)
+                {
+                    hashCode = (hashCode * 59) + this.PolicyType.GetHashCode();
+                }
                 if (this.Result != null)
                 {
                     hashCode = (hashCode * 59) + this.Result.GetHashCode();

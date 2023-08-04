@@ -39,7 +39,7 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "authScheme", EmitDefaultValue = true)]
         
-        public ProvisioningConnectionAuthSchemeRequest AuthScheme { get; set; }
+        public ProvisioningConnectionAuthScheme AuthScheme { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ProvisioningConnectionProfileToken" /> class.
         /// </summary>

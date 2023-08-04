@@ -33,13 +33,6 @@ namespace Okta.Sdk.Model
     
     public partial class SimulatePolicyBody : IEquatable<SimulatePolicyBody>
     {
-
-        /// <summary>
-        /// Gets or Sets PolicyTypes
-        /// </summary>
-        [DataMember(Name = "policyTypes", EmitDefaultValue = true)]
-        
-        public PolicyType PolicyTypes { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SimulatePolicyBody" /> class.
         /// </summary>
@@ -58,6 +51,13 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "policyContext", EmitDefaultValue = true)]
         public PolicyContext PolicyContext { get; set; }
+
+        /// <summary>
+        /// Supported policy types for a simulate operation. The default value, &#x60;null&#x60;, returns all types.
+        /// </summary>
+        /// <value>Supported policy types for a simulate operation. The default value, &#x60;null&#x60;, returns all types.</value>
+        [DataMember(Name = "policyTypes", EmitDefaultValue = true)]
+        public List<PolicyType> PolicyTypes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -117,7 +117,9 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.PolicyTypes == input.PolicyTypes ||
-                    this.PolicyTypes.Equals(input.PolicyTypes)
+                    this.PolicyTypes != null &&
+                    input.PolicyTypes != null &&
+                    this.PolicyTypes.SequenceEqual(input.PolicyTypes)
                 );
         }
 
@@ -139,7 +141,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PolicyContext.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PolicyTypes.GetHashCode();
+                if (this.PolicyTypes != null)
+                {
+                    hashCode = (hashCode * 59) + this.PolicyTypes.GetHashCode();
+                }
                 return hashCode;
             }
         }
