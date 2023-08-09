@@ -284,7 +284,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.DiskEncryptionType.GetHashCode();
+                if (this.DiskEncryptionType != null)
+                {
+                    hashCode = (hashCode * 59) + this.DiskEncryptionType.GetHashCode();
+                }
                 if (this.DisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
@@ -310,7 +313,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.OsVersion.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Platform.GetHashCode();
+                if (this.Platform != null)
+                {
+                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Registered.GetHashCode();
                 hashCode = (hashCode * 59) + this.SecureHardwarePresent.GetHashCode();
                 if (this.SerialNumber != null)

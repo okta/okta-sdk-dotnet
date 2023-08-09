@@ -142,7 +142,10 @@ namespace Okta.Sdk.Model
                 
                 hashCode = (hashCode * 59) + this.MaxEventsUsedForEvaluation.GetHashCode();
                 hashCode = (hashCode * 59) + this.MinEventsNeededForEvaluation.GetHashCode();
-                hashCode = (hashCode * 59) + this.Granularity.GetHashCode();
+                if (this.Granularity != null)
+                {
+                    hashCode = (hashCode * 59) + this.Granularity.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.RadiusKilometers.GetHashCode();
                 return hashCode;
             }

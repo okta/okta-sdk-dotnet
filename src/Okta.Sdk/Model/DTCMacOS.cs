@@ -257,15 +257,24 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.DeviceEnrollmentDomain.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.DiskEnrypted.GetHashCode();
-                hashCode = (hashCode * 59) + this.KeyTrustLevel.GetHashCode();
+                if (this.KeyTrustLevel != null)
+                {
+                    hashCode = (hashCode * 59) + this.KeyTrustLevel.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.OsFirewall.GetHashCode();
                 if (this.OsVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.OsVersion.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PasswordProtectionWarningTrigger.GetHashCode();
+                if (this.PasswordProtectionWarningTrigger != null)
+                {
+                    hashCode = (hashCode * 59) + this.PasswordProtectionWarningTrigger.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.RealtimeUrlCheckMode.GetHashCode();
-                hashCode = (hashCode * 59) + this.SafeBrowsingProtectionLevel.GetHashCode();
+                if (this.SafeBrowsingProtectionLevel != null)
+                {
+                    hashCode = (hashCode * 59) + this.SafeBrowsingProtectionLevel.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.ScreenLockSecured.GetHashCode();
                 hashCode = (hashCode * 59) + this.SiteIsolationEnabled.GetHashCode();
                 return hashCode;

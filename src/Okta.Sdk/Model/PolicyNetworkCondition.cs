@@ -127,7 +127,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.Connection.GetHashCode();
+                if (this.Connection != null)
+                {
+                    hashCode = (hashCode * 59) + this.Connection.GetHashCode();
+                }
                 if (this.Exclude != null)
                 {
                     hashCode = (hashCode * 59) + this.Exclude.GetHashCode();

@@ -131,7 +131,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Algorithms.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.KeyProtection.GetHashCode();
+                if (this.KeyProtection != null)
+                {
+                    hashCode = (hashCode * 59) + this.KeyProtection.GetHashCode();
+                }
                 if (this.TransactionTypes != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionTypes.GetHashCode();

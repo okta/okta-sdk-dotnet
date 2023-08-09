@@ -253,17 +253,26 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.OperationalStatus.GetHashCode();
+                if (this.OperationalStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.OperationalStatus.GetHashCode();
+                }
                 if (this.PoolId != null)
                 {
                     hashCode = (hashCode * 59) + this.PoolId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.UpdateMessage != null)
                 {
                     hashCode = (hashCode * 59) + this.UpdateMessage.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.UpdateStatus.GetHashCode();
+                if (this.UpdateStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdateStatus.GetHashCode();
+                }
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();

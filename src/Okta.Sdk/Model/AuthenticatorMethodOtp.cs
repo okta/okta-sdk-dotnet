@@ -187,14 +187,23 @@ namespace Okta.Sdk.Model
                 int hashCode = base.GetHashCode();
                 
                 hashCode = (hashCode * 59) + this.AcceptableAdjacentIntervals.GetHashCode();
-                hashCode = (hashCode * 59) + this.Algorithm.GetHashCode();
-                hashCode = (hashCode * 59) + this.Encoding.GetHashCode();
+                if (this.Algorithm != null)
+                {
+                    hashCode = (hashCode * 59) + this.Algorithm.GetHashCode();
+                }
+                if (this.Encoding != null)
+                {
+                    hashCode = (hashCode * 59) + this.Encoding.GetHashCode();
+                }
                 if (this.FactorProfileId != null)
                 {
                     hashCode = (hashCode * 59) + this.FactorProfileId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.PassCodeLength.GetHashCode();
-                hashCode = (hashCode * 59) + this.Protocol.GetHashCode();
+                if (this.Protocol != null)
+                {
+                    hashCode = (hashCode * 59) + this.Protocol.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.TimeIntervalInSeconds.GetHashCode();
                 return hashCode;
             }

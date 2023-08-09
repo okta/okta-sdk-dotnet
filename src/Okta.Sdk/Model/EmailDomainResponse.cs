@@ -179,7 +179,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ValidationStatus.GetHashCode();
+                if (this.ValidationStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValidationStatus.GetHashCode();
+                }
                 if (this.DisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();

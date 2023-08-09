@@ -262,12 +262,18 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ProfileAttributes.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ProgressiveProfilingAction.GetHashCode();
+                if (this.ProgressiveProfilingAction != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProgressiveProfilingAction.GetHashCode();
+                }
                 if (this.TargetGroupIds != null)
                 {
                     hashCode = (hashCode * 59) + this.TargetGroupIds.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.UnknownUserAction.GetHashCode();
+                if (this.UnknownUserAction != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnknownUserAction.GetHashCode();
+                }
                 return hashCode;
             }
         }

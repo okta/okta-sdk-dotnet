@@ -161,7 +161,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.Mode.GetHashCode();
+                if (this.Mode != null)
+                {
+                    hashCode = (hashCode * 59) + this.Mode.GetHashCode();
+                }
                 if (this.ReportUri != null)
                 {
                     hashCode = (hashCode * 59) + this.ReportUri.GetHashCode();

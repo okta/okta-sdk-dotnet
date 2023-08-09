@@ -193,7 +193,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.BrandId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.CertificateSourceType.GetHashCode();
+                if (this.CertificateSourceType != null)
+                {
+                    hashCode = (hashCode * 59) + this.CertificateSourceType.GetHashCode();
+                }
                 if (this.DnsRecords != null)
                 {
                     hashCode = (hashCode * 59) + this.DnsRecords.GetHashCode();
@@ -210,7 +213,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PublicCertificate.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ValidationStatus.GetHashCode();
+                if (this.ValidationStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValidationStatus.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

@@ -38,6 +38,21 @@ namespace Okta.Sdk.IntegrationTest
             _applicationGrantsApi = new ApplicationGrantsApi();
             _applicationConnectionsApi = new ApplicationConnectionsApi();
             _applicationUsersApi = new ApplicationUsersApi();
+            CleanApps().Wait();
+        }
+
+        private async Task CleanApps()
+        {
+            var appsToRemove = await _applicationApi.ListApplications().ToListAsync();
+
+            foreach (var app in appsToRemove)
+            {
+                if (app.Label.StartsWith("dotnet-sdk"))
+                {
+                    await _applicationApi.DeactivateApplicationAsync(app.Id);
+                    await _applicationApi.DeleteApplicationAsync(app.Id);
+                }
+            }
         }
 
         [Fact]

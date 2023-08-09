@@ -274,7 +274,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.FactorType.GetHashCode();
+                if (this.FactorType != null)
+                {
+                    hashCode = (hashCode * 59) + this.FactorType.GetHashCode();
+                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
@@ -287,8 +290,14 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Provider != null)
+                {
+                    hashCode = (hashCode * 59) + this.Provider.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.Verify != null)
                 {
                     hashCode = (hashCode * 59) + this.Verify.GetHashCode();

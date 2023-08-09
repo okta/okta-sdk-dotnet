@@ -119,7 +119,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.CertificateSourceType.GetHashCode();
+                if (this.CertificateSourceType != null)
+                {
+                    hashCode = (hashCode * 59) + this.CertificateSourceType.GetHashCode();
+                }
                 if (this.Domain != null)
                 {
                     hashCode = (hashCode * 59) + this.Domain.GetHashCode();

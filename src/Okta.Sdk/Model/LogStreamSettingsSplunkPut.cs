@@ -119,7 +119,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.Edition.GetHashCode();
+                if (this.Edition != null)
+                {
+                    hashCode = (hashCode * 59) + this.Edition.GetHashCode();
+                }
                 if (this.Host != null)
                 {
                     hashCode = (hashCode * 59) + this.Host.GetHashCode();

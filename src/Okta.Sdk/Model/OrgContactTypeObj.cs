@@ -113,7 +113,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.ContactType.GetHashCode();
+                if (this.ContactType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContactType.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

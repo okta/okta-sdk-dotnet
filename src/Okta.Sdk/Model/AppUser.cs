@@ -398,13 +398,22 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Scope.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Scope != null)
+                {
+                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.StatusChanged != null)
                 {
                     hashCode = (hashCode * 59) + this.StatusChanged.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.SyncState.GetHashCode();
+                if (this.SyncState != null)
+                {
+                    hashCode = (hashCode * 59) + this.SyncState.GetHashCode();
+                }
                 if (this.Embedded != null)
                 {
                     hashCode = (hashCode * 59) + this.Embedded.GetHashCode();

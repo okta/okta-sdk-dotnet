@@ -175,7 +175,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.BindingType.GetHashCode();
+                if (this.BindingType != null)
+                {
+                    hashCode = (hashCode * 59) + this.BindingType.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
                 if (this.LogoutRequestUrl != null)
                 {

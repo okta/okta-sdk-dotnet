@@ -137,7 +137,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Expiration.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Support.GetHashCode();
+                if (this.Support != null)
+                {
+                    hashCode = (hashCode * 59) + this.Support.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

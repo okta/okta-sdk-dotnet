@@ -209,9 +209,15 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.OriginId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.OriginType.GetHashCode();
+                if (this.OriginType != null)
+                {
+                    hashCode = (hashCode * 59) + this.OriginType.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Resolved.GetHashCode();
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -143,7 +143,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.EntityType.GetHashCode();
+                if (this.EntityType != null)
+                {
+                    hashCode = (hashCode * 59) + this.EntityType.GetHashCode();
+                }
                 if (this.Profiles != null)
                 {
                     hashCode = (hashCode * 59) + this.Profiles.GetHashCode();

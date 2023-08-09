@@ -76,7 +76,7 @@ namespace Okta.Sdk.IntegrationTest
                         Name = $"get_profile_mapping_{randomSuffix}",
                     });
 
-                Thread.Sleep(5000);
+                Thread.Sleep(6000);
 
                 var mappings = await _profileMappingApi.ListProfileMappings(sourceId: userType.Id)
                     .ToListAsync();

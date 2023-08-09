@@ -222,8 +222,14 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ManagementStatus.GetHashCode();
-                hashCode = (hashCode * 59) + this.ScreenLockType.GetHashCode();
+                if (this.ManagementStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.ManagementStatus.GetHashCode();
+                }
+                if (this.ScreenLockType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ScreenLockType.GetHashCode();
+                }
                 if (this.User != null)
                 {
                     hashCode = (hashCode * 59) + this.User.GetHashCode();

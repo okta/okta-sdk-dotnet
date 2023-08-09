@@ -35,7 +35,7 @@ namespace {{packageName}}.Client
         /// </summary>
         /// <param name="onRetryAsyncFunc"></param>
         /// <returns></returns>
-        Polly.AsyncPolicy<IRestResponse> GetOAuthRetryPolicy(Func<DelegateResult<IRestResponse>, int, Context, Task> onRetryAsyncFunc = null);
+        Polly.AsyncPolicy<RestResponse> GetOAuthRetryPolicy(Func<DelegateResult<RestResponse>, int, Context, Task> onRetryAsyncFunc = null);
     }
     #endregion IOAuthTokenProvider
     
@@ -76,12 +76,12 @@ namespace {{packageName}}.Client
         /// </summary>
         /// <param name="onRetryAsyncFunc">The method to call before retrying a request</param>
         /// <returns></returns>
-        public Polly.AsyncPolicy<IRestResponse> GetOAuthRetryPolicy(
-            Func<DelegateResult<IRestResponse>, int, Context, Task> onRetryAsyncFunc = null)
+        public Polly.AsyncPolicy<RestResponse> GetOAuthRetryPolicy(
+            Func<DelegateResult<RestResponse>, int, Context, Task> onRetryAsyncFunc = null)
         {
-            AsyncPolicy<IRestResponse> retryAsyncPolicy = Policy
+            AsyncPolicy<RestResponse> retryAsyncPolicy = Policy
                 .Handle<ApiException>(ex => ex.ErrorCode == 401)
-                .OrResult<IRestResponse>(r => (int)r.StatusCode == 401)
+                .OrResult<RestResponse>(r => (int)r.StatusCode == 401)
                 .RetryAsync(2, onRetryAsync: async (response, retryCount, context) 
                     => await OnOAuthRetryAsync(response, retryCount, context, onRetryAsyncFunc));
 
@@ -93,13 +93,13 @@ namespace {{packageName}}.Client
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="request">The request.</param>
-        public static void AddOrUpdateAuthorizationHeader(Context context, IRestRequest request)
+        public static void AddOrUpdateAuthorizationHeader(Context context, RestRequest request)
         {
             if (context.Keys.Contains("access_token"))
             {
                 foreach (var oldAuthHeader in request.Parameters.Where(p => p.Name.Equals("Authorization", StringComparison.OrdinalIgnoreCase)).ToArray())
                 {
-                    request.Parameters.Remove(oldAuthHeader);
+                    request.Parameters.RemoveParameter(oldAuthHeader);
                 }
                 
                 request.AddOrUpdateHeader("Authorization", $"Bearer {context["access_token"].ToString()}");
@@ -117,7 +117,7 @@ namespace {{packageName}}.Client
             context.Add(key, value);
         }
 
-        private async Task OnOAuthRetryAsync(DelegateResult<IRestResponse> response, int retryCount, Context context, Func<DelegateResult<IRestResponse>, int, Context, Task> onRetryAsyncFunc = null)
+        private async Task OnOAuthRetryAsync(DelegateResult<RestResponse> response, int retryCount, Context context, Func<DelegateResult<RestResponse>, int, Context, Task> onRetryAsyncFunc = null)
         {
             var token = await GetAccessTokenAsync(forceRenew: true);
             AddToContext(context, "access_token", token);

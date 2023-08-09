@@ -160,7 +160,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Href.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Method.GetHashCode();
+                if (this.Method != null)
+                {
+                    hashCode = (hashCode * 59) + this.Method.GetHashCode();
+                }
                 return hashCode;
             }
         }

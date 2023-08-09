@@ -125,9 +125,18 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.Change.GetHashCode();
-                hashCode = (hashCode * 59) + this.Seed.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Change != null)
+                {
+                    hashCode = (hashCode * 59) + this.Change.GetHashCode();
+                }
+                if (this.Seed != null)
+                {
+                    hashCode = (hashCode * 59) + this.Seed.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 return hashCode;
             }
         }

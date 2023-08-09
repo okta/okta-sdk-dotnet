@@ -379,12 +379,18 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.RealmId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.StatusChanged != null)
                 {
                     hashCode = (hashCode * 59) + this.StatusChanged.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.TransitioningToStatus.GetHashCode();
+                if (this.TransitioningToStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransitioningToStatus.GetHashCode();
+                }
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();

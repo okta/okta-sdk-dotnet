@@ -382,7 +382,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.SecurityContext.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Severity.GetHashCode();
+                if (this.Severity != null)
+                {
+                    hashCode = (hashCode * 59) + this.Severity.GetHashCode();
+                }
                 if (this.Target != null)
                 {
                     hashCode = (hashCode * 59) + this.Target.GetHashCode();

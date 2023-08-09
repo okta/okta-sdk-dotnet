@@ -117,7 +117,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ResourceId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ResourceType.GetHashCode();
+                if (this.ResourceType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ResourceType.GetHashCode();
+                }
                 return hashCode;
             }
         }

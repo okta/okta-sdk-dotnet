@@ -160,7 +160,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Kid.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Revocation.GetHashCode();
+                if (this.Revocation != null)
+                {
+                    hashCode = (hashCode * 59) + this.Revocation.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.RevocationCacheLifetime.GetHashCode();
                 return hashCode;
             }

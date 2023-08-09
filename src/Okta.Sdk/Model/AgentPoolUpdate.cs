@@ -243,7 +243,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Agents.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.AgentType.GetHashCode();
+                if (this.AgentType != null)
+                {
+                    hashCode = (hashCode * 59) + this.AgentType.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
                 if (this.Id != null)
                 {
@@ -263,7 +266,10 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Schedule.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.SortOrder.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.TargetVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.TargetVersion.GetHashCode();

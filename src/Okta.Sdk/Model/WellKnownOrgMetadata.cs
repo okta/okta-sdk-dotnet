@@ -142,7 +142,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Pipeline.GetHashCode();
+                if (this.Pipeline != null)
+                {
+                    hashCode = (hashCode * 59) + this.Pipeline.GetHashCode();
+                }
                 if (this.Settings != null)
                 {
                     hashCode = (hashCode * 59) + this.Settings.GetHashCode();

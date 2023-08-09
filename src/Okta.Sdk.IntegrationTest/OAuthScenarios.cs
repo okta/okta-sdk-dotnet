@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -23,13 +24,23 @@ namespace Okta.Sdk.IntegrationTest
     {
         public OAuthScenarios()
         {
+            //CleanUsers();
+        }
+
+        private static void CleanUsers()
+        {
             var userApi = new UserApi();
 
-            //userApi.ListUsers().ToListAsync();
-            //foreach (var VARIABLE in COLLECTION)
-            //{
-                
-            //}
+            var users = userApi.ListUsers().ToListAsync().Result;
+
+            foreach (var user in users)
+            {
+                if (user.Profile.Email.Contains("dotnet"))
+                {
+                    userApi.DeactivateUserAsync(user.Id).Wait();
+                    userApi.DeleteUserAsync(user.Id).Wait();
+                }
+            }
         }
 
         [Fact]
@@ -74,7 +85,7 @@ namespace Okta.Sdk.IntegrationTest
             var requestOptions = getBasicRequestOptions();
             requestOptions.Data = JObject.Parse(payload);
 
-            var serviceResponse = await apiClient.PostAsync<JsonObject>("/oauth2/v1/clients", requestOptions);
+            var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
 
             var clientId = serviceResponse.Data["client_id"].ToString();
 
@@ -85,7 +96,7 @@ namespace Okta.Sdk.IntegrationTest
                 requestOptions.Data = JObject.Parse(grantPayload);
 
                 // Add grant to the service
-                var grantResponse = await apiClient.PostAsync<JsonObject>($"/api/v1/apps/{clientId}/grants", requestOptions);
+                var grantResponse = await apiClient.PostAsync<JObject>($"/api/v1/apps/{clientId}/grants", requestOptions);
 
 
                 // Use OAuth to get list of users
@@ -114,7 +125,7 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 requestOptions = getBasicRequestOptions();
-                await apiClient.DeleteAsync<JsonObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
+                await apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
             }
         }
 
@@ -160,7 +171,7 @@ namespace Okta.Sdk.IntegrationTest
             var requestOptions = getBasicRequestOptions();
             requestOptions.Data = JObject.Parse(payload);
 
-            var serviceResponse = await apiClient.PostAsync<JsonObject>("/oauth2/v1/clients", requestOptions);
+            var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
 
             var clientId = serviceResponse.Data["client_id"].ToString();
 
@@ -176,7 +187,7 @@ namespace Okta.Sdk.IntegrationTest
                 requestOptions.Data = JObject.Parse(grantPayload);
 
                 // Add grant to the service
-                var grantResponse = await apiClient.PostAsync<JsonObject>($"/api/v1/apps/{clientId}/grants", requestOptions);
+                var grantResponse = await apiClient.PostAsync<JObject>($"/api/v1/apps/{clientId}/grants", requestOptions);
 
 
                 // Use OAuth to get list of users
@@ -205,7 +216,7 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 requestOptions = getBasicRequestOptions();
-                await apiClient.DeleteAsync<JsonObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
+                await apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
             }
         }
 
@@ -252,7 +263,7 @@ namespace Okta.Sdk.IntegrationTest
             var requestOptions = getBasicRequestOptions();
             requestOptions.Data = JObject.Parse(payload);
 
-            var serviceResponse = await apiClient.PostAsync<JsonObject>("/oauth2/v1/clients", requestOptions);
+            var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
 
             var clientId = serviceResponse.Data["client_id"].ToString();
 
@@ -297,7 +308,7 @@ namespace Okta.Sdk.IntegrationTest
                 requestOptions.Data = JObject.Parse(grantPayload);
 
                 // Add grant to the service
-                var grantResponse = await apiClient.PostAsync<JsonObject>($"/api/v1/apps/{clientId}/grants", requestOptions);
+                var grantResponse = await apiClient.PostAsync<JObject>($"/api/v1/apps/{clientId}/grants", requestOptions);
 
 
                 // Use OAuth to get list of users
@@ -311,7 +322,7 @@ namespace Okta.Sdk.IntegrationTest
                                  }";
 
                 var configuration = new Configuration();
-                configuration.Scopes = new HashSet<string> { "okta.users.read" };
+                configuration.Scopes = new HashSet<string> { "okta.users.manage", "okta.users.read" };
                 configuration.ClientId = clientId;
                 configuration.PrivateKey = new JsonWebKeyConfiguration(jsonPrivateKey);
                 configuration.AuthorizationMode = AuthorizationMode.PrivateKey;
@@ -326,7 +337,7 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 requestOptions = getBasicRequestOptions();
-                await apiClient.DeleteAsync<JsonObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
+                await apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
                 await userApi.DeactivateUserAsync(createdUser.Id);
                 await userApi.DeleteUserAsync(createdUser.Id);
             }
@@ -375,7 +386,7 @@ namespace Okta.Sdk.IntegrationTest
             var requestOptions = getBasicRequestOptions();
             requestOptions.Data = JObject.Parse(payload);
 
-            var serviceResponse = await apiClient.PostAsync<JsonObject>("/oauth2/v1/clients", requestOptions);
+            var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
 
             var clientId = serviceResponse.Data["client_id"].ToString();
 
@@ -440,7 +451,7 @@ namespace Okta.Sdk.IntegrationTest
                 requestOptions.Data = JObject.Parse(grantPayload);
 
                 // Add grant to the service
-                var grantResponse = await apiClient.PostAsync<JsonObject>($"/api/v1/apps/{clientId}/grants", requestOptions);
+                var grantResponse = await apiClient.PostAsync<JObject>($"/api/v1/apps/{clientId}/grants", requestOptions);
 
 
                 // Use OAuth to get list of users
@@ -489,7 +500,7 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 requestOptions = getBasicRequestOptions();
-                await apiClient.DeleteAsync<JsonObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
+                await apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
                 await userApi.DeactivateUserAsync(createdUser1.Id);
                 await userApi.DeleteUserAsync(createdUser1.Id);
                 await userApi.DeactivateUserAsync(createdUser2.Id);
@@ -540,7 +551,7 @@ namespace Okta.Sdk.IntegrationTest
             var requestOptions = getBasicRequestOptions();
             requestOptions.Data = JObject.Parse(payload);
 
-            var serviceResponse = await apiClient.PostAsync<JsonObject>("/oauth2/v1/clients", requestOptions);
+            var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
 
             var clientId = serviceResponse.Data["client_id"].ToString();
 
@@ -605,7 +616,7 @@ namespace Okta.Sdk.IntegrationTest
                 requestOptions.Data = JObject.Parse(grantPayload);
 
                 // Add grant to the service
-                var grantResponse = await apiClient.PostAsync<JsonObject>($"/api/v1/apps/{clientId}/grants", requestOptions);
+                var grantResponse = await apiClient.PostAsync<JObject>($"/api/v1/apps/{clientId}/grants", requestOptions);
 
 
                 // Use OAuth to get list of users
@@ -656,7 +667,7 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 requestOptions = getBasicRequestOptions();
-                await apiClient.DeleteAsync<JsonObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
+                await apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
                 await userApi.DeactivateUserAsync(createdUser1.Id);
                 await userApi.DeleteUserAsync(createdUser1.Id);
                 await userApi.DeactivateUserAsync(createdUser2.Id);
@@ -735,7 +746,7 @@ namespace Okta.Sdk.IntegrationTest
                 return _defaulTokenProvider.GetAccessTokenAsync(forceRenew);
             }
 
-            public AsyncPolicy<IRestResponse> GetOAuthRetryPolicy(Func<DelegateResult<IRestResponse>, int, Context, Task> onRetryAsyncFunc = null)
+            public AsyncPolicy<RestResponse> GetOAuthRetryPolicy(Func<DelegateResult<RestResponse>, int, Context, Task> onRetryAsyncFunc = null)
             {
                 return _defaulTokenProvider.GetOAuthRetryPolicy(onRetryAsyncFunc);
             }

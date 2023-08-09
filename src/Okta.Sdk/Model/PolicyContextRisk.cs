@@ -142,7 +142,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.Level.GetHashCode();
+                if (this.Level != null)
+                {
+                    hashCode = (hashCode * 59) + this.Level.GetHashCode();
+                }
                 return hashCode;
             }
         }

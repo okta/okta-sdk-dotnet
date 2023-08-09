@@ -113,7 +113,10 @@ namespace Okta.Sdk.Model
                 int hashCode = 41;
                 
                 hashCode = (hashCode * 59) + this.BlockNonSafeAndroid.GetHashCode();
-                hashCode = (hashCode * 59) + this.Enrollment.GetHashCode();
+                if (this.Enrollment != null)
+                {
+                    hashCode = (hashCode * 59) + this.Enrollment.GetHashCode();
+                }
                 return hashCode;
             }
         }

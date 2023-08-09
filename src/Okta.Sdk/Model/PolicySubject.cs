@@ -162,7 +162,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.MatchAttribute.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.MatchType.GetHashCode();
+                if (this.MatchType != null)
+                {
+                    hashCode = (hashCode * 59) + this.MatchType.GetHashCode();
+                }
                 if (this.UserNameTemplate != null)
                 {
                     hashCode = (hashCode * 59) + this.UserNameTemplate.GetHashCode();

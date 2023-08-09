@@ -331,8 +331,14 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.SignOnMode.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.SignOnMode != null)
+                {
+                    hashCode = (hashCode * 59) + this.SignOnMode.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.Visibility != null)
                 {
                     hashCode = (hashCode * 59) + this.Visibility.GetHashCode();

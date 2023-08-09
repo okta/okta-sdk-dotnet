@@ -153,7 +153,10 @@ namespace Okta.Sdk.Model
                     hashCode = (hashCode * 59) + this.Platform.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Rooted.GetHashCode();
-                hashCode = (hashCode * 59) + this.TrustLevel.GetHashCode();
+                if (this.TrustLevel != null)
+                {
+                    hashCode = (hashCode * 59) + this.TrustLevel.GetHashCode();
+                }
                 if (this.Expression != null)
                 {
                     hashCode = (hashCode * 59) + this.Expression.GetHashCode();

@@ -113,8 +113,14 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.UserVerification.GetHashCode();
-                hashCode = (hashCode * 59) + this.Attachment.GetHashCode();
+                if (this.UserVerification != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserVerification.GetHashCode();
+                }
+                if (this.Attachment != null)
+                {
+                    hashCode = (hashCode * 59) + this.Attachment.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -191,7 +191,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.Consent.GetHashCode();
+                if (this.Consent != null)
+                {
+                    hashCode = (hashCode * 59) + this.Consent.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Default.GetHashCode();
                 if (this.Description != null)
                 {
@@ -205,7 +208,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.MetadataPublish.GetHashCode();
+                if (this.MetadataPublish != null)
+                {
+                    hashCode = (hashCode * 59) + this.MetadataPublish.GetHashCode();
+                }
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();

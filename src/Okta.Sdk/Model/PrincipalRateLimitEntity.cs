@@ -306,7 +306,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PrincipalId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PrincipalType.GetHashCode();
+                if (this.PrincipalType != null)
+                {
+                    hashCode = (hashCode * 59) + this.PrincipalType.GetHashCode();
+                }
                 return hashCode;
             }
         }
