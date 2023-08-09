@@ -129,8 +129,54 @@ As a general rule, we try to avoid inline enums. However, this version of the Op
 
 ### Obsolete methods
 
-Obsolete methods have been removed.
+The following obsolete methods have been removed:
 
+* UserApi
+
+```csharp
+[Obsolete("This method is obsolete. Use UpdateUserAsync(string userId, User user,...) instead.")]
+System.Threading.Tasks.Task<User> UpdateUserAsync(string userId, UpdateUserRequest user, bool? strict = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+```  
+
+```csharp
+[Obsolete("This method is obsolete. Use UpdateUserWithHttpInfoAsync(string userId, User user,...) instead.")]
+System.Threading.Tasks.Task<ApiResponse<User>> UpdateUserWithHttpInfoAsync(string userId, UpdateUserRequest user, bool? strict = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+```
+
+* RoleApi
+
+```csharp
+[Obsolete("This method is obsolete. Use CreateRoleAsync(CreateIamRoleRequest,...) instead.")]
+System.Threading.Tasks.Task<IamRole> CreateRoleAsync(IamRole instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+```
+
+```csharp
+[Obsolete("This method is obsolete. Use CreateRoleWithHttpInfoAsync(CreateIamRoleRequest,...) instead.")]
+System.Threading.Tasks.Task<ApiResponse<IamRole>> CreateRoleWithHttpInfoAsync(IamRole instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+```
+
+```csharp
+[Obsolete("This method is obsolete. Use ReplaceRoleAsync(string roleIdOrLabel, UpdateIamRoleRequest,...) instead.")]
+System.Threading.Tasks.Task<IamRole> ReplaceRoleAsync(string roleIdOrLabel, IamRole instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+```
+
+```csharp
+[Obsolete("This method is obsolete. Use ReplaceRoleWithHttpInfoAsync(string roleIdOrLabel, UpdateIamRoleRequest,...) instead.")]
+System.Threading.Tasks.Task<ApiResponse<IamRole>> ReplaceRoleWithHttpInfoAsync(string roleIdOrLabel, IamRole instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+```
+
+* ResourceSetApi
+
+```csharp
+[Obsolete("This method is obsolete and will be removed in the next major release. Use CreateResourceSetAsync(CreateResourceSetRequest instance...)")]
+public async System.Threading.Tasks.Task<ResourceSet> CreateResourceSetAsync(ResourceSet instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+```
+
+```csharp
+[Obsolete("This method is obsolete and will be removed in the next major release. Use CreateResourceSetWithHttpInfoAsync(CreateResourceSetRequest instance...)")]
+public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ResourceSet>> CreateResourceSetWithHttpInfoAsync(ResourceSet instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+```
 ### Model updates
 
 `Model.IsRequired` attribute is now `Default` to avoid JSON serialization runtime issues.
