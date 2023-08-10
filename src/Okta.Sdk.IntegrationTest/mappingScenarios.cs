@@ -238,12 +238,7 @@ namespace Okta.Sdk.IntegrationTest
                 mapping.Properties?.Keys?.Should().NotContain("nickName");
 
                 var profileMappingRequest = new ProfileMappingRequest();
-               
-                if (profileMappingRequest.Properties == null)
-                {
-                    profileMappingRequest.Properties = new Dictionary<string, ProfileMappingProperty>();
-                }
-
+                profileMappingRequest.Properties = new Dictionary<string, ProfileMappingProperty>();
                 profileMappingRequest.Properties.Add("userType", new ProfileMappingProperty
                 {
                     Expression = "appuser.firstName",
