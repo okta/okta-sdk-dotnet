@@ -647,6 +647,7 @@ docs/ProvisioningConnectionAuthScheme.md
 docs/ProvisioningConnectionProfile.md
 docs/ProvisioningConnectionProfileOauth.md
 docs/ProvisioningConnectionProfileToken.md
+docs/ProvisioningConnectionProfileUnknown.md
 docs/ProvisioningConnectionRequest.md
 docs/ProvisioningConnectionStatus.md
 docs/ProvisioningDeprovisionedAction.md
@@ -1554,6 +1555,7 @@ src/Okta.Sdk/Model/ProvisioningConnectionAuthScheme.cs
 src/Okta.Sdk/Model/ProvisioningConnectionProfile.cs
 src/Okta.Sdk/Model/ProvisioningConnectionProfileOauth.cs
 src/Okta.Sdk/Model/ProvisioningConnectionProfileToken.cs
+src/Okta.Sdk/Model/ProvisioningConnectionProfileUnknown.cs
 src/Okta.Sdk/Model/ProvisioningConnectionRequest.cs
 src/Okta.Sdk/Model/ProvisioningConnectionStatus.cs
 src/Okta.Sdk/Model/ProvisioningDeprovisionedAction.cs

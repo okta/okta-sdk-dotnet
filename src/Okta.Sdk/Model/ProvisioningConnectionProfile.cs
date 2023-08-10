@@ -27,95 +27,37 @@ using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 namespace Okta.Sdk.Model
 {
     /// <summary>
-    /// Template: AnyOf
+    /// Template: ModelGeneric
     /// The profile used to configure the connection method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication are supported. 
     /// </summary>
-    [JsonConverter(typeof(ProvisioningConnectionProfileJsonConverter))]
     [DataContract(Name = "ProvisioningConnectionProfile")]
-    public partial class ProvisioningConnectionProfile : AbstractOpenAPISchema, IEquatable<ProvisioningConnectionProfile>
+    [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileOauth), "OAUTH2")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileOauth), "ProvisioningConnectionProfileOauth")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileToken), "ProvisioningConnectionProfileToken")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileUnknown), "ProvisioningConnectionProfileUnknown")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileToken), "TOKEN")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileUnknown), "UNKNOWN")]
+    
+    public partial class ProvisioningConnectionProfile : IEquatable<ProvisioningConnectionProfile>
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisioningConnectionProfile" /> class
-        /// with the <see cref="ProvisioningConnectionProfileOauth" /> class
-        /// </summary>
-        /// <param name="actualInstance">An instance of ProvisioningConnectionProfileOauth.</param>
-        public ProvisioningConnectionProfile(ProvisioningConnectionProfileOauth actualInstance)
-        {
-            this.IsNullable = false;
-            this.SchemaType= "anyOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
-        }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisioningConnectionProfile" /> class
-        /// with the <see cref="ProvisioningConnectionProfileToken" /> class
+        /// Gets or Sets AuthScheme
         /// </summary>
-        /// <param name="actualInstance">An instance of ProvisioningConnectionProfileToken.</param>
-        public ProvisioningConnectionProfile(ProvisioningConnectionProfileToken actualInstance)
-        {
-            this.IsNullable = false;
-            this.SchemaType= "anyOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
-        }
-
-
-        private Object _actualInstance;
-
-        /// <summary>
-        /// Gets or Sets ActualInstance
-        /// </summary>
-        public override Object ActualInstance
-        {
-            get
-            {
-                return _actualInstance;
-            }
-            set
-            {
-                if (value.GetType() == typeof(ProvisioningConnectionProfileOauth))
-                {
-                    this._actualInstance = value;
-                }
-                else if (value.GetType() == typeof(ProvisioningConnectionProfileToken))
-                {
-                    this._actualInstance = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: ProvisioningConnectionProfileOauth, ProvisioningConnectionProfileToken");
-                }
-            }
-        }
-
-        /// <summary>
-        /// Get the actual instance of `ProvisioningConnectionProfileOauth`. If the actual instance is not `ProvisioningConnectionProfileOauth`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of ProvisioningConnectionProfileOauth</returns>
-        public ProvisioningConnectionProfileOauth GetProvisioningConnectionProfileOauth()
-        {
-            return (ProvisioningConnectionProfileOauth)this.ActualInstance;
-        }
-
-        /// <summary>
-        /// Get the actual instance of `ProvisioningConnectionProfileToken`. If the actual instance is not `ProvisioningConnectionProfileToken`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of ProvisioningConnectionProfileToken</returns>
-        public ProvisioningConnectionProfileToken GetProvisioningConnectionProfileToken()
-        {
-            return (ProvisioningConnectionProfileToken)this.ActualInstance;
-        }
-
+        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
+        
+        public ProvisioningConnectionAuthScheme AuthScheme { get; set; }
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ProvisioningConnectionProfile {\n");
-            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
+            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -124,51 +66,9 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, ProvisioningConnectionProfile.SerializerSettings);
-        }
-
-        /// <summary>
-        /// Converts the JSON string into an instance of ProvisioningConnectionProfile
-        /// </summary>
-        /// <param name="jsonString">JSON string</param>
-        /// <returns>An instance of ProvisioningConnectionProfile</returns>
-        public static ProvisioningConnectionProfile FromJson(string jsonString)
-        {
-            ProvisioningConnectionProfile newProvisioningConnectionProfile = null;
-
-            if (string.IsNullOrEmpty(jsonString))
-            {
-                return newProvisioningConnectionProfile;
-            }
-
-            try
-            {
-                newProvisioningConnectionProfile = new ProvisioningConnectionProfile(JsonConvert.DeserializeObject<ProvisioningConnectionProfileOauth>(jsonString, ProvisioningConnectionProfile.SerializerSettings));
-                // deserialization is considered successful at this point if no exception has been thrown.
-                return newProvisioningConnectionProfile;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ProvisioningConnectionProfileOauth: {1}", jsonString, exception.ToString()));
-            }
-
-            try
-            {
-                newProvisioningConnectionProfile = new ProvisioningConnectionProfile(JsonConvert.DeserializeObject<ProvisioningConnectionProfileToken>(jsonString, ProvisioningConnectionProfile.SerializerSettings));
-                // deserialization is considered successful at this point if no exception has been thrown.
-                return newProvisioningConnectionProfile;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ProvisioningConnectionProfileToken: {1}", jsonString, exception.ToString()));
-            }
-
-            // no match found, throw an exception
-            throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -189,9 +89,14 @@ namespace Okta.Sdk.Model
         public bool Equals(ProvisioningConnectionProfile input)
         {
             if (input == null)
+            {
                 return false;
-
-            return this.ActualInstance.Equals(input.ActualInstance);
+            }
+            return 
+                (
+                    this.AuthScheme == input.AuthScheme ||
+                    this.AuthScheme.Equals(input.AuthScheme)
+                );
         }
 
         /// <summary>
@@ -203,56 +108,15 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ActualInstance != null)
-                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
+                
+                if (this.AuthScheme != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                }
                 return hashCode;
             }
         }
 
-    }
-
-    /// <summary>
-    /// Custom JSON converter for ProvisioningConnectionProfile
-    /// </summary>
-    public class ProvisioningConnectionProfileJsonConverter : JsonConverter
-    {
-        /// <summary>
-        /// To write the JSON string
-        /// </summary>
-        /// <param name="writer">JSON writer</param>
-        /// <param name="value">Object to be converted into a JSON string</param>
-        /// <param name="serializer">JSON Serializer</param>
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            writer.WriteRawValue((string)(typeof(ProvisioningConnectionProfile).GetMethod("ToJson").Invoke(value, null)));
-        }
-
-        /// <summary>
-        /// To convert a JSON string into an object
-        /// </summary>
-        /// <param name="reader">JSON reader</param>
-        /// <param name="objectType">Object type</param>
-        /// <param name="existingValue">Existing value</param>
-        /// <param name="serializer">JSON Serializer</param>
-        /// <returns>The object converted from the JSON string</returns>
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            if(reader.TokenType != JsonToken.Null)
-            {
-                return ProvisioningConnectionProfile.FromJson(JObject.Load(reader).ToString(Formatting.None));
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// Check if the object can be converted
-        /// </summary>
-        /// <param name="objectType">Object type</param>
-        /// <returns>True if the object can be converted</returns>
-        public override bool CanConvert(Type objectType)
-        {
-            return false;
-        }
     }
 
 }

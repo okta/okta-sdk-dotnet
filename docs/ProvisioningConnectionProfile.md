@@ -5,9 +5,7 @@ The profile used to configure the connection method of authentication and the cr
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthScheme** | **ProvisioningConnectionAuthScheme** |  | 
-**Token** | **string** | Token used to authenticate with the app | 
-**ClientId** | **string** | Unique client identifier for the OAuth 2.0 service app from the target org | 
+**AuthScheme** | **ProvisioningConnectionAuthScheme** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

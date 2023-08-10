@@ -29313,53 +29313,53 @@ components:
         TOKEN: A token is used to authenticate with the app.
         OAUTH2: OAuth 2.0 is used to authenticate with the app.
         UNKNOWN: The authentication scheme used by the app isn't supported, or the app doesn't support provisioning.
-    # ProvisioningConnectionAuthSchemeRequest: # TODO: Review response contains UKNOWN
-    #   description: Method of authentication for the connection
-    #   type: string
-    #   enum:
-    #     - OAUTH2
-    #     - TOKEN
-    ProvisioningConnectionProfile: #TODO: Review inheritance
+    ProvisioningConnectionProfile:
       description: |
         The profile used to configure the connection method of authentication and the credentials.
         Currently, token-based and OAuth 2.0-based authentication are supported.
-      anyOf:
-        - $ref: '#/components/schemas/ProvisioningConnectionProfileToken'
-        - $ref: '#/components/schemas/ProvisioningConnectionProfileOauth'
       type: object
+      properties:
+        authScheme:
+          $ref: '#/components/schemas/ProvisioningConnectionAuthScheme'
       discriminator:
         propertyName: authScheme
         mapping:
           TOKEN: '#/components/schemas/ProvisioningConnectionProfileToken'
           OAUTH2: '#/components/schemas/ProvisioningConnectionProfileOauth'
+          UNKNOWN: '#/components/schemas/ProvisioningConnectionProfileUnknown'
     ProvisioningConnectionProfileOauth:
       description: |
         The app provisioning connection profile used to configure the method of authentication and the credentials.
         Currently, token-based and OAuth 2.0-based authentication are supported.
-      type: object
-      properties:
-        authScheme:
-          $ref: '#/components/schemas/ProvisioningConnectionAuthScheme'
-        clientId:
-          type: string
-          description: Unique client identifier for the OAuth 2.0 service app from the target org
-      required:
-        - authScheme
-        - clientId
+      allOf:
+        - $ref: '#/components/schemas/ProvisioningConnectionProfile'
+        - type: object
+          properties:
+            clientId:
+              type: string
+              description: Unique client identifier for the OAuth 2.0 service app from the target org
+          required:
+            - authScheme
+            - clientId
     ProvisioningConnectionProfileToken:
       description: |
         The app provisioning connection profile used to configure the method of authentication and the credentials.
         Currently, token-based and OAuth 2.0-based authentication are supported.
-      type: object
-      properties:
-        authScheme:
-          $ref: '#/components/schemas/ProvisioningConnectionAuthScheme'
-        token:
-          type: string
-          description: Token used to authenticate with the app
-      required:
-        - authScheme
-        - token
+      allOf:
+        - $ref: '#/components/schemas/ProvisioningConnectionProfile'
+        - type: object
+          properties:
+            token:
+              type: string
+              description: Token used to authenticate with the app
+          required:
+            - authScheme
+            - token
+    ProvisioningConnectionProfileUnknown:
+      description: Unknown provisioning connection
+      allOf:
+        - $ref: '#/components/schemas/ProvisioningConnectionProfile'
+        - type: object
     ProvisioningConnectionRequest:
       type: object
       properties:

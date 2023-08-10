@@ -28,29 +28,17 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// The app provisioning connection profile used to configure the method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication are supported. 
+    /// Unknown provisioning connection
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionProfileToken")]
+    [DataContract(Name = "ProvisioningConnectionProfileUnknown")]
     [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
     [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileOauth), "OAUTH2")]
     [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileToken), "TOKEN")]
     [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileUnknown), "UNKNOWN")]
     
-    public partial class ProvisioningConnectionProfileToken : ProvisioningConnectionProfile, IEquatable<ProvisioningConnectionProfileToken>
+    public partial class ProvisioningConnectionProfileUnknown : ProvisioningConnectionProfile, IEquatable<ProvisioningConnectionProfileUnknown>
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisioningConnectionProfileToken" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        public ProvisioningConnectionProfileToken() { }
         
-        /// <summary>
-        /// Token used to authenticate with the app
-        /// </summary>
-        /// <value>Token used to authenticate with the app</value>
-        [DataMember(Name = "token", EmitDefaultValue = true)]
-        public string Token { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -58,9 +46,8 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionProfileToken {\n");
+            sb.Append("class ProvisioningConnectionProfileUnknown {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  Token: ").Append(Token).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -81,26 +68,21 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionProfileToken);
+            return this.Equals(input as ProvisioningConnectionProfileUnknown);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionProfileToken instances are equal
+        /// Returns true if ProvisioningConnectionProfileUnknown instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionProfileToken to be compared</param>
+        /// <param name="input">Instance of ProvisioningConnectionProfileUnknown to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionProfileToken input)
+        public bool Equals(ProvisioningConnectionProfileUnknown input)
         {
             if (input == null)
             {
                 return false;
             }
-            return base.Equals(input) && 
-                (
-                    this.Token == input.Token ||
-                    (this.Token != null &&
-                    this.Token.Equals(input.Token))
-                );
+            return base.Equals(input);
         }
 
         /// <summary>
@@ -113,10 +95,6 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = base.GetHashCode();
                 
-                if (this.Token != null)
-                {
-                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
-                }
                 return hashCode;
             }
         }

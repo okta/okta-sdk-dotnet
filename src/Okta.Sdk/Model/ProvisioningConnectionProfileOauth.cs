@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
@@ -30,16 +31,13 @@ namespace Okta.Sdk.Model
     /// The app provisioning connection profile used to configure the method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication are supported. 
     /// </summary>
     [DataContract(Name = "ProvisioningConnectionProfileOauth")]
+    [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileOauth), "OAUTH2")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileToken), "TOKEN")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileUnknown), "UNKNOWN")]
     
-    public partial class ProvisioningConnectionProfileOauth : IEquatable<ProvisioningConnectionProfileOauth>
+    public partial class ProvisioningConnectionProfileOauth : ProvisioningConnectionProfile, IEquatable<ProvisioningConnectionProfileOauth>
     {
-
-        /// <summary>
-        /// Gets or Sets AuthScheme
-        /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
-        
-        public ProvisioningConnectionAuthScheme AuthScheme { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ProvisioningConnectionProfileOauth" /> class.
         /// </summary>
@@ -61,7 +59,7 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProvisioningConnectionProfileOauth {\n");
-            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -71,7 +69,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -97,11 +95,7 @@ namespace Okta.Sdk.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
-                ) && 
+            return base.Equals(input) && 
                 (
                     this.ClientId == input.ClientId ||
                     (this.ClientId != null &&
@@ -117,12 +111,8 @@ namespace Okta.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 
-                if (this.AuthScheme != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
-                }
                 if (this.ClientId != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientId.GetHashCode();

@@ -278,11 +278,11 @@ namespace Okta.Sdk.UnitTest
             var appApi = new ApplicationConnectionsApi(mockClient, new Configuration { BasePath = "https://foo.com" });
             var connectionProfile = new ProvisioningConnectionRequest
             {
-                Profile = new ProvisioningConnectionProfile(new ProvisioningConnectionProfileOauth
+                Profile = new ProvisioningConnectionProfileOauth
                 {
                     ClientId = "foo",
                     AuthScheme = ProvisioningConnectionAuthScheme.TOKEN
-                })
+                }
             };
 
             var response = await appApi.UpdateDefaultProvisioningConnectionForApplicationAsync("bar", connectionProfile, true);
@@ -291,10 +291,10 @@ namespace Okta.Sdk.UnitTest
             mockClient.ReceivedQueryParams.ContainsKey("activate").Should().BeTrue();
             mockClient.ReceivedQueryParams["activate"].Should().Contain("true");
 
-            var expectedBody = @"{""profile"":{""authScheme"":""TOKEN"",""clientId"":""foo""}}";
+            var expectedBody = @"{""profile"":{""clientId"":""foo"",""authScheme"":""TOKEN""}}";
             mockClient.ReceivedBody.Should().Be(expectedBody);
             response.Status.Value.Should().Be("ENABLED");
-            response.Profile.GetProvisioningConnectionProfileOauth().AuthScheme.Value.Should().Be("TOKEN");
+            response.Profile.AuthScheme.Value.Should().Be("TOKEN");
             response.AuthScheme.Value.Should().Be("TOKEN");
         }
 
