@@ -97,13 +97,8 @@ var updatedMapping = await _profileMappingApi.UpdateProfileMappingAsync(mapping.
 _Now_
 
 ```csharp
- var profileMappingRequest = new ProfileMappingRequest();
-               
-if (profileMappingRequest.Properties == null)
-{
-    profileMappingRequest.Properties = new Dictionary<string, ProfileMappingProperty>();
-}
-
+var profileMappingRequest = new ProfileMappingRequest();
+profileMappingRequest.Properties = new Dictionary<string, ProfileMappingProperty>();
 profileMappingRequest.Properties.Add("userType", new ProfileMappingProperty
 {
     Expression = "appuser.firstName",
