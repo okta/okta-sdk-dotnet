@@ -4,16 +4,16 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetLogs**](SystemLogApi.md#getlogs) | **GET** /api/v1/logs | List all System Log Events
+[**ListLogEvents**](SystemLogApi.md#listlogevents) | **GET** /api/v1/logs | List all System Log Events
 
 
-<a name="getlogs"></a>
-# **GetLogs**
-> List&lt;LogEvent&gt; GetLogs (DateTimeOffset? since = null, DateTimeOffset? until = null, string filter = null, string q = null, int? limit = null, string sortOrder = null, string after = null)
+<a name="listlogevents"></a>
+# **ListLogEvents**
+> List&lt;LogEvent&gt; ListLogEvents (DateTimeOffset? since = null, DateTimeOffset? until = null, string filter = null, string q = null, int? limit = null, string sortOrder = null, string after = null)
 
 List all System Log Events
 
-The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
+Lists all system log events. The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
 
 ### Example
 ```csharp
@@ -25,7 +25,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class GetLogsExample
+    public class ListLogEventsExample
     {
         public static void Main()
         {
@@ -48,12 +48,12 @@ namespace Example
             try
             {
                 // List all System Log Events
-                List<LogEvent> result = apiInstance.GetLogs(since, until, filter, q, limit, sortOrder, after).ToListAsync();
+                List<LogEvent> result = apiInstance.ListLogEvents(since, until, filter, q, limit, sortOrder, after).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemLogApi.GetLogs: " + e.Message );
+                Debug.Print("Exception when calling SystemLogApi.ListLogEvents: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

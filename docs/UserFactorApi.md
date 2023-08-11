@@ -5,14 +5,14 @@ All URIs are relative to *https://subdomain.okta.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ActivateFactor**](UserFactorApi.md#activatefactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/lifecycle/activate | Activate a Factor
-[**DeleteFactor**](UserFactorApi.md#deletefactor) | **DELETE** /api/v1/users/{userId}/factors/{factorId} | Delete a Factor
 [**EnrollFactor**](UserFactorApi.md#enrollfactor) | **POST** /api/v1/users/{userId}/factors | Enroll a Factor
 [**GetFactor**](UserFactorApi.md#getfactor) | **GET** /api/v1/users/{userId}/factors/{factorId} | Retrieve a Factor
 [**GetFactorTransactionStatus**](UserFactorApi.md#getfactortransactionstatus) | **GET** /api/v1/users/{userId}/factors/{factorId}/transactions/{transactionId} | Retrieve a Factor Transaction Status
 [**ListFactors**](UserFactorApi.md#listfactors) | **GET** /api/v1/users/{userId}/factors | List all Factors
 [**ListSupportedFactors**](UserFactorApi.md#listsupportedfactors) | **GET** /api/v1/users/{userId}/factors/catalog | List all Supported Factors
 [**ListSupportedSecurityQuestions**](UserFactorApi.md#listsupportedsecurityquestions) | **GET** /api/v1/users/{userId}/factors/questions | List all Supported Security Questions
-[**ResendEnrollFactor**](UserFactorApi.md#resendenrollfactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/resend | Resend factor enrollment
+[**ResendEnrollFactor**](UserFactorApi.md#resendenrollfactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/resend | Resend a factor enrollment
+[**UnenrollFactor**](UserFactorApi.md#unenrollfactor) | **DELETE** /api/v1/users/{userId}/factors/{factorId} | Unenroll a Factor
 [**VerifyFactor**](UserFactorApi.md#verifyfactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/verify | Verify an MFA Factor
 
 
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 Activate a Factor
 
-The `sms` and `token:software:totp` factor types require activation to complete the enrollment process.
+Activates a factor. The `sms` and `token:software:totp` factor types require activation to complete the enrollment process.
 
 ### Example
 ```csharp
@@ -47,7 +47,7 @@ namespace Example
 
             var apiInstance = new UserFactorApi(config);
             var userId = "userId_example";  // string | 
-            var factorId = "factorId_example";  // string | 
+            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | `id` of the Factor
             var body = new ActivateFactorRequest(); // ActivateFactorRequest |  (optional) 
 
             try
@@ -72,7 +72,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **factorId** | **string**|  | 
+ **factorId** | **string**| &#x60;id&#x60; of the Factor | 
  **body** | [**ActivateFactorRequest**](ActivateFactorRequest.md)|  | [optional] 
 
 ### Return type
@@ -100,95 +100,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletefactor"></a>
-# **DeleteFactor**
-> void DeleteFactor (string userId, string factorId, bool? removeRecoveryEnrollment = null)
-
-Delete a Factor
-
-Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class DeleteFactorExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new UserFactorApi(config);
-            var userId = "userId_example";  // string | 
-            var factorId = "factorId_example";  // string | 
-            var removeRecoveryEnrollment = false;  // bool? |  (optional)  (default to false)
-
-            try
-            {
-                // Delete a Factor
-                apiInstance.DeleteFactor(userId, factorId, removeRecoveryEnrollment);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling UserFactorApi.DeleteFactor: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **factorId** | **string**|  | 
- **removeRecoveryEnrollment** | **bool?**|  | [optional] [default to false]
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="enrollfactor"></a>
 # **EnrollFactor**
 > UserFactor EnrollFactor (string userId, UserFactor body, bool? updatePhone = null, string templateId = null, int? tokenLifetimeSeconds = null, bool? activate = null)
 
 Enroll a Factor
 
-Enrolls a user with a supported factor.
+Enrolls a user with a supported factor
 
 ### Example
 ```csharp
@@ -278,7 +196,7 @@ Name | Type | Description  | Notes
 
 Retrieve a Factor
 
-Fetches a factor for the specified user
+Retrieves a factor for the specified user
 
 ### Example
 ```csharp
@@ -303,7 +221,7 @@ namespace Example
 
             var apiInstance = new UserFactorApi(config);
             var userId = "userId_example";  // string | 
-            var factorId = "factorId_example";  // string | 
+            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | `id` of the Factor
 
             try
             {
@@ -327,7 +245,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **factorId** | **string**|  | 
+ **factorId** | **string**| &#x60;id&#x60; of the Factor | 
 
 ### Return type
 
@@ -359,7 +277,7 @@ Name | Type | Description  | Notes
 
 Retrieve a Factor Transaction Status
 
-Polls factors verification transaction for status.
+Retrieves the factors verification transaction status
 
 ### Example
 ```csharp
@@ -384,8 +302,8 @@ namespace Example
 
             var apiInstance = new UserFactorApi(config);
             var userId = "userId_example";  // string | 
-            var factorId = "factorId_example";  // string | 
-            var transactionId = "transactionId_example";  // string | 
+            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | `id` of the Factor
+            var transactionId = gPAQcN3NDjSGOCAeG2Jv;  // string | `id` of the Transaction
 
             try
             {
@@ -409,8 +327,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **factorId** | **string**|  | 
- **transactionId** | **string**|  | 
+ **factorId** | **string**| &#x60;id&#x60; of the Factor | 
+ **transactionId** | **string**| &#x60;id&#x60; of the Transaction | 
 
 ### Return type
 
@@ -442,7 +360,7 @@ Name | Type | Description  | Notes
 
 List all Factors
 
-Enumerates all the enrolled factors for the specified user
+Lists all the enrolled factors for the specified user
 
 ### Example
 ```csharp
@@ -521,7 +439,7 @@ Name | Type | Description  | Notes
 
 List all Supported Factors
 
-Enumerates all the supported factors that can be enrolled for the specified user
+Lists all the supported factors that can be enrolled for the specified user
 
 ### Example
 ```csharp
@@ -600,7 +518,7 @@ Name | Type | Description  | Notes
 
 List all Supported Security Questions
 
-Enumerates all available security questions for a user's `question` factor
+Lists all available security questions for a user's `question` factor
 
 ### Example
 ```csharp
@@ -675,7 +593,7 @@ Name | Type | Description  | Notes
 # **ResendEnrollFactor**
 > UserFactor ResendEnrollFactor (string userId, string factorId, UserFactor userFactor, string templateId = null)
 
-Resend factor enrollment
+Resend a factor enrollment
 
 Resends a factor challenge (SMS/call/email OTP) as part of an enrollment flow. The current rate limit is one OTP challenge (call or SMS) per device every 30 seconds. Okta round-robins between SMS providers with every resend request to help ensure delivery of an SMS OTP across different carriers.
 
@@ -702,13 +620,13 @@ namespace Example
 
             var apiInstance = new UserFactorApi(config);
             var userId = "userId_example";  // string | 
-            var factorId = "factorId_example";  // string | 
+            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | `id` of the Factor
             var userFactor = new UserFactor(); // UserFactor | Factor
-            var templateId = "templateId_example";  // string | id of SMS template (only for SMS factor) (optional) 
+            var templateId = "templateId_example";  // string | ID of SMS template (only for SMS factor) (optional) 
 
             try
             {
-                // Resend factor enrollment
+                // Resend a factor enrollment
                 UserFactor result = apiInstance.ResendEnrollFactor(userId, factorId, userFactor, templateId);
                 Debug.WriteLine(result);
             }
@@ -728,9 +646,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **factorId** | **string**|  | 
+ **factorId** | **string**| &#x60;id&#x60; of the Factor | 
  **userFactor** | [**UserFactor**](UserFactor.md)| Factor | 
- **templateId** | **string**| id of SMS template (only for SMS factor) | [optional] 
+ **templateId** | **string**| ID of SMS template (only for SMS factor) | [optional] 
 
 ### Return type
 
@@ -751,6 +669,88 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="unenrollfactor"></a>
+# **UnenrollFactor**
+> void UnenrollFactor (string userId, string factorId, bool? removeRecoveryEnrollment = null)
+
+Unenroll a Factor
+
+Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class UnenrollFactorExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UserFactorApi(config);
+            var userId = "userId_example";  // string | 
+            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | `id` of the Factor
+            var removeRecoveryEnrollment = false;  // bool? |  (optional)  (default to false)
+
+            try
+            {
+                // Unenroll a Factor
+                apiInstance.UnenrollFactor(userId, factorId, removeRecoveryEnrollment);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UserFactorApi.UnenrollFactor: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**|  | 
+ **factorId** | **string**| &#x60;id&#x60; of the Factor | 
+ **removeRecoveryEnrollment** | **bool?**|  | [optional] [default to false]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
@@ -788,7 +788,7 @@ namespace Example
 
             var apiInstance = new UserFactorApi(config);
             var userId = "userId_example";  // string | 
-            var factorId = "factorId_example";  // string | 
+            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | `id` of the Factor
             var templateId = "templateId_example";  // string |  (optional) 
             var tokenLifetimeSeconds = 300;  // int? |  (optional)  (default to 300)
             var xForwardedFor = "xForwardedFor_example";  // string |  (optional) 
@@ -818,7 +818,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **factorId** | **string**|  | 
+ **factorId** | **string**| &#x60;id&#x60; of the Factor | 
  **templateId** | **string**|  | [optional] 
  **tokenLifetimeSeconds** | **int?**|  | [optional] [default to 300]
  **xForwardedFor** | **string**|  | [optional] 

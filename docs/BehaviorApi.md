@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**DeleteBehaviorDetectionRule**](BehaviorApi.md#deletebehaviordetectionrule) | **DELETE** /api/v1/behaviors/{behaviorId} | Delete a Behavior Detection Rule
 [**GetBehaviorDetectionRule**](BehaviorApi.md#getbehaviordetectionrule) | **GET** /api/v1/behaviors/{behaviorId} | Retrieve a Behavior Detection Rule
 [**ListBehaviorDetectionRules**](BehaviorApi.md#listbehaviordetectionrules) | **GET** /api/v1/behaviors | List all Behavior Detection Rules
-[**UpdateBehaviorDetectionRule**](BehaviorApi.md#updatebehaviordetectionrule) | **PUT** /api/v1/behaviors/{behaviorId} | Replace a Behavior Detection Rule
+[**ReplaceBehaviorDetectionRule**](BehaviorApi.md#replacebehaviordetectionrule) | **PUT** /api/v1/behaviors/{behaviorId} | Replace a Behavior Detection Rule
 
 
 <a name="activatebehaviordetectionrule"></a>
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Activate a Behavior Detection Rule
 
-Activate Behavior Detection Rule
+Activates a behavior detection rule
 
 ### Example
 ```csharp
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 Create a Behavior Detection Rule
 
-Adds a new Behavior Detection Rule to your organization.
+Creates a new behavior detection rule
 
 ### Example
 ```csharp
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 Deactivate a Behavior Detection Rule
 
-Deactivate Behavior Detection Rule
+Deactivates a behavior detection rule
 
 ### Example
 ```csharp
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 Delete a Behavior Detection Rule
 
-Delete a Behavior Detection Rule by `behaviorId`.
+Deletes a Behavior Detection Rule by `behaviorId`
 
 ### Example
 ```csharp
@@ -334,7 +334,7 @@ void (empty response body)
 
 Retrieve a Behavior Detection Rule
 
-Fetches a Behavior Detection Rule by `behaviorId`.
+Retrieves a Behavior Detection Rule by `behaviorId`
 
 ### Example
 ```csharp
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 List all Behavior Detection Rules
 
-Enumerates Behavior Detection Rules in your organization with pagination.
+Lists all behavior detection rules with pagination support
 
 ### Example
 ```csharp
@@ -481,13 +481,13 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatebehaviordetectionrule"></a>
-# **UpdateBehaviorDetectionRule**
-> BehaviorRule UpdateBehaviorDetectionRule (string behaviorId, BehaviorRule rule)
+<a name="replacebehaviordetectionrule"></a>
+# **ReplaceBehaviorDetectionRule**
+> BehaviorRule ReplaceBehaviorDetectionRule (string behaviorId, BehaviorRule rule)
 
 Replace a Behavior Detection Rule
 
-Update a Behavior Detection Rule by `behaviorId`.
+Replaces a Behavior Detection Rule by `behaviorId`
 
 ### Example
 ```csharp
@@ -499,7 +499,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class UpdateBehaviorDetectionRuleExample
+    public class ReplaceBehaviorDetectionRuleExample
     {
         public static void Main()
         {
@@ -517,12 +517,12 @@ namespace Example
             try
             {
                 // Replace a Behavior Detection Rule
-                BehaviorRule result = apiInstance.UpdateBehaviorDetectionRule(behaviorId, rule);
+                BehaviorRule result = apiInstance.ReplaceBehaviorDetectionRule(behaviorId, rule);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling BehaviorApi.UpdateBehaviorDetectionRule: " + e.Message );
+                Debug.Print("Exception when calling BehaviorApi.ReplaceBehaviorDetectionRule: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

@@ -234,7 +234,7 @@ namespace Okta.Sdk.IntegrationTest
                 permissions._Permissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
                 permissions._Permissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
 
-                await _roleApi.AddRolePermissionAsync(newRole.Id, "okta.users.manage");
+                await _roleApi.CreateRolePermissionAsync(newRole.Id, "okta.users.manage");
                 
                 permissions = await _roleApi.ListRolePermissionsAsync(newRole.Id);
                 permissions._Permissions.Any(x => x.Label == "okta.users.manage").Should().BeTrue();

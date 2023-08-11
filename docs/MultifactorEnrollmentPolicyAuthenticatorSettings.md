@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Constraints** | [**MultifactorEnrollmentPolicyAuthenticatorSettingsConstraints**](MultifactorEnrollmentPolicyAuthenticatorSettingsConstraints.md) |  | [optional] 
 **Enroll** | [**MultifactorEnrollmentPolicyAuthenticatorSettingsEnroll**](MultifactorEnrollmentPolicyAuthenticatorSettingsEnroll.md) |  | [optional] 
 **Key** | **MultifactorEnrollmentPolicyAuthenticatorType** |  | [optional] 
 

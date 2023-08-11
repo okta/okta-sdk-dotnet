@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Self** | [**HrefObject**](HrefObject.md) |  | [optional] 
+**Self** | [**HrefObjectSelfLink**](HrefObjectSelfLink.md) |  | [optional] 
 **Bindings** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **ResourceSet** | [**HrefObject**](HrefObject.md) |  | [optional] 
 

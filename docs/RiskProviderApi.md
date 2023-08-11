@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**DeleteRiskProvider**](RiskProviderApi.md#deleteriskprovider) | **DELETE** /api/v1/risk/providers/{riskProviderId} | Delete a Risk Provider
 [**GetRiskProvider**](RiskProviderApi.md#getriskprovider) | **GET** /api/v1/risk/providers/{riskProviderId} | Retrieve a Risk Provider
 [**ListRiskProviders**](RiskProviderApi.md#listriskproviders) | **GET** /api/v1/risk/providers | List all Risk Providers
-[**UpdateRiskProvider**](RiskProviderApi.md#updateriskprovider) | **PUT** /api/v1/risk/providers/{riskProviderId} | Replace a Risk Provider
+[**ReplaceRiskProvider**](RiskProviderApi.md#replaceriskprovider) | **PUT** /api/v1/risk/providers/{riskProviderId} | Replace a Risk Provider
 
 
 <a name="createriskprovider"></a>
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Create a Risk Provider
 
-Creates a risk provider. A maximum of 3 providers can be created. By default, one risk provider is created by Okta.
+Creates a Risk Provider object. A maximum of three Risk Provider objects can be created.
 
 ### Example
 ```csharp
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 Delete a Risk Provider
 
-Delete a CAPTCHA instance by `riskProviderId`.
+Deletes a Risk Provider object by its ID
 
 ### Example
 ```csharp
@@ -120,7 +120,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RiskProviderApi(config);
-            var riskProviderId = 00rp12r4skkjkjgsn;  // string | `id` of the risk provider
+            var riskProviderId = 00rp12r4skkjkjgsn;  // string | `id` of the Risk Provider object
 
             try
             {
@@ -142,7 +142,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **riskProviderId** | **string**| &#x60;id&#x60; of the risk provider | 
+ **riskProviderId** | **string**| &#x60;id&#x60; of the Risk Provider object | 
 
 ### Return type
 
@@ -174,7 +174,7 @@ void (empty response body)
 
 Retrieve a Risk Provider
 
-Retrieves a risk provider by `riskProviderId`.
+Retrieves a Risk Provider object by ID
 
 ### Example
 ```csharp
@@ -198,7 +198,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RiskProviderApi(config);
-            var riskProviderId = 00rp12r4skkjkjgsn;  // string | `id` of the risk provider
+            var riskProviderId = 00rp12r4skkjkjgsn;  // string | `id` of the Risk Provider object
 
             try
             {
@@ -221,7 +221,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **riskProviderId** | **string**| &#x60;id&#x60; of the risk provider | 
+ **riskProviderId** | **string**| &#x60;id&#x60; of the Risk Provider object | 
 
 ### Return type
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 List all Risk Providers
 
-Lists all Risk Providers
+Lists all Risk Provider objects
 
 ### Example
 ```csharp
@@ -321,13 +321,13 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updateriskprovider"></a>
-# **UpdateRiskProvider**
-> RiskProvider UpdateRiskProvider (string riskProviderId, RiskProvider instance)
+<a name="replaceriskprovider"></a>
+# **ReplaceRiskProvider**
+> RiskProvider ReplaceRiskProvider (string riskProviderId, RiskProvider instance)
 
 Replace a Risk Provider
 
-Replaces a risk provider by `riskProviderId`.
+Replaces the properties for a given Risk Provider object ID
 
 ### Example
 ```csharp
@@ -339,7 +339,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class UpdateRiskProviderExample
+    public class ReplaceRiskProviderExample
     {
         public static void Main()
         {
@@ -351,18 +351,18 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RiskProviderApi(config);
-            var riskProviderId = 00rp12r4skkjkjgsn;  // string | `id` of the risk provider
+            var riskProviderId = 00rp12r4skkjkjgsn;  // string | `id` of the Risk Provider object
             var instance = new RiskProvider(); // RiskProvider | 
 
             try
             {
                 // Replace a Risk Provider
-                RiskProvider result = apiInstance.UpdateRiskProvider(riskProviderId, instance);
+                RiskProvider result = apiInstance.ReplaceRiskProvider(riskProviderId, instance);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RiskProviderApi.UpdateRiskProvider: " + e.Message );
+                Debug.Print("Exception when calling RiskProviderApi.ReplaceRiskProvider: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -375,7 +375,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **riskProviderId** | **string**| &#x60;id&#x60; of the risk provider | 
+ **riskProviderId** | **string**| &#x60;id&#x60; of the Risk Provider object | 
  **instance** | [**RiskProvider**](RiskProvider.md)|  | 
 
 ### Return type

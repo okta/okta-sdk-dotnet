@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** | **DateTimeOffset** | Timestamp when the Log Stream was created | [optional] [readonly] 
-**Id** | **string** | Unique key for the Log Stream | [optional] [readonly] 
-**LastUpdated** | **DateTimeOffset** | Timestamp when the Log Stream was last updated | [optional] [readonly] 
-**Name** | **string** | Unique name for the Log Stream | [optional] 
-**Status** | **LifecycleStatus** |  | [optional] 
-**Type** | **LogStreamType** |  | [optional] 
-**Links** | [**LogStreamLinks**](LogStreamLinks.md) |  | [optional] 
+**Created** | **DateTimeOffset** | Timestamp when the Log Stream object was created | [readonly] 
+**Id** | **string** | Unique identifier for the Log Stream | [readonly] 
+**LastUpdated** | **DateTimeOffset** | Timestamp when the Log Stream object was last updated | [readonly] 
+**Name** | **string** | Unique name for the Log Stream object | 
+**Status** | **string** | Lifecycle status of the Log Stream object | [readonly] 
+**Type** | **LogStreamType** |  | 
+**Links** | [**LogStreamLinksSelfAndLifecycle**](LogStreamLinksSelfAndLifecycle.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

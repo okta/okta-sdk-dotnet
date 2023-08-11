@@ -4,8 +4,8 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddRolePermission**](RoleApi.md#addrolepermission) | **POST** /api/v1/iam/roles/{roleIdOrLabel}/permissions/{permissionType} | Create a Permission
 [**CreateRole**](RoleApi.md#createrole) | **POST** /api/v1/iam/roles | Create a Role
+[**CreateRolePermission**](RoleApi.md#createrolepermission) | **POST** /api/v1/iam/roles/{roleIdOrLabel}/permissions/{permissionType} | Create a Permission
 [**DeleteRole**](RoleApi.md#deleterole) | **DELETE** /api/v1/iam/roles/{roleIdOrLabel} | Delete a Role
 [**DeleteRolePermission**](RoleApi.md#deleterolepermission) | **DELETE** /api/v1/iam/roles/{roleIdOrLabel}/permissions/{permissionType} | Delete a Permission
 [**GetRole**](RoleApi.md#getrole) | **GET** /api/v1/iam/roles/{roleIdOrLabel} | Retrieve a Role
@@ -13,88 +13,8 @@ Method | HTTP request | Description
 [**ListRolePermissions**](RoleApi.md#listrolepermissions) | **GET** /api/v1/iam/roles/{roleIdOrLabel}/permissions | List all Permissions
 [**ListRoles**](RoleApi.md#listroles) | **GET** /api/v1/iam/roles | List all Roles
 [**ReplaceRole**](RoleApi.md#replacerole) | **PUT** /api/v1/iam/roles/{roleIdOrLabel} | Replace a Role
+[**ReplaceRolePermission**](RoleApi.md#replacerolepermission) | **PUT** /api/v1/iam/roles/{roleIdOrLabel}/permissions/{permissionType} | Replace a Permission
 
-
-<a name="addrolepermission"></a>
-# **AddRolePermission**
-> void AddRolePermission (string roleIdOrLabel, string permissionType)
-
-Create a Permission
-
-Adds a permission specified by `permissionType` to the role
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class AddRolePermissionExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new RoleApi(config);
-            var roleIdOrLabel = cr0Yq6IJxGIr0ouum0g3;  // string | `id` or `label` of the role
-            var permissionType = okta.users.manage;  // string | An okta permission type
-
-            try
-            {
-                // Create a Permission
-                apiInstance.AddRolePermission(roleIdOrLabel, permissionType);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling RoleApi.AddRolePermission: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **roleIdOrLabel** | **string**| &#x60;id&#x60; or &#x60;label&#x60; of the role | 
- **permissionType** | **string**| An okta permission type | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="createrole"></a>
 # **CreateRole**
@@ -171,6 +91,89 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="createrolepermission"></a>
+# **CreateRolePermission**
+> void CreateRolePermission (string roleIdOrLabel, string permissionType, CreateUpdateIamRolePermissionRequest instance = null)
+
+Create a Permission
+
+Creates a permission specified by `permissionType` to the role
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class CreateRolePermissionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new RoleApi(config);
+            var roleIdOrLabel = cr0Yq6IJxGIr0ouum0g3;  // string | `id` or `label` of the role
+            var permissionType = okta.users.manage;  // string | An okta permission type
+            var instance = new CreateUpdateIamRolePermissionRequest(); // CreateUpdateIamRolePermissionRequest |  (optional) 
+
+            try
+            {
+                // Create a Permission
+                apiInstance.CreateRolePermission(roleIdOrLabel, permissionType, instance);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling RoleApi.CreateRolePermission: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **roleIdOrLabel** | **string**| &#x60;id&#x60; or &#x60;label&#x60; of the role | 
+ **permissionType** | **string**| An okta permission type | 
+ **instance** | [**CreateUpdateIamRolePermissionRequest**](CreateUpdateIamRolePermissionRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -339,7 +342,7 @@ void (empty response body)
 
 Retrieve a Role
 
-Retrieve a role by `roleIdOrLabel`
+Retrieves a role by `roleIdOrLabel`
 
 ### Example
 ```csharp
@@ -710,6 +713,90 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**IamRole**](IamRole.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="replacerolepermission"></a>
+# **ReplaceRolePermission**
+> Permission ReplaceRolePermission (string roleIdOrLabel, string permissionType, CreateUpdateIamRolePermissionRequest instance = null)
+
+Replace a Permission
+
+Replaces a permission specified by `permissionType` in the role
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplaceRolePermissionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new RoleApi(config);
+            var roleIdOrLabel = cr0Yq6IJxGIr0ouum0g3;  // string | `id` or `label` of the role
+            var permissionType = okta.users.manage;  // string | An okta permission type
+            var instance = new CreateUpdateIamRolePermissionRequest(); // CreateUpdateIamRolePermissionRequest |  (optional) 
+
+            try
+            {
+                // Replace a Permission
+                Permission result = apiInstance.ReplaceRolePermission(roleIdOrLabel, permissionType, instance);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling RoleApi.ReplaceRolePermission: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **roleIdOrLabel** | **string**| &#x60;id&#x60; or &#x60;label&#x60; of the role | 
+ **permissionType** | **string**| An okta permission type | 
+ **instance** | [**CreateUpdateIamRolePermissionRequest**](CreateUpdateIamRolePermissionRequest.md)|  | [optional] 
+
+### Return type
+
+[**Permission**](Permission.md)
 
 ### Authorization
 

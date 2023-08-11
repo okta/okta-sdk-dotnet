@@ -4,32 +4,32 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddAllAppsAsTargetToRole**](RoleTargetApi.md#addallappsastargettorole) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps | Assign all Apps as Target to Role
-[**AddApplicationInstanceTargetToAppAdminRoleGivenToGroup**](RoleTargetApi.md#addapplicationinstancetargettoappadminrolegiventogroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Assign an Application Instance Target to Application Administrator Role
-[**AddApplicationTargetToAdminRoleForUser**](RoleTargetApi.md#addapplicationtargettoadminroleforuser) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName} | Assign an Application Target to Administrator Role
-[**AddApplicationTargetToAdminRoleGivenToGroup**](RoleTargetApi.md#addapplicationtargettoadminrolegiventogroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName} | Assign an Application Target to Administrator Role
-[**AddApplicationTargetToAppAdminRoleForUser**](RoleTargetApi.md#addapplicationtargettoappadminroleforuser) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Assign an Application Instance Target to an Application Administrator Role
-[**AddGroupTargetToGroupAdministratorRoleForGroup**](RoleTargetApi.md#addgrouptargettogroupadministratorroleforgroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId} | Assign a Group Target for Group Role
-[**AddGroupTargetToRole**](RoleTargetApi.md#addgrouptargettorole) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId} | Assign a Group Target to Role
+[**AssignAllAppsAsTargetToRoleForUser**](RoleTargetApi.md#assignallappsastargettoroleforuser) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps | Assign all Apps as Target to Role
+[**AssignAppInstanceTargetToAppAdminRoleForGroup**](RoleTargetApi.md#assignappinstancetargettoappadminroleforgroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{appId} | Assign an Application Instance Target to Application Administrator Role
+[**AssignAppInstanceTargetToAppAdminRoleForUser**](RoleTargetApi.md#assignappinstancetargettoappadminroleforuser) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{appId} | Assign an Application Instance Target to an Application Administrator Role
+[**AssignAppTargetToAdminRoleForGroup**](RoleTargetApi.md#assignapptargettoadminroleforgroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName} | Assign an Application Target to Administrator Role
+[**AssignAppTargetToAdminRoleForUser**](RoleTargetApi.md#assignapptargettoadminroleforuser) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName} | Assign an Application Target to Administrator Role
+[**AssignGroupTargetToGroupAdminRole**](RoleTargetApi.md#assigngrouptargettogroupadminrole) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId} | Assign a Group Target to a Group Role
+[**AssignGroupTargetToUserRole**](RoleTargetApi.md#assigngrouptargettouserrole) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId} | Assign a Group Target to Role
 [**ListApplicationTargetsForApplicationAdministratorRoleForGroup**](RoleTargetApi.md#listapplicationtargetsforapplicationadministratorroleforgroup) | **GET** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps | List all Application Targets for an Application Administrator Role
 [**ListApplicationTargetsForApplicationAdministratorRoleForUser**](RoleTargetApi.md#listapplicationtargetsforapplicationadministratorroleforuser) | **GET** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps | List all Application Targets for Application Administrator Role
 [**ListGroupTargetsForGroupRole**](RoleTargetApi.md#listgrouptargetsforgrouprole) | **GET** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups | List all Group Targets for a Group Role
 [**ListGroupTargetsForRole**](RoleTargetApi.md#listgrouptargetsforrole) | **GET** /api/v1/users/{userId}/roles/{roleId}/targets/groups | List all Group Targets for Role
-[**RemoveApplicationTargetFromAdministratorRoleForUser**](RoleTargetApi.md#removeapplicationtargetfromadministratorroleforuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Unassign an Application Instance Target to Application Administrator Role
-[**RemoveApplicationTargetFromAdministratorRoleGivenToGroup**](RoleTargetApi.md#removeapplicationtargetfromadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Delete an Application Instance Target to Application Administrator Role
-[**RemoveApplicationTargetFromApplicationAdministratorRoleForUser**](RoleTargetApi.md#removeapplicationtargetfromapplicationadministratorroleforuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName} | Unassign an Application Target from Application Administrator Role
-[**RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup**](RoleTargetApi.md#removeapplicationtargetfromapplicationadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName} | Delete an Application Target from Application Administrator Role
-[**RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup**](RoleTargetApi.md#removegrouptargetfromgroupadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId} | Delete a Group Target for Group Role
-[**RemoveGroupTargetFromRole**](RoleTargetApi.md#removegrouptargetfromrole) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId} | Unassign a Group Target from Role
+[**UnassignAppInstanceTargetFromAdminRoleForUser**](RoleTargetApi.md#unassignappinstancetargetfromadminroleforuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{appId} | Unassign an Application Instance Target from an Application Administrator Role
+[**UnassignAppInstanceTargetToAppAdminRoleForGroup**](RoleTargetApi.md#unassignappinstancetargettoappadminroleforgroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{appId} | Unassign an Application Instance Target from an Application Administrator Role
+[**UnassignAppTargetFromAppAdminRoleForUser**](RoleTargetApi.md#unassignapptargetfromappadminroleforuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName} | Unassign an Application Target from an Application Administrator Role
+[**UnassignAppTargetToAdminRoleForGroup**](RoleTargetApi.md#unassignapptargettoadminroleforgroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName} | Unassign an Application Target from Application Administrator Role
+[**UnassignGroupTargetFromGroupAdminRole**](RoleTargetApi.md#unassigngrouptargetfromgroupadminrole) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId} | Unassign a Group Target from a Group Role
+[**UnassignGroupTargetFromUserAdminRole**](RoleTargetApi.md#unassigngrouptargetfromuseradminrole) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId} | Unassign a Group Target from Role
 
 
-<a name="addallappsastargettorole"></a>
-# **AddAllAppsAsTargetToRole**
-> void AddAllAppsAsTargetToRole (string userId, string roleId)
-
-Assign all Apps as Target to Role
+<a name="assignallappsastargettoroleforuser"></a>
+# **AssignAllAppsAsTargetToRoleForUser**
+> void AssignAllAppsAsTargetToRoleForUser (string userId, string roleId)
 
 Assign all Apps as Target to Role
+
+Assigns all Apps as Target to Role
 
 ### Example
 ```csharp
@@ -41,7 +41,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class AddAllAppsAsTargetToRoleExample
+    public class AssignAllAppsAsTargetToRoleForUserExample
     {
         public static void Main()
         {
@@ -54,16 +54,16 @@ namespace Example
 
             var apiInstance = new RoleTargetApi(config);
             var userId = "userId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
 
             try
             {
                 // Assign all Apps as Target to Role
-                apiInstance.AddAllAppsAsTargetToRole(userId, roleId);
+                apiInstance.AssignAllAppsAsTargetToRoleForUser(userId, roleId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RoleTargetApi.AddAllAppsAsTargetToRole: " + e.Message );
+                Debug.Print("Exception when calling RoleTargetApi.AssignAllAppsAsTargetToRoleForUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -77,7 +77,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **roleId** | **string**|  | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
 
 ### Return type
 
@@ -103,13 +103,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="addapplicationinstancetargettoappadminrolegiventogroup"></a>
-# **AddApplicationInstanceTargetToAppAdminRoleGivenToGroup**
-> void AddApplicationInstanceTargetToAppAdminRoleGivenToGroup (string groupId, string roleId, string appName, string applicationId)
+<a name="assignappinstancetargettoappadminroleforgroup"></a>
+# **AssignAppInstanceTargetToAppAdminRoleForGroup**
+> void AssignAppInstanceTargetToAppAdminRoleForGroup (string groupId, string roleId, string appName, string appId)
 
 Assign an Application Instance Target to Application Administrator Role
 
-Add App Instance Target to App Administrator Role given to a Group
+Assigns App Instance Target to App Administrator Role given to a Group
 
 ### Example
 ```csharp
@@ -121,7 +121,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class AddApplicationInstanceTargetToAppAdminRoleGivenToGroupExample
+    public class AssignAppInstanceTargetToAppAdminRoleForGroupExample
     {
         public static void Main()
         {
@@ -133,19 +133,19 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RoleTargetApi(config);
-            var groupId = "groupId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
-            var appName = "appName_example";  // string | 
-            var applicationId = "applicationId_example";  // string | 
+            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
+            var appName = oidc_client;  // string | 
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
 
             try
             {
                 // Assign an Application Instance Target to Application Administrator Role
-                apiInstance.AddApplicationInstanceTargetToAppAdminRoleGivenToGroup(groupId, roleId, appName, applicationId);
+                apiInstance.AssignAppInstanceTargetToAppAdminRoleForGroup(groupId, roleId, appName, appId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RoleTargetApi.AddApplicationInstanceTargetToAppAdminRoleGivenToGroup: " + e.Message );
+                Debug.Print("Exception when calling RoleTargetApi.AssignAppInstanceTargetToAppAdminRoleForGroup: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -158,10 +158,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**|  | 
- **roleId** | **string**|  | 
+ **groupId** | **string**| The &#x60;id&#x60; of the group | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
  **appName** | **string**|  | 
- **applicationId** | **string**|  | 
+ **appId** | **string**| ID of the Application | 
 
 ### Return type
 
@@ -187,13 +187,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="addapplicationtargettoadminroleforuser"></a>
-# **AddApplicationTargetToAdminRoleForUser**
-> void AddApplicationTargetToAdminRoleForUser (string userId, string roleId, string appName)
+<a name="assignappinstancetargettoappadminroleforuser"></a>
+# **AssignAppInstanceTargetToAppAdminRoleForUser**
+> void AssignAppInstanceTargetToAppAdminRoleForUser (string userId, string roleId, string appName, string appId)
 
-Assign an Application Target to Administrator Role
+Assign an Application Instance Target to an Application Administrator Role
 
-Assign an application target to administrator role
+Assigns anapplication instance target to appplication administrator role
 
 ### Example
 ```csharp
@@ -205,7 +205,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class AddApplicationTargetToAdminRoleForUserExample
+    public class AssignAppInstanceTargetToAppAdminRoleForUserExample
     {
         public static void Main()
         {
@@ -218,17 +218,18 @@ namespace Example
 
             var apiInstance = new RoleTargetApi(config);
             var userId = "userId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
-            var appName = "appName_example";  // string | 
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
+            var appName = oidc_client;  // string | 
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
 
             try
             {
-                // Assign an Application Target to Administrator Role
-                apiInstance.AddApplicationTargetToAdminRoleForUser(userId, roleId, appName);
+                // Assign an Application Instance Target to an Application Administrator Role
+                apiInstance.AssignAppInstanceTargetToAppAdminRoleForUser(userId, roleId, appName, appId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RoleTargetApi.AddApplicationTargetToAdminRoleForUser: " + e.Message );
+                Debug.Print("Exception when calling RoleTargetApi.AssignAppInstanceTargetToAppAdminRoleForUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -242,8 +243,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **roleId** | **string**|  | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
  **appName** | **string**|  | 
+ **appId** | **string**| ID of the Application | 
 
 ### Return type
 
@@ -269,13 +271,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="addapplicationtargettoadminrolegiventogroup"></a>
-# **AddApplicationTargetToAdminRoleGivenToGroup**
-> void AddApplicationTargetToAdminRoleGivenToGroup (string groupId, string roleId, string appName)
+<a name="assignapptargettoadminroleforgroup"></a>
+# **AssignAppTargetToAdminRoleForGroup**
+> void AssignAppTargetToAdminRoleForGroup (string groupId, string roleId, string appName)
 
 Assign an Application Target to Administrator Role
 
-Assign an application target to administrator role
+Assigns an application target to administrator role
 
 ### Example
 ```csharp
@@ -287,7 +289,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class AddApplicationTargetToAdminRoleGivenToGroupExample
+    public class AssignAppTargetToAdminRoleForGroupExample
     {
         public static void Main()
         {
@@ -299,18 +301,18 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RoleTargetApi(config);
-            var groupId = "groupId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
-            var appName = "appName_example";  // string | 
+            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
+            var appName = oidc_client;  // string | 
 
             try
             {
                 // Assign an Application Target to Administrator Role
-                apiInstance.AddApplicationTargetToAdminRoleGivenToGroup(groupId, roleId, appName);
+                apiInstance.AssignAppTargetToAdminRoleForGroup(groupId, roleId, appName);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RoleTargetApi.AddApplicationTargetToAdminRoleGivenToGroup: " + e.Message );
+                Debug.Print("Exception when calling RoleTargetApi.AssignAppTargetToAdminRoleForGroup: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -323,8 +325,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**|  | 
- **roleId** | **string**|  | 
+ **groupId** | **string**| The &#x60;id&#x60; of the group | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
  **appName** | **string**|  | 
 
 ### Return type
@@ -351,13 +353,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="addapplicationtargettoappadminroleforuser"></a>
-# **AddApplicationTargetToAppAdminRoleForUser**
-> void AddApplicationTargetToAppAdminRoleForUser (string userId, string roleId, string appName, string applicationId)
+<a name="assignapptargettoadminroleforuser"></a>
+# **AssignAppTargetToAdminRoleForUser**
+> void AssignAppTargetToAdminRoleForUser (string userId, string roleId, string appName)
 
-Assign an Application Instance Target to an Application Administrator Role
+Assign an Application Target to Administrator Role
 
-Add App Instance Target to App Administrator Role given to a User
+Assigns an application target to administrator role
 
 ### Example
 ```csharp
@@ -369,7 +371,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class AddApplicationTargetToAppAdminRoleForUserExample
+    public class AssignAppTargetToAdminRoleForUserExample
     {
         public static void Main()
         {
@@ -382,18 +384,17 @@ namespace Example
 
             var apiInstance = new RoleTargetApi(config);
             var userId = "userId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
-            var appName = "appName_example";  // string | 
-            var applicationId = "applicationId_example";  // string | 
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
+            var appName = oidc_client;  // string | 
 
             try
             {
-                // Assign an Application Instance Target to an Application Administrator Role
-                apiInstance.AddApplicationTargetToAppAdminRoleForUser(userId, roleId, appName, applicationId);
+                // Assign an Application Target to Administrator Role
+                apiInstance.AssignAppTargetToAdminRoleForUser(userId, roleId, appName);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RoleTargetApi.AddApplicationTargetToAppAdminRoleForUser: " + e.Message );
+                Debug.Print("Exception when calling RoleTargetApi.AssignAppTargetToAdminRoleForUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -407,9 +408,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **roleId** | **string**|  | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
  **appName** | **string**|  | 
- **applicationId** | **string**|  | 
 
 ### Return type
 
@@ -435,13 +435,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="addgrouptargettogroupadministratorroleforgroup"></a>
-# **AddGroupTargetToGroupAdministratorRoleForGroup**
-> void AddGroupTargetToGroupAdministratorRoleForGroup (string groupId, string roleId, string targetGroupId)
+<a name="assigngrouptargettogroupadminrole"></a>
+# **AssignGroupTargetToGroupAdminRole**
+> void AssignGroupTargetToGroupAdminRole (string groupId, string roleId, string targetGroupId)
 
-Assign a Group Target for Group Role
+Assign a Group Target to a Group Role
 
-Enumerates group targets for a group role.
+Assigns a group target to a group role
 
 ### Example
 ```csharp
@@ -453,7 +453,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class AddGroupTargetToGroupAdministratorRoleForGroupExample
+    public class AssignGroupTargetToGroupAdminRoleExample
     {
         public static void Main()
         {
@@ -465,18 +465,18 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RoleTargetApi(config);
-            var groupId = "groupId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
-            var targetGroupId = "targetGroupId_example";  // string | 
+            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
+            var targetGroupId = 00g1e9dfjHeLAsdX983d;  // string | 
 
             try
             {
-                // Assign a Group Target for Group Role
-                apiInstance.AddGroupTargetToGroupAdministratorRoleForGroup(groupId, roleId, targetGroupId);
+                // Assign a Group Target to a Group Role
+                apiInstance.AssignGroupTargetToGroupAdminRole(groupId, roleId, targetGroupId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RoleTargetApi.AddGroupTargetToGroupAdministratorRoleForGroup: " + e.Message );
+                Debug.Print("Exception when calling RoleTargetApi.AssignGroupTargetToGroupAdminRole: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -489,8 +489,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**|  | 
- **roleId** | **string**|  | 
+ **groupId** | **string**| The &#x60;id&#x60; of the group | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
  **targetGroupId** | **string**|  | 
 
 ### Return type
@@ -517,13 +517,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="addgrouptargettorole"></a>
-# **AddGroupTargetToRole**
-> void AddGroupTargetToRole (string userId, string roleId, string groupId)
+<a name="assigngrouptargettouserrole"></a>
+# **AssignGroupTargetToUserRole**
+> void AssignGroupTargetToUserRole (string userId, string roleId, string groupId)
 
 Assign a Group Target to Role
 
-Assign a Group Target to Role
+Assigns a Group Target to Role
 
 ### Example
 ```csharp
@@ -535,7 +535,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class AddGroupTargetToRoleExample
+    public class AssignGroupTargetToUserRoleExample
     {
         public static void Main()
         {
@@ -548,17 +548,17 @@ namespace Example
 
             var apiInstance = new RoleTargetApi(config);
             var userId = "userId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
-            var groupId = "groupId_example";  // string | 
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
+            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
 
             try
             {
                 // Assign a Group Target to Role
-                apiInstance.AddGroupTargetToRole(userId, roleId, groupId);
+                apiInstance.AssignGroupTargetToUserRole(userId, roleId, groupId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RoleTargetApi.AddGroupTargetToRole: " + e.Message );
+                Debug.Print("Exception when calling RoleTargetApi.AssignGroupTargetToUserRole: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -572,8 +572,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **roleId** | **string**|  | 
- **groupId** | **string**|  | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
+ **groupId** | **string**| The &#x60;id&#x60; of the group | 
 
 ### Return type
 
@@ -629,8 +629,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RoleTargetApi(config);
-            var groupId = "groupId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
+            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
             var after = "after_example";  // string |  (optional) 
             var limit = 20;  // int? |  (optional)  (default to 20)
 
@@ -655,8 +655,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**|  | 
- **roleId** | **string**|  | 
+ **groupId** | **string**| The &#x60;id&#x60; of the group | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
  **after** | **string**|  | [optional] 
  **limit** | **int?**|  | [optional] [default to 20]
 
@@ -715,7 +715,7 @@ namespace Example
 
             var apiInstance = new RoleTargetApi(config);
             var userId = "userId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
             var after = "after_example";  // string |  (optional) 
             var limit = 20;  // int? |  (optional)  (default to 20)
 
@@ -741,7 +741,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **roleId** | **string**|  | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
  **after** | **string**|  | [optional] 
  **limit** | **int?**|  | [optional] [default to 20]
 
@@ -775,7 +775,7 @@ Name | Type | Description  | Notes
 
 List all Group Targets for a Group Role
 
-Enumerates group targets for a group role.
+Lists all group targets for a group role
 
 ### Example
 ```csharp
@@ -799,8 +799,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RoleTargetApi(config);
-            var groupId = "groupId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
+            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
             var after = "after_example";  // string |  (optional) 
             var limit = 20;  // int? |  (optional)  (default to 20)
 
@@ -825,8 +825,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**|  | 
- **roleId** | **string**|  | 
+ **groupId** | **string**| The &#x60;id&#x60; of the group | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
  **after** | **string**|  | [optional] 
  **limit** | **int?**|  | [optional] [default to 20]
 
@@ -860,7 +860,7 @@ Name | Type | Description  | Notes
 
 List all Group Targets for Role
 
-List all group targets for role
+Lists all group targets for role
 
 ### Example
 ```csharp
@@ -885,7 +885,7 @@ namespace Example
 
             var apiInstance = new RoleTargetApi(config);
             var userId = "userId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
             var after = "after_example";  // string |  (optional) 
             var limit = 20;  // int? |  (optional)  (default to 20)
 
@@ -911,7 +911,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **roleId** | **string**|  | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
  **after** | **string**|  | [optional] 
  **limit** | **int?**|  | [optional] [default to 20]
 
@@ -939,13 +939,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="removeapplicationtargetfromadministratorroleforuser"></a>
-# **RemoveApplicationTargetFromAdministratorRoleForUser**
-> void RemoveApplicationTargetFromAdministratorRoleForUser (string userId, string roleId, string appName, string applicationId)
+<a name="unassignappinstancetargetfromadminroleforuser"></a>
+# **UnassignAppInstanceTargetFromAdminRoleForUser**
+> void UnassignAppInstanceTargetFromAdminRoleForUser (string userId, string roleId, string appName, string appId)
 
-Unassign an Application Instance Target to Application Administrator Role
+Unassign an Application Instance Target from an Application Administrator Role
 
-Remove App Instance Target to App Administrator Role given to a User
+Unassigns an application instance target from an application administrator role
 
 ### Example
 ```csharp
@@ -957,7 +957,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class RemoveApplicationTargetFromAdministratorRoleForUserExample
+    public class UnassignAppInstanceTargetFromAdminRoleForUserExample
     {
         public static void Main()
         {
@@ -970,18 +970,18 @@ namespace Example
 
             var apiInstance = new RoleTargetApi(config);
             var userId = "userId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
-            var appName = "appName_example";  // string | 
-            var applicationId = "applicationId_example";  // string | 
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
+            var appName = oidc_client;  // string | 
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
 
             try
             {
-                // Unassign an Application Instance Target to Application Administrator Role
-                apiInstance.RemoveApplicationTargetFromAdministratorRoleForUser(userId, roleId, appName, applicationId);
+                // Unassign an Application Instance Target from an Application Administrator Role
+                apiInstance.UnassignAppInstanceTargetFromAdminRoleForUser(userId, roleId, appName, appId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RoleTargetApi.RemoveApplicationTargetFromAdministratorRoleForUser: " + e.Message );
+                Debug.Print("Exception when calling RoleTargetApi.UnassignAppInstanceTargetFromAdminRoleForUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -995,9 +995,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **roleId** | **string**|  | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
  **appName** | **string**|  | 
- **applicationId** | **string**|  | 
+ **appId** | **string**| ID of the Application | 
 
 ### Return type
 
@@ -1023,13 +1023,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="removeapplicationtargetfromadministratorrolegiventogroup"></a>
-# **RemoveApplicationTargetFromAdministratorRoleGivenToGroup**
-> void RemoveApplicationTargetFromAdministratorRoleGivenToGroup (string groupId, string roleId, string appName, string applicationId)
+<a name="unassignappinstancetargettoappadminroleforgroup"></a>
+# **UnassignAppInstanceTargetToAppAdminRoleForGroup**
+> void UnassignAppInstanceTargetToAppAdminRoleForGroup (string groupId, string roleId, string appName, string appId)
 
-Delete an Application Instance Target to Application Administrator Role
+Unassign an Application Instance Target from an Application Administrator Role
 
-Remove App Instance Target to App Administrator Role given to a Group
+Unassigns an application instance target from application administrator role
 
 ### Example
 ```csharp
@@ -1041,7 +1041,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class RemoveApplicationTargetFromAdministratorRoleGivenToGroupExample
+    public class UnassignAppInstanceTargetToAppAdminRoleForGroupExample
     {
         public static void Main()
         {
@@ -1053,19 +1053,19 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RoleTargetApi(config);
-            var groupId = "groupId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
-            var appName = "appName_example";  // string | 
-            var applicationId = "applicationId_example";  // string | 
+            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
+            var appName = oidc_client;  // string | 
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
 
             try
             {
-                // Delete an Application Instance Target to Application Administrator Role
-                apiInstance.RemoveApplicationTargetFromAdministratorRoleGivenToGroup(groupId, roleId, appName, applicationId);
+                // Unassign an Application Instance Target from an Application Administrator Role
+                apiInstance.UnassignAppInstanceTargetToAppAdminRoleForGroup(groupId, roleId, appName, appId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RoleTargetApi.RemoveApplicationTargetFromAdministratorRoleGivenToGroup: " + e.Message );
+                Debug.Print("Exception when calling RoleTargetApi.UnassignAppInstanceTargetToAppAdminRoleForGroup: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1078,10 +1078,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**|  | 
- **roleId** | **string**|  | 
+ **groupId** | **string**| The &#x60;id&#x60; of the group | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
  **appName** | **string**|  | 
- **applicationId** | **string**|  | 
+ **appId** | **string**| ID of the Application | 
 
 ### Return type
 
@@ -1107,13 +1107,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="removeapplicationtargetfromapplicationadministratorroleforuser"></a>
-# **RemoveApplicationTargetFromApplicationAdministratorRoleForUser**
-> void RemoveApplicationTargetFromApplicationAdministratorRoleForUser (string userId, string roleId, string appName)
+<a name="unassignapptargetfromappadminroleforuser"></a>
+# **UnassignAppTargetFromAppAdminRoleForUser**
+> void UnassignAppTargetFromAppAdminRoleForUser (string userId, string roleId, string appName)
 
-Unassign an Application Target from Application Administrator Role
+Unassign an Application Target from an Application Administrator Role
 
-Unassign an application target from application administrator role
+Unassigns an application target from application administrator role
 
 ### Example
 ```csharp
@@ -1125,7 +1125,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class RemoveApplicationTargetFromApplicationAdministratorRoleForUserExample
+    public class UnassignAppTargetFromAppAdminRoleForUserExample
     {
         public static void Main()
         {
@@ -1138,17 +1138,99 @@ namespace Example
 
             var apiInstance = new RoleTargetApi(config);
             var userId = "userId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
-            var appName = "appName_example";  // string | 
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
+            var appName = oidc_client;  // string | 
+
+            try
+            {
+                // Unassign an Application Target from an Application Administrator Role
+                apiInstance.UnassignAppTargetFromAppAdminRoleForUser(userId, roleId, appName);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling RoleTargetApi.UnassignAppTargetFromAppAdminRoleForUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**|  | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
+ **appName** | **string**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="unassignapptargettoadminroleforgroup"></a>
+# **UnassignAppTargetToAdminRoleForGroup**
+> void UnassignAppTargetToAdminRoleForGroup (string groupId, string roleId, string appName)
+
+Unassign an Application Target from Application Administrator Role
+
+Unassigns an application target from application administrator role
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class UnassignAppTargetToAdminRoleForGroupExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new RoleTargetApi(config);
+            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
+            var appName = oidc_client;  // string | 
 
             try
             {
                 // Unassign an Application Target from Application Administrator Role
-                apiInstance.RemoveApplicationTargetFromApplicationAdministratorRoleForUser(userId, roleId, appName);
+                apiInstance.UnassignAppTargetToAdminRoleForGroup(groupId, roleId, appName);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RoleTargetApi.RemoveApplicationTargetFromApplicationAdministratorRoleForUser: " + e.Message );
+                Debug.Print("Exception when calling RoleTargetApi.UnassignAppTargetToAdminRoleForGroup: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1161,8 +1243,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **roleId** | **string**|  | 
+ **groupId** | **string**| The &#x60;id&#x60; of the group | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
  **appName** | **string**|  | 
 
 ### Return type
@@ -1189,13 +1271,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="removeapplicationtargetfromapplicationadministratorrolegiventogroup"></a>
-# **RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup**
-> void RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup (string groupId, string roleId, string appName)
+<a name="unassigngrouptargetfromgroupadminrole"></a>
+# **UnassignGroupTargetFromGroupAdminRole**
+> void UnassignGroupTargetFromGroupAdminRole (string groupId, string roleId, string targetGroupId)
 
-Delete an Application Target from Application Administrator Role
+Unassign a Group Target from a Group Role
 
-Delete an application target from application administrator role
+Unassigns a group target from a group role
 
 ### Example
 ```csharp
@@ -1207,7 +1289,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupExample
+    public class UnassignGroupTargetFromGroupAdminRoleExample
     {
         public static void Main()
         {
@@ -1219,18 +1301,18 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RoleTargetApi(config);
-            var groupId = "groupId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
-            var appName = "appName_example";  // string | 
+            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
+            var targetGroupId = 00g1e9dfjHeLAsdX983d;  // string | 
 
             try
             {
-                // Delete an Application Target from Application Administrator Role
-                apiInstance.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup(groupId, roleId, appName);
+                // Unassign a Group Target from a Group Role
+                apiInstance.UnassignGroupTargetFromGroupAdminRole(groupId, roleId, targetGroupId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RoleTargetApi.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup: " + e.Message );
+                Debug.Print("Exception when calling RoleTargetApi.UnassignGroupTargetFromGroupAdminRole: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1243,90 +1325,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**|  | 
- **roleId** | **string**|  | 
- **appName** | **string**|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="removegrouptargetfromgroupadministratorrolegiventogroup"></a>
-# **RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup**
-> void RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup (string groupId, string roleId, string targetGroupId)
-
-Delete a Group Target for Group Role
-
-remove group target for a group role.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new RoleTargetApi(config);
-            var groupId = "groupId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
-            var targetGroupId = "targetGroupId_example";  // string | 
-
-            try
-            {
-                // Delete a Group Target for Group Role
-                apiInstance.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup(groupId, roleId, targetGroupId);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling RoleTargetApi.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**|  | 
- **roleId** | **string**|  | 
+ **groupId** | **string**| The &#x60;id&#x60; of the group | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
  **targetGroupId** | **string**|  | 
 
 ### Return type
@@ -1353,13 +1353,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="removegrouptargetfromrole"></a>
-# **RemoveGroupTargetFromRole**
-> void RemoveGroupTargetFromRole (string userId, string roleId, string groupId)
+<a name="unassigngrouptargetfromuseradminrole"></a>
+# **UnassignGroupTargetFromUserAdminRole**
+> void UnassignGroupTargetFromUserAdminRole (string userId, string roleId, string groupId)
 
 Unassign a Group Target from Role
 
-Unassign a Group Target from Role
+Unassigns a Group Target from Role
 
 ### Example
 ```csharp
@@ -1371,7 +1371,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class RemoveGroupTargetFromRoleExample
+    public class UnassignGroupTargetFromUserAdminRoleExample
     {
         public static void Main()
         {
@@ -1384,17 +1384,17 @@ namespace Example
 
             var apiInstance = new RoleTargetApi(config);
             var userId = "userId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
-            var groupId = "groupId_example";  // string | 
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
+            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
 
             try
             {
                 // Unassign a Group Target from Role
-                apiInstance.RemoveGroupTargetFromRole(userId, roleId, groupId);
+                apiInstance.UnassignGroupTargetFromUserAdminRole(userId, roleId, groupId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RoleTargetApi.RemoveGroupTargetFromRole: " + e.Message );
+                Debug.Print("Exception when calling RoleTargetApi.UnassignGroupTargetFromUserAdminRole: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1408,8 +1408,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **roleId** | **string**|  | 
- **groupId** | **string**|  | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
+ **groupId** | **string**| The &#x60;id&#x60; of the group | 
 
 ### Return type
 

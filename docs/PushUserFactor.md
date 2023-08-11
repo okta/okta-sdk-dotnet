@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Status** | [**FactorStatus**](FactorStatus.md) |  | [optional] 
 **Verify** | [**VerifyFactorRequest**](VerifyFactorRequest.md) |  | [optional] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
-**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**Links** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
 **ExpiresAt** | **DateTimeOffset** |  | [optional] 
 **FactorResult** | **FactorResultType** |  | [optional] 
 **Profile** | [**PushUserFactorProfile**](PushUserFactorProfile.md) |  | [optional] 

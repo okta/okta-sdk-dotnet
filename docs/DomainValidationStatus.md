@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.DomainValidationStatus
+Status of the domain
 
 ## Properties
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**ActivateAuthorizationServer**](AuthorizationServerApi.md#activateauthorizationserver) | **POST** /api/v1/authorizationServers/{authServerId}/lifecycle/activate | Activate an Authorization Server
 [**ActivateAuthorizationServerPolicy**](AuthorizationServerApi.md#activateauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/activate | Activate a Policy
 [**ActivateAuthorizationServerPolicyRule**](AuthorizationServerApi.md#activateauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/activate | Activate a Policy Rule
+[**CreateAssociatedServers**](AuthorizationServerApi.md#createassociatedservers) | **POST** /api/v1/authorizationServers/{authServerId}/associatedServers | Create the Associated Authorization Servers
 [**CreateAuthorizationServer**](AuthorizationServerApi.md#createauthorizationserver) | **POST** /api/v1/authorizationServers | Create an Authorization Server
 [**CreateAuthorizationServerPolicy**](AuthorizationServerApi.md#createauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies | Create a Policy
 [**CreateAuthorizationServerPolicyRule**](AuthorizationServerApi.md#createauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules | Create a Policy Rule
@@ -15,6 +16,7 @@ Method | HTTP request | Description
 [**DeactivateAuthorizationServer**](AuthorizationServerApi.md#deactivateauthorizationserver) | **POST** /api/v1/authorizationServers/{authServerId}/lifecycle/deactivate | Deactivate an Authorization Server
 [**DeactivateAuthorizationServerPolicy**](AuthorizationServerApi.md#deactivateauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/deactivate | Deactivate a Policy
 [**DeactivateAuthorizationServerPolicyRule**](AuthorizationServerApi.md#deactivateauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate | Deactivate a Policy Rule
+[**DeleteAssociatedServer**](AuthorizationServerApi.md#deleteassociatedserver) | **DELETE** /api/v1/authorizationServers/{authServerId}/associatedServers/{associatedServerId} | Delete an Associated Authorization Server
 [**DeleteAuthorizationServer**](AuthorizationServerApi.md#deleteauthorizationserver) | **DELETE** /api/v1/authorizationServers/{authServerId} | Delete an Authorization Server
 [**DeleteAuthorizationServerPolicy**](AuthorizationServerApi.md#deleteauthorizationserverpolicy) | **DELETE** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Delete a Policy
 [**DeleteAuthorizationServerPolicyRule**](AuthorizationServerApi.md#deleteauthorizationserverpolicyrule) | **DELETE** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Delete a Policy Rule
@@ -26,6 +28,7 @@ Method | HTTP request | Description
 [**GetOAuth2Claim**](AuthorizationServerApi.md#getoauth2claim) | **GET** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Retrieve a Custom Token Claim
 [**GetOAuth2Scope**](AuthorizationServerApi.md#getoauth2scope) | **GET** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Retrieve a Custom Token Scope
 [**GetRefreshTokenForAuthorizationServerAndClient**](AuthorizationServerApi.md#getrefreshtokenforauthorizationserverandclient) | **GET** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId} | Retrieve a Refresh Token for a Client
+[**ListAssociatedServersByTrustedType**](AuthorizationServerApi.md#listassociatedserversbytrustedtype) | **GET** /api/v1/authorizationServers/{authServerId}/associatedServers | List all Associated Authorization Servers
 [**ListAuthorizationServerKeys**](AuthorizationServerApi.md#listauthorizationserverkeys) | **GET** /api/v1/authorizationServers/{authServerId}/credentials/keys | List all Credential Keys
 [**ListAuthorizationServerPolicies**](AuthorizationServerApi.md#listauthorizationserverpolicies) | **GET** /api/v1/authorizationServers/{authServerId}/policies | List all Policies
 [**ListAuthorizationServerPolicyRules**](AuthorizationServerApi.md#listauthorizationserverpolicyrules) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules | List all Policy Rules
@@ -34,14 +37,14 @@ Method | HTTP request | Description
 [**ListOAuth2ClientsForAuthorizationServer**](AuthorizationServerApi.md#listoauth2clientsforauthorizationserver) | **GET** /api/v1/authorizationServers/{authServerId}/clients | List all Clients
 [**ListOAuth2Scopes**](AuthorizationServerApi.md#listoauth2scopes) | **GET** /api/v1/authorizationServers/{authServerId}/scopes | List all Custom Token Scopes
 [**ListRefreshTokensForAuthorizationServerAndClient**](AuthorizationServerApi.md#listrefreshtokensforauthorizationserverandclient) | **GET** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens | List all Refresh Tokens for a Client
+[**ReplaceAuthorizationServer**](AuthorizationServerApi.md#replaceauthorizationserver) | **PUT** /api/v1/authorizationServers/{authServerId} | Replace an Authorization Server
+[**ReplaceAuthorizationServerPolicy**](AuthorizationServerApi.md#replaceauthorizationserverpolicy) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Replace a Policy
+[**ReplaceAuthorizationServerPolicyRule**](AuthorizationServerApi.md#replaceauthorizationserverpolicyrule) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Replace a Policy Rule
+[**ReplaceOAuth2Claim**](AuthorizationServerApi.md#replaceoauth2claim) | **PUT** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Replace a Custom Token Claim
+[**ReplaceOAuth2Scope**](AuthorizationServerApi.md#replaceoauth2scope) | **PUT** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Replace a Custom Token Scope
 [**RevokeRefreshTokenForAuthorizationServerAndClient**](AuthorizationServerApi.md#revokerefreshtokenforauthorizationserverandclient) | **DELETE** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId} | Revoke a Refresh Token for a Client
 [**RevokeRefreshTokensForAuthorizationServerAndClient**](AuthorizationServerApi.md#revokerefreshtokensforauthorizationserverandclient) | **DELETE** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens | Revoke all Refresh Tokens for a Client
 [**RotateAuthorizationServerKeys**](AuthorizationServerApi.md#rotateauthorizationserverkeys) | **POST** /api/v1/authorizationServers/{authServerId}/credentials/lifecycle/keyRotate | Rotate all Credential Keys
-[**UpdateAuthorizationServer**](AuthorizationServerApi.md#updateauthorizationserver) | **PUT** /api/v1/authorizationServers/{authServerId} | Replace an Authorization Server
-[**UpdateAuthorizationServerPolicy**](AuthorizationServerApi.md#updateauthorizationserverpolicy) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Replace a Policy
-[**UpdateAuthorizationServerPolicyRule**](AuthorizationServerApi.md#updateauthorizationserverpolicyrule) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Replace a Policy Rule
-[**UpdateOAuth2Claim**](AuthorizationServerApi.md#updateoauth2claim) | **PUT** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Replace a Custom Token Claim
-[**UpdateOAuth2Scope**](AuthorizationServerApi.md#updateoauth2scope) | **PUT** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Replace a Custom Token Scope
 
 
 <a name="activateauthorizationserver"></a>
@@ -50,7 +53,7 @@ Method | HTTP request | Description
 
 Activate an Authorization Server
 
-Activate an authorization server
+Activates an authorization server
 
 ### Example
 ```csharp
@@ -74,7 +77,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
 
             try
             {
@@ -96,7 +99,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
 
 ### Return type
 
@@ -128,7 +131,7 @@ void (empty response body)
 
 Activate a Policy
 
-Activate Authorization Server Policy
+Activates an authorization server policy
 
 ### Example
 ```csharp
@@ -152,8 +155,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var policyId = "policyId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
 
             try
             {
@@ -175,8 +178,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **policyId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
 
 ### Return type
 
@@ -208,7 +211,7 @@ void (empty response body)
 
 Activate a Policy Rule
 
-Activate Authorization Server Policy Rule
+Activates an authorization server policy rule
 
 ### Example
 ```csharp
@@ -232,9 +235,9 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var policyId = "policyId_example";  // string | 
-            var ruleId = "ruleId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
 
             try
             {
@@ -256,9 +259,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **policyId** | **string**|  | 
- **ruleId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+ **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
 
 ### Return type
 
@@ -284,13 +287,95 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="createassociatedservers"></a>
+# **CreateAssociatedServers**
+> List&lt;AuthorizationServer&gt; CreateAssociatedServers (string authServerId, AssociatedServerMediated associatedServerMediated)
+
+Create the Associated Authorization Servers
+
+Creates the trusted relationships between the given authorization server and other authorization servers
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class CreateAssociatedServersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AuthorizationServerApi(config);
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var associatedServerMediated = new AssociatedServerMediated(); // AssociatedServerMediated | 
+
+            try
+            {
+                // Create the Associated Authorization Servers
+                List<AuthorizationServer> result = apiInstance.CreateAssociatedServers(authServerId, associatedServerMediated).ToListAsync();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthorizationServerApi.CreateAssociatedServers: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **associatedServerMediated** | [**AssociatedServerMediated**](AssociatedServerMediated.md)|  | 
+
+### Return type
+
+[**List&lt;AuthorizationServer&gt;**](AuthorizationServer.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="createauthorizationserver"></a>
 # **CreateAuthorizationServer**
 > AuthorizationServer CreateAuthorizationServer (AuthorizationServer authorizationServer)
 
 Create an Authorization Server
 
-Create an authorization server
+Creates an authorization server
 
 ### Example
 ```csharp
@@ -369,7 +454,7 @@ Name | Type | Description  | Notes
 
 Create a Policy
 
-Create a policy
+Creates a policy
 
 ### Example
 ```csharp
@@ -393,7 +478,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
             var policy = new AuthorizationServerPolicy(); // AuthorizationServerPolicy | 
 
             try
@@ -417,7 +502,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
  **policy** | [**AuthorizationServerPolicy**](AuthorizationServerPolicy.md)|  | 
 
 ### Return type
@@ -447,11 +532,11 @@ Name | Type | Description  | Notes
 
 <a name="createauthorizationserverpolicyrule"></a>
 # **CreateAuthorizationServerPolicyRule**
-> AuthorizationServerPolicyRule CreateAuthorizationServerPolicyRule (string policyId, string authServerId, AuthorizationServerPolicyRule policyRule)
+> AuthorizationServerPolicyRule CreateAuthorizationServerPolicyRule (string authServerId, string policyId, AuthorizationServerPolicyRule policyRule)
 
 Create a Policy Rule
 
-Creates a policy rule for the specified Custom Authorization Server and Policy.
+Creates a policy rule for the specified Custom Authorization Server and Policy
 
 ### Example
 ```csharp
@@ -475,14 +560,14 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var policyId = "policyId_example";  // string | 
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
             var policyRule = new AuthorizationServerPolicyRule(); // AuthorizationServerPolicyRule | 
 
             try
             {
                 // Create a Policy Rule
-                AuthorizationServerPolicyRule result = apiInstance.CreateAuthorizationServerPolicyRule(policyId, authServerId, policyRule);
+                AuthorizationServerPolicyRule result = apiInstance.CreateAuthorizationServerPolicyRule(authServerId, policyId, policyRule);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -500,8 +585,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
  **policyRule** | [**AuthorizationServerPolicyRule**](AuthorizationServerPolicyRule.md)|  | 
 
 ### Return type
@@ -535,7 +620,7 @@ Name | Type | Description  | Notes
 
 Create a Custom Token Claim
 
-Create a custom token claim
+Creates a custom token claim
 
 ### Example
 ```csharp
@@ -559,7 +644,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
             var oAuth2Claim = new OAuth2Claim(); // OAuth2Claim | 
 
             try
@@ -583,7 +668,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
  **oAuth2Claim** | [**OAuth2Claim**](OAuth2Claim.md)|  | 
 
 ### Return type
@@ -617,7 +702,7 @@ Name | Type | Description  | Notes
 
 Create a Custom Token Scope
 
-Create a custom token scope
+Creates a custom token scope
 
 ### Example
 ```csharp
@@ -641,7 +726,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
             var oAuth2Scope = new OAuth2Scope(); // OAuth2Scope | 
 
             try
@@ -665,7 +750,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
  **oAuth2Scope** | [**OAuth2Scope**](OAuth2Scope.md)|  | 
 
 ### Return type
@@ -699,7 +784,7 @@ Name | Type | Description  | Notes
 
 Deactivate an Authorization Server
 
-Deactivate an authorization server
+Deactivates an authorization server
 
 ### Example
 ```csharp
@@ -723,7 +808,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
 
             try
             {
@@ -745,7 +830,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
 
 ### Return type
 
@@ -777,7 +862,7 @@ void (empty response body)
 
 Deactivate a Policy
 
-Deactivate Authorization Server Policy
+Deactivates an authorization server policy
 
 ### Example
 ```csharp
@@ -801,8 +886,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var policyId = "policyId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
 
             try
             {
@@ -824,8 +909,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **policyId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
 
 ### Return type
 
@@ -857,7 +942,7 @@ void (empty response body)
 
 Deactivate a Policy Rule
 
-Deactivate Authorization Server Policy Rule
+Deactivates an authorization server policy rule
 
 ### Example
 ```csharp
@@ -881,9 +966,9 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var policyId = "policyId_example";  // string | 
-            var ruleId = "ruleId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
 
             try
             {
@@ -905,9 +990,89 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **policyId** | **string**|  | 
- **ruleId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+ **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deleteassociatedserver"></a>
+# **DeleteAssociatedServer**
+> void DeleteAssociatedServer (string authServerId, string associatedServerId)
+
+Delete an Associated Authorization Server
+
+Deletes an associated authorization server
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class DeleteAssociatedServerExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AuthorizationServerApi(config);
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var associatedServerId = aus6xt9jKPmCyn6kg0g4;  // string | `id` of the associated Authorization Server
+
+            try
+            {
+                // Delete an Associated Authorization Server
+                apiInstance.DeleteAssociatedServer(authServerId, associatedServerId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthorizationServerApi.DeleteAssociatedServer: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **associatedServerId** | **string**| &#x60;id&#x60; of the associated Authorization Server | 
 
 ### Return type
 
@@ -939,7 +1104,7 @@ void (empty response body)
 
 Delete an Authorization Server
 
-Delete an authorization server
+Deletes an authorization server
 
 ### Example
 ```csharp
@@ -963,7 +1128,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
 
             try
             {
@@ -985,7 +1150,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
 
 ### Return type
 
@@ -1017,7 +1182,7 @@ void (empty response body)
 
 Delete a Policy
 
-Delete a policy
+Deletes a policy
 
 ### Example
 ```csharp
@@ -1041,8 +1206,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var policyId = "policyId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
 
             try
             {
@@ -1064,8 +1229,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **policyId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
 
 ### Return type
 
@@ -1093,11 +1258,11 @@ void (empty response body)
 
 <a name="deleteauthorizationserverpolicyrule"></a>
 # **DeleteAuthorizationServerPolicyRule**
-> void DeleteAuthorizationServerPolicyRule (string policyId, string authServerId, string ruleId)
+> void DeleteAuthorizationServerPolicyRule (string authServerId, string policyId, string ruleId)
 
 Delete a Policy Rule
 
-Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
+Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy
 
 ### Example
 ```csharp
@@ -1121,14 +1286,14 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var policyId = "policyId_example";  // string | 
-            var authServerId = "authServerId_example";  // string | 
-            var ruleId = "ruleId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
 
             try
             {
                 // Delete a Policy Rule
-                apiInstance.DeleteAuthorizationServerPolicyRule(policyId, authServerId, ruleId);
+                apiInstance.DeleteAuthorizationServerPolicyRule(authServerId, policyId, ruleId);
             }
             catch (ApiException  e)
             {
@@ -1145,9 +1310,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
- **authServerId** | **string**|  | 
- **ruleId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+ **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
 
 ### Return type
 
@@ -1179,7 +1344,7 @@ void (empty response body)
 
 Delete a Custom Token Claim
 
-Delete a custom token claim
+Deletes a custom token claim
 
 ### Example
 ```csharp
@@ -1203,8 +1368,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var claimId = "claimId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var claimId = hNJ3Uk76xLagWkGx5W3N;  // string | `id` of Claim
 
             try
             {
@@ -1226,8 +1391,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **claimId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **claimId** | **string**| &#x60;id&#x60; of Claim | 
 
 ### Return type
 
@@ -1259,7 +1424,7 @@ void (empty response body)
 
 Delete a Custom Token Scope
 
-Delete a custom token scope
+Deletes a custom token scope
 
 ### Example
 ```csharp
@@ -1283,8 +1448,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var scopeId = "scopeId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var scopeId = 0TMRpCWXRKFjP7HiPFNM;  // string | `id` of Scope
 
             try
             {
@@ -1306,8 +1471,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **scopeId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **scopeId** | **string**| &#x60;id&#x60; of Scope | 
 
 ### Return type
 
@@ -1339,7 +1504,7 @@ void (empty response body)
 
 Retrieve an Authorization Server
 
-Retrieve an authorization server
+Retrieves an authorization server
 
 ### Example
 ```csharp
@@ -1363,7 +1528,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
 
             try
             {
@@ -1386,7 +1551,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
 
 ### Return type
 
@@ -1418,7 +1583,7 @@ Name | Type | Description  | Notes
 
 Retrieve a Policy
 
-Retrieve a policy
+Retrieves a policy
 
 ### Example
 ```csharp
@@ -1442,8 +1607,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var policyId = "policyId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
 
             try
             {
@@ -1466,8 +1631,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **policyId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
 
 ### Return type
 
@@ -1495,11 +1660,11 @@ Name | Type | Description  | Notes
 
 <a name="getauthorizationserverpolicyrule"></a>
 # **GetAuthorizationServerPolicyRule**
-> AuthorizationServerPolicyRule GetAuthorizationServerPolicyRule (string policyId, string authServerId, string ruleId)
+> AuthorizationServerPolicyRule GetAuthorizationServerPolicyRule (string authServerId, string policyId, string ruleId)
 
 Retrieve a Policy Rule
 
-Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
+Retrieves a policy rule by `ruleId`
 
 ### Example
 ```csharp
@@ -1523,14 +1688,14 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var policyId = "policyId_example";  // string | 
-            var authServerId = "authServerId_example";  // string | 
-            var ruleId = "ruleId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
 
             try
             {
                 // Retrieve a Policy Rule
-                AuthorizationServerPolicyRule result = apiInstance.GetAuthorizationServerPolicyRule(policyId, authServerId, ruleId);
+                AuthorizationServerPolicyRule result = apiInstance.GetAuthorizationServerPolicyRule(authServerId, policyId, ruleId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1548,9 +1713,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
- **authServerId** | **string**|  | 
- **ruleId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+ **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
 
 ### Return type
 
@@ -1582,7 +1747,7 @@ Name | Type | Description  | Notes
 
 Retrieve a Custom Token Claim
 
-Retrieve a custom token claim
+Retrieves a custom token claim
 
 ### Example
 ```csharp
@@ -1606,8 +1771,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var claimId = "claimId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var claimId = hNJ3Uk76xLagWkGx5W3N;  // string | `id` of Claim
 
             try
             {
@@ -1630,8 +1795,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **claimId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **claimId** | **string**| &#x60;id&#x60; of Claim | 
 
 ### Return type
 
@@ -1663,7 +1828,7 @@ Name | Type | Description  | Notes
 
 Retrieve a Custom Token Scope
 
-Retrieve a custom token scope
+Retrieves a custom token scope
 
 ### Example
 ```csharp
@@ -1687,8 +1852,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var scopeId = "scopeId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var scopeId = 0TMRpCWXRKFjP7HiPFNM;  // string | `id` of Scope
 
             try
             {
@@ -1711,8 +1876,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **scopeId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **scopeId** | **string**| &#x60;id&#x60; of Scope | 
 
 ### Return type
 
@@ -1744,7 +1909,7 @@ Name | Type | Description  | Notes
 
 Retrieve a Refresh Token for a Client
 
-Retrieve a refresh token for a client
+Retrieves a refresh token for a client
 
 ### Example
 ```csharp
@@ -1768,9 +1933,9 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var clientId = "clientId_example";  // string | 
-            var tokenId = "tokenId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
+            var tokenId = sHHSth53yJAyNSTQKDJZ;  // string | `id` of Token
             var expand = "expand_example";  // string |  (optional) 
 
             try
@@ -1794,14 +1959,101 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **clientId** | **string**|  | 
- **tokenId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **clientId** | **string**| &#x60;client_id&#x60; of the app | 
+ **tokenId** | **string**| &#x60;id&#x60; of Token | 
  **expand** | **string**|  | [optional] 
 
 ### Return type
 
 [**OAuth2RefreshToken**](OAuth2RefreshToken.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listassociatedserversbytrustedtype"></a>
+# **ListAssociatedServersByTrustedType**
+> List&lt;AuthorizationServer&gt; ListAssociatedServersByTrustedType (string authServerId, bool? trusted = null, string q = null, int? limit = null, string after = null)
+
+List all Associated Authorization Servers
+
+Lists all associated authorization servers by trusted type for the given `authServerId`
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ListAssociatedServersByTrustedTypeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AuthorizationServerApi(config);
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var trusted = true;  // bool? | Searches trusted authorization servers when true, or searches untrusted authorization servers when false (optional) 
+            var q = "q_example";  // string | Searches the name or audience of the associated authorization servers (optional) 
+            var limit = 200;  // int? | Specifies the number of results for a page (optional)  (default to 200)
+            var after = "after_example";  // string | Specifies the pagination cursor for the next page of the associated authorization servers (optional) 
+
+            try
+            {
+                // List all Associated Authorization Servers
+                List<AuthorizationServer> result = apiInstance.ListAssociatedServersByTrustedType(authServerId, trusted, q, limit, after).ToListAsync();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthorizationServerApi.ListAssociatedServersByTrustedType: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **trusted** | **bool?**| Searches trusted authorization servers when true, or searches untrusted authorization servers when false | [optional] 
+ **q** | **string**| Searches the name or audience of the associated authorization servers | [optional] 
+ **limit** | **int?**| Specifies the number of results for a page | [optional] [default to 200]
+ **after** | **string**| Specifies the pagination cursor for the next page of the associated authorization servers | [optional] 
+
+### Return type
+
+[**List&lt;AuthorizationServer&gt;**](AuthorizationServer.md)
 
 ### Authorization
 
@@ -1829,7 +2081,7 @@ Name | Type | Description  | Notes
 
 List all Credential Keys
 
-List all credential keys
+Lists all credential keys
 
 ### Example
 ```csharp
@@ -1853,7 +2105,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
 
             try
             {
@@ -1876,7 +2128,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
 
 ### Return type
 
@@ -1908,7 +2160,7 @@ Name | Type | Description  | Notes
 
 List all Policies
 
-List all policies
+Lists all policies
 
 ### Example
 ```csharp
@@ -1932,7 +2184,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
 
             try
             {
@@ -1955,7 +2207,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
 
 ### Return type
 
@@ -1983,11 +2235,11 @@ Name | Type | Description  | Notes
 
 <a name="listauthorizationserverpolicyrules"></a>
 # **ListAuthorizationServerPolicyRules**
-> List&lt;AuthorizationServerPolicyRule&gt; ListAuthorizationServerPolicyRules (string policyId, string authServerId)
+> List&lt;AuthorizationServerPolicyRule&gt; ListAuthorizationServerPolicyRules (string authServerId, string policyId)
 
 List all Policy Rules
 
-Enumerates all policy rules for the specified Custom Authorization Server and Policy.
+Lists all policy rules for the specified Custom Authorization Server and Policy
 
 ### Example
 ```csharp
@@ -2011,13 +2263,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var policyId = "policyId_example";  // string | 
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
 
             try
             {
                 // List all Policy Rules
-                List<AuthorizationServerPolicyRule> result = apiInstance.ListAuthorizationServerPolicyRules(policyId, authServerId).ToListAsync();
+                List<AuthorizationServerPolicyRule> result = apiInstance.ListAuthorizationServerPolicyRules(authServerId, policyId).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2035,8 +2287,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
 
 ### Return type
 
@@ -2068,7 +2320,7 @@ Name | Type | Description  | Notes
 
 List all Authorization Servers
 
-List all authorization servers
+Lists all authorization servers
 
 ### Example
 ```csharp
@@ -2150,7 +2402,7 @@ Name | Type | Description  | Notes
 
 List all Custom Token Claims
 
-List all custom token claims
+Lists all custom token claims
 
 ### Example
 ```csharp
@@ -2174,7 +2426,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
 
             try
             {
@@ -2197,7 +2449,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
 
 ### Return type
 
@@ -2229,7 +2481,7 @@ Name | Type | Description  | Notes
 
 List all Clients
 
-List all clients
+Lists all clients
 
 ### Example
 ```csharp
@@ -2253,7 +2505,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
 
             try
             {
@@ -2276,7 +2528,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
 
 ### Return type
 
@@ -2308,7 +2560,7 @@ Name | Type | Description  | Notes
 
 List all Custom Token Scopes
 
-List all custom token scopes
+Lists all custom token scopes
 
 ### Example
 ```csharp
@@ -2332,7 +2584,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
             var q = "q_example";  // string |  (optional) 
             var filter = "filter_example";  // string |  (optional) 
             var cursor = "cursor_example";  // string |  (optional) 
@@ -2359,7 +2611,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
  **q** | **string**|  | [optional] 
  **filter** | **string**|  | [optional] 
  **cursor** | **string**|  | [optional] 
@@ -2395,7 +2647,7 @@ Name | Type | Description  | Notes
 
 List all Refresh Tokens for a Client
 
-List all refresh tokens for a client
+Lists all refresh tokens for a client
 
 ### Example
 ```csharp
@@ -2419,8 +2671,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var clientId = "clientId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
             var expand = "expand_example";  // string |  (optional) 
             var after = "after_example";  // string |  (optional) 
             var limit = -1;  // int? |  (optional)  (default to -1)
@@ -2446,8 +2698,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **clientId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **clientId** | **string**| &#x60;client_id&#x60; of the app | 
  **expand** | **string**|  | [optional] 
  **after** | **string**|  | [optional] 
  **limit** | **int?**|  | [optional] [default to -1]
@@ -2476,13 +2728,433 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="replaceauthorizationserver"></a>
+# **ReplaceAuthorizationServer**
+> AuthorizationServer ReplaceAuthorizationServer (string authServerId, AuthorizationServer authorizationServer)
+
+Replace an Authorization Server
+
+Replaces an authorization server
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplaceAuthorizationServerExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AuthorizationServerApi(config);
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var authorizationServer = new AuthorizationServer(); // AuthorizationServer | 
+
+            try
+            {
+                // Replace an Authorization Server
+                AuthorizationServer result = apiInstance.ReplaceAuthorizationServer(authServerId, authorizationServer);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthorizationServerApi.ReplaceAuthorizationServer: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **authorizationServer** | [**AuthorizationServer**](AuthorizationServer.md)|  | 
+
+### Return type
+
+[**AuthorizationServer**](AuthorizationServer.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="replaceauthorizationserverpolicy"></a>
+# **ReplaceAuthorizationServerPolicy**
+> AuthorizationServerPolicy ReplaceAuthorizationServerPolicy (string authServerId, string policyId, AuthorizationServerPolicy policy)
+
+Replace a Policy
+
+Replaces a policy
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplaceAuthorizationServerPolicyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AuthorizationServerApi(config);
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var policy = new AuthorizationServerPolicy(); // AuthorizationServerPolicy | 
+
+            try
+            {
+                // Replace a Policy
+                AuthorizationServerPolicy result = apiInstance.ReplaceAuthorizationServerPolicy(authServerId, policyId, policy);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthorizationServerApi.ReplaceAuthorizationServerPolicy: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+ **policy** | [**AuthorizationServerPolicy**](AuthorizationServerPolicy.md)|  | 
+
+### Return type
+
+[**AuthorizationServerPolicy**](AuthorizationServerPolicy.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="replaceauthorizationserverpolicyrule"></a>
+# **ReplaceAuthorizationServerPolicyRule**
+> AuthorizationServerPolicyRule ReplaceAuthorizationServerPolicyRule (string authServerId, string policyId, string ruleId, AuthorizationServerPolicyRule policyRule)
+
+Replace a Policy Rule
+
+Replaces the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplaceAuthorizationServerPolicyRuleExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AuthorizationServerApi(config);
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
+            var policyRule = new AuthorizationServerPolicyRule(); // AuthorizationServerPolicyRule | 
+
+            try
+            {
+                // Replace a Policy Rule
+                AuthorizationServerPolicyRule result = apiInstance.ReplaceAuthorizationServerPolicyRule(authServerId, policyId, ruleId, policyRule);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthorizationServerApi.ReplaceAuthorizationServerPolicyRule: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+ **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
+ **policyRule** | [**AuthorizationServerPolicyRule**](AuthorizationServerPolicyRule.md)|  | 
+
+### Return type
+
+[**AuthorizationServerPolicyRule**](AuthorizationServerPolicyRule.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="replaceoauth2claim"></a>
+# **ReplaceOAuth2Claim**
+> OAuth2Claim ReplaceOAuth2Claim (string authServerId, string claimId, OAuth2Claim oAuth2Claim)
+
+Replace a Custom Token Claim
+
+Replaces a custom token claim
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplaceOAuth2ClaimExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AuthorizationServerApi(config);
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var claimId = hNJ3Uk76xLagWkGx5W3N;  // string | `id` of Claim
+            var oAuth2Claim = new OAuth2Claim(); // OAuth2Claim | 
+
+            try
+            {
+                // Replace a Custom Token Claim
+                OAuth2Claim result = apiInstance.ReplaceOAuth2Claim(authServerId, claimId, oAuth2Claim);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthorizationServerApi.ReplaceOAuth2Claim: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **claimId** | **string**| &#x60;id&#x60; of Claim | 
+ **oAuth2Claim** | [**OAuth2Claim**](OAuth2Claim.md)|  | 
+
+### Return type
+
+[**OAuth2Claim**](OAuth2Claim.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="replaceoauth2scope"></a>
+# **ReplaceOAuth2Scope**
+> OAuth2Scope ReplaceOAuth2Scope (string authServerId, string scopeId, OAuth2Scope oAuth2Scope)
+
+Replace a Custom Token Scope
+
+Replaces a custom token scope
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplaceOAuth2ScopeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AuthorizationServerApi(config);
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var scopeId = 0TMRpCWXRKFjP7HiPFNM;  // string | `id` of Scope
+            var oAuth2Scope = new OAuth2Scope(); // OAuth2Scope | 
+
+            try
+            {
+                // Replace a Custom Token Scope
+                OAuth2Scope result = apiInstance.ReplaceOAuth2Scope(authServerId, scopeId, oAuth2Scope);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthorizationServerApi.ReplaceOAuth2Scope: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **scopeId** | **string**| &#x60;id&#x60; of Scope | 
+ **oAuth2Scope** | [**OAuth2Scope**](OAuth2Scope.md)|  | 
+
+### Return type
+
+[**OAuth2Scope**](OAuth2Scope.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="revokerefreshtokenforauthorizationserverandclient"></a>
 # **RevokeRefreshTokenForAuthorizationServerAndClient**
 > void RevokeRefreshTokenForAuthorizationServerAndClient (string authServerId, string clientId, string tokenId)
 
 Revoke a Refresh Token for a Client
 
-Revoke a refresh token for a client
+Revokes a refresh token for a client
 
 ### Example
 ```csharp
@@ -2506,9 +3178,9 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var clientId = "clientId_example";  // string | 
-            var tokenId = "tokenId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
+            var tokenId = sHHSth53yJAyNSTQKDJZ;  // string | `id` of Token
 
             try
             {
@@ -2530,9 +3202,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **clientId** | **string**|  | 
- **tokenId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **clientId** | **string**| &#x60;client_id&#x60; of the app | 
+ **tokenId** | **string**| &#x60;id&#x60; of Token | 
 
 ### Return type
 
@@ -2564,7 +3236,7 @@ void (empty response body)
 
 Revoke all Refresh Tokens for a Client
 
-Revoke all refresh tokens for a client
+Revokes all refresh tokens for a client
 
 ### Example
 ```csharp
@@ -2588,8 +3260,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var clientId = "clientId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
+            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
 
             try
             {
@@ -2611,8 +3283,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **clientId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
+ **clientId** | **string**| &#x60;client_id&#x60; of the app | 
 
 ### Return type
 
@@ -2644,7 +3316,7 @@ void (empty response body)
 
 Rotate all Credential Keys
 
-Rotate all credential keys
+Rotates all credential keys
 
 ### Example
 ```csharp
@@ -2668,7 +3340,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
+            var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
             var use = new JwkUse(); // JwkUse | 
 
             try
@@ -2692,432 +3364,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
+ **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
  **use** | [**JwkUse**](JwkUse.md)|  | 
 
 ### Return type
 
 [**List&lt;JsonWebKey&gt;**](JsonWebKey.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="updateauthorizationserver"></a>
-# **UpdateAuthorizationServer**
-> AuthorizationServer UpdateAuthorizationServer (string authServerId, AuthorizationServer authorizationServer)
-
-Replace an Authorization Server
-
-Replace an authorization server
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class UpdateAuthorizationServerExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var authorizationServer = new AuthorizationServer(); // AuthorizationServer | 
-
-            try
-            {
-                // Replace an Authorization Server
-                AuthorizationServer result = apiInstance.UpdateAuthorizationServer(authServerId, authorizationServer);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling AuthorizationServerApi.UpdateAuthorizationServer: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **authorizationServer** | [**AuthorizationServer**](AuthorizationServer.md)|  | 
-
-### Return type
-
-[**AuthorizationServer**](AuthorizationServer.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="updateauthorizationserverpolicy"></a>
-# **UpdateAuthorizationServerPolicy**
-> AuthorizationServerPolicy UpdateAuthorizationServerPolicy (string authServerId, string policyId, AuthorizationServerPolicy policy)
-
-Replace a Policy
-
-Replace a policy
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class UpdateAuthorizationServerPolicyExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var policyId = "policyId_example";  // string | 
-            var policy = new AuthorizationServerPolicy(); // AuthorizationServerPolicy | 
-
-            try
-            {
-                // Replace a Policy
-                AuthorizationServerPolicy result = apiInstance.UpdateAuthorizationServerPolicy(authServerId, policyId, policy);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling AuthorizationServerApi.UpdateAuthorizationServerPolicy: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **policyId** | **string**|  | 
- **policy** | [**AuthorizationServerPolicy**](AuthorizationServerPolicy.md)|  | 
-
-### Return type
-
-[**AuthorizationServerPolicy**](AuthorizationServerPolicy.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="updateauthorizationserverpolicyrule"></a>
-# **UpdateAuthorizationServerPolicyRule**
-> AuthorizationServerPolicyRule UpdateAuthorizationServerPolicyRule (string policyId, string authServerId, string ruleId, AuthorizationServerPolicyRule policyRule)
-
-Replace a Policy Rule
-
-Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class UpdateAuthorizationServerPolicyRuleExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new AuthorizationServerApi(config);
-            var policyId = "policyId_example";  // string | 
-            var authServerId = "authServerId_example";  // string | 
-            var ruleId = "ruleId_example";  // string | 
-            var policyRule = new AuthorizationServerPolicyRule(); // AuthorizationServerPolicyRule | 
-
-            try
-            {
-                // Replace a Policy Rule
-                AuthorizationServerPolicyRule result = apiInstance.UpdateAuthorizationServerPolicyRule(policyId, authServerId, ruleId, policyRule);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling AuthorizationServerApi.UpdateAuthorizationServerPolicyRule: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
- **authServerId** | **string**|  | 
- **ruleId** | **string**|  | 
- **policyRule** | [**AuthorizationServerPolicyRule**](AuthorizationServerPolicyRule.md)|  | 
-
-### Return type
-
-[**AuthorizationServerPolicyRule**](AuthorizationServerPolicyRule.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="updateoauth2claim"></a>
-# **UpdateOAuth2Claim**
-> OAuth2Claim UpdateOAuth2Claim (string authServerId, string claimId, OAuth2Claim oAuth2Claim)
-
-Replace a Custom Token Claim
-
-Replace a custom token claim
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class UpdateOAuth2ClaimExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var claimId = "claimId_example";  // string | 
-            var oAuth2Claim = new OAuth2Claim(); // OAuth2Claim | 
-
-            try
-            {
-                // Replace a Custom Token Claim
-                OAuth2Claim result = apiInstance.UpdateOAuth2Claim(authServerId, claimId, oAuth2Claim);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling AuthorizationServerApi.UpdateOAuth2Claim: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **claimId** | **string**|  | 
- **oAuth2Claim** | [**OAuth2Claim**](OAuth2Claim.md)|  | 
-
-### Return type
-
-[**OAuth2Claim**](OAuth2Claim.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="updateoauth2scope"></a>
-# **UpdateOAuth2Scope**
-> OAuth2Scope UpdateOAuth2Scope (string authServerId, string scopeId, OAuth2Scope oAuth2Scope)
-
-Replace a Custom Token Scope
-
-Replace a custom token scope
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class UpdateOAuth2ScopeExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new AuthorizationServerApi(config);
-            var authServerId = "authServerId_example";  // string | 
-            var scopeId = "scopeId_example";  // string | 
-            var oAuth2Scope = new OAuth2Scope(); // OAuth2Scope | 
-
-            try
-            {
-                // Replace a Custom Token Scope
-                OAuth2Scope result = apiInstance.UpdateOAuth2Scope(authServerId, scopeId, oAuth2Scope);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling AuthorizationServerApi.UpdateOAuth2Scope: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authServerId** | **string**|  | 
- **scopeId** | **string**|  | 
- **oAuth2Scope** | [**OAuth2Scope**](OAuth2Scope.md)|  | 
-
-### Return type
-
-[**OAuth2Scope**](OAuth2Scope.md)
 
 ### Authorization
 

@@ -10,10 +10,11 @@ Name | Type | Description | Notes
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
 **Policy** | [**IdentityProviderPolicy**](IdentityProviderPolicy.md) |  | [optional] 
+**Properties** | [**IdentityProviderProperties**](IdentityProviderProperties.md) |  | [optional] 
 **Protocol** | [**Protocol**](Protocol.md) |  | [optional] 
 **Status** | **LifecycleStatus** |  | [optional] 
 **Type** | **IdentityProviderType** |  | [optional] 
-**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**Links** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

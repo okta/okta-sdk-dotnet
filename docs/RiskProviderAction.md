@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.RiskProviderAction
-The action taken by Okta during authentication attempts based on the risk events sent by this provider. Logging can be found in the SystemLogs.
+Action taken by Okta during authentication attempts based on the risk events sent by this provider
 
 ## Properties
 

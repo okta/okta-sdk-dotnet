@@ -1,6 +1,19 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 7.0.0
+- Upgraded the RestSharp dependency from `106.13.0` to `110.2.0` (#606)
+- Upgraded the Okta management OpenAPI specification to be aligned with the Okta release [v2023.07.0](https://help.okta.com/en-us/Content/Topics/ReleaseNotes/okta-relnotes.htm). 
+- New API clients added:  
+* `ApiServiceIntegrationsApi`
+* `ApplicationSSOApi`
+* `AttackProtectionApi`
+* `EmailServerApi`
+* `IdentitySourceApi`
+* `RealmApi`
+* `UISchemaApi`
+- Check out the [MIGRATING guide](./MIGRATING.md) for more details about migrating to 7.0.0
+
 ## 6.0.11
 
 - Fix "Create/Update Account returns NULL when okta tenant hits rate limits" issue (#638)

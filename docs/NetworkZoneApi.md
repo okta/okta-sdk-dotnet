@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**DeleteNetworkZone**](NetworkZoneApi.md#deletenetworkzone) | **DELETE** /api/v1/zones/{zoneId} | Delete a Network Zone
 [**GetNetworkZone**](NetworkZoneApi.md#getnetworkzone) | **GET** /api/v1/zones/{zoneId} | Retrieve a Network Zone
 [**ListNetworkZones**](NetworkZoneApi.md#listnetworkzones) | **GET** /api/v1/zones | List all Network Zones
-[**UpdateNetworkZone**](NetworkZoneApi.md#updatenetworkzone) | **PUT** /api/v1/zones/{zoneId} | Replace a Network Zone
+[**ReplaceNetworkZone**](NetworkZoneApi.md#replacenetworkzone) | **PUT** /api/v1/zones/{zoneId} | Replace a Network Zone
 
 
 <a name="activatenetworkzone"></a>
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Activate a Network Zone
 
-Activate Network Zone
+Activates a network zone by `zoneId`
 
 ### Example
 ```csharp
@@ -43,7 +43,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new NetworkZoneApi(config);
-            var zoneId = "zoneId_example";  // string | 
+            var zoneId = nzowc1U5Jh5xuAK0o0g3;  // string | `id` of the Network Zone
 
             try
             {
@@ -66,7 +66,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **zoneId** | **string**|  | 
+ **zoneId** | **string**| &#x60;id&#x60; of the Network Zone | 
 
 ### Return type
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 Create a Network Zone
 
-Adds a new network zone to your Okta organization.
+Creates a new network zone. * At least one of either the `gateways` attribute or `proxies` attribute must be defined when creating a Network Zone. * At least one of the following attributes must be defined: `proxyType`, `locations`, or `asns`.
 
 ### Example
 ```csharp
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 Deactivate a Network Zone
 
-Deactivates a network zone.
+Deactivates a network zone by `zoneId`
 
 ### Example
 ```csharp
@@ -201,7 +201,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new NetworkZoneApi(config);
-            var zoneId = "zoneId_example";  // string | 
+            var zoneId = nzowc1U5Jh5xuAK0o0g3;  // string | `id` of the Network Zone
 
             try
             {
@@ -224,7 +224,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **zoneId** | **string**|  | 
+ **zoneId** | **string**| &#x60;id&#x60; of the Network Zone | 
 
 ### Return type
 
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 Delete a Network Zone
 
-Removes network zone.
+Deletes network zone by `zoneId`
 
 ### Example
 ```csharp
@@ -280,7 +280,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new NetworkZoneApi(config);
-            var zoneId = "zoneId_example";  // string | 
+            var zoneId = nzowc1U5Jh5xuAK0o0g3;  // string | `id` of the Network Zone
 
             try
             {
@@ -302,7 +302,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **zoneId** | **string**|  | 
+ **zoneId** | **string**| &#x60;id&#x60; of the Network Zone | 
 
 ### Return type
 
@@ -334,7 +334,7 @@ void (empty response body)
 
 Retrieve a Network Zone
 
-Fetches a network zone from your Okta organization by `id`.
+Retrieves a network zone by `zoneId`
 
 ### Example
 ```csharp
@@ -358,7 +358,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new NetworkZoneApi(config);
-            var zoneId = "zoneId_example";  // string | 
+            var zoneId = nzowc1U5Jh5xuAK0o0g3;  // string | `id` of the Network Zone
 
             try
             {
@@ -381,7 +381,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **zoneId** | **string**|  | 
+ **zoneId** | **string**| &#x60;id&#x60; of the Network Zone | 
 
 ### Return type
 
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 List all Network Zones
 
-Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
+Lists all network zones with pagination. A subset of zones can be returned that match a supported filter expression or query.  This operation requires URL encoding. For example, `filter=(id eq \"nzoul0wf9jyb8xwZm0g3\" or id eq \"nzoul1MxmGN18NDQT0g3\")` is encoded as `filter=%28id+eq+%22nzoul0wf9jyb8xwZm0g3%22+or+id+eq+%22nzoul1MxmGN18NDQT0g3%22%29`.  Okta supports filtering on the `id` and `usage` properties. See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions that are used in filtering.
 
 ### Example
 ```csharp
@@ -437,9 +437,9 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new NetworkZoneApi(config);
-            var after = "after_example";  // string | Specifies the pagination cursor for the next page of network zones (optional) 
-            var limit = -1;  // int? | Specifies the number of results for a page (optional)  (default to -1)
-            var filter = "filter_example";  // string | Filters zones by usage or id expression (optional) 
+            var after = 200u7yq5goxNFTiMjW1d7;  // string | Specifies the pagination cursor for the next page of network zones (optional) 
+            var limit = 5;  // int? | Specifies the number of results for a page (optional)  (default to -1)
+            var filter = filter=%28id+eq+%22nzowc1U5Jh5xuAK0o0g3%22%29;  // string | Filters zones by usage or ID expression (optional) 
 
             try
             {
@@ -464,7 +464,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **after** | **string**| Specifies the pagination cursor for the next page of network zones | [optional] 
  **limit** | **int?**| Specifies the number of results for a page | [optional] [default to -1]
- **filter** | **string**| Filters zones by usage or id expression | [optional] 
+ **filter** | **string**| Filters zones by usage or ID expression | [optional] 
 
 ### Return type
 
@@ -489,13 +489,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatenetworkzone"></a>
-# **UpdateNetworkZone**
-> NetworkZone UpdateNetworkZone (string zoneId, NetworkZone zone)
+<a name="replacenetworkzone"></a>
+# **ReplaceNetworkZone**
+> NetworkZone ReplaceNetworkZone (string zoneId, NetworkZone zone)
 
 Replace a Network Zone
 
-Updates a network zone in your organization.
+Replaces a network zone by `zoneId`. The replaced network zone type must be the same as the existing type. You may replace the usage (`POLICY`, `BLOCKLIST`) of a network zone by updating the `usage` attribute.
 
 ### Example
 ```csharp
@@ -507,7 +507,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class UpdateNetworkZoneExample
+    public class ReplaceNetworkZoneExample
     {
         public static void Main()
         {
@@ -519,18 +519,18 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new NetworkZoneApi(config);
-            var zoneId = "zoneId_example";  // string | 
+            var zoneId = nzowc1U5Jh5xuAK0o0g3;  // string | `id` of the Network Zone
             var zone = new NetworkZone(); // NetworkZone | 
 
             try
             {
                 // Replace a Network Zone
-                NetworkZone result = apiInstance.UpdateNetworkZone(zoneId, zone);
+                NetworkZone result = apiInstance.ReplaceNetworkZone(zoneId, zone);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NetworkZoneApi.UpdateNetworkZone: " + e.Message );
+                Debug.Print("Exception when calling NetworkZoneApi.ReplaceNetworkZone: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -543,7 +543,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **zoneId** | **string**|  | 
+ **zoneId** | **string**| &#x60;id&#x60; of the Network Zone | 
  **zone** | [**NetworkZone**](NetworkZone.md)|  | 
 
 ### Return type

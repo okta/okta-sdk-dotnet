@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.CapabilitiesCreateObject
+Determines whether Okta assigns a new application account to each user managed by Okta.  Okta doesn't create a new account if it detects that the username specified in Okta already exists in the application. The user's Okta username is assigned by default. 
 
 ## Properties
 

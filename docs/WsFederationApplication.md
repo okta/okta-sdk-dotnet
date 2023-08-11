@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **Visibility** | [**ApplicationVisibility**](ApplicationVisibility.md) |  | [optional] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Links** | [**ApplicationLinks**](ApplicationLinks.md) |  | [optional] 
+**Credentials** | [**ApplicationCredentials**](ApplicationCredentials.md) |  | [optional] 
 **Name** | **string** |  | [optional] [default to "template_wsfed"]
 **Settings** | [**WsFederationApplicationSettings**](WsFederationApplicationSettings.md) |  | [optional] 
 

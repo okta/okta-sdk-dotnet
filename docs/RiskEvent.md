@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExpiresAt** | **DateTimeOffset** | Time stamp at which the event expires (Expressed as a UTC time zone using ISO 8601 format: yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;). If this optional field is not included, Okta automatically expires the event 24 hours after the event is consumed. | [optional] 
-**Subjects** | [**List&lt;RiskEventSubject&gt;**](RiskEventSubject.md) |  | 
-**Timestamp** | **DateTimeOffset** | Time stamp at which the event is produced (Expressed as a UTC time zone using ISO 8601 format: yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;). | [optional] 
+**ExpiresAt** | **DateTimeOffset** | Timestamp at which the event expires (expressed as a UTC time zone using ISO 8601 format: yyyy-MM-dd&#x60;T&#x60;HH:mm:ss.SSS&#x60;Z&#x60;). If this optional field is not included, Okta automatically expires the event 24 hours after the event is consumed. | [optional] 
+**Subjects** | [**List&lt;RiskEventSubject&gt;**](RiskEventSubject.md) | List of Risk Event Subjects | 
+**Timestamp** | **DateTimeOffset** | Timestamp of when the event is produced (expressed as a UTC time zone using ISO 8601 format: yyyy-MM-dd&#x60;T&#x60;HH:mm:ss.SSS&#x60;Z&#x60;) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

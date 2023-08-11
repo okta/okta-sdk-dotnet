@@ -6,8 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetRateLimitSettingsAdminNotifications**](RateLimitSettingsApi.md#getratelimitsettingsadminnotifications) | **GET** /api/v1/rate-limit-settings/admin-notifications | Retrieve the Rate Limit Admin Notification Settings
 [**GetRateLimitSettingsPerClient**](RateLimitSettingsApi.md#getratelimitsettingsperclient) | **GET** /api/v1/rate-limit-settings/per-client | Retrieve the Per-Client Rate Limit Settings
+[**GetRateLimitSettingsWarningThreshold**](RateLimitSettingsApi.md#getratelimitsettingswarningthreshold) | **GET** /api/v1/rate-limit-settings/warning-threshold | Retrieve the Rate Limit Warning Threshold Percentage
 [**ReplaceRateLimitSettingsAdminNotifications**](RateLimitSettingsApi.md#replaceratelimitsettingsadminnotifications) | **PUT** /api/v1/rate-limit-settings/admin-notifications | Replace the Rate Limit Admin Notification Settings
 [**ReplaceRateLimitSettingsPerClient**](RateLimitSettingsApi.md#replaceratelimitsettingsperclient) | **PUT** /api/v1/rate-limit-settings/per-client | Replace the Per-Client Rate Limit Settings
+[**ReplaceRateLimitSettingsWarningThreshold**](RateLimitSettingsApi.md#replaceratelimitsettingswarningthreshold) | **PUT** /api/v1/rate-limit-settings/warning-threshold | Replace the Rate Limit Warning Threshold Percentage
 
 
 <a name="getratelimitsettingsadminnotifications"></a>
@@ -138,6 +140,80 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**PerClientRateLimitSettings**](PerClientRateLimitSettings.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getratelimitsettingswarningthreshold"></a>
+# **GetRateLimitSettingsWarningThreshold**
+> RateLimitWarningThresholdResponse GetRateLimitSettingsWarningThreshold ()
+
+Retrieve the Rate Limit Warning Threshold Percentage
+
+Retrieves the currently configured threshold for warning notifications when the API's rate limit is exceeded
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class GetRateLimitSettingsWarningThresholdExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new RateLimitSettingsApi(config);
+
+            try
+            {
+                // Retrieve the Rate Limit Warning Threshold Percentage
+                RateLimitWarningThresholdResponse result = apiInstance.GetRateLimitSettingsWarningThreshold();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling RateLimitSettingsApi.GetRateLimitSettingsWarningThreshold: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**RateLimitWarningThresholdResponse**](RateLimitWarningThresholdResponse.md)
 
 ### Authorization
 
@@ -295,6 +371,85 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PerClientRateLimitSettings**](PerClientRateLimitSettings.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="replaceratelimitsettingswarningthreshold"></a>
+# **ReplaceRateLimitSettingsWarningThreshold**
+> RateLimitWarningThresholdResponse ReplaceRateLimitSettingsWarningThreshold (RateLimitWarningThresholdRequest rateLimitWarningThreshold = null)
+
+Replace the Rate Limit Warning Threshold Percentage
+
+Replaces the Rate Limit Warning Threshold Percentage and returns the configured property
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplaceRateLimitSettingsWarningThresholdExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new RateLimitSettingsApi(config);
+            var rateLimitWarningThreshold = new RateLimitWarningThresholdRequest(); // RateLimitWarningThresholdRequest |  (optional) 
+
+            try
+            {
+                // Replace the Rate Limit Warning Threshold Percentage
+                RateLimitWarningThresholdResponse result = apiInstance.ReplaceRateLimitSettingsWarningThreshold(rateLimitWarningThreshold);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling RateLimitSettingsApi.ReplaceRateLimitSettingsWarningThreshold: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **rateLimitWarningThreshold** | [**RateLimitWarningThresholdRequest**](RateLimitWarningThresholdRequest.md)|  | [optional] 
+
+### Return type
+
+[**RateLimitWarningThresholdResponse**](RateLimitWarningThresholdResponse.md)
 
 ### Authorization
 

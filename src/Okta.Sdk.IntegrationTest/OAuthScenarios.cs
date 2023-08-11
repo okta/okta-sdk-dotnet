@@ -22,6 +22,27 @@ namespace Okta.Sdk.IntegrationTest
 {
     public class OAuthScenarios
     {
+        public OAuthScenarios()
+        {
+            //CleanUsers();
+        }
+
+        private static void CleanUsers()
+        {
+            var userApi = new UserApi();
+
+            var users = userApi.ListUsers().ToListAsync().Result;
+
+            foreach (var user in users)
+            {
+                if (user.Profile.Email.Contains("dotnet"))
+                {
+                    userApi.DeactivateUserAsync(user.Id).Wait();
+                    userApi.DeleteUserAsync(user.Id).Wait();
+                }
+            }
+        }
+
         [Fact]
         public async Task RetrieveAccessToken()
         {
@@ -156,6 +177,11 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
+                var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
+                var roleAssignmentRequest = getBasicRequestOptions();
+                roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
+
+                var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
 
                 requestOptions = getBasicRequestOptions();
                 requestOptions.Data = JObject.Parse(grantPayload);
@@ -240,7 +266,14 @@ namespace Okta.Sdk.IntegrationTest
             var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
 
             var clientId = serviceResponse.Data["client_id"].ToString();
-            
+
+            var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
+            var roleAssignmentRequest = getBasicRequestOptions();
+            roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
+
+            var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
+
+
             var createUserRequest = new CreateUserRequest
             {
                 Profile = new UserProfile
@@ -268,6 +301,8 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
+                var roleApi = new RoleAssignmentApi();
+                await roleApi.AssignRoleToUserAsync(createdUser.Id, new AssignRoleRequest { Type = RoleType.SUPERADMIN });
 
                 requestOptions = getBasicRequestOptions();
                 requestOptions.Data = JObject.Parse(grantPayload);
@@ -303,8 +338,8 @@ namespace Okta.Sdk.IntegrationTest
             {
                 requestOptions = getBasicRequestOptions();
                 await apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
-                await userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await userApi.DeactivateUserAsync(createdUser.Id);
+                await userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -354,6 +389,13 @@ namespace Okta.Sdk.IntegrationTest
             var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
 
             var clientId = serviceResponse.Data["client_id"].ToString();
+
+            var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
+            var roleAssignmentRequest = getBasicRequestOptions();
+            roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
+
+            var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
+
 
             var createUserRequest1 = new CreateUserRequest
             {
@@ -459,10 +501,10 @@ namespace Okta.Sdk.IntegrationTest
             {
                 requestOptions = getBasicRequestOptions();
                 await apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
-                await userApi.DeactivateOrDeleteUserAsync(createdUser1.Id);
-                await userApi.DeactivateOrDeleteUserAsync(createdUser1.Id);
-                await userApi.DeactivateOrDeleteUserAsync(createdUser2.Id);
-                await userApi.DeactivateOrDeleteUserAsync(createdUser2.Id);
+                await userApi.DeactivateUserAsync(createdUser1.Id);
+                await userApi.DeleteUserAsync(createdUser1.Id);
+                await userApi.DeactivateUserAsync(createdUser2.Id);
+                await userApi.DeleteUserAsync(createdUser2.Id);
             }
         }
 
@@ -512,6 +554,13 @@ namespace Okta.Sdk.IntegrationTest
             var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
 
             var clientId = serviceResponse.Data["client_id"].ToString();
+
+            var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
+            var roleAssignmentRequest = getBasicRequestOptions();
+            roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
+
+            var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
+
 
             var createUserRequest1 = new CreateUserRequest
             {
@@ -619,10 +668,10 @@ namespace Okta.Sdk.IntegrationTest
             {
                 requestOptions = getBasicRequestOptions();
                 await apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
-                await userApi.DeactivateOrDeleteUserAsync(createdUser1.Id);
-                await userApi.DeactivateOrDeleteUserAsync(createdUser1.Id);
-                await userApi.DeactivateOrDeleteUserAsync(createdUser2.Id);
-                await userApi.DeactivateOrDeleteUserAsync(createdUser2.Id);
+                await userApi.DeactivateUserAsync(createdUser1.Id);
+                await userApi.DeleteUserAsync(createdUser1.Id);
+                await userApi.DeactivateUserAsync(createdUser2.Id);
+                await userApi.DeleteUserAsync(createdUser2.Id);
             }
         }
 

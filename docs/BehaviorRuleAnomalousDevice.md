@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Status** | [**LifecycleStatus**](LifecycleStatus.md) |  | [optional] 
 **Type** | [**BehaviorRuleType**](BehaviorRuleType.md) |  | 
-**Link** | [**ApiTokenLink**](ApiTokenLink.md) |  | [optional] 
+**Link** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
 **Settings** | [**BehaviorRuleSettingsAnomalousDevice**](BehaviorRuleSettingsAnomalousDevice.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

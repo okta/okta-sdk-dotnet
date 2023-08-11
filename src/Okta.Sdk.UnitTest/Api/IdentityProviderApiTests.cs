@@ -238,8 +238,7 @@ namespace Okta.Sdk.UnitTest
 
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
             var idpApi = new IdentityProviderApi(mockClient, new Configuration { BasePath = "https://foo.com" });
-
-
+            
             var idp = new IdentityProvider()
             {
                 Type = "CUSTOM TYPE IDP",

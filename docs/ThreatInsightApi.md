@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Retrieve the ThreatInsight Configuration
 
-Gets current ThreatInsight configuration
+Retrieves the ThreatInsight configuration for the org
 
 ### Example
 ```csharp
@@ -88,7 +88,7 @@ This endpoint does not need any parameter.
 
 Update the ThreatInsight Configuration
 
-Updates ThreatInsight configuration
+Updates the ThreatInsight configuration for the org
 
 ### Example
 ```csharp

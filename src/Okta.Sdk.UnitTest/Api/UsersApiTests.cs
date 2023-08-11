@@ -101,7 +101,7 @@ _server.Given(
             
             CreateStubReturningRateLimitResponse();
 
-            var exception = await Assert.ThrowsAsync<ApiException>(async () => await userApi.PartialUpdateUserAsync("foo",
+            var exception = await Assert.ThrowsAsync<ApiException>(async () => await userApi.UpdateUserAsync("foo",
                 new UpdateUserRequest
                 {
                     Profile = new UserProfile
@@ -140,7 +140,7 @@ _server.Given(
             CreateStubReturningOAuthTokenResponse();
             CreateStubReturningRateLimitResponse();
 
-            var exception = await Assert.ThrowsAsync<ApiException>(async () => await userApi.PartialUpdateUserAsync("foo",
+            var exception = await Assert.ThrowsAsync<ApiException>(async () => await userApi.UpdateUserAsync("foo",
                 new UpdateUserRequest
                 {
                     Profile = new UserProfile

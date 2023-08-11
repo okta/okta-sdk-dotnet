@@ -5,18 +5,18 @@ All URIs are relative to *https://subdomain.okta.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddMembersToBinding**](ResourceSetApi.md#addmemberstobinding) | **PATCH** /api/v1/iam/resource-sets/{resourceSetId}/bindings/{roleIdOrLabel}/members | Add more Members to a binding
-[**AddResourceSetResource**](ResourceSetApi.md#addresourcesetresource) | **PATCH** /api/v1/iam/resource-sets/{resourceSetId}/resources | Add a Resource to a resource set
+[**AddResourceSetResource**](ResourceSetApi.md#addresourcesetresource) | **PATCH** /api/v1/iam/resource-sets/{resourceSetId}/resources | Add more Resource to a Resource Set
 [**CreateResourceSet**](ResourceSetApi.md#createresourceset) | **POST** /api/v1/iam/resource-sets | Create a Resource Set
 [**CreateResourceSetBinding**](ResourceSetApi.md#createresourcesetbinding) | **POST** /api/v1/iam/resource-sets/{resourceSetId}/bindings | Create a Resource Set Binding
 [**DeleteBinding**](ResourceSetApi.md#deletebinding) | **DELETE** /api/v1/iam/resource-sets/{resourceSetId}/bindings/{roleIdOrLabel} | Delete a Binding
 [**DeleteResourceSet**](ResourceSetApi.md#deleteresourceset) | **DELETE** /api/v1/iam/resource-sets/{resourceSetId} | Delete a Resource Set
-[**DeleteResourceSetResource**](ResourceSetApi.md#deleteresourcesetresource) | **DELETE** /api/v1/iam/resource-sets/{resourceSetId}/resources/{resourceId} | Delete a Resource from a resource set
+[**DeleteResourceSetResource**](ResourceSetApi.md#deleteresourcesetresource) | **DELETE** /api/v1/iam/resource-sets/{resourceSetId}/resources/{resourceId} | Delete a Resource from a Resource Set
 [**GetBinding**](ResourceSetApi.md#getbinding) | **GET** /api/v1/iam/resource-sets/{resourceSetId}/bindings/{roleIdOrLabel} | Retrieve a Binding
 [**GetMemberOfBinding**](ResourceSetApi.md#getmemberofbinding) | **GET** /api/v1/iam/resource-sets/{resourceSetId}/bindings/{roleIdOrLabel}/members/{memberId} | Retrieve a Member of a binding
 [**GetResourceSet**](ResourceSetApi.md#getresourceset) | **GET** /api/v1/iam/resource-sets/{resourceSetId} | Retrieve a Resource Set
 [**ListBindings**](ResourceSetApi.md#listbindings) | **GET** /api/v1/iam/resource-sets/{resourceSetId}/bindings | List all Bindings
 [**ListMembersOfBinding**](ResourceSetApi.md#listmembersofbinding) | **GET** /api/v1/iam/resource-sets/{resourceSetId}/bindings/{roleIdOrLabel}/members | List all Members of a binding
-[**ListResourceSetResources**](ResourceSetApi.md#listresourcesetresources) | **GET** /api/v1/iam/resource-sets/{resourceSetId}/resources | List all Resources of a resource set
+[**ListResourceSetResources**](ResourceSetApi.md#listresourcesetresources) | **GET** /api/v1/iam/resource-sets/{resourceSetId}/resources | List all Resources of a Resource Set
 [**ListResourceSets**](ResourceSetApi.md#listresourcesets) | **GET** /api/v1/iam/resource-sets | List all Resource Sets
 [**ReplaceResourceSet**](ResourceSetApi.md#replaceresourceset) | **PUT** /api/v1/iam/resource-sets/{resourceSetId} | Replace a Resource Set
 [**UnassignMemberFromBinding**](ResourceSetApi.md#unassignmemberfrombinding) | **DELETE** /api/v1/iam/resource-sets/{resourceSetId}/bindings/{roleIdOrLabel}/members/{memberId} | Unassign a Member from a binding
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 Add more Members to a binding
 
-Adds more members to a resource set binding
+Adds more members to a Resource Set binding
 
 ### Example
 ```csharp
@@ -52,7 +52,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a resource set
+            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
             var roleIdOrLabel = cr0Yq6IJxGIr0ouum0g3;  // string | `id` or `label` of the role
             var instance = new ResourceSetBindingAddMembersRequest(); // ResourceSetBindingAddMembersRequest | 
 
@@ -77,7 +77,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceSetId** | **string**| &#x60;id&#x60; of a resource set | 
+ **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
  **roleIdOrLabel** | **string**| &#x60;id&#x60; or &#x60;label&#x60; of the role | 
  **instance** | [**ResourceSetBindingAddMembersRequest**](ResourceSetBindingAddMembersRequest.md)|  | 
 
@@ -110,9 +110,9 @@ Name | Type | Description  | Notes
 # **AddResourceSetResource**
 > ResourceSet AddResourceSetResource (string resourceSetId, ResourceSetResourcePatchRequest instance)
 
-Add a Resource to a resource set
+Add more Resource to a Resource Set
 
-Adds more resources to a resource set
+Adds more resources to a Resource Set
 
 ### Example
 ```csharp
@@ -136,12 +136,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a resource set
+            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
             var instance = new ResourceSetResourcePatchRequest(); // ResourceSetResourcePatchRequest | 
 
             try
             {
-                // Add a Resource to a resource set
+                // Add more Resource to a Resource Set
                 ResourceSet result = apiInstance.AddResourceSetResource(resourceSetId, instance);
                 Debug.WriteLine(result);
             }
@@ -160,7 +160,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceSetId** | **string**| &#x60;id&#x60; of a resource set | 
+ **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
  **instance** | [**ResourceSetResourcePatchRequest**](ResourceSetResourcePatchRequest.md)|  | 
 
 ### Return type
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 Create a Resource Set
 
-Creates a new resource set
+Creates a new Resource Set
 
 ### Example
 ```csharp
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 Create a Resource Set Binding
 
-Creates a new resource set binding
+Creates a new Resource Set binding
 
 ### Example
 ```csharp
@@ -297,7 +297,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a resource set
+            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
             var instance = new ResourceSetBindingCreateRequest(); // ResourceSetBindingCreateRequest | 
 
             try
@@ -321,7 +321,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceSetId** | **string**| &#x60;id&#x60; of a resource set | 
+ **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
  **instance** | [**ResourceSetBindingCreateRequest**](ResourceSetBindingCreateRequest.md)|  | 
 
 ### Return type
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 Delete a Binding
 
-Deletes a resource set binding by `resourceSetId` and `roleIdOrLabel`
+Deletes a Resource Set binding by `resourceSetId` and `roleIdOrLabel`
 
 ### Example
 ```csharp
@@ -379,7 +379,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a resource set
+            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
             var roleIdOrLabel = cr0Yq6IJxGIr0ouum0g3;  // string | `id` or `label` of the role
 
             try
@@ -402,7 +402,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceSetId** | **string**| &#x60;id&#x60; of a resource set | 
+ **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
  **roleIdOrLabel** | **string**| &#x60;id&#x60; or &#x60;label&#x60; of the role | 
 
 ### Return type
@@ -459,7 +459,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a resource set
+            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
 
             try
             {
@@ -481,7 +481,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceSetId** | **string**| &#x60;id&#x60; of a resource set | 
+ **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
 
 ### Return type
 
@@ -511,9 +511,9 @@ void (empty response body)
 # **DeleteResourceSetResource**
 > void DeleteResourceSetResource (string resourceSetId, string resourceId)
 
-Delete a Resource from a resource set
+Delete a Resource from a Resource Set
 
-Deletes a resource identified by `resourceId` from a resource set
+Deletes a resource identified by `resourceId` from a Resource Set
 
 ### Example
 ```csharp
@@ -537,12 +537,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a resource set
+            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
             var resourceId = ire106sQKoHoXXsAe0g4;  // string | `id` of a resource
 
             try
             {
-                // Delete a Resource from a resource set
+                // Delete a Resource from a Resource Set
                 apiInstance.DeleteResourceSetResource(resourceSetId, resourceId);
             }
             catch (ApiException  e)
@@ -560,7 +560,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceSetId** | **string**| &#x60;id&#x60; of a resource set | 
+ **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
  **resourceId** | **string**| &#x60;id&#x60; of a resource | 
 
 ### Return type
@@ -593,7 +593,7 @@ void (empty response body)
 
 Retrieve a Binding
 
-Retrieves a resource set binding by `resourceSetId` and `roleIdOrLabel`
+Retrieves a Resource Set binding by `resourceSetId` and `roleIdOrLabel`
 
 ### Example
 ```csharp
@@ -617,7 +617,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a resource set
+            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
             var roleIdOrLabel = cr0Yq6IJxGIr0ouum0g3;  // string | `id` or `label` of the role
 
             try
@@ -641,7 +641,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceSetId** | **string**| &#x60;id&#x60; of a resource set | 
+ **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
  **roleIdOrLabel** | **string**| &#x60;id&#x60; or &#x60;label&#x60; of the role | 
 
 ### Return type
@@ -674,7 +674,7 @@ Name | Type | Description  | Notes
 
 Retrieve a Member of a binding
 
-Retreieves a member identified by `memberId` for a binding
+Retrieves a member identified by `memberId` for a binding
 
 ### Example
 ```csharp
@@ -698,7 +698,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a resource set
+            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
             var roleIdOrLabel = cr0Yq6IJxGIr0ouum0g3;  // string | `id` or `label` of the role
             var memberId = irb1qe6PGuMc7Oh8N0g4;  // string | `id` of a member
 
@@ -723,7 +723,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceSetId** | **string**| &#x60;id&#x60; of a resource set | 
+ **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
  **roleIdOrLabel** | **string**| &#x60;id&#x60; or &#x60;label&#x60; of the role | 
  **memberId** | **string**| &#x60;id&#x60; of a member | 
 
@@ -757,7 +757,7 @@ Name | Type | Description  | Notes
 
 Retrieve a Resource Set
 
-Retrieve a resource set by `resourceSetId`
+Retrieves a Resource Set by `resourceSetId`
 
 ### Example
 ```csharp
@@ -781,7 +781,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a resource set
+            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
 
             try
             {
@@ -804,7 +804,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceSetId** | **string**| &#x60;id&#x60; of a resource set | 
+ **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
 
 ### Return type
 
@@ -836,7 +836,7 @@ Name | Type | Description  | Notes
 
 List all Bindings
 
-Lists all resource set bindings with pagination support
+Lists all Resource Set bindings with pagination support
 
 ### Example
 ```csharp
@@ -860,7 +860,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a resource set
+            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
             var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
 
             try
@@ -884,7 +884,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceSetId** | **string**| &#x60;id&#x60; of a resource set | 
+ **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
  **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
 
 ### Return type
@@ -917,7 +917,7 @@ Name | Type | Description  | Notes
 
 List all Members of a binding
 
-Lists all members of a resource set binding with pagination support
+Lists all members of a Resource Set binding with pagination support
 
 ### Example
 ```csharp
@@ -941,7 +941,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a resource set
+            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
             var roleIdOrLabel = cr0Yq6IJxGIr0ouum0g3;  // string | `id` or `label` of the role
             var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
 
@@ -966,7 +966,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceSetId** | **string**| &#x60;id&#x60; of a resource set | 
+ **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
  **roleIdOrLabel** | **string**| &#x60;id&#x60; or &#x60;label&#x60; of the role | 
  **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
 
@@ -998,9 +998,9 @@ Name | Type | Description  | Notes
 # **ListResourceSetResources**
 > ResourceSetResources ListResourceSetResources (string resourceSetId)
 
-List all Resources of a resource set
+List all Resources of a Resource Set
 
-Lists all resources that make up the resource set
+Lists all resources that make up the Resource Set
 
 ### Example
 ```csharp
@@ -1024,11 +1024,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a resource set
+            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
 
             try
             {
-                // List all Resources of a resource set
+                // List all Resources of a Resource Set
                 ResourceSetResources result = apiInstance.ListResourceSetResources(resourceSetId);
                 Debug.WriteLine(result);
             }
@@ -1047,7 +1047,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceSetId** | **string**| &#x60;id&#x60; of a resource set | 
+ **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
 
 ### Return type
 
@@ -1079,7 +1079,7 @@ Name | Type | Description  | Notes
 
 List all Resource Sets
 
-Lists all resource sets with pagination support
+Lists all Resource Sets with pagination support
 
 ### Example
 ```csharp
@@ -1157,7 +1157,7 @@ Name | Type | Description  | Notes
 
 Replace a Resource Set
 
-Replaces a resource set by `resourceSetId`
+Replaces a Resource Set by `resourceSetId`
 
 ### Example
 ```csharp
@@ -1181,7 +1181,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a resource set
+            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
             var instance = new ResourceSet(); // ResourceSet | 
 
             try
@@ -1205,7 +1205,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceSetId** | **string**| &#x60;id&#x60; of a resource set | 
+ **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
  **instance** | [**ResourceSet**](ResourceSet.md)|  | 
 
 ### Return type
@@ -1263,7 +1263,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a resource set
+            var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
             var roleIdOrLabel = cr0Yq6IJxGIr0ouum0g3;  // string | `id` or `label` of the role
             var memberId = irb1qe6PGuMc7Oh8N0g4;  // string | `id` of a member
 
@@ -1287,7 +1287,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceSetId** | **string**| &#x60;id&#x60; of a resource set | 
+ **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
  **roleIdOrLabel** | **string**| &#x60;id&#x60; or &#x60;label&#x60; of the role | 
  **memberId** | **string**| &#x60;id&#x60; of a member | 
 

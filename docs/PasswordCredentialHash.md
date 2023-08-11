@@ -5,6 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Algorithm** | **PasswordCredentialHashAlgorithm** |  | [optional] 
+**DigestAlgorithm** | **DigestAlgorithm** |  | [optional] 
+**IterationCount** | **int** |  | [optional] 
+**KeySize** | **int** |  | [optional] 
 **Salt** | **string** |  | [optional] 
 **SaltOrder** | **string** |  | [optional] 
 **Value** | **string** |  | [optional] 

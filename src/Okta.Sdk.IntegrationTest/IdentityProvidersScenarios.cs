@@ -949,7 +949,7 @@ namespace Okta.Sdk.IntegrationTest
                createdIdp.Name = $"dotnet-sdk:UpdateIdp{randomSuffix}-upd";
                Thread.Sleep(3000); // allow for user replication prior to read attempt
 
-               var updatedIdp = await _idpApi.UpdateIdentityProviderAsync(createdIdp.Id, createdIdp);
+               var updatedIdp = await _idpApi.ReplaceIdentityProviderAsync(createdIdp.Id, createdIdp);
                updatedIdp.Name.Should().Be($"dotnet-sdk:UpdateIdp{randomSuffix}-upd");
 
             }
@@ -963,6 +963,8 @@ namespace Okta.Sdk.IntegrationTest
         [Fact]
         public async Task DeleteIdp()
         {
+            await CleanKeys();
+
             var randomSuffix = DateTime.UtcNow.ToString();
 
             var idp = new IdentityProvider()
@@ -1036,6 +1038,8 @@ namespace Okta.Sdk.IntegrationTest
         [Fact]
         public async Task CreateKey()
         {
+            await CleanKeys();
+
             var key = @"MIIDnjCCAoagAwIBAgIGAVG3MN+PMA0GCSqGSIb3DQEBBQUAMIGPMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5p
                     YTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEDAOBgNVBAMM
                     B2V4YW1wbGUxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTUxMjE4MjIyMjMyWhcNMjUxMjE4MjIyMzMyWjCB
@@ -1069,6 +1073,8 @@ namespace Okta.Sdk.IntegrationTest
         [Fact]
         public async Task GetKey()
         {
+            await CleanKeys();
+
             var key = @"MIIDnjCCAoagAwIBAgIGAVG3MN+PMA0GCSqGSIb3DQEBBQUAMIGPMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5p
                     YTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEDAOBgNVBAMM
                     B2V4YW1wbGUxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTUxMjE4MjIyMjMyWhcNMjUxMjE4MjIyMzMyWjCB
@@ -1103,6 +1109,8 @@ namespace Okta.Sdk.IntegrationTest
         [Fact]
         public async Task ListKeys()
         {
+            await CleanKeys();
+
             var key = @"MIIDnjCCAoagAwIBAgIGAVG3MN+PMA0GCSqGSIb3DQEBBQUAMIGPMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5p
                     YTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEDAOBgNVBAMM
                     B2V4YW1wbGUxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTUxMjE4MjIyMjMyWhcNMjUxMjE4MjIyMzMyWjCB
@@ -1137,6 +1145,7 @@ namespace Okta.Sdk.IntegrationTest
         [Fact]
         public async Task DeleteKey()
         {
+            await CleanKeys();
             var key = @"MIIDnjCCAoagAwIBAgIGAVG3MN+PMA0GCSqGSIb3DQEBBQUAMIGPMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5p
                     YTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEDAOBgNVBAMM
                     B2V4YW1wbGUxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTUxMjE4MjIyMjMyWhcNMjUxMjE4MjIyMzMyWjCB
@@ -1395,6 +1404,8 @@ namespace Okta.Sdk.IntegrationTest
         {
             var randomSuffix = DateTime.UtcNow.ToString();
 
+            await CleanKeys();
+
             var key = @"MIIDnjCCAoagAwIBAgIGAVG3MN+PMA0GCSqGSIb3DQEBBQUAMIGPMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5p
                     YTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEDAOBgNVBAMM
                     B2V4YW1wbGUxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTUxMjE4MjIyMjMyWhcNMjUxMjE4MjIyMzMyWjCB
@@ -1543,6 +1554,16 @@ namespace Okta.Sdk.IntegrationTest
                 await _idpApi.DeactivateIdentityProviderAsync(createdIdp.Id);
                 await _idpApi.DeleteIdentityProviderAsync(createdIdp.Id);
                 await _idpApi.DeleteIdentityProviderKeyAsync(createdKey.Kid);
+            }
+        }
+
+        private async Task CleanKeys()
+        {
+            var keys = await _idpApi.ListIdentityProviderKeys().ToListAsync();
+
+            foreach (var keyItem in keys)
+            {
+                await _idpApi.DeleteIdentityProviderKeyAsync(keyItem.Kid);
             }
         }
 

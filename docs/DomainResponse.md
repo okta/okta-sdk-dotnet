@@ -1,14 +1,15 @@
 # Okta.Sdk.Model.DomainResponse
+The properties that define an individual domain.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BrandId** | **string** |  | [optional] 
+**BrandId** | **string** | The ID number of the brand | [optional] 
 **CertificateSourceType** | **DomainCertificateSourceType** |  | [optional] 
 **DnsRecords** | [**List&lt;DNSRecord&gt;**](DNSRecord.md) |  | [optional] 
-**Domain** | **string** |  | [optional] 
-**Id** | **string** |  | [optional] 
+**Domain** | **string** | Custom domain name | [optional] 
+**Id** | **string** | Unique ID of the domain | [optional] 
 **PublicCertificate** | [**DomainCertificateMetadata**](DomainCertificateMetadata.md) |  | [optional] 
 **ValidationStatus** | **DomainValidationStatus** |  | [optional] 
 **Links** | [**DomainLinks**](DomainLinks.md) |  | [optional] 

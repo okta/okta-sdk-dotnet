@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.LifecycleCreateSettingObject
+Determines whether to update a user in the application when a user in Okta is updated
 
 ## Properties
 

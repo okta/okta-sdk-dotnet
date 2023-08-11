@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.AwsRegion
-An AWS region
+The destination AWS region where your event source is located
 
 ## Properties
 

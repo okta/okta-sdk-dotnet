@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.RiskEventSubjectRiskLevel
+The risk level associated with the IP
 
 ## Properties
 

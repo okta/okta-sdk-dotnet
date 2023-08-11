@@ -71,11 +71,12 @@ namespace Okta.Sdk.UnitTest.Internal
 
         private Task<ApiResponse<T>> ExecuteAsync<T>(string path, RequestOptions options)
         {
+            var customCodec = new CustomJsonCodec(new Configuration { BasePath = "https://foo.com" });
             ReceivedPath = path;
             ReceivedQueryParams = options.QueryParameters;
             ReceivedPathParams = options.PathParameters;
             ReceivedHeaders = options.HeaderParameters;
-            ReceivedBody = JsonConvert.SerializeObject(options.Data);
+            ReceivedBody = JsonConvert.SerializeObject(options.Data, customCodec.JsonSerializer);
             ReceivedHeadersQueue ??= new Queue<Multimap<string, string>>();
             ReceivedHeadersQueue.Enqueue(options.HeaderParameters);
 

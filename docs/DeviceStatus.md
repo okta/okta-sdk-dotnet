@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.DeviceStatus
+The state object of the device
 
 ## Properties
 

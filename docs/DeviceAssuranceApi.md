@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**DeleteDeviceAssurancePolicy**](DeviceAssuranceApi.md#deletedeviceassurancepolicy) | **DELETE** /api/v1/device-assurances/{deviceAssuranceId} | Delete a Device Assurance Policy
 [**GetDeviceAssurancePolicy**](DeviceAssuranceApi.md#getdeviceassurancepolicy) | **GET** /api/v1/device-assurances/{deviceAssuranceId} | Retrieve a Device Assurance Policy
 [**ListDeviceAssurancePolicies**](DeviceAssuranceApi.md#listdeviceassurancepolicies) | **GET** /api/v1/device-assurances | List all Device Assurance Policies
-[**UpdateDeviceAssurancePolicy**](DeviceAssuranceApi.md#updatedeviceassurancepolicy) | **PUT** /api/v1/device-assurances/{deviceAssuranceId} | Replace a Device Assurance Policy
+[**ReplaceDeviceAssurancePolicy**](DeviceAssuranceApi.md#replacedeviceassurancepolicy) | **PUT** /api/v1/device-assurances/{deviceAssuranceId} | Replace a Device Assurance Policy
 
 
 <a name="createdeviceassurancepolicy"></a>
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Create a Device Assurance Policy
 
-Adds a new Device Assurance Policy.
+Creates a new Device Assurance Policy
 
 ### Example
 ```csharp
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 Delete a Device Assurance Policy
 
-Delete a Device Assurance Policy by `deviceAssuranceId`. If the Device Assurance Policy is currently being used in the org Authentication Policies, the delete will not be allowed.
+Deletes a Device Assurance Policy by `deviceAssuranceId`. If the Device Assurance Policy is currently being used in the org Authentication Policies, the delete will not be allowed.
 
 ### Example
 ```csharp
@@ -175,7 +175,7 @@ void (empty response body)
 
 Retrieve a Device Assurance Policy
 
-Fetches a Device Assurance Policy by `deviceAssuranceId`.
+Retrieves a Device Assurance Policy by `deviceAssuranceId`
 
 ### Example
 ```csharp
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 List all Device Assurance Policies
 
-Enumerates Device Assurance Policies in your organization.
+Lists all device assurance policies
 
 ### Example
 ```csharp
@@ -322,13 +322,13 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatedeviceassurancepolicy"></a>
-# **UpdateDeviceAssurancePolicy**
-> DeviceAssurance UpdateDeviceAssurancePolicy (string deviceAssuranceId, DeviceAssurance deviceAssurance)
+<a name="replacedeviceassurancepolicy"></a>
+# **ReplaceDeviceAssurancePolicy**
+> DeviceAssurance ReplaceDeviceAssurancePolicy (string deviceAssuranceId, DeviceAssurance deviceAssurance)
 
 Replace a Device Assurance Policy
 
-Updates a Device Assurance Policy by `deviceAssuranceId`.
+Replaces a Device Assurance Policy by `deviceAssuranceId`
 
 ### Example
 ```csharp
@@ -340,7 +340,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class UpdateDeviceAssurancePolicyExample
+    public class ReplaceDeviceAssurancePolicyExample
     {
         public static void Main()
         {
@@ -358,12 +358,12 @@ namespace Example
             try
             {
                 // Replace a Device Assurance Policy
-                DeviceAssurance result = apiInstance.UpdateDeviceAssurancePolicy(deviceAssuranceId, deviceAssurance);
+                DeviceAssurance result = apiInstance.ReplaceDeviceAssurancePolicy(deviceAssuranceId, deviceAssurance);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DeviceAssuranceApi.UpdateDeviceAssurancePolicy: " + e.Message );
+                Debug.Print("Exception when calling DeviceAssuranceApi.ReplaceDeviceAssurancePolicy: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
