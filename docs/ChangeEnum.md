@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ChangeEnum
+Determines whether a change in a user's password also updates the user's password in the application
 
 ## Properties
 

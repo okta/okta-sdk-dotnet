@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.CAPTCHAType
+The type of CAPTCHA provider
 
 ## Properties
 

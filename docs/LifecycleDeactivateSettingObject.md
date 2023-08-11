@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.LifecycleDeactivateSettingObject
+Determines whether deprovisioning occurs when the app is unassigned
 
 ## Properties
 

@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.HrefObjectHints
+Describes allowed HTTP verbs for the `href`
 
 ## Properties
 

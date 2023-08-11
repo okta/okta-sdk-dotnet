@@ -2,6 +2,180 @@
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/). In short, we don't make breaking changes unless the major version changes!
 
+## Migrating from 6.x to 7.x
+
+### RestSharp upgraded to 110.2.0
+
+We have upgraded the RestSharp dependency from `106.13.0` to `110.2.0`. This caused a few breaking changes due to the removal and changes of interfaces. You can learn more about RestSharp changes [here](https://restsharp.dev/v107/#restsharp-v107).
+
+* `IOAuthTokenProvider.GetOAuthRetryPolicy()` now returns `RestResponse` instead of `IRestResponse`. This has impacted `DefaultOAuthTokenProvider`.
+* `RetryConfiguration.AsyncRetryPolicy` now receives/returns `AsyncPolicy<RestResponse>` instead of  `AsyncPolicy<IRestResponse>`
+* `RetryConfiguration.GetRetryPolicy` has changed its interface from 
+
+```csharp
+public static Polly.AsyncPolicy<IRestResponse> GetRetryPolicy(IReadableConfiguration configuration, Func<DelegateResult<IRestResponse>, TimeSpan, int, Context, Task> onRetryAsyncFunc = null)
+```
+
+to 
+
+```csharp
+  public static Polly.AsyncPolicy<RestResponse> GetRetryPolicy(IReadableConfiguration configuration, Func<DelegateResult<RestResponse>, TimeSpan, int, Context, Task> onRetryAsyncFunc = null)
+```
+
+* `RetryConfiguration.AddRetryHeaders` has changed its interface from 
+
+```csharp
+public static void AddRetryHeaders (Context context, IRestRequest request)
+```
+
+to
+
+```csharp
+public static void AddRetryHeaders (Context context, RestRequest request)
+```
+        
+* `ApiClient.InterceptRequest` partial method now receive `RestRequest` instead of `IRestRequest`
+* `ApiClient.InterceptResponse` partial method now receive `RestResponse` instead of `IRestResponse`
+
+### OpenAPI specification reorg and standardization
+
+We have upgraded the Okta management OpenAPI specification to be aligned with the Okta release [v2023.07.0](https://help.okta.com/en-us/Content/Topics/ReleaseNotes/okta-relnotes.htm). As part of a naming standardization performed by the API teams, a few methods have changed their name in order to use unified prefixes. For example:
+
+* If an operation requires a PUT request that replaces a resource with the passed values, the method will now use the `Replace` prefix instead of `Update`
+
+* if the method performs a partial update on a specific resource, the method will now use the `PartialUpdate` prefix instead of `Update`
+
+* If the operation's prefix started with `Add`, it now starts with `Create`
+
+ Some assigments and factors operations have also changed the prefix, for example:
+ 
+* `CreateApplicationGroupAssignmentAsync` is now `AssignGroupToApplicationAsync`
+* `DeleteApplicationGroupAssignmentAsync` is now `UnassignApplicationFromGroupAsync`
+* `DeleteFactorAsync` is now `UnenrollFactorAsync`
+
+Also, some operations have been moved to their own API Client. For example, multiple operations that corresponded to an application's resource and have been part of the `ApplicationsApi`, are now available in their own application-resource API client:
+
+- ApplicationTokensApi
+- ApplicationLogosApi
+- ApplicationUsersApi
+- ApplicationGroupsApi
+- ApplicationCredentialsApi
+- ApplicationGrantsApi
+- ApplicationConnectionsApi
+- ApplicationUsersApi
+
+Additionally, the method `UserApi.DeactivateOrDeleteUserAsync` has been split into two separate methods: `UserApi.DeactivateUserAsync` and `UserApi.DeleteUserAsync`.
+
+`ProfileMappingApi.UpdateProfileMappingAsync` now receives an `ProfileMappingRequest` param instead of a `Mapping` param:
+
+_Before_
+
+```csharp
+var mapping = await _profileMappingApi.GetProfileMappingAsync(mappings.FirstOrDefault().Id);
+
+// Add properties
+if (mapping.Properties == null)
+{
+    mapping.Properties = new Dictionary<string, ProfileMappingProperty>();
+}
+
+mapping.Properties.Add("userType", new ProfileMappingProperty
+{
+    Expression = "appuser.firstName",
+    PushStatus = ProfileMappingPropertyPushStatus.PUSH,
+});
+
+mapping.Properties.Add("nickName", new ProfileMappingProperty
+{
+    Expression = "appuser.firstName + appuser.lastName",
+    PushStatus = ProfileMappingPropertyPushStatus.PUSH,
+});
+
+var updatedMapping = await _profileMappingApi.UpdateProfileMappingAsync(mapping.Id, mapping);
+```
+
+_Now_
+
+```csharp
+var profileMappingRequest = new ProfileMappingRequest();
+profileMappingRequest.Properties = new Dictionary<string, ProfileMappingProperty>();
+profileMappingRequest.Properties.Add("userType", new ProfileMappingProperty
+{
+    Expression = "appuser.firstName",
+    PushStatus = ProfileMappingPropertyPushStatus.PUSH,
+});
+
+profileMappingRequest.Properties.Add("nickName", new ProfileMappingProperty
+{
+    Expression = "appuser.firstName + appuser.lastName",
+    PushStatus = ProfileMappingPropertyPushStatus.PUSH,
+});
+
+
+var updatedMapping = await _profileMappingApi.UpdateProfileMappingAsync(mapping.Id, profileMappingRequest);
+```
+
+ > Note: For more details about API changes, check out the latest changes on the [Okta OpenAPI specification](https://github.com/okta/okta-sdk-dotnet/blob/master/openapi3/management.yaml).
+
+
+### Enums
+
+As a general rule, we try to avoid inline enums. However, this version of the OpenAPI specification contains a few inline enums.
+
+### Obsolete methods
+
+The following obsolete methods have been removed:
+
+* UserApi
+
+```csharp
+[Obsolete("This method is obsolete. Use UpdateUserAsync(string userId, User user,...) instead.")]
+System.Threading.Tasks.Task<User> UpdateUserAsync(string userId, UpdateUserRequest user, bool? strict = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+```  
+
+```csharp
+[Obsolete("This method is obsolete. Use UpdateUserWithHttpInfoAsync(string userId, User user,...) instead.")]
+System.Threading.Tasks.Task<ApiResponse<User>> UpdateUserWithHttpInfoAsync(string userId, UpdateUserRequest user, bool? strict = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+```
+
+* RoleApi
+
+```csharp
+[Obsolete("This method is obsolete. Use CreateRoleAsync(CreateIamRoleRequest,...) instead.")]
+System.Threading.Tasks.Task<IamRole> CreateRoleAsync(IamRole instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+```
+
+```csharp
+[Obsolete("This method is obsolete. Use CreateRoleWithHttpInfoAsync(CreateIamRoleRequest,...) instead.")]
+System.Threading.Tasks.Task<ApiResponse<IamRole>> CreateRoleWithHttpInfoAsync(IamRole instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+```
+
+```csharp
+[Obsolete("This method is obsolete. Use ReplaceRoleAsync(string roleIdOrLabel, UpdateIamRoleRequest,...) instead.")]
+System.Threading.Tasks.Task<IamRole> ReplaceRoleAsync(string roleIdOrLabel, IamRole instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+```
+
+```csharp
+[Obsolete("This method is obsolete. Use ReplaceRoleWithHttpInfoAsync(string roleIdOrLabel, UpdateIamRoleRequest,...) instead.")]
+System.Threading.Tasks.Task<ApiResponse<IamRole>> ReplaceRoleWithHttpInfoAsync(string roleIdOrLabel, IamRole instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+```
+
+* ResourceSetApi
+
+```csharp
+[Obsolete("This method is obsolete and will be removed in the next major release. Use CreateResourceSetAsync(CreateResourceSetRequest instance...)")]
+public async System.Threading.Tasks.Task<ResourceSet> CreateResourceSetAsync(ResourceSet instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+```
+
+```csharp
+[Obsolete("This method is obsolete and will be removed in the next major release. Use CreateResourceSetWithHttpInfoAsync(CreateResourceSetRequest instance...)")]
+public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ResourceSet>> CreateResourceSetWithHttpInfoAsync(ResourceSet instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+```
+### Model updates
+
+`Model.IsRequired` attribute is now `Default` to avoid JSON serialization runtime issues.
+
 ## Migrating from 5.x to 6.x
 
 In releases prior to version 6 we use an Open API v2 specification, and an Okta custom client generator to partially generate our SDK. A new version of the Open API specification (V3) has been released, and new well-known generators are now available and well received by the community. Planning the future of this SDK, we consider this a good opportunity to modernize by aligning with established standards for API client generation. 

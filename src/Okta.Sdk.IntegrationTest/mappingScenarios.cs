@@ -45,6 +45,7 @@ namespace Okta.Sdk.IntegrationTest
                         Name = $"list_profile_mapping_{randomSuffix}",
                     });
 
+                Thread.Sleep(6000);
                 var mappings = await _profileMappingApi.ListProfileMappings(sourceId: userType.Id)
                     .ToListAsync();
 
@@ -75,7 +76,7 @@ namespace Okta.Sdk.IntegrationTest
                         Name = $"get_profile_mapping_{randomSuffix}",
                     });
 
-                Thread.Sleep(2000);
+                Thread.Sleep(6000);
 
                 var mappings = await _profileMappingApi.ListProfileMappings(sourceId: userType.Id)
                     .ToListAsync();
@@ -224,7 +225,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 createdIdp = await _idpApi.CreateIdentityProviderAsync(idp);
                 
-                Thread.Sleep(2000);
+                Thread.Sleep(6000);
 
                 var mappings = await _profileMappingApi
                                                         .ListProfileMappings(sourceId: createdIdp.Id)
@@ -236,47 +237,45 @@ namespace Okta.Sdk.IntegrationTest
                 mapping.Properties?.Keys?.Should().NotContain("userType");
                 mapping.Properties?.Keys?.Should().NotContain("nickName");
 
-                // Add properties
-                if (mapping.Properties == null)
-                {
-                    mapping.Properties = new Dictionary<string, ProfileMappingProperty>();
-                }
-
-                mapping.Properties.Add("userType", new ProfileMappingProperty
+                var profileMappingRequest = new ProfileMappingRequest();
+                profileMappingRequest.Properties = new Dictionary<string, ProfileMappingProperty>();
+                profileMappingRequest.Properties.Add("userType", new ProfileMappingProperty
                 {
                     Expression = "appuser.firstName",
                     PushStatus = ProfileMappingPropertyPushStatus.PUSH,
                 });
 
-                mapping.Properties.Add("nickName", new ProfileMappingProperty
+                profileMappingRequest.Properties.Add("nickName", new ProfileMappingProperty
                 {
                     Expression = "appuser.firstName + appuser.lastName",
                     PushStatus = ProfileMappingPropertyPushStatus.PUSH,
                 });
 
-                var updatedMapping = await _profileMappingApi.UpdateProfileMappingAsync(mapping.Id, mapping);
+
+                var updatedMapping = await _profileMappingApi.UpdateProfileMappingAsync(mapping.Id, profileMappingRequest);
                 updatedMapping.Properties.Keys.Should().Contain("userType");
                 updatedMapping.Properties.Keys.Should().Contain("nickName");
                 updatedMapping.Properties["nickName"].Expression.Should().Be("appuser.firstName + appuser.lastName");
                 updatedMapping.Properties["nickName"].PushStatus.Should().Be(ProfileMappingPropertyPushStatus.PUSH);
 
 
+
                 // Update property
-                updatedMapping.Properties["nickName"] = 
+                profileMappingRequest.Properties["nickName"] = 
                     new ProfileMappingProperty
                     {
                         Expression = "source.userName",
                         PushStatus = ProfileMappingPropertyPushStatus.PUSH,
                     };
 
-                updatedMapping = await _profileMappingApi.UpdateProfileMappingAsync(mapping.Id, updatedMapping);
+                updatedMapping = await _profileMappingApi.UpdateProfileMappingAsync(mapping.Id, profileMappingRequest);
                 updatedMapping.Properties.Keys.Should().Contain("nickName");
                 updatedMapping.Properties["nickName"].Expression.Should().Be("source.userName");
                 updatedMapping.Properties["nickName"].PushStatus.Should().Be(ProfileMappingPropertyPushStatus.PUSH);
 
                 // Remove property
-                updatedMapping.Properties["nickName"] =  null;
-                updatedMapping = await _profileMappingApi.UpdateProfileMappingAsync(mapping.Id, updatedMapping);
+                profileMappingRequest.Properties["nickName"] =  null;
+                updatedMapping = await _profileMappingApi.UpdateProfileMappingAsync(mapping.Id, profileMappingRequest);
                 updatedMapping.Properties.Keys.Should().NotContain("nickName");
             }
             finally

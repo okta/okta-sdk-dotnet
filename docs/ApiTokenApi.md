@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Retrieve an API Token's Metadata
 
-Get the metadata for an active API token by id.
+Retrieves the metadata for an active API token by id
 
 ### Example
 ```csharp
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 List all API Token Metadata
 
-Enumerates the metadata of the active API tokens in your organization.
+Lists all the metadata of the active API tokens
 
 ### Example
 ```csharp
@@ -120,7 +120,7 @@ namespace Example
 
             var apiInstance = new ApiTokenApi(config);
             var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
-            var limit = 20;  // int? | A limit on the number of objects to return. (optional)  (default to 20)
+            var limit = 20;  // int? | A limit on the number of objects to return (optional)  (default to 20)
             var q = "q_example";  // string | Finds a token that matches the name or clientName. (optional) 
 
             try
@@ -145,7 +145,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
- **limit** | **int?**| A limit on the number of objects to return. | [optional] [default to 20]
+ **limit** | **int?**| A limit on the number of objects to return | [optional] [default to 20]
  **q** | **string**| Finds a token that matches the name or clientName. | [optional] 
 
 ### Return type
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 Revoke an API Token
 
-Revoke an API token by id.
+Revokes an API token by `apiTokenId`
 
 ### Example
 ```csharp
@@ -255,7 +255,7 @@ void (empty response body)
 
 Revoke the Current API Token
 
-Revokes the API token provided in the Authorization header.
+Revokes the API token provided in the Authorization header
 
 ### Example
 ```csharp

@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.NetworkZoneAddressType
+Format of the value
 
 ## Properties
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Status** | **LifecycleStatus** |  | [optional] 
 **Type** | **BehaviorRuleType** |  | 
-**Link** | [**ApiTokenLink**](ApiTokenLink.md) |  | [optional] 
+**Link** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

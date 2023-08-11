@@ -5,19 +5,19 @@ All URIs are relative to *https://subdomain.okta.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ActivateIdentityProvider**](IdentityProviderApi.md#activateidentityprovider) | **POST** /api/v1/idps/{idpId}/lifecycle/activate | Activate an Identity Provider
-[**CloneIdentityProviderKey**](IdentityProviderApi.md#cloneidentityproviderkey) | **POST** /api/v1/idps/{idpId}/credentials/keys/{keyId}/clone | Clone a Signing Credential Key
+[**CloneIdentityProviderKey**](IdentityProviderApi.md#cloneidentityproviderkey) | **POST** /api/v1/idps/{idpId}/credentials/keys/{idpKeyId}/clone | Clone a Signing Credential Key
 [**CreateIdentityProvider**](IdentityProviderApi.md#createidentityprovider) | **POST** /api/v1/idps | Create an Identity Provider
 [**CreateIdentityProviderKey**](IdentityProviderApi.md#createidentityproviderkey) | **POST** /api/v1/idps/credentials/keys | Create an X.509 Certificate Public Key
 [**DeactivateIdentityProvider**](IdentityProviderApi.md#deactivateidentityprovider) | **POST** /api/v1/idps/{idpId}/lifecycle/deactivate | Deactivate an Identity Provider
 [**DeleteIdentityProvider**](IdentityProviderApi.md#deleteidentityprovider) | **DELETE** /api/v1/idps/{idpId} | Delete an Identity Provider
-[**DeleteIdentityProviderKey**](IdentityProviderApi.md#deleteidentityproviderkey) | **DELETE** /api/v1/idps/credentials/keys/{keyId} | Delete a Signing Credential Key
+[**DeleteIdentityProviderKey**](IdentityProviderApi.md#deleteidentityproviderkey) | **DELETE** /api/v1/idps/credentials/keys/{idpKeyId} | Delete a Signing Credential Key
 [**GenerateCsrForIdentityProvider**](IdentityProviderApi.md#generatecsrforidentityprovider) | **POST** /api/v1/idps/{idpId}/credentials/csrs | Generate a Certificate Signing Request
 [**GenerateIdentityProviderSigningKey**](IdentityProviderApi.md#generateidentityprovidersigningkey) | **POST** /api/v1/idps/{idpId}/credentials/keys/generate | Generate a new Signing Credential Key
-[**GetCsrForIdentityProvider**](IdentityProviderApi.md#getcsrforidentityprovider) | **GET** /api/v1/idps/{idpId}/credentials/csrs/{csrId} | Retrieve a Certificate Signing Request
+[**GetCsrForIdentityProvider**](IdentityProviderApi.md#getcsrforidentityprovider) | **GET** /api/v1/idps/{idpId}/credentials/csrs/{idpCsrId} | Retrieve a Certificate Signing Request
 [**GetIdentityProvider**](IdentityProviderApi.md#getidentityprovider) | **GET** /api/v1/idps/{idpId} | Retrieve an Identity Provider
 [**GetIdentityProviderApplicationUser**](IdentityProviderApi.md#getidentityproviderapplicationuser) | **GET** /api/v1/idps/{idpId}/users/{userId} | Retrieve a User
-[**GetIdentityProviderKey**](IdentityProviderApi.md#getidentityproviderkey) | **GET** /api/v1/idps/credentials/keys/{keyId} | Retrieve an Credential Key
-[**GetIdentityProviderSigningKey**](IdentityProviderApi.md#getidentityprovidersigningkey) | **GET** /api/v1/idps/{idpId}/credentials/keys/{keyId} | Retrieve a Signing Credential Key
+[**GetIdentityProviderKey**](IdentityProviderApi.md#getidentityproviderkey) | **GET** /api/v1/idps/credentials/keys/{idpKeyId} | Retrieve an Credential Key
+[**GetIdentityProviderSigningKey**](IdentityProviderApi.md#getidentityprovidersigningkey) | **GET** /api/v1/idps/{idpId}/credentials/keys/{idpKeyId} | Retrieve a Signing Credential Key
 [**LinkUserToIdentityProvider**](IdentityProviderApi.md#linkusertoidentityprovider) | **POST** /api/v1/idps/{idpId}/users/{userId} | Link a User to a Social IdP
 [**ListCsrsForIdentityProvider**](IdentityProviderApi.md#listcsrsforidentityprovider) | **GET** /api/v1/idps/{idpId}/credentials/csrs | List all Certificate Signing Requests
 [**ListIdentityProviderApplicationUsers**](IdentityProviderApi.md#listidentityproviderapplicationusers) | **GET** /api/v1/idps/{idpId}/users | List all Users
@@ -25,10 +25,10 @@ Method | HTTP request | Description
 [**ListIdentityProviderSigningKeys**](IdentityProviderApi.md#listidentityprovidersigningkeys) | **GET** /api/v1/idps/{idpId}/credentials/keys | List all Signing Credential Keys
 [**ListIdentityProviders**](IdentityProviderApi.md#listidentityproviders) | **GET** /api/v1/idps | List all Identity Providers
 [**ListSocialAuthTokens**](IdentityProviderApi.md#listsocialauthtokens) | **GET** /api/v1/idps/{idpId}/users/{userId}/credentials/tokens | List all Tokens from a OIDC Identity Provider
-[**PublishCsrForIdentityProvider**](IdentityProviderApi.md#publishcsrforidentityprovider) | **POST** /api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish | Publish a Certificate Signing Request
-[**RevokeCsrForIdentityProvider**](IdentityProviderApi.md#revokecsrforidentityprovider) | **DELETE** /api/v1/idps/{idpId}/credentials/csrs/{csrId} | Revoke a Certificate Signing Request
+[**PublishCsrForIdentityProvider**](IdentityProviderApi.md#publishcsrforidentityprovider) | **POST** /api/v1/idps/{idpId}/credentials/csrs/{idpCsrId}/lifecycle/publish | Publish a Certificate Signing Request
+[**ReplaceIdentityProvider**](IdentityProviderApi.md#replaceidentityprovider) | **PUT** /api/v1/idps/{idpId} | Replace an Identity Provider
+[**RevokeCsrForIdentityProvider**](IdentityProviderApi.md#revokecsrforidentityprovider) | **DELETE** /api/v1/idps/{idpId}/credentials/csrs/{idpCsrId} | Revoke a Certificate Signing Request
 [**UnlinkUserFromIdentityProvider**](IdentityProviderApi.md#unlinkuserfromidentityprovider) | **DELETE** /api/v1/idps/{idpId}/users/{userId} | Unlink a User from IdP
-[**UpdateIdentityProvider**](IdentityProviderApi.md#updateidentityprovider) | **PUT** /api/v1/idps/{idpId} | Replace an Identity Provider
 
 
 <a name="activateidentityprovider"></a>
@@ -37,7 +37,7 @@ Method | HTTP request | Description
 
 Activate an Identity Provider
 
-Activates an inactive IdP.
+Activates an inactive IdP
 
 ### Example
 ```csharp
@@ -61,7 +61,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
 
             try
             {
@@ -84,7 +84,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
 
 ### Return type
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 <a name="cloneidentityproviderkey"></a>
 # **CloneIdentityProviderKey**
-> JsonWebKey CloneIdentityProviderKey (string idpId, string keyId, string targetIdpId)
+> JsonWebKey CloneIdentityProviderKey (string idpId, string idpKeyId, string targetIdpId)
 
 Clone a Signing Credential Key
 
@@ -140,14 +140,14 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
-            var keyId = "keyId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
+            var idpKeyId = KmMo85SSsU7TZzOShcGb;  // string | `id` of IdP Key
             var targetIdpId = "targetIdpId_example";  // string | 
 
             try
             {
                 // Clone a Signing Credential Key
-                JsonWebKey result = apiInstance.CloneIdentityProviderKey(idpId, keyId, targetIdpId);
+                JsonWebKey result = apiInstance.CloneIdentityProviderKey(idpId, idpKeyId, targetIdpId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -165,8 +165,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
- **keyId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
+ **idpKeyId** | **string**| &#x60;id&#x60; of IdP Key | 
  **targetIdpId** | **string**|  | 
 
 ### Return type
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 Create an Identity Provider
 
-Adds a new IdP to your organization.
+Creates a new identity provider integration
 
 ### Example
 ```csharp
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 Create an X.509 Certificate Public Key
 
-Adds a new X.509 certificate credential to the IdP key store.
+Creates a new X.509 certificate credential to the IdP key store.
 
 ### Example
 ```csharp
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 Deactivate an Identity Provider
 
-Deactivates an active IdP.
+Deactivates an active IdP
 
 ### Example
 ```csharp
@@ -381,7 +381,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
 
             try
             {
@@ -404,7 +404,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
 
 ### Return type
 
@@ -436,7 +436,7 @@ Name | Type | Description  | Notes
 
 Delete an Identity Provider
 
-Removes an IdP from your organization.
+Deletes an identity provider integration by `idpId`
 
 ### Example
 ```csharp
@@ -460,7 +460,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
 
             try
             {
@@ -482,7 +482,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
 
 ### Return type
 
@@ -510,11 +510,11 @@ void (empty response body)
 
 <a name="deleteidentityproviderkey"></a>
 # **DeleteIdentityProviderKey**
-> void DeleteIdentityProviderKey (string keyId)
+> void DeleteIdentityProviderKey (string idpKeyId)
 
 Delete a Signing Credential Key
 
-Deletes a specific IdP Key Credential by `kid` if it is not currently being used by an Active or Inactive IdP.
+Deletes a specific IdP Key Credential by `kid` if it is not currently being used by an Active or Inactive IdP
 
 ### Example
 ```csharp
@@ -538,12 +538,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var keyId = "keyId_example";  // string | 
+            var idpKeyId = KmMo85SSsU7TZzOShcGb;  // string | `id` of IdP Key
 
             try
             {
                 // Delete a Signing Credential Key
-                apiInstance.DeleteIdentityProviderKey(keyId);
+                apiInstance.DeleteIdentityProviderKey(idpKeyId);
             }
             catch (ApiException  e)
             {
@@ -560,7 +560,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keyId** | **string**|  | 
+ **idpKeyId** | **string**| &#x60;id&#x60; of IdP Key | 
 
 ### Return type
 
@@ -592,7 +592,7 @@ void (empty response body)
 
 Generate a Certificate Signing Request
 
-Generates a new key pair and returns a Certificate Signing Request for it.
+Generates a new key pair and returns a Certificate Signing Request for it
 
 ### Example
 ```csharp
@@ -616,7 +616,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
             var metadata = new CsrMetadata(); // CsrMetadata | 
 
             try
@@ -640,7 +640,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
  **metadata** | [**CsrMetadata**](CsrMetadata.md)|  | 
 
 ### Return type
@@ -698,7 +698,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
             var validityYears = 56;  // int | expiry of the IdP Key Credential
 
             try
@@ -722,7 +722,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
  **validityYears** | **int**| expiry of the IdP Key Credential | 
 
 ### Return type
@@ -751,11 +751,11 @@ Name | Type | Description  | Notes
 
 <a name="getcsrforidentityprovider"></a>
 # **GetCsrForIdentityProvider**
-> Csr GetCsrForIdentityProvider (string idpId, string csrId)
+> Csr GetCsrForIdentityProvider (string idpId, string idpCsrId)
 
 Retrieve a Certificate Signing Request
 
-Gets a specific Certificate Signing Request model by id
+Retrieves a specific Certificate Signing Request model by id
 
 ### Example
 ```csharp
@@ -779,13 +779,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
-            var csrId = "csrId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
+            var idpCsrId = 1uEhyE65oV3H6KM9gYcN;  // string | `id` of the IdP CSR
 
             try
             {
                 // Retrieve a Certificate Signing Request
-                Csr result = apiInstance.GetCsrForIdentityProvider(idpId, csrId);
+                Csr result = apiInstance.GetCsrForIdentityProvider(idpId, idpCsrId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -803,8 +803,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
- **csrId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
+ **idpCsrId** | **string**| &#x60;id&#x60; of the IdP CSR | 
 
 ### Return type
 
@@ -836,7 +836,7 @@ Name | Type | Description  | Notes
 
 Retrieve an Identity Provider
 
-Fetches an IdP by `id`.
+Retrieves an identity provider integration by `idpId`
 
 ### Example
 ```csharp
@@ -860,7 +860,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
 
             try
             {
@@ -883,7 +883,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
 
 ### Return type
 
@@ -915,7 +915,7 @@ Name | Type | Description  | Notes
 
 Retrieve a User
 
-Fetches a linked IdP user by ID
+Retrieves a linked IdP user by ID
 
 ### Example
 ```csharp
@@ -939,7 +939,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
             var userId = "userId_example";  // string | 
 
             try
@@ -963,7 +963,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
  **userId** | **string**|  | 
 
 ### Return type
@@ -992,11 +992,11 @@ Name | Type | Description  | Notes
 
 <a name="getidentityproviderkey"></a>
 # **GetIdentityProviderKey**
-> JsonWebKey GetIdentityProviderKey (string keyId)
+> JsonWebKey GetIdentityProviderKey (string idpKeyId)
 
 Retrieve an Credential Key
 
-Gets a specific IdP Key Credential by `kid`
+Retrieves a specific IdP Key Credential by `kid`
 
 ### Example
 ```csharp
@@ -1020,12 +1020,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var keyId = "keyId_example";  // string | 
+            var idpKeyId = KmMo85SSsU7TZzOShcGb;  // string | `id` of IdP Key
 
             try
             {
                 // Retrieve an Credential Key
-                JsonWebKey result = apiInstance.GetIdentityProviderKey(keyId);
+                JsonWebKey result = apiInstance.GetIdentityProviderKey(idpKeyId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1043,7 +1043,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keyId** | **string**|  | 
+ **idpKeyId** | **string**| &#x60;id&#x60; of IdP Key | 
 
 ### Return type
 
@@ -1071,11 +1071,11 @@ Name | Type | Description  | Notes
 
 <a name="getidentityprovidersigningkey"></a>
 # **GetIdentityProviderSigningKey**
-> JsonWebKey GetIdentityProviderSigningKey (string idpId, string keyId)
+> JsonWebKey GetIdentityProviderSigningKey (string idpId, string idpKeyId)
 
 Retrieve a Signing Credential Key
 
-Gets a specific IdP Key Credential by `kid`
+Retrieves a specific IdP Key Credential by `kid`
 
 ### Example
 ```csharp
@@ -1099,13 +1099,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
-            var keyId = "keyId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
+            var idpKeyId = KmMo85SSsU7TZzOShcGb;  // string | `id` of IdP Key
 
             try
             {
                 // Retrieve a Signing Credential Key
-                JsonWebKey result = apiInstance.GetIdentityProviderSigningKey(idpId, keyId);
+                JsonWebKey result = apiInstance.GetIdentityProviderSigningKey(idpId, idpKeyId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1123,8 +1123,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
- **keyId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
+ **idpKeyId** | **string**| &#x60;id&#x60; of IdP Key | 
 
 ### Return type
 
@@ -1180,7 +1180,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
             var userId = "userId_example";  // string | 
             var userIdentityProviderLinkRequest = new UserIdentityProviderLinkRequest(); // UserIdentityProviderLinkRequest | 
 
@@ -1205,7 +1205,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
  **userId** | **string**|  | 
  **userIdentityProviderLinkRequest** | [**UserIdentityProviderLinkRequest**](UserIdentityProviderLinkRequest.md)|  | 
 
@@ -1240,7 +1240,7 @@ Name | Type | Description  | Notes
 
 List all Certificate Signing Requests
 
-Enumerates Certificate Signing Requests for an IdP
+Lists all Certificate Signing Requests for an IdP
 
 ### Example
 ```csharp
@@ -1264,7 +1264,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
 
             try
             {
@@ -1287,7 +1287,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
 
 ### Return type
 
@@ -1319,7 +1319,7 @@ Name | Type | Description  | Notes
 
 List all Users
 
-Find all the users linked to an identity provider
+Lists all users linked to the identity provider
 
 ### Example
 ```csharp
@@ -1343,7 +1343,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
 
             try
             {
@@ -1366,7 +1366,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
 
 ### Return type
 
@@ -1398,7 +1398,7 @@ Name | Type | Description  | Notes
 
 List all Credential Keys
 
-Enumerates IdP key credentials.
+Lists all IdP key credentials
 
 ### Example
 ```csharp
@@ -1478,7 +1478,7 @@ Name | Type | Description  | Notes
 
 List all Signing Credential Keys
 
-Enumerates signing key credentials for an IdP
+Lists all signing key credentials for an IdP
 
 ### Example
 ```csharp
@@ -1502,7 +1502,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
 
             try
             {
@@ -1525,7 +1525,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
 
 ### Return type
 
@@ -1557,7 +1557,7 @@ Name | Type | Description  | Notes
 
 List all Identity Providers
 
-Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
+Lists all identity provider integrations with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
 
 ### Example
 ```csharp
@@ -1641,7 +1641,7 @@ Name | Type | Description  | Notes
 
 List all Tokens from a OIDC Identity Provider
 
-Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.
+Lists the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth
 
 ### Example
 ```csharp
@@ -1665,7 +1665,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
             var userId = "userId_example";  // string | 
 
             try
@@ -1689,7 +1689,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
  **userId** | **string**|  | 
 
 ### Return type
@@ -1718,11 +1718,11 @@ Name | Type | Description  | Notes
 
 <a name="publishcsrforidentityprovider"></a>
 # **PublishCsrForIdentityProvider**
-> JsonWebKey PublishCsrForIdentityProvider (string idpId, string csrId, System.IO.Stream body)
+> JsonWebKey PublishCsrForIdentityProvider (string idpId, string idpCsrId, System.IO.Stream body)
 
 Publish a Certificate Signing Request
 
-Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
+Publishes a certificate signing request with a signed X.509 certificate and adds it into the signing key credentials for the IdP
 
 ### Example
 ```csharp
@@ -1746,14 +1746,14 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
-            var csrId = "csrId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
+            var idpCsrId = 1uEhyE65oV3H6KM9gYcN;  // string | `id` of the IdP CSR
             var body = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
             try
             {
                 // Publish a Certificate Signing Request
-                JsonWebKey result = apiInstance.PublishCsrForIdentityProvider(idpId, csrId, body);
+                JsonWebKey result = apiInstance.PublishCsrForIdentityProvider(idpId, idpCsrId, body);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1771,8 +1771,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
- **csrId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
+ **idpCsrId** | **string**| &#x60;id&#x60; of the IdP CSR | 
  **body** | **System.IO.Stream****System.IO.Stream**|  | 
 
 ### Return type
@@ -1800,13 +1800,95 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="replaceidentityprovider"></a>
+# **ReplaceIdentityProvider**
+> IdentityProvider ReplaceIdentityProvider (string idpId, IdentityProvider identityProvider)
+
+Replace an Identity Provider
+
+Replaces an identity provider integration by `idpId`
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplaceIdentityProviderExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new IdentityProviderApi(config);
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
+            var identityProvider = new IdentityProvider(); // IdentityProvider | 
+
+            try
+            {
+                // Replace an Identity Provider
+                IdentityProvider result = apiInstance.ReplaceIdentityProvider(idpId, identityProvider);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling IdentityProviderApi.ReplaceIdentityProvider: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
+ **identityProvider** | [**IdentityProvider**](IdentityProvider.md)|  | 
+
+### Return type
+
+[**IdentityProvider**](IdentityProvider.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="revokecsrforidentityprovider"></a>
 # **RevokeCsrForIdentityProvider**
-> void RevokeCsrForIdentityProvider (string idpId, string csrId)
+> void RevokeCsrForIdentityProvider (string idpId, string idpCsrId)
 
 Revoke a Certificate Signing Request
 
-Revoke a Certificate Signing Request and delete the key pair from the IdP
+Revokes a certificate signing request and deletes the key pair from the IdP
 
 ### Example
 ```csharp
@@ -1830,13 +1912,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
-            var csrId = "csrId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
+            var idpCsrId = 1uEhyE65oV3H6KM9gYcN;  // string | `id` of the IdP CSR
 
             try
             {
                 // Revoke a Certificate Signing Request
-                apiInstance.RevokeCsrForIdentityProvider(idpId, csrId);
+                apiInstance.RevokeCsrForIdentityProvider(idpId, idpCsrId);
             }
             catch (ApiException  e)
             {
@@ -1853,8 +1935,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
- **csrId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
+ **idpCsrId** | **string**| &#x60;id&#x60; of the IdP CSR | 
 
 ### Return type
 
@@ -1886,7 +1968,7 @@ void (empty response body)
 
 Unlink a User from IdP
 
-Removes the link between the Okta user and the IdP user.
+Unlinks the link between the Okta user and the IdP user
 
 ### Example
 ```csharp
@@ -1910,7 +1992,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
+            var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
             var userId = "userId_example";  // string | 
 
             try
@@ -1933,7 +2015,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
+ **idpId** | **string**| &#x60;id&#x60; of IdP | 
  **userId** | **string**|  | 
 
 ### Return type
@@ -1954,88 +2036,6 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="updateidentityprovider"></a>
-# **UpdateIdentityProvider**
-> IdentityProvider UpdateIdentityProvider (string idpId, IdentityProvider identityProvider)
-
-Replace an Identity Provider
-
-Updates the configuration for an IdP.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class UpdateIdentityProviderExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new IdentityProviderApi(config);
-            var idpId = "idpId_example";  // string | 
-            var identityProvider = new IdentityProvider(); // IdentityProvider | 
-
-            try
-            {
-                // Replace an Identity Provider
-                IdentityProvider result = apiInstance.UpdateIdentityProvider(idpId, identityProvider);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling IdentityProviderApi.UpdateIdentityProvider: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **idpId** | **string**|  | 
- **identityProvider** | [**IdentityProvider**](IdentityProvider.md)|  | 
-
-### Return type
-
-[**IdentityProvider**](IdentityProvider.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |

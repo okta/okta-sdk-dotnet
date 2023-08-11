@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **System** | **bool** |  | [optional] 
 **Type** | [**PolicyType**](PolicyType.md) |  | [optional] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
-**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**Links** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
 **Conditions** | [**PolicyRuleConditions**](PolicyRuleConditions.md) |  | [optional] 
 **Settings** | [**MultifactorEnrollmentPolicySettings**](MultifactorEnrollmentPolicySettings.md) |  | [optional] 
 

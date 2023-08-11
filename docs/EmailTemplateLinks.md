@@ -1,11 +1,10 @@
 # Okta.Sdk.Model.EmailTemplateLinks
-Links to resources related to this email template.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Self** | [**HrefObject**](HrefObject.md) |  | [optional] 
+**Self** | [**HrefObjectSelfLink**](HrefObjectSelfLink.md) |  | [optional] 
 **Settings** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **DefaultContent** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **Customizations** | [**HrefObject**](HrefObject.md) |  | [optional] 

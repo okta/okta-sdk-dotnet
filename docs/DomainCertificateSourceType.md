@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.DomainCertificateSourceType
+Certificate source type that indicates whether the certificate is provided by the user or Okta.
 
 ## Properties
 

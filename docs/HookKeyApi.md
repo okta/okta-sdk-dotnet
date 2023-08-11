@@ -4,21 +4,21 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddHookKey**](HookKeyApi.md#addhookkey) | **POST** /api/v1/hook-keys | Create a key
+[**CreateHookKey**](HookKeyApi.md#createhookkey) | **POST** /api/v1/hook-keys | Create a key
 [**DeleteHookKey**](HookKeyApi.md#deletehookkey) | **DELETE** /api/v1/hook-keys/{hookKeyId} | Delete a key
 [**GetHookKey**](HookKeyApi.md#gethookkey) | **GET** /api/v1/hook-keys/{hookKeyId} | Retrieve a key
-[**GetPublicKey**](HookKeyApi.md#getpublickey) | **GET** /api/v1/hook-keys/public/{keyId} | Retrieve a public key
+[**GetPublicKey**](HookKeyApi.md#getpublickey) | **GET** /api/v1/hook-keys/public/{publicKeyId} | Retrieve a public key
 [**ListHookKeys**](HookKeyApi.md#listhookkeys) | **GET** /api/v1/hook-keys | List all keys
 [**ReplaceHookKey**](HookKeyApi.md#replacehookkey) | **PUT** /api/v1/hook-keys/{hookKeyId} | Replace a key
 
 
-<a name="addhookkey"></a>
-# **AddHookKey**
-> HookKey AddHookKey (KeyRequest keyRequest)
+<a name="createhookkey"></a>
+# **CreateHookKey**
+> HookKey CreateHookKey (KeyRequest keyRequest)
 
 Create a key
 
-Creates a key
+Creates a key for use with other parts of the application, such as inline hooks  Use the key name to access this key for inline hook operations.  The total number of keys that you can create in an Okta org is limited to 50. 
 
 ### Example
 ```csharp
@@ -30,7 +30,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class AddHookKeyExample
+    public class CreateHookKeyExample
     {
         public static void Main()
         {
@@ -47,12 +47,12 @@ namespace Example
             try
             {
                 // Create a key
-                HookKey result = apiInstance.AddHookKey(keyRequest);
+                HookKey result = apiInstance.CreateHookKey(keyRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling HookKeyApi.AddHookKey: " + e.Message );
+                Debug.Print("Exception when calling HookKeyApi.CreateHookKey: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 Delete a key
 
-Deletes a key by `hookKeyId`. Once deleted, the Hook Key is unrecoverable. As a safety precaution, unused keys are eligible for deletion.
+Deletes a key by `hookKeyId`. After being deleted, the key is unrecoverable.  As a safety precaution, only keys that aren't being used are eligible for deletion. 
 
 ### Example
 ```csharp
@@ -121,7 +121,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new HookKeyApi(config);
-            var hookKeyId = "hookKeyId_example";  // string | 
+            var hookKeyId = XreKU5laGwBkjOTehusG;  // string | `id` of the Hook Key
 
             try
             {
@@ -143,7 +143,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hookKeyId** | **string**|  | 
+ **hookKeyId** | **string**| &#x60;id&#x60; of the Hook Key | 
 
 ### Return type
 
@@ -199,7 +199,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new HookKeyApi(config);
-            var hookKeyId = "hookKeyId_example";  // string | 
+            var hookKeyId = XreKU5laGwBkjOTehusG;  // string | `id` of the Hook Key
 
             try
             {
@@ -222,7 +222,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hookKeyId** | **string**|  | 
+ **hookKeyId** | **string**| &#x60;id&#x60; of the Hook Key | 
 
 ### Return type
 
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 <a name="getpublickey"></a>
 # **GetPublicKey**
-> JsonWebKey GetPublicKey (string keyId)
+> JsonWebKey GetPublicKey (string publicKeyId)
 
 Retrieve a public key
 
@@ -278,12 +278,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new HookKeyApi(config);
-            var keyId = "keyId_example";  // string | 
+            var publicKeyId = FcH2P9Eg7wr0o8N2FuV0;  // string | `id` of the Public Key
 
             try
             {
                 // Retrieve a public key
-                JsonWebKey result = apiInstance.GetPublicKey(keyId);
+                JsonWebKey result = apiInstance.GetPublicKey(publicKeyId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -301,7 +301,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keyId** | **string**|  | 
+ **publicKeyId** | **string**| &#x60;id&#x60; of the Public Key | 
 
 ### Return type
 
@@ -407,7 +407,7 @@ This endpoint does not need any parameter.
 
 Replace a key
 
-Replace a key by `hookKeyId`
+Replaces a key by `hookKeyId`  This request replaces existing properties after passing validation.  Note: The only parameter that you can update is the name of the key, which must be unique at all times. 
 
 ### Example
 ```csharp
@@ -431,7 +431,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new HookKeyApi(config);
-            var hookKeyId = "hookKeyId_example";  // string | 
+            var hookKeyId = XreKU5laGwBkjOTehusG;  // string | `id` of the Hook Key
             var keyRequest = new KeyRequest(); // KeyRequest | 
 
             try
@@ -455,7 +455,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hookKeyId** | **string**|  | 
+ **hookKeyId** | **string**| &#x60;id&#x60; of the Hook Key | 
  **keyRequest** | [**KeyRequest**](KeyRequest.md)|  | 
 
 ### Return type

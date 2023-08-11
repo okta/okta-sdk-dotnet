@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.SubscriptionStatus
+The status of the subscription
 
 ## Properties
 

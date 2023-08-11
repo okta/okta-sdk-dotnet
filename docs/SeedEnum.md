@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.SeedEnum
+Determines whether the generated password is the user's Okta password or a randomly generated password
 
 ## Properties
 

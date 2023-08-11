@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ProfileSettingObject
+This setting determines whether a user in the application gets updated when they're updated in Okta.  If enabled, Okta updates a user's attributes in the application when the application is assigned. Future changes made to the Okta user's profile automatically overwrite the corresponding attribute value in the application. 
 
 ## Properties
 

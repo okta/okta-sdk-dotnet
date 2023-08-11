@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BrandId** | **string** |  | 
 **Domain** | **string** |  | 
 **DisplayName** | **string** |  | 
 **UserName** | **string** |  | 

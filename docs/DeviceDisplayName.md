@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.DeviceDisplayName
+Display name of the device
 
 ## Properties
 

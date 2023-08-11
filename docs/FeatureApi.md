@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Retrieve a Feature
 
-Retrieve a feature
+Retrieves a feature
 
 ### Example
 ```csharp
@@ -41,7 +41,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new FeatureApi(config);
-            var featureId = "featureId_example";  // string | 
+            var featureId = R5HjqNn1pEqWGy48E9jg;  // string | `id` of the Feature
 
             try
             {
@@ -64,7 +64,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featureId** | **string**|  | 
+ **featureId** | **string**| &#x60;id&#x60; of the Feature | 
 
 ### Return type
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 List all Dependencies
 
-List all dependencies
+Lists all dependencies
 
 ### Example
 ```csharp
@@ -120,7 +120,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new FeatureApi(config);
-            var featureId = "featureId_example";  // string | 
+            var featureId = R5HjqNn1pEqWGy48E9jg;  // string | `id` of the Feature
 
             try
             {
@@ -143,7 +143,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featureId** | **string**|  | 
+ **featureId** | **string**| &#x60;id&#x60; of the Feature | 
 
 ### Return type
 
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 List all Dependents
 
-List all dependents
+Lists all dependents
 
 ### Example
 ```csharp
@@ -199,7 +199,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new FeatureApi(config);
-            var featureId = "featureId_example";  // string | 
+            var featureId = R5HjqNn1pEqWGy48E9jg;  // string | `id` of the Feature
 
             try
             {
@@ -222,7 +222,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featureId** | **string**|  | 
+ **featureId** | **string**| &#x60;id&#x60; of the Feature | 
 
 ### Return type
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 List all Features
 
-List all features
+Lists all features
 
 ### Example
 ```csharp
@@ -324,11 +324,11 @@ This endpoint does not need any parameter.
 
 <a name="updatefeaturelifecycle"></a>
 # **UpdateFeatureLifecycle**
-> Feature UpdateFeatureLifecycle (string featureId, string lifecycle, string mode = null)
+> Feature UpdateFeatureLifecycle (string featureId, FeatureLifecycle lifecycle, string mode = null)
 
 Update a Feature Lifecycle
 
-Update a feature lifecycle
+Updates a feature lifecycle
 
 ### Example
 ```csharp
@@ -352,8 +352,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new FeatureApi(config);
-            var featureId = "featureId_example";  // string | 
-            var lifecycle = "lifecycle_example";  // string | 
+            var featureId = R5HjqNn1pEqWGy48E9jg;  // string | `id` of the Feature
+            var lifecycle = (FeatureLifecycle) "disable";  // FeatureLifecycle | Whether to `enable` or `disable` the feature
             var mode = "mode_example";  // string |  (optional) 
 
             try
@@ -377,8 +377,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featureId** | **string**|  | 
- **lifecycle** | **string**|  | 
+ **featureId** | **string**| &#x60;id&#x60; of the Feature | 
+ **lifecycle** | **FeatureLifecycle**| Whether to &#x60;enable&#x60; or &#x60;disable&#x60; the feature | 
  **mode** | **string**|  | [optional] 
 
 ### Return type

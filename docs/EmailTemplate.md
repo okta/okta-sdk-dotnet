@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | The name of this email template. | [optional] [readonly] 
+**Name** | **string** | The name of this email template | [optional] [readonly] 
 **Embedded** | [**EmailTemplateEmbedded**](EmailTemplateEmbedded.md) |  | [optional] 
 **Links** | [**EmailTemplateLinks**](EmailTemplateLinks.md) |  | [optional] 
 

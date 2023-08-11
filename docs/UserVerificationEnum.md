@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.UserVerificationEnum
+User verification setting
 
 ## Properties
 

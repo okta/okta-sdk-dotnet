@@ -8,6 +8,7 @@ using FluentAssertions;
 using Okta.Sdk.Client;
 using Okta.Sdk.UnitTest.Internal;
 using RestSharp;
+using RichardSzalay.MockHttp;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -22,6 +23,7 @@ namespace Okta.Sdk.UnitTest.Client
         {
             _output = output;
         }
+
 
         [Fact]
         public async Task RetryOnlyWith401Responses()
@@ -42,25 +44,35 @@ namespace Okta.Sdk.UnitTest.Client
             configuration.PrivateKey = new JsonWebKeyConfiguration(jsonPrivateKey);
             configuration.AuthorizationMode = AuthorizationMode.PrivateKey;
             configuration.OktaDomain = "https://foo.com";
+            var request = new RestRequest(new Uri($"http://localhost/api/user/{globalRetry}"));
 
             var defaultOAuthPolicy = new DefaultOAuthTokenProvider(configuration, new MockOAuthApi(configuration)).GetOAuthRetryPolicy((response, retryAttempt, ctx) =>
             {
                 globalRetry++;
+                request = new RestRequest(new Uri($"http://localhost/api/user/{globalRetry}"));
                 _output.WriteLine(
                     $"Got a response of {response.Result.StatusCode}, retrying {retryAttempt}");
 
                 return Task.CompletedTask;
             });
-            
-            Queue<TestUtils.MockResponseInfo> responseQueue = new Queue<TestUtils.MockResponseInfo>();
-            responseQueue.Enqueue(new TestUtils.MockResponseInfo
-                { Headers = new List<Parameter>(), ReturnThis = "", StatusCode = HttpStatusCode.Unauthorized });
-            responseQueue.Enqueue(new TestUtils.MockResponseInfo
-                { Headers = new List<Parameter>(), ReturnThis = "", StatusCode = HttpStatusCode.Unauthorized });
 
-            var mockClient = TestUtils.MockRestClient(responseQueue);
-            _ = await defaultOAuthPolicy.ExecuteAndCaptureAsync(action =>
-                mockClient.ExecuteAsync(new RestRequest()), CancellationToken.None);
+
+            var mockHttp = new MockHttpMessageHandler();
+            
+            mockHttp
+                .When("http://localhost/api/user/0")
+                .Respond(HttpStatusCode.Unauthorized, "application/json", "{}");
+
+            mockHttp
+                .When("http://localhost/api/user/1")
+                .Respond(HttpStatusCode.Unauthorized, "application/json", "{}");
+
+            var client = new RestClient(options: new RestClientOptions { ConfigureMessageHandler = _ => mockHttp });
+            
+            _ = await defaultOAuthPolicy.ExecuteAndCaptureAsync(async action =>
+                await client.ExecuteAsync(request), CancellationToken.None);
+
+            
 
             globalRetry.Should().Be(2);
         }
@@ -69,7 +81,7 @@ namespace Okta.Sdk.UnitTest.Client
         public async Task UpdateTokenInRetry()
         {
             var globalRetry = 0;
-            var request = new RestRequest();
+            var request = new RestRequest(new Uri($"http://localhost/api/user/{globalRetry}"));
             var jsonPrivateKey = @"{
                                     ""p"":""2-8pgwYv9jrkM2KsbnQmnJZnr69Rsj95M20I1zx5HhM3tgjGSa7d_dELPRkp9Usy8UGISt7eUHpYOVl529irHwbXevuId1Q804aQ_AtNJwpbRY48rw2T8LdtyVSaEyoFMCa8PJwtzZYzKJCKAe5eoXvW5zxB65RaIct0igYcoIs"",
                                     ""kty"":""RSA"",
@@ -109,13 +121,17 @@ namespace Okta.Sdk.UnitTest.Client
                 return Task.CompletedTask;
             });
 
-            Queue<TestUtils.MockResponseInfo> responseQueue = new Queue<TestUtils.MockResponseInfo>();
-            responseQueue.Enqueue(new TestUtils.MockResponseInfo
-                { Headers = new List<Parameter>(), ReturnThis = "", StatusCode = HttpStatusCode.Unauthorized });
+            var mockHttp = new MockHttpMessageHandler();
 
-            var mockClient = TestUtils.MockRestClient(responseQueue);
-            _ = await defaultOAuthPolicy.ExecuteAndCaptureAsync(action =>
-                mockClient.ExecuteAsync(new RestRequest()), CancellationToken.None);
+            mockHttp
+                .When("http://localhost/api/user/*")
+                .Respond(HttpStatusCode.Unauthorized, "application/json", "{}");
+
+            var client = new RestClient(options: new RestClientOptions { ConfigureMessageHandler = _ => mockHttp });
+
+
+            _ = await defaultOAuthPolicy.ExecuteAndCaptureAsync(async action =>
+                await client.ExecuteAsync(request), CancellationToken.None);
         }
     }
 }

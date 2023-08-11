@@ -68,8 +68,8 @@ namespace Okta.Sdk.IntegrationTest
             {
                 if (createdUser != null)
                 {
-                    await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                    await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                    await _userApi.DeactivateUserAsync(createdUser.Id);
+                    await _userApi.DeleteUserAsync(createdUser.Id);
                 }
             }
         }
@@ -126,8 +126,8 @@ namespace Okta.Sdk.IntegrationTest
             {
                 if (createdUser != null)
                 {
-                    await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                    await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                    await _userApi.DeactivateUserAsync(createdUser.Id);
+                    await _userApi.DeleteUserAsync(createdUser.Id);
                 }
             }
         }
@@ -177,7 +177,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 userFactorsCatalog.Any(x => x.FactorType == FactorType.Sms).Should().BeTrue();
 
-                await _userFactorApi.DeleteFactorAsync(createdUser.Id, createdUserFactor.Id, removeRecoveryEnrollment: true);
+                await _userFactorApi.UnenrollFactorAsync(createdUser.Id, createdUserFactor.Id, removeRecoveryEnrollment: true);
 
                 userFactorsCatalog = await _userFactorApi.ListSupportedFactors(createdUser.Id).ToListAsync();
 
@@ -190,8 +190,8 @@ namespace Okta.Sdk.IntegrationTest
             {
                 if (createdUser != null)
                 {
-                    await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                    await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                    await _userApi.DeactivateUserAsync(createdUser.Id);
+                    await _userApi.DeleteUserAsync(createdUser.Id);
                 }
             }
         }

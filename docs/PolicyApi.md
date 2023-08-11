@@ -6,19 +6,25 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ActivatePolicy**](PolicyApi.md#activatepolicy) | **POST** /api/v1/policies/{policyId}/lifecycle/activate | Activate a Policy
 [**ActivatePolicyRule**](PolicyApi.md#activatepolicyrule) | **POST** /api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/activate | Activate a Policy Rule
-[**ClonePolicy**](PolicyApi.md#clonepolicy) | **POST** /api/v1/policies/{policyId}/clone | Clone an existing policy
+[**ClonePolicy**](PolicyApi.md#clonepolicy) | **POST** /api/v1/policies/{policyId}/clone | Clone an existing Policy
 [**CreatePolicy**](PolicyApi.md#createpolicy) | **POST** /api/v1/policies | Create a Policy
 [**CreatePolicyRule**](PolicyApi.md#createpolicyrule) | **POST** /api/v1/policies/{policyId}/rules | Create a Policy Rule
+[**CreatePolicySimulation**](PolicyApi.md#createpolicysimulation) | **POST** /api/v1/policies/simulate | Create a Policy Simulation
 [**DeactivatePolicy**](PolicyApi.md#deactivatepolicy) | **POST** /api/v1/policies/{policyId}/lifecycle/deactivate | Deactivate a Policy
 [**DeactivatePolicyRule**](PolicyApi.md#deactivatepolicyrule) | **POST** /api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate | Deactivate a Policy Rule
 [**DeletePolicy**](PolicyApi.md#deletepolicy) | **DELETE** /api/v1/policies/{policyId} | Delete a Policy
+[**DeletePolicyResourceMapping**](PolicyApi.md#deletepolicyresourcemapping) | **DELETE** /api/v1/policies/{policyId}/mappings/{mappingId} | Delete a policy resource Mapping
 [**DeletePolicyRule**](PolicyApi.md#deletepolicyrule) | **DELETE** /api/v1/policies/{policyId}/rules/{ruleId} | Delete a Policy Rule
 [**GetPolicy**](PolicyApi.md#getpolicy) | **GET** /api/v1/policies/{policyId} | Retrieve a Policy
+[**GetPolicyMapping**](PolicyApi.md#getpolicymapping) | **GET** /api/v1/policies/{policyId}/mappings/{mappingId} | Retrieve a policy resource Mapping
 [**GetPolicyRule**](PolicyApi.md#getpolicyrule) | **GET** /api/v1/policies/{policyId}/rules/{ruleId} | Retrieve a Policy Rule
 [**ListPolicies**](PolicyApi.md#listpolicies) | **GET** /api/v1/policies | List all Policies
+[**ListPolicyApps**](PolicyApi.md#listpolicyapps) | **GET** /api/v1/policies/{policyId}/app | List all Applications mapped to a Policy
+[**ListPolicyMappings**](PolicyApi.md#listpolicymappings) | **GET** /api/v1/policies/{policyId}/mappings | List all resources mapped to a Policy
 [**ListPolicyRules**](PolicyApi.md#listpolicyrules) | **GET** /api/v1/policies/{policyId}/rules | List all Policy Rules
-[**UpdatePolicy**](PolicyApi.md#updatepolicy) | **PUT** /api/v1/policies/{policyId} | Replace a Policy
-[**UpdatePolicyRule**](PolicyApi.md#updatepolicyrule) | **PUT** /api/v1/policies/{policyId}/rules/{ruleId} | Replace a Policy Rule
+[**MapResourceToPolicy**](PolicyApi.md#mapresourcetopolicy) | **POST** /api/v1/policies/{policyId}/mappings | Map a resource to a Policy
+[**ReplacePolicy**](PolicyApi.md#replacepolicy) | **PUT** /api/v1/policies/{policyId} | Replace a Policy
+[**ReplacePolicyRule**](PolicyApi.md#replacepolicyrule) | **PUT** /api/v1/policies/{policyId}/rules/{ruleId} | Replace a Policy Rule
 
 
 <a name="activatepolicy"></a>
@@ -27,7 +33,7 @@ Method | HTTP request | Description
 
 Activate a Policy
 
-Activates a policy.
+Activates a policy
 
 ### Example
 ```csharp
@@ -51,7 +57,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policyId = "policyId_example";  // string | 
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
 
             try
             {
@@ -73,7 +79,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
 
 ### Return type
 
@@ -105,7 +111,7 @@ void (empty response body)
 
 Activate a Policy Rule
 
-Activates a policy rule.
+Activates a Policy Rule identified by `policyId` and `ruleId`
 
 ### Example
 ```csharp
@@ -129,8 +135,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policyId = "policyId_example";  // string | 
-            var ruleId = "ruleId_example";  // string | 
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
 
             try
             {
@@ -152,8 +158,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
- **ruleId** | **string**|  | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+ **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
 
 ### Return type
 
@@ -183,9 +189,9 @@ void (empty response body)
 # **ClonePolicy**
 > Policy ClonePolicy (string policyId)
 
-Clone an existing policy
+Clone an existing Policy
 
-Clones an existing policy.
+Clones an existing policy
 
 ### Example
 ```csharp
@@ -209,11 +215,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policyId = "policyId_example";  // string | 
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
 
             try
             {
-                // Clone an existing policy
+                // Clone an existing Policy
                 Policy result = apiInstance.ClonePolicy(policyId);
                 Debug.WriteLine(result);
             }
@@ -232,7 +238,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
 
 ### Return type
 
@@ -265,7 +271,7 @@ Name | Type | Description  | Notes
 
 Create a Policy
 
-Creates a policy.
+Creates a policy
 
 ### Example
 ```csharp
@@ -346,7 +352,7 @@ Name | Type | Description  | Notes
 
 Create a Policy Rule
 
-Creates a policy rule.
+Creates a policy rule
 
 ### Example
 ```csharp
@@ -370,7 +376,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policyId = "policyId_example";  // string | 
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
             var policyRule = new PolicyRule(); // PolicyRule | 
 
             try
@@ -394,7 +400,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
  **policyRule** | [**PolicyRule**](PolicyRule.md)|  | 
 
 ### Return type
@@ -422,13 +428,94 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="createpolicysimulation"></a>
+# **CreatePolicySimulation**
+> List&lt;SimulatePolicyEvaluations&gt; CreatePolicySimulation (List<SimulatePolicyBody> simulatePolicy, string expand = null)
+
+Create a Policy Simulation
+
+Creates a policy or policy rule simulation. The access simulation evaluates policy and policy rules based on the existing policy rule configuration. The evaluation result simulates what the real-world authentication flow is and what policy rules have been applied or matched to the authentication flow.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class CreatePolicySimulationExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new PolicyApi(config);
+            var simulatePolicy = new List<SimulatePolicyBody>(); // List<SimulatePolicyBody> | 
+            var expand = expand=EVALUATED&expand=RULE;  // string | Use `expand=EVALUATED` to include a list of evaluated but not matched policies and policy rules. Use `expand=RULE` to include details about why a rule condition was (not) matched. (optional) 
+
+            try
+            {
+                // Create a Policy Simulation
+                List<SimulatePolicyEvaluations> result = apiInstance.CreatePolicySimulation(simulatePolicy, expand).ToListAsync();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PolicyApi.CreatePolicySimulation: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **simulatePolicy** | [**List&lt;SimulatePolicyBody&gt;**](SimulatePolicyBody.md)|  | 
+ **expand** | **string**| Use &#x60;expand&#x3D;EVALUATED&#x60; to include a list of evaluated but not matched policies and policy rules. Use &#x60;expand&#x3D;RULE&#x60; to include details about why a rule condition was (not) matched. | [optional] 
+
+### Return type
+
+[**List&lt;SimulatePolicyEvaluations&gt;**](SimulatePolicyEvaluations.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="deactivatepolicy"></a>
 # **DeactivatePolicy**
 > void DeactivatePolicy (string policyId)
 
 Deactivate a Policy
 
-Deactivates a policy.
+Deactivates a policy
 
 ### Example
 ```csharp
@@ -452,7 +539,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policyId = "policyId_example";  // string | 
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
 
             try
             {
@@ -474,7 +561,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
 
 ### Return type
 
@@ -506,7 +593,7 @@ void (empty response body)
 
 Deactivate a Policy Rule
 
-Deactivates a policy rule.
+Deactivates a Policy Rule identified by `policyId` and `ruleId`
 
 ### Example
 ```csharp
@@ -530,8 +617,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policyId = "policyId_example";  // string | 
-            var ruleId = "ruleId_example";  // string | 
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
 
             try
             {
@@ -553,8 +640,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
- **ruleId** | **string**|  | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+ **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
 
 ### Return type
 
@@ -586,7 +673,7 @@ void (empty response body)
 
 Delete a Policy
 
-Removes a policy.
+Deletes a policy
 
 ### Example
 ```csharp
@@ -610,7 +697,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policyId = "policyId_example";  // string | 
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
 
             try
             {
@@ -632,7 +719,87 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletepolicyresourcemapping"></a>
+# **DeletePolicyResourceMapping**
+> void DeletePolicyResourceMapping (string policyId, string mappingId)
+
+Delete a policy resource Mapping
+
+Deletes the resource Mapping for a Policy identified by  `policyId` and `mappingId`
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class DeletePolicyResourceMappingExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new PolicyApi(config);
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var mappingId = maplr2rLjZ6NsGn1P0g3;  // string | `id` of the policy resource Mapping
+
+            try
+            {
+                // Delete a policy resource Mapping
+                apiInstance.DeletePolicyResourceMapping(policyId, mappingId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PolicyApi.DeletePolicyResourceMapping: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+ **mappingId** | **string**| &#x60;id&#x60; of the policy resource Mapping | 
 
 ### Return type
 
@@ -664,7 +831,7 @@ void (empty response body)
 
 Delete a Policy Rule
 
-Removes a policy rule.
+Deletes a Policy Rule identified by `policyId` and `ruleId`
 
 ### Example
 ```csharp
@@ -688,8 +855,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policyId = "policyId_example";  // string | 
-            var ruleId = "ruleId_example";  // string | 
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
 
             try
             {
@@ -711,8 +878,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
- **ruleId** | **string**|  | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+ **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
 
 ### Return type
 
@@ -744,7 +911,7 @@ void (empty response body)
 
 Retrieve a Policy
 
-Gets a policy.
+Retrieves a policy
 
 ### Example
 ```csharp
@@ -768,7 +935,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policyId = "policyId_example";  // string | 
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
             var expand = "\"\"";  // string |  (optional)  (default to "")
 
             try
@@ -792,12 +959,93 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
  **expand** | **string**|  | [optional] [default to &quot;&quot;]
 
 ### Return type
 
 [**Policy**](Policy.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getpolicymapping"></a>
+# **GetPolicyMapping**
+> PolicyMapping GetPolicyMapping (string policyId, string mappingId)
+
+Retrieve a policy resource Mapping
+
+Retrieves a resource Mapping for a Policy identified by `policyId` and `mappingId`
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class GetPolicyMappingExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new PolicyApi(config);
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var mappingId = maplr2rLjZ6NsGn1P0g3;  // string | `id` of the policy resource Mapping
+
+            try
+            {
+                // Retrieve a policy resource Mapping
+                PolicyMapping result = apiInstance.GetPolicyMapping(policyId, mappingId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PolicyApi.GetPolicyMapping: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+ **mappingId** | **string**| &#x60;id&#x60; of the policy resource Mapping | 
+
+### Return type
+
+[**PolicyMapping**](PolicyMapping.md)
 
 ### Authorization
 
@@ -825,7 +1073,7 @@ Name | Type | Description  | Notes
 
 Retrieve a Policy Rule
 
-Gets a policy rule.
+Retrieves a policy rule
 
 ### Example
 ```csharp
@@ -849,8 +1097,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policyId = "policyId_example";  // string | 
-            var ruleId = "ruleId_example";  // string | 
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
 
             try
             {
@@ -873,8 +1121,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
- **ruleId** | **string**|  | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+ **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
 
 ### Return type
 
@@ -906,7 +1154,7 @@ Name | Type | Description  | Notes
 
 List all Policies
 
-Gets all policies with the specified type.
+Lists all policies with the specified type
 
 ### Example
 ```csharp
@@ -982,13 +1230,171 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="listpolicyapps"></a>
+# **ListPolicyApps**
+> List&lt;Application&gt; ListPolicyApps (string policyId)
+
+List all Applications mapped to a Policy
+
+Lists all applications mapped to a policy identified by `policyId`
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ListPolicyAppsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new PolicyApi(config);
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+
+            try
+            {
+                // List all Applications mapped to a Policy
+                List<Application> result = apiInstance.ListPolicyApps(policyId).ToListAsync();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PolicyApi.ListPolicyApps: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+
+### Return type
+
+[**List&lt;Application&gt;**](Application.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listpolicymappings"></a>
+# **ListPolicyMappings**
+> List&lt;PolicyMapping&gt; ListPolicyMappings (string policyId)
+
+List all resources mapped to a Policy
+
+Lists all resources mapped to a Policy identified by `policyId`
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ListPolicyMappingsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new PolicyApi(config);
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+
+            try
+            {
+                // List all resources mapped to a Policy
+                List<PolicyMapping> result = apiInstance.ListPolicyMappings(policyId).ToListAsync();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PolicyApi.ListPolicyMappings: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+
+### Return type
+
+[**List&lt;PolicyMapping&gt;**](PolicyMapping.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="listpolicyrules"></a>
 # **ListPolicyRules**
 > List&lt;PolicyRule&gt; ListPolicyRules (string policyId)
 
 List all Policy Rules
 
-Enumerates all policy rules.
+Lists all policy rules
 
 ### Example
 ```csharp
@@ -1012,7 +1418,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policyId = "policyId_example";  // string | 
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
 
             try
             {
@@ -1035,7 +1441,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
 
 ### Return type
 
@@ -1061,13 +1467,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatepolicy"></a>
-# **UpdatePolicy**
-> Policy UpdatePolicy (string policyId, Policy policy)
+<a name="mapresourcetopolicy"></a>
+# **MapResourceToPolicy**
+> PolicyMapping MapResourceToPolicy (string policyId, PolicyMappingRequest policyMappingRequest)
 
-Replace a Policy
+Map a resource to a Policy
 
-Updates a policy.
+Maps a resource to a Policy identified by `policyId`
 
 ### Example
 ```csharp
@@ -1079,7 +1485,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class UpdatePolicyExample
+    public class MapResourceToPolicyExample
     {
         public static void Main()
         {
@@ -1091,18 +1497,18 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policyId = "policyId_example";  // string | 
-            var policy = new Policy(); // Policy | 
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var policyMappingRequest = new PolicyMappingRequest(); // PolicyMappingRequest | 
 
             try
             {
-                // Replace a Policy
-                Policy result = apiInstance.UpdatePolicy(policyId, policy);
+                // Map a resource to a Policy
+                PolicyMapping result = apiInstance.MapResourceToPolicy(policyId, policyMappingRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PolicyApi.UpdatePolicy: " + e.Message );
+                Debug.Print("Exception when calling PolicyApi.MapResourceToPolicy: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1115,7 +1521,89 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+ **policyMappingRequest** | [**PolicyMappingRequest**](PolicyMappingRequest.md)|  | 
+
+### Return type
+
+[**PolicyMapping**](PolicyMapping.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="replacepolicy"></a>
+# **ReplacePolicy**
+> Policy ReplacePolicy (string policyId, Policy policy)
+
+Replace a Policy
+
+Replaces the properties of a Policy identified by `policyId`
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplacePolicyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new PolicyApi(config);
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var policy = new Policy(); // Policy | 
+
+            try
+            {
+                // Replace a Policy
+                Policy result = apiInstance.ReplacePolicy(policyId, policy);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PolicyApi.ReplacePolicy: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
  **policy** | [**Policy**](Policy.md)|  | 
 
 ### Return type
@@ -1143,13 +1631,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatepolicyrule"></a>
-# **UpdatePolicyRule**
-> PolicyRule UpdatePolicyRule (string policyId, string ruleId, PolicyRule policyRule)
+<a name="replacepolicyrule"></a>
+# **ReplacePolicyRule**
+> PolicyRule ReplacePolicyRule (string policyId, string ruleId, PolicyRule policyRule)
 
 Replace a Policy Rule
 
-Updates a policy rule.
+Replaces the properties for a Policy Rule identified by `policyId` and `ruleId`
 
 ### Example
 ```csharp
@@ -1161,7 +1649,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class UpdatePolicyRuleExample
+    public class ReplacePolicyRuleExample
     {
         public static void Main()
         {
@@ -1173,19 +1661,19 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policyId = "policyId_example";  // string | 
-            var ruleId = "ruleId_example";  // string | 
+            var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
             var policyRule = new PolicyRule(); // PolicyRule | 
 
             try
             {
                 // Replace a Policy Rule
-                PolicyRule result = apiInstance.UpdatePolicyRule(policyId, ruleId, policyRule);
+                PolicyRule result = apiInstance.ReplacePolicyRule(policyId, ruleId, policyRule);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PolicyApi.UpdatePolicyRule: " + e.Message );
+                Debug.Print("Exception when calling PolicyApi.ReplacePolicyRule: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1198,8 +1686,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **string**|  | 
- **ruleId** | **string**|  | 
+ **policyId** | **string**| &#x60;id&#x60; of the Policy | 
+ **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
  **policyRule** | [**PolicyRule**](PolicyRule.md)|  | 
 
 ### Return type

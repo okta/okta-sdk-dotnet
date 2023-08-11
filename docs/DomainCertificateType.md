@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.DomainCertificateType
+Certificate type
 
 ## Properties
 

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **ActivationRequirements** | [**ProfileEnrollmentPolicyRuleActivationRequirement**](ProfileEnrollmentPolicyRuleActivationRequirement.md) |  | [optional] 
 **PreRegistrationInlineHooks** | [**List&lt;PreRegistrationInlineHook&gt;**](PreRegistrationInlineHook.md) |  | [optional] 
 **ProfileAttributes** | [**List&lt;ProfileEnrollmentPolicyRuleProfileAttribute&gt;**](ProfileEnrollmentPolicyRuleProfileAttribute.md) |  | [optional] 
+**ProgressiveProfilingAction** | **string** |  | [optional] 
 **TargetGroupIds** | **List&lt;string&gt;** |  | [optional] 
 **UnknownUserAction** | **string** |  | [optional] 
 

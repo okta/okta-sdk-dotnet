@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetUserAssignedRole**](RoleAssignmentApi.md#getuserassignedrole) | **GET** /api/v1/users/{userId}/roles/{roleId} | Retrieve a Role assigned to a User
 [**ListAssignedRolesForUser**](RoleAssignmentApi.md#listassignedrolesforuser) | **GET** /api/v1/users/{userId}/roles | List all Roles assigned to a User
 [**ListGroupAssignedRoles**](RoleAssignmentApi.md#listgroupassignedroles) | **GET** /api/v1/groups/{groupId}/roles | List all Assigned Roles of Group
+[**ListUsersWithRoleAssignments**](RoleAssignmentApi.md#listuserswithroleassignments) | **GET** /api/v1/iam/assignees/users | List all Users with Role Assignments
 [**UnassignRoleFromGroup**](RoleAssignmentApi.md#unassignrolefromgroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId} | Unassign a Role from a Group
 [**UnassignRoleFromUser**](RoleAssignmentApi.md#unassignrolefromuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId} | Unassign a Role from a User
 
@@ -20,7 +21,7 @@ Method | HTTP request | Description
 
 Assign a Role to a Group
 
-Assigns a role to a group.
+Assigns a role to a group
 
 ### Example
 ```csharp
@@ -44,7 +45,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RoleAssignmentApi(config);
-            var groupId = "groupId_example";  // string | 
+            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
             var assignRoleRequest = new AssignRoleRequest(); // AssignRoleRequest | 
             var disableNotifications = true;  // bool? | Setting this to `true` grants the group third-party admin status (optional) 
 
@@ -69,7 +70,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**|  | 
+ **groupId** | **string**| The &#x60;id&#x60; of the group | 
  **assignRoleRequest** | [**AssignRoleRequest**](AssignRoleRequest.md)|  | 
  **disableNotifications** | **bool?**| Setting this to &#x60;true&#x60; grants the group third-party admin status | [optional] 
 
@@ -213,8 +214,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RoleAssignmentApi(config);
-            var groupId = "groupId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
+            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
 
             try
             {
@@ -237,8 +238,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**|  | 
- **roleId** | **string**|  | 
+ **groupId** | **string**| The &#x60;id&#x60; of the group | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
 
 ### Return type
 
@@ -295,7 +296,7 @@ namespace Example
 
             var apiInstance = new RoleAssignmentApi(config);
             var userId = "userId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
 
             try
             {
@@ -319,7 +320,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **roleId** | **string**|  | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
 
 ### Return type
 
@@ -456,7 +457,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RoleAssignmentApi(config);
-            var groupId = "groupId_example";  // string | 
+            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
             var expand = "expand_example";  // string |  (optional) 
 
             try
@@ -480,7 +481,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**|  | 
+ **groupId** | **string**| The &#x60;id&#x60; of the group | 
  **expand** | **string**|  | [optional] 
 
 ### Return type
@@ -503,6 +504,86 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listuserswithroleassignments"></a>
+# **ListUsersWithRoleAssignments**
+> RoleAssignedUsers ListUsersWithRoleAssignments (string after = null, int? limit = null)
+
+List all Users with Role Assignments
+
+Lists all users with Role Assignments
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ListUsersWithRoleAssignmentsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new RoleAssignmentApi(config);
+            var after = "after_example";  // string |  (optional) 
+            var limit = 100;  // int? | Specifies the number of results returned. Defaults to `100`. (optional)  (default to 100)
+
+            try
+            {
+                // List all Users with Role Assignments
+                RoleAssignedUsers result = apiInstance.ListUsersWithRoleAssignments(after, limit);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling RoleAssignmentApi.ListUsersWithRoleAssignments: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **after** | **string**|  | [optional] 
+ **limit** | **int?**| Specifies the number of results returned. Defaults to &#x60;100&#x60;. | [optional] [default to 100]
+
+### Return type
+
+[**RoleAssignedUsers**](RoleAssignedUsers.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Forbidden |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -537,8 +618,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RoleAssignmentApi(config);
-            var groupId = "groupId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
+            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
 
             try
             {
@@ -560,8 +641,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**|  | 
- **roleId** | **string**|  | 
+ **groupId** | **string**| The &#x60;id&#x60; of the group | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
 
 ### Return type
 
@@ -618,7 +699,7 @@ namespace Example
 
             var apiInstance = new RoleAssignmentApi(config);
             var userId = "userId_example";  // string | 
-            var roleId = "roleId_example";  // string | 
+            var roleId = 3Vg1Pjp3qzw4qcCK5EdO;  // string | `id` of the Role
 
             try
             {
@@ -641,7 +722,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **roleId** | **string**|  | 
+ **roleId** | **string**| &#x60;id&#x60; of the Role | 
 
 ### Return type
 

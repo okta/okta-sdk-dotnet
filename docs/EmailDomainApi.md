@@ -6,20 +6,19 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateEmailDomain**](EmailDomainApi.md#createemaildomain) | **POST** /api/v1/email-domains | Create an Email Domain
 [**DeleteEmailDomain**](EmailDomainApi.md#deleteemaildomain) | **DELETE** /api/v1/email-domains/{emailDomainId} | Delete an Email Domain
-[**GetEmailDomain**](EmailDomainApi.md#getemaildomain) | **GET** /api/v1/email-domains/{emailDomainId} | Retrieve a Email Domain
-[**ListEmailDomainBrands**](EmailDomainApi.md#listemaildomainbrands) | **GET** /api/v1/email-domains/{emailDomainId}/brands | List all brands linked to an email domain
-[**ListEmailDomains**](EmailDomainApi.md#listemaildomains) | **GET** /api/v1/email-domains | List all email domains
-[**UpdateEmailDomain**](EmailDomainApi.md#updateemaildomain) | **PUT** /api/v1/email-domains/{emailDomainId} | Replace an Email Domain
+[**GetEmailDomain**](EmailDomainApi.md#getemaildomain) | **GET** /api/v1/email-domains/{emailDomainId} | Retrieve an Email Domain
+[**ListEmailDomains**](EmailDomainApi.md#listemaildomains) | **GET** /api/v1/email-domains | List all Email Domains
+[**ReplaceEmailDomain**](EmailDomainApi.md#replaceemaildomain) | **PUT** /api/v1/email-domains/{emailDomainId} | Replace an Email Domain
 [**VerifyEmailDomain**](EmailDomainApi.md#verifyemaildomain) | **POST** /api/v1/email-domains/{emailDomainId}/verify | Verify an Email Domain
 
 
 <a name="createemaildomain"></a>
 # **CreateEmailDomain**
-> EmailDomainResponse CreateEmailDomain (EmailDomain emailDomain)
+> EmailDomainResponse CreateEmailDomain (EmailDomain emailDomain, List<string> expand = null)
 
 Create an Email Domain
 
-Creates a custom email domain.
+Creates an Email Domain in your org
 
 ### Example
 ```csharp
@@ -44,11 +43,12 @@ namespace Example
 
             var apiInstance = new EmailDomainApi(config);
             var emailDomain = new EmailDomain(); // EmailDomain | 
+            var expand = new List<string>(); // List<string> | Specifies additional metadata to be included in the response (optional) 
 
             try
             {
                 // Create an Email Domain
-                EmailDomainResponse result = apiInstance.CreateEmailDomain(emailDomain);
+                EmailDomainResponse result = apiInstance.CreateEmailDomain(emailDomain, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -67,6 +67,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **emailDomain** | [**EmailDomain**](EmailDomain.md)|  | 
+ **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to be included in the response | [optional] 
 
 ### Return type
 
@@ -88,17 +89,19 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="deleteemaildomain"></a>
 # **DeleteEmailDomain**
-> void DeleteEmailDomain (string emailDomainId)
+> void DeleteEmailDomain (string emailDomainId, List<string> expand = null)
 
 Delete an Email Domain
 
-Deletes an Email Domain by `emailDomainId`.
+Deletes an Email Domain by `emailDomainId`
 
 ### Example
 ```csharp
@@ -123,11 +126,12 @@ namespace Example
 
             var apiInstance = new EmailDomainApi(config);
             var emailDomainId = "emailDomainId_example";  // string | 
+            var expand = new List<string>(); // List<string> | Specifies additional metadata to be included in the response (optional) 
 
             try
             {
                 // Delete an Email Domain
-                apiInstance.DeleteEmailDomain(emailDomainId);
+                apiInstance.DeleteEmailDomain(emailDomainId, expand);
             }
             catch (ApiException  e)
             {
@@ -145,6 +149,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **emailDomainId** | **string**|  | 
+ **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to be included in the response | [optional] 
 
 ### Return type
 
@@ -164,6 +169,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Unable to delete custom email domain due to mail provider specific restrictions |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
@@ -172,11 +178,11 @@ void (empty response body)
 
 <a name="getemaildomain"></a>
 # **GetEmailDomain**
-> EmailDomainResponse GetEmailDomain (string emailDomainId)
+> EmailDomainResponseWithEmbedded GetEmailDomain (string emailDomainId, List<string> expand = null)
 
-Retrieve a Email Domain
+Retrieve an Email Domain
 
-Fetches an Email Domain by `emailDomainId`.
+Retrieves an Email Domain by `emailDomainId`
 
 ### Example
 ```csharp
@@ -201,11 +207,12 @@ namespace Example
 
             var apiInstance = new EmailDomainApi(config);
             var emailDomainId = "emailDomainId_example";  // string | 
+            var expand = new List<string>(); // List<string> | Specifies additional metadata to be included in the response (optional) 
 
             try
             {
-                // Retrieve a Email Domain
-                EmailDomainResponse result = apiInstance.GetEmailDomain(emailDomainId);
+                // Retrieve an Email Domain
+                EmailDomainResponseWithEmbedded result = apiInstance.GetEmailDomain(emailDomainId, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -224,10 +231,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **emailDomainId** | **string**|  | 
+ **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to be included in the response | [optional] 
 
 ### Return type
 
-[**EmailDomainResponse**](EmailDomainResponse.md)
+[**EmailDomainResponseWithEmbedded**](EmailDomainResponseWithEmbedded.md)
 
 ### Authorization
 
@@ -249,92 +257,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listemaildomainbrands"></a>
-# **ListEmailDomainBrands**
-> List&lt;Brand&gt; ListEmailDomainBrands (string emailDomainId)
-
-List all brands linked to an email domain
-
-List all brands linked to an email domain.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class ListEmailDomainBrandsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new EmailDomainApi(config);
-            var emailDomainId = "emailDomainId_example";  // string | 
-
-            try
-            {
-                // List all brands linked to an email domain
-                List<Brand> result = apiInstance.ListEmailDomainBrands(emailDomainId).ToListAsync();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling EmailDomainApi.ListEmailDomainBrands: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **emailDomainId** | **string**|  | 
-
-### Return type
-
-[**List&lt;Brand&gt;**](Brand.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="listemaildomains"></a>
 # **ListEmailDomains**
-> EmailDomainListResponse ListEmailDomains ()
+> List&lt;EmailDomainResponseWithEmbedded&gt; ListEmailDomains (List<string> expand = null)
 
-List all email domains
+List all Email Domains
 
-List all the email domains in your org.
+Lists all the Email Domains in your org
 
 ### Example
 ```csharp
@@ -358,11 +287,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EmailDomainApi(config);
+            var expand = new List<string>(); // List<string> | Specifies additional metadata to be included in the response (optional) 
 
             try
             {
-                // List all email domains
-                EmailDomainListResponse result = apiInstance.ListEmailDomains();
+                // List all Email Domains
+                List<EmailDomainResponseWithEmbedded> result = apiInstance.ListEmailDomains(expand).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -377,11 +307,14 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to be included in the response | [optional] 
 
 ### Return type
 
-[**EmailDomainListResponse**](EmailDomainListResponse.md)
+[**List&lt;EmailDomainResponseWithEmbedded&gt;**](EmailDomainResponseWithEmbedded.md)
 
 ### Authorization
 
@@ -402,13 +335,13 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updateemaildomain"></a>
-# **UpdateEmailDomain**
-> EmailDomainResponse UpdateEmailDomain (string emailDomainId, UpdateEmailDomain updateEmailDomain)
+<a name="replaceemaildomain"></a>
+# **ReplaceEmailDomain**
+> EmailDomainResponse ReplaceEmailDomain (string emailDomainId, UpdateEmailDomain updateEmailDomain, List<string> expand = null)
 
 Replace an Email Domain
 
-Replaces an email domain by `emailDomainId`
+Replaces associated username and sender display name by `emailDomainId`
 
 ### Example
 ```csharp
@@ -420,7 +353,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class UpdateEmailDomainExample
+    public class ReplaceEmailDomainExample
     {
         public static void Main()
         {
@@ -434,16 +367,17 @@ namespace Example
             var apiInstance = new EmailDomainApi(config);
             var emailDomainId = "emailDomainId_example";  // string | 
             var updateEmailDomain = new UpdateEmailDomain(); // UpdateEmailDomain | 
+            var expand = new List<string>(); // List<string> | Specifies additional metadata to be included in the response (optional) 
 
             try
             {
                 // Replace an Email Domain
-                EmailDomainResponse result = apiInstance.UpdateEmailDomain(emailDomainId, updateEmailDomain);
+                EmailDomainResponse result = apiInstance.ReplaceEmailDomain(emailDomainId, updateEmailDomain, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EmailDomainApi.UpdateEmailDomain: " + e.Message );
+                Debug.Print("Exception when calling EmailDomainApi.ReplaceEmailDomain: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -458,6 +392,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **emailDomainId** | **string**|  | 
  **updateEmailDomain** | [**UpdateEmailDomain**](UpdateEmailDomain.md)|  | 
+ **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to be included in the response | [optional] 
 
 ### Return type
 
@@ -490,7 +425,7 @@ Name | Type | Description  | Notes
 
 Verify an Email Domain
 
-Verifies an Email Domain by `emailDomainId`.
+Verifies an Email Domain by `emailDomainId`
 
 ### Example
 ```csharp
@@ -557,6 +492,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **400** | Email domain could not be verified by mail provider |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |

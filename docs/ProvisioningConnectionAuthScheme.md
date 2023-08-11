@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ProvisioningConnectionAuthScheme
+Defines the method of authentication
 
 ## Properties
 

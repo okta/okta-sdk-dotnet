@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.EnabledStatus
+Setting status
 
 ## Properties
 

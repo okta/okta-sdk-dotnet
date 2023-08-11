@@ -4,22 +4,22 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateOrigin**](TrustedOriginApi.md#activateorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/activate | Activate a Trusted Origin
-[**CreateOrigin**](TrustedOriginApi.md#createorigin) | **POST** /api/v1/trustedOrigins | Create a Trusted Origin
-[**DeactivateOrigin**](TrustedOriginApi.md#deactivateorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/deactivate | Deactivate a Trusted Origin
-[**DeleteOrigin**](TrustedOriginApi.md#deleteorigin) | **DELETE** /api/v1/trustedOrigins/{trustedOriginId} | Delete a Trusted Origin
-[**GetOrigin**](TrustedOriginApi.md#getorigin) | **GET** /api/v1/trustedOrigins/{trustedOriginId} | Retrieve a Trusted Origin
-[**ListOrigins**](TrustedOriginApi.md#listorigins) | **GET** /api/v1/trustedOrigins | List all Trusted Origins
-[**UpdateOrigin**](TrustedOriginApi.md#updateorigin) | **PUT** /api/v1/trustedOrigins/{trustedOriginId} | Replace a Trusted Origin
+[**ActivateTrustedOrigin**](TrustedOriginApi.md#activatetrustedorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/activate | Activate a Trusted Origin
+[**CreateTrustedOrigin**](TrustedOriginApi.md#createtrustedorigin) | **POST** /api/v1/trustedOrigins | Create a Trusted Origin
+[**DeactivateTrustedOrigin**](TrustedOriginApi.md#deactivatetrustedorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/deactivate | Deactivate a Trusted Origin
+[**DeleteTrustedOrigin**](TrustedOriginApi.md#deletetrustedorigin) | **DELETE** /api/v1/trustedOrigins/{trustedOriginId} | Delete a Trusted Origin
+[**GetTrustedOrigin**](TrustedOriginApi.md#gettrustedorigin) | **GET** /api/v1/trustedOrigins/{trustedOriginId} | Retrieve a Trusted Origin
+[**ListTrustedOrigins**](TrustedOriginApi.md#listtrustedorigins) | **GET** /api/v1/trustedOrigins | List all Trusted Origins
+[**ReplaceTrustedOrigin**](TrustedOriginApi.md#replacetrustedorigin) | **PUT** /api/v1/trustedOrigins/{trustedOriginId} | Replace a Trusted Origin
 
 
-<a name="activateorigin"></a>
-# **ActivateOrigin**
-> TrustedOrigin ActivateOrigin (string trustedOriginId)
+<a name="activatetrustedorigin"></a>
+# **ActivateTrustedOrigin**
+> TrustedOrigin ActivateTrustedOrigin (string trustedOriginId)
 
 Activate a Trusted Origin
 
-Activate a trusted origin
+Activates a trusted origin
 
 ### Example
 ```csharp
@@ -31,7 +31,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class ActivateOriginExample
+    public class ActivateTrustedOriginExample
     {
         public static void Main()
         {
@@ -43,17 +43,17 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
-            var trustedOriginId = "trustedOriginId_example";  // string | 
+            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the Trusted Origin
 
             try
             {
                 // Activate a Trusted Origin
-                TrustedOrigin result = apiInstance.ActivateOrigin(trustedOriginId);
+                TrustedOrigin result = apiInstance.ActivateTrustedOrigin(trustedOriginId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TrustedOriginApi.ActivateOrigin: " + e.Message );
+                Debug.Print("Exception when calling TrustedOriginApi.ActivateTrustedOrigin: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -66,7 +66,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trustedOriginId** | **string**|  | 
+ **trustedOriginId** | **string**| &#x60;id&#x60; of the Trusted Origin | 
 
 ### Return type
 
@@ -92,13 +92,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="createorigin"></a>
-# **CreateOrigin**
-> TrustedOrigin CreateOrigin (TrustedOrigin trustedOrigin)
+<a name="createtrustedorigin"></a>
+# **CreateTrustedOrigin**
+> TrustedOrigin CreateTrustedOrigin (TrustedOrigin trustedOrigin)
 
 Create a Trusted Origin
 
-Create a trusted origin
+Creates a trusted origin
 
 ### Example
 ```csharp
@@ -110,7 +110,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class CreateOriginExample
+    public class CreateTrustedOriginExample
     {
         public static void Main()
         {
@@ -127,12 +127,12 @@ namespace Example
             try
             {
                 // Create a Trusted Origin
-                TrustedOrigin result = apiInstance.CreateOrigin(trustedOrigin);
+                TrustedOrigin result = apiInstance.CreateTrustedOrigin(trustedOrigin);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TrustedOriginApi.CreateOrigin: " + e.Message );
+                Debug.Print("Exception when calling TrustedOriginApi.CreateTrustedOrigin: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -171,13 +171,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deactivateorigin"></a>
-# **DeactivateOrigin**
-> TrustedOrigin DeactivateOrigin (string trustedOriginId)
+<a name="deactivatetrustedorigin"></a>
+# **DeactivateTrustedOrigin**
+> TrustedOrigin DeactivateTrustedOrigin (string trustedOriginId)
 
 Deactivate a Trusted Origin
 
-Deactivate a trusted origin
+Deactivates a trusted origin
 
 ### Example
 ```csharp
@@ -189,7 +189,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class DeactivateOriginExample
+    public class DeactivateTrustedOriginExample
     {
         public static void Main()
         {
@@ -201,17 +201,17 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
-            var trustedOriginId = "trustedOriginId_example";  // string | 
+            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the Trusted Origin
 
             try
             {
                 // Deactivate a Trusted Origin
-                TrustedOrigin result = apiInstance.DeactivateOrigin(trustedOriginId);
+                TrustedOrigin result = apiInstance.DeactivateTrustedOrigin(trustedOriginId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TrustedOriginApi.DeactivateOrigin: " + e.Message );
+                Debug.Print("Exception when calling TrustedOriginApi.DeactivateTrustedOrigin: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -224,7 +224,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trustedOriginId** | **string**|  | 
+ **trustedOriginId** | **string**| &#x60;id&#x60; of the Trusted Origin | 
 
 ### Return type
 
@@ -250,13 +250,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleteorigin"></a>
-# **DeleteOrigin**
-> void DeleteOrigin (string trustedOriginId)
+<a name="deletetrustedorigin"></a>
+# **DeleteTrustedOrigin**
+> void DeleteTrustedOrigin (string trustedOriginId)
 
 Delete a Trusted Origin
 
-Delete a trusted origin
+Deletes a trusted origin
 
 ### Example
 ```csharp
@@ -268,7 +268,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class DeleteOriginExample
+    public class DeleteTrustedOriginExample
     {
         public static void Main()
         {
@@ -280,16 +280,16 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
-            var trustedOriginId = "trustedOriginId_example";  // string | 
+            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the Trusted Origin
 
             try
             {
                 // Delete a Trusted Origin
-                apiInstance.DeleteOrigin(trustedOriginId);
+                apiInstance.DeleteTrustedOrigin(trustedOriginId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TrustedOriginApi.DeleteOrigin: " + e.Message );
+                Debug.Print("Exception when calling TrustedOriginApi.DeleteTrustedOrigin: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -302,7 +302,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trustedOriginId** | **string**|  | 
+ **trustedOriginId** | **string**| &#x60;id&#x60; of the Trusted Origin | 
 
 ### Return type
 
@@ -328,13 +328,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getorigin"></a>
-# **GetOrigin**
-> TrustedOrigin GetOrigin (string trustedOriginId)
+<a name="gettrustedorigin"></a>
+# **GetTrustedOrigin**
+> TrustedOrigin GetTrustedOrigin (string trustedOriginId)
 
 Retrieve a Trusted Origin
 
-Retrieve a trusted origin
+Retrieves a trusted origin
 
 ### Example
 ```csharp
@@ -346,7 +346,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class GetOriginExample
+    public class GetTrustedOriginExample
     {
         public static void Main()
         {
@@ -358,17 +358,17 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
-            var trustedOriginId = "trustedOriginId_example";  // string | 
+            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the Trusted Origin
 
             try
             {
                 // Retrieve a Trusted Origin
-                TrustedOrigin result = apiInstance.GetOrigin(trustedOriginId);
+                TrustedOrigin result = apiInstance.GetTrustedOrigin(trustedOriginId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TrustedOriginApi.GetOrigin: " + e.Message );
+                Debug.Print("Exception when calling TrustedOriginApi.GetTrustedOrigin: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -381,7 +381,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trustedOriginId** | **string**|  | 
+ **trustedOriginId** | **string**| &#x60;id&#x60; of the Trusted Origin | 
 
 ### Return type
 
@@ -407,13 +407,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listorigins"></a>
-# **ListOrigins**
-> List&lt;TrustedOrigin&gt; ListOrigins (string q = null, string filter = null, string after = null, int? limit = null)
+<a name="listtrustedorigins"></a>
+# **ListTrustedOrigins**
+> List&lt;TrustedOrigin&gt; ListTrustedOrigins (string q = null, string filter = null, string after = null, int? limit = null)
 
 List all Trusted Origins
 
-List all trusted origins
+Lists all trusted origins
 
 ### Example
 ```csharp
@@ -425,7 +425,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class ListOriginsExample
+    public class ListTrustedOriginsExample
     {
         public static void Main()
         {
@@ -445,12 +445,12 @@ namespace Example
             try
             {
                 // List all Trusted Origins
-                List<TrustedOrigin> result = apiInstance.ListOrigins(q, filter, after, limit).ToListAsync();
+                List<TrustedOrigin> result = apiInstance.ListTrustedOrigins(q, filter, after, limit).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TrustedOriginApi.ListOrigins: " + e.Message );
+                Debug.Print("Exception when calling TrustedOriginApi.ListTrustedOrigins: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -491,13 +491,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updateorigin"></a>
-# **UpdateOrigin**
-> TrustedOrigin UpdateOrigin (string trustedOriginId, TrustedOrigin trustedOrigin)
+<a name="replacetrustedorigin"></a>
+# **ReplaceTrustedOrigin**
+> TrustedOrigin ReplaceTrustedOrigin (string trustedOriginId, TrustedOrigin trustedOrigin)
 
 Replace a Trusted Origin
 
-Replace a trusted origin
+Replaces a trusted origin
 
 ### Example
 ```csharp
@@ -509,7 +509,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class UpdateOriginExample
+    public class ReplaceTrustedOriginExample
     {
         public static void Main()
         {
@@ -521,18 +521,18 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
-            var trustedOriginId = "trustedOriginId_example";  // string | 
+            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the Trusted Origin
             var trustedOrigin = new TrustedOrigin(); // TrustedOrigin | 
 
             try
             {
                 // Replace a Trusted Origin
-                TrustedOrigin result = apiInstance.UpdateOrigin(trustedOriginId, trustedOrigin);
+                TrustedOrigin result = apiInstance.ReplaceTrustedOrigin(trustedOriginId, trustedOrigin);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TrustedOriginApi.UpdateOrigin: " + e.Message );
+                Debug.Print("Exception when calling TrustedOriginApi.ReplaceTrustedOrigin: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -545,7 +545,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trustedOriginId** | **string**|  | 
+ **trustedOriginId** | **string**| &#x60;id&#x60; of the Trusted Origin | 
  **trustedOrigin** | [**TrustedOrigin**](TrustedOrigin.md)|  | 
 
 ### Return type

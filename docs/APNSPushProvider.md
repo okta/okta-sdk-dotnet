@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **LastUpdatedDate** | **string** |  | [optional] [readonly] 
 **Name** | **string** | Display name of the push provider | [optional] 
 **ProviderType** | [**ProviderType**](ProviderType.md) |  | [optional] 
-**Links** | [**ApiTokenLink**](ApiTokenLink.md) |  | [optional] 
+**Links** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
 **_Configuration** | [**APNSConfiguration**](APNSConfiguration.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

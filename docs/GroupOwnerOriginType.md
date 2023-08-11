@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.GroupOwnerOriginType
+The source where group ownership is managed
 
 ## Properties
 

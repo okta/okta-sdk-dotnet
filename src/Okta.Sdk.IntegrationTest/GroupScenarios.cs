@@ -21,6 +21,7 @@ namespace Okta.Sdk.IntegrationTest
         private ApplicationApi _appsApi;
         private RoleAssignmentApi _roleAssignmentApi;
         private RoleTargetApi _roleTargetApi;
+        private ApplicationGroupsApi _appGroupsApi;
 
         public GroupScenarios()
         {
@@ -29,6 +30,7 @@ namespace Okta.Sdk.IntegrationTest
             _appsApi = new ApplicationApi();
             _roleAssignmentApi = new RoleAssignmentApi();
             _roleTargetApi = new RoleTargetApi();
+            _appGroupsApi = new ApplicationGroupsApi();
         }
 
         [Fact]
@@ -135,7 +137,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var updatedGroup = await _groupApi.UpdateGroupAsync(createdGroup.Id, createdGroup);
+                var updatedGroup = await _groupApi.ReplaceGroupAsync(createdGroup.Id, createdGroup);
                 updatedGroup.LastUpdated.Should().BeAfter(updatedGroup.Created);
                 updatedGroup.Profile.Description.Should().Be(updatedDescription);
             }
@@ -211,15 +213,15 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                await _groupApi.AddUserToGroupAsync(createdGroup.Id, createdUser.Id);
+                await _groupApi.AssignUserToGroupAsync(createdGroup.Id, createdUser.Id);
                 var groupUsers = await _groupApi.ListGroupUsers(createdGroup.Id).ToListAsync();
                 groupUsers.Any(x => x.Id == createdUser.Id).Should().BeTrue();
             }
             finally
             {
                 await _groupApi.DeleteGroupAsync(createdGroup.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -262,19 +264,19 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                await _groupApi.AddUserToGroupAsync(createdGroup.Id, createdUser.Id);
+                await _groupApi.AssignUserToGroupAsync(createdGroup.Id, createdUser.Id);
                 var groupUsers = await _groupApi.ListGroupUsers(createdGroup.Id).ToListAsync();
                 groupUsers.Any(x => x.Id == createdUser.Id).Should().BeTrue();
 
-                await _groupApi.RemoveUserFromGroupAsync(createdGroup.Id, createdUser.Id);
+                await _groupApi.UnassignUserFromGroupAsync(createdGroup.Id, createdUser.Id);
                 groupUsers = await _groupApi.ListGroupUsers(createdGroup.Id).ToListAsync();
                 groupUsers?.Any(x => x.Id == createdUser.Id).Should().BeFalse();
             }
             finally
             {
                 await _groupApi.DeleteGroupAsync(createdGroup.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -391,7 +393,7 @@ namespace Okta.Sdk.IntegrationTest
                 });
 
 
-                await _roleTargetApi.AddGroupTargetToGroupAdministratorRoleForGroupAsync(createdGroup1.Id, role1.Id,
+                await _roleTargetApi.AssignGroupTargetToGroupAdminRoleAsync(createdGroup1.Id, role1.Id,
                     createdGroup2.Id);
 
                 var groupTargetList =
@@ -451,9 +453,9 @@ namespace Okta.Sdk.IntegrationTest
                 });
 
 
-                await _roleTargetApi.AddGroupTargetToGroupAdministratorRoleForGroupAsync(createdGroup1.Id, role1.Id,
+                await _roleTargetApi.AssignGroupTargetToGroupAdminRoleAsync(createdGroup1.Id, role1.Id,
                     createdGroup2.Id);
-                await _roleTargetApi.AddGroupTargetToGroupAdministratorRoleForGroupAsync(createdGroup1.Id, role1.Id,
+                await _roleTargetApi.AssignGroupTargetToGroupAdminRoleAsync(createdGroup1.Id, role1.Id,
                     createdGroup3.Id);
 
                 var groupTargetList =
@@ -463,7 +465,7 @@ namespace Okta.Sdk.IntegrationTest
                 groupTargetList.Should().Contain(x => x.Id == createdGroup2.Id);
                 groupTargetList.Should().Contain(x => x.Id == createdGroup3.Id);
 
-                await _roleTargetApi.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(createdGroup1.Id, role1.Id,
+                await _roleTargetApi.UnassignGroupTargetFromGroupAdminRoleAsync(createdGroup1.Id, role1.Id,
                     createdGroup2.Id);
 
                 groupTargetList =
@@ -561,8 +563,8 @@ namespace Okta.Sdk.IntegrationTest
             {
                 await _groupApi.DeleteGroupAsync(createdGroup.Id);
                 await _groupApi.DeleteGroupRuleAsync(createdGroupRule.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -640,7 +642,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 var updatedGroupRuleName = $"{groupRule.Name} upd";
                 createdGroupRule.Name = updatedGroupRuleName;
-                var updatedGroupRule = await _groupApi.UpdateGroupRuleAsync(createdGroupRule.Id, createdGroupRule);
+                var updatedGroupRule = await _groupApi.ReplaceGroupRuleAsync(createdGroupRule.Id, createdGroupRule);
 
                 updatedGroupRule.Id.Should().NotBeNullOrEmpty();
                 updatedGroupRule.Id.Should().Be(createdGroupRule.Id);
@@ -651,8 +653,8 @@ namespace Okta.Sdk.IntegrationTest
             {
                 await _groupApi.DeleteGroupAsync(createdGroup.Id);
                 await _groupApi.DeleteGroupRuleAsync(createdGroupRule.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -735,8 +737,8 @@ namespace Okta.Sdk.IntegrationTest
             {
                 await _groupApi.DeleteGroupAsync(createdGroup.Id);
                 await _groupApi.DeleteGroupRuleAsync(createdGroupRule.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -819,8 +821,8 @@ namespace Okta.Sdk.IntegrationTest
             {
                 await _groupApi.DeleteGroupAsync(createdGroup.Id);
                 await _groupApi.DeleteGroupRuleAsync(createdGroupRule.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -910,8 +912,8 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 await _groupApi.DeleteGroupAsync(createdGroup.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -1010,8 +1012,8 @@ namespace Okta.Sdk.IntegrationTest
             {
                 await _groupApi.DeleteGroupAsync(createdGroup.Id);
                 await _groupApi.DeleteGroupRuleAsync(createdGroupRule.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
-                await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
             }
         }
 
@@ -1055,7 +1057,7 @@ namespace Okta.Sdk.IntegrationTest
                     Priority = 0,
                 };
 
-                await _appsApi.CreateApplicationGroupAssignmentAsync(createdApp.Id, createdGroup.Id, groupAssignment);
+                await _appGroupsApi.AssignGroupToApplicationAsync(createdApp.Id, createdGroup.Id, groupAssignment);
 
                 Thread.Sleep(3000); // allow for replication prior to read attempt
 
