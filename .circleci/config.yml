@@ -60,7 +60,7 @@ workflows:
           requires:
             - prepare-snyk
   # See OKTA-624745
-  semgrep:
+  "Semgrep":
     jobs:
       - general-platform-helpers/job-semgrep-prepare:
           name: semgrep-prepare
