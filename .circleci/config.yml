@@ -57,6 +57,7 @@ workflows:
             - test
       - general-platform-helpers/job-snyk-monitor:
           name: execute-snyk
+          run-on-non-main: true
           requires:
             - prepare-snyk
   # See OKTA-624745
