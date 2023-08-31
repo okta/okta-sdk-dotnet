@@ -55,10 +55,8 @@ workflows:
           name: prepare-snyk
           requires:
             - test
-      - snyk-scan:
+      - general-platform-helpers/job-snyk-monitor:
           name: execute-snyk
-          requires:
-            - prepare-snyk
   # See OKTA-624745
   "Semgrep":
     jobs:
