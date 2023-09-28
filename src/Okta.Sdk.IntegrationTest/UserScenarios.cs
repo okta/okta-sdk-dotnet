@@ -11,6 +11,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Okta.Sdk.Client;
 using Xunit;
 
 namespace Okta.Sdk.IntegrationTest
@@ -32,7 +33,7 @@ namespace Okta.Sdk.IntegrationTest
             _roleAssignmentApi = new RoleAssignmentApi();
             _roleTargetApi = new RoleTargetApi();
             _userTypeApi = new UserTypeApi();
-            CleanUsers().Wait();
+//            CleanUsers().Wait();
         }
 
         private async Task CleanUsers()
@@ -48,6 +49,7 @@ namespace Okta.Sdk.IntegrationTest
                 }
             }
         }
+
 
         [Fact]
         public async Task PartialUpdateUser()
@@ -153,6 +155,26 @@ namespace Okta.Sdk.IntegrationTest
                 await _userApi.DeactivateUserAsync(createdUser.Id);
                 await _userApi.DeleteUserAsync(createdUser.Id);
             }
+        }
+
+        [Fact]
+        public async Task ListUsersWithInvalidTokenShouldThrow()
+        {
+            var invalidUserApi = new UserApi(new Configuration
+            {
+                OktaDomain = _userApi.Configuration.OktaDomain,
+                Token = "invalidToken",
+            });
+
+            var exception = await Assert.ThrowsAsync<ApiException>(async () => await invalidUserApi.ListUsers().ToListAsync());
+            exception.ErrorCode.Should().Be(401);
+        }
+
+        [Fact]
+        public async Task ListUsersWithEmptyShouldNotThrow()
+        {
+            var users = await _userApi.ListUsers(limit: 0).ToListAsync();
+            users.Should().BeNullOrEmpty();
         }
 
         [Fact]
