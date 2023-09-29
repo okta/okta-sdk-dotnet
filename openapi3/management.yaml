@@ -31698,7 +31698,7 @@ components:
         id:
           type: string
           description: The unique key for the User Type
-          readOnly: true
+          readOnly: false # This should be editable since it's being used by other models that updates the user type
         lastUpdated:
           type: string
           format: date-time
