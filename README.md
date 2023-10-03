@@ -193,6 +193,167 @@ var oauthAppsApi = new ApplicationApi(configuration);
 
 It is possible to use an access token you retrieved outside of the SDK for authentication. For that, set `Configuration.AuthorizationMode` configuration property to `AuthorizationMode.BearerToken` and `Configuration.AccessToken` to the token string.
 
+## Using secret.json for local or appsettings.Development.json or appsettings.Stagging.json etc., Program.cs example for ASPNET API Core.
+``` csharp
+using Microsoft.Extensions.Configuration.UserSecrets;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using System.Reflection;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddControllers();
+
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IUserApi, UserApi>();
+builder.Services.AddScoped<IGroupApi, GroupApi>();
+
+var app = builder.Build();
+
+SetConfigurationFilePathForOktaApiServices();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsProduction())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+app.UseRouting();
+app.UseHttpsRedirection();
+app.MapControllers();
+
+app.Run();
+
+void SetConfigurationFilePathForOktaApiServices()
+{
+    var environmentName = app.Environment.EnvironmentName;
+
+    if (string.Equals(environmentName, "Local", StringComparison.OrdinalIgnoreCase))
+    {
+        var secretsId = Assembly.GetExecutingAssembly().GetCustomAttribute<UserSecretsIdAttribute>()?.UserSecretsId;
+        var configFilePath = PathHelper.GetSecretsPathFromSecretsId(secretsId);
+
+        SetFilePath(configFilePath);
+    }
+    else
+    {
+        var configurationFileRoot = app.Environment.ContentRootPath;
+        var applicationAppSettingsLocation = Path.Combine(configurationFileRoot ?? string.Empty, string.IsNullOrEmpty(environmentName) ? "appsettings.json" : $"appsettings.Development.json");
+
+        SetFilePath(applicationAppSettingsLocation);
+    }
+}
+
+void SetFilePath(string filePath)
+{
+    System.Diagnostics.Debug.Assert(!string.IsNullOrEmpty(filePath), $"{nameof(filePath)} missing parameter.");
+
+    if (File.Exists(filePath))
+    {
+        Configuration.GetConfigFilePath = () => filePath;
+    }
+}
+```
+
+## Consume IUserApi, IGroupApi in OktaContoller.cs
+``` csharp
+using Microsoft.AspNetCore.Mvc;
+using Okta.Sdk.Api;
+using Okta.Sdk.Model;
+
+namespace OktaUserManagement;
+
+public class OktaContoller : Controller
+{
+    private readonly IUserApi _userApi;
+    private readonly IGroupApi _groupApi;
+
+    public OktaContoller(IUserApi userApi, IGroupApi groupApi)
+    {
+        _userApi = userApi;
+        _groupApi = groupApi;
+    }
+
+    [HttpGet("GetUsers")]
+    public async Task<IEnumerable<User>> GetUsers()
+    {
+        var users = await _userApi.ListUsers(limit: 2).ToListAsync();
+        return users;
+    }
+
+    [HttpGet("GetGroups")]
+    public async Task<IEnumerable<Group>> GetGroups()
+    {
+        var groups = await _groupApi.ListGroups().ToListAsync();
+        return groups;
+    }
+}
+```
+
+## Set okta settings in secrets.json for local development, appsettings.Stagging.json, appsetttings.XXXXX.json, appsetttings.YYYYY.json settings files for deployment environments
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+
+  "okta": {
+    "client": {
+      "connectionTimeout": 30000,
+      "oktaDomain": "{{yourOktaDomain}}",
+      "proxy": null,
+      "port": null,
+      "host": null,
+      "username": null,
+      "password": null,
+      "authorizationMode": "PrivateKey",
+      "clientId": "{{clientId}}",
+      "Scopes": {
+        "scopeId1": "okta.users.read",
+        "scopeId2": "okta.users.manage",
+        "scopeId3": "okta.groups.read",
+        "scopeId4": "okta.groups.manage"
+      },
+      "PrivateKey": {
+        "d": "{{d}}",
+        "p": "{{p}}",
+        "q": "{{q}}",
+        "dp": "{{dp}}",
+        "dq": "{{dq}}",
+        "qi": "{{qi}}",
+        "kty": "RSA",
+        "e": "AQAB",
+        "kid": "{{kid}}",
+        "n": "{{n}}"
+      }
+    }
+  }
+}
+```
+## ASPNETCORE_ENVIRONMENT is set to local for a developer machine environment in launchSettings.json
+```json
+{
+  "profiles": {
+    "OktaUserManagement": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7127",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Local"
+      }
+    }
+  }
+}
+```
 ## Usage guide
 
 These examples will help you understand how to use this library. You can also browse the full [API reference documentation][dotnetdocs].
