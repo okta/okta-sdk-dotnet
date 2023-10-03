@@ -1468,6 +1468,7 @@ Class | Method | HTTP request | Description
  - [Model.VerificationMethod](docs/VerificationMethod.md)
  - [Model.VerifyFactorRequest](docs/VerifyFactorRequest.md)
  - [Model.VerifyUserFactorResponse](docs/VerifyUserFactorResponse.md)
+ - [Model.VerifyUserFactorResponseLinks](docs/VerifyUserFactorResponseLinks.md)
  - [Model.VerifyUserFactorResult](docs/VerifyUserFactorResult.md)
  - [Model.WebAuthnAttachment](docs/WebAuthnAttachment.md)
  - [Model.WebAuthnUserFactor](docs/WebAuthnUserFactor.md)

@@ -843,6 +843,7 @@ docs/UserVerificationEnum.md
 docs/VerificationMethod.md
 docs/VerifyFactorRequest.md
 docs/VerifyUserFactorResponse.md
+docs/VerifyUserFactorResponseLinks.md
 docs/VerifyUserFactorResult.md
 docs/WebAuthnAttachment.md
 docs/WebAuthnUserFactor.md
@@ -1732,6 +1733,7 @@ src/Okta.Sdk/Model/UserVerificationEnum.cs
 src/Okta.Sdk/Model/VerificationMethod.cs
 src/Okta.Sdk/Model/VerifyFactorRequest.cs
 src/Okta.Sdk/Model/VerifyUserFactorResponse.cs
+src/Okta.Sdk/Model/VerifyUserFactorResponseLinks.cs
 src/Okta.Sdk/Model/VerifyUserFactorResult.cs
 src/Okta.Sdk/Model/WebAuthnAttachment.cs
 src/Okta.Sdk/Model/WebAuthnUserFactor.cs
