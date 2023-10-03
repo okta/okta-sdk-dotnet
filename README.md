@@ -241,7 +241,7 @@ void SetConfigurationFilePathForOktaApiServices()
     else
     {
         var configurationFileRoot = app.Environment.ContentRootPath;
-        var applicationAppSettingsLocation = Path.Combine(configurationFileRoot ?? string.Empty, string.IsNullOrEmpty(environmentName) ? "appsettings.json" : $"appsettings.Development.json");
+        var applicationAppSettingsLocation = Path.Combine(configurationFileRoot ?? string.Empty, string.IsNullOrEmpty(environmentName) ? "appsettings.json" : $"appsettings.{environmentName}.json");
 
         SetFilePath(applicationAppSettingsLocation);
     }
