@@ -46,6 +46,23 @@ namespace Okta.Sdk.Client
         private readonly CancellationToken _cancellationToken;
         private readonly IReadableConfiguration _configuration;
         private readonly IOAuthTokenProvider _oAuthTokenProvider;
+        private Okta.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        /// <summary>
+        /// Provides a factory method hook for the creation of exceptions.
+        /// </summary>
+        public Okta.Sdk.Client.ExceptionFactory ExceptionFactory
+        {
+            get
+            {
+                if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
+                {
+                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
+                }
+                return _exceptionFactory;
+            }
+            set { _exceptionFactory = value; }
+        }
 
         public OktaPagedCollectionEnumerator(RequestOptions initialRequest, string path, IAsynchronousClient client, IReadableConfiguration configuration, IOAuthTokenProvider oAuthTokenProvider, CancellationToken cancellationToken = default)
         {
@@ -59,7 +76,8 @@ namespace Okta.Sdk.Client
             _client = client ?? throw new ArgumentNullException(nameof(client));
             _cancellationToken = cancellationToken;
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
-            _oAuthTokenProvider = oAuthTokenProvider ?? throw new ArgumentNullException(nameof(oAuthTokenProvider));;
+            _oAuthTokenProvider = oAuthTokenProvider ?? throw new ArgumentNullException(nameof(oAuthTokenProvider));
+            ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
         
         private WebLink GetNextLink(ApiResponse<IEnumerable<T>> response)
@@ -102,6 +120,14 @@ namespace Okta.Sdk.Client
             
             var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, _configuration, _cancellationToken).ConfigureAwait(false);
 
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory(nameof(OktaPagedCollectionEnumerator<T>), response);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
 
             var items = response?.Data ?? Array.Empty<T>();
 
