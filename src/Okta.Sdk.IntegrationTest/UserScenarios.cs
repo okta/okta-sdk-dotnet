@@ -33,7 +33,6 @@ namespace Okta.Sdk.IntegrationTest
             _roleAssignmentApi = new RoleAssignmentApi();
             _roleTargetApi = new RoleTargetApi();
             _userTypeApi = new UserTypeApi();
-//            CleanUsers().Wait();
         }
 
         private async Task CleanUsers()

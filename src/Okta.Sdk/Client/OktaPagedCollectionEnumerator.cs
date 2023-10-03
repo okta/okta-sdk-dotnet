@@ -122,7 +122,7 @@ namespace Okta.Sdk.Client
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("OktaPagedCollectionEnumerator", response);
+                Exception _exception = this.ExceptionFactory(nameof(OktaPagedCollectionEnumerator<T>), response);
                 if (_exception != null)
                 {
                     throw _exception;

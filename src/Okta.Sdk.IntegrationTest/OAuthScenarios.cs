@@ -82,7 +82,7 @@ namespace Okta.Sdk.IntegrationTest
 
 
 
-            var requestOptions = getBasicRequestOptions();
+            var requestOptions = GetBasicRequestOptions();
             requestOptions.Data = JObject.Parse(payload);
 
             var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
@@ -92,7 +92,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
 
-                requestOptions = getBasicRequestOptions();
+                requestOptions = GetBasicRequestOptions();
                 requestOptions.Data = JObject.Parse(grantPayload);
 
                 // Add grant to the service
@@ -124,7 +124,7 @@ namespace Okta.Sdk.IntegrationTest
             }
             finally
             {
-                requestOptions = getBasicRequestOptions();
+                requestOptions = GetBasicRequestOptions();
                 await apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
             }
         }
@@ -168,7 +168,7 @@ namespace Okta.Sdk.IntegrationTest
 
 
 
-            var requestOptions = getBasicRequestOptions();
+            var requestOptions = GetBasicRequestOptions();
             requestOptions.Data = JObject.Parse(payload);
 
             var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
@@ -178,12 +178,12 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
-                var roleAssignmentRequest = getBasicRequestOptions();
+                var roleAssignmentRequest = GetBasicRequestOptions();
                 roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
 
                 var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
 
-                requestOptions = getBasicRequestOptions();
+                requestOptions = GetBasicRequestOptions();
                 requestOptions.Data = JObject.Parse(grantPayload);
 
                 // Add grant to the service
@@ -215,7 +215,7 @@ namespace Okta.Sdk.IntegrationTest
             }
             finally
             {
-                requestOptions = getBasicRequestOptions();
+                requestOptions = GetBasicRequestOptions();
                 await apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
             }
         }
@@ -259,7 +259,7 @@ namespace Okta.Sdk.IntegrationTest
 
 
 
-            var requestOptions = getBasicRequestOptions();
+            var requestOptions = GetBasicRequestOptions();
             requestOptions.Data = JObject.Parse(payload);
 
             var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
@@ -269,12 +269,12 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
-                var roleAssignmentRequest = getBasicRequestOptions();
+                var roleAssignmentRequest = GetBasicRequestOptions();
                 roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
 
                 var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
 
-                requestOptions = getBasicRequestOptions();
+                requestOptions = GetBasicRequestOptions();
                 requestOptions.Data = JObject.Parse(grantPayload);
 
                 // Add grant to the service
@@ -305,7 +305,7 @@ namespace Okta.Sdk.IntegrationTest
             }
             finally
             {
-                requestOptions = getBasicRequestOptions();
+                requestOptions = GetBasicRequestOptions();
                 await apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
             }
         }
@@ -350,7 +350,7 @@ namespace Okta.Sdk.IntegrationTest
 
 
 
-            var requestOptions = getBasicRequestOptions();
+            var requestOptions = GetBasicRequestOptions();
             requestOptions.Data = JObject.Parse(payload);
 
             var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
@@ -358,7 +358,7 @@ namespace Okta.Sdk.IntegrationTest
             var clientId = serviceResponse.Data["client_id"].ToString();
 
             var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
-            var roleAssignmentRequest = getBasicRequestOptions();
+            var roleAssignmentRequest = GetBasicRequestOptions();
             roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
 
             var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
@@ -394,7 +394,7 @@ namespace Okta.Sdk.IntegrationTest
                 var roleApi = new RoleAssignmentApi();
                 await roleApi.AssignRoleToUserAsync(createdUser.Id, new AssignRoleRequest { Type = RoleType.SUPERADMIN });
 
-                requestOptions = getBasicRequestOptions();
+                requestOptions = GetBasicRequestOptions();
                 requestOptions.Data = JObject.Parse(grantPayload);
 
                 // Add grant to the service
@@ -426,7 +426,7 @@ namespace Okta.Sdk.IntegrationTest
             }
             finally
             {
-                requestOptions = getBasicRequestOptions();
+                requestOptions = GetBasicRequestOptions();
                 await apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
                 await userApi.DeactivateUserAsync(createdUser.Id);
                 await userApi.DeleteUserAsync(createdUser.Id);
@@ -473,7 +473,7 @@ namespace Okta.Sdk.IntegrationTest
 
 
 
-            var requestOptions = getBasicRequestOptions();
+            var requestOptions = GetBasicRequestOptions();
             requestOptions.Data = JObject.Parse(payload);
 
             var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
@@ -481,7 +481,7 @@ namespace Okta.Sdk.IntegrationTest
             var clientId = serviceResponse.Data["client_id"].ToString();
 
             var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
-            var roleAssignmentRequest = getBasicRequestOptions();
+            var roleAssignmentRequest = GetBasicRequestOptions();
             roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
 
             var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
@@ -537,7 +537,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
 
-                requestOptions = getBasicRequestOptions();
+                requestOptions = GetBasicRequestOptions();
                 requestOptions.Data = JObject.Parse(grantPayload);
 
                 // Add grant to the service
@@ -589,7 +589,7 @@ namespace Okta.Sdk.IntegrationTest
             }
             finally
             {
-                requestOptions = getBasicRequestOptions();
+                requestOptions = GetBasicRequestOptions();
                 await apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
                 await userApi.DeactivateUserAsync(createdUser1.Id);
                 await userApi.DeleteUserAsync(createdUser1.Id);
@@ -638,7 +638,7 @@ namespace Okta.Sdk.IntegrationTest
 
 
 
-            var requestOptions = getBasicRequestOptions();
+            var requestOptions = GetBasicRequestOptions();
             requestOptions.Data = JObject.Parse(payload);
 
             var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
@@ -646,7 +646,7 @@ namespace Okta.Sdk.IntegrationTest
             var clientId = serviceResponse.Data["client_id"].ToString();
 
             var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
-            var roleAssignmentRequest = getBasicRequestOptions();
+            var roleAssignmentRequest = GetBasicRequestOptions();
             roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
 
             var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
@@ -702,7 +702,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
 
-                requestOptions = getBasicRequestOptions();
+                requestOptions = GetBasicRequestOptions();
                 requestOptions.Data = JObject.Parse(grantPayload);
 
                 // Add grant to the service
@@ -756,7 +756,7 @@ namespace Okta.Sdk.IntegrationTest
             }
             finally
             {
-                requestOptions = getBasicRequestOptions();
+                requestOptions = GetBasicRequestOptions();
                 await apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{clientId}", requestOptions, Configuration.GetConfigurationOrDefault());
                 await userApi.DeactivateUserAsync(createdUser1.Id);
                 await userApi.DeleteUserAsync(createdUser1.Id);
@@ -767,7 +767,7 @@ namespace Okta.Sdk.IntegrationTest
 
 
 
-        private RequestOptions getBasicRequestOptions()
+        private RequestOptions GetBasicRequestOptions()
         {
             string[] _contentTypes = new string[] {
                 "application/json"
