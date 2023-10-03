@@ -424,7 +424,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact(Skip = "Double check if it's possible to change the userType for a given user")]
+        [Fact]
         public async Task UpdateUserUserType()
         {
             var guid = Guid.NewGuid();
@@ -462,7 +462,7 @@ namespace Okta.Sdk.IntegrationTest
                         DisplayName = nameof(UpdateUserUserType),
                     });
 
-                //createdUser.Type.Id = createdUserType.Id;
+                createdUser.Type.Id = createdUserType.Id;
 
                 var updatedUser = await _userApi.ReplaceUserAsync(createdUser.Id, createdUser);
 
