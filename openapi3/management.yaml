@@ -31801,6 +31801,15 @@ components:
           type: string
         stateToken:
           type: string
+    VerifyUserFactorResponseLinks:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HrefObjectSelfLink'
+        poll:
+          $ref: '#/components/schemas/HrefObject'
+        cancel:
+          $ref: '#/components/schemas/HrefObject'
     VerifyUserFactorResponse:
       type: object
       properties:
@@ -31819,7 +31828,7 @@ components:
             properties: {}
           readOnly: true
         _links:
-          $ref: '#/components/schemas/LinksSelf'
+          $ref: '#/components/schemas/VerifyUserFactorResponseLinks'
     VerifyUserFactorResult:
       type: string
       enum:
