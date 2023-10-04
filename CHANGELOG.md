@@ -1,6 +1,13 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 7.0.1
+
+- Fix "Incosistent Exception Handling" issue (#658)
+- Fix "Update UserType.Id to be editable" issue (#660)
+- Fix "Nuget package missing license information" issue (#667)
+- Fix "VerifyUserFactorResponse doesn't correspond with the server's response" (#665)
+
 ## 7.0.0
 - Upgraded the RestSharp dependency from `106.13.0` to `110.2.0` (#606)
 - Upgraded the Okta management OpenAPI specification to be aligned with the Okta release [v2023.07.0](https://help.okta.com/en-us/Content/Topics/ReleaseNotes/okta-relnotes.htm). 
