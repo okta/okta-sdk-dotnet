@@ -258,7 +258,7 @@ void SetFilePath(string filePath)
 }
 ```
 
-## Consume IUserApi, IGroupApi in OktaContoller.cs
+## Consume IUserApi, IGroupApi in OktaController.cs
 ``` csharp
 using Microsoft.AspNetCore.Mvc;
 using Okta.Sdk.Api;
@@ -266,12 +266,12 @@ using Okta.Sdk.Model;
 
 namespace OktaUserManagement;
 
-public class OktaContoller : Controller
+public class OktaController : Controller
 {
     private readonly IUserApi _userApi;
     private readonly IGroupApi _groupApi;
 
-    public OktaContoller(IUserApi userApi, IGroupApi groupApi)
+    public OktaController(IUserApi userApi, IGroupApi groupApi)
     {
         _userApi = userApi;
         _groupApi = groupApi;
