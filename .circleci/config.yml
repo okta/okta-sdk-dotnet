@@ -20,6 +20,10 @@ jobs:
           command: |
               choco install -y dotnetcore-sdk
       - run:
+          name: "Install nuget"
+          command: |
+              choco install nuget.commandline
+      - run:
           name: "Test Runner"
           command: |
               ./build.ps1;
