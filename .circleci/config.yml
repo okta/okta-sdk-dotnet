@@ -34,11 +34,9 @@ jobs:
     docker:
       - image: cimg/python:3.10
     steps:
-      - attach_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
-          at: ~/project
       - checkout # Not needed if you have "persist_to_workspace" and "attach_workspace"
       - run: |   # Not needed if you have "persist_to_workspace" and "attach_workspace"
-          pip install -r requirements.txt
+          nuget install -OutputDirectory packages
       - general-platform-helpers/step-load-dependencies
       - general-platform-helpers/step-run-snyk-monitor:
           scan-all-projects: true
