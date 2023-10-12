@@ -39,8 +39,8 @@ jobs:
       - checkout # Not needed if you have "persist_to_workspace" and "attach_workspace"
       - run: |   # Not needed if you have "persist_to_workspace" and "attach_workspace"
           pip install -r requirements.txt
-      - platform-helpers-general/step-load-dependencies
-      - platform-helpers-general/step-run-snyk-monitor:
+      - general-platform-helpers/step-load-dependencies
+      - general-platform-helpers/step-run-snyk-monitor:
           scan-all-projects: true
           skip-unresolved: false
 
@@ -50,7 +50,7 @@ workflows:
   "Circle CI Tests":
     jobs:
       - test
-      - platform-helpers-general/job-snyk-prepare:
+      - general-platform-helpers/job-snyk-prepare:
           name: prepare-snyk
           requires:
             - build
