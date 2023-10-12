@@ -34,7 +34,7 @@ jobs:
     # docker:
     #   - image: cimg/python:3.10
     executor:
-      name: win/default
+      name:  windows/default
     steps:
       - checkout # Not needed if you have "persist_to_workspace" and "attach_workspace"
       - run:
