@@ -36,8 +36,8 @@ jobs:
     steps:
       - checkout # Not needed if you have "persist_to_workspace" and "attach_workspace"
       - run:
-        name: "Install nuget"
-        command: |
+          name: "Install nuget"
+          command: |
             choco install nuget.commandline
       - run: |   # Not needed if you have "persist_to_workspace" and "attach_workspace"
           nuget install -OutputDirectory packages
