@@ -35,11 +35,11 @@ jobs:
       - image: cimg/python:3.10
     steps:
       - checkout # Not needed if you have "persist_to_workspace" and "attach_workspace"
-       - run:
-          name: "Install nuget"
-          command: |
-              choco install nuget.commandline
-      - run: |   
+      - run:
+        name: "Install nuget"
+        command: |
+            choco install nuget.commandline
+      - run: |   # Not needed if you have "persist_to_workspace" and "attach_workspace"
           nuget install -OutputDirectory packages
       - general-platform-helpers/step-load-dependencies
       - general-platform-helpers/step-run-snyk-monitor:
