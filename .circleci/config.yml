@@ -30,6 +30,19 @@ jobs:
             - general-platform-helpers/step-artifacts-prepare-and-upload-windows:
                 files-to-upload: "artifacts"
                 location: "com/okta/devex/okta-sdk-dotnet"
+  snyk-scan:
+    docker:
+      - image: cimg/python:3.10
+    steps:
+      - attach_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
+          at: ~/project
+      - checkout # Not needed if you have "persist_to_workspace" and "attach_workspace"
+      - run: |   # Not needed if you have "persist_to_workspace" and "attach_workspace"
+          pip install -r requirements.txt
+      - platform-helpers-general/step-load-dependencies
+      - platform-helpers-general/step-run-snyk-monitor:
+          scan-all-projects: true
+          skip-unresolved: false
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -37,6 +50,14 @@ workflows:
   "Circle CI Tests":
     jobs:
       - test
+      - platform-helpers-general/job-snyk-prepare:
+          name: prepare-snyk
+          requires:
+            - build
+      - snyk-scan:
+          name: execute-snyk
+          requires:
+            - prepare-snyk
   "Semgrep":
     jobs:
       - general-platform-helpers/job-semgrep-prepare:
