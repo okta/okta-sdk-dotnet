@@ -28,7 +28,7 @@ jobs:
           command: |
             choco install nuget.commandline
       - run: |   # Not needed if you have "persist_to_workspace" and "attach_workspace"
-          nuget install -OutputDirectory packages
+          nuget restore
       - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
           root: ~/project
           paths:
@@ -73,6 +73,7 @@ workflows:
             - build
       - snyk-scan:
           name: execute-snyk
+          target-file: /src/**
           requires:
             - prepare-snyk
   "Semgrep":
