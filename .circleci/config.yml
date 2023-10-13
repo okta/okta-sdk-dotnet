@@ -76,7 +76,8 @@ workflows:
             - build
       - snyk-scan:
           name: execute-snyk
-          target-file: "~/project/src/Okta.Sdk"
+          #target-file: "~/project/src/Okta.Sdk"
+          path: "~/project/src/Okta.Sdk"
           requires:
             - prepare-snyk
   "Semgrep":
