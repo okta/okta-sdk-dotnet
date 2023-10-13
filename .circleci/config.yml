@@ -23,6 +23,16 @@ jobs:
           name: "Test Runner"
           command: |
               ./build.ps1;
+      - run:
+          name: "Install nuget"
+          command: |
+            choco install nuget.commandline
+      - run: |   # Not needed if you have "persist_to_workspace" and "attach_workspace"
+          nuget install -OutputDirectory packages
+      - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
+          root: ~/project
+          paths:
+            - .
       - when:
           condition:
             equal: [ "<<pipeline.git.branch>>", "master" ]
@@ -31,18 +41,20 @@ jobs:
                 files-to-upload: "artifacts"
                 location: "com/okta/devex/okta-sdk-dotnet"
   snyk-scan:
-    # docker:
-    #   - image: cimg/python:3.10
-    executor:
-      name:  windows/default
+    docker:
+      - image: cimg/python:3.10
+    # executor:
+    #   name:  windows/default
     steps:
-      - checkout # Not needed if you have "persist_to_workspace" and "attach_workspace"
-      - run:
-          name: "Install nuget"
-          command: |
-            choco install nuget.commandline
-      - run: |   # Not needed if you have "persist_to_workspace" and "attach_workspace"
-          nuget install -OutputDirectory packages
+      #- checkout # Not needed if you have "persist_to_workspace" and "attach_workspace"
+      # - run:
+      #     name: "Install nuget"
+      #     command: |
+      #       choco install nuget.commandline
+      # - run: |   # Not needed if you have "persist_to_workspace" and "attach_workspace"
+      #     nuget install -OutputDirectory packages
+      - attach_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
+          at: ~/project
       - general-platform-helpers/step-load-dependencies
       - general-platform-helpers/step-run-snyk-monitor:
           scan-all-projects: true
