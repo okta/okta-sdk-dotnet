@@ -27,8 +27,11 @@ jobs:
           name: "Install nuget"
           command: |
             choco install nuget.commandline
-      - run: |   # Not needed if you have "persist_to_workspace" and "attach_workspace"
-          nuget restore
+      - run:    # Not needed if you have "persist_to_workspace" and "attach_workspace"
+          name: "Run Nuget Restore"
+          command: |
+            nuget restore
+          path: "~/src"
       - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
           root: ~/project
           paths:
