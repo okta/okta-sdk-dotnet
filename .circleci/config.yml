@@ -31,7 +31,7 @@ jobs:
           name: "Run Nuget Restore"
           command: |
             nuget restore
-          path: "~/src"
+          path: "~/project/src"
       - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
           root: ~/project
           paths:
