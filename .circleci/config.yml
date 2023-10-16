@@ -33,7 +33,7 @@ jobs:
             nuget restore
           path: "~/project/src"
       - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
-          root: ~/project
+          root: ~/project/src/Okta.Sdk
           paths:
             - .
       - when:
