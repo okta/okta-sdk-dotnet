@@ -57,7 +57,7 @@ jobs:
       # - run: |   # Not needed if you have "persist_to_workspace" and "attach_workspace"
       #     nuget install -OutputDirectory packages
       - attach_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
-          at: ~/project
+          at: ~/project/src/Okta.Sdk
       - general-platform-helpers/step-load-dependencies
       - general-platform-helpers/step-run-snyk-monitor:
           scan-all-projects: true
@@ -78,7 +78,6 @@ workflows:
           name: execute-snyk
           requires:
             - prepare-snyk
-          target-file: /project/src/Okta.Sdk/project.assets.json
   "Semgrep":
     jobs:
       - general-platform-helpers/job-semgrep-prepare:
