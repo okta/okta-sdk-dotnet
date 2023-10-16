@@ -67,9 +67,11 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  "Circle CI Tests":
+  "Build":
     jobs:
       - build
+  "Snyk":
+    jobs:
       - general-platform-helpers/job-snyk-prepare:
           name: prepare-snyk
           requires:
