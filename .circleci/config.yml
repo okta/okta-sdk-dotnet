@@ -49,8 +49,8 @@ jobs:
 
     steps:
       - attach_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
-          at: /workspace
-          exclude: /workspace/tools
+          at: ~/project
+          exclude: ~/project/tools
       - general-platform-helpers/step-load-dependencies
       - general-platform-helpers/step-run-snyk-monitor:
           scan-all-projects: true
