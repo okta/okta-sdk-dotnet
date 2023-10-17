@@ -35,7 +35,8 @@ jobs:
       - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
           root: ~/project
           paths:
-            - .
+            - src
+            - .git
       - when:
           condition:
             equal: [ "<<pipeline.git.branch>>", "master" ]
@@ -56,8 +57,7 @@ jobs:
           skip-unresolved: false
           run-on-non-main: true
           detection-depth: 4
-          exclude: tools
-
+          
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
