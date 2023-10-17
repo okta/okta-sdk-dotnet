@@ -27,15 +27,16 @@ jobs:
           name: "Install nuget"
           command: |
             choco install nuget.commandline
-      - run:    # Not needed if you have "persist_to_workspace" and "attach_workspace"
-          name: "Run Nuget Restore"
-          command: |
-            nuget restore
-          path: "~/project/src"
+      # - run:    # Not needed if you have "persist_to_workspace" and "attach_workspace"
+      #     name: "Run Nuget Restore"
+      #     command: |
+      #       nuget restore
+      #     path: "~/project/src"
       - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
           root: ~/project
           paths:
-            - .
+            - src
+            - .git
       - when:
           condition:
             equal: [ "<<pipeline.git.branch>>", "master" ]
@@ -50,7 +51,6 @@ jobs:
     steps:
       - attach_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
           at: ~/project
-          exclude: ~/project/tools
       - general-platform-helpers/step-load-dependencies
       - general-platform-helpers/step-run-snyk-monitor:
           scan-all-projects: true
