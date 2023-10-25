@@ -260,5 +260,134 @@ namespace Okta.Sdk.UnitTest.Api
             enrollFactorResponse.FactorType.Should().Be(FactorType.Tokenhardware);
             enrollFactorResponse.Provider.Should().Be(FactorProvider.YUBICO);
         }
+
+        [Fact]
+        public async Task EnrollOVFactor()
+        {
+
+            var response = @"{
+                                ""id"": ""emfnf3gSScB8xXoXK0g3"",
+                                ""factorType"": ""email"",
+                                ""provider"": ""OKTA"",
+                                ""vendorName"": ""OKTA"",
+                                ""status"": ""PENDING_ACTIVATION"",
+                                ""_links"": {
+                                    ""activate"": {
+                                        ""href"": ""https://{yourOktaDomain}/api/v1/users/00umvfJKwXOQ1mEL50g3/factors/emfnf3gSScB8xXoXK0g3/lifecycle/activate"",
+                                        ""hints"": {
+                                            ""allow"": [
+                                                ""POST""
+                                            ]
+                                        }
+                                    },
+                                    ""resend"": [
+                                        {
+                                            ""name"": ""email"",
+                                            ""href"": ""https://{yourOktaDomain}/api/v1/users/00umvfJKwXOQ1mEL50g3/factors/emfnf3gSScB8xXoXK0g3/resend"",
+                                            ""hints"": {
+                                                ""allow"": [
+                                                    ""POST""
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    ""self"": {
+                                        ""href"": ""https://{yourOktaDomain}/api/v1/users/00umvfJKwXOQ1mEL50g3/factors/emfnf3gSScB8xXoXK0g3"",
+                                        ""hints"": {
+                                            ""allow"": [
+                                                ""GET""
+                                            ]
+                                        }
+                                    },
+                                    ""user"": {
+                                        ""href"": ""https://{yourOktaDomain}/api/v1/users/00umvfJKwXOQ1mEL50g3"",
+                                        ""hints"": {
+                                            ""allow"": [
+                                                ""GET""
+                                            ]
+                                        }
+                                    }
+                                }
+                            }";
+
+            var mockClient = new MockAsyncClient(response, HttpStatusCode.OK);
+            var userFactorApi = new UserFactorApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+
+            var enrollFactorResponse = await userFactorApi.EnrollFactorAsync("foo", 
+                new EmailUserFactor
+                {
+                    FactorType = FactorType.Email,
+                    Profile = new EmailUserFactorProfile
+                    {
+                        Email = "test@gmail.com"
+                    }
+                });
+
+            mockClient.ReceivedBody.Should().BeEquivalentTo("{\"profile\":{\"email\":\"test@gmail.com\"},\"factorType\":\"email\"}");
+            enrollFactorResponse.FactorType.Should().Be(FactorType.Email);
+            enrollFactorResponse.Provider.Should().Be(FactorProvider.OKTA);
+        }
+
+        [Fact]
+        public async Task EnrollCustomTotpFactor()
+        {
+
+            var response = @"{
+                                ""id"": ""chf20l33Ks8U2Zjba0g4"",
+                                ""factorType"": ""token:hotp"",
+                                ""provider"": ""CUSTOM"",
+                                ""vendorName"": ""Entrust Datacard"",
+                                ""status"": ""ACTIVE"",
+                                ""created"": ""2019-07-22T23:22:36.000Z"",
+                                ""lastUpdated"": ""2019-07-22T23:22:36.000Z"",
+                                ""_links"": {
+                                    ""self"": {
+                                        ""href"": ""https://{yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4"",
+                                        ""hints"": {
+                                            ""allow"": [
+                                                ""GET"",
+                                                ""DELETE""
+                                            ]
+                                        }
+                                    },
+                                    ""verify"": {
+                                        ""href"": ""https://{yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4/verify"",
+                                        ""hints"": {
+                                            ""allow"": [
+                                                ""POST""
+                                            ]
+                                        }
+                                    },
+                                    ""user"": {
+                                        ""href"": ""https://{yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3"",
+                                        ""hints"": {
+                                            ""allow"": [
+                                                ""GET""
+                                            ]
+                                        }
+                                    }
+                                }
+                            }";
+
+            var mockClient = new MockAsyncClient(response, HttpStatusCode.OK);
+            var userFactorApi = new UserFactorApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+
+            var enrollFactorResponse = await userFactorApi.EnrollFactorAsync("foo",
+                new CustomHotpUserFactor
+                {
+                    FactorType = FactorType.Tokenhotp,
+                    Provider = FactorProvider.CUSTOM,
+                    FactorProfileId = "fpr20l2mDyaUGWGCa0g4",
+                    Profile = new CustomHotpUserFactorProfile
+                    {
+                        SharedSecret = "123",
+                    }
+
+                });
+
+            mockClient.ReceivedBody.Should().BeEquivalentTo("{\"factorProfileId\":\"fpr20l2mDyaUGWGCa0g4\",\"profile\":{\"sharedSecret\":\"123\"},\"factorType\":\"token:hotp\",\"provider\":\"CUSTOM\"}");
+            enrollFactorResponse.FactorType.Should().Be(FactorType.Tokenhotp);
+            enrollFactorResponse.Provider.Should().Be(FactorProvider.CUSTOM);
+        }
     }
 }
