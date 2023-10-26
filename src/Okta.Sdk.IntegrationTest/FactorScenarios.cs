@@ -7,6 +7,8 @@ using Polly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,6 +24,58 @@ namespace Okta.Sdk.IntegrationTest
         {
             _userApi = new UserApi();
             _userFactorApi = new UserFactorApi();
+        }
+
+        [Fact]
+        public async Task EnrollSecurityQuestionFactor()
+        {
+            var guid = Guid.NewGuid();
+            User createdUser = null;
+
+            var createUserRequest = new CreateUserRequest
+            {
+
+                Profile = new UserProfile
+                {
+                    FirstName = "FirstName",
+                    LastName = "LastName",
+                    Login = $"{Guid.NewGuid()}@login.com",
+                    Email = $"{Guid.NewGuid()}@email.com",
+                    PrimaryPhone = "123-321-4444",
+                    MobilePhone = "321-123-5555",
+                    Locale = "en_US",
+                    SecondEmail = $"{Guid.NewGuid()}@second.com",
+                    Timezone = "Japan",
+                }
+            };
+
+            try
+            {
+                createdUser = await _userApi.CreateUserAsync(createUserRequest);
+
+                var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new SecurityQuestionUserFactor
+                {
+                    FactorType = FactorType.Question,
+                    Profile = new SecurityQuestionUserFactorProfile
+                    {
+                        Question = "disliked_food",
+                        Answer = "mayonnaise"
+                    },
+                });
+
+                createdUserFactor.Should().NotBeNull();
+                createdUserFactor.FactorType.Should().Be(FactorType.Question);
+                ((SecurityQuestionUserFactor)createdUserFactor).Profile.Question.Should().Be("disliked_food");
+                ((SecurityQuestionUserFactor)createdUserFactor).Profile.QuestionText.Should().Be("What is the food you least liked as a child?");
+            }
+            finally
+            {
+                if (createdUser != null)
+                {
+                    await _userApi.DeactivateUserAsync(createdUser.Id);
+                    await _userApi.DeleteUserAsync(createdUser.Id);
+                }
+            }
         }
 
         [Fact]
@@ -73,6 +127,113 @@ namespace Okta.Sdk.IntegrationTest
                 }
             }
         }
+
+        [Fact]
+        public async Task EnrollCallFactor()
+        {
+            var guid = Guid.NewGuid();
+            User createdUser = null;
+
+            var createUserRequest = new CreateUserRequest
+            {
+
+                Profile = new UserProfile
+                {
+                    FirstName = "FirstName",
+                    LastName = "LastName",
+                    Login = $"{Guid.NewGuid()}@login.com",
+                    Email = $"{Guid.NewGuid()}@email.com",
+                    PrimaryPhone = "123-321-4444",
+                    MobilePhone = "321-123-5555",
+                    Locale = "en_US",
+                    SecondEmail = $"{Guid.NewGuid()}@second.com",
+                    Timezone = "Japan",
+                }
+            };
+
+            try
+            {
+                createdUser = await _userApi.CreateUserAsync(createUserRequest);
+
+                var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new CallUserFactor
+                {
+                    FactorType = FactorType.Call,
+                    Profile = new CallUserFactorProfile
+                    {
+                        PhoneNumber = "+16284001133",
+                        PhoneExtension = "1234",
+                    }
+                });
+
+                createdUserFactor.Should().NotBeNull();
+                createdUserFactor.FactorType.Should().Be(FactorType.Call);
+                ((CallUserFactor)createdUserFactor).Profile.PhoneNumber.Should().Be("+16284001133");
+                ((CallUserFactor)createdUserFactor).Profile.PhoneExtension.Should().Be("1234");
+                createdUserFactor.Status.Should().Be(FactorStatus.PENDINGACTIVATION);
+            }
+            finally
+            {
+                if (createdUser != null)
+                {
+                    await _userApi.DeactivateUserAsync(createdUser.Id);
+                    await _userApi.DeleteUserAsync(createdUser.Id);
+                }
+            }
+        }
+
+        public static IEnumerable<object[]> FactorTypes =>
+         new List<object[]>
+         {
+            new object[] {FactorType.Tokensoftwaretotp },
+            new object[] {FactorType.Push },
+         };
+
+        [Theory]
+        [MemberData(nameof(FactorTypes))]
+        public async Task EnrollFactors(FactorType factorType)
+        {
+            var guid = Guid.NewGuid();
+            User createdUser = null;
+
+            var createUserRequest = new CreateUserRequest
+            {
+
+                Profile = new UserProfile
+                {
+                    FirstName = "FirstName",
+                    LastName = "LastName",
+                    Login = $"{Guid.NewGuid()}@login.com",
+                    Email = $"{Guid.NewGuid()}@email.com",
+                    PrimaryPhone = "123-321-4444",
+                    MobilePhone = "321-123-5555",
+                    Locale = "en_US",
+                    SecondEmail = $"{Guid.NewGuid()}@second.com",
+                    Timezone = "Japan",
+                }
+            };
+
+            try
+            {
+                createdUser = await _userApi.CreateUserAsync(createUserRequest);
+
+                var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new UserFactor
+                {
+                    FactorType = factorType,
+                });
+
+                createdUserFactor.Should().NotBeNull();
+                createdUserFactor.FactorType.Should().Be(factorType);
+            }
+            finally
+            {
+                if (createdUser != null)
+                {
+                    await _userApi.DeactivateUserAsync(createdUser.Id);
+                    await _userApi.DeleteUserAsync(createdUser.Id);
+                }
+            }
+        }
+
 
         [Fact]
         public async Task ResendEnrollSmsFactor()
