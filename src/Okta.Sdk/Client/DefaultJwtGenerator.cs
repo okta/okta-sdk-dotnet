@@ -100,7 +100,7 @@ namespace Okta.Sdk.Client
                     { "exp", (int)timeSpanExp.TotalSeconds },
                     { "iss", _configuration.ClientId },
                     { "aud", $"{ClientUtils.EnsureTrailingSlash(_configuration.OktaDomain)}oauth2/v1/token" },
-                    { "jti", Guid.NewGuid() },
+                    { "jti", Guid.NewGuid().ToString() },
                 };
 
                 var jsonWebKey = new Microsoft.IdentityModel.Tokens.JsonWebKey(JsonConvert.SerializeObject(_configuration.PrivateKey));

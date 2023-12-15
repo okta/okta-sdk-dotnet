@@ -365,3 +365,6 @@ FodyWeavers.xsd
 /tools/docfx.console.2.51.0
 /tools/nuget.exe
 /tools/packages.config.md5sum
+
+# Rider
+.idea/
