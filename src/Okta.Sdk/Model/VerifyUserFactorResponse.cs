@@ -30,8 +30,8 @@ namespace Okta.Sdk.Model
     /// VerifyUserFactorResponse
     /// </summary>
     [DataContract(Name = "VerifyUserFactorResponse")]
-    
     public partial class VerifyUserFactorResponse : IEquatable<VerifyUserFactorResponse>
+    
     {
 
         /// <summary>
@@ -82,6 +82,12 @@ namespace Okta.Sdk.Model
         public VerifyUserFactorResponseLinks Links { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -94,6 +100,7 @@ namespace Okta.Sdk.Model
             sb.Append("  FactorResultMessage: ").Append(FactorResultMessage).Append("\n");
             sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -102,7 +109,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -153,7 +160,8 @@ namespace Okta.Sdk.Model
                     this.Links == input.Links ||
                     (this.Links != null &&
                     this.Links.Equals(input.Links))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -185,6 +193,10 @@ namespace Okta.Sdk.Model
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

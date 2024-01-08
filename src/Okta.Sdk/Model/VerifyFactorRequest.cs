@@ -83,6 +83,18 @@ namespace Okta.Sdk.Model
         public string StateToken { get; set; }
 
         /// <summary>
+        /// Gets or Sets AuthenticatorData
+        /// </summary>
+        [DataMember(Name = "authenticatorData", EmitDefaultValue = true)]
+        public string AuthenticatorData { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SignatureData
+        /// </summary>
+        [DataMember(Name = "signatureData", EmitDefaultValue = true)]
+        public string SignatureData { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -98,6 +110,8 @@ namespace Okta.Sdk.Model
             sb.Append("  PassCode: ").Append(PassCode).Append("\n");
             sb.Append("  RegistrationData: ").Append(RegistrationData).Append("\n");
             sb.Append("  StateToken: ").Append(StateToken).Append("\n");
+            sb.Append("  AuthenticatorData: ").Append(AuthenticatorData).Append("\n");
+            sb.Append("  SignatureData: ").Append(SignatureData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -172,6 +186,16 @@ namespace Okta.Sdk.Model
                     this.StateToken == input.StateToken ||
                     (this.StateToken != null &&
                     this.StateToken.Equals(input.StateToken))
+                ) && 
+                (
+                    this.AuthenticatorData == input.AuthenticatorData ||
+                    (this.AuthenticatorData != null &&
+                    this.AuthenticatorData.Equals(input.AuthenticatorData))
+                ) && 
+                (
+                    this.SignatureData == input.SignatureData ||
+                    (this.SignatureData != null &&
+                    this.SignatureData.Equals(input.SignatureData))
                 );
         }
 
@@ -216,6 +240,14 @@ namespace Okta.Sdk.Model
                 if (this.StateToken != null)
                 {
                     hashCode = (hashCode * 59) + this.StateToken.GetHashCode();
+                }
+                if (this.AuthenticatorData != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthenticatorData.GetHashCode();
+                }
+                if (this.SignatureData != null)
+                {
+                    hashCode = (hashCode * 59) + this.SignatureData.GetHashCode();
                 }
                 return hashCode;
             }

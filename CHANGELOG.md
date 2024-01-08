@@ -1,6 +1,14 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 7.0.3
+
+- Fix "Missing data in verifyFactorRequest prevents verifying webauthn" (OKTA-656179)
+
+## 7.0.2
+
+- Fix "JTI Claim as a string instead of guid" (#682) 
+
 ## 7.0.1
 
 - Fix "Incosistent Exception Handling" issue (#658)

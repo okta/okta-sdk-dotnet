@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **PassCode** | **string** |  | [optional] 
 **RegistrationData** | **string** |  | [optional] 
 **StateToken** | **string** |  | [optional] 
+**AuthenticatorData** | **string** |  | [optional] 
+**SignatureData** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
