@@ -400,8 +400,7 @@ namespace Okta.Sdk.UnitTest.Api
                               ""profile"":{
                                 ""credentialId"":""l3Br0n-7H3g047NqESqJynFtIgf3Ix9OfaRoNwLoloso99Xl2zS_O7EXUkmPeAIzTVtEL4dYjicJWBz7NpqhGA"",
                                 ""authenticatorName"":""MacBook Touch ID""
-                              },
-                              ""test"":true
+                              }
                             }";
 
             var mockClient = new MockAsyncClient(response, HttpStatusCode.OK);
