@@ -31801,6 +31801,12 @@ components:
           type: string
         stateToken:
           type: string
+        clientData:
+          type: string
+        authenticatorData:
+          type: string
+        signatureData:
+          type: string
     VerifyUserFactorResponseLinks:
       type: object
       properties:
@@ -31812,6 +31818,7 @@ components:
           $ref: '#/components/schemas/HrefObject'
     VerifyUserFactorResponse:
       type: object
+      additionalProperties: true
       properties:
         expiresAt:
           type: string

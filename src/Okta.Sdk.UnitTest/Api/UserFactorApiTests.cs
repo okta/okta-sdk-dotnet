@@ -9,6 +9,8 @@ using Okta.Sdk.Client;
 using WireMock.Server;
 using Okta.Sdk.Model;
 using NJsonSchema.Extensions;
+using WireMock.ResponseBuilders;
+using Newtonsoft.Json.Linq;
 
 namespace Okta.Sdk.UnitTest.Api
 {
@@ -193,7 +195,7 @@ namespace Okta.Sdk.UnitTest.Api
                     NextPassCode = "foo",
                 }
             });
-            
+
             mockClient.ReceivedBody.Should().BeEquivalentTo("{\"profile\":{\"credentialId\":\"foo\"},\"factorType\":\"token\",\"provider\":\"SYMANTEC\",\"verify\":{\"nextPassCode\":\"foo\",\"passCode\":\"foo\"}}");
             enrollFactorResponse.FactorType.Should().Be(FactorType.Token);
             enrollFactorResponse.Provider.Should().Be(FactorProvider.SYMANTEC);
@@ -313,7 +315,7 @@ namespace Okta.Sdk.UnitTest.Api
             var mockClient = new MockAsyncClient(response, HttpStatusCode.OK);
             var userFactorApi = new UserFactorApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
-            var enrollFactorResponse = await userFactorApi.EnrollFactorAsync("foo", 
+            var enrollFactorResponse = await userFactorApi.EnrollFactorAsync("foo",
                 new EmailUserFactor
                 {
                     FactorType = FactorType.Email,
@@ -388,6 +390,35 @@ namespace Okta.Sdk.UnitTest.Api
             mockClient.ReceivedBody.Should().BeEquivalentTo("{\"factorProfileId\":\"fpr20l2mDyaUGWGCa0g4\",\"profile\":{\"sharedSecret\":\"123\"},\"factorType\":\"token:hotp\",\"provider\":\"CUSTOM\"}");
             enrollFactorResponse.FactorType.Should().Be(FactorType.Tokenhotp);
             enrollFactorResponse.Provider.Should().Be(FactorProvider.CUSTOM);
+        }
+
+        [Fact]
+        public async Task VerifyWebAuthnFactor()
+        {
+            var response = @"{
+                              ""factorResult"":""SUCCESS"",
+                              ""profile"":{
+                                ""credentialId"":""l3Br0n-7H3g047NqESqJynFtIgf3Ix9OfaRoNwLoloso99Xl2zS_O7EXUkmPeAIzTVtEL4dYjicJWBz7NpqhGA"",
+                                ""authenticatorName"":""MacBook Touch ID""
+                              }
+                            }";
+
+            var mockClient = new MockAsyncClient(response, HttpStatusCode.OK);
+            var userFactorApi = new UserFactorApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+
+            var verifyFactorRequest = new VerifyFactorRequest
+            {
+                ClientData = "foo",
+                AuthenticatorData = "bar",
+                SignatureData = "baz",
+            };
+
+            var verifyResponse = await userFactorApi.VerifyFactorAsync("bax", "pcm", body: verifyFactorRequest);
+            mockClient.ReceivedBody.Should().BeEquivalentTo("{\"clientData\":\"foo\",\"authenticatorData\":\"bar\",\"signatureData\":\"baz\"}");
+            verifyResponse.FactorResult.Should().Be(VerifyUserFactorResult.SUCCESS);
+            var profile = (JObject)verifyResponse.AdditionalProperties["profile"];
+            profile["credentialId"].ToString().Should().Be("l3Br0n-7H3g047NqESqJynFtIgf3Ix9OfaRoNwLoloso99Xl2zS_O7EXUkmPeAIzTVtEL4dYjicJWBz7NpqhGA");
+            profile["authenticatorName"].ToString().Should().Be("MacBook Touch ID");
         }
     }
 }
