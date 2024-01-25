@@ -30001,6 +30001,7 @@ components:
               $ref: '#/components/schemas/SamlApplicationSettingsSignOn'
     SamlApplicationSettingsApplication:
       type: object
+      additionalProperties: true
       properties:
         acsUrl:
           type: string
