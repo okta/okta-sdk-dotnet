@@ -1,6 +1,11 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 7.0.4
+
+- Update vulnerable `System.IdentityModel.Tokens.Jwt` dependency (OKTA-683207)
+- Fix "Missing application settings when fetching SamlApplication" (#644)
+
 ## 7.0.3
 
 - Fix "Missing data in verifyFactorRequest prevents verifying webauthn" (OKTA-656179)
