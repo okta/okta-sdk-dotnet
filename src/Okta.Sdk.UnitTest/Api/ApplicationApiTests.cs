@@ -399,5 +399,95 @@ namespace Okta.Sdk.UnitTest
 
             return rawResponse;
         }
+
+        [Fact]
+        public async Task GetSamlApplicationSettingsAppAdditionalProperties()
+        {
+            var samlAppStub = @"{
+                                ""id"": ""<id>"",
+                                ""name"": ""salesforce"",
+                                ""label"": ""Salesforce.com"",
+                                ""status"": ""ACTIVE"",
+                                ""lastUpdated"": ""2023-05-09T14:01:21.000Z"",
+                                ""created"": ""2023-05-09T13:58:16.000Z"",
+                                ""accessibility"": {
+                                    ""selfService"": false,
+                                    ""errorRedirectUrl"": null,
+                                    ""loginRedirectUrl"": null
+                                },
+                                ""licensing"": {
+                                    ""seatCount"": 0
+                                },
+                                ""visibility"": {
+                                    ""autoLaunch"": false,
+                                    ""autoSubmitToolbar"": true,
+                                    ""hide"": {
+                                        ""iOS"": false,
+                                        ""web"": false
+                                    },
+                                    ""appLinks"": {
+                                        ""mc"": true
+                                    }
+                                },
+                                ""features"": [],
+                                ""signOnMode"": ""SAML_2_0"",
+                                ""credentials"": {
+                                    ""userNameTemplate"": {
+                                        ""template"": ""${source.login}"",
+                                        ""type"": ""BUILT_IN""
+                                    },
+                                    ""signing"": {
+                                        ""kid"": ""<kid>""
+                                    }
+                                },
+                                ""settings"": {
+                                    ""app"": {
+                                        ""integrationType"": ""STANDARD"",
+                                        ""siteURL"": null,
+                                        ""loginUrl"": ""https://<domain>.my.salesforce.com"",
+                                        ""logoutUrl"": null,
+                                        ""instanceType"": ""PRODUCTION"",
+                                        ""portalID"": null,
+                                        ""orgID"": null,
+                                        ""customDomain"": ""<domain>""
+                                    },
+                                    ""notifications"": {
+                                        ""vpn"": {
+                                            ""network"": {
+                                                ""connection"": ""DISABLED""
+                                            },
+                                            ""message"": null,
+                                            ""helpUrl"": null
+                                        }
+                                    },
+                                    ""notes"": {
+                                        ""admin"": null,
+                                        ""enduser"": null
+                                    },
+                                    ""signOn"": {
+                                        ""defaultRelayState"": null,
+                                        ""ssoAcsUrlOverride"": null,
+                                        ""audienceOverride"": null,
+                                        ""recipientOverride"": null,
+                                        ""destinationOverride"": null,
+                                        ""attributeStatements"": []
+                                    }
+                                }
+                            }";
+
+            var mockClient = new MockAsyncClient(samlAppStub, HttpStatusCode.OK);
+            var appApi = new ApplicationApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+
+            var samlApp = await appApi.GetApplicationAsync("foo") as SamlApplication;
+            samlApp.Settings.App.AdditionalProperties["integrationType"].Should().Be("STANDARD");
+            samlApp.Settings.App.AdditionalProperties["siteURL"].Should().BeNull();
+            samlApp.Settings.App.AdditionalProperties["loginUrl"].Should().Be("https://<domain>.my.salesforce.com");
+            samlApp.Settings.App.AdditionalProperties["logoutUrl"].Should().BeNull();
+            samlApp.Settings.App.AdditionalProperties["instanceType"].Should().Be("PRODUCTION");
+            samlApp.Settings.App.AdditionalProperties["portalID"].Should().BeNull();
+            samlApp.Settings.App.AdditionalProperties["orgID"].Should().BeNull();
+            samlApp.Settings.App.AdditionalProperties["customDomain"].Should().Be("<domain>");
+
+        }
     }
 }
