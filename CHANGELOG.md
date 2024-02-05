@@ -1,6 +1,10 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 7.0.5
+
+- Downgrade `System.IdentityModel.Tokens*` dependencies from 7.2.0 to 6.35.0 to avoid breaking changes (#692)
+
 ## 7.0.4
 
 - Update vulnerable `System.IdentityModel.Tokens.Jwt` dependency (OKTA-683207)
