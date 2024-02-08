@@ -21,29 +21,34 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// ProvisioningConnectionRequest
+    /// ProvisioningConnectionUnknown
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionRequest")]
+    [DataContract(Name = "ProvisioningConnectionUnknown")]
+    [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionOauth), "OAUTH2")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionToken), "TOKEN")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionUnknown), "UNKNOWN")]
     
-    public partial class ProvisioningConnectionRequest : IEquatable<ProvisioningConnectionRequest>
+    public partial class ProvisioningConnectionUnknown : ProvisioningConnection, IEquatable<ProvisioningConnectionUnknown>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisioningConnectionRequest" /> class.
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionUnknown" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ProvisioningConnectionRequest() { }
+        public ProvisioningConnectionUnknown() { }
         
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
         [DataMember(Name = "profile", EmitDefaultValue = true)]
-        public ProvisioningConnectionProfile Profile { get; set; }
+        public ProvisioningConnectionProfileUnknown Profile { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,7 +57,8 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionRequest {\n");
+            sb.Append("class ProvisioningConnectionUnknown {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -62,7 +68,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -74,21 +80,21 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionRequest);
+            return this.Equals(input as ProvisioningConnectionUnknown);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionRequest instances are equal
+        /// Returns true if ProvisioningConnectionUnknown instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionRequest to be compared</param>
+        /// <param name="input">Instance of ProvisioningConnectionUnknown to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionRequest input)
+        public bool Equals(ProvisioningConnectionUnknown input)
         {
             if (input == null)
             {
                 return false;
             }
-            return 
+            return base.Equals(input) && 
                 (
                     this.Profile == input.Profile ||
                     (this.Profile != null &&
@@ -104,7 +110,7 @@ namespace Okta.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 
                 if (this.Profile != null)
                 {

@@ -21,25 +21,17 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// ProvisioningConnection
+    /// The app provisioning connection profile used to configure the method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication are supported. 
     /// </summary>
-    [DataContract(Name = "ProvisioningConnection")]
-    [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionOauth), "OAUTH2")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionOauth), "ProvisioningConnectionOauth")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionToken), "ProvisioningConnectionToken")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionUnknown), "ProvisioningConnectionUnknown")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionToken), "TOKEN")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionUnknown), "UNKNOWN")]
+    [DataContract(Name = "ProvisioningConnectionProfileOauthForRequest")]
     
-    public partial class ProvisioningConnection : IEquatable<ProvisioningConnection>
+    public partial class ProvisioningConnectionProfileOauthForRequest : IEquatable<ProvisioningConnectionProfileOauthForRequest>
     {
 
         /// <summary>
@@ -48,24 +40,18 @@ namespace Okta.Sdk.Model
         [DataMember(Name = "authScheme", EmitDefaultValue = true)]
         
         public ProvisioningConnectionAuthScheme AuthScheme { get; set; }
-
         /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = true)]
-        
-        public ProvisioningConnectionStatus Status { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisioningConnection" /> class.
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionProfileOauthForRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ProvisioningConnection() { }
+        public ProvisioningConnectionProfileOauthForRequest() { }
         
         /// <summary>
-        /// Gets or Sets Links
+        /// Unique client identifier for the OAuth 2.0 service app from the target org
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = true)]
-        public LinksSelfLifecycleAndAuthorize Links { get; set; }
+        /// <value>Unique client identifier for the OAuth 2.0 service app from the target org</value>
+        [DataMember(Name = "clientId", EmitDefaultValue = true)]
+        public string ClientId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,10 +60,9 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnection {\n");
+            sb.Append("class ProvisioningConnectionProfileOauthForRequest {\n");
             sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,15 +83,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnection);
+            return this.Equals(input as ProvisioningConnectionProfileOauthForRequest);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnection instances are equal
+        /// Returns true if ProvisioningConnectionProfileOauthForRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnection to be compared</param>
+        /// <param name="input">Instance of ProvisioningConnectionProfileOauthForRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnection input)
+        public bool Equals(ProvisioningConnectionProfileOauthForRequest input)
         {
             if (input == null)
             {
@@ -118,13 +103,9 @@ namespace Okta.Sdk.Model
                     this.AuthScheme.Equals(input.AuthScheme)
                 ) && 
                 (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.Links == input.Links ||
-                    (this.Links != null &&
-                    this.Links.Equals(input.Links))
+                    this.ClientId == input.ClientId ||
+                    (this.ClientId != null &&
+                    this.ClientId.Equals(input.ClientId))
                 );
         }
 
@@ -142,13 +123,9 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
                 }
-                if (this.Status != null)
+                if (this.ClientId != null)
                 {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                if (this.Links != null)
-                {
-                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
                 }
                 return hashCode;
             }

@@ -2260,7 +2260,9 @@ namespace Okta.Sdk.IntegrationTest
             {
 
                 var connection = await _applicationConnectionsApi.GetDefaultProvisioningConnectionForApplicationAsync(createdApp.Id);
-                connection.Profile.AuthScheme.Value.Should().Be("UNKNOWN");
+                //connection.Profile.AuthScheme.Value.Should().Be("UNKNOWN");
+                // FAILS: CANNOT CAST 
+                ((ProvisioningConnectionUnknown)connection).Profile.AuthScheme.Value.Should().Be("UNKNOWN");
                 connection.Status.Should().Be(ProvisioningConnectionStatus.UNKNOWN);
 
             }

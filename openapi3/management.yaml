@@ -1231,6 +1231,9 @@ paths:
             - okta.apps.read
       tags:
         - ApplicationConnections
+      x-okta-lifecycle:
+        lifecycle: GA
+        isGenerallyAvailable: true
     post:
       summary: Update the default Provisioning Connection
       description: Updates the default Provisioning Connection for an app
@@ -1245,7 +1248,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProvisioningConnectionRequest'
+              oneOf:
+                - $ref: '#/components/schemas/ProvisioningConnectionTokenRequest'
+                - $ref: '#/components/schemas/ProvisioningConnectionOauthRequest'
             examples:
               ProvisioningConnectionTokenExample:
                 $ref: '#/components/examples/ProvisioningConnectionTokenRequestEx'
@@ -1278,6 +1283,9 @@ paths:
             - okta.apps.manage
       tags:
         - ApplicationConnections
+      x-okta-lifecycle:
+        lifecycle: GA
+        isGenerallyAvailable: true
   /api/v1/apps/{appId}/connections/default/lifecycle/activate:
     parameters:
       - $ref: '#/components/parameters/pathAppId'
@@ -26679,6 +26687,10 @@ components:
           properties:
             roles:
               $ref: '#/components/schemas/HrefObject'
+    LinksSelfLifecycleAndAuthorize:
+      allOf:
+        - $ref: '#/components/schemas/LinksSelfAndLifecycle'
+        - type: object
     ListProfileMappings:
       description: |-
         A collection of the profile mappings that include a subset of the profile mapping object's properties. The Profile Mapping object describes a mapping between an Okta User's and an App User's properties using [JSON Schema Draft 4](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04).
@@ -29293,15 +29305,19 @@ components:
       properties:
         authScheme:
           $ref: '#/components/schemas/ProvisioningConnectionAuthScheme'
-        profile:
-          $ref: '#/components/schemas/ProvisioningConnectionProfile'
         status:
           $ref: '#/components/schemas/ProvisioningConnectionStatus'
         _links:
-          $ref: '#/components/schemas/LinksSelfAndLifecycle'
+          $ref: '#/components/schemas/LinksSelfLifecycleAndAuthorize'
       required:
         - authScheme
         - status
+      discriminator:
+        propertyName: authScheme
+        mapping:
+          TOKEN: '#/components/schemas/ProvisioningConnectionToken'
+          OAUTH2: '#/components/schemas/ProvisioningConnectionOauth'
+          UNKNOWN: '#/components/schemas/ProvisioningConnectionUnknown'
     ProvisioningConnectionAuthScheme:
       description: Defines the method of authentication
       type: string
@@ -29313,6 +29329,20 @@ components:
         TOKEN: A token is used to authenticate with the app.
         OAUTH2: OAuth 2.0 is used to authenticate with the app.
         UNKNOWN: The authentication scheme used by the app isn't supported, or the app doesn't support provisioning.
+    ProvisioningConnectionOauth:
+      allOf:
+        - $ref: '#/components/schemas/ProvisioningConnection'
+        - type: object
+          properties:
+            profile:
+              $ref: '#/components/schemas/ProvisioningConnectionProfileOauth'
+    ProvisioningConnectionOauthRequest:
+      type: object
+      properties:
+        profile:
+          $ref: '#/components/schemas/ProvisioningConnectionProfileOauthForRequest'
+      required:
+        - profile
     ProvisioningConnectionProfile:
       description: |
         The profile used to configure the connection method of authentication and the credentials.
@@ -29321,12 +29351,8 @@ components:
       properties:
         authScheme:
           $ref: '#/components/schemas/ProvisioningConnectionAuthScheme'
-      discriminator:
-        propertyName: authScheme
-        mapping:
-          TOKEN: '#/components/schemas/ProvisioningConnectionProfileToken'
-          OAUTH2: '#/components/schemas/ProvisioningConnectionProfileOauth'
-          UNKNOWN: '#/components/schemas/ProvisioningConnectionProfileUnknown'
+      required:
+        - authScheme
     ProvisioningConnectionProfileOauth:
       description: |
         The app provisioning connection profile used to configure the method of authentication and the credentials.
@@ -29341,6 +29367,26 @@ components:
           required:
             - authScheme
             - clientId
+    ProvisioningConnectionProfileOauthForRequest:
+      description: |
+        The app provisioning connection profile used to configure the method of authentication and the credentials.
+        Currently, token-based and OAuth 2.0-based authentication are supported.
+      allOf:
+        - $ref: '#/components/schemas/ProvisioningConnectionProfile'
+        - type: object
+          properties:
+            clientId:
+              type: string
+              description: Unique client identifier for the OAuth 2.0 service app from the target org
+          required:
+            - authScheme
+            - clientId
+    ProvisioningConnectionProfileOauthSettings:
+      title: Generic
+      description: Specific settings aren't defined for generic OAuth 2.0 provisioning connections
+      additionalProperties:
+        type: string
+      type: object
     ProvisioningConnectionProfileToken:
       description: |
         The app provisioning connection profile used to configure the method of authentication and the credentials.
@@ -29360,13 +29406,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/ProvisioningConnectionProfile'
         - type: object
-    ProvisioningConnectionRequest:
-      type: object
-      properties:
-        profile:
-          $ref: '#/components/schemas/ProvisioningConnectionProfile'
-      required:
-        - profile
     ProvisioningConnectionStatus:
       description: Provisioning connection status
       default: DISABLED
@@ -29379,6 +29418,27 @@ components:
         DISABLED: The provisioning connection is disabled.
         ENABLED: The provisioning connection is enabled.
         UNKNOWN: Provisioning isn't supported by the app, or the authentication method is unknown.
+    ProvisioningConnectionToken:
+      allOf:
+        - $ref: '#/components/schemas/ProvisioningConnection'
+        - type: object
+          properties:
+            profile:
+              $ref: '#/components/schemas/ProvisioningConnectionProfileToken'
+    ProvisioningConnectionTokenRequest:
+      type: object
+      properties:
+        profile:
+          $ref: '#/components/schemas/ProvisioningConnectionProfileToken'
+      required:
+        - profile
+    ProvisioningConnectionUnknown:
+      allOf:
+        - $ref: '#/components/schemas/ProvisioningConnection'
+        - type: object
+          properties:
+            profile:
+              $ref: '#/components/schemas/ProvisioningConnectionProfileUnknown'
     ProvisioningDeprovisionedAction:
       type: string
       enum:

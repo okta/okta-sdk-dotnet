@@ -27,31 +27,23 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// The app provisioning connection profile used to configure the method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication are supported. 
+    /// ProvisioningConnectionTokenRequest
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionProfileToken")]
+    [DataContract(Name = "ProvisioningConnectionTokenRequest")]
     
-    public partial class ProvisioningConnectionProfileToken : IEquatable<ProvisioningConnectionProfileToken>
+    public partial class ProvisioningConnectionTokenRequest : IEquatable<ProvisioningConnectionTokenRequest>
     {
-
         /// <summary>
-        /// Gets or Sets AuthScheme
-        /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
-        
-        public ProvisioningConnectionAuthScheme AuthScheme { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisioningConnectionProfileToken" /> class.
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionTokenRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ProvisioningConnectionProfileToken() { }
+        public ProvisioningConnectionTokenRequest() { }
         
         /// <summary>
-        /// Token used to authenticate with the app
+        /// Gets or Sets Profile
         /// </summary>
-        /// <value>Token used to authenticate with the app</value>
-        [DataMember(Name = "token", EmitDefaultValue = true)]
-        public string Token { get; set; }
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
+        public ProvisioningConnectionProfileToken Profile { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +52,8 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionProfileToken {\n");
-            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
-            sb.Append("  Token: ").Append(Token).Append("\n");
+            sb.Append("class ProvisioningConnectionTokenRequest {\n");
+            sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,15 +74,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionProfileToken);
+            return this.Equals(input as ProvisioningConnectionTokenRequest);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionProfileToken instances are equal
+        /// Returns true if ProvisioningConnectionTokenRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionProfileToken to be compared</param>
+        /// <param name="input">Instance of ProvisioningConnectionTokenRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionProfileToken input)
+        public bool Equals(ProvisioningConnectionTokenRequest input)
         {
             if (input == null)
             {
@@ -99,13 +90,9 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
-                ) && 
-                (
-                    this.Token == input.Token ||
-                    (this.Token != null &&
-                    this.Token.Equals(input.Token))
+                    this.Profile == input.Profile ||
+                    (this.Profile != null &&
+                    this.Profile.Equals(input.Profile))
                 );
         }
 
@@ -119,13 +106,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.AuthScheme != null)
+                if (this.Profile != null)
                 {
-                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
-                }
-                if (this.Token != null)
-                {
-                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Profile.GetHashCode();
                 }
                 return hashCode;
             }

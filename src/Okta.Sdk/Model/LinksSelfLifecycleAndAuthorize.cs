@@ -27,31 +27,30 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// The app provisioning connection profile used to configure the method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication are supported. 
+    /// LinksSelfLifecycleAndAuthorize
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionProfileToken")]
+    [DataContract(Name = "LinksSelfLifecycleAndAuthorize")]
     
-    public partial class ProvisioningConnectionProfileToken : IEquatable<ProvisioningConnectionProfileToken>
+    public partial class LinksSelfLifecycleAndAuthorize : IEquatable<LinksSelfLifecycleAndAuthorize>
     {
+        
+        /// <summary>
+        /// Gets or Sets Self
+        /// </summary>
+        [DataMember(Name = "self", EmitDefaultValue = true)]
+        public HrefObjectSelfLink Self { get; set; }
 
         /// <summary>
-        /// Gets or Sets AuthScheme
+        /// Gets or Sets Activate
         /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
-        
-        public ProvisioningConnectionAuthScheme AuthScheme { get; set; }
+        [DataMember(Name = "activate", EmitDefaultValue = true)]
+        public HrefObjectActivateLink Activate { get; set; }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisioningConnectionProfileToken" /> class.
+        /// Gets or Sets Deactivate
         /// </summary>
-        [JsonConstructorAttribute]
-        public ProvisioningConnectionProfileToken() { }
-        
-        /// <summary>
-        /// Token used to authenticate with the app
-        /// </summary>
-        /// <value>Token used to authenticate with the app</value>
-        [DataMember(Name = "token", EmitDefaultValue = true)]
-        public string Token { get; set; }
+        [DataMember(Name = "deactivate", EmitDefaultValue = true)]
+        public HrefObjectDeactivateLink Deactivate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +59,10 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionProfileToken {\n");
-            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
-            sb.Append("  Token: ").Append(Token).Append("\n");
+            sb.Append("class LinksSelfLifecycleAndAuthorize {\n");
+            sb.Append("  Self: ").Append(Self).Append("\n");
+            sb.Append("  Activate: ").Append(Activate).Append("\n");
+            sb.Append("  Deactivate: ").Append(Deactivate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,15 +83,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionProfileToken);
+            return this.Equals(input as LinksSelfLifecycleAndAuthorize);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionProfileToken instances are equal
+        /// Returns true if LinksSelfLifecycleAndAuthorize instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionProfileToken to be compared</param>
+        /// <param name="input">Instance of LinksSelfLifecycleAndAuthorize to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionProfileToken input)
+        public bool Equals(LinksSelfLifecycleAndAuthorize input)
         {
             if (input == null)
             {
@@ -99,13 +99,19 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
+                    this.Self == input.Self ||
+                    (this.Self != null &&
+                    this.Self.Equals(input.Self))
                 ) && 
                 (
-                    this.Token == input.Token ||
-                    (this.Token != null &&
-                    this.Token.Equals(input.Token))
+                    this.Activate == input.Activate ||
+                    (this.Activate != null &&
+                    this.Activate.Equals(input.Activate))
+                ) && 
+                (
+                    this.Deactivate == input.Deactivate ||
+                    (this.Deactivate != null &&
+                    this.Deactivate.Equals(input.Deactivate))
                 );
         }
 
@@ -119,13 +125,17 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.AuthScheme != null)
+                if (this.Self != null)
                 {
-                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Self.GetHashCode();
                 }
-                if (this.Token != null)
+                if (this.Activate != null)
                 {
-                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Activate.GetHashCode();
+                }
+                if (this.Deactivate != null)
+                {
+                    hashCode = (hashCode * 59) + this.Deactivate.GetHashCode();
                 }
                 return hashCode;
             }

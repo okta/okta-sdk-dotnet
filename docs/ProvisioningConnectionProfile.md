@@ -5,7 +5,7 @@ The profile used to configure the connection method of authentication and the cr
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthScheme** | **ProvisioningConnectionAuthScheme** |  | [optional] 
+**AuthScheme** | **ProvisioningConnectionAuthScheme** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

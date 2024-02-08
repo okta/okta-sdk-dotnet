@@ -21,7 +21,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
@@ -31,13 +30,6 @@ namespace Okta.Sdk.Model
     /// The profile used to configure the connection method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication are supported. 
     /// </summary>
     [DataContract(Name = "ProvisioningConnectionProfile")]
-    [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileOauth), "OAUTH2")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileOauth), "ProvisioningConnectionProfileOauth")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileToken), "ProvisioningConnectionProfileToken")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileUnknown), "ProvisioningConnectionProfileUnknown")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileToken), "TOKEN")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileUnknown), "UNKNOWN")]
     
     public partial class ProvisioningConnectionProfile : IEquatable<ProvisioningConnectionProfile>
     {
@@ -48,6 +40,11 @@ namespace Okta.Sdk.Model
         [DataMember(Name = "authScheme", EmitDefaultValue = true)]
         
         public ProvisioningConnectionAuthScheme AuthScheme { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionProfile" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        public ProvisioningConnectionProfile() { }
         
         /// <summary>
         /// Returns the string presentation of the object

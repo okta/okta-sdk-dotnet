@@ -276,14 +276,25 @@ namespace Okta.Sdk.UnitTest
 
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
             var appApi = new ApplicationConnectionsApi(mockClient, new Configuration { BasePath = "https://foo.com" });
-            var connectionProfile = new ProvisioningConnectionRequest
+            //var connectionProfile = new ProvisioningConnectionRequest
+            //{
+            //    Profile = new ProvisioningConnectionProfileOauth
+            //    {
+            //        ClientId = "foo",
+            //        AuthScheme = ProvisioningConnectionAuthScheme.TOKEN
+            //    }
+            //};
+
+            var connectionProfile = new UpdateDefaultProvisioningConnectionForApplicationRequest(new ProvisioningConnectionTokenRequest
             {
-                Profile = new ProvisioningConnectionProfileOauth
+                Profile = new ProvisioningConnectionProfileToken
                 {
-                    ClientId = "foo",
-                    AuthScheme = ProvisioningConnectionAuthScheme.TOKEN
+                    //ClientId = "foo",
+                    AuthScheme = ProvisioningConnectionAuthScheme.TOKEN,
+                    Token = "foo"
                 }
-            };
+            });
+            
 
             var response = await appApi.UpdateDefaultProvisioningConnectionForApplicationAsync("bar", connectionProfile, true);
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/connections/default");
@@ -291,10 +302,12 @@ namespace Okta.Sdk.UnitTest
             mockClient.ReceivedQueryParams.ContainsKey("activate").Should().BeTrue();
             mockClient.ReceivedQueryParams["activate"].Should().Contain("true");
 
-            var expectedBody = @"{""profile"":{""clientId"":""foo"",""authScheme"":""TOKEN""}}";
+            //var expectedBody = @"{""profile"":{""clientId"":""foo"",""authScheme"":""TOKEN""}}";
+            var expectedBody = @"{""profile"":{""authScheme"":""TOKEN"",""token"":""foo""}}";
             mockClient.ReceivedBody.Should().Be(expectedBody);
             response.Status.Value.Should().Be("ENABLED");
-            response.Profile.AuthScheme.Value.Should().Be("TOKEN");
+            ((ProvisioningConnectionToken)response).Profile.AuthScheme.Value.Should().Be("TOKEN");
+            //response.Profile.AuthScheme.Value.Should().Be("TOKEN");
             response.AuthScheme.Value.Should().Be("TOKEN");
         }
 

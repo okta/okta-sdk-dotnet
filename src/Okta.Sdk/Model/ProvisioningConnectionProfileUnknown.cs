@@ -21,7 +21,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
@@ -31,13 +30,21 @@ namespace Okta.Sdk.Model
     /// Unknown provisioning connection
     /// </summary>
     [DataContract(Name = "ProvisioningConnectionProfileUnknown")]
-    [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileOauth), "OAUTH2")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileToken), "TOKEN")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileUnknown), "UNKNOWN")]
     
-    public partial class ProvisioningConnectionProfileUnknown : ProvisioningConnectionProfile, IEquatable<ProvisioningConnectionProfileUnknown>
+    public partial class ProvisioningConnectionProfileUnknown : IEquatable<ProvisioningConnectionProfileUnknown>
     {
+
+        /// <summary>
+        /// Gets or Sets AuthScheme
+        /// </summary>
+        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
+        
+        public ProvisioningConnectionAuthScheme AuthScheme { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionProfileUnknown" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        public ProvisioningConnectionProfileUnknown() { }
         
         /// <summary>
         /// Returns the string presentation of the object
@@ -47,7 +54,7 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProvisioningConnectionProfileUnknown {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -56,7 +63,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -82,7 +89,11 @@ namespace Okta.Sdk.Model
             {
                 return false;
             }
-            return base.Equals(input);
+            return 
+                (
+                    this.AuthScheme == input.AuthScheme ||
+                    this.AuthScheme.Equals(input.AuthScheme)
+                );
         }
 
         /// <summary>
@@ -93,8 +104,12 @@ namespace Okta.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 
+                if (this.AuthScheme != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                }
                 return hashCode;
             }
         }
