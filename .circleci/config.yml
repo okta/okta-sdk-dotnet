@@ -32,7 +32,8 @@ jobs:
       - run:
           name: "Test Runner"
           command: |
-              ./build.ps1;
+              ./build.sh
+          shell: bash.exe
       - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
           root: ~/project
           paths:
