@@ -27,7 +27,7 @@ jobs:
               choco install -y powershell-core
       - run:
           name: "Test Runner"
-          #shell: bash.exe
+          shell: bash.exe
           command: pwsh.exe -File ./build.ps1
       - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
           root: ~/project
