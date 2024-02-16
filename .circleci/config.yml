@@ -15,6 +15,16 @@ jobs:
       name: windows/default
     steps:
       - checkout
+      - run:
+          name: Install and set Python 3.7.0
+          shell: powershell.exe
+          command: |
+            choco install pyenv-win --force
+            refreshenv
+            pyenv install 3.7.0
+            pyenv global 3.7.0
+            $env:Path = 'C:\Users\circleci\.pyenv\pyenv-win\bin;C:\Users\circleci\.pyenv\pyenv-win\shims;' + $env:Path
+            python --version
       - general-platform-helpers/step-load-dependencies
       - run:
           name: "Install required components"
