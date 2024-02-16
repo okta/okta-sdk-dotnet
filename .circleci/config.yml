@@ -26,9 +26,9 @@ jobs:
               choco install -y dotnetcore-sdk
               choco install -y powershell-core
        - run:
-           name: "Test Runner"
-           shell: bash.exe
-           command: |
+          name: "Test Runner"
+          shell: bash.exe
+          command: |
               echo "${OKTA_CLIENT_CONNECTIONTIMEOUT}"
               pwsh.exe -File ./build.ps1
       #- run:
