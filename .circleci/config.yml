@@ -4,7 +4,7 @@ version: 2.1
 
 orbs:
   windows: circleci/windows@5.0
-  general-platform-helpers: okta/general-platform-helpers@1.8
+  general-platform-helpers: okta/general-platform-helpers@1.9
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -55,9 +55,11 @@ workflows:
   "Build/Tests":
     jobs:
       - general-platform-helpers/job-secrets-obtain:
-        name: cache-secrets
-        secret-key: "OKTA_CLIENT_OKTADOMAIN;OKTA_CLIENT_TOKEN;OKTA_CLIENT_CONNECTIONTIMEOUT;OKTA_CLIENT_REQUESTTIMEOUT;OKTA_CLIENT_RATELIMIT_MAXRETRIES"
-      - build
+          name: cache-secrets
+          secret-key: "OKTA_CLIENT_OKTADOMAIN;OKTA_CLIENT_TOKEN;OKTA_CLIENT_CONNECTIONTIMEOUT;OKTA_CLIENT_REQUESTTIMEOUT;OKTA_CLIENT_RATELIMIT_MAXRETRIES"
+      - build:
+          requires: 
+            - cache-secrets
       - general-platform-helpers/job-snyk-prepare:
           name: prepare-snyk
           requires:
