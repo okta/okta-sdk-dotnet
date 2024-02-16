@@ -25,8 +25,7 @@ jobs:
       #       pyenv global 3.7.0
       #       $env:Path = 'C:\Users\circleci\.pyenv\pyenv-win\bin;C:\Users\circleci\.pyenv\pyenv-win\shims;' + $env:Path
       #       python --version
-      - general-platform-helpers/step-load-dependencies:
-          python-runtime: "python"
+      - general-platform-helpers/step-load-dependencies-windows
       - run:
           name: "Install required components"
           command: |
