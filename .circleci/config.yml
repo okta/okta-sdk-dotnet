@@ -26,7 +26,7 @@ jobs:
               choco install -y powershell-core
       - run:
           name: "Test Runner"
-          shell: bash.exe
+          shell: bash
           command: |
               echo "${OKTA_CLIENT_CONNECTIONTIMEOUT}"
               pwsh.exe -File ./build.ps1
