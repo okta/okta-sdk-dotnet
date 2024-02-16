@@ -52,7 +52,7 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  "Build/Tests":
+  "Circle CI Tests":
     jobs:
       # - general-platform-helpers/job-secrets-obtain:
       #     name: cache-secrets
