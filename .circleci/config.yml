@@ -20,7 +20,6 @@ jobs:
           command: |
               choco install -y python
       - general-platform-helpers/step-load-dependencies-windows
-          shell: bash.exe
       - run:
           name: "Install required components"
           command: |
@@ -28,9 +27,8 @@ jobs:
               choco install -y powershell-core
       - run:
           name: "Test Runner"
-          shell: bash.exe
-          command: |
-              ./build.sh
+          #shell: bash.exe
+          command: pwsh.exe -File ./build.ps1
       - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
           root: ~/project
           paths:
