@@ -298,7 +298,8 @@ namespace Okta.Sdk.IntegrationTest
             return DateTime.UtcNow.ToString()
                 .Replace("/", "_")
                 .Replace(" ", "_")
-                .Replace(":", "_");
+                .Replace(":", "_")
+                .Replace("-", "_");
         }
     }
 }

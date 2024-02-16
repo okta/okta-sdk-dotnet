@@ -18,12 +18,13 @@ namespace Okta.Sdk.IntegrationTest
         private ResourceSetApi _resourceSetApi;
         private RoleApi _roleApi;
         private GroupApi _groupApi;
-
+        private string _oktaDomain;
         public ResourceSetScenarios()
         {
             _resourceSetApi = new ResourceSetApi();
             _roleApi = new RoleApi();
             _groupApi = new GroupApi();
+            _oktaDomain = ClientUtils.EnsureTrailingSlash(_resourceSetApi.Configuration.OktaDomain);
         }
 
         [Fact]
@@ -37,7 +38,7 @@ namespace Okta.Sdk.IntegrationTest
                 Description = "People in the IT department of San Francisco",
                 Resources = new List<string>()
                 {
-                    $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/users",
+                    $"{_oktaDomain}api/v1/users",
                 }
             };
 
@@ -68,7 +69,7 @@ namespace Okta.Sdk.IntegrationTest
                 Description = "People in the IT department of San Francisco",
                 Resources = new List<string>()
                 {
-                    $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/users",
+                    $"{_oktaDomain}api/v1/users",
                 }
             };
 
@@ -101,7 +102,7 @@ namespace Okta.Sdk.IntegrationTest
                 Description = "People in the IT department of San Francisco",
                 Resources = new List<string>()
                 {
-                    $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/users",
+                    $"{_oktaDomain}api/v1/users",
                 }
             };
 
@@ -142,7 +143,7 @@ namespace Okta.Sdk.IntegrationTest
                 Description = "People in the IT department of San Francisco",
                 Resources = new List<string>()
                 {
-                    $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/users",
+                    $"{_oktaDomain}api/v1/users",
                 }
             };
 
@@ -177,7 +178,7 @@ namespace Okta.Sdk.IntegrationTest
                 Description = "People in the IT department of San Francisco",
                 Resources = new List<string>()
                 {
-                    $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/users",
+                    $"{_oktaDomain}api/v1/users",
                 }
             };
 
@@ -209,7 +210,7 @@ namespace Okta.Sdk.IntegrationTest
                 Description = "People in the IT department of San Francisco",
                 Resources = new List<string>()
                 {
-                    $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/users",
+                    $"{_oktaDomain}api/v1/users",
                 }
             };
 
@@ -225,7 +226,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Additions = new List<string>
                     {
-                        $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/groups",
+                        $"{_oktaDomain}api/v1/groups",
                     }
                 };
                 var updatedResourceSet = await _resourceSetApi.AddResourceSetResourceAsync(createdResourceSet.Id, resourcesRequest);
@@ -252,8 +253,8 @@ namespace Okta.Sdk.IntegrationTest
                 Description = "People in the IT department of San Francisco",
                 Resources = new List<string>()
                 {
-                    $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/users",
-                    $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/groups"
+                    $"{_oktaDomain}api/v1/users",
+                    $"{_oktaDomain}api/v1/groups"
                 }
             };
 
@@ -290,7 +291,7 @@ namespace Okta.Sdk.IntegrationTest
                 Description = "People in the IT department of San Francisco",
                 Resources = new List<string>()
                 {
-                    $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/users",
+                    $"{_oktaDomain}api/v1/users",
                 }
             };
 
@@ -334,7 +335,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Members = new List<string>()
                     {
-                        $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/groups/{createdGroup.Id}"
+                        $"{_oktaDomain}api/v1/groups/{createdGroup.Id}"
                     },
                     Role = newRole.Id,
                 };
@@ -376,7 +377,7 @@ namespace Okta.Sdk.IntegrationTest
                 Description = "People in the IT department of San Francisco",
                 Resources = new List<string>()
                 {
-                    $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/users",
+                    $"{_oktaDomain}api/v1/users",
                 }
             };
 
@@ -420,7 +421,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Members = new List<string>()
                     {
-                        $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/groups/{createdGroup.Id}"
+                        $"{_oktaDomain}api/v1/groups/{createdGroup.Id}"
                     },
                     Role = newRole.Id,
                 };
@@ -466,7 +467,7 @@ namespace Okta.Sdk.IntegrationTest
                 Description = "People in the IT department of San Francisco",
                 Resources = new List<string>()
                 {
-                    $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/users",
+                    $"{_oktaDomain}api/v1/users",
                 }
             };
 
@@ -521,7 +522,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Members = new List<string>()
                     {
-                        $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/groups/{createdGroup.Id}"
+                        $"{_oktaDomain}api/v1/groups/{createdGroup.Id}"
                     },
                     Role = newRole.Id,
                 };
@@ -541,7 +542,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Additions = new List<string>()
                     {
-                        $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/groups/{createdGroup2.Id}"
+                        $"{_oktaDomain}api/v1/groups/{createdGroup2.Id}"
                     }
                 };
 
@@ -589,7 +590,7 @@ namespace Okta.Sdk.IntegrationTest
                 Description = "People in the IT department of San Francisco",
                 Resources = new List<string>()
                 {
-                    $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/users",
+                    $"{_oktaDomain}api/v1/users",
                 }
             };
 
@@ -633,7 +634,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Members = new List<string>()
                     {
-                        $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/groups/{createdGroup.Id}"
+                        $"{_oktaDomain}api/v1/groups/{createdGroup.Id}"
                     },
                     Role = newRole.Id,
                 };
@@ -677,7 +678,7 @@ namespace Okta.Sdk.IntegrationTest
                 Description = "People in the IT department of San Francisco",
                 Resources = new List<string>()
                 {
-                    $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/users",
+                    $"{_oktaDomain}api/v1/users",
                 }
             };
 
@@ -721,7 +722,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Members = new List<string>()
                     {
-                        $"{ClientUtils.EnsureTrailingSlash(Environment.GetEnvironmentVariable("okta:OktaDomain"))}api/v1/groups/{createdGroup.Id}"
+                        $"{_oktaDomain}api/v1/groups/{createdGroup.Id}"
                     },
                     Role = newRole.Id,
                 };
