@@ -17,15 +17,14 @@ jobs:
       - checkout
       - run:
           name: "Install python"
-          command: |
-              choco install -y python
+          command: choco install -y python
       - general-platform-helpers/step-load-dependencies-windows
       - run:
           name: "Install required components"
           command: |
               choco install -y dotnetcore-sdk
               choco install -y powershell-core
-       - run:
+      - run:
           name: "Test Runner"
           shell: bash.exe
           command: |
