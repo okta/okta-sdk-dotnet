@@ -30,9 +30,9 @@ jobs:
       #     shell: bash.exe
       #     command: pwsh.exe -File ./build.ps1
       - run:
-        name: "Test Runner"
-        command: |
-            ./build.ps1;
+          name: "Test Runner"
+          command: |
+              ./build.ps1;
       - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
           root: ~/project
           paths:
