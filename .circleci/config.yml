@@ -15,6 +15,7 @@ jobs:
       name: windows/default
     steps:
       - checkout
+      - general-platform-helpers/step-load-dependencies
       - run:
           name: "Install required components"
           command: |
