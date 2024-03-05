@@ -21,25 +21,30 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// Unknown provisioning connection
+    /// Base sign-in setting schema for an OIN app
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionProfileUnknown")]
+    [DataContract(Name = "OINApplicationSettingsSignOn")]
+    [JsonConverter(typeof(JsonSubtypes), "SignOnMode")]
+    [JsonSubtypes.KnownSubType(typeof(OINAutoLoginApplicationSettingsSignOn), "AUTO_LOGIN")]
+    [JsonSubtypes.KnownSubType(typeof(OINSaml11ApplicationSettingsSignOn), "SAML_1_1")]
+    [JsonSubtypes.KnownSubType(typeof(OINSaml20ApplicationSettingsSignOn), "SAML_2_0")]
     
-    public partial class ProvisioningConnectionProfileUnknown : IEquatable<ProvisioningConnectionProfileUnknown>
+    public partial class OINApplicationSettingsSignOn : IEquatable<OINApplicationSettingsSignOn>
     {
 
         /// <summary>
-        /// Gets or Sets AuthScheme
+        /// Gets or Sets SignOnMode
         /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
+        [DataMember(Name = "signOnMode", EmitDefaultValue = true)]
         
-        public ProvisioningConnectionUnknownAuthScheme AuthScheme { get; set; }
+        public ApplicationSignOnMode SignOnMode { get; set; }
         
         /// <summary>
         /// Returns the string presentation of the object
@@ -48,8 +53,8 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionProfileUnknown {\n");
-            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
+            sb.Append("class OINApplicationSettingsSignOn {\n");
+            sb.Append("  SignOnMode: ").Append(SignOnMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -70,15 +75,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionProfileUnknown);
+            return this.Equals(input as OINApplicationSettingsSignOn);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionProfileUnknown instances are equal
+        /// Returns true if OINApplicationSettingsSignOn instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionProfileUnknown to be compared</param>
+        /// <param name="input">Instance of OINApplicationSettingsSignOn to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionProfileUnknown input)
+        public bool Equals(OINApplicationSettingsSignOn input)
         {
             if (input == null)
             {
@@ -86,8 +91,8 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
+                    this.SignOnMode == input.SignOnMode ||
+                    this.SignOnMode.Equals(input.SignOnMode)
                 );
         }
 
@@ -101,9 +106,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.AuthScheme != null)
+                if (this.SignOnMode != null)
                 {
-                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                    hashCode = (hashCode * 59) + this.SignOnMode.GetHashCode();
                 }
                 return hashCode;
             }

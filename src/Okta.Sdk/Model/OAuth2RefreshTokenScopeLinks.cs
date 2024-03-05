@@ -27,20 +27,19 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// Unknown provisioning connection
+    /// Specifies link relations (see [Web Linking](https://www.rfc-editor.org/rfc/rfc8288)) available for the current status of an application using the [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionProfileUnknown")]
+    [DataContract(Name = "OAuth2RefreshTokenScope__links")]
     
-    public partial class ProvisioningConnectionProfileUnknown : IEquatable<ProvisioningConnectionProfileUnknown>
+    public partial class OAuth2RefreshTokenScopeLinks : IEquatable<OAuth2RefreshTokenScopeLinks>
     {
-
+        
         /// <summary>
-        /// Gets or Sets AuthScheme
+        /// Gets or Sets Scope
         /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
-        
-        public ProvisioningConnectionUnknownAuthScheme AuthScheme { get; set; }
-        
+        [DataMember(Name = "scope", EmitDefaultValue = true)]
+        public AppCustomHrefObject Scope { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -48,8 +47,8 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionProfileUnknown {\n");
-            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
+            sb.Append("class OAuth2RefreshTokenScopeLinks {\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -70,15 +69,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionProfileUnknown);
+            return this.Equals(input as OAuth2RefreshTokenScopeLinks);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionProfileUnknown instances are equal
+        /// Returns true if OAuth2RefreshTokenScopeLinks instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionProfileUnknown to be compared</param>
+        /// <param name="input">Instance of OAuth2RefreshTokenScopeLinks to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionProfileUnknown input)
+        public bool Equals(OAuth2RefreshTokenScopeLinks input)
         {
             if (input == null)
             {
@@ -86,8 +85,9 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
+                    this.Scope == input.Scope ||
+                    (this.Scope != null &&
+                    this.Scope.Equals(input.Scope))
                 );
         }
 
@@ -101,9 +101,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.AuthScheme != null)
+                if (this.Scope != null)
                 {
-                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
                 }
                 return hashCode;
             }

@@ -27,20 +27,25 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// Unknown provisioning connection
+    /// Zoom app instance properties
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionProfileUnknown")]
+    [DataContract(Name = "ZoomUsApplicationSettingsApplication")]
     
-    public partial class ProvisioningConnectionProfileUnknown : IEquatable<ProvisioningConnectionProfileUnknown>
+    public partial class ZoomUsApplicationSettingsApplication : IEquatable<ZoomUsApplicationSettingsApplication>
     {
-
         /// <summary>
-        /// Gets or Sets AuthScheme
+        /// Initializes a new instance of the <see cref="ZoomUsApplicationSettingsApplication" /> class.
         /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
+        [JsonConstructorAttribute]
+        public ZoomUsApplicationSettingsApplication() { }
         
-        public ProvisioningConnectionUnknownAuthScheme AuthScheme { get; set; }
-        
+        /// <summary>
+        /// Your Zoom subdomain
+        /// </summary>
+        /// <value>Your Zoom subdomain</value>
+        [DataMember(Name = "subDomain", EmitDefaultValue = true)]
+        public string SubDomain { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -48,8 +53,8 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionProfileUnknown {\n");
-            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
+            sb.Append("class ZoomUsApplicationSettingsApplication {\n");
+            sb.Append("  SubDomain: ").Append(SubDomain).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -70,15 +75,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionProfileUnknown);
+            return this.Equals(input as ZoomUsApplicationSettingsApplication);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionProfileUnknown instances are equal
+        /// Returns true if ZoomUsApplicationSettingsApplication instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionProfileUnknown to be compared</param>
+        /// <param name="input">Instance of ZoomUsApplicationSettingsApplication to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionProfileUnknown input)
+        public bool Equals(ZoomUsApplicationSettingsApplication input)
         {
             if (input == null)
             {
@@ -86,8 +91,9 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
+                    this.SubDomain == input.SubDomain ||
+                    (this.SubDomain != null &&
+                    this.SubDomain.Equals(input.SubDomain))
                 );
         }
 
@@ -101,9 +107,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.AuthScheme != null)
+                if (this.SubDomain != null)
                 {
-                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                    hashCode = (hashCode * 59) + this.SubDomain.GetHashCode();
                 }
                 return hashCode;
             }

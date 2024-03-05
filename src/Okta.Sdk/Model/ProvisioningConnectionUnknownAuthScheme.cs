@@ -26,32 +26,28 @@ using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 namespace Okta.Sdk.Model
 {
     /// <summary>
-    /// Provisioning connection status
+    /// The authentication scheme used by the app isn&#39;t supported, or the app doesn&#39;t support provisioning.
     /// </summary>
-    /// <value>Provisioning connection status</value>
+    /// <value>The authentication scheme used by the app isn&#39;t supported, or the app doesn&#39;t support provisioning.</value>
     [JsonConverter(typeof(StringEnumSerializingConverter))]
-    public sealed class ProvisioningConnectionStatus : StringEnum
+    public sealed class ProvisioningConnectionUnknownAuthScheme : StringEnum
     {
         /// <summary>
-        /// StringEnum ProvisioningConnectionStatus for value: DISABLED
+        /// StringEnum ProvisioningConnectionUnknownAuthScheme for value: UNKNOWN
         /// </summary>
-        public static ProvisioningConnectionStatus DISABLED = new ProvisioningConnectionStatus("DISABLED");
-        /// <summary>
-        /// StringEnum ProvisioningConnectionStatus for value: ENABLED
-        /// </summary>
-        public static ProvisioningConnectionStatus ENABLED = new ProvisioningConnectionStatus("ENABLED");
+        public static ProvisioningConnectionUnknownAuthScheme UNKNOWN = new ProvisioningConnectionUnknownAuthScheme("UNKNOWN");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref="ProvisioningConnectionStatus"/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ProvisioningConnectionUnknownAuthScheme"/>
         /// </summary>
         /// <param name="value">The value to use</param>
-        public static implicit operator ProvisioningConnectionStatus(string value) => new ProvisioningConnectionStatus(value);
+        public static implicit operator ProvisioningConnectionUnknownAuthScheme(string value) => new ProvisioningConnectionUnknownAuthScheme(value);
 
         /// <summary>
-        /// Creates a new <see cref="ProvisioningConnectionStatus"/> instance.
+        /// Creates a new <see cref="ProvisioningConnectionUnknownAuthScheme"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
-        public ProvisioningConnectionStatus(string value)
+        public ProvisioningConnectionUnknownAuthScheme(string value)
             : base(value)
         {
         }

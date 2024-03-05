@@ -27,20 +27,48 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// Unknown provisioning connection
+    /// OAuth2RefreshTokenLinksAllOfRevokeAllOfHints
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionProfileUnknown")]
+    [DataContract(Name = "OAuth2RefreshToken__links_allOf_revoke_allOf_hints")]
     
-    public partial class ProvisioningConnectionProfileUnknown : IEquatable<ProvisioningConnectionProfileUnknown>
+    public partial class OAuth2RefreshTokenLinksAllOfRevokeAllOfHints : IEquatable<OAuth2RefreshTokenLinksAllOfRevokeAllOfHints>
     {
-
         /// <summary>
-        /// Gets or Sets AuthScheme
+        /// Defines Allow
         /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
+        [JsonConverter(typeof(StringEnumSerializingConverter))]
+        public sealed class AllowEnum : StringEnum
+        {
+            /// <summary>
+            /// StringEnum DELETE for value: DELETE
+            /// </summary>
+            
+            public static AllowEnum DELETE = new AllowEnum("DELETE");
+
+
+            /// <summary>
+            /// Implicit operator declaration to accept and convert a string value as a <see cref="AllowEnum"/>
+            /// </summary>
+            /// <param name="value">The value to use</param>
+            public static implicit operator AllowEnum(string value) => new AllowEnum(value);
+
+            /// <summary>
+            /// Creates a new <see cref="Allow"/> instance.
+            /// </summary>
+            /// <param name="value">The value to use.</param>
+            public AllowEnum(string value)
+                : base(value)
+            {
+            }
+        }
+
         
-        public ProvisioningConnectionUnknownAuthScheme AuthScheme { get; set; }
-        
+        /// <summary>
+        /// Gets or Sets Allow
+        /// </summary>
+        [DataMember(Name = "allow", EmitDefaultValue = true)]
+        public List<OAuth2RefreshTokenLinksAllOfRevokeAllOfHints.AllowEnum> Allow { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -48,8 +76,8 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionProfileUnknown {\n");
-            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
+            sb.Append("class OAuth2RefreshTokenLinksAllOfRevokeAllOfHints {\n");
+            sb.Append("  Allow: ").Append(Allow).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -70,15 +98,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionProfileUnknown);
+            return this.Equals(input as OAuth2RefreshTokenLinksAllOfRevokeAllOfHints);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionProfileUnknown instances are equal
+        /// Returns true if OAuth2RefreshTokenLinksAllOfRevokeAllOfHints instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionProfileUnknown to be compared</param>
+        /// <param name="input">Instance of OAuth2RefreshTokenLinksAllOfRevokeAllOfHints to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionProfileUnknown input)
+        public bool Equals(OAuth2RefreshTokenLinksAllOfRevokeAllOfHints input)
         {
             if (input == null)
             {
@@ -86,8 +114,10 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
+                    this.Allow == input.Allow ||
+                    this.Allow != null &&
+                    input.Allow != null &&
+                    this.Allow.SequenceEqual(input.Allow)
                 );
         }
 
@@ -101,9 +131,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.AuthScheme != null)
+                if (this.Allow != null)
                 {
-                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Allow.GetHashCode();
                 }
                 return hashCode;
             }

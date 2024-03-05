@@ -21,34 +21,26 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// The profile used to configure the connection method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication are supported. 
+    /// Zscaler app instance properties
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionProfile")]
-    [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileOauth), "OAUTH2")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileOauth), "ProvisioningConnectionProfileOauth")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileToken), "ProvisioningConnectionProfileToken")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileUnknown), "ProvisioningConnectionProfileUnknown")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileToken), "TOKEN")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionProfileUnknown), "UNKNOWN")]
+    [DataContract(Name = "ZscalerbyzApplicationSettingsApplication")]
     
-    public partial class ProvisioningConnectionProfile : IEquatable<ProvisioningConnectionProfile>
+    public partial class ZscalerbyzApplicationSettingsApplication : IEquatable<ZscalerbyzApplicationSettingsApplication>
     {
-
+        
         /// <summary>
-        /// Gets or Sets AuthScheme
+        /// Your Zscaler domain
         /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
-        
-        public ProvisioningConnectionAuthScheme AuthScheme { get; set; }
-        
+        /// <value>Your Zscaler domain</value>
+        [DataMember(Name = "siteDomain", EmitDefaultValue = true)]
+        public string SiteDomain { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -56,8 +48,8 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionProfile {\n");
-            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
+            sb.Append("class ZscalerbyzApplicationSettingsApplication {\n");
+            sb.Append("  SiteDomain: ").Append(SiteDomain).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -78,15 +70,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionProfile);
+            return this.Equals(input as ZscalerbyzApplicationSettingsApplication);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionProfile instances are equal
+        /// Returns true if ZscalerbyzApplicationSettingsApplication instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionProfile to be compared</param>
+        /// <param name="input">Instance of ZscalerbyzApplicationSettingsApplication to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionProfile input)
+        public bool Equals(ZscalerbyzApplicationSettingsApplication input)
         {
             if (input == null)
             {
@@ -94,8 +86,9 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
+                    this.SiteDomain == input.SiteDomain ||
+                    (this.SiteDomain != null &&
+                    this.SiteDomain.Equals(input.SiteDomain))
                 );
         }
 
@@ -109,9 +102,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.AuthScheme != null)
+                if (this.SiteDomain != null)
                 {
-                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                    hashCode = (hashCode * 59) + this.SiteDomain.GetHashCode();
                 }
                 return hashCode;
             }

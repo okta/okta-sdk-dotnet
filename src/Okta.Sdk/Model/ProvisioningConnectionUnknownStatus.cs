@@ -26,32 +26,28 @@ using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 namespace Okta.Sdk.Model
 {
     /// <summary>
-    /// Provisioning connection status
+    /// Provisioning isn&#39;t supported by the app, or the authentication method is unknown.
     /// </summary>
-    /// <value>Provisioning connection status</value>
+    /// <value>Provisioning isn&#39;t supported by the app, or the authentication method is unknown.</value>
     [JsonConverter(typeof(StringEnumSerializingConverter))]
-    public sealed class ProvisioningConnectionStatus : StringEnum
+    public sealed class ProvisioningConnectionUnknownStatus : StringEnum
     {
         /// <summary>
-        /// StringEnum ProvisioningConnectionStatus for value: DISABLED
+        /// StringEnum ProvisioningConnectionUnknownStatus for value: UNKNOWN
         /// </summary>
-        public static ProvisioningConnectionStatus DISABLED = new ProvisioningConnectionStatus("DISABLED");
-        /// <summary>
-        /// StringEnum ProvisioningConnectionStatus for value: ENABLED
-        /// </summary>
-        public static ProvisioningConnectionStatus ENABLED = new ProvisioningConnectionStatus("ENABLED");
+        public static ProvisioningConnectionUnknownStatus UNKNOWN = new ProvisioningConnectionUnknownStatus("UNKNOWN");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref="ProvisioningConnectionStatus"/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ProvisioningConnectionUnknownStatus"/>
         /// </summary>
         /// <param name="value">The value to use</param>
-        public static implicit operator ProvisioningConnectionStatus(string value) => new ProvisioningConnectionStatus(value);
+        public static implicit operator ProvisioningConnectionUnknownStatus(string value) => new ProvisioningConnectionUnknownStatus(value);
 
         /// <summary>
-        /// Creates a new <see cref="ProvisioningConnectionStatus"/> instance.
+        /// Creates a new <see cref="ProvisioningConnectionUnknownStatus"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
-        public ProvisioningConnectionStatus(string value)
+        public ProvisioningConnectionUnknownStatus(string value)
             : base(value)
         {
         }

@@ -27,20 +27,24 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// Unknown provisioning connection
+    /// ProvisioningConnectionOauthRequest
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionProfileUnknown")]
+    [DataContract(Name = "ProvisioningConnectionOauthRequest")]
     
-    public partial class ProvisioningConnectionProfileUnknown : IEquatable<ProvisioningConnectionProfileUnknown>
+    public partial class ProvisioningConnectionOauthRequest : IEquatable<ProvisioningConnectionOauthRequest>
     {
-
         /// <summary>
-        /// Gets or Sets AuthScheme
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionOauthRequest" /> class.
         /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
+        [JsonConstructorAttribute]
+        public ProvisioningConnectionOauthRequest() { }
         
-        public ProvisioningConnectionUnknownAuthScheme AuthScheme { get; set; }
-        
+        /// <summary>
+        /// Gets or Sets Profile
+        /// </summary>
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
+        public ProvisioningConnectionRequestProfileOauth Profile { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -48,8 +52,8 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionProfileUnknown {\n");
-            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
+            sb.Append("class ProvisioningConnectionOauthRequest {\n");
+            sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -70,15 +74,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionProfileUnknown);
+            return this.Equals(input as ProvisioningConnectionOauthRequest);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionProfileUnknown instances are equal
+        /// Returns true if ProvisioningConnectionOauthRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionProfileUnknown to be compared</param>
+        /// <param name="input">Instance of ProvisioningConnectionOauthRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionProfileUnknown input)
+        public bool Equals(ProvisioningConnectionOauthRequest input)
         {
             if (input == null)
             {
@@ -86,8 +90,9 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
+                    this.Profile == input.Profile ||
+                    (this.Profile != null &&
+                    this.Profile.Equals(input.Profile))
                 );
         }
 
@@ -101,9 +106,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.AuthScheme != null)
+                if (this.Profile != null)
                 {
-                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Profile.GetHashCode();
                 }
                 return hashCode;
             }

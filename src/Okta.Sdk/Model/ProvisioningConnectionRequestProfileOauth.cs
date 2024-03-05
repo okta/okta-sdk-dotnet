@@ -27,11 +27,11 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// Unknown provisioning connection
+    /// ProvisioningConnectionRequestProfileOauth
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionProfileUnknown")]
+    [DataContract(Name = "ProvisioningConnectionRequestProfileOauth")]
     
-    public partial class ProvisioningConnectionProfileUnknown : IEquatable<ProvisioningConnectionProfileUnknown>
+    public partial class ProvisioningConnectionRequestProfileOauth : IEquatable<ProvisioningConnectionRequestProfileOauth>
     {
 
         /// <summary>
@@ -39,8 +39,20 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "authScheme", EmitDefaultValue = true)]
         
-        public ProvisioningConnectionUnknownAuthScheme AuthScheme { get; set; }
+        public ProvisioningConnectionOauthAuthScheme AuthScheme { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionRequestProfileOauth" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        public ProvisioningConnectionRequestProfileOauth() { }
         
+        /// <summary>
+        /// Only used for the Org2Org (&#x60;okta_org2org&#x60;) app. The unique client identifier for the OAuth 2.0 service app from the target org.
+        /// </summary>
+        /// <value>Only used for the Org2Org (&#x60;okta_org2org&#x60;) app. The unique client identifier for the OAuth 2.0 service app from the target org.</value>
+        [DataMember(Name = "clientId", EmitDefaultValue = true)]
+        public string ClientId { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -48,8 +60,9 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionProfileUnknown {\n");
+            sb.Append("class ProvisioningConnectionRequestProfileOauth {\n");
             sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
+            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -70,15 +83,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionProfileUnknown);
+            return this.Equals(input as ProvisioningConnectionRequestProfileOauth);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionProfileUnknown instances are equal
+        /// Returns true if ProvisioningConnectionRequestProfileOauth instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionProfileUnknown to be compared</param>
+        /// <param name="input">Instance of ProvisioningConnectionRequestProfileOauth to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionProfileUnknown input)
+        public bool Equals(ProvisioningConnectionRequestProfileOauth input)
         {
             if (input == null)
             {
@@ -88,6 +101,11 @@ namespace Okta.Sdk.Model
                 (
                     this.AuthScheme == input.AuthScheme ||
                     this.AuthScheme.Equals(input.AuthScheme)
+                ) && 
+                (
+                    this.ClientId == input.ClientId ||
+                    (this.ClientId != null &&
+                    this.ClientId.Equals(input.ClientId))
                 );
         }
 
@@ -104,6 +122,10 @@ namespace Okta.Sdk.Model
                 if (this.AuthScheme != null)
                 {
                     hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                }
+                if (this.ClientId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
                 }
                 return hashCode;
             }

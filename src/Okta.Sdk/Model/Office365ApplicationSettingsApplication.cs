@@ -27,20 +27,32 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// Unknown provisioning connection
+    /// Office365 app instance properties
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionProfileUnknown")]
+    [DataContract(Name = "Office365ApplicationSettingsApplication")]
     
-    public partial class ProvisioningConnectionProfileUnknown : IEquatable<ProvisioningConnectionProfileUnknown>
+    public partial class Office365ApplicationSettingsApplication : IEquatable<Office365ApplicationSettingsApplication>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Office365ApplicationSettingsApplication" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        public Office365ApplicationSettingsApplication() { }
+        
+        /// <summary>
+        /// The domain for your Office 365 account
+        /// </summary>
+        /// <value>The domain for your Office 365 account</value>
+        [DataMember(Name = "domain", EmitDefaultValue = true)]
+        public string Domain { get; set; }
 
         /// <summary>
-        /// Gets or Sets AuthScheme
+        /// Microsoft tenant name
         /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
-        
-        public ProvisioningConnectionUnknownAuthScheme AuthScheme { get; set; }
-        
+        /// <value>Microsoft tenant name</value>
+        [DataMember(Name = "msftTenant", EmitDefaultValue = true)]
+        public string MsftTenant { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -48,8 +60,9 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionProfileUnknown {\n");
-            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
+            sb.Append("class Office365ApplicationSettingsApplication {\n");
+            sb.Append("  Domain: ").Append(Domain).Append("\n");
+            sb.Append("  MsftTenant: ").Append(MsftTenant).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -70,15 +83,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionProfileUnknown);
+            return this.Equals(input as Office365ApplicationSettingsApplication);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionProfileUnknown instances are equal
+        /// Returns true if Office365ApplicationSettingsApplication instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionProfileUnknown to be compared</param>
+        /// <param name="input">Instance of Office365ApplicationSettingsApplication to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionProfileUnknown input)
+        public bool Equals(Office365ApplicationSettingsApplication input)
         {
             if (input == null)
             {
@@ -86,8 +99,14 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
+                    this.Domain == input.Domain ||
+                    (this.Domain != null &&
+                    this.Domain.Equals(input.Domain))
+                ) && 
+                (
+                    this.MsftTenant == input.MsftTenant ||
+                    (this.MsftTenant != null &&
+                    this.MsftTenant.Equals(input.MsftTenant))
                 );
         }
 
@@ -101,9 +120,13 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.AuthScheme != null)
+                if (this.Domain != null)
                 {
-                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Domain.GetHashCode();
+                }
+                if (this.MsftTenant != null)
+                {
+                    hashCode = (hashCode * 59) + this.MsftTenant.GetHashCode();
                 }
                 return hashCode;
             }

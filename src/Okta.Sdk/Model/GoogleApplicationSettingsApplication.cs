@@ -27,23 +27,31 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// ProvisioningConnectionRequest
+    /// Google app instance properties
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionRequest")]
+    [DataContract(Name = "GoogleApplicationSettingsApplication")]
     
-    public partial class ProvisioningConnectionRequest : IEquatable<ProvisioningConnectionRequest>
+    public partial class GoogleApplicationSettingsApplication : IEquatable<GoogleApplicationSettingsApplication>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisioningConnectionRequest" /> class.
+        /// Initializes a new instance of the <see cref="GoogleApplicationSettingsApplication" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ProvisioningConnectionRequest() { }
+        public GoogleApplicationSettingsApplication() { }
         
         /// <summary>
-        /// Gets or Sets Profile
+        /// Your Google Apps company domain
         /// </summary>
-        [DataMember(Name = "profile", EmitDefaultValue = true)]
-        public ProvisioningConnectionProfile Profile { get; set; }
+        /// <value>Your Google Apps company domain</value>
+        [DataMember(Name = "domain", EmitDefaultValue = true)]
+        public string Domain { get; set; }
+
+        /// <summary>
+        /// RPID
+        /// </summary>
+        /// <value>RPID</value>
+        [DataMember(Name = "rpId", EmitDefaultValue = true)]
+        public string RpId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +60,9 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionRequest {\n");
-            sb.Append("  Profile: ").Append(Profile).Append("\n");
+            sb.Append("class GoogleApplicationSettingsApplication {\n");
+            sb.Append("  Domain: ").Append(Domain).Append("\n");
+            sb.Append("  RpId: ").Append(RpId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,15 +83,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionRequest);
+            return this.Equals(input as GoogleApplicationSettingsApplication);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionRequest instances are equal
+        /// Returns true if GoogleApplicationSettingsApplication instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionRequest to be compared</param>
+        /// <param name="input">Instance of GoogleApplicationSettingsApplication to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionRequest input)
+        public bool Equals(GoogleApplicationSettingsApplication input)
         {
             if (input == null)
             {
@@ -90,9 +99,14 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Profile == input.Profile ||
-                    (this.Profile != null &&
-                    this.Profile.Equals(input.Profile))
+                    this.Domain == input.Domain ||
+                    (this.Domain != null &&
+                    this.Domain.Equals(input.Domain))
+                ) && 
+                (
+                    this.RpId == input.RpId ||
+                    (this.RpId != null &&
+                    this.RpId.Equals(input.RpId))
                 );
         }
 
@@ -106,9 +120,13 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Profile != null)
+                if (this.Domain != null)
                 {
-                    hashCode = (hashCode * 59) + this.Profile.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Domain.GetHashCode();
+                }
+                if (this.RpId != null)
+                {
+                    hashCode = (hashCode * 59) + this.RpId.GetHashCode();
                 }
                 return hashCode;
             }

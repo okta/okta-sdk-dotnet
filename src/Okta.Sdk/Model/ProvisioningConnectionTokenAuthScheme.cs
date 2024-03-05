@@ -26,32 +26,28 @@ using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 namespace Okta.Sdk.Model
 {
     /// <summary>
-    /// Provisioning connection status
+    /// A token is used to authenticate with the app.
     /// </summary>
-    /// <value>Provisioning connection status</value>
+    /// <value>A token is used to authenticate with the app.</value>
     [JsonConverter(typeof(StringEnumSerializingConverter))]
-    public sealed class ProvisioningConnectionStatus : StringEnum
+    public sealed class ProvisioningConnectionTokenAuthScheme : StringEnum
     {
         /// <summary>
-        /// StringEnum ProvisioningConnectionStatus for value: DISABLED
+        /// StringEnum ProvisioningConnectionTokenAuthScheme for value: TOKEN
         /// </summary>
-        public static ProvisioningConnectionStatus DISABLED = new ProvisioningConnectionStatus("DISABLED");
-        /// <summary>
-        /// StringEnum ProvisioningConnectionStatus for value: ENABLED
-        /// </summary>
-        public static ProvisioningConnectionStatus ENABLED = new ProvisioningConnectionStatus("ENABLED");
+        public static ProvisioningConnectionTokenAuthScheme TOKEN = new ProvisioningConnectionTokenAuthScheme("TOKEN");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref="ProvisioningConnectionStatus"/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ProvisioningConnectionTokenAuthScheme"/>
         /// </summary>
         /// <param name="value">The value to use</param>
-        public static implicit operator ProvisioningConnectionStatus(string value) => new ProvisioningConnectionStatus(value);
+        public static implicit operator ProvisioningConnectionTokenAuthScheme(string value) => new ProvisioningConnectionTokenAuthScheme(value);
 
         /// <summary>
-        /// Creates a new <see cref="ProvisioningConnectionStatus"/> instance.
+        /// Creates a new <see cref="ProvisioningConnectionTokenAuthScheme"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
-        public ProvisioningConnectionStatus(string value)
+        public ProvisioningConnectionTokenAuthScheme(string value)
             : base(value)
         {
         }

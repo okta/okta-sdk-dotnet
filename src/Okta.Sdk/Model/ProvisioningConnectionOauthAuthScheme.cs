@@ -26,32 +26,28 @@ using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 namespace Okta.Sdk.Model
 {
     /// <summary>
-    /// Provisioning connection status
+    /// OAuth 2.0 is used to authenticate with the app.
     /// </summary>
-    /// <value>Provisioning connection status</value>
+    /// <value>OAuth 2.0 is used to authenticate with the app.</value>
     [JsonConverter(typeof(StringEnumSerializingConverter))]
-    public sealed class ProvisioningConnectionStatus : StringEnum
+    public sealed class ProvisioningConnectionOauthAuthScheme : StringEnum
     {
         /// <summary>
-        /// StringEnum ProvisioningConnectionStatus for value: DISABLED
+        /// StringEnum ProvisioningConnectionOauthAuthScheme for value: OAUTH2
         /// </summary>
-        public static ProvisioningConnectionStatus DISABLED = new ProvisioningConnectionStatus("DISABLED");
-        /// <summary>
-        /// StringEnum ProvisioningConnectionStatus for value: ENABLED
-        /// </summary>
-        public static ProvisioningConnectionStatus ENABLED = new ProvisioningConnectionStatus("ENABLED");
+        public static ProvisioningConnectionOauthAuthScheme OAUTH2 = new ProvisioningConnectionOauthAuthScheme("OAUTH2");
 
         /// <summary>
-        /// Implicit operator declaration to accept and convert a string value as a <see cref="ProvisioningConnectionStatus"/>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ProvisioningConnectionOauthAuthScheme"/>
         /// </summary>
         /// <param name="value">The value to use</param>
-        public static implicit operator ProvisioningConnectionStatus(string value) => new ProvisioningConnectionStatus(value);
+        public static implicit operator ProvisioningConnectionOauthAuthScheme(string value) => new ProvisioningConnectionOauthAuthScheme(value);
 
         /// <summary>
-        /// Creates a new <see cref="ProvisioningConnectionStatus"/> instance.
+        /// Creates a new <see cref="ProvisioningConnectionOauthAuthScheme"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
-        public ProvisioningConnectionStatus(string value)
+        public ProvisioningConnectionOauthAuthScheme(string value)
             : base(value)
         {
         }
