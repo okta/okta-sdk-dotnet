@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="assigngrouptoapplication"></a>
 # **AssignGroupToApplication**
-> ApplicationGroupAssignment AssignGroupToApplication (string appId, string groupId, ApplicationGroupAssignment applicationGroupAssignment = null)
+> ApplicationGroupAssignment AssignGroupToApplication (string appId, string groupId, string appId2, string groupId2, ApplicationGroupAssignment applicationGroupAssignment = null)
 
 Assign a Group
 
@@ -40,14 +40,16 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationGroupsApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
-            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
+            var appId = "appId_example";  // string | 
+            var groupId = "groupId_example";  // string | 
+            var appId2 = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var groupId2 = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
             var applicationGroupAssignment = new ApplicationGroupAssignment(); // ApplicationGroupAssignment |  (optional) 
 
             try
             {
                 // Assign a Group
-                ApplicationGroupAssignment result = apiInstance.AssignGroupToApplication(appId, groupId, applicationGroupAssignment);
+                ApplicationGroupAssignment result = apiInstance.AssignGroupToApplication(appId, groupId, appId2, groupId2, applicationGroupAssignment);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -65,8 +67,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
- **groupId** | **string**| The &#x60;id&#x60; of the group | 
+ **appId** | **string**|  | 
+ **groupId** | **string**|  | 
+ **appId2** | **string**| ID of the Application | 
+ **groupId2** | **string**| The &#x60;id&#x60; of the group | 
  **applicationGroupAssignment** | [**ApplicationGroupAssignment**](ApplicationGroupAssignment.md)|  | [optional] 
 
 ### Return type
@@ -87,16 +91,16 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getapplicationgroupassignment"></a>
 # **GetApplicationGroupAssignment**
-> ApplicationGroupAssignment GetApplicationGroupAssignment (string appId, string groupId, string expand = null)
+> ApplicationGroupAssignment GetApplicationGroupAssignment (string appId, string groupId, string appId2, string groupId2, string expand = null)
 
 Retrieve an Assigned Group
 
@@ -124,14 +128,16 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationGroupsApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
-            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
+            var appId = "appId_example";  // string | 
+            var groupId = "groupId_example";  // string | 
+            var appId2 = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var groupId2 = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
             var expand = "expand_example";  // string |  (optional) 
 
             try
             {
                 // Retrieve an Assigned Group
-                ApplicationGroupAssignment result = apiInstance.GetApplicationGroupAssignment(appId, groupId, expand);
+                ApplicationGroupAssignment result = apiInstance.GetApplicationGroupAssignment(appId, groupId, appId2, groupId2, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -149,8 +155,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
- **groupId** | **string**| The &#x60;id&#x60; of the group | 
+ **appId** | **string**|  | 
+ **groupId** | **string**|  | 
+ **appId2** | **string**| ID of the Application | 
+ **groupId2** | **string**| The &#x60;id&#x60; of the group | 
  **expand** | **string**|  | [optional] 
 
 ### Return type
@@ -171,9 +179,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -258,15 +266,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="unassignapplicationfromgroup"></a>
 # **UnassignApplicationFromGroup**
-> void UnassignApplicationFromGroup (string appId, string groupId)
+> void UnassignApplicationFromGroup (string appId, string groupId, string appId2, string groupId2)
 
 Unassign a Group
 
@@ -294,13 +302,15 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationGroupsApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
-            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
+            var appId = "appId_example";  // string | 
+            var groupId = "groupId_example";  // string | 
+            var appId2 = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var groupId2 = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
 
             try
             {
                 // Unassign a Group
-                apiInstance.UnassignApplicationFromGroup(appId, groupId);
+                apiInstance.UnassignApplicationFromGroup(appId, groupId, appId2, groupId2);
             }
             catch (ApiException  e)
             {
@@ -317,8 +327,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
- **groupId** | **string**| The &#x60;id&#x60; of the group | 
+ **appId** | **string**|  | 
+ **groupId** | **string**|  | 
+ **appId2** | **string**| ID of the Application | 
+ **groupId2** | **string**| The &#x60;id&#x60; of the group | 
 
 ### Return type
 
@@ -338,9 +350,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

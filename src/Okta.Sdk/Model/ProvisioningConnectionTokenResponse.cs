@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
@@ -30,16 +31,13 @@ namespace Okta.Sdk.Model
     /// ProvisioningConnectionTokenResponse
     /// </summary>
     [DataContract(Name = "ProvisioningConnectionTokenResponse")]
+    [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionOauthResponse), "OAUTH2")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionTokenResponse), "TOKEN")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionUnknownResponse), "UNKNOWN")]
     
-    public partial class ProvisioningConnectionTokenResponse : IEquatable<ProvisioningConnectionTokenResponse>
+    public partial class ProvisioningConnectionTokenResponse : ProvisioningConnectionProfileResponse, IEquatable<ProvisioningConnectionTokenResponse>
     {
-
-        /// <summary>
-        /// Gets or Sets AuthScheme
-        /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
-        
-        public ProvisioningConnectionTokenAuthScheme AuthScheme { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
@@ -54,6 +52,13 @@ namespace Okta.Sdk.Model
         public ProvisioningConnectionTokenResponse() { }
         
         /// <summary>
+        /// Base URL
+        /// </summary>
+        /// <value>Base URL</value>
+        [DataMember(Name = "baseUrl", EmitDefaultValue = true)]
+        public string BaseUrl { get; set; }
+
+        /// <summary>
         /// Gets or Sets Profile
         /// </summary>
         [DataMember(Name = "profile", EmitDefaultValue = true)]
@@ -63,7 +68,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "_links", EmitDefaultValue = true)]
-        public LinksSelfAndLifecycle Links { get; set; }
+        public Object Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,9 +78,10 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProvisioningConnectionTokenResponse {\n");
-            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
-            sb.Append("  Profile: ").Append(Profile).Append("\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  BaseUrl: ").Append(BaseUrl).Append("\n");
+            sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -85,7 +91,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -111,20 +117,21 @@ namespace Okta.Sdk.Model
             {
                 return false;
             }
-            return 
+            return base.Equals(input) && 
                 (
-                    this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
-                ) && 
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
+                ) && base.Equals(input) && 
+                (
+                    this.BaseUrl == input.BaseUrl ||
+                    (this.BaseUrl != null &&
+                    this.BaseUrl.Equals(input.BaseUrl))
+                ) && base.Equals(input) && 
                 (
                     this.Profile == input.Profile ||
                     (this.Profile != null &&
                     this.Profile.Equals(input.Profile))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.Links == input.Links ||
                     (this.Links != null &&
@@ -140,19 +147,19 @@ namespace Okta.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 
-                if (this.AuthScheme != null)
+                if (this.Status != null)
                 {
-                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.BaseUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.BaseUrl.GetHashCode();
                 }
                 if (this.Profile != null)
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();
-                }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
                 if (this.Links != null)
                 {

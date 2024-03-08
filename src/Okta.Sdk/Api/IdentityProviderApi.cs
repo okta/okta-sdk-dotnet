@@ -57,12 +57,12 @@ namespace Okta.Sdk.Api
         /// Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetIdpId"></param>
         /// <param name="idpId">&#x60;id&#x60; of IdP</param>
         /// <param name="idpKeyId">&#x60;id&#x60; of IdP Key</param>
-        /// <param name="targetIdpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of JsonWebKey</returns>
-        System.Threading.Tasks.Task<JsonWebKey> CloneIdentityProviderKeyAsync(  string idpId ,   string idpKeyId ,   string targetIdpId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<JsonWebKey> CloneIdentityProviderKeyAsync(  string targetIdpId ,   string idpId ,   string idpKeyId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Clone a Signing Credential Key
         /// </summary>
@@ -70,12 +70,12 @@ namespace Okta.Sdk.Api
         /// Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetIdpId"></param>
         /// <param name="idpId">&#x60;id&#x60; of IdP</param>
         /// <param name="idpKeyId">&#x60;id&#x60; of IdP Key</param>
-        /// <param name="targetIdpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
-        System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> CloneIdentityProviderKeyWithHttpInfoAsync(  string idpId ,   string idpKeyId ,   string targetIdpId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> CloneIdentityProviderKeyWithHttpInfoAsync(  string targetIdpId ,   string idpId ,   string idpKeyId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create an Identity Provider
         /// </summary>
@@ -217,11 +217,11 @@ namespace Okta.Sdk.Api
         /// Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="idpId">&#x60;id&#x60; of IdP</param>
         /// <param name="validityYears">expiry of the IdP Key Credential</param>
+        /// <param name="idpId">&#x60;id&#x60; of IdP</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of JsonWebKey</returns>
-        System.Threading.Tasks.Task<JsonWebKey> GenerateIdentityProviderSigningKeyAsync(  string idpId ,   int validityYears , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<JsonWebKey> GenerateIdentityProviderSigningKeyAsync(  int validityYears ,   string idpId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Generate a new Signing Credential Key
         /// </summary>
@@ -229,11 +229,11 @@ namespace Okta.Sdk.Api
         /// Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="idpId">&#x60;id&#x60; of IdP</param>
         /// <param name="validityYears">expiry of the IdP Key Credential</param>
+        /// <param name="idpId">&#x60;id&#x60; of IdP</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
-        System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> GenerateIdentityProviderSigningKeyWithHttpInfoAsync(  string idpId ,   int validityYears , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> GenerateIdentityProviderSigningKeyWithHttpInfoAsync(  int validityYears ,   string idpId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Certificate Signing Request
         /// </summary>
@@ -810,27 +810,33 @@ namespace Okta.Sdk.Api
         /// Clone a Signing Credential Key Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetIdpId"></param>
         /// <param name="idpId">&#x60;id&#x60; of IdP</param>
         /// <param name="idpKeyId">&#x60;id&#x60; of IdP Key</param>
-        /// <param name="targetIdpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of JsonWebKey</returns>
-        public async System.Threading.Tasks.Task<JsonWebKey> CloneIdentityProviderKeyAsync(  string idpId ,   string idpKeyId ,   string targetIdpId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<JsonWebKey> CloneIdentityProviderKeyAsync(  string targetIdpId ,   string idpId ,   string idpKeyId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<JsonWebKey> localVarResponse = await CloneIdentityProviderKeyWithHttpInfoAsync(idpId, idpKeyId, targetIdpId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<JsonWebKey> localVarResponse = await CloneIdentityProviderKeyWithHttpInfoAsync(targetIdpId, idpId, idpKeyId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
         /// Clone a Signing Credential Key Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetIdpId"></param>
         /// <param name="idpId">&#x60;id&#x60; of IdP</param>
         /// <param name="idpKeyId">&#x60;id&#x60; of IdP Key</param>
-        /// <param name="targetIdpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<JsonWebKey>> CloneIdentityProviderKeyWithHttpInfoAsync(  string idpId ,   string idpKeyId ,   string targetIdpId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<JsonWebKey>> CloneIdentityProviderKeyWithHttpInfoAsync(  string targetIdpId ,   string idpId ,   string idpKeyId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'targetIdpId' is set
+            if (targetIdpId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'targetIdpId' when calling IdentityProviderApi->CloneIdentityProviderKey");
+            }
+
             // verify the required parameter 'idpId' is set
             if (idpId == null)
             {
@@ -841,12 +847,6 @@ namespace Okta.Sdk.Api
             if (idpKeyId == null)
             {
                 throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'idpKeyId' when calling IdentityProviderApi->CloneIdentityProviderKey");
-            }
-
-            // verify the required parameter 'targetIdpId' is set
-            if (targetIdpId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'targetIdpId' when calling IdentityProviderApi->CloneIdentityProviderKey");
             }
 
 
@@ -1433,24 +1433,24 @@ namespace Okta.Sdk.Api
         /// Generate a new Signing Credential Key Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="idpId">&#x60;id&#x60; of IdP</param>
         /// <param name="validityYears">expiry of the IdP Key Credential</param>
+        /// <param name="idpId">&#x60;id&#x60; of IdP</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of JsonWebKey</returns>
-        public async System.Threading.Tasks.Task<JsonWebKey> GenerateIdentityProviderSigningKeyAsync(  string idpId ,   int validityYears , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<JsonWebKey> GenerateIdentityProviderSigningKeyAsync(  int validityYears ,   string idpId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<JsonWebKey> localVarResponse = await GenerateIdentityProviderSigningKeyWithHttpInfoAsync(idpId, validityYears, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<JsonWebKey> localVarResponse = await GenerateIdentityProviderSigningKeyWithHttpInfoAsync(validityYears, idpId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
         /// Generate a new Signing Credential Key Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="idpId">&#x60;id&#x60; of IdP</param>
         /// <param name="validityYears">expiry of the IdP Key Credential</param>
+        /// <param name="idpId">&#x60;id&#x60; of IdP</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<JsonWebKey>> GenerateIdentityProviderSigningKeyWithHttpInfoAsync(  string idpId ,   int validityYears , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<JsonWebKey>> GenerateIdentityProviderSigningKeyWithHttpInfoAsync(  int validityYears ,   string idpId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)

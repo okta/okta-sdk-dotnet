@@ -35,11 +35,11 @@ namespace Okta.Sdk.Api
         /// Activates a user. This operation can only be performed on users with a &#x60;STAGED&#x60; or &#x60;DEPROVISIONED&#x60; status. Activation of a user is an asynchronous operation. The user will have the &#x60;transitioningToStatus&#x60; property with a value of &#x60;ACTIVE&#x60; during activation to indicate that the user hasn&#39;t completed the asynchronous operation. The user will have a status of &#x60;ACTIVE&#x60; when the activation process is complete. &gt; **Multibrand and User activation**&lt;br&gt; If you want to send a branded User Activation email, change the subdomain of your request to the custom domain that&#39;s associated with the brand. For example, change &#x60;subdomain.okta.com&#x60; to &#x60;custom.domain.one&#x60;. See [Multibrand and custom domains](https://developer.okta.com/docs/concepts/brands/#multibrand-and-custom-domains). &lt;br&gt;&lt;br&gt; &gt; **Legal disclaimer**&lt;br&gt; After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta&#39;s service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email&#39;s content. You, and you alone, bear responsibility for the emails sent to any recipients.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
         /// <param name="sendEmail">Sends an activation email to the user if true</param>
+        /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserActivationToken</returns>
-        System.Threading.Tasks.Task<UserActivationToken> ActivateUserAsync(  string userId ,   bool sendEmail , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserActivationToken> ActivateUserAsync(  bool sendEmail ,   string userId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Activate a User
         /// </summary>
@@ -47,11 +47,11 @@ namespace Okta.Sdk.Api
         /// Activates a user. This operation can only be performed on users with a &#x60;STAGED&#x60; or &#x60;DEPROVISIONED&#x60; status. Activation of a user is an asynchronous operation. The user will have the &#x60;transitioningToStatus&#x60; property with a value of &#x60;ACTIVE&#x60; during activation to indicate that the user hasn&#39;t completed the asynchronous operation. The user will have a status of &#x60;ACTIVE&#x60; when the activation process is complete. &gt; **Multibrand and User activation**&lt;br&gt; If you want to send a branded User Activation email, change the subdomain of your request to the custom domain that&#39;s associated with the brand. For example, change &#x60;subdomain.okta.com&#x60; to &#x60;custom.domain.one&#x60;. See [Multibrand and custom domains](https://developer.okta.com/docs/concepts/brands/#multibrand-and-custom-domains). &lt;br&gt;&lt;br&gt; &gt; **Legal disclaimer**&lt;br&gt; After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta&#39;s service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email&#39;s content. You, and you alone, bear responsibility for the emails sent to any recipients.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
         /// <param name="sendEmail">Sends an activation email to the user if true</param>
+        /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserActivationToken)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserActivationToken>> ActivateUserWithHttpInfoAsync(  string userId ,   bool sendEmail , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UserActivationToken>> ActivateUserWithHttpInfoAsync(  bool sendEmail ,   string userId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Change Password
         /// </summary>
@@ -305,12 +305,12 @@ namespace Okta.Sdk.Api
         /// Generates a one-time token (OTT) that can be used to reset a user&#39;s password.  The OTT link can be automatically emailed to the user or returned to the API caller and distributed using a custom flow.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
         /// <param name="sendEmail"></param>
+        /// <param name="userId"></param>
         /// <param name="revokeSessions">When set to &#x60;true&#x60; (and the session is a user session), all user sessions are revoked except the current session. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResetPasswordToken</returns>
-        System.Threading.Tasks.Task<ResetPasswordToken> GenerateResetPasswordTokenAsync(  string userId ,   bool sendEmail ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResetPasswordToken> GenerateResetPasswordTokenAsync(  bool sendEmail ,   string userId ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Generate a Reset Password Token
         /// </summary>
@@ -318,12 +318,12 @@ namespace Okta.Sdk.Api
         /// Generates a one-time token (OTT) that can be used to reset a user&#39;s password.  The OTT link can be automatically emailed to the user or returned to the API caller and distributed using a custom flow.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
         /// <param name="sendEmail"></param>
+        /// <param name="userId"></param>
         /// <param name="revokeSessions">When set to &#x60;true&#x60; (and the session is a user session), all user sessions are revoked except the current session. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResetPasswordToken)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResetPasswordToken>> GenerateResetPasswordTokenWithHttpInfoAsync(  string userId ,   bool sendEmail ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResetPasswordToken>> GenerateResetPasswordTokenWithHttpInfoAsync(  bool sendEmail ,   string userId ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a Refresh Token for a Client
         /// </summary>
@@ -1109,24 +1109,24 @@ namespace Okta.Sdk.Api
         /// Activate a User Activates a user. This operation can only be performed on users with a &#x60;STAGED&#x60; or &#x60;DEPROVISIONED&#x60; status. Activation of a user is an asynchronous operation. The user will have the &#x60;transitioningToStatus&#x60; property with a value of &#x60;ACTIVE&#x60; during activation to indicate that the user hasn&#39;t completed the asynchronous operation. The user will have a status of &#x60;ACTIVE&#x60; when the activation process is complete. &gt; **Multibrand and User activation**&lt;br&gt; If you want to send a branded User Activation email, change the subdomain of your request to the custom domain that&#39;s associated with the brand. For example, change &#x60;subdomain.okta.com&#x60; to &#x60;custom.domain.one&#x60;. See [Multibrand and custom domains](https://developer.okta.com/docs/concepts/brands/#multibrand-and-custom-domains). &lt;br&gt;&lt;br&gt; &gt; **Legal disclaimer**&lt;br&gt; After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta&#39;s service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email&#39;s content. You, and you alone, bear responsibility for the emails sent to any recipients.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
         /// <param name="sendEmail">Sends an activation email to the user if true</param>
+        /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserActivationToken</returns>
-        public async System.Threading.Tasks.Task<UserActivationToken> ActivateUserAsync(  string userId ,   bool sendEmail , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UserActivationToken> ActivateUserAsync(  bool sendEmail ,   string userId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<UserActivationToken> localVarResponse = await ActivateUserWithHttpInfoAsync(userId, sendEmail, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<UserActivationToken> localVarResponse = await ActivateUserWithHttpInfoAsync(sendEmail, userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
         /// Activate a User Activates a user. This operation can only be performed on users with a &#x60;STAGED&#x60; or &#x60;DEPROVISIONED&#x60; status. Activation of a user is an asynchronous operation. The user will have the &#x60;transitioningToStatus&#x60; property with a value of &#x60;ACTIVE&#x60; during activation to indicate that the user hasn&#39;t completed the asynchronous operation. The user will have a status of &#x60;ACTIVE&#x60; when the activation process is complete. &gt; **Multibrand and User activation**&lt;br&gt; If you want to send a branded User Activation email, change the subdomain of your request to the custom domain that&#39;s associated with the brand. For example, change &#x60;subdomain.okta.com&#x60; to &#x60;custom.domain.one&#x60;. See [Multibrand and custom domains](https://developer.okta.com/docs/concepts/brands/#multibrand-and-custom-domains). &lt;br&gt;&lt;br&gt; &gt; **Legal disclaimer**&lt;br&gt; After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta&#39;s service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email&#39;s content. You, and you alone, bear responsibility for the emails sent to any recipients.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
         /// <param name="sendEmail">Sends an activation email to the user if true</param>
+        /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserActivationToken)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserActivationToken>> ActivateUserWithHttpInfoAsync(  string userId ,   bool sendEmail , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserActivationToken>> ActivateUserWithHttpInfoAsync(  bool sendEmail ,   string userId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2138,26 +2138,26 @@ namespace Okta.Sdk.Api
         /// Generate a Reset Password Token Generates a one-time token (OTT) that can be used to reset a user&#39;s password.  The OTT link can be automatically emailed to the user or returned to the API caller and distributed using a custom flow.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
         /// <param name="sendEmail"></param>
+        /// <param name="userId"></param>
         /// <param name="revokeSessions">When set to &#x60;true&#x60; (and the session is a user session), all user sessions are revoked except the current session. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResetPasswordToken</returns>
-        public async System.Threading.Tasks.Task<ResetPasswordToken> GenerateResetPasswordTokenAsync(  string userId ,   bool sendEmail ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResetPasswordToken> GenerateResetPasswordTokenAsync(  bool sendEmail ,   string userId ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<ResetPasswordToken> localVarResponse = await GenerateResetPasswordTokenWithHttpInfoAsync(userId, sendEmail, revokeSessions, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<ResetPasswordToken> localVarResponse = await GenerateResetPasswordTokenWithHttpInfoAsync(sendEmail, userId, revokeSessions, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
         /// Generate a Reset Password Token Generates a one-time token (OTT) that can be used to reset a user&#39;s password.  The OTT link can be automatically emailed to the user or returned to the API caller and distributed using a custom flow.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
         /// <param name="sendEmail"></param>
+        /// <param name="userId"></param>
         /// <param name="revokeSessions">When set to &#x60;true&#x60; (and the session is a user session), all user sessions are revoked except the current session. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResetPasswordToken)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ResetPasswordToken>> GenerateResetPasswordTokenWithHttpInfoAsync(  string userId ,   bool sendEmail ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ResetPasswordToken>> GenerateResetPasswordTokenWithHttpInfoAsync(  bool sendEmail ,   string userId ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)

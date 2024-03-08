@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 <a name="activateauthenticator"></a>
 # **ActivateAuthenticator**
-> Authenticator ActivateAuthenticator (string authenticatorId)
+> void ActivateAuthenticator (string authenticatorId)
 
 Activate an Authenticator
 
@@ -53,8 +53,7 @@ namespace Example
             try
             {
                 // Activate an Authenticator
-                Authenticator result = apiInstance.ActivateAuthenticator(authenticatorId);
-                Debug.WriteLine(result);
+                apiInstance.ActivateAuthenticator(authenticatorId);
             }
             catch (ApiException  e)
             {
@@ -75,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Authenticator**](Authenticator.md)
+void (empty response body)
 
 ### Authorization
 
@@ -90,10 +89,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **200** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -172,15 +171,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="createauthenticator"></a>
 # **CreateAuthenticator**
-> Authenticator CreateAuthenticator (Authenticator authenticator, bool? activate = null)
+> void CreateAuthenticator (Authenticator authenticator, bool? activate = null)
 
 Create an Authenticator
 
@@ -214,8 +213,7 @@ namespace Example
             try
             {
                 // Create an Authenticator
-                Authenticator result = apiInstance.CreateAuthenticator(authenticator, activate);
-                Debug.WriteLine(result);
+                apiInstance.CreateAuthenticator(authenticator, activate);
             }
             catch (ApiException  e)
             {
@@ -237,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Authenticator**](Authenticator.md)
+void (empty response body)
 
 ### Authorization
 
@@ -252,16 +250,16 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
+| **200** |  |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="deactivateauthenticator"></a>
 # **DeactivateAuthenticator**
-> Authenticator DeactivateAuthenticator (string authenticatorId)
+> void DeactivateAuthenticator (string authenticatorId)
 
 Deactivate an Authenticator
 
@@ -294,8 +292,7 @@ namespace Example
             try
             {
                 // Deactivate an Authenticator
-                Authenticator result = apiInstance.DeactivateAuthenticator(authenticatorId);
-                Debug.WriteLine(result);
+                apiInstance.DeactivateAuthenticator(authenticatorId);
             }
             catch (ApiException  e)
             {
@@ -316,7 +313,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Authenticator**](Authenticator.md)
+void (empty response body)
 
 ### Authorization
 
@@ -331,10 +328,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **200** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -413,15 +410,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getauthenticator"></a>
 # **GetAuthenticator**
-> Authenticator GetAuthenticator (string authenticatorId)
+> void GetAuthenticator (string authenticatorId)
 
 Retrieve an Authenticator
 
@@ -454,8 +451,7 @@ namespace Example
             try
             {
                 // Retrieve an Authenticator
-                Authenticator result = apiInstance.GetAuthenticator(authenticatorId);
-                Debug.WriteLine(result);
+                apiInstance.GetAuthenticator(authenticatorId);
             }
             catch (ApiException  e)
             {
@@ -476,7 +472,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Authenticator**](Authenticator.md)
+void (empty response body)
 
 ### Authorization
 
@@ -491,10 +487,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **200** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -573,9 +569,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -725,9 +721,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -800,14 +796,14 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="replaceauthenticator"></a>
 # **ReplaceAuthenticator**
-> Authenticator ReplaceAuthenticator (string authenticatorId, Authenticator authenticator)
+> void ReplaceAuthenticator (string authenticatorId, Authenticator authenticator)
 
 Replace an Authenticator
 
@@ -841,8 +837,7 @@ namespace Example
             try
             {
                 // Replace an Authenticator
-                Authenticator result = apiInstance.ReplaceAuthenticator(authenticatorId, authenticator);
-                Debug.WriteLine(result);
+                apiInstance.ReplaceAuthenticator(authenticatorId, authenticator);
             }
             catch (ApiException  e)
             {
@@ -864,7 +859,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Authenticator**](Authenticator.md)
+void (empty response body)
 
 ### Authorization
 
@@ -879,11 +874,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **200** |  |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -964,10 +959,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -135,9 +135,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -218,11 +218,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successfully created the email customization. |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
 | **409** | Could not create the email customization because it conflicts with an existing email customization. |  -  |
-| **429** | Too Many Requests |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -300,9 +300,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successfully deleted all customizations for the email template. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -380,10 +380,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successfully deleted the brand. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
 | **409** | Conflict |  -  |
-| **429** | Too Many Requests |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -461,9 +461,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -541,9 +541,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -621,9 +621,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -699,9 +699,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successfully deleted the customized error page. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -777,9 +777,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successfully deleted the sign-in page. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -859,10 +859,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successfully deleted the email customization. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
 | **409** | Could not delete the email customization deleted because it is the default email customization. |  -  |
-| **429** | Too Many Requests |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -938,9 +938,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successfully deleted the preview error page. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1016,9 +1016,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successfully deleted the preview sign-in page. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1097,9 +1097,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1178,9 +1178,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1261,9 +1261,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully generated a preview of the email customization. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1340,9 +1340,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the customized error page. |  * Location -  <br>  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1419,9 +1419,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the customized sign-in page. |  * Location -  <br>  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1498,9 +1498,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the default error page. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1577,9 +1577,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the default sign-in page. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1660,15 +1660,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the email customization. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getemaildefaultcontent"></a>
 # **GetEmailDefaultContent**
-> EmailDefaultContent GetEmailDefaultContent (string brandId, string templateName, string language = null)
+> EmailDefaultContent GetEmailDefaultContent (string language = null)
 
 Retrieve an Email Template Default Content
 
@@ -1696,14 +1696,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | The ID of the brand
-            var templateName = "templateName_example";  // string | The name of the email template
             var language = "language_example";  // string | The language to use for the email. Defaults to the current user's language if unspecified. (optional) 
 
             try
             {
                 // Retrieve an Email Template Default Content
-                EmailDefaultContent result = apiInstance.GetEmailDefaultContent(brandId, templateName, language);
+                EmailDefaultContent result = apiInstance.GetEmailDefaultContent(language);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1721,8 +1719,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**| The ID of the brand | 
- **templateName** | **string**| The name of the email template | 
  **language** | **string**| The language to use for the email. Defaults to the current user&#39;s language if unspecified. | [optional] 
 
 ### Return type
@@ -1743,15 +1739,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the email template&#39;s default content. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getemaildefaultpreview"></a>
 # **GetEmailDefaultPreview**
-> EmailPreview GetEmailDefaultPreview (string brandId, string templateName, string language = null)
+> EmailPreview GetEmailDefaultPreview (string language = null)
 
 Retrieve a Preview of the Email Template Default Content
 
@@ -1779,14 +1775,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | The ID of the brand
-            var templateName = "templateName_example";  // string | The name of the email template
             var language = "language_example";  // string | The language to use for the email. Defaults to the current user's language if unspecified. (optional) 
 
             try
             {
                 // Retrieve a Preview of the Email Template Default Content
-                EmailPreview result = apiInstance.GetEmailDefaultPreview(brandId, templateName, language);
+                EmailPreview result = apiInstance.GetEmailDefaultPreview(language);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1804,8 +1798,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**| The ID of the brand | 
- **templateName** | **string**| The name of the email template | 
  **language** | **string**| The language to use for the email. Defaults to the current user&#39;s language if unspecified. | [optional] 
 
 ### Return type
@@ -1826,9 +1818,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully generated a preview of the email template&#39;s default content. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1907,15 +1899,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the email template&#39;s settings. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getemailtemplate"></a>
 # **GetEmailTemplate**
-> EmailTemplate GetEmailTemplate (string brandId, string templateName, List<string> expand = null)
+> EmailTemplate GetEmailTemplate (List<string> expand = null)
 
 Retrieve an Email Template
 
@@ -1943,14 +1935,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | The ID of the brand
-            var templateName = "templateName_example";  // string | The name of the email template
             var expand = new List<string>(); // List<string> | Specifies additional metadata to be included in the response (optional) 
 
             try
             {
                 // Retrieve an Email Template
-                EmailTemplate result = apiInstance.GetEmailTemplate(brandId, templateName, expand);
+                EmailTemplate result = apiInstance.GetEmailTemplate(expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1968,8 +1958,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**| The ID of the brand | 
- **templateName** | **string**| The name of the email template | 
  **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to be included in the response | [optional] 
 
 ### Return type
@@ -1990,9 +1978,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the email template. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2071,9 +2059,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the error page. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2150,9 +2138,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the preview error page. |  * Location -  <br>  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2229,9 +2217,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the preview sign-in page. |  * Location -  <br>  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2310,9 +2298,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the sign-in page. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2389,9 +2377,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the sign-out page settings. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2468,9 +2456,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully listed the sign-in widget versions. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2547,9 +2535,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2626,9 +2614,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2711,14 +2699,14 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="listemailcustomizations"></a>
 # **ListEmailCustomizations**
-> List&lt;EmailCustomization&gt; ListEmailCustomizations (string brandId, string templateName, string after = null, int? limit = null)
+> List&lt;EmailCustomization&gt; ListEmailCustomizations (string after = null, int? limit = null)
 
 List all Email Customizations
 
@@ -2746,15 +2734,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | The ID of the brand
-            var templateName = "templateName_example";  // string | The name of the email template
             var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
             var limit = 20;  // int? | A limit on the number of objects to return (optional)  (default to 20)
 
             try
             {
                 // List all Email Customizations
-                List<EmailCustomization> result = apiInstance.ListEmailCustomizations(brandId, templateName, after, limit).ToListAsync();
+                List<EmailCustomization> result = apiInstance.ListEmailCustomizations(after, limit).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2772,8 +2758,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**| The ID of the brand | 
- **templateName** | **string**| The name of the email template | 
  **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
  **limit** | **int?**| A limit on the number of objects to return | [optional] [default to 20]
 
@@ -2795,15 +2779,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved all email customizations for the specified email template. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="listemailtemplates"></a>
 # **ListEmailTemplates**
-> List&lt;EmailTemplate&gt; ListEmailTemplates (string brandId, string after = null, int? limit = null, List<string> expand = null)
+> List&lt;EmailTemplate&gt; ListEmailTemplates (string after = null, int? limit = null, List<string> expand = null)
 
 List all Email Templates
 
@@ -2831,7 +2815,6 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | The ID of the brand
             var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
             var limit = 20;  // int? | A limit on the number of objects to return (optional)  (default to 20)
             var expand = new List<string>(); // List<string> | Specifies additional metadata to be included in the response (optional) 
@@ -2839,7 +2822,7 @@ namespace Example
             try
             {
                 // List all Email Templates
-                List<EmailTemplate> result = apiInstance.ListEmailTemplates(brandId, after, limit, expand).ToListAsync();
+                List<EmailTemplate> result = apiInstance.ListEmailTemplates(after, limit, expand).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2857,7 +2840,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**| The ID of the brand | 
  **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
  **limit** | **int?**| A limit on the number of objects to return | [optional] [default to 20]
  **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to be included in the response | [optional] 
@@ -2880,9 +2862,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully returned the list of email templates. |  * Link - The pagination header containing links to the current and next page of results. See [Pagination](/#pagination) for more information. <br>  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2963,10 +2945,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3047,10 +3029,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3129,10 +3111,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully replaced the customized error page. |  * Location -  <br>  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3211,10 +3193,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully replaced the customized sign-in page. |  * Location -  <br>  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3297,11 +3279,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully updated the email customization. |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
 | **409** | Could not update the email customization because the update would cause a conflict with an existing email customization. |  -  |
-| **429** | Too Many Requests |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3381,11 +3363,11 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successfully updated the email template&#39;s settings. |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
 | **422** | Could not update the email template&#39;s settings due to an invalid setting value. |  -  |
-| **429** | Too Many Requests |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3464,10 +3446,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully replaced the preview error page. |  * Location -  <br>  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3546,10 +3528,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully replaced the preview sign-in page. |  * Location -  <br>  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3628,16 +3610,16 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully replaced the sign-out page settings. |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="sendtestemail"></a>
 # **SendTestEmail**
-> void SendTestEmail (string brandId, string templateName, string language = null)
+> void SendTestEmail (string language = null)
 
 Send a Test Email
 
@@ -3665,14 +3647,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
-            var brandId = "brandId_example";  // string | The ID of the brand
-            var templateName = "templateName_example";  // string | The name of the email template
             var language = "language_example";  // string | The language to use for the email. Defaults to the current user's language if unspecified. (optional) 
 
             try
             {
                 // Send a Test Email
-                apiInstance.SendTestEmail(brandId, templateName, language);
+                apiInstance.SendTestEmail(language);
             }
             catch (ApiException  e)
             {
@@ -3689,8 +3669,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **string**| The ID of the brand | 
- **templateName** | **string**| The name of the email template | 
  **language** | **string**| The language to use for the email. Defaults to the current user&#39;s language if unspecified. | [optional] 
 
 ### Return type
@@ -3711,9 +3689,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successfully sent a test email. |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3794,10 +3772,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3878,10 +3856,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3962,10 +3940,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

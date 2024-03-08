@@ -97,15 +97,15 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="assigngroupowner"></a>
 # **AssignGroupOwner**
-> GroupOwner AssignGroupOwner (string groupId, AssignGroupOwnerRequestBody assignGroupOwnerRequestBody)
+> GroupOwner AssignGroupOwner (string groupId, string groupId2, AssignGroupOwnerRequestBody assignGroupOwnerRequestBody)
 
 Assign a Group Owner
 
@@ -133,13 +133,14 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
-            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
+            var groupId = "groupId_example";  // string | 
+            var groupId2 = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
             var assignGroupOwnerRequestBody = new AssignGroupOwnerRequestBody(); // AssignGroupOwnerRequestBody | 
 
             try
             {
                 // Assign a Group Owner
-                GroupOwner result = apiInstance.AssignGroupOwner(groupId, assignGroupOwnerRequestBody);
+                GroupOwner result = apiInstance.AssignGroupOwner(groupId, groupId2, assignGroupOwnerRequestBody);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -157,7 +158,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**| The &#x60;id&#x60; of the group | 
+ **groupId** | **string**|  | 
+ **groupId2** | **string**| The &#x60;id&#x60; of the group | 
  **assignGroupOwnerRequestBody** | [**AssignGroupOwnerRequestBody**](AssignGroupOwnerRequestBody.md)|  | 
 
 ### Return type
@@ -178,10 +180,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -259,9 +261,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -338,9 +340,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -417,9 +419,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -495,9 +497,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -573,9 +575,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -653,9 +655,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -733,9 +735,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** | Accepted |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -812,9 +814,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -893,9 +895,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -976,9 +978,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1061,9 +1063,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1146,8 +1148,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1228,9 +1230,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1321,8 +1323,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1401,10 +1403,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1483,10 +1485,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1564,9 +1566,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

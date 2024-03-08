@@ -35,12 +35,14 @@ namespace Okta.Sdk.Api
         /// Assigns a group to an application
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="appId"></param>
+        /// <param name="groupId"></param>
+        /// <param name="appId2">ID of the Application</param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="applicationGroupAssignment"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApplicationGroupAssignment</returns>
-        System.Threading.Tasks.Task<ApplicationGroupAssignment> AssignGroupToApplicationAsync(  string appId ,   string groupId ,   ApplicationGroupAssignment applicationGroupAssignment = default(ApplicationGroupAssignment) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApplicationGroupAssignment> AssignGroupToApplicationAsync(  string appId ,   string groupId ,   string appId2 ,   string groupId2 ,   ApplicationGroupAssignment applicationGroupAssignment = default(ApplicationGroupAssignment) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Assign a Group
         /// </summary>
@@ -48,12 +50,14 @@ namespace Okta.Sdk.Api
         /// Assigns a group to an application
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="appId"></param>
+        /// <param name="groupId"></param>
+        /// <param name="appId2">ID of the Application</param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="applicationGroupAssignment"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApplicationGroupAssignment)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApplicationGroupAssignment>> AssignGroupToApplicationWithHttpInfoAsync(  string appId ,   string groupId ,   ApplicationGroupAssignment applicationGroupAssignment = default(ApplicationGroupAssignment) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ApplicationGroupAssignment>> AssignGroupToApplicationWithHttpInfoAsync(  string appId ,   string groupId ,   string appId2 ,   string groupId2 ,   ApplicationGroupAssignment applicationGroupAssignment = default(ApplicationGroupAssignment) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve an Assigned Group
         /// </summary>
@@ -61,12 +65,14 @@ namespace Okta.Sdk.Api
         /// Retrieves an application group assignment
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="appId"></param>
+        /// <param name="groupId"></param>
+        /// <param name="appId2">ID of the Application</param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApplicationGroupAssignment</returns>
-        System.Threading.Tasks.Task<ApplicationGroupAssignment> GetApplicationGroupAssignmentAsync(  string appId ,   string groupId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApplicationGroupAssignment> GetApplicationGroupAssignmentAsync(  string appId ,   string groupId ,   string appId2 ,   string groupId2 ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve an Assigned Group
         /// </summary>
@@ -74,12 +80,14 @@ namespace Okta.Sdk.Api
         /// Retrieves an application group assignment
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="appId"></param>
+        /// <param name="groupId"></param>
+        /// <param name="appId2">ID of the Application</param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApplicationGroupAssignment)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApplicationGroupAssignment>> GetApplicationGroupAssignmentWithHttpInfoAsync(  string appId ,   string groupId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ApplicationGroupAssignment>> GetApplicationGroupAssignmentWithHttpInfoAsync(  string appId ,   string groupId ,   string appId2 ,   string groupId2 ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Assigned Groups
         /// </summary>
@@ -117,11 +125,13 @@ namespace Okta.Sdk.Api
         /// Unassigns a group from an application
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="appId"></param>
+        /// <param name="groupId"></param>
+        /// <param name="appId2">ID of the Application</param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UnassignApplicationFromGroupAsync(  string appId ,   string groupId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UnassignApplicationFromGroupAsync(  string appId ,   string groupId ,   string appId2 ,   string groupId2 , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Unassign a Group
         /// </summary>
@@ -129,11 +139,13 @@ namespace Okta.Sdk.Api
         /// Unassigns a group from an application
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="appId"></param>
+        /// <param name="groupId"></param>
+        /// <param name="appId2">ID of the Application</param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UnassignApplicationFromGroupWithHttpInfoAsync(  string appId ,   string groupId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> UnassignApplicationFromGroupWithHttpInfoAsync(  string appId ,   string groupId ,   string appId2 ,   string groupId2 , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -243,26 +255,30 @@ namespace Okta.Sdk.Api
         /// Assign a Group Assigns a group to an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="appId"></param>
+        /// <param name="groupId"></param>
+        /// <param name="appId2">ID of the Application</param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="applicationGroupAssignment"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApplicationGroupAssignment</returns>
-        public async System.Threading.Tasks.Task<ApplicationGroupAssignment> AssignGroupToApplicationAsync(  string appId ,   string groupId ,   ApplicationGroupAssignment applicationGroupAssignment = default(ApplicationGroupAssignment) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApplicationGroupAssignment> AssignGroupToApplicationAsync(  string appId ,   string groupId ,   string appId2 ,   string groupId2 ,   ApplicationGroupAssignment applicationGroupAssignment = default(ApplicationGroupAssignment) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<ApplicationGroupAssignment> localVarResponse = await AssignGroupToApplicationWithHttpInfoAsync(appId, groupId, applicationGroupAssignment, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<ApplicationGroupAssignment> localVarResponse = await AssignGroupToApplicationWithHttpInfoAsync(appId, groupId, appId2, groupId2, applicationGroupAssignment, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
         /// Assign a Group Assigns a group to an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="appId"></param>
+        /// <param name="groupId"></param>
+        /// <param name="appId2">ID of the Application</param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="applicationGroupAssignment"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApplicationGroupAssignment)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ApplicationGroupAssignment>> AssignGroupToApplicationWithHttpInfoAsync(  string appId ,   string groupId ,   ApplicationGroupAssignment applicationGroupAssignment = default(ApplicationGroupAssignment) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ApplicationGroupAssignment>> AssignGroupToApplicationWithHttpInfoAsync(  string appId ,   string groupId ,   string appId2 ,   string groupId2 ,   ApplicationGroupAssignment applicationGroupAssignment = default(ApplicationGroupAssignment) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -274,6 +290,18 @@ namespace Okta.Sdk.Api
             if (groupId == null)
             {
                 throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling ApplicationGroupsApi->AssignGroupToApplication");
+            }
+
+            // verify the required parameter 'appId2' is set
+            if (appId2 == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appId2' when calling ApplicationGroupsApi->AssignGroupToApplication");
+            }
+
+            // verify the required parameter 'groupId2' is set
+            if (groupId2 == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId2' when calling ApplicationGroupsApi->AssignGroupToApplication");
             }
 
 
@@ -302,6 +330,8 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId2)); // path parameter
+            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId2)); // path parameter
             localVarRequestOptions.Data = applicationGroupAssignment;
 
             // authentication (apiToken) required
@@ -341,26 +371,30 @@ namespace Okta.Sdk.Api
         /// Retrieve an Assigned Group Retrieves an application group assignment
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="appId"></param>
+        /// <param name="groupId"></param>
+        /// <param name="appId2">ID of the Application</param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApplicationGroupAssignment</returns>
-        public async System.Threading.Tasks.Task<ApplicationGroupAssignment> GetApplicationGroupAssignmentAsync(  string appId ,   string groupId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApplicationGroupAssignment> GetApplicationGroupAssignmentAsync(  string appId ,   string groupId ,   string appId2 ,   string groupId2 ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<ApplicationGroupAssignment> localVarResponse = await GetApplicationGroupAssignmentWithHttpInfoAsync(appId, groupId, expand, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<ApplicationGroupAssignment> localVarResponse = await GetApplicationGroupAssignmentWithHttpInfoAsync(appId, groupId, appId2, groupId2, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
         /// Retrieve an Assigned Group Retrieves an application group assignment
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="appId"></param>
+        /// <param name="groupId"></param>
+        /// <param name="appId2">ID of the Application</param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApplicationGroupAssignment)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ApplicationGroupAssignment>> GetApplicationGroupAssignmentWithHttpInfoAsync(  string appId ,   string groupId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ApplicationGroupAssignment>> GetApplicationGroupAssignmentWithHttpInfoAsync(  string appId ,   string groupId ,   string appId2 ,   string groupId2 ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -372,6 +406,18 @@ namespace Okta.Sdk.Api
             if (groupId == null)
             {
                 throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling ApplicationGroupsApi->GetApplicationGroupAssignment");
+            }
+
+            // verify the required parameter 'appId2' is set
+            if (appId2 == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appId2' when calling ApplicationGroupsApi->GetApplicationGroupAssignment");
+            }
+
+            // verify the required parameter 'groupId2' is set
+            if (groupId2 == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId2' when calling ApplicationGroupsApi->GetApplicationGroupAssignment");
             }
 
 
@@ -399,6 +445,8 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId2)); // path parameter
+            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId2)); // path parameter
             if (expand != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
@@ -607,23 +655,27 @@ namespace Okta.Sdk.Api
         /// Unassign a Group Unassigns a group from an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="appId"></param>
+        /// <param name="groupId"></param>
+        /// <param name="appId2">ID of the Application</param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UnassignApplicationFromGroupAsync(  string appId ,   string groupId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UnassignApplicationFromGroupAsync(  string appId ,   string groupId ,   string appId2 ,   string groupId2 , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await UnassignApplicationFromGroupWithHttpInfoAsync(appId, groupId, cancellationToken).ConfigureAwait(false);
+            await UnassignApplicationFromGroupWithHttpInfoAsync(appId, groupId, appId2, groupId2, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Unassign a Group Unassigns a group from an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="appId"></param>
+        /// <param name="groupId"></param>
+        /// <param name="appId2">ID of the Application</param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> UnassignApplicationFromGroupWithHttpInfoAsync(  string appId ,   string groupId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> UnassignApplicationFromGroupWithHttpInfoAsync(  string appId ,   string groupId ,   string appId2 ,   string groupId2 , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -635,6 +687,18 @@ namespace Okta.Sdk.Api
             if (groupId == null)
             {
                 throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling ApplicationGroupsApi->UnassignApplicationFromGroup");
+            }
+
+            // verify the required parameter 'appId2' is set
+            if (appId2 == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appId2' when calling ApplicationGroupsApi->UnassignApplicationFromGroup");
+            }
+
+            // verify the required parameter 'groupId2' is set
+            if (groupId2 == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId2' when calling ApplicationGroupsApi->UnassignApplicationFromGroup");
             }
 
 
@@ -662,6 +726,8 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId2)); // path parameter
+            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId2)); // path parameter
 
             // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))

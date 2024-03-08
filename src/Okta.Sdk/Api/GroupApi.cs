@@ -57,11 +57,12 @@ namespace Okta.Sdk.Api
         /// Assigns a group owner
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="groupId"></param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="assignGroupOwnerRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupOwner</returns>
-        System.Threading.Tasks.Task<GroupOwner> AssignGroupOwnerAsync(  string groupId ,   AssignGroupOwnerRequestBody assignGroupOwnerRequestBody , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupOwner> AssignGroupOwnerAsync(  string groupId ,   string groupId2 ,   AssignGroupOwnerRequestBody assignGroupOwnerRequestBody , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Assign a Group Owner
         /// </summary>
@@ -69,11 +70,12 @@ namespace Okta.Sdk.Api
         /// Assigns a group owner
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="groupId"></param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="assignGroupOwnerRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupOwner)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupOwner>> AssignGroupOwnerWithHttpInfoAsync(  string groupId ,   AssignGroupOwnerRequestBody assignGroupOwnerRequestBody , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupOwner>> AssignGroupOwnerWithHttpInfoAsync(  string groupId ,   string groupId2 ,   AssignGroupOwnerRequestBody assignGroupOwnerRequestBody , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Assign a User
         /// </summary>
@@ -689,29 +691,37 @@ namespace Okta.Sdk.Api
         /// Assign a Group Owner Assigns a group owner
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="groupId"></param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="assignGroupOwnerRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupOwner</returns>
-        public async System.Threading.Tasks.Task<GroupOwner> AssignGroupOwnerAsync(  string groupId ,   AssignGroupOwnerRequestBody assignGroupOwnerRequestBody , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupOwner> AssignGroupOwnerAsync(  string groupId ,   string groupId2 ,   AssignGroupOwnerRequestBody assignGroupOwnerRequestBody , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<GroupOwner> localVarResponse = await AssignGroupOwnerWithHttpInfoAsync(groupId, assignGroupOwnerRequestBody, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<GroupOwner> localVarResponse = await AssignGroupOwnerWithHttpInfoAsync(groupId, groupId2, assignGroupOwnerRequestBody, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
         /// Assign a Group Owner Assigns a group owner
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">The &#x60;id&#x60; of the group</param>
+        /// <param name="groupId"></param>
+        /// <param name="groupId2">The &#x60;id&#x60; of the group</param>
         /// <param name="assignGroupOwnerRequestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupOwner)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<GroupOwner>> AssignGroupOwnerWithHttpInfoAsync(  string groupId ,   AssignGroupOwnerRequestBody assignGroupOwnerRequestBody , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<GroupOwner>> AssignGroupOwnerWithHttpInfoAsync(  string groupId ,   string groupId2 ,   AssignGroupOwnerRequestBody assignGroupOwnerRequestBody , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
             {
                 throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupApi->AssignGroupOwner");
+            }
+
+            // verify the required parameter 'groupId2' is set
+            if (groupId2 == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'groupId2' when calling GroupApi->AssignGroupOwner");
             }
 
             // verify the required parameter 'assignGroupOwnerRequestBody' is set
@@ -745,6 +755,7 @@ namespace Okta.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId2)); // path parameter
             localVarRequestOptions.Data = assignGroupOwnerRequestBody;
 
             // authentication (apiToken) required

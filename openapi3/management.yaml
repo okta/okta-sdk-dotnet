@@ -1202,7 +1202,7 @@ paths:
             - okta.apps.manage
       tags:
         - Application
-   /api/v1/apps/{appId}/connections/default:
+  /api/v1/apps/{appId}/connections/default:
     parameters:
       - $ref: '#/components/parameters/pathAppId'
     get:
@@ -21706,6 +21706,12 @@ components:
       schema:
         type: string
         example: 0oafxqCAJWWGELFTYASJ
+    pathOAuthProvisioningAppName:
+      name: appName
+      in: path
+      required: true
+      schema:
+        $ref: '#/components/schemas/OAuthProvisioningEnabledApp'
     pathAppName:
       name: appName
       in: path
@@ -22007,6 +22013,12 @@ components:
         $ref: '#/components/schemas/NotificationType'
     pathOperation:
       name: operation
+      in: path
+      required: true
+      schema:
+        type: string
+    pathRoleRef:
+      name: roleRef
       in: path
       required: true
       schema:
@@ -25805,7 +25817,7 @@ components:
       readOnly: true
     HrefHintsGuidanceObject:
       allOf:
-        - $ref: ./Common.yaml#/components/schemas/HrefHints
+        - $ref: '#/components/schemas/HrefHints'
         - description: Describes allowed HTTP verbs and guidance for the `href`
         - type: object
           properties:
@@ -25832,7 +25844,7 @@ components:
         - href
     LinksSelfLifecycleAndAuthorize:
       allOf:
-        - $ref: ./Common.yaml#/components/schemas/LinksSelfAndLifecycle
+        - $ref: '#/components/schemas/LinksSelfAndLifecycle'
         - type: object
           properties:
             authorize:
@@ -29715,48 +29727,48 @@ components:
     #     DISABLED: The provisioning connection is disabled.
     #     ENABLED: The provisioning connection is enabled.
     #     UNKNOWN: Provisioning isn't supported by the app, or the authentication method is unknown.
-    # ProvisioningDeprovisionedAction:
-    #   type: string
-    #   enum:
-    #     - NONE
-    #     - REACTIVATE
-    # ProvisioningDeprovisionedCondition:
-    #   type: object
-    #   properties:
-    #     action:
-    #       $ref: '#/components/schemas/ProvisioningDeprovisionedAction'
-    # ProvisioningGroups:
-    #   type: object
-    #   properties:
-    #     action:
-    #       $ref: '#/components/schemas/ProvisioningGroupsAction'
-    #     assignments:
-    #       type: array
-    #       items:
-    #         type: string
-    #     filter:
-    #       type: array
-    #       items:
-    #         type: string
-    #     sourceAttributeName:
-    #       type: string
-    # ProvisioningGroupsAction:
-    #   type: string
-    #   enum:
-    #     - APPEND
-    #     - ASSIGN
-    #     - NONE
-    #     - SYNC
-    # ProvisioningSuspendedAction:
-    #   type: string
-    #   enum:
-    #     - NONE
-    #     - UNSUSPEND
-    # ProvisioningSuspendedCondition:
-    #   type: object
-    #   properties:
-    #     action:
-    #       $ref: '#/components/schemas/ProvisioningSuspendedAction'
+    ProvisioningDeprovisionedAction:
+      type: string
+      enum:
+        - NONE
+        - REACTIVATE
+    ProvisioningDeprovisionedCondition:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/ProvisioningDeprovisionedAction'
+    ProvisioningGroups:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/ProvisioningGroupsAction'
+        assignments:
+          type: array
+          items:
+            type: string
+        filter:
+          type: array
+          items:
+            type: string
+        sourceAttributeName:
+          type: string
+    ProvisioningGroupsAction:
+      type: string
+      enum:
+        - APPEND
+        - ASSIGN
+        - NONE
+        - SYNC
+    ProvisioningSuspendedAction:
+      type: string
+      enum:
+        - NONE
+        - UNSUSPEND
+    ProvisioningSuspendedCondition:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/ProvisioningSuspendedAction'
     ProvisioningConnectionProfileOauth:
       description: |
         The app provisioning connection profile used to configure the method of authentication and the credentials.
@@ -29775,6 +29787,23 @@ components:
               description: Only used for the Org2Org (`okta_org2org`) app. The unique client identifier for the OAuth 2.0 service app from the target org.
             settings:
               $ref: '#/components/schemas/Office365ProvisioningSettings'
+    Office365ProvisioningSettings:
+      x-okta-lifecycle:
+        features:
+          - PROVISIONING_API_EXTENSION
+      type: object
+      title: Office 365 provisioning settings
+      description: Settings required for the Office 365 provisioning connection
+      required:
+        - adminUsername
+        - adminPassword
+      properties:
+        adminUsername:
+          type: string
+          description: Office 365 global administrator user name
+        adminPassword:
+          type: string
+          description: Office 365 global administrator password
     ProvisioningConnectionProfileOauthSettings:
       type: object
       title: Generic
@@ -29810,6 +29839,14 @@ components:
           $ref: '#/components/schemas/ProvisioningConnectionRequestProfile'
       required:
         - profile
+    OAuthProvisioningEnabledApp:
+      type: string
+      description: Application name for the provisioning connection
+      enum:
+        - google
+        - office365
+        - zoomus
+        - slack
     ProvisioningConnectionResponse:
       type: object
       properties:

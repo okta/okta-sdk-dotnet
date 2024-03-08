@@ -18,7 +18,6 @@ using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using Okta.Sdk.Client;
-using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {

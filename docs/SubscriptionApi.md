@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="getsubscriptionsnotificationtyperole"></a>
 # **GetSubscriptionsNotificationTypeRole**
-> Subscription GetSubscriptionsNotificationTypeRole (ListSubscriptionsRoleRoleRefParameter roleRef, NotificationType notificationType)
+> Subscription GetSubscriptionsNotificationTypeRole (OneOfRoleTypestring roleRef, NotificationType notificationType)
 
 Retrieve a Subscription for a Role
 
@@ -44,7 +44,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
-            var roleRef = new ListSubscriptionsRoleRoleRefParameter(); // ListSubscriptionsRoleRoleRefParameter | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types).
+            var roleRef = new OneOfRoleTypestring(); // OneOfRoleTypestring | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types).
             var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
 
             try
@@ -68,7 +68,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleRef** | [**ListSubscriptionsRoleRoleRefParameter**](ListSubscriptionsRoleRoleRefParameter.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types). | 
+ **roleRef** | [**OneOfRoleTypestring**](OneOfRoleTypestring.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types). | 
  **notificationType** | **NotificationType**|  | 
 
 ### Return type
@@ -89,15 +89,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
+| **403** |  |  -  |
 | **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getsubscriptionsnotificationtypeuser"></a>
 # **GetSubscriptionsNotificationTypeUser**
-> Subscription GetSubscriptionsNotificationTypeUser (NotificationType notificationType, string userId)
+> Subscription GetSubscriptionsNotificationTypeUser (string userId, NotificationType notificationType)
 
 Retrieve a Subscription for a User
 
@@ -125,13 +125,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
-            var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
             var userId = "userId_example";  // string | 
+            var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
 
             try
             {
                 // Retrieve a Subscription for a User
-                Subscription result = apiInstance.GetSubscriptionsNotificationTypeUser(notificationType, userId);
+                Subscription result = apiInstance.GetSubscriptionsNotificationTypeUser(userId, notificationType);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -149,8 +149,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notificationType** | **NotificationType**|  | 
  **userId** | **string**|  | 
+ **notificationType** | **NotificationType**|  | 
 
 ### Return type
 
@@ -170,15 +170,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
+| **403** |  |  -  |
 | **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="listsubscriptionsrole"></a>
 # **ListSubscriptionsRole**
-> List&lt;Subscription&gt; ListSubscriptionsRole (ListSubscriptionsRoleRoleRefParameter roleRef)
+> List&lt;Subscription&gt; ListSubscriptionsRole (OneOfRoleTypestring roleRef)
 
 List all Subscriptions for a Role
 
@@ -206,7 +206,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
-            var roleRef = new ListSubscriptionsRoleRoleRefParameter(); // ListSubscriptionsRoleRoleRefParameter | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types).
+            var roleRef = new OneOfRoleTypestring(); // OneOfRoleTypestring | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types).
 
             try
             {
@@ -229,7 +229,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleRef** | [**ListSubscriptionsRoleRoleRefParameter**](ListSubscriptionsRoleRoleRefParameter.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types). | 
+ **roleRef** | [**OneOfRoleTypestring**](OneOfRoleTypestring.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types). | 
 
 ### Return type
 
@@ -249,15 +249,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
+| **403** |  |  -  |
 | **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="listsubscriptionsuser"></a>
 # **ListSubscriptionsUser**
-> List&lt;Subscription&gt; ListSubscriptionsUser (string userId)
+> List&lt;Subscription&gt; ListSubscriptionsUser (string userId, string userId2)
 
 List all Subscriptions for a User
 
@@ -286,11 +286,12 @@ namespace Example
 
             var apiInstance = new SubscriptionApi(config);
             var userId = "userId_example";  // string | 
+            var userId2 = "userId_example";  // string | 
 
             try
             {
                 // List all Subscriptions for a User
-                List<Subscription> result = apiInstance.ListSubscriptionsUser(userId).ToListAsync();
+                List<Subscription> result = apiInstance.ListSubscriptionsUser(userId, userId2).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -309,6 +310,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
+ **userId2** | **string**|  | 
 
 ### Return type
 
@@ -328,15 +330,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
+| **403** |  |  -  |
 | **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="subscribebynotificationtyperole"></a>
 # **SubscribeByNotificationTypeRole**
-> void SubscribeByNotificationTypeRole (ListSubscriptionsRoleRoleRefParameter roleRef, NotificationType notificationType)
+> void SubscribeByNotificationTypeRole (OneOfRoleTypestring roleRef, NotificationType notificationType)
 
 Subscribe a Role to a Specific Notification Type
 
@@ -364,7 +366,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
-            var roleRef = new ListSubscriptionsRoleRoleRefParameter(); // ListSubscriptionsRoleRoleRefParameter | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types).
+            var roleRef = new OneOfRoleTypestring(); // OneOfRoleTypestring | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types).
             var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
 
             try
@@ -387,7 +389,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleRef** | [**ListSubscriptionsRoleRoleRefParameter**](ListSubscriptionsRoleRoleRefParameter.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types). | 
+ **roleRef** | [**OneOfRoleTypestring**](OneOfRoleTypestring.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types). | 
  **notificationType** | **NotificationType**|  | 
 
 ### Return type
@@ -408,15 +410,15 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | No Content |  -  |
-| **403** | Forbidden |  -  |
+| **403** |  |  -  |
 | **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="subscribebynotificationtypeuser"></a>
 # **SubscribeByNotificationTypeUser**
-> void SubscribeByNotificationTypeUser (NotificationType notificationType, string userId)
+> void SubscribeByNotificationTypeUser (string userId, NotificationType notificationType)
 
 Subscribe a User to a Specific Notification Type
 
@@ -444,13 +446,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
-            var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
             var userId = "userId_example";  // string | 
+            var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
 
             try
             {
                 // Subscribe a User to a Specific Notification Type
-                apiInstance.SubscribeByNotificationTypeUser(notificationType, userId);
+                apiInstance.SubscribeByNotificationTypeUser(userId, notificationType);
             }
             catch (ApiException  e)
             {
@@ -467,8 +469,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notificationType** | **NotificationType**|  | 
  **userId** | **string**|  | 
+ **notificationType** | **NotificationType**|  | 
 
 ### Return type
 
@@ -488,15 +490,15 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | No Content |  -  |
-| **403** | Forbidden |  -  |
+| **403** |  |  -  |
 | **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="unsubscribebynotificationtyperole"></a>
 # **UnsubscribeByNotificationTypeRole**
-> void UnsubscribeByNotificationTypeRole (ListSubscriptionsRoleRoleRefParameter roleRef, NotificationType notificationType)
+> void UnsubscribeByNotificationTypeRole (OneOfRoleTypestring roleRef, NotificationType notificationType)
 
 Unsubscribe a Role from a Specific Notification Type
 
@@ -524,7 +526,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
-            var roleRef = new ListSubscriptionsRoleRoleRefParameter(); // ListSubscriptionsRoleRoleRefParameter | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types).
+            var roleRef = new OneOfRoleTypestring(); // OneOfRoleTypestring | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types).
             var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
 
             try
@@ -547,7 +549,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleRef** | [**ListSubscriptionsRoleRoleRefParameter**](ListSubscriptionsRoleRoleRefParameter.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types). | 
+ **roleRef** | [**OneOfRoleTypestring**](OneOfRoleTypestring.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types). | 
  **notificationType** | **NotificationType**|  | 
 
 ### Return type
@@ -568,15 +570,15 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | No Content |  -  |
-| **403** | Forbidden |  -  |
+| **403** |  |  -  |
 | **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="unsubscribebynotificationtypeuser"></a>
 # **UnsubscribeByNotificationTypeUser**
-> void UnsubscribeByNotificationTypeUser (NotificationType notificationType, string userId)
+> void UnsubscribeByNotificationTypeUser (string userId, NotificationType notificationType)
 
 Unsubscribe a User from a Specific Notification Type
 
@@ -604,13 +606,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
-            var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
             var userId = "userId_example";  // string | 
+            var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
 
             try
             {
                 // Unsubscribe a User from a Specific Notification Type
-                apiInstance.UnsubscribeByNotificationTypeUser(notificationType, userId);
+                apiInstance.UnsubscribeByNotificationTypeUser(userId, notificationType);
             }
             catch (ApiException  e)
             {
@@ -627,8 +629,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notificationType** | **NotificationType**|  | 
  **userId** | **string**|  | 
+ **notificationType** | **NotificationType**|  | 
 
 ### Return type
 
@@ -648,9 +650,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | No Content |  -  |
-| **403** | Forbidden |  -  |
+| **403** |  |  -  |
 | **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

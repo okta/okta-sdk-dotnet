@@ -41,13 +41,13 @@ namespace Okta.Sdk.Model
         /// </summary>
         public static OAuthProvisioningEnabledApp Office365 = new OAuthProvisioningEnabledApp("office365");
         /// <summary>
-        /// StringEnum OAuthProvisioningEnabledApp for value: slack
-        /// </summary>
-        public static OAuthProvisioningEnabledApp Slack = new OAuthProvisioningEnabledApp("slack");
-        /// <summary>
         /// StringEnum OAuthProvisioningEnabledApp for value: zoomus
         /// </summary>
         public static OAuthProvisioningEnabledApp Zoomus = new OAuthProvisioningEnabledApp("zoomus");
+        /// <summary>
+        /// StringEnum OAuthProvisioningEnabledApp for value: slack
+        /// </summary>
+        public static OAuthProvisioningEnabledApp Slack = new OAuthProvisioningEnabledApp("slack");
 
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="OAuthProvisioningEnabledApp"/>

@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
@@ -30,8 +31,12 @@ namespace Okta.Sdk.Model
     /// ProvisioningConnectionUnknownResponse
     /// </summary>
     [DataContract(Name = "ProvisioningConnectionUnknownResponse")]
+    [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionOauthResponse), "OAUTH2")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionTokenResponse), "TOKEN")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionUnknownResponse), "UNKNOWN")]
     
-    public partial class ProvisioningConnectionUnknownResponse : IEquatable<ProvisioningConnectionUnknownResponse>
+    public partial class ProvisioningConnectionUnknownResponse : ProvisioningConnectionResponse, IEquatable<ProvisioningConnectionUnknownResponse>
     {
 
         /// <summary>
@@ -55,8 +60,9 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProvisioningConnectionUnknownResponse {\n");
-            sb.Append("  Profile: ").Append(Profile).Append("\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -65,7 +71,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -91,15 +97,15 @@ namespace Okta.Sdk.Model
             {
                 return false;
             }
-            return 
+            return base.Equals(input) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
+                ) && base.Equals(input) && 
                 (
                     this.Profile == input.Profile ||
                     (this.Profile != null &&
                     this.Profile.Equals(input.Profile))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
                 );
         }
 
@@ -111,15 +117,15 @@ namespace Okta.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 
-                if (this.Profile != null)
-                {
-                    hashCode = (hashCode * 59) + this.Profile.GetHashCode();
-                }
                 if (this.Status != null)
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.Profile != null)
+                {
+                    hashCode = (hashCode * 59) + this.Profile.GetHashCode();
                 }
                 return hashCode;
             }

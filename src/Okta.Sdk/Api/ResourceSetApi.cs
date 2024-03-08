@@ -273,11 +273,10 @@ namespace Okta.Sdk.Api
         /// Lists all Resource Set bindings with pagination support
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceSetId">&#x60;id&#x60; of a Resource Set</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceSetBindings</returns>
-        System.Threading.Tasks.Task<ResourceSetBindings> ListBindingsAsync(  string resourceSetId ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceSetBindings> ListBindingsAsync(  string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Bindings
         /// </summary>
@@ -285,11 +284,10 @@ namespace Okta.Sdk.Api
         /// Lists all Resource Set bindings with pagination support
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceSetId">&#x60;id&#x60; of a Resource Set</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceSetBindings)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceSetBindings>> ListBindingsWithHttpInfoAsync(  string resourceSetId ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceSetBindings>> ListBindingsWithHttpInfoAsync(  string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Members of a binding
         /// </summary>
@@ -297,12 +295,10 @@ namespace Okta.Sdk.Api
         /// Lists all members of a Resource Set binding with pagination support
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceSetId">&#x60;id&#x60; of a Resource Set</param>
-        /// <param name="roleIdOrLabel">&#x60;id&#x60; or &#x60;label&#x60; of the role</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceSetBindingMembers</returns>
-        System.Threading.Tasks.Task<ResourceSetBindingMembers> ListMembersOfBindingAsync(  string resourceSetId ,   string roleIdOrLabel ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceSetBindingMembers> ListMembersOfBindingAsync(  string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Members of a binding
         /// </summary>
@@ -310,12 +306,10 @@ namespace Okta.Sdk.Api
         /// Lists all members of a Resource Set binding with pagination support
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceSetId">&#x60;id&#x60; of a Resource Set</param>
-        /// <param name="roleIdOrLabel">&#x60;id&#x60; or &#x60;label&#x60; of the role</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceSetBindingMembers)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceSetBindingMembers>> ListMembersOfBindingWithHttpInfoAsync(  string resourceSetId ,   string roleIdOrLabel ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceSetBindingMembers>> ListMembersOfBindingWithHttpInfoAsync(  string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Resources of a Resource Set
         /// </summary>
@@ -1451,31 +1445,23 @@ namespace Okta.Sdk.Api
         /// List all Bindings Lists all Resource Set bindings with pagination support
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceSetId">&#x60;id&#x60; of a Resource Set</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceSetBindings</returns>
-        public async System.Threading.Tasks.Task<ResourceSetBindings> ListBindingsAsync(  string resourceSetId ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceSetBindings> ListBindingsAsync(  string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<ResourceSetBindings> localVarResponse = await ListBindingsWithHttpInfoAsync(resourceSetId, after, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<ResourceSetBindings> localVarResponse = await ListBindingsWithHttpInfoAsync(after, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
         /// List all Bindings Lists all Resource Set bindings with pagination support
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceSetId">&#x60;id&#x60; of a Resource Set</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceSetBindings)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ResourceSetBindings>> ListBindingsWithHttpInfoAsync(  string resourceSetId ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ResourceSetBindings>> ListBindingsWithHttpInfoAsync(  string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'resourceSetId' is set
-            if (resourceSetId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'resourceSetId' when calling ResourceSetApi->ListBindings");
-            }
-
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -1499,7 +1485,6 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("resourceSetId", Okta.Sdk.Client.ClientUtils.ParameterToString(resourceSetId)); // path parameter
             if (after != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
@@ -1542,39 +1527,23 @@ namespace Okta.Sdk.Api
         /// List all Members of a binding Lists all members of a Resource Set binding with pagination support
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceSetId">&#x60;id&#x60; of a Resource Set</param>
-        /// <param name="roleIdOrLabel">&#x60;id&#x60; or &#x60;label&#x60; of the role</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceSetBindingMembers</returns>
-        public async System.Threading.Tasks.Task<ResourceSetBindingMembers> ListMembersOfBindingAsync(  string resourceSetId ,   string roleIdOrLabel ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceSetBindingMembers> ListMembersOfBindingAsync(  string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<ResourceSetBindingMembers> localVarResponse = await ListMembersOfBindingWithHttpInfoAsync(resourceSetId, roleIdOrLabel, after, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<ResourceSetBindingMembers> localVarResponse = await ListMembersOfBindingWithHttpInfoAsync(after, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
         /// List all Members of a binding Lists all members of a Resource Set binding with pagination support
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceSetId">&#x60;id&#x60; of a Resource Set</param>
-        /// <param name="roleIdOrLabel">&#x60;id&#x60; or &#x60;label&#x60; of the role</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceSetBindingMembers)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ResourceSetBindingMembers>> ListMembersOfBindingWithHttpInfoAsync(  string resourceSetId ,   string roleIdOrLabel ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ResourceSetBindingMembers>> ListMembersOfBindingWithHttpInfoAsync(  string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'resourceSetId' is set
-            if (resourceSetId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'resourceSetId' when calling ResourceSetApi->ListMembersOfBinding");
-            }
-
-            // verify the required parameter 'roleIdOrLabel' is set
-            if (roleIdOrLabel == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleIdOrLabel' when calling ResourceSetApi->ListMembersOfBinding");
-            }
-
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -1598,8 +1567,6 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("resourceSetId", Okta.Sdk.Client.ClientUtils.ParameterToString(resourceSetId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("roleIdOrLabel", Okta.Sdk.Client.ClientUtils.ParameterToString(roleIdOrLabel)); // path parameter
             if (after != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));

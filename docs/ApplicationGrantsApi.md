@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getscopeconsentgrant"></a>
 # **GetScopeConsentGrant**
-> OAuth2ScopeConsentGrant GetScopeConsentGrant (string appId, string grantId, string expand = null)
+> OAuth2ScopeConsentGrant GetScopeConsentGrant (string expand = null)
 
 Retrieve an app Grant
 
@@ -40,14 +40,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationGrantsApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
-            var grantId = iJoqkwx50mrgX4T9LcaH;  // string | ID of the Grant
             var expand = scope;  // string | An optional parameter to include scope details in the `_embedded` attribute. Valid value: `scope` (optional) 
 
             try
             {
                 // Retrieve an app Grant
-                OAuth2ScopeConsentGrant result = apiInstance.GetScopeConsentGrant(appId, grantId, expand);
+                OAuth2ScopeConsentGrant result = apiInstance.GetScopeConsentGrant(expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -65,8 +63,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
- **grantId** | **string**| ID of the Grant | 
  **expand** | **string**| An optional parameter to include scope details in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;scope&#x60; | [optional] 
 
 ### Return type
@@ -87,9 +83,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -168,16 +164,16 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **400** |  |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="listscopeconsentgrants"></a>
 # **ListScopeConsentGrants**
-> List&lt;OAuth2ScopeConsentGrant&gt; ListScopeConsentGrants (string appId, string expand = null)
+> List&lt;OAuth2ScopeConsentGrant&gt; ListScopeConsentGrants (string expand = null)
 
 List all app Grants
 
@@ -205,13 +201,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationGrantsApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
             var expand = scope;  // string | An optional parameter to include scope details in the `_embedded` attribute. Valid value: `scope` (optional) 
 
             try
             {
                 // List all app Grants
-                List<OAuth2ScopeConsentGrant> result = apiInstance.ListScopeConsentGrants(appId, expand).ToListAsync();
+                List<OAuth2ScopeConsentGrant> result = apiInstance.ListScopeConsentGrants(expand).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -229,7 +224,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
  **expand** | **string**| An optional parameter to include scope details in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;scope&#x60; | [optional] 
 
 ### Return type
@@ -250,9 +244,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -330,9 +324,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
+| **403** |  |  -  |
+| **404** |  |  -  |
+| **429** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

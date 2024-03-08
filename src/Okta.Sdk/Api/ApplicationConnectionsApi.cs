@@ -35,7 +35,7 @@ namespace Okta.Sdk.Api
         /// Activates the default Provisioning Connection for an app
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task ActivateDefaultProvisioningConnectionForApplicationAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -46,7 +46,7 @@ namespace Okta.Sdk.Api
         /// Activates the default Provisioning Connection for an app
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ActivateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -57,7 +57,7 @@ namespace Okta.Sdk.Api
         /// Deactivates the default Provisioning Connection for an app
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeactivateDefaultProvisioningConnectionForApplicationAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -68,7 +68,7 @@ namespace Okta.Sdk.Api
         /// Deactivates the default Provisioning Connection for an app
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeactivateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -79,10 +79,10 @@ namespace Okta.Sdk.Api
         /// Retrieves the default Provisioning Connection for an app
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetDefaultProvisioningConnectionForApplication200Response</returns>
-        System.Threading.Tasks.Task<GetDefaultProvisioningConnectionForApplication200Response> GetDefaultProvisioningConnectionForApplicationAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ProvisioningConnectionResponse</returns>
+        System.Threading.Tasks.Task<ProvisioningConnectionResponse> GetDefaultProvisioningConnectionForApplicationAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the default Provisioning Connection
         /// </summary>
@@ -90,10 +90,10 @@ namespace Okta.Sdk.Api
         /// Retrieves the default Provisioning Connection for an app
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetDefaultProvisioningConnectionForApplication200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetDefaultProvisioningConnectionForApplication200Response>> GetDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ProvisioningConnectionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ProvisioningConnectionResponse>> GetDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update the default Provisioning Connection
         /// </summary>
@@ -101,12 +101,12 @@ namespace Okta.Sdk.Api
         /// Updates the default Provisioning Connection for an app
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
-        /// <param name="updateDefaultProvisioningConnectionForApplicationRequest"></param>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="provisioningConnectionRequest"></param>
         /// <param name="activate">Activates the Provisioning Connection (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProvisioningConnectionUnknownResponse</returns>
-        System.Threading.Tasks.Task<ProvisioningConnectionUnknownResponse> UpdateDefaultProvisioningConnectionForApplicationAsync(  string appId ,   UpdateDefaultProvisioningConnectionForApplicationRequest updateDefaultProvisioningConnectionForApplicationRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProvisioningConnectionUnknownResponse> UpdateDefaultProvisioningConnectionForApplicationAsync(  string appId ,   ProvisioningConnectionRequest provisioningConnectionRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update the default Provisioning Connection
         /// </summary>
@@ -114,12 +114,12 @@ namespace Okta.Sdk.Api
         /// Updates the default Provisioning Connection for an app
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
-        /// <param name="updateDefaultProvisioningConnectionForApplicationRequest"></param>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="provisioningConnectionRequest"></param>
         /// <param name="activate">Activates the Provisioning Connection (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProvisioningConnectionUnknownResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProvisioningConnectionUnknownResponse>> UpdateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId ,   UpdateDefaultProvisioningConnectionForApplicationRequest updateDefaultProvisioningConnectionForApplicationRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProvisioningConnectionUnknownResponse>> UpdateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId ,   ProvisioningConnectionRequest provisioningConnectionRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Verify the Provisioning Connection
         /// </summary>
@@ -128,12 +128,12 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appName"></param>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="code"> (optional)</param>
         /// <param name="state"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task VerifyProvisioningConnectionForApplicationAsync(  OAuthProvisioningEnabledApp appName ,   string appId ,   string? code = default(string?) ,   string? state = default(string?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task VerifyProvisioningConnectionForApplicationAsync(OAuthProvisioningEnabledApp appName  ,   string appId ,   string code = default(string) ,   string state = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Verify the Provisioning Connection
         /// </summary>
@@ -142,12 +142,64 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appName"></param>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="code"> (optional)</param>
         /// <param name="state"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VerifyProvisioningConnectionForApplicationWithHttpInfoAsync(  OAuthProvisioningEnabledApp appName ,   string appId ,   string? code = default(string?) ,   string? state = default(string?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> VerifyProvisioningConnectionForApplicationWithHttpInfoAsync(OAuthProvisioningEnabledApp appName  ,   string appId ,   string code = default(string) ,   string state = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Verify the Provisioning Connection for Google Workspace
+        /// </summary>
+        /// <remarks>
+        /// Verifies the OAuth 2.0-based connection as part of the OAuth 2.0 consent flow. The validation of the consent flow is the last step of the provisioning setup for the Google Workspace (&#x60;google&#x60;) OAuth 2.0-based connection. 
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="code"> (optional)</param>
+        /// <param name="state"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task VerifyProvisioningConnectionForGoogleApplicationAsync(  string appId ,   string code = default(string) ,   string state = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Verify the Provisioning Connection for Google Workspace
+        /// </summary>
+        /// <remarks>
+        /// Verifies the OAuth 2.0-based connection as part of the OAuth 2.0 consent flow. The validation of the consent flow is the last step of the provisioning setup for the Google Workspace (&#x60;google&#x60;) OAuth 2.0-based connection. 
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="code"> (optional)</param>
+        /// <param name="state"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> VerifyProvisioningConnectionForGoogleApplicationWithHttpInfoAsync(  string appId ,   string code = default(string) ,   string state = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Verify the Provisioning Connection for Microsoft Office 365
+        /// </summary>
+        /// <remarks>
+        /// Verifies the OAuth 2.0-based connection as part of the OAuth 2.0 consent flow. The validation of the consent flow is the last step of the provisioning setup for the Microsoft Office 365 (&#x60;office365&#x60;) OAuth 2.0-based connection. 
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="code"> (optional)</param>
+        /// <param name="state"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task VerifyProvisioningConnectionForOfficeApplicationAsync(  string appId ,   string code = default(string) ,   string state = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Verify the Provisioning Connection for Microsoft Office 365
+        /// </summary>
+        /// <remarks>
+        /// Verifies the OAuth 2.0-based connection as part of the OAuth 2.0 consent flow. The validation of the consent flow is the last step of the provisioning setup for the Microsoft Office 365 (&#x60;office365&#x60;) OAuth 2.0-based connection. 
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="code"> (optional)</param>
+        /// <param name="state"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> VerifyProvisioningConnectionForOfficeApplicationWithHttpInfoAsync(  string appId ,   string code = default(string) ,   string state = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -257,7 +309,7 @@ namespace Okta.Sdk.Api
         /// Activate the default Provisioning Connection Activates the default Provisioning Connection for an app
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task ActivateDefaultProvisioningConnectionForApplicationAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -268,7 +320,7 @@ namespace Okta.Sdk.Api
         /// Activate the default Provisioning Connection Activates the default Provisioning Connection for an app
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> ActivateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -287,7 +339,6 @@ namespace Okta.Sdk.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/json"
             };
 
             var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -341,7 +392,7 @@ namespace Okta.Sdk.Api
         /// Deactivate the default Provisioning Connection Deactivates the default Provisioning Connection for an app
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeactivateDefaultProvisioningConnectionForApplicationAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -352,7 +403,7 @@ namespace Okta.Sdk.Api
         /// Deactivate the default Provisioning Connection Deactivates the default Provisioning Connection for an app
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeactivateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -371,7 +422,6 @@ namespace Okta.Sdk.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/json"
             };
 
             var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -425,22 +475,22 @@ namespace Okta.Sdk.Api
         /// Retrieve the default Provisioning Connection Retrieves the default Provisioning Connection for an app
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetDefaultProvisioningConnectionForApplication200Response</returns>
-        public async System.Threading.Tasks.Task<GetDefaultProvisioningConnectionForApplication200Response> GetDefaultProvisioningConnectionForApplicationAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ProvisioningConnectionResponse</returns>
+        public async System.Threading.Tasks.Task<ProvisioningConnectionResponse> GetDefaultProvisioningConnectionForApplicationAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<GetDefaultProvisioningConnectionForApplication200Response> localVarResponse = await GetDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(appId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<ProvisioningConnectionResponse> localVarResponse = await GetDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(appId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
         /// Retrieve the default Provisioning Connection Retrieves the default Provisioning Connection for an app
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetDefaultProvisioningConnectionForApplication200Response)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<GetDefaultProvisioningConnectionForApplication200Response>> GetDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ProvisioningConnectionResponse)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ProvisioningConnectionResponse>> GetDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -492,7 +542,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetDefaultProvisioningConnectionForApplication200Response>("/api/v1/apps/{appId}/connections/default", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ProvisioningConnectionResponse>("/api/v1/apps/{appId}/connections/default", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -510,26 +560,26 @@ namespace Okta.Sdk.Api
         /// Update the default Provisioning Connection Updates the default Provisioning Connection for an app
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
-        /// <param name="updateDefaultProvisioningConnectionForApplicationRequest"></param>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="provisioningConnectionRequest"></param>
         /// <param name="activate">Activates the Provisioning Connection (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProvisioningConnectionUnknownResponse</returns>
-        public async System.Threading.Tasks.Task<ProvisioningConnectionUnknownResponse> UpdateDefaultProvisioningConnectionForApplicationAsync(  string appId ,   UpdateDefaultProvisioningConnectionForApplicationRequest updateDefaultProvisioningConnectionForApplicationRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProvisioningConnectionUnknownResponse> UpdateDefaultProvisioningConnectionForApplicationAsync(  string appId ,   ProvisioningConnectionRequest provisioningConnectionRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<ProvisioningConnectionUnknownResponse> localVarResponse = await UpdateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(appId, updateDefaultProvisioningConnectionForApplicationRequest, activate, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<ProvisioningConnectionUnknownResponse> localVarResponse = await UpdateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(appId, provisioningConnectionRequest, activate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
         /// Update the default Provisioning Connection Updates the default Provisioning Connection for an app
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">Application ID</param>
-        /// <param name="updateDefaultProvisioningConnectionForApplicationRequest"></param>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="provisioningConnectionRequest"></param>
         /// <param name="activate">Activates the Provisioning Connection (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProvisioningConnectionUnknownResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ProvisioningConnectionUnknownResponse>> UpdateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId ,   UpdateDefaultProvisioningConnectionForApplicationRequest updateDefaultProvisioningConnectionForApplicationRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ProvisioningConnectionUnknownResponse>> UpdateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId ,   ProvisioningConnectionRequest provisioningConnectionRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -537,10 +587,10 @@ namespace Okta.Sdk.Api
                 throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appId' when calling ApplicationConnectionsApi->UpdateDefaultProvisioningConnectionForApplication");
             }
 
-            // verify the required parameter 'updateDefaultProvisioningConnectionForApplicationRequest' is set
-            if (updateDefaultProvisioningConnectionForApplicationRequest == null)
+            // verify the required parameter 'provisioningConnectionRequest' is set
+            if (provisioningConnectionRequest == null)
             {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'updateDefaultProvisioningConnectionForApplicationRequest' when calling ApplicationConnectionsApi->UpdateDefaultProvisioningConnectionForApplication");
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'provisioningConnectionRequest' when calling ApplicationConnectionsApi->UpdateDefaultProvisioningConnectionForApplication");
             }
 
 
@@ -572,7 +622,7 @@ namespace Okta.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "activate", activate));
             }
-            localVarRequestOptions.Data = updateDefaultProvisioningConnectionForApplicationRequest;
+            localVarRequestOptions.Data = provisioningConnectionRequest;
 
             // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -612,12 +662,12 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appName"></param>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="code"> (optional)</param>
         /// <param name="state"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task VerifyProvisioningConnectionForApplicationAsync(  OAuthProvisioningEnabledApp appName ,   string appId ,   string? code = default(string?) ,   string? state = default(string?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task VerifyProvisioningConnectionForApplicationAsync(OAuthProvisioningEnabledApp appName  ,   string appId ,   string code = default(string) ,   string state = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await VerifyProvisioningConnectionForApplicationWithHttpInfoAsync(appName, appId, code, state, cancellationToken).ConfigureAwait(false);
         }
@@ -626,19 +676,13 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appName"></param>
-        /// <param name="appId">Application ID</param>
+        /// <param name="appId">ID of the Application</param>
         /// <param name="code"> (optional)</param>
         /// <param name="state"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> VerifyProvisioningConnectionForApplicationWithHttpInfoAsync(  OAuthProvisioningEnabledApp appName ,   string appId ,   string? code = default(string?) ,   string? state = default(string?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> VerifyProvisioningConnectionForApplicationWithHttpInfoAsync(OAuthProvisioningEnabledApp appName  ,   string appId ,   string code = default(string) ,   string state = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'appName' is set
-            if (appName == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appName' when calling ApplicationConnectionsApi->VerifyProvisioningConnectionForApplication");
-            }
-
             // verify the required parameter 'appId' is set
             if (appId == null)
             {
@@ -653,7 +697,6 @@ namespace Okta.Sdk.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/json"
             };
 
             var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -703,6 +746,196 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("VerifyProvisioningConnectionForApplication", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Verify the Provisioning Connection for Google Workspace Verifies the OAuth 2.0-based connection as part of the OAuth 2.0 consent flow. The validation of the consent flow is the last step of the provisioning setup for the Google Workspace (&#x60;google&#x60;) OAuth 2.0-based connection. 
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="code"> (optional)</param>
+        /// <param name="state"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task VerifyProvisioningConnectionForGoogleApplicationAsync(  string appId ,   string code = default(string) ,   string state = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await VerifyProvisioningConnectionForGoogleApplicationWithHttpInfoAsync(appId, code, state, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Verify the Provisioning Connection for Google Workspace Verifies the OAuth 2.0-based connection as part of the OAuth 2.0 consent flow. The validation of the consent flow is the last step of the provisioning setup for the Google Workspace (&#x60;google&#x60;) OAuth 2.0-based connection. 
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="code"> (optional)</param>
+        /// <param name="state"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> VerifyProvisioningConnectionForGoogleApplicationWithHttpInfoAsync(  string appId ,   string code = default(string) ,   string state = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appId' when calling ApplicationConnectionsApi->VerifyProvisioningConnectionForGoogleApplication");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            if (code != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "code", code));
+            }
+            if (state != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "state", state));
+            }
+
+            // authentication (apiToken) required
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (oauth2) required
+            // oauth required
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/api/v1/apps/google/{appId}/oauth2/callback", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VerifyProvisioningConnectionForGoogleApplication", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Verify the Provisioning Connection for Microsoft Office 365 Verifies the OAuth 2.0-based connection as part of the OAuth 2.0 consent flow. The validation of the consent flow is the last step of the provisioning setup for the Microsoft Office 365 (&#x60;office365&#x60;) OAuth 2.0-based connection. 
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="code"> (optional)</param>
+        /// <param name="state"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task VerifyProvisioningConnectionForOfficeApplicationAsync(  string appId ,   string code = default(string) ,   string state = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await VerifyProvisioningConnectionForOfficeApplicationWithHttpInfoAsync(appId, code, state, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Verify the Provisioning Connection for Microsoft Office 365 Verifies the OAuth 2.0-based connection as part of the OAuth 2.0 consent flow. The validation of the consent flow is the last step of the provisioning setup for the Microsoft Office 365 (&#x60;office365&#x60;) OAuth 2.0-based connection. 
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="code"> (optional)</param>
+        /// <param name="state"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> VerifyProvisioningConnectionForOfficeApplicationWithHttpInfoAsync(  string appId ,   string code = default(string) ,   string state = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appId' when calling ApplicationConnectionsApi->VerifyProvisioningConnectionForOfficeApplication");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            if (code != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "code", code));
+            }
+            if (state != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "state", state));
+            }
+
+            // authentication (apiToken) required
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (oauth2) required
+            // oauth required
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/api/v1/apps/office365/{appId}/oauth2/callback", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VerifyProvisioningConnectionForOfficeApplication", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

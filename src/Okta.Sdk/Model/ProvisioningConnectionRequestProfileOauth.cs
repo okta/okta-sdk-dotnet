@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
@@ -30,21 +31,12 @@ namespace Okta.Sdk.Model
     /// ProvisioningConnectionRequestProfileOauth
     /// </summary>
     [DataContract(Name = "ProvisioningConnectionRequestProfileOauth")]
+    [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionRequestProfileOauth), "OAUTH2")]
+    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionRequestProfileToken), "TOKEN")]
     
-    public partial class ProvisioningConnectionRequestProfileOauth : IEquatable<ProvisioningConnectionRequestProfileOauth>
+    public partial class ProvisioningConnectionRequestProfileOauth : ProvisioningConnectionRequestProfile, IEquatable<ProvisioningConnectionRequestProfileOauth>
     {
-
-        /// <summary>
-        /// Gets or Sets AuthScheme
-        /// </summary>
-        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
-        
-        public ProvisioningConnectionOauthAuthScheme AuthScheme { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisioningConnectionRequestProfileOauth" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        public ProvisioningConnectionRequestProfileOauth() { }
         
         /// <summary>
         /// Only used for the Org2Org (&#x60;okta_org2org&#x60;) app. The unique client identifier for the OAuth 2.0 service app from the target org.
@@ -54,6 +46,12 @@ namespace Okta.Sdk.Model
         public string ClientId { get; set; }
 
         /// <summary>
+        /// Gets or Sets Settings
+        /// </summary>
+        [DataMember(Name = "settings", EmitDefaultValue = true)]
+        public Office365ProvisioningSettings Settings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,8 +59,9 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProvisioningConnectionRequestProfileOauth {\n");
-            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
+            sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -71,7 +70,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -97,15 +96,16 @@ namespace Okta.Sdk.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.AuthScheme == input.AuthScheme ||
-                    this.AuthScheme.Equals(input.AuthScheme)
-                ) && 
+            return base.Equals(input) && 
                 (
                     this.ClientId == input.ClientId ||
                     (this.ClientId != null &&
                     this.ClientId.Equals(input.ClientId))
+                ) && base.Equals(input) && 
+                (
+                    this.Settings == input.Settings ||
+                    (this.Settings != null &&
+                    this.Settings.Equals(input.Settings))
                 );
         }
 
@@ -117,15 +117,15 @@ namespace Okta.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 
-                if (this.AuthScheme != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
-                }
                 if (this.ClientId != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
+                }
+                if (this.Settings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Settings.GetHashCode();
                 }
                 return hashCode;
             }

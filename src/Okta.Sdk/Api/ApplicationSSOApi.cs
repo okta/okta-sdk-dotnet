@@ -50,6 +50,28 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> PreviewSAMLmetadataForApplicationWithHttpInfoAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Preview the application SAML metadata
+        /// </summary>
+        /// <remarks>
+        /// Previews the SSO SAML metadata for an application
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> PreviewSAMLmetadataForApplication_0Async(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Preview the application SAML metadata
+        /// </summary>
+        /// <remarks>
+        /// Previews the SSO SAML metadata for an application
+        /// </remarks>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> PreviewSAMLmetadataForApplication_0WithHttpInfoAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -232,6 +254,91 @@ namespace Okta.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PreviewSAMLmetadataForApplication", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Preview the application SAML metadata Previews the SSO SAML metadata for an application
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> PreviewSAMLmetadataForApplication_0Async(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Okta.Sdk.Client.ApiResponse<string> localVarResponse = await PreviewSAMLmetadataForApplication_0WithHttpInfoAsync(appId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+        /// <summary>
+        /// Preview the application SAML metadata Previews the SSO SAML metadata for an application
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the Application</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<string>> PreviewSAMLmetadataForApplication_0WithHttpInfoAsync(  string appId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appId' when calling ApplicationSSOApi->PreviewSAMLmetadataForApplication_0");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/xml"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
+
+            // authentication (apiToken) required
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (oauth2) required
+            // oauth required
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/api/v1/apps/{appId}/sso/saml/metadata", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PreviewSAMLmetadataForApplication_0", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

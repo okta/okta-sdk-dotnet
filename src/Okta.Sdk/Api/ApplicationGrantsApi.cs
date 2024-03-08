@@ -35,12 +35,10 @@ namespace Okta.Sdk.Api
         /// Retrieves a single scope consent Grant object for the app
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="grantId">ID of the Grant</param>
         /// <param name="expand">An optional parameter to include scope details in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;scope&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OAuth2ScopeConsentGrant</returns>
-        System.Threading.Tasks.Task<OAuth2ScopeConsentGrant> GetScopeConsentGrantAsync(  string appId ,   string grantId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OAuth2ScopeConsentGrant> GetScopeConsentGrantAsync(  string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve an app Grant
         /// </summary>
@@ -48,12 +46,10 @@ namespace Okta.Sdk.Api
         /// Retrieves a single scope consent Grant object for the app
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="grantId">ID of the Grant</param>
         /// <param name="expand">An optional parameter to include scope details in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;scope&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OAuth2ScopeConsentGrant)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OAuth2ScopeConsentGrant>> GetScopeConsentGrantWithHttpInfoAsync(  string appId ,   string grantId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<OAuth2ScopeConsentGrant>> GetScopeConsentGrantWithHttpInfoAsync(  string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Grant consent to scope
         /// </summary>
@@ -85,11 +81,10 @@ namespace Okta.Sdk.Api
         /// Lists all scope consent Grants for the app
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
         /// <param name="expand">An optional parameter to include scope details in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;scope&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2ScopeConsentGrant&gt;</returns>
-        IOktaCollectionClient<OAuth2ScopeConsentGrant> ListScopeConsentGrants(  string appId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<OAuth2ScopeConsentGrant> ListScopeConsentGrants(  string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all app Grants
         /// </summary>
@@ -97,11 +92,10 @@ namespace Okta.Sdk.Api
         /// Lists all scope consent Grants for the app
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
         /// <param name="expand">An optional parameter to include scope details in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;scope&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;OAuth2ScopeConsentGrant&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<OAuth2ScopeConsentGrant>>> ListScopeConsentGrantsWithHttpInfoAsync(  string appId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<OAuth2ScopeConsentGrant>>> ListScopeConsentGrantsWithHttpInfoAsync(  string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Revoke an app Grant
         /// </summary>
@@ -235,39 +229,23 @@ namespace Okta.Sdk.Api
         /// Retrieve an app Grant Retrieves a single scope consent Grant object for the app
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="grantId">ID of the Grant</param>
         /// <param name="expand">An optional parameter to include scope details in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;scope&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OAuth2ScopeConsentGrant</returns>
-        public async System.Threading.Tasks.Task<OAuth2ScopeConsentGrant> GetScopeConsentGrantAsync(  string appId ,   string grantId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OAuth2ScopeConsentGrant> GetScopeConsentGrantAsync(  string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<OAuth2ScopeConsentGrant> localVarResponse = await GetScopeConsentGrantWithHttpInfoAsync(appId, grantId, expand, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<OAuth2ScopeConsentGrant> localVarResponse = await GetScopeConsentGrantWithHttpInfoAsync(expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
         /// Retrieve an app Grant Retrieves a single scope consent Grant object for the app
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
-        /// <param name="grantId">ID of the Grant</param>
         /// <param name="expand">An optional parameter to include scope details in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;scope&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OAuth2ScopeConsentGrant)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<OAuth2ScopeConsentGrant>> GetScopeConsentGrantWithHttpInfoAsync(  string appId ,   string grantId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<OAuth2ScopeConsentGrant>> GetScopeConsentGrantWithHttpInfoAsync(  string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'appId' is set
-            if (appId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appId' when calling ApplicationGrantsApi->GetScopeConsentGrant");
-            }
-
-            // verify the required parameter 'grantId' is set
-            if (grantId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'grantId' when calling ApplicationGrantsApi->GetScopeConsentGrant");
-            }
-
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -291,8 +269,6 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("grantId", Okta.Sdk.Client.ClientUtils.ParameterToString(grantId)); // path parameter
             if (expand != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
@@ -430,19 +406,12 @@ namespace Okta.Sdk.Api
         /// List all app Grants Lists all scope consent Grants for the app
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
         /// <param name="expand">An optional parameter to include scope details in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;scope&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OAuth2ScopeConsentGrant&gt;</returns>
         //a
-        public IOktaCollectionClient<OAuth2ScopeConsentGrant> ListScopeConsentGrants(  string appId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<OAuth2ScopeConsentGrant> ListScopeConsentGrants(  string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'appId' is set
-            if (appId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appId' when calling ApplicationGrantsApi->ListScopeConsentGrants");
-            }
-
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -466,7 +435,6 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             if (expand != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
@@ -492,18 +460,11 @@ namespace Okta.Sdk.Api
         /// List all app Grants Lists all scope consent Grants for the app
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appId">ID of the Application</param>
         /// <param name="expand">An optional parameter to include scope details in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;scope&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;OAuth2ScopeConsentGrant&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<OAuth2ScopeConsentGrant>>> ListScopeConsentGrantsWithHttpInfoAsync(  string appId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<OAuth2ScopeConsentGrant>>> ListScopeConsentGrantsWithHttpInfoAsync(  string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'appId' is set
-            if (appId == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appId' when calling ApplicationGrantsApi->ListScopeConsentGrants");
-            }
-
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -527,7 +488,6 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             if (expand != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));

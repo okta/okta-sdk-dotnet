@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
@@ -20,6 +20,10 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>okta api authentication identity management</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Api\SubscriptionApi.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="JsonSubTypes" Version="1.9.0" />

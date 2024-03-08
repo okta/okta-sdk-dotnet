@@ -35,12 +35,12 @@ namespace Okta.Sdk.Api
         /// Clones a X.509 certificate for an application key credential from a source application to target application.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetAid">Unique key of the target Application</param>
         /// <param name="appId">ID of the Application</param>
         /// <param name="keyId">ID of the Key Credential for the application</param>
-        /// <param name="targetAid">Unique key of the target Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of JsonWebKey</returns>
-        System.Threading.Tasks.Task<JsonWebKey> CloneApplicationKeyAsync(  string appId ,   string keyId ,   string targetAid , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<JsonWebKey> CloneApplicationKeyAsync(  string targetAid ,   string appId ,   string keyId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Clone a Key Credential
         /// </summary>
@@ -48,12 +48,12 @@ namespace Okta.Sdk.Api
         /// Clones a X.509 certificate for an application key credential from a source application to target application.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetAid">Unique key of the target Application</param>
         /// <param name="appId">ID of the Application</param>
         /// <param name="keyId">ID of the Key Credential for the application</param>
-        /// <param name="targetAid">Unique key of the target Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
-        System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> CloneApplicationKeyWithHttpInfoAsync(  string appId ,   string keyId ,   string targetAid , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> CloneApplicationKeyWithHttpInfoAsync(  string targetAid ,   string appId ,   string keyId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Generate a Key Credential
         /// </summary>
@@ -353,27 +353,33 @@ namespace Okta.Sdk.Api
         /// Clone a Key Credential Clones a X.509 certificate for an application key credential from a source application to target application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetAid">Unique key of the target Application</param>
         /// <param name="appId">ID of the Application</param>
         /// <param name="keyId">ID of the Key Credential for the application</param>
-        /// <param name="targetAid">Unique key of the target Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of JsonWebKey</returns>
-        public async System.Threading.Tasks.Task<JsonWebKey> CloneApplicationKeyAsync(  string appId ,   string keyId ,   string targetAid , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<JsonWebKey> CloneApplicationKeyAsync(  string targetAid ,   string appId ,   string keyId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<JsonWebKey> localVarResponse = await CloneApplicationKeyWithHttpInfoAsync(appId, keyId, targetAid, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<JsonWebKey> localVarResponse = await CloneApplicationKeyWithHttpInfoAsync(targetAid, appId, keyId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
         /// Clone a Key Credential Clones a X.509 certificate for an application key credential from a source application to target application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetAid">Unique key of the target Application</param>
         /// <param name="appId">ID of the Application</param>
         /// <param name="keyId">ID of the Key Credential for the application</param>
-        /// <param name="targetAid">Unique key of the target Application</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<JsonWebKey>> CloneApplicationKeyWithHttpInfoAsync(  string appId ,   string keyId ,   string targetAid , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<JsonWebKey>> CloneApplicationKeyWithHttpInfoAsync(  string targetAid ,   string appId ,   string keyId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'targetAid' is set
+            if (targetAid == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'targetAid' when calling ApplicationCredentialsApi->CloneApplicationKey");
+            }
+
             // verify the required parameter 'appId' is set
             if (appId == null)
             {
@@ -384,12 +390,6 @@ namespace Okta.Sdk.Api
             if (keyId == null)
             {
                 throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'keyId' when calling ApplicationCredentialsApi->CloneApplicationKey");
-            }
-
-            // verify the required parameter 'targetAid' is set
-            if (targetAid == null)
-            {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'targetAid' when calling ApplicationCredentialsApi->CloneApplicationKey");
             }
 
 

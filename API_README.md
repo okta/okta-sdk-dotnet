@@ -78,6 +78,9 @@ Class | Method | HTTP request | Description
 *ApplicationConnectionsApi* | [**DeactivateDefaultProvisioningConnectionForApplication**](docs/ApplicationConnectionsApi.md#deactivatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/deactivate | Deactivate the default Provisioning Connection
 *ApplicationConnectionsApi* | [**GetDefaultProvisioningConnectionForApplication**](docs/ApplicationConnectionsApi.md#getdefaultprovisioningconnectionforapplication) | **GET** /api/v1/apps/{appId}/connections/default | Retrieve the default Provisioning Connection
 *ApplicationConnectionsApi* | [**UpdateDefaultProvisioningConnectionForApplication**](docs/ApplicationConnectionsApi.md#updatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default | Update the default Provisioning Connection
+*ApplicationConnectionsApi* | [**VerifyProvisioningConnectionForApplication**](docs/ApplicationConnectionsApi.md#verifyprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appName}/{appId}/oauth2/callback | Verify the Provisioning Connection
+*ApplicationConnectionsApi* | [**VerifyProvisioningConnectionForGoogleApplication**](docs/ApplicationConnectionsApi.md#verifyprovisioningconnectionforgoogleapplication) | **POST** /api/v1/apps/google/{appId}/oauth2/callback | Verify the Provisioning Connection for Google Workspace
+*ApplicationConnectionsApi* | [**VerifyProvisioningConnectionForOfficeApplication**](docs/ApplicationConnectionsApi.md#verifyprovisioningconnectionforofficeapplication) | **POST** /api/v1/apps/office365/{appId}/oauth2/callback | Verify the Provisioning Connection for Microsoft Office 365
 *ApplicationCredentialsApi* | [**CloneApplicationKey**](docs/ApplicationCredentialsApi.md#cloneapplicationkey) | **POST** /api/v1/apps/{appId}/credentials/keys/{keyId}/clone | Clone a Key Credential
 *ApplicationCredentialsApi* | [**GenerateApplicationKey**](docs/ApplicationCredentialsApi.md#generateapplicationkey) | **POST** /api/v1/apps/{appId}/credentials/keys/generate | Generate a Key Credential
 *ApplicationCredentialsApi* | [**GenerateCsrForApplication**](docs/ApplicationCredentialsApi.md#generatecsrforapplication) | **POST** /api/v1/apps/{appId}/credentials/csrs | Generate a Certificate Signing Request
@@ -101,6 +104,7 @@ Class | Method | HTTP request | Description
 *ApplicationLogosApi* | [**UploadApplicationLogo**](docs/ApplicationLogosApi.md#uploadapplicationlogo) | **POST** /api/v1/apps/{appId}/logo | Upload an application Logo
 *ApplicationPoliciesApi* | [**AssignApplicationPolicy**](docs/ApplicationPoliciesApi.md#assignapplicationpolicy) | **PUT** /api/v1/apps/{appId}/policies/{policyId} | Assign an application to a Policy
 *ApplicationSSOApi* | [**PreviewSAMLmetadataForApplication**](docs/ApplicationSSOApi.md#previewsamlmetadataforapplication) | **GET** /api/v1/apps/${appId}/sso/saml/metadata | Preview the application SAML metadata
+*ApplicationSSOApi* | [**PreviewSAMLmetadataForApplication_0**](docs/ApplicationSSOApi.md#previewsamlmetadataforapplication_0) | **GET** /api/v1/apps/{appId}/sso/saml/metadata | Preview the application SAML metadata
 *ApplicationTokensApi* | [**GetOAuth2TokenForApplication**](docs/ApplicationTokensApi.md#getoauth2tokenforapplication) | **GET** /api/v1/apps/{appId}/tokens/{tokenId} | Retrieve an OAuth 2.0 Token
 *ApplicationTokensApi* | [**ListOAuth2TokensForApplication**](docs/ApplicationTokensApi.md#listoauth2tokensforapplication) | **GET** /api/v1/apps/{appId}/tokens | List all OAuth 2.0 Tokens
 *ApplicationTokensApi* | [**RevokeOAuth2TokenForApplication**](docs/ApplicationTokensApi.md#revokeoauth2tokenforapplication) | **DELETE** /api/v1/apps/{appId}/tokens/{tokenId} | Revoke an OAuth 2.0 Token
@@ -924,9 +928,12 @@ Class | Method | HTTP request | Description
  - [Model.HookKey](docs/HookKey.md)
  - [Model.HostedPage](docs/HostedPage.md)
  - [Model.HostedPageType](docs/HostedPageType.md)
+ - [Model.HrefHintsGuidanceObject](docs/HrefHintsGuidanceObject.md)
+ - [Model.HrefHintsGuidanceObjectAllOf](docs/HrefHintsGuidanceObjectAllOf.md)
  - [Model.HrefObject](docs/HrefObject.md)
  - [Model.HrefObjectActivateLink](docs/HrefObjectActivateLink.md)
  - [Model.HrefObjectAppLink](docs/HrefObjectAppLink.md)
+ - [Model.HrefObjectAuthorizeLink](docs/HrefObjectAuthorizeLink.md)
  - [Model.HrefObjectClientLink](docs/HrefObjectClientLink.md)
  - [Model.HrefObjectDeactivateLink](docs/HrefObjectDeactivateLink.md)
  - [Model.HrefObjectDeleteLink](docs/HrefObjectDeleteLink.md)
@@ -1006,8 +1013,9 @@ Class | Method | HTTP request | Description
  - [Model.LinksSelfAndLifecycleAllOf](docs/LinksSelfAndLifecycleAllOf.md)
  - [Model.LinksSelfAndRoles](docs/LinksSelfAndRoles.md)
  - [Model.LinksSelfAndRolesAllOf](docs/LinksSelfAndRolesAllOf.md)
+ - [Model.LinksSelfLifecycleAndAuthorize](docs/LinksSelfLifecycleAndAuthorize.md)
+ - [Model.LinksSelfLifecycleAndAuthorizeAllOf](docs/LinksSelfLifecycleAndAuthorizeAllOf.md)
  - [Model.ListProfileMappings](docs/ListProfileMappings.md)
- - [Model.ListSubscriptionsRoleRoleRefParameter](docs/ListSubscriptionsRoleRoleRefParameter.md)
  - [Model.LoadingPageTouchPointVariant](docs/LoadingPageTouchPointVariant.md)
  - [Model.LocationGranularity](docs/LocationGranularity.md)
  - [Model.LogActor](docs/LogActor.md)
@@ -1094,8 +1102,10 @@ Class | Method | HTTP request | Description
  - [Model.OAuthApplicationCredentialsAllOf](docs/OAuthApplicationCredentialsAllOf.md)
  - [Model.OAuthEndpointAuthenticationMethod](docs/OAuthEndpointAuthenticationMethod.md)
  - [Model.OAuthGrantType](docs/OAuthGrantType.md)
+ - [Model.OAuthProvisioningEnabledApp](docs/OAuthProvisioningEnabledApp.md)
  - [Model.OAuthResponseType](docs/OAuthResponseType.md)
  - [Model.OSVersion](docs/OSVersion.md)
+ - [Model.Office365ProvisioningSettings](docs/Office365ProvisioningSettings.md)
  - [Model.OktaSignOnPolicy](docs/OktaSignOnPolicy.md)
  - [Model.OktaSignOnPolicyAllOf](docs/OktaSignOnPolicyAllOf.md)
  - [Model.OktaSignOnPolicyConditions](docs/OktaSignOnPolicyConditions.md)
@@ -1265,16 +1275,30 @@ Class | Method | HTTP request | Description
  - [Model.Provisioning](docs/Provisioning.md)
  - [Model.ProvisioningAction](docs/ProvisioningAction.md)
  - [Model.ProvisioningConditions](docs/ProvisioningConditions.md)
- - [Model.ProvisioningConnection](docs/ProvisioningConnection.md)
  - [Model.ProvisioningConnectionAuthScheme](docs/ProvisioningConnectionAuthScheme.md)
- - [Model.ProvisioningConnectionProfile](docs/ProvisioningConnectionProfile.md)
+ - [Model.ProvisioningConnectionOauthAuthScheme](docs/ProvisioningConnectionOauthAuthScheme.md)
+ - [Model.ProvisioningConnectionOauthResponse](docs/ProvisioningConnectionOauthResponse.md)
+ - [Model.ProvisioningConnectionOauthResponseAllOf](docs/ProvisioningConnectionOauthResponseAllOf.md)
  - [Model.ProvisioningConnectionProfileOauth](docs/ProvisioningConnectionProfileOauth.md)
- - [Model.ProvisioningConnectionProfileOauthAllOf](docs/ProvisioningConnectionProfileOauthAllOf.md)
+ - [Model.ProvisioningConnectionProfileResponse](docs/ProvisioningConnectionProfileResponse.md)
  - [Model.ProvisioningConnectionProfileToken](docs/ProvisioningConnectionProfileToken.md)
- - [Model.ProvisioningConnectionProfileTokenAllOf](docs/ProvisioningConnectionProfileTokenAllOf.md)
  - [Model.ProvisioningConnectionProfileUnknown](docs/ProvisioningConnectionProfileUnknown.md)
  - [Model.ProvisioningConnectionRequest](docs/ProvisioningConnectionRequest.md)
+ - [Model.ProvisioningConnectionRequestAuthScheme](docs/ProvisioningConnectionRequestAuthScheme.md)
+ - [Model.ProvisioningConnectionRequestProfile](docs/ProvisioningConnectionRequestProfile.md)
+ - [Model.ProvisioningConnectionRequestProfileOauth](docs/ProvisioningConnectionRequestProfileOauth.md)
+ - [Model.ProvisioningConnectionRequestProfileOauthAllOf](docs/ProvisioningConnectionRequestProfileOauthAllOf.md)
+ - [Model.ProvisioningConnectionRequestProfileToken](docs/ProvisioningConnectionRequestProfileToken.md)
+ - [Model.ProvisioningConnectionRequestProfileTokenAllOf](docs/ProvisioningConnectionRequestProfileTokenAllOf.md)
+ - [Model.ProvisioningConnectionResponse](docs/ProvisioningConnectionResponse.md)
  - [Model.ProvisioningConnectionStatus](docs/ProvisioningConnectionStatus.md)
+ - [Model.ProvisioningConnectionTokenAuthScheme](docs/ProvisioningConnectionTokenAuthScheme.md)
+ - [Model.ProvisioningConnectionTokenResponse](docs/ProvisioningConnectionTokenResponse.md)
+ - [Model.ProvisioningConnectionTokenResponseAllOf](docs/ProvisioningConnectionTokenResponseAllOf.md)
+ - [Model.ProvisioningConnectionUnknownAuthScheme](docs/ProvisioningConnectionUnknownAuthScheme.md)
+ - [Model.ProvisioningConnectionUnknownResponse](docs/ProvisioningConnectionUnknownResponse.md)
+ - [Model.ProvisioningConnectionUnknownResponseAllOf](docs/ProvisioningConnectionUnknownResponseAllOf.md)
+ - [Model.ProvisioningConnectionUnknownStatus](docs/ProvisioningConnectionUnknownStatus.md)
  - [Model.ProvisioningDeprovisionedAction](docs/ProvisioningDeprovisionedAction.md)
  - [Model.ProvisioningDeprovisionedCondition](docs/ProvisioningDeprovisionedCondition.md)
  - [Model.ProvisioningGroups](docs/ProvisioningGroups.md)
