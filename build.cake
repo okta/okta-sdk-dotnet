@@ -92,7 +92,6 @@ Task("Default")
     .IsDependentOn("Restore")
     .IsDependentOn("Build")
     .IsDependentOn("Test")
-    .IsDependentOn("IntegrationTest")
     .IsDependentOn("Pack");
 
 Task("DefaultIT")
