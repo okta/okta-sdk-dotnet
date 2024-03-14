@@ -16,25 +16,13 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Install python"
-          command: choco install -y python
-      - general-platform-helpers/step-load-dependencies-windows
-      - run:
           name: "Install required components"
           command: |
               choco install -y dotnetcore-sdk
-              choco install -y powershell-core
       - run:
-          name: "Test Runner"
-          shell: bash.exe
+          name: "Build and Test"
           command: |
-              source "${BASH_ENV}"
-              pwsh.exe -File ./build.ps1
-      #- run:
-      #    name: "Test Runner"
-      #    command: |
-      #        ./build.sh
-      #    shell: bash.exe
+              ./build.ps1;
       - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
           root: ~/project
           paths:
@@ -66,13 +54,7 @@ jobs:
 workflows:
   "Circle CI Tests":
     jobs:
-      - general-platform-helpers/job-secrets-obtain:
-          name: cache-secrets
-          secret-key: "OKTA_CLIENT_OKTADOMAIN;OKTA_CLIENT_TOKEN;OKTA_CLIENT_CONNECTIONTIMEOUT;OKTA_CLIENT_REQUESTTIMEOUT;OKTA_CLIENT_RATELIMIT_MAXRETRIES"
-      - build:
-          name: build
-          requires:
-            - cache-secrets
+      - build
       - general-platform-helpers/job-snyk-prepare:
           name: prepare-snyk
           requires:
