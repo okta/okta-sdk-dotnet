@@ -30,67 +30,6 @@ namespace Okta.Sdk.IntegrationTest
             _applicationPolicyApi = new ApplicationPoliciesApi();
         }
 
-        [Fact]
-        public async Task CreateIdpDiscoveryPolicyRule()
-        {
-
-            var defaultIdpPolicy = await _policyApi.ListPolicies(PolicyType.IDPDISCOVERY).FirstOrDefaultAsync();
-            var policyRule = new PolicyRule
-            {
-                Type = PolicyRuleType.IDPDISCOVERY,
-                Name = $"dotnet-sdk: CreateIdpDiscoveryPolicyRule {Guid.NewGuid()}".Substring(0, 50),
-
-            };
-
-            //  var policyRule = new OktaSignOnPolicyRule
-            //  {
-            //      Type = PolicyRuleType.SIGNON,
-            //      Name = $"dotnet-sdk: CreateOktaSignOnCloudPolicyRule {guid}".Substring(0, 50),
-            //      Actions = new OktaSignOnPolicyRuleActions
-            //      {
-            //          Signon = new OktaSignOnPolicyRuleSignonActions
-            //          {
-            //              Access = "ALLOW",
-            //              FactorLifetime = 10,
-            //              RememberDeviceByDefault = false,
-            //              RequireFactor = true,
-            //              FactorPromptMode = "ALWAYS",
-            //              Session = new OktaSignOnPolicyRuleSignonSessionActions
-            //              {
-            //                  UsePersistentCookie = false,
-            //                  MaxSessionIdleMinutes = 720,
-            //                  MaxSessionLifetimeMinutes = 800,
-            //              },
-            //          },
-            //      },
-            //      Conditions = new OktaSignOnPolicyRuleConditions
-            //      {
-            //          Network = new PolicyNetworkCondition
-            //          {
-            //              Connection = "ANYWHERE",
-            //          },
-            //          AuthContext = new PolicyRuleAuthContextCondition
-            //          {
-            //              AuthType = "ANY",
-            //          },
-            //      },
-            //  };
-
-            //var createdPolicyRule = await _policyApi.CreatePolicyRuleAsync(createdPolicy.Id, policyRule) as OktaSignOnPolicyRule;
-            try
-            {
-                //createdPolicy.Should().NotBeNull();
-                //createdPolicy.Name.Should().Be(policy.Name);
-                //createdPolicy.Type.Should().Be(PolicyType.IDPDISCOVERY);
-                //createdPolicy.Status.Should().Be(LifecycleStatus.ACTIVE);
-                //createdPolicy.Description.Should().Be(policy.Description);
-            }
-            finally
-            {
-                //await _policyApi.DeletePolicyAsync(createdPolicy.Id);
-            }
-        }
-
 
         [Fact]
         public async Task CreateSignOnPolicy()
