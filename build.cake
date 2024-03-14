@@ -104,5 +104,4 @@ Task("DefaultIT")
 
 // Default task
 var target = Argument("target", "Default");
-
 RunTarget(target);
