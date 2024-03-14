@@ -35,6 +35,12 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
+        /// Gets or Sets Allow
+        /// </summary>
+        [DataMember(Name = "allow", EmitDefaultValue = true)]
+        public List<HttpMethod> Allow { get; set; }
+
+        /// <summary>
         /// Specifies the URI to invoke for granting scope consent required to complete the OAuth 2.0 connection 
         /// </summary>
         /// <value>Specifies the URI to invoke for granting scope consent required to complete the OAuth 2.0 connection </value>
@@ -49,6 +55,7 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class HrefHintsGuidanceObject {\n");
+            sb.Append("  Allow: ").Append(Allow).Append("\n");
             sb.Append("  Guidance: ").Append(Guidance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -86,6 +93,12 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
+                    this.Allow == input.Allow ||
+                    this.Allow != null &&
+                    input.Allow != null &&
+                    this.Allow.SequenceEqual(input.Allow)
+                ) && 
+                (
                     this.Guidance == input.Guidance ||
                     this.Guidance != null &&
                     input.Guidance != null &&
@@ -103,6 +116,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
+                if (this.Allow != null)
+                {
+                    hashCode = (hashCode * 59) + this.Allow.GetHashCode();
+                }
                 if (this.Guidance != null)
                 {
                     hashCode = (hashCode * 59) + this.Guidance.GetHashCode();

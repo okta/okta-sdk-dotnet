@@ -21,7 +21,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
@@ -31,12 +30,8 @@ namespace Okta.Sdk.Model
     /// ProvisioningConnectionUnknownResponse
     /// </summary>
     [DataContract(Name = "ProvisioningConnectionUnknownResponse")]
-    [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionOauthResponse), "OAUTH2")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionTokenResponse), "TOKEN")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionUnknownResponse), "UNKNOWN")]
     
-    public partial class ProvisioningConnectionUnknownResponse : ProvisioningConnectionResponse, IEquatable<ProvisioningConnectionUnknownResponse>
+    public partial class ProvisioningConnectionUnknownResponse : IEquatable<ProvisioningConnectionUnknownResponse>
     {
 
         /// <summary>
@@ -45,7 +40,26 @@ namespace Okta.Sdk.Model
         [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public ProvisioningConnectionUnknownStatus Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AuthScheme
+        /// </summary>
+        [DataMember(Name = "authScheme", EmitDefaultValue = true)]
         
+        public ProvisioningConnectionTokenAuthScheme AuthScheme { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionUnknownResponse" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        public ProvisioningConnectionUnknownResponse() { }
+        
+        /// <summary>
+        /// Base URL
+        /// </summary>
+        /// <value>Base URL</value>
+        [DataMember(Name = "baseUrl", EmitDefaultValue = true)]
+        public string BaseUrl { get; set; }
+
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
@@ -60,8 +74,9 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProvisioningConnectionUnknownResponse {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  BaseUrl: ").Append(BaseUrl).Append("\n");
+            sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -71,7 +86,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -97,11 +112,20 @@ namespace Okta.Sdk.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return 
                 (
                     this.Status == input.Status ||
                     this.Status.Equals(input.Status)
-                ) && base.Equals(input) && 
+                ) && 
+                (
+                    this.BaseUrl == input.BaseUrl ||
+                    (this.BaseUrl != null &&
+                    this.BaseUrl.Equals(input.BaseUrl))
+                ) && 
+                (
+                    this.AuthScheme == input.AuthScheme ||
+                    this.AuthScheme.Equals(input.AuthScheme)
+                ) && 
                 (
                     this.Profile == input.Profile ||
                     (this.Profile != null &&
@@ -117,11 +141,19 @@ namespace Okta.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 
                 if (this.Status != null)
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.BaseUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.BaseUrl.GetHashCode();
+                }
+                if (this.AuthScheme != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
                 }
                 if (this.Profile != null)
                 {

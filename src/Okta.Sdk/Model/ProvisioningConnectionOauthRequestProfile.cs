@@ -21,23 +21,17 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// The profile used to configure the connection method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication are supported. 
+    /// ProvisioningConnectionOauthRequestProfile
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionProfileResponse")]
-    [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionOauthResponse), "OAUTH2")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionTokenResponse), "ProvisioningConnectionTokenResponse")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionTokenResponse), "TOKEN")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionUnknownResponse), "UNKNOWN")]
+    [DataContract(Name = "ProvisioningConnectionOauthRequestProfile")]
     
-    public partial class ProvisioningConnectionProfileResponse : IEquatable<ProvisioningConnectionProfileResponse>
+    public partial class ProvisioningConnectionOauthRequestProfile : IEquatable<ProvisioningConnectionOauthRequestProfile>
     {
 
         /// <summary>
@@ -45,8 +39,26 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "authScheme", EmitDefaultValue = true)]
         
-        public ProvisioningConnectionAuthScheme AuthScheme { get; set; }
+        public ProvisioningConnectionOauthAuthScheme AuthScheme { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionOauthRequestProfile" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        public ProvisioningConnectionOauthRequestProfile() { }
         
+        /// <summary>
+        /// Only used for the Okta Org2Org (&#x60;okta_org2org&#x60;) app. The unique client identifier for the OAuth 2.0 service app from the target org.
+        /// </summary>
+        /// <value>Only used for the Okta Org2Org (&#x60;okta_org2org&#x60;) app. The unique client identifier for the OAuth 2.0 service app from the target org.</value>
+        [DataMember(Name = "clientId", EmitDefaultValue = true)]
+        public string ClientId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Settings
+        /// </summary>
+        [DataMember(Name = "settings", EmitDefaultValue = true)]
+        public Office365ProvisioningSettings Settings { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -54,8 +66,10 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionProfileResponse {\n");
+            sb.Append("class ProvisioningConnectionOauthRequestProfile {\n");
             sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
+            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
+            sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -76,15 +90,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionProfileResponse);
+            return this.Equals(input as ProvisioningConnectionOauthRequestProfile);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionProfileResponse instances are equal
+        /// Returns true if ProvisioningConnectionOauthRequestProfile instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionProfileResponse to be compared</param>
+        /// <param name="input">Instance of ProvisioningConnectionOauthRequestProfile to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionProfileResponse input)
+        public bool Equals(ProvisioningConnectionOauthRequestProfile input)
         {
             if (input == null)
             {
@@ -94,6 +108,16 @@ namespace Okta.Sdk.Model
                 (
                     this.AuthScheme == input.AuthScheme ||
                     this.AuthScheme.Equals(input.AuthScheme)
+                ) && 
+                (
+                    this.ClientId == input.ClientId ||
+                    (this.ClientId != null &&
+                    this.ClientId.Equals(input.ClientId))
+                ) && 
+                (
+                    this.Settings == input.Settings ||
+                    (this.Settings != null &&
+                    this.Settings.Equals(input.Settings))
                 );
         }
 
@@ -110,6 +134,14 @@ namespace Okta.Sdk.Model
                 if (this.AuthScheme != null)
                 {
                     hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                }
+                if (this.ClientId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
+                }
+                if (this.Settings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Settings.GetHashCode();
                 }
                 return hashCode;
             }

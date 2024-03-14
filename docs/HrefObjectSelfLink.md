@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Hints** | [**HrefObjectHints**](HrefObjectHints.md) |  | [optional] 
+**Hints** | [**HrefHints**](HrefHints.md) |  | [optional] 
 **Href** | **string** | Link URI | 
 **Name** | **string** | Link name | [optional] 
 **Type** | **string** | The media type of the link. If omitted, it is implicitly &#x60;application/json&#x60;. | [optional] 

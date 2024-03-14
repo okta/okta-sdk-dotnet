@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 <a name="updatedefaultprovisioningconnectionforapplication"></a>
 # **UpdateDefaultProvisioningConnectionForApplication**
-> ProvisioningConnectionUnknownResponse UpdateDefaultProvisioningConnectionForApplication (string appId, ProvisioningConnectionRequest provisioningConnectionRequest, bool? activate = null)
+> ProvisioningConnectionResponse UpdateDefaultProvisioningConnectionForApplication (string appId, UpdateDefaultProvisioningConnectionForApplicationRequest updateDefaultProvisioningConnectionForApplicationRequest, bool? activate = null)
 
 Update the default Provisioning Connection
 
@@ -279,13 +279,13 @@ namespace Example
 
             var apiInstance = new ApplicationConnectionsApi(config);
             var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
-            var provisioningConnectionRequest = new ProvisioningConnectionRequest(); // ProvisioningConnectionRequest | 
+            var updateDefaultProvisioningConnectionForApplicationRequest = new UpdateDefaultProvisioningConnectionForApplicationRequest(); // UpdateDefaultProvisioningConnectionForApplicationRequest | 
             var activate = true;  // bool? | Activates the Provisioning Connection (optional) 
 
             try
             {
                 // Update the default Provisioning Connection
-                ProvisioningConnectionUnknownResponse result = apiInstance.UpdateDefaultProvisioningConnectionForApplication(appId, provisioningConnectionRequest, activate);
+                ProvisioningConnectionResponse result = apiInstance.UpdateDefaultProvisioningConnectionForApplication(appId, updateDefaultProvisioningConnectionForApplicationRequest, activate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -304,12 +304,12 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **string**| ID of the Application | 
- **provisioningConnectionRequest** | [**ProvisioningConnectionRequest**](ProvisioningConnectionRequest.md)|  | 
+ **updateDefaultProvisioningConnectionForApplicationRequest** | [**UpdateDefaultProvisioningConnectionForApplicationRequest**](UpdateDefaultProvisioningConnectionForApplicationRequest.md)|  | 
  **activate** | **bool?**| Activates the Provisioning Connection | [optional] 
 
 ### Return type
 
-[**ProvisioningConnectionUnknownResponse**](ProvisioningConnectionUnknownResponse.md)
+[**ProvisioningConnectionResponse**](ProvisioningConnectionResponse.md)
 
 ### Authorization
 

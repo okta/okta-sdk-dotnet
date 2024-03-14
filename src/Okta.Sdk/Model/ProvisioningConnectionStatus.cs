@@ -40,6 +40,10 @@ namespace Okta.Sdk.Model
         /// StringEnum ProvisioningConnectionStatus for value: ENABLED
         /// </summary>
         public static ProvisioningConnectionStatus ENABLED = new ProvisioningConnectionStatus("ENABLED");
+        /// <summary>
+        /// StringEnum ProvisioningConnectionStatus for value: UNKNOWN
+        /// </summary>
+        public static ProvisioningConnectionStatus UNKNOWN = new ProvisioningConnectionStatus("UNKNOWN");
 
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="ProvisioningConnectionStatus"/>

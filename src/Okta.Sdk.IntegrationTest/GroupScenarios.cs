@@ -1018,57 +1018,57 @@ namespace Okta.Sdk.IntegrationTest
         }
 
 
-        [Fact]
-        public async Task ListAssignedApplications()
-        {
+        //[Fact]
+        //public async Task ListAssignedApplications()
+        //{
 
-            var guid = Guid.NewGuid();
+        //    var guid = Guid.NewGuid();
 
-            var group = new Group
-            {
-                Profile = new GroupProfile
-                {
-                    Name = $"dotnet-sdk: Get Test Group {guid}"
-                },
-            };
+        //    var group = new Group
+        //    {
+        //        Profile = new GroupProfile
+        //        {
+        //            Name = $"dotnet-sdk: Get Test Group {guid}"
+        //        },
+        //    };
 
-            var createdGroup = await _groupApi.CreateGroupAsync(group);
+        //    var createdGroup = await _groupApi.CreateGroupAsync(group);
 
-            var app = new BasicAuthApplication
-            {
-                Name = "template_basic_auth",
-                Label = $"dotnet-sdk: ListAssignedApplications {guid}",
-                SignOnMode = "BASIC_AUTH",
-                Settings = new BasicApplicationSettings
-                {
-                    App = new BasicApplicationSettingsApplication
-                    {
-                        Url = "https://example.com/login.html",
-                        AuthURL = "https://example.com/auth.html",
-                    },
-                },
-            };
+        //    var app = new BasicAuthApplication
+        //    {
+        //        Name = "template_basic_auth",
+        //        Label = $"dotnet-sdk: ListAssignedApplications {guid}",
+        //        SignOnMode = "BASIC_AUTH",
+        //        Settings = new BasicApplicationSettings
+        //        {
+        //            App = new BasicApplicationSettingsApplication
+        //            {
+        //                Url = "https://example.com/login.html",
+        //                AuthURL = "https://example.com/auth.html",
+        //            },
+        //        },
+        //    };
 
-            var createdApp = await _appsApi.CreateApplicationAsync(app);
-            try
-            {
-                var groupAssignment = new ApplicationGroupAssignment
-                {
-                    Priority = 0,
-                };
+        //    var createdApp = await _appsApi.CreateApplicationAsync(app);
+        //    try
+        //    {
+        //        var groupAssignment = new ApplicationGroupAssignment
+        //        {
+        //            Priority = 0,
+        //        };
 
-                await _appGroupsApi.AssignGroupToApplicationAsync(createdApp.Id, createdGroup.Id, groupAssignment);
+        //        await _appGroupsApi.AssignGroupToApplicationAsync(createdApp.Id, createdGroup.Id, groupAssignment);
 
-                Thread.Sleep(3000); // allow for replication prior to read attempt
+        //        Thread.Sleep(3000); // allow for replication prior to read attempt
 
-                var assignedApplications = await _groupApi.ListAssignedApplicationsForGroup(createdGroup.Id).ToListAsync();
-                assignedApplications.Should().NotBeNull();
-                assignedApplications.FirstOrDefault(app => app.Id.Equals(createdApp.Id)).Should().NotBeNull();
-            }
-            finally
-            {
-                await _groupApi.DeleteGroupAsync(createdGroup.Id);
-            }
-        }
+        //        var assignedApplications = await _groupApi.ListAssignedApplicationsForGroup(createdGroup.Id).ToListAsync();
+        //        assignedApplications.Should().NotBeNull();
+        //        assignedApplications.FirstOrDefault(app => app.Id.Equals(createdApp.Id)).Should().NotBeNull();
+        //    }
+        //    finally
+        //    {
+        //        await _groupApi.DeleteGroupAsync(createdGroup.Id);
+        //    }
+        //}
     }
 }

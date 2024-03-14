@@ -5,7 +5,7 @@ Unknown provisioning connection
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthScheme** | **ProvisioningConnectionUnknownAuthScheme** |  | [optional] 
+**AuthScheme** | **ProvisioningConnectionUnknownAuthScheme** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

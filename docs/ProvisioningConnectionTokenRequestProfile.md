@@ -1,14 +1,11 @@
-# Okta.Sdk.Model.GetDefaultProvisioningConnectionForApplication200Response
+# Okta.Sdk.Model.ProvisioningConnectionTokenRequestProfile
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **ProvisioningConnectionUnknownStatus** |  | 
 **AuthScheme** | **ProvisioningConnectionTokenAuthScheme** |  | 
-**BaseUrl** | **string** | Base URL | [optional] 
-**Profile** | [**ProvisioningConnectionProfileUnknown**](ProvisioningConnectionProfileUnknown.md) |  | 
-**Links** | **Object** |  | [optional] 
+**Token** | **string** | Token used to authenticate with the app | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

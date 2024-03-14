@@ -21,7 +21,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
@@ -31,12 +30,6 @@ namespace Okta.Sdk.Model
     /// ProvisioningConnectionResponse
     /// </summary>
     [DataContract(Name = "ProvisioningConnectionResponse")]
-    [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionOauthResponse), "OAUTH2")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionOauthResponse), "ProvisioningConnectionOauthResponse")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionUnknownResponse), "ProvisioningConnectionUnknownResponse")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionTokenResponse), "TOKEN")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionUnknownResponse), "UNKNOWN")]
     
     public partial class ProvisioningConnectionResponse : IEquatable<ProvisioningConnectionResponse>
     {
@@ -54,7 +47,25 @@ namespace Okta.Sdk.Model
         [DataMember(Name = "authScheme", EmitDefaultValue = true)]
         
         public ProvisioningConnectionTokenAuthScheme AuthScheme { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionResponse" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        public ProvisioningConnectionResponse() { }
         
+        /// <summary>
+        /// Base URL
+        /// </summary>
+        /// <value>Base URL</value>
+        [DataMember(Name = "baseUrl", EmitDefaultValue = true)]
+        public string BaseUrl { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Profile
+        /// </summary>
+        [DataMember(Name = "profile", EmitDefaultValue = true)]
+        public ProvisioningConnectionResponseProfile Profile { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -64,7 +75,9 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProvisioningConnectionResponse {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  BaseUrl: ").Append(BaseUrl).Append("\n");
             sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
+            sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,8 +118,18 @@ namespace Okta.Sdk.Model
                     this.Status.Equals(input.Status)
                 ) && 
                 (
+                    this.BaseUrl == input.BaseUrl ||
+                    (this.BaseUrl != null &&
+                    this.BaseUrl.Equals(input.BaseUrl))
+                ) && 
+                (
                     this.AuthScheme == input.AuthScheme ||
                     this.AuthScheme.Equals(input.AuthScheme)
+                ) && 
+                (
+                    this.Profile == input.Profile ||
+                    (this.Profile != null &&
+                    this.Profile.Equals(input.Profile))
                 );
         }
 
@@ -124,9 +147,17 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
+                if (this.BaseUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.BaseUrl.GetHashCode();
+                }
                 if (this.AuthScheme != null)
                 {
                     hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                }
+                if (this.Profile != null)
+                {
+                    hashCode = (hashCode * 59) + this.Profile.GetHashCode();
                 }
                 return hashCode;
             }

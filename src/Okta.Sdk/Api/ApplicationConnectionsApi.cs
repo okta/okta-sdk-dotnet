@@ -102,11 +102,11 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the Application</param>
-        /// <param name="provisioningConnectionRequest"></param>
+        /// <param name="updateDefaultProvisioningConnectionForApplicationRequest"></param>
         /// <param name="activate">Activates the Provisioning Connection (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ProvisioningConnectionUnknownResponse</returns>
-        System.Threading.Tasks.Task<ProvisioningConnectionUnknownResponse> UpdateDefaultProvisioningConnectionForApplicationAsync(  string appId ,   ProvisioningConnectionRequest provisioningConnectionRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ProvisioningConnectionResponse</returns>
+        System.Threading.Tasks.Task<ProvisioningConnectionResponse> UpdateDefaultProvisioningConnectionForApplicationAsync(  string appId ,   UpdateDefaultProvisioningConnectionForApplicationRequest updateDefaultProvisioningConnectionForApplicationRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update the default Provisioning Connection
         /// </summary>
@@ -115,11 +115,11 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the Application</param>
-        /// <param name="provisioningConnectionRequest"></param>
+        /// <param name="updateDefaultProvisioningConnectionForApplicationRequest"></param>
         /// <param name="activate">Activates the Provisioning Connection (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ProvisioningConnectionUnknownResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProvisioningConnectionUnknownResponse>> UpdateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId ,   ProvisioningConnectionRequest provisioningConnectionRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ProvisioningConnectionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ProvisioningConnectionResponse>> UpdateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId ,   UpdateDefaultProvisioningConnectionForApplicationRequest updateDefaultProvisioningConnectionForApplicationRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Verify the Provisioning Connection
         /// </summary>
@@ -561,13 +561,13 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the Application</param>
-        /// <param name="provisioningConnectionRequest"></param>
+        /// <param name="updateDefaultProvisioningConnectionForApplicationRequest"></param>
         /// <param name="activate">Activates the Provisioning Connection (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ProvisioningConnectionUnknownResponse</returns>
-        public async System.Threading.Tasks.Task<ProvisioningConnectionUnknownResponse> UpdateDefaultProvisioningConnectionForApplicationAsync(  string appId ,   ProvisioningConnectionRequest provisioningConnectionRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ProvisioningConnectionResponse</returns>
+        public async System.Threading.Tasks.Task<ProvisioningConnectionResponse> UpdateDefaultProvisioningConnectionForApplicationAsync(  string appId ,   UpdateDefaultProvisioningConnectionForApplicationRequest updateDefaultProvisioningConnectionForApplicationRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<ProvisioningConnectionUnknownResponse> localVarResponse = await UpdateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(appId, provisioningConnectionRequest, activate, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<ProvisioningConnectionResponse> localVarResponse = await UpdateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(appId, updateDefaultProvisioningConnectionForApplicationRequest, activate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
@@ -575,11 +575,11 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the Application</param>
-        /// <param name="provisioningConnectionRequest"></param>
+        /// <param name="updateDefaultProvisioningConnectionForApplicationRequest"></param>
         /// <param name="activate">Activates the Provisioning Connection (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ProvisioningConnectionUnknownResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ProvisioningConnectionUnknownResponse>> UpdateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId ,   ProvisioningConnectionRequest provisioningConnectionRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ProvisioningConnectionResponse)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ProvisioningConnectionResponse>> UpdateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(  string appId ,   UpdateDefaultProvisioningConnectionForApplicationRequest updateDefaultProvisioningConnectionForApplicationRequest ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -587,10 +587,10 @@ namespace Okta.Sdk.Api
                 throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'appId' when calling ApplicationConnectionsApi->UpdateDefaultProvisioningConnectionForApplication");
             }
 
-            // verify the required parameter 'provisioningConnectionRequest' is set
-            if (provisioningConnectionRequest == null)
+            // verify the required parameter 'updateDefaultProvisioningConnectionForApplicationRequest' is set
+            if (updateDefaultProvisioningConnectionForApplicationRequest == null)
             {
-                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'provisioningConnectionRequest' when calling ApplicationConnectionsApi->UpdateDefaultProvisioningConnectionForApplication");
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'updateDefaultProvisioningConnectionForApplicationRequest' when calling ApplicationConnectionsApi->UpdateDefaultProvisioningConnectionForApplication");
             }
 
 
@@ -622,7 +622,7 @@ namespace Okta.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "activate", activate));
             }
-            localVarRequestOptions.Data = provisioningConnectionRequest;
+            localVarRequestOptions.Data = updateDefaultProvisioningConnectionForApplicationRequest;
 
             // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -643,7 +643,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<ProvisioningConnectionUnknownResponse>("/api/v1/apps/{appId}/connections/default", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ProvisioningConnectionResponse>("/api/v1/apps/{appId}/connections/default", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

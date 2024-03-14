@@ -27,45 +27,25 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// ProvisioningConnectionOauthResponse
+    /// ProvisioningConnectionResponseProfile
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionOauthResponse")]
+    [DataContract(Name = "ProvisioningConnectionResponseProfile")]
     
-    public partial class ProvisioningConnectionOauthResponse : IEquatable<ProvisioningConnectionOauthResponse>
+    public partial class ProvisioningConnectionResponseProfile : IEquatable<ProvisioningConnectionResponseProfile>
     {
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = true)]
-        
-        public ProvisioningConnectionStatus Status { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthScheme
         /// </summary>
         [DataMember(Name = "authScheme", EmitDefaultValue = true)]
         
-        public ProvisioningConnectionTokenAuthScheme AuthScheme { get; set; }
+        public ProvisioningConnectionAuthScheme AuthScheme { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisioningConnectionOauthResponse" /> class.
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionResponseProfile" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ProvisioningConnectionOauthResponse() { }
+        public ProvisioningConnectionResponseProfile() { }
         
-        /// <summary>
-        /// Base URL
-        /// </summary>
-        /// <value>Base URL</value>
-        [DataMember(Name = "baseUrl", EmitDefaultValue = true)]
-        public string BaseUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Profile
-        /// </summary>
-        [DataMember(Name = "profile", EmitDefaultValue = true)]
-        public ProvisioningConnectionProfileOauth Profile { get; set; }
-
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
@@ -79,11 +59,8 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionOauthResponse {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  BaseUrl: ").Append(BaseUrl).Append("\n");
+            sb.Append("class ProvisioningConnectionResponseProfile {\n");
             sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
-            sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -105,15 +82,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionOauthResponse);
+            return this.Equals(input as ProvisioningConnectionResponseProfile);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionOauthResponse instances are equal
+        /// Returns true if ProvisioningConnectionResponseProfile instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionOauthResponse to be compared</param>
+        /// <param name="input">Instance of ProvisioningConnectionResponseProfile to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionOauthResponse input)
+        public bool Equals(ProvisioningConnectionResponseProfile input)
         {
             if (input == null)
             {
@@ -121,22 +98,8 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.BaseUrl == input.BaseUrl ||
-                    (this.BaseUrl != null &&
-                    this.BaseUrl.Equals(input.BaseUrl))
-                ) && 
-                (
                     this.AuthScheme == input.AuthScheme ||
                     this.AuthScheme.Equals(input.AuthScheme)
-                ) && 
-                (
-                    this.Profile == input.Profile ||
-                    (this.Profile != null &&
-                    this.Profile.Equals(input.Profile))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -155,21 +118,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                if (this.BaseUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.BaseUrl.GetHashCode();
-                }
                 if (this.AuthScheme != null)
                 {
                     hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
-                }
-                if (this.Profile != null)
-                {
-                    hashCode = (hashCode * 59) + this.Profile.GetHashCode();
                 }
                 if (this.Links != null)
                 {

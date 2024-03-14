@@ -6,6 +6,7 @@ The app provisioning connection profile used to configure the method of authenti
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AuthScheme** | **ProvisioningConnectionOauthAuthScheme** |  | 
+**ClientId** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthScheme** | [**ProvisioningConnectionTokenAuthScheme**](ProvisioningConnectionTokenAuthScheme.md) |  | [optional] 
 **Status** | **ProvisioningConnectionStatus** |  | 
+**BaseUrl** | **string** | Base URL | [optional] 
+**AuthScheme** | **ProvisioningConnectionTokenAuthScheme** |  | [optional] 
 **Profile** | [**ProvisioningConnectionProfileOauth**](ProvisioningConnectionProfileOauth.md) |  | 
 **Links** | [**LinksSelfLifecycleAndAuthorize**](LinksSelfLifecycleAndAuthorize.md) |  | [optional] 
 

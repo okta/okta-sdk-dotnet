@@ -29,9 +29,9 @@ namespace Okta.Sdk.Model
     /// Template: ModelGeneric
     /// Describes allowed HTTP verbs for the &#x60;href&#x60;
     /// </summary>
-    [DataContract(Name = "HrefObject_hints")]
+    [DataContract(Name = "HrefHints")]
     
-    public partial class HrefObjectHints : IEquatable<HrefObjectHints>
+    public partial class HrefHints : IEquatable<HrefHints>
     {
         
         /// <summary>
@@ -47,7 +47,7 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class HrefObjectHints {\n");
+            sb.Append("class HrefHints {\n");
             sb.Append("  Allow: ").Append(Allow).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -69,15 +69,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as HrefObjectHints);
+            return this.Equals(input as HrefHints);
         }
 
         /// <summary>
-        /// Returns true if HrefObjectHints instances are equal
+        /// Returns true if HrefHints instances are equal
         /// </summary>
-        /// <param name="input">Instance of HrefObjectHints to be compared</param>
+        /// <param name="input">Instance of HrefHints to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(HrefObjectHints input)
+        public bool Equals(HrefHints input)
         {
             if (input == null)
             {

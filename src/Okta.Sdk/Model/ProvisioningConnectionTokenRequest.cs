@@ -21,40 +21,28 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// ProvisioningConnectionTokenResponse
+    /// ProvisioningConnectionTokenRequest
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionTokenResponse")]
-    [JsonConverter(typeof(JsonSubtypes), "AuthScheme")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionOauthResponse), "OAUTH2")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionTokenResponse), "TOKEN")]
-    [JsonSubtypes.KnownSubType(typeof(ProvisioningConnectionUnknownResponse), "UNKNOWN")]
+    [DataContract(Name = "ProvisioningConnectionTokenRequest")]
     
-    public partial class ProvisioningConnectionTokenResponse : ProvisioningConnectionProfileResponse, IEquatable<ProvisioningConnectionTokenResponse>
+    public partial class ProvisioningConnectionTokenRequest : IEquatable<ProvisioningConnectionTokenRequest>
     {
-
         /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = true)]
-        
-        public ProvisioningConnectionStatus Status { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisioningConnectionTokenResponse" /> class.
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionTokenRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ProvisioningConnectionTokenResponse() { }
+        public ProvisioningConnectionTokenRequest() { }
         
         /// <summary>
-        /// Base URL
+        /// Only used for the Zscaler (&#x60;zscalerbyz&#x60;) app. The URL for the provisioning app integration.
         /// </summary>
-        /// <value>Base URL</value>
+        /// <value>Only used for the Zscaler (&#x60;zscalerbyz&#x60;) app. The URL for the provisioning app integration.</value>
         [DataMember(Name = "baseUrl", EmitDefaultValue = true)]
         public string BaseUrl { get; set; }
 
@@ -62,13 +50,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Profile
         /// </summary>
         [DataMember(Name = "profile", EmitDefaultValue = true)]
-        public ProvisioningConnectionProfileToken Profile { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Links
-        /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = true)]
-        public Object Links { get; set; }
+        public ProvisioningConnectionTokenRequestProfile Profile { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,12 +59,9 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionTokenResponse {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("class ProvisioningConnectionTokenRequest {\n");
             sb.Append("  BaseUrl: ").Append(BaseUrl).Append("\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,7 +70,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -103,39 +82,30 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionTokenResponse);
+            return this.Equals(input as ProvisioningConnectionTokenRequest);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionTokenResponse instances are equal
+        /// Returns true if ProvisioningConnectionTokenRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionTokenResponse to be compared</param>
+        /// <param name="input">Instance of ProvisioningConnectionTokenRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionTokenResponse input)
+        public bool Equals(ProvisioningConnectionTokenRequest input)
         {
             if (input == null)
             {
                 return false;
             }
-            return base.Equals(input) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && base.Equals(input) && 
+            return 
                 (
                     this.BaseUrl == input.BaseUrl ||
                     (this.BaseUrl != null &&
                     this.BaseUrl.Equals(input.BaseUrl))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.Profile == input.Profile ||
                     (this.Profile != null &&
                     this.Profile.Equals(input.Profile))
-                ) && base.Equals(input) && 
-                (
-                    this.Links == input.Links ||
-                    (this.Links != null &&
-                    this.Links.Equals(input.Links))
                 );
         }
 
@@ -147,12 +117,8 @@ namespace Okta.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
                 if (this.BaseUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.BaseUrl.GetHashCode();
@@ -160,10 +126,6 @@ namespace Okta.Sdk.Model
                 if (this.Profile != null)
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();
-                }
-                if (this.Links != null)
-                {
-                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }

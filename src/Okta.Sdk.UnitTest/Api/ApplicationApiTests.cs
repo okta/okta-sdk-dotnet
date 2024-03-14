@@ -18,6 +18,8 @@ using Okta.Sdk.UnitTest.Internal;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
+using GraphQL.Types;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 // uncomment below to import models
 //using Org.OpenAPITools.Model;
@@ -276,22 +278,32 @@ namespace Okta.Sdk.UnitTest
 
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
             var appApi = new ApplicationConnectionsApi(mockClient, new Configuration { BasePath = "https://foo.com" });
-            var connectionProfile = new ProvisioningConnectionRequest
+            //var connectionProfile = new ProvisioningConnectionRequest
+            //{
+            //    Profile = new ProvisioningConnectionProfileOauth
+            //    {
+            //        ClientId = "foo",
+            //        AuthScheme = ProvisioningConnectionAuthScheme.TOKEN
+            //    }
+            //};
+
+            var connectionProfile = new ProvisioningConnectionTokenRequest
             {
-                Profile = new ProvisioningConnectionProfileOauth
+                Profile = new ProvisioningConnectionTokenRequestProfile
                 {
-                    ClientId = "foo",
-                    AuthScheme = ProvisioningConnectionAuthScheme.TOKEN
+                    Token = "foo",
+                    AuthScheme = ProvisioningConnectionTokenAuthScheme.TOKEN,
                 }
             };
 
-            var response = await appApi.UpdateDefaultProvisioningConnectionForApplicationAsync("bar", connectionProfile, true);
+            var request = new UpdateDefaultProvisioningConnectionForApplicationRequest(connectionProfile);
+
+            var response = await appApi.UpdateDefaultProvisioningConnectionForApplicationAsync("bar", request, true);
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/connections/default");
             mockClient.ReceivedPathParams["appId"].Should().Contain("bar");
             mockClient.ReceivedQueryParams.ContainsKey("activate").Should().BeTrue();
             mockClient.ReceivedQueryParams["activate"].Should().Contain("true");
-
-            var expectedBody = @"{""profile"":{""clientId"":""foo"",""authScheme"":""TOKEN""}}";
+            var expectedBody = @"{""baseUrl"":null,""profile"":{""authScheme"":""TOKEN"",""token"":""foo""}}";
             mockClient.ReceivedBody.Should().Be(expectedBody);
             response.Status.Value.Should().Be("ENABLED");
             response.Profile.AuthScheme.Value.Should().Be("TOKEN");

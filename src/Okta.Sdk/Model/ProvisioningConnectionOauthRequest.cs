@@ -27,30 +27,23 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// ProvisioningConnectionRequest
+    /// ProvisioningConnectionOauthRequest
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionRequest")]
+    [DataContract(Name = "ProvisioningConnectionOauthRequest")]
     
-    public partial class ProvisioningConnectionRequest : IEquatable<ProvisioningConnectionRequest>
+    public partial class ProvisioningConnectionOauthRequest : IEquatable<ProvisioningConnectionOauthRequest>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisioningConnectionRequest" /> class.
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionOauthRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ProvisioningConnectionRequest() { }
+        public ProvisioningConnectionOauthRequest() { }
         
-        /// <summary>
-        /// Only used for the Zscaler (&#x60;zscalerbyz&#x60;) app. The URL for the provisioning app integration.
-        /// </summary>
-        /// <value>Only used for the Zscaler (&#x60;zscalerbyz&#x60;) app. The URL for the provisioning app integration.</value>
-        [DataMember(Name = "baseUrl", EmitDefaultValue = true)]
-        public string BaseUrl { get; set; }
-
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
         [DataMember(Name = "profile", EmitDefaultValue = true)]
-        public ProvisioningConnectionRequestProfile Profile { get; set; }
+        public ProvisioningConnectionOauthRequestProfile Profile { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -59,8 +52,7 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionRequest {\n");
-            sb.Append("  BaseUrl: ").Append(BaseUrl).Append("\n");
+            sb.Append("class ProvisioningConnectionOauthRequest {\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -82,26 +74,21 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionRequest);
+            return this.Equals(input as ProvisioningConnectionOauthRequest);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionRequest instances are equal
+        /// Returns true if ProvisioningConnectionOauthRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionRequest to be compared</param>
+        /// <param name="input">Instance of ProvisioningConnectionOauthRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionRequest input)
+        public bool Equals(ProvisioningConnectionOauthRequest input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
-                (
-                    this.BaseUrl == input.BaseUrl ||
-                    (this.BaseUrl != null &&
-                    this.BaseUrl.Equals(input.BaseUrl))
-                ) && 
                 (
                     this.Profile == input.Profile ||
                     (this.Profile != null &&
@@ -119,10 +106,6 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.BaseUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.BaseUrl.GetHashCode();
-                }
                 if (this.Profile != null)
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();

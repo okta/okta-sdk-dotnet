@@ -47,6 +47,12 @@ namespace Okta.Sdk.Model
         public ProvisioningConnectionProfileOauth() { }
         
         /// <summary>
+        /// Gets or Sets ClientId
+        /// </summary>
+        [DataMember(Name = "clientId", EmitDefaultValue = true)]
+        public string ClientId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +61,7 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProvisioningConnectionProfileOauth {\n");
             sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
+            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,6 +100,11 @@ namespace Okta.Sdk.Model
                 (
                     this.AuthScheme == input.AuthScheme ||
                     this.AuthScheme.Equals(input.AuthScheme)
+                ) && 
+                (
+                    this.ClientId == input.ClientId ||
+                    (this.ClientId != null &&
+                    this.ClientId.Equals(input.ClientId))
                 );
         }
 
@@ -109,6 +121,10 @@ namespace Okta.Sdk.Model
                 if (this.AuthScheme != null)
                 {
                     hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
+                }
+                if (this.ClientId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
                 }
                 return hashCode;
             }

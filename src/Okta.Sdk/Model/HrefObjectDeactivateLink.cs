@@ -43,7 +43,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Hints
         /// </summary>
         [DataMember(Name = "hints", EmitDefaultValue = true)]
-        public HrefObjectHints Hints { get; set; }
+        public HrefHints Hints { get; set; }
 
         /// <summary>
         /// Link URI

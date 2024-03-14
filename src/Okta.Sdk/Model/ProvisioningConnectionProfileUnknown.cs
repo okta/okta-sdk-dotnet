@@ -40,6 +40,11 @@ namespace Okta.Sdk.Model
         [DataMember(Name = "authScheme", EmitDefaultValue = true)]
         
         public ProvisioningConnectionUnknownAuthScheme AuthScheme { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionProfileUnknown" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        public ProvisioningConnectionProfileUnknown() { }
         
         /// <summary>
         /// Returns the string presentation of the object

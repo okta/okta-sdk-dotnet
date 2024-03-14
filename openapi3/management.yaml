@@ -1216,11 +1216,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProvisioningConnectionResponse'
+                # anyOf:
+                #   - $ref: '#/components/schemas/ProvisioningConnectionOauthResponse'
+                #   - $ref: '#/components/schemas/ProvisioningConnectionTokenResponse'
+                #   - $ref: '#/components/schemas/ProvisioningConnectionUnknownResponse'
               examples:
-                ProvisioningConnectionTokenExample:
-                  $ref: '#/components/examples/ProvisioningConnectionTokenResponseEx'
+                # ProvisioningConnectionTokenExample:
+                #   $ref: '#/components/examples/ProvisioningConnectionTokenResponseEx'
+                # ProvisioningConnectionOauthExample:
+                #   $ref: '#/components/examples/ProvisioningConnectionOauthResponseEx'
                 ProvisioningConnectionOauthExample:
                   $ref: '#/components/examples/ProvisioningConnectionOauthResponseEx'
+                ProvisioningConnectionTokenResponseWithProfileOrg2OrgEx:
+                  $ref: '#/components/examples/ProvisioningConnectionTokenResponseWithProfileOrg2OrgEx'
+                ProvisioningConnectionTokenResponseWithProfileZscalerEx:
+                  $ref: '#/components/examples/ProvisioningConnectionTokenResponseWithProfileZscalerEx'
               x-okta-feature-flag-amends:
                 PROVISIONING_API_EXTENSION:
                   examples:
@@ -1256,10 +1266,19 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProvisioningConnectionRequest'
+              # $ref: '#/components/schemas/ProvisioningConnectionRequest'
+                oneOf:
+                  - $ref: '#/components/schemas/ProvisioningConnectionTokenRequest'
+                  - $ref: '#/components/schemas/ProvisioningConnectionOauthRequest'
             examples:
-              ProvisioningConnectionTokenExample:
-                $ref: '#/components/examples/ProvisioningConnectionTokenRequestEx'
+              # ProvisioningConnectionTokenExample:
+              #   $ref: '#/components/examples/ProvisioningConnectionTokenRequestEx'
+              # ProvisioningConnectionOauthExample:
+              #   $ref: '#/components/examples/ProvisioningConnectionOauthRequestEx'
+              # ProvisioningConnectionOauthO365RequestEx:
+              #   $ref: '#/components/examples/ProvisioningConnectionOauthO365RequestEx'
+              # ProvisioningConnectionOauthOrg2OrgRequestEx:
+              #   $ref: '#/components/examples/ProvisioningConnectionOauthOrg2OrgRequestEx'
               ProvisioningConnectionOauthExample:
                 $ref: '#/components/examples/ProvisioningConnectionOauthRequestEx'
               ProvisioningConnectionOauthO365RequestEx:
@@ -1268,23 +1287,36 @@ paths:
                 $ref: '#/components/examples/ProvisioningConnectionOauthOrg2OrgRequestEx'
         required: true
       responses:
+        # '200':
+        #   description: OK
+        #   content:
+        #     application/json:
+        #       schema:
+        #         $ref: '#/components/schemas/ProvisioningConnectionUnknownResponse'
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProvisioningConnectionUnknownResponse'
+                $ref: '#/components/schemas/ProvisioningConnectionResponse'
         '201':
           description: Created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProvisioningConnectionResponse'
+                # oneOf:
+                #   - $ref: '#/components/schemas/ProvisioningConnectionOauthResponse'
+                #   - $ref: '#/components/schemas/ProvisioningConnectionTokenResponse'
               examples:
-                ProvisioningConnectionTokenExample:
-                  $ref: '#/components/examples/ProvisioningConnectionTokenResponseEx'
-                ProvisioningConnectionOauthExample:
-                  $ref: '#/components/examples/ProvisioningConnectionOauthResponseEx'
+                # ProvisioningConnectionTokenExample:
+                #   $ref: '#/components/examples/ProvisioningConnectionTokenResponseEx'
+                # ProvisioningConnectionOauthExample:
+                #   $ref: '#/components/examples/ProvisioningConnectionOauthResponseEx'
+                ProvisioningConnectionTokenResponseWithProfileOrg2OrgEx:
+                  $ref: '#/components/examples/ProvisioningConnectionTokenResponseWithProfileOrg2OrgEx'
+                ProvisioningConnectionTokenResponseWithProfileZscalerEx:
+                  $ref: '#/components/examples/ProvisioningConnectionTokenResponseWithProfileZscalerEx'
               x-okta-feature-flag-amends:
                 PROVISIONING_API_EXTENSION:
                   examples:
@@ -26238,18 +26270,20 @@ components:
       enum:
         - EXTERNALLY_HOSTED
         - OKTA_DEFAULT
+    HrefHints:
+      type: object
+      description: Describes allowed HTTP verbs for the `href`
+      properties:
+        allow:
+          type: array
+          items:
+            $ref: '#/components/schemas/HttpMethod'
     HrefObject:
       title: Link Object
       type: object
       properties:
         hints:
-          type: object
-          description: Describes allowed HTTP verbs for the `href`
-          properties:
-            allow:
-              type: array
-              items:
-                $ref: '#/components/schemas/HttpMethod'
+          $ref: '#/components/schemas/HrefHints'
         href:
           type: string
           description: Link URI
@@ -29617,20 +29651,20 @@ components:
         TOKEN: A token is used to authenticate with the app.
         OAUTH2: OAuth 2.0 is used to authenticate with the app.
         UNKNOWN: The authentication scheme used by the app isn't supported, or the app doesn't support provisioning.
-    ProvisioningConnectionProfileResponse:
-      description: |
-        The profile used to configure the connection method of authentication and the credentials.
-        Currently, token-based and OAuth 2.0-based authentication are supported.
-      type: object
-      properties:
-        authScheme:
-          $ref: '#/components/schemas/ProvisioningConnectionAuthScheme'
-      discriminator:
-        propertyName: authScheme
-        mapping:
-          TOKEN: '#/components/schemas/ProvisioningConnectionTokenResponse'
-          OAUTH2: '#/components/schemas/ProvisioningConnectionOauthResponse'
-          UNKNOWN: '#/components/schemas/ProvisioningConnectionUnknownResponse'
+    # ProvisioningConnectionProfileResponse:
+    #   description: |
+    #     The profile used to configure the connection method of authentication and the credentials.
+    #     Currently, token-based and OAuth 2.0-based authentication are supported.
+    #   type: object
+    #   properties:
+    #     authScheme:
+    #       $ref: '#/components/schemas/ProvisioningConnectionAuthScheme'
+    #   discriminator:
+    #     propertyName: authScheme
+    #     mapping:
+    #       TOKEN: '#/components/schemas/ProvisioningConnectionTokenResponse'
+    #       OAUTH2: '#/components/schemas/ProvisioningConnectionOauthResponse'
+    #       UNKNOWN: '#/components/schemas/ProvisioningConnectionUnknownResponse'
     ProvisioningConnectionStatus:
       type: string
       description: Provisioning connection status
@@ -29638,9 +29672,11 @@ components:
       enum:
         - DISABLED
         - ENABLED
+        - UNKNOWN
       x-enumDescriptions:
         DISABLED: The provisioning connection is disabled.
         ENABLED: The provisioning connection is enabled.
+        UNKNOWN: Provisioning isn't supported by the app, or the authentication method is unknown.
     ProvisioningConnectionUnknownStatus:
       type: string
       description: Provisioning isn't supported by the app, or the authentication method is unknown.
@@ -29650,17 +29686,19 @@ components:
     ProvisioningConnectionUnknownResponse:
       allOf:
         - $ref: '#/components/schemas/ProvisioningConnectionResponse'
-        - type: object
+        - description: Provisioning isn't supported by the app, or the authentication method is unknown.
           properties:
             status:
-              $ref: '#/components/schemas/ProvisioningConnectionUnknownStatus'
+             $ref: '#/components/schemas/ProvisioningConnectionUnknownStatus'
             profile:
-              $ref: '#/components/schemas/ProvisioningConnectionProfileUnknown'
+             $ref: '#/components/schemas/ProvisioningConnectionProfileUnknown'
     ProvisioningConnectionProfileUnknown:
       description: Unknown provisioning connection
       properties:
         authScheme:
           $ref: '#/components/schemas/ProvisioningConnectionUnknownAuthScheme'
+      required:
+        - authScheme
     ProvisioningConnectionOauthResponse:
       allOf:
         - $ref: '#/components/schemas/ProvisioningConnectionResponse'
@@ -29776,6 +29814,8 @@ components:
       properties:
         authScheme:
           $ref: '#/components/schemas/ProvisioningConnectionOauthAuthScheme'
+        clientId:
+          type: string
       required:
         - authScheme
     ProvisioningConnectionRequestProfileOauth:
@@ -29826,19 +29866,97 @@ components:
           TOKEN: '#/components/schemas/ProvisioningConnectionRequestProfileToken'
           OAUTH2: '#/components/schemas/ProvisioningConnectionRequestProfileOauth'
     ProvisioningConnectionRequest:
-      title: Token Provisioning Connection
+      type: object
+    ProvisioningConnectionOauthRequest:
+      allOf:
+        - $ref: '#/components/schemas/ProvisioningConnectionRequest'
+        - description: Oauth based provisioning connection request
+          properties:
+            profile:
+              $ref: '#/components/schemas/ProvisioningConnectionOauthRequestProfile'
+          required:
+            - profile
+    ProvisioningConnectionTokenRequest:
+      allOf:
+        - $ref: '#/components/schemas/ProvisioningConnectionRequest'
+        - description: Token based provisioning connection request
+          properties:
+            baseUrl:
+              type: string
+              description: Only used for the Zscaler (`zscalerbyz`) app. The URL for the provisioning app integration.
+              x-okta-lifecycle:
+                features:
+                  - PROVISIONING_API_EXTENSION
+            profile:
+              $ref: '#/components/schemas/ProvisioningConnectionTokenRequestProfile'
+          required:
+            - profile
+    # ProvisioningConnectionResponseProfile:
+    #   type: object
+    #   properties:
+    #     authScheme:
+    #       $ref: '#/components/schemas/ProvisioningConnectionAuthScheme'
+    #   discriminator:
+    #     propertyName: authScheme
+    #     mapping:
+    #       TOKEN: '#/components/schemas/ProvisioningConnectionProfileToken'
+    #       OAUTH2: '#/components/schemas/ProvisioningConnectionProfileOauth'
+    #       UNKNOWN: '#/components/schemas/ProvisioningConnectionProfileUnknown'
+    ProvisioningConnectionOauthRequestProfile:
+      properties:
+        authScheme:
+          $ref: '#/components/schemas/ProvisioningConnectionOauthAuthScheme'
+        clientId:
+          type: string
+          description: Only used for the Okta Org2Org (`okta_org2org`) app. The unique client identifier for the OAuth 2.0 service app from the target org.
+        settings:
+          $ref: '#/components/schemas/Office365ProvisioningSettings'
+      required:
+        - authScheme
+    ProvisioningConnectionTokenRequestProfile:
+      properties:
+        authScheme:
+          $ref: '#/components/schemas/ProvisioningConnectionTokenAuthScheme'
+        token:
+          type: string
+          description: Token used to authenticate with the app
+      required:
+        - authScheme
+    ProvisioningConnectionResponse:
       type: object
       properties:
+        status:
+          $ref: '#/components/schemas/ProvisioningConnectionStatus'
         baseUrl:
           type: string
-          description: Only used for the Zscaler (`zscalerbyz`) app. The URL for the provisioning app integration.
-          x-okta-lifecycle:
-            features:
-              - PROVISIONING_API_EXTENSION
+          description: Base URL
+        authScheme:
+          $ref: '#/components/schemas/ProvisioningConnectionTokenAuthScheme'
         profile:
-          $ref: '#/components/schemas/ProvisioningConnectionRequestProfile'
+          $ref: '#/components/schemas/ProvisioningConnectionResponseProfile'
       required:
         - profile
+        - status
+    ProvisioningConnectionResponseProfile:
+      properties:
+        authScheme:
+          $ref: '#/components/schemas/ProvisioningConnectionAuthScheme'
+        _links:
+          $ref: '#/components/schemas/LinksSelfLifecycleAndAuthorize'
+      required:
+        - authScheme
+    # ProvisioningConnectionOauthResponse:
+    #   allOf:
+    #     - $ref: '#/components/schemas/ProvisioningConnectionResponse'
+    #     - type: object
+    #       properties:
+    #         profile:
+    #           $ref: '#/components/schemas/ProvisioningConnectionProfileOauth'
+    #         _links:
+    #           $ref: '#/components/schemas/LinksSelfLifecycleAndAuthorize'
+    #       required:
+    #         - status
+    #         - profile
     OAuthProvisioningEnabledApp:
       type: string
       description: Application name for the provisioning connection
@@ -29847,39 +29965,36 @@ components:
         - office365
         - zoomus
         - slack
-    ProvisioningConnectionResponse:
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/ProvisioningConnectionStatus'
-        authScheme:
-          $ref: '#/components/schemas/ProvisioningConnectionTokenAuthScheme'
-      discriminator:
-        propertyName: authScheme
-        mapping:
-          TOKEN: '#/components/schemas/ProvisioningConnectionTokenResponse'
-          OAUTH2: '#/components/schemas/ProvisioningConnectionOauthResponse'
-          UNKNOWN: '#/components/schemas/ProvisioningConnectionUnknownResponse'
-    ProvisioningConnectionTokenResponse:
-      allOf:
-        - $ref: '#/components/schemas/ProvisioningConnectionProfileResponse'
-        - type: object
-          properties:
-            status:
-              $ref: '#/components/schemas/ProvisioningConnectionStatus'
-            baseUrl:
-              type: string
-              description: Base URL
-              x-okta-lifecycle:
-                features:
-                  - PROVISIONING_API_EXTENSION
-            profile:
-              $ref: '#/components/schemas/ProvisioningConnectionProfileToken'
-            _links:
-              $ref: ./Common.yaml#/components/schemas/LinksSelfAndLifecycle
-          required:
-            - status
-            - authScheme
+    # ProvisioningConnectionResponse:
+    #   type: object
+    #   properties:
+    #     status:
+    #       $ref: '#/components/schemas/ProvisioningConnectionStatus'
+    #     authScheme:
+    #       $ref: '#/components/schemas/ProvisioningConnectionTokenAuthScheme'
+    #   discriminator:
+    #     propertyName: authScheme
+    #     mapping:
+    #       TOKEN: '#/components/schemas/ProvisioningConnectionTokenResponse'
+    #       OAUTH2: '#/components/schemas/ProvisioningConnectionOauthResponse'
+    #       UNKNOWN: '#/components/schemas/ProvisioningConnectionUnknownResponse'
+    # ProvisioningConnectionTokenResponse:
+    #   allOf:
+    #     - $ref: '#/components/schemas/ProvisioningConnectionResponse'
+    #     - type: object
+    #     - properties:
+    #         status:
+    #           $ref: '#/components/schemas/ProvisioningConnectionStatus'
+    #         baseUrl:
+    #           type: string
+    #           description: Base URL
+    #         authScheme:
+    #           $ref: '#/components/schemas/ProvisioningConnectionTokenAuthScheme'
+    #         profile:
+    #           $ref: '#/components/schemas/ProvisioningConnectionResponseProfile'
+    #       required:
+    #         - profile
+    #         - status
     ProvisioningConnectionProfileToken:
       description: |
         The app provisioning connection profile used to configure the method of authentication and the credentials.

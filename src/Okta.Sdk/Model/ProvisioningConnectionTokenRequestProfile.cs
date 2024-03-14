@@ -27,19 +27,12 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// ProvisioningConnectionOauthResponse
+    /// ProvisioningConnectionTokenRequestProfile
     /// </summary>
-    [DataContract(Name = "ProvisioningConnectionOauthResponse")]
+    [DataContract(Name = "ProvisioningConnectionTokenRequestProfile")]
     
-    public partial class ProvisioningConnectionOauthResponse : IEquatable<ProvisioningConnectionOauthResponse>
+    public partial class ProvisioningConnectionTokenRequestProfile : IEquatable<ProvisioningConnectionTokenRequestProfile>
     {
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = true)]
-        
-        public ProvisioningConnectionStatus Status { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthScheme
@@ -48,29 +41,17 @@ namespace Okta.Sdk.Model
         
         public ProvisioningConnectionTokenAuthScheme AuthScheme { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisioningConnectionOauthResponse" /> class.
+        /// Initializes a new instance of the <see cref="ProvisioningConnectionTokenRequestProfile" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ProvisioningConnectionOauthResponse() { }
+        public ProvisioningConnectionTokenRequestProfile() { }
         
         /// <summary>
-        /// Base URL
+        /// Token used to authenticate with the app
         /// </summary>
-        /// <value>Base URL</value>
-        [DataMember(Name = "baseUrl", EmitDefaultValue = true)]
-        public string BaseUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Profile
-        /// </summary>
-        [DataMember(Name = "profile", EmitDefaultValue = true)]
-        public ProvisioningConnectionProfileOauth Profile { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Links
-        /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = true)]
-        public LinksSelfLifecycleAndAuthorize Links { get; set; }
+        /// <value>Token used to authenticate with the app</value>
+        [DataMember(Name = "token", EmitDefaultValue = true)]
+        public string Token { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -79,12 +60,9 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProvisioningConnectionOauthResponse {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  BaseUrl: ").Append(BaseUrl).Append("\n");
+            sb.Append("class ProvisioningConnectionTokenRequestProfile {\n");
             sb.Append("  AuthScheme: ").Append(AuthScheme).Append("\n");
-            sb.Append("  Profile: ").Append(Profile).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  Token: ").Append(Token).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,15 +83,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisioningConnectionOauthResponse);
+            return this.Equals(input as ProvisioningConnectionTokenRequestProfile);
         }
 
         /// <summary>
-        /// Returns true if ProvisioningConnectionOauthResponse instances are equal
+        /// Returns true if ProvisioningConnectionTokenRequestProfile instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisioningConnectionOauthResponse to be compared</param>
+        /// <param name="input">Instance of ProvisioningConnectionTokenRequestProfile to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisioningConnectionOauthResponse input)
+        public bool Equals(ProvisioningConnectionTokenRequestProfile input)
         {
             if (input == null)
             {
@@ -121,27 +99,13 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.BaseUrl == input.BaseUrl ||
-                    (this.BaseUrl != null &&
-                    this.BaseUrl.Equals(input.BaseUrl))
-                ) && 
-                (
                     this.AuthScheme == input.AuthScheme ||
                     this.AuthScheme.Equals(input.AuthScheme)
                 ) && 
                 (
-                    this.Profile == input.Profile ||
-                    (this.Profile != null &&
-                    this.Profile.Equals(input.Profile))
-                ) && 
-                (
-                    this.Links == input.Links ||
-                    (this.Links != null &&
-                    this.Links.Equals(input.Links))
+                    this.Token == input.Token ||
+                    (this.Token != null &&
+                    this.Token.Equals(input.Token))
                 );
         }
 
@@ -155,25 +119,13 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                if (this.BaseUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.BaseUrl.GetHashCode();
-                }
                 if (this.AuthScheme != null)
                 {
                     hashCode = (hashCode * 59) + this.AuthScheme.GetHashCode();
                 }
-                if (this.Profile != null)
+                if (this.Token != null)
                 {
-                    hashCode = (hashCode * 59) + this.Profile.GetHashCode();
-                }
-                if (this.Links != null)
-                {
-                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
                 }
                 return hashCode;
             }
