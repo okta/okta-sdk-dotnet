@@ -4,7 +4,7 @@ version: 2.1
 
 orbs:
   windows: circleci/windows@5.0
-  general-platform-helpers: okta/general-platform-helpers@1.8
+  general-platform-helpers: okta/general-platform-helpers@1.9
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -20,7 +20,7 @@ jobs:
           command: |
               choco install -y dotnetcore-sdk
       - run:
-          name: "Test Runner"
+          name: "Build and Test"
           command: |
               ./build.ps1;
       - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)

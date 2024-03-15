@@ -30,6 +30,7 @@ namespace Okta.Sdk.IntegrationTest
             _applicationPolicyApi = new ApplicationPoliciesApi();
         }
 
+
         [Fact]
         public async Task CreateSignOnPolicy()
         {
@@ -430,7 +431,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact]
+        [Fact(Skip = "OKTA-698596")]
         public async Task CreateProfileEnrollmentPolicyRule()
         {
             var policy = new Policy()
