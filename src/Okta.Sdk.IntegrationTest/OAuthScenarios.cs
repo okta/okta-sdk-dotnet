@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Okta.Sdk.Abstractions;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
@@ -181,7 +175,7 @@ namespace Okta.Sdk.IntegrationTest
                 var roleAssignmentRequest = GetBasicRequestOptions();
                 roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
 
-                var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
+                var roleAssignmentResponse = await apiClient.PostAsync<JObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
 
                 requestOptions = GetBasicRequestOptions();
                 requestOptions.Data = JObject.Parse(grantPayload);
@@ -272,7 +266,7 @@ namespace Okta.Sdk.IntegrationTest
                 var roleAssignmentRequest = GetBasicRequestOptions();
                 roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
 
-                var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
+                var roleAssignmentResponse = await apiClient.PostAsync<JObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
 
                 requestOptions = GetBasicRequestOptions();
                 requestOptions.Data = JObject.Parse(grantPayload);
@@ -361,7 +355,7 @@ namespace Okta.Sdk.IntegrationTest
             var roleAssignmentRequest = GetBasicRequestOptions();
             roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
 
-            var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
+            var roleAssignmentResponse = await apiClient.PostAsync<JObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
 
 
             var createUserRequest = new CreateUserRequest
@@ -480,11 +474,13 @@ namespace Okta.Sdk.IntegrationTest
 
             var clientId = serviceResponse.Data["client_id"].ToString();
 
+            Thread.Sleep(3000);
+
             var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
             var roleAssignmentRequest = GetBasicRequestOptions();
             roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
 
-            var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
+            var roleAssignmentResponse = await apiClient.PostAsync<JObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
 
 
             var createUserRequest1 = new CreateUserRequest
@@ -645,11 +641,13 @@ namespace Okta.Sdk.IntegrationTest
 
             var clientId = serviceResponse.Data["client_id"].ToString();
 
+            Thread.Sleep(3000);
+
             var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
             var roleAssignmentRequest = GetBasicRequestOptions();
             roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
 
-            var roleAssignmentResponse = await apiClient.PostAsync<JsonObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
+            var roleAssignmentResponse = await apiClient.PostAsync<JObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
 
 
             var createUserRequest1 = new CreateUserRequest
@@ -697,7 +695,7 @@ namespace Okta.Sdk.IntegrationTest
             // this delay and the below retry policy are to handle:
             // https://developer.okta.com/docs/api/resources/users.html#list-users-with-search
             // "Queries data from a replicated store, so changes aren’t always immediately available in search results."
-            await Task.Delay(3000);
+            await Task.Delay(6000);
 
             try
             {
