@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Newtonsoft.Json;
@@ -1394,6 +1395,8 @@ namespace Okta.Sdk.IntegrationTest
             };
 
             var createdApp = await _applicationApi.CreateApplicationAsync(app, true);
+
+            Thread.Sleep(3000);
 
             try
             {
