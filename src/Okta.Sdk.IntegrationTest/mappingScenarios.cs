@@ -14,7 +14,8 @@ using Xunit;
 
 namespace Okta.Sdk.IntegrationTest
 {
-    
+
+    [Collection(name: nameof(mappingScenarios))]
     public class mappingScenarios
     {
         private UserTypeApi _userTypeApi;
@@ -29,7 +30,7 @@ namespace Okta.Sdk.IntegrationTest
 
         }
 
-        [Fact]
+        [Fact(Skip = "Replication makes test flaky OKTA-710533")]
         public async Task ListProfileMappings()
         {
             var randomSuffix = GetRandomSuffix();
@@ -45,7 +46,7 @@ namespace Okta.Sdk.IntegrationTest
                         Name = $"list_profile_mapping_{randomSuffix}",
                     });
 
-                Thread.Sleep(6000);
+                Thread.Sleep(10000);
                 var mappings = await _profileMappingApi.ListProfileMappings(sourceId: userType.Id)
                     .ToListAsync();
 
@@ -60,7 +61,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Replication makes test flaky OKTA-710533")]
         public async Task GetProfileMapping()
         {
             var randomSuffix = GetRandomSuffix();
@@ -98,7 +99,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Replication makes test flaky OKTA-710533")]
         public async Task UpdateProfileMapping()
         {
             var randomSuffix = GetRandomSuffix();
@@ -224,8 +225,9 @@ namespace Okta.Sdk.IntegrationTest
                 };
 
                 createdIdp = await _idpApi.CreateIdentityProviderAsync(idp);
+                var idpId = createdIdp.Id;
                 
-                Thread.Sleep(6000);
+                Thread.Sleep(8000);
 
                 var mappings = await _profileMappingApi
                                                         .ListProfileMappings(sourceId: createdIdp.Id)

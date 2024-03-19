@@ -1030,6 +1030,8 @@ namespace Okta.Sdk.IntegrationTest
             await _idpApi.DeactivateIdentityProviderAsync(createdIdp.Id);
             await _idpApi.DeleteIdentityProviderAsync(createdIdp.Id);
 
+            Thread.Sleep(3000);
+
             // Deleting by ID should result in 403 Forbidden
             await Assert.ThrowsAsync<ApiException>(async () =>
                 await _idpApi.GetIdentityProviderAsync(idpId));

@@ -16,6 +16,7 @@ using Xunit;
 
 namespace Okta.Sdk.IntegrationTest
 {
+    [Collection(name: nameof(UserScenarios))]
     public class UserScenarios
     {
         private UserApi _userApi;
@@ -424,7 +425,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Replication makes test flaky OKTA-710533")]
         public async Task UpdateUserUserType()
         {
             var guid = Guid.NewGuid();

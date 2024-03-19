@@ -14,6 +14,8 @@ using Xunit;
 
 namespace Okta.Sdk.IntegrationTest
 {
+
+    [Collection(name: nameof(ApplicationScenarios))]
     public class ApplicationScenarios
     {
         private ApplicationApi _applicationApi;
@@ -315,7 +317,7 @@ namespace Okta.Sdk.IntegrationTest
             };
 
             var createdApp = await _applicationApi.CreateApplicationAsync(app);
-
+            Thread.Sleep(3000);
             try
             {
                 var retrievedById = await _applicationApi.GetApplicationAsync(createdApp.Id);
