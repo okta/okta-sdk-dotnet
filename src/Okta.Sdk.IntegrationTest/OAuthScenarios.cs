@@ -11,14 +11,20 @@ using Okta.Sdk.Model;
 using Polly;
 using RestSharp;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Okta.Sdk.IntegrationTest
 {
+
+    [Collection(name:nameof(OAuthScenarios))]
     public class OAuthScenarios
     {
-        public OAuthScenarios()
+        private readonly ITestOutputHelper output;
+
+        public OAuthScenarios(ITestOutputHelper output)
         {
             //CleanUsers();
+            this.output = output;
         }
 
         private static void CleanUsers()
@@ -80,7 +86,7 @@ namespace Okta.Sdk.IntegrationTest
             requestOptions.Data = JObject.Parse(payload);
 
             var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
-
+            output.WriteLine("Create client response {0}", serviceResponse.Data.ToString());
             var clientId = serviceResponse.Data["client_id"].ToString();
 
             try
@@ -123,7 +129,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact ]
+        [Fact(Skip = "Replication makes test flaky OKTA-710533")]
         public async Task ListAppsWithAccessToken()
         {
             var guid = Guid.NewGuid();
@@ -166,7 +172,7 @@ namespace Okta.Sdk.IntegrationTest
             requestOptions.Data = JObject.Parse(payload);
 
             var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
-
+            output.WriteLine("Create client response {0}", serviceResponse.Data.ToString());
             var clientId = serviceResponse.Data["client_id"].ToString();
 
             try
@@ -304,7 +310,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Replication makes test flaky OKTA-710533")]
         public async Task GetUserWithAccessToken()
         {
             var guid = Guid.NewGuid();
@@ -349,12 +355,15 @@ namespace Okta.Sdk.IntegrationTest
 
             var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
 
+            output.WriteLine("Create client response {0}", serviceResponse.Data.ToString());
+
             var clientId = serviceResponse.Data["client_id"].ToString();
 
             var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
             var roleAssignmentRequest = GetBasicRequestOptions();
             roleAssignmentRequest.Data = JObject.Parse(roleAssignmentPayload);
 
+            Thread.Sleep(3000);
             var roleAssignmentResponse = await apiClient.PostAsync<JObject>($"/oauth2/v1/clients/{clientId}/roles", roleAssignmentRequest);
 
 
@@ -427,7 +436,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Replication makes test flaky OKTA-710533")]
         public async Task ListUsersWithPagination()
         {
             var guid = Guid.NewGuid();
@@ -471,10 +480,10 @@ namespace Okta.Sdk.IntegrationTest
             requestOptions.Data = JObject.Parse(payload);
 
             var serviceResponse = await apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
-
+            output.WriteLine("Create client response {0}", serviceResponse.Data.ToString());
             var clientId = serviceResponse.Data["client_id"].ToString();
 
-            Thread.Sleep(3000);
+            Thread.Sleep(6000);
 
             var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
             var roleAssignmentRequest = GetBasicRequestOptions();
@@ -536,6 +545,8 @@ namespace Okta.Sdk.IntegrationTest
                 requestOptions = GetBasicRequestOptions();
                 requestOptions.Data = JObject.Parse(grantPayload);
 
+                Thread.Sleep(3000);
+
                 // Add grant to the service
                 var grantResponse = await apiClient.PostAsync<JObject>($"/api/v1/apps/{clientId}/grants", requestOptions);
 
@@ -594,7 +605,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Replication makes test flaky OKTA-710533")]
         public async Task ListUsersWithPaginationAndRetry()
         {
             var guid = Guid.NewGuid();
@@ -641,7 +652,7 @@ namespace Okta.Sdk.IntegrationTest
 
             var clientId = serviceResponse.Data["client_id"].ToString();
 
-            Thread.Sleep(3000);
+            Thread.Sleep(6000);
 
             var roleAssignmentPayload = $@"{{'type':'SUPER_ADMIN'}}";
             var roleAssignmentRequest = GetBasicRequestOptions();
@@ -695,7 +706,7 @@ namespace Okta.Sdk.IntegrationTest
             // this delay and the below retry policy are to handle:
             // https://developer.okta.com/docs/api/resources/users.html#list-users-with-search
             // "Queries data from a replicated store, so changes aren’t always immediately available in search results."
-            await Task.Delay(6000);
+            await Task.Delay(8000);
 
             try
             {
