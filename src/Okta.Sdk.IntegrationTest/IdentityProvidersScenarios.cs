@@ -788,6 +788,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 createdIdp.Status.Should().Be(LifecycleStatus.ACTIVE);
                 await _idpApi.DeactivateIdentityProviderAsync(createdIdp.Id);
+                Thread.Sleep(3000);
                 var retrievedIdp = await _idpApi.GetIdentityProviderAsync(createdIdp.Id);
                 retrievedIdp.Status.Should().Be(LifecycleStatus.INACTIVE);
             }
