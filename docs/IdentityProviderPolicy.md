@@ -4,19 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** | **DateTimeOffset** |  | [optional] [readonly] 
-**Description** | **string** |  | [optional] 
-**Id** | **string** |  | [optional] [readonly] 
-**LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
-**Name** | **string** |  | [optional] 
-**Priority** | **int** |  | [optional] 
-**Status** | [**LifecycleStatus**](LifecycleStatus.md) |  | [optional] 
-**System** | **bool** |  | [optional] 
-**Type** | [**PolicyType**](PolicyType.md) |  | [optional] 
-**Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
-**Links** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
 **AccountLink** | [**PolicyAccountLink**](PolicyAccountLink.md) |  | [optional] 
-**Conditions** | [**PolicyRuleConditions**](PolicyRuleConditions.md) |  | [optional] 
 **MapAMRClaims** | **bool** | Enable mapping AMR from IdP to Okta to downstream apps | [optional] [default to false]
 **MaxClockSkew** | **int** |  | [optional] 
 **Provisioning** | [**Provisioning**](Provisioning.md) |  | [optional] 

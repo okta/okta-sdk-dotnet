@@ -47,6 +47,18 @@ namespace Okta.Sdk.Model
         public PolicyMappingLinksAllOfApplication Application { get; set; }
 
         /// <summary>
+        /// Gets or Sets Authenticator
+        /// </summary>
+        [DataMember(Name = "authenticator", EmitDefaultValue = true)]
+        public PolicyMappingLinksAllOfAuthenticator Authenticator { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Policy
+        /// </summary>
+        [DataMember(Name = "policy", EmitDefaultValue = true)]
+        public PolicyMappingLinksAllOfPolicy Policy { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -56,6 +68,8 @@ namespace Okta.Sdk.Model
             sb.Append("class PolicyMappingLinks {\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
             sb.Append("  Application: ").Append(Application).Append("\n");
+            sb.Append("  Authenticator: ").Append(Authenticator).Append("\n");
+            sb.Append("  Policy: ").Append(Policy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,6 +114,16 @@ namespace Okta.Sdk.Model
                     this.Application == input.Application ||
                     (this.Application != null &&
                     this.Application.Equals(input.Application))
+                ) && 
+                (
+                    this.Authenticator == input.Authenticator ||
+                    (this.Authenticator != null &&
+                    this.Authenticator.Equals(input.Authenticator))
+                ) && 
+                (
+                    this.Policy == input.Policy ||
+                    (this.Policy != null &&
+                    this.Policy.Equals(input.Policy))
                 );
         }
 
@@ -120,6 +144,14 @@ namespace Okta.Sdk.Model
                 if (this.Application != null)
                 {
                     hashCode = (hashCode * 59) + this.Application.GetHashCode();
+                }
+                if (this.Authenticator != null)
+                {
+                    hashCode = (hashCode * 59) + this.Authenticator.GetHashCode();
+                }
+                if (this.Policy != null)
+                {
+                    hashCode = (hashCode * 59) + this.Policy.GetHashCode();
                 }
                 return hashCode;
             }

@@ -35,12 +35,6 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets Conditions
-        /// </summary>
-        [DataMember(Name = "conditions", EmitDefaultValue = true)]
-        public SimulateResultConditions Conditions { get; set; }
-
-        /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = true)]
@@ -53,16 +47,22 @@ namespace Okta.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Rules
-        /// </summary>
-        [DataMember(Name = "rules", EmitDefaultValue = true)]
-        public SimulateResultRules Rules { get; set; }
-
-        /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public string Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Conditions
+        /// </summary>
+        [DataMember(Name = "conditions", EmitDefaultValue = true)]
+        public SimulateResultConditions Conditions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Rules
+        /// </summary>
+        [DataMember(Name = "rules", EmitDefaultValue = true)]
+        public SimulateResultRules Rules { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,11 +72,11 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SimulateResultPoliciesItems {\n");
-            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Rules: ").Append(Rules).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
+            sb.Append("  Rules: ").Append(Rules).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -113,11 +113,6 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Conditions == input.Conditions ||
-                    (this.Conditions != null &&
-                    this.Conditions.Equals(input.Conditions))
-                ) && 
-                (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
@@ -128,14 +123,19 @@ namespace Okta.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Rules == input.Rules ||
-                    (this.Rules != null &&
-                    this.Rules.Equals(input.Rules))
-                ) && 
-                (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.Conditions == input.Conditions ||
+                    (this.Conditions != null &&
+                    this.Conditions.Equals(input.Conditions))
+                ) && 
+                (
+                    this.Rules == input.Rules ||
+                    (this.Rules != null &&
+                    this.Rules.Equals(input.Rules))
                 );
         }
 
@@ -149,10 +149,6 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Conditions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
-                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
@@ -161,13 +157,17 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                if (this.Rules != null)
-                {
-                    hashCode = (hashCode * 59) + this.Rules.GetHashCode();
-                }
                 if (this.Status != null)
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.Conditions != null)
+                {
+                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
+                }
+                if (this.Rules != null)
+                {
+                    hashCode = (hashCode * 59) + this.Rules.GetHashCode();
                 }
                 return hashCode;
             }

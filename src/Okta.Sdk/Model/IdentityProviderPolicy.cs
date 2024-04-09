@@ -21,7 +21,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
@@ -31,15 +30,8 @@ namespace Okta.Sdk.Model
     /// IdentityProviderPolicy
     /// </summary>
     [DataContract(Name = "IdentityProviderPolicy")]
-    [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(AccessPolicy), "ACCESS_POLICY")]
-    [JsonSubtypes.KnownSubType(typeof(IdentityProviderPolicy), "IDP_DISCOVERY")]
-    [JsonSubtypes.KnownSubType(typeof(MultifactorEnrollmentPolicy), "MFA_ENROLL")]
-    [JsonSubtypes.KnownSubType(typeof(OktaSignOnPolicy), "OKTA_SIGN_ON")]
-    [JsonSubtypes.KnownSubType(typeof(PasswordPolicy), "PASSWORD")]
-    [JsonSubtypes.KnownSubType(typeof(ProfileEnrollmentPolicy), "PROFILE_ENROLLMENT")]
     
-    public partial class IdentityProviderPolicy : Policy, IEquatable<IdentityProviderPolicy>
+    public partial class IdentityProviderPolicy : IEquatable<IdentityProviderPolicy>
     {
         
         /// <summary>
@@ -47,12 +39,6 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "accountLink", EmitDefaultValue = true)]
         public PolicyAccountLink AccountLink { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Conditions
-        /// </summary>
-        [DataMember(Name = "conditions", EmitDefaultValue = true)]
-        public PolicyRuleConditions Conditions { get; set; }
 
         /// <summary>
         /// Enable mapping AMR from IdP to Okta to downstream apps
@@ -87,9 +73,7 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class IdentityProviderPolicy {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  AccountLink: ").Append(AccountLink).Append("\n");
-            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("  MapAMRClaims: ").Append(MapAMRClaims).Append("\n");
             sb.Append("  MaxClockSkew: ").Append(MaxClockSkew).Append("\n");
             sb.Append("  Provisioning: ").Append(Provisioning).Append("\n");
@@ -102,7 +86,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -128,30 +112,25 @@ namespace Okta.Sdk.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return 
                 (
                     this.AccountLink == input.AccountLink ||
                     (this.AccountLink != null &&
                     this.AccountLink.Equals(input.AccountLink))
-                ) && base.Equals(input) && 
-                (
-                    this.Conditions == input.Conditions ||
-                    (this.Conditions != null &&
-                    this.Conditions.Equals(input.Conditions))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.MapAMRClaims == input.MapAMRClaims ||
                     this.MapAMRClaims.Equals(input.MapAMRClaims)
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.MaxClockSkew == input.MaxClockSkew ||
                     this.MaxClockSkew.Equals(input.MaxClockSkew)
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.Provisioning == input.Provisioning ||
                     (this.Provisioning != null &&
                     this.Provisioning.Equals(input.Provisioning))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.Subject == input.Subject ||
                     (this.Subject != null &&
@@ -167,15 +146,11 @@ namespace Okta.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 
                 if (this.AccountLink != null)
                 {
                     hashCode = (hashCode * 59) + this.AccountLink.GetHashCode();
-                }
-                if (this.Conditions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.MapAMRClaims.GetHashCode();
                 hashCode = (hashCode * 59) + this.MaxClockSkew.GetHashCode();

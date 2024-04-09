@@ -40,17 +40,22 @@ namespace Okta.Sdk.Model
         public PolicyContext() { }
         
         /// <summary>
-        /// Gets or Sets Device
+        /// Gets or Sets User
         /// </summary>
-        [DataMember(Name = "device", EmitDefaultValue = true)]
-        public PolicyContextDevice Device { get; set; }
+        [DataMember(Name = "user", EmitDefaultValue = true)]
+        public PolicyContextUser User { get; set; }
 
         /// <summary>
-        /// An array of Group IDs for the simulate operation. Only user IDs or Group IDs are allowed, not both.
+        /// Gets or Sets Groups
         /// </summary>
-        /// <value>An array of Group IDs for the simulate operation. Only user IDs or Group IDs are allowed, not both.</value>
         [DataMember(Name = "groups", EmitDefaultValue = true)]
-        public Object Groups { get; set; }
+        public PolicyContextGroups Groups { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Risk
+        /// </summary>
+        [DataMember(Name = "risk", EmitDefaultValue = true)]
+        public PolicyContextRisk Risk { get; set; }
 
         /// <summary>
         /// The network rule condition, zone, or IP address
@@ -60,22 +65,16 @@ namespace Okta.Sdk.Model
         public string Ip { get; set; }
 
         /// <summary>
-        /// Gets or Sets Risk
-        /// </summary>
-        [DataMember(Name = "risk", EmitDefaultValue = true)]
-        public PolicyContextRisk Risk { get; set; }
-
-        /// <summary>
-        /// Gets or Sets User
-        /// </summary>
-        [DataMember(Name = "user", EmitDefaultValue = true)]
-        public PolicyContextUser User { get; set; }
-
-        /// <summary>
         /// Gets or Sets Zones
         /// </summary>
         [DataMember(Name = "zones", EmitDefaultValue = true)]
         public PolicyContextZones Zones { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Device
+        /// </summary>
+        [DataMember(Name = "device", EmitDefaultValue = true)]
+        public PolicyContextDevice Device { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -85,12 +84,12 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class PolicyContext {\n");
-            sb.Append("  Device: ").Append(Device).Append("\n");
-            sb.Append("  Groups: ").Append(Groups).Append("\n");
-            sb.Append("  Ip: ").Append(Ip).Append("\n");
-            sb.Append("  Risk: ").Append(Risk).Append("\n");
             sb.Append("  User: ").Append(User).Append("\n");
+            sb.Append("  Groups: ").Append(Groups).Append("\n");
+            sb.Append("  Risk: ").Append(Risk).Append("\n");
+            sb.Append("  Ip: ").Append(Ip).Append("\n");
             sb.Append("  Zones: ").Append(Zones).Append("\n");
+            sb.Append("  Device: ").Append(Device).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,9 +126,9 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Device == input.Device ||
-                    (this.Device != null &&
-                    this.Device.Equals(input.Device))
+                    this.User == input.User ||
+                    (this.User != null &&
+                    this.User.Equals(input.User))
                 ) && 
                 (
                     this.Groups == input.Groups ||
@@ -137,24 +136,24 @@ namespace Okta.Sdk.Model
                     this.Groups.Equals(input.Groups))
                 ) && 
                 (
-                    this.Ip == input.Ip ||
-                    (this.Ip != null &&
-                    this.Ip.Equals(input.Ip))
-                ) && 
-                (
                     this.Risk == input.Risk ||
                     (this.Risk != null &&
                     this.Risk.Equals(input.Risk))
                 ) && 
                 (
-                    this.User == input.User ||
-                    (this.User != null &&
-                    this.User.Equals(input.User))
+                    this.Ip == input.Ip ||
+                    (this.Ip != null &&
+                    this.Ip.Equals(input.Ip))
                 ) && 
                 (
                     this.Zones == input.Zones ||
                     (this.Zones != null &&
                     this.Zones.Equals(input.Zones))
+                ) && 
+                (
+                    this.Device == input.Device ||
+                    (this.Device != null &&
+                    this.Device.Equals(input.Device))
                 );
         }
 
@@ -168,29 +167,29 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Device != null)
+                if (this.User != null)
                 {
-                    hashCode = (hashCode * 59) + this.Device.GetHashCode();
+                    hashCode = (hashCode * 59) + this.User.GetHashCode();
                 }
                 if (this.Groups != null)
                 {
                     hashCode = (hashCode * 59) + this.Groups.GetHashCode();
                 }
-                if (this.Ip != null)
-                {
-                    hashCode = (hashCode * 59) + this.Ip.GetHashCode();
-                }
                 if (this.Risk != null)
                 {
                     hashCode = (hashCode * 59) + this.Risk.GetHashCode();
                 }
-                if (this.User != null)
+                if (this.Ip != null)
                 {
-                    hashCode = (hashCode * 59) + this.User.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Ip.GetHashCode();
                 }
                 if (this.Zones != null)
                 {
                     hashCode = (hashCode * 59) + this.Zones.GetHashCode();
+                }
+                if (this.Device != null)
+                {
+                    hashCode = (hashCode * 59) + this.Device.GetHashCode();
                 }
                 return hashCode;
             }

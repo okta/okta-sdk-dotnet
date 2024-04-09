@@ -34,48 +34,6 @@ namespace Okta.Sdk.Model
     public partial class ProfileEnrollmentPolicyRuleAction : IEquatable<ProfileEnrollmentPolicyRuleAction>
     {
         /// <summary>
-        /// Defines ProgressiveProfilingAction
-        /// </summary>
-        [JsonConverter(typeof(StringEnumSerializingConverter))]
-        public sealed class ProgressiveProfilingActionEnum : StringEnum
-        {
-            /// <summary>
-            /// StringEnum ENABLED for value: ENABLED
-            /// </summary>
-            
-            public static ProgressiveProfilingActionEnum ENABLED = new ProgressiveProfilingActionEnum("ENABLED");
-
-            /// <summary>
-            /// StringEnum DISABLED for value: DISABLED
-            /// </summary>
-            
-            public static ProgressiveProfilingActionEnum DISABLED = new ProgressiveProfilingActionEnum("DISABLED");
-
-
-            /// <summary>
-            /// Implicit operator declaration to accept and convert a string value as a <see cref="ProgressiveProfilingActionEnum"/>
-            /// </summary>
-            /// <param name="value">The value to use</param>
-            public static implicit operator ProgressiveProfilingActionEnum(string value) => new ProgressiveProfilingActionEnum(value);
-
-            /// <summary>
-            /// Creates a new <see cref="ProgressiveProfilingAction"/> instance.
-            /// </summary>
-            /// <param name="value">The value to use.</param>
-            public ProgressiveProfilingActionEnum(string value)
-                : base(value)
-            {
-            }
-        }
-
-
-        /// <summary>
-        /// Gets or Sets ProgressiveProfilingAction
-        /// </summary>
-        [DataMember(Name = "progressiveProfilingAction", EmitDefaultValue = true)]
-        
-        public ProgressiveProfilingActionEnum ProgressiveProfilingAction { get; set; }
-        /// <summary>
         /// Defines UnknownUserAction
         /// </summary>
         [JsonConverter(typeof(StringEnumSerializingConverter))]
@@ -117,6 +75,48 @@ namespace Okta.Sdk.Model
         [DataMember(Name = "unknownUserAction", EmitDefaultValue = true)]
         
         public UnknownUserActionEnum UnknownUserAction { get; set; }
+        /// <summary>
+        /// Defines ProgressiveProfilingAction
+        /// </summary>
+        [JsonConverter(typeof(StringEnumSerializingConverter))]
+        public sealed class ProgressiveProfilingActionEnum : StringEnum
+        {
+            /// <summary>
+            /// StringEnum ENABLED for value: ENABLED
+            /// </summary>
+            
+            public static ProgressiveProfilingActionEnum ENABLED = new ProgressiveProfilingActionEnum("ENABLED");
+
+            /// <summary>
+            /// StringEnum DISABLED for value: DISABLED
+            /// </summary>
+            
+            public static ProgressiveProfilingActionEnum DISABLED = new ProgressiveProfilingActionEnum("DISABLED");
+
+
+            /// <summary>
+            /// Implicit operator declaration to accept and convert a string value as a <see cref="ProgressiveProfilingActionEnum"/>
+            /// </summary>
+            /// <param name="value">The value to use</param>
+            public static implicit operator ProgressiveProfilingActionEnum(string value) => new ProgressiveProfilingActionEnum(value);
+
+            /// <summary>
+            /// Creates a new <see cref="ProgressiveProfilingAction"/> instance.
+            /// </summary>
+            /// <param name="value">The value to use.</param>
+            public ProgressiveProfilingActionEnum(string value)
+                : base(value)
+            {
+            }
+        }
+
+
+        /// <summary>
+        /// Gets or Sets ProgressiveProfilingAction
+        /// </summary>
+        [DataMember(Name = "progressiveProfilingAction", EmitDefaultValue = true)]
+        
+        public ProgressiveProfilingActionEnum ProgressiveProfilingAction { get; set; }
         
         /// <summary>
         /// Gets or Sets Access
@@ -160,9 +160,9 @@ namespace Okta.Sdk.Model
             sb.Append("  ActivationRequirements: ").Append(ActivationRequirements).Append("\n");
             sb.Append("  PreRegistrationInlineHooks: ").Append(PreRegistrationInlineHooks).Append("\n");
             sb.Append("  ProfileAttributes: ").Append(ProfileAttributes).Append("\n");
-            sb.Append("  ProgressiveProfilingAction: ").Append(ProgressiveProfilingAction).Append("\n");
             sb.Append("  TargetGroupIds: ").Append(TargetGroupIds).Append("\n");
             sb.Append("  UnknownUserAction: ").Append(UnknownUserAction).Append("\n");
+            sb.Append("  ProgressiveProfilingAction: ").Append(ProgressiveProfilingAction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -221,10 +221,6 @@ namespace Okta.Sdk.Model
                     this.ProfileAttributes.SequenceEqual(input.ProfileAttributes)
                 ) && 
                 (
-                    this.ProgressiveProfilingAction == input.ProgressiveProfilingAction ||
-                    this.ProgressiveProfilingAction.Equals(input.ProgressiveProfilingAction)
-                ) && 
-                (
                     this.TargetGroupIds == input.TargetGroupIds ||
                     this.TargetGroupIds != null &&
                     input.TargetGroupIds != null &&
@@ -233,6 +229,10 @@ namespace Okta.Sdk.Model
                 (
                     this.UnknownUserAction == input.UnknownUserAction ||
                     this.UnknownUserAction.Equals(input.UnknownUserAction)
+                ) && 
+                (
+                    this.ProgressiveProfilingAction == input.ProgressiveProfilingAction ||
+                    this.ProgressiveProfilingAction.Equals(input.ProgressiveProfilingAction)
                 );
         }
 
@@ -262,10 +262,6 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ProfileAttributes.GetHashCode();
                 }
-                if (this.ProgressiveProfilingAction != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProgressiveProfilingAction.GetHashCode();
-                }
                 if (this.TargetGroupIds != null)
                 {
                     hashCode = (hashCode * 59) + this.TargetGroupIds.GetHashCode();
@@ -273,6 +269,10 @@ namespace Okta.Sdk.Model
                 if (this.UnknownUserAction != null)
                 {
                     hashCode = (hashCode * 59) + this.UnknownUserAction.GetHashCode();
+                }
+                if (this.ProgressiveProfilingAction != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProgressiveProfilingAction.GetHashCode();
                 }
                 return hashCode;
             }

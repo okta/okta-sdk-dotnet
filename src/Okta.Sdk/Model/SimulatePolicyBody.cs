@@ -40,6 +40,13 @@ namespace Okta.Sdk.Model
         public SimulatePolicyBody() { }
         
         /// <summary>
+        /// Supported policy types for a simulate operation. The default value, &#x60;null&#x60;, returns all types.
+        /// </summary>
+        /// <value>Supported policy types for a simulate operation. The default value, &#x60;null&#x60;, returns all types.</value>
+        [DataMember(Name = "policyTypes", EmitDefaultValue = true)]
+        public List<PolicyType> PolicyTypes { get; set; }
+
+        /// <summary>
         /// The application instance ID for a simulate operation
         /// </summary>
         /// <value>The application instance ID for a simulate operation</value>
@@ -53,13 +60,6 @@ namespace Okta.Sdk.Model
         public PolicyContext PolicyContext { get; set; }
 
         /// <summary>
-        /// Supported policy types for a simulate operation. The default value, &#x60;null&#x60;, returns all types.
-        /// </summary>
-        /// <value>Supported policy types for a simulate operation. The default value, &#x60;null&#x60;, returns all types.</value>
-        [DataMember(Name = "policyTypes", EmitDefaultValue = true)]
-        public List<PolicyType> PolicyTypes { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -67,9 +67,9 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SimulatePolicyBody {\n");
+            sb.Append("  PolicyTypes: ").Append(PolicyTypes).Append("\n");
             sb.Append("  AppInstance: ").Append(AppInstance).Append("\n");
             sb.Append("  PolicyContext: ").Append(PolicyContext).Append("\n");
-            sb.Append("  PolicyTypes: ").Append(PolicyTypes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +106,12 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
+                    this.PolicyTypes == input.PolicyTypes ||
+                    this.PolicyTypes != null &&
+                    input.PolicyTypes != null &&
+                    this.PolicyTypes.SequenceEqual(input.PolicyTypes)
+                ) && 
+                (
                     this.AppInstance == input.AppInstance ||
                     (this.AppInstance != null &&
                     this.AppInstance.Equals(input.AppInstance))
@@ -114,12 +120,6 @@ namespace Okta.Sdk.Model
                     this.PolicyContext == input.PolicyContext ||
                     (this.PolicyContext != null &&
                     this.PolicyContext.Equals(input.PolicyContext))
-                ) && 
-                (
-                    this.PolicyTypes == input.PolicyTypes ||
-                    this.PolicyTypes != null &&
-                    input.PolicyTypes != null &&
-                    this.PolicyTypes.SequenceEqual(input.PolicyTypes)
                 );
         }
 
@@ -133,6 +133,10 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
+                if (this.PolicyTypes != null)
+                {
+                    hashCode = (hashCode * 59) + this.PolicyTypes.GetHashCode();
+                }
                 if (this.AppInstance != null)
                 {
                     hashCode = (hashCode * 59) + this.AppInstance.GetHashCode();
@@ -140,10 +144,6 @@ namespace Okta.Sdk.Model
                 if (this.PolicyContext != null)
                 {
                     hashCode = (hashCode * 59) + this.PolicyContext.GetHashCode();
-                }
-                if (this.PolicyTypes != null)
-                {
-                    hashCode = (hashCode * 59) + this.PolicyTypes.GetHashCode();
                 }
                 return hashCode;
             }

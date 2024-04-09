@@ -26,8 +26,9 @@ using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 namespace Okta.Sdk.Model
 {
     /// <summary>
-    /// Defines UserIdentifierMatchType
+    /// The type of pattern. For regex, use &#x60;EXPRESSION&#x60;.
     /// </summary>
+    /// <value>The type of pattern. For regex, use &#x60;EXPRESSION&#x60;.</value>
     [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class UserIdentifierMatchType : StringEnum
     {

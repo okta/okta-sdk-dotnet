@@ -72,6 +72,12 @@ namespace Okta.Sdk.Model
         public bool Registered { get; set; }
 
         /// <summary>
+        /// Gets or Sets Assurance
+        /// </summary>
+        [DataMember(Name = "assurance", EmitDefaultValue = true)]
+        public DevicePolicyRuleConditionAssurance Assurance { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +91,7 @@ namespace Okta.Sdk.Model
             sb.Append("  TrustLevel: ").Append(TrustLevel).Append("\n");
             sb.Append("  Managed: ").Append(Managed).Append("\n");
             sb.Append("  Registered: ").Append(Registered).Append("\n");
+            sb.Append("  Assurance: ").Append(Assurance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -144,6 +151,11 @@ namespace Okta.Sdk.Model
                 (
                     this.Registered == input.Registered ||
                     this.Registered.Equals(input.Registered)
+                ) && 
+                (
+                    this.Assurance == input.Assurance ||
+                    (this.Assurance != null &&
+                    this.Assurance.Equals(input.Assurance))
                 );
         }
 
@@ -169,6 +181,10 @@ namespace Okta.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.Managed.GetHashCode();
                 hashCode = (hashCode * 59) + this.Registered.GetHashCode();
+                if (this.Assurance != null)
+                {
+                    hashCode = (hashCode * 59) + this.Assurance.GetHashCode();
+                }
                 return hashCode;
             }
         }

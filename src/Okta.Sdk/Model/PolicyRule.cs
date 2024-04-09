@@ -35,6 +35,8 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(AccessPolicyRule), "ACCESS_POLICY")]
     [JsonSubtypes.KnownSubType(typeof(AccessPolicyRule), "AccessPolicyRule")]
     [JsonSubtypes.KnownSubType(typeof(AuthorizationServerPolicyRule), "AuthorizationServerPolicyRule")]
+    [JsonSubtypes.KnownSubType(typeof(IdpDiscoveryPolicyRule), "IDP_DISCOVERY")]
+    [JsonSubtypes.KnownSubType(typeof(IdpDiscoveryPolicyRule), "IdpDiscoveryPolicyRule")]
     [JsonSubtypes.KnownSubType(typeof(OktaSignOnPolicyRule), "OktaSignOnPolicyRule")]
     [JsonSubtypes.KnownSubType(typeof(PasswordPolicyRule), "PASSWORD")]
     [JsonSubtypes.KnownSubType(typeof(ProfileEnrollmentPolicyRule), "PROFILE_ENROLLMENT")]
@@ -61,8 +63,9 @@ namespace Okta.Sdk.Model
         public PolicyRuleType Type { get; set; }
         
         /// <summary>
-        /// Gets or Sets Created
+        /// Timestamp when the rule was created
         /// </summary>
+        /// <value>Timestamp when the rule was created</value>
         [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset? Created { get; private set; }
 
@@ -75,14 +78,16 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets Id
+        /// Identifier for the rule
         /// </summary>
+        /// <value>Identifier for the rule</value>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastUpdated
+        /// Timestamp when the rule was last modified
         /// </summary>
+        /// <value>Timestamp when the rule was last modified</value>
         [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset? LastUpdated { get; private set; }
 
@@ -95,20 +100,23 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of the rule
         /// </summary>
+        /// <value>Name of the rule</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Priority
+        /// Priority of the rule
         /// </summary>
+        /// <value>Priority of the rule</value>
         [DataMember(Name = "priority", EmitDefaultValue = true)]
         public int Priority { get; set; }
 
         /// <summary>
-        /// Gets or Sets System
+        /// Specifies whether Okta created the Policy Rule (&#x60;system&#x3D;true&#x60;). You can&#39;t delete Policy Rules that have &#x60;system&#x60; set to &#x60;true&#x60;.
         /// </summary>
+        /// <value>Specifies whether Okta created the Policy Rule (&#x60;system&#x3D;true&#x60;). You can&#39;t delete Policy Rules that have &#x60;system&#x60; set to &#x60;true&#x60;.</value>
         [DataMember(Name = "system", EmitDefaultValue = true)]
         public bool System { get; set; }
 

@@ -27,7 +27,7 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// UserIdentifierConditionEvaluatorPattern
+    /// Used in the User Identifier Condition object. Specifies the details of the patterns to match against.
     /// </summary>
     [DataContract(Name = "UserIdentifierConditionEvaluatorPattern")]
     
@@ -42,8 +42,9 @@ namespace Okta.Sdk.Model
         public UserIdentifierMatchType MatchType { get; set; }
         
         /// <summary>
-        /// Gets or Sets Value
+        /// The regex expression of a simple match string
         /// </summary>
+        /// <value>The regex expression of a simple match string</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 

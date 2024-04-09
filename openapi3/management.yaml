@@ -12165,6 +12165,7 @@ paths:
             - okta.orgs.manage
       tags:
         - OrgSetting
+# Policy Begin        
   /api/v1/policies:
     get:
       summary: List all Policies
@@ -12219,7 +12220,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Policy'
+              $ref: '#/components/schemas/PolicyCanBeCreatedOrReplaced'
         required: true
       responses:
         '200':
@@ -12227,7 +12228,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Policy'
+                $ref: '#/components/schemas/PolicyCanBeCreatedOrReplaced'
         '400':
           $ref: '#/components/responses/ErrorApiValidationFailed400'
         '403':
@@ -12238,49 +12239,6 @@ paths:
         - apiToken: []
         - oauth2:
             - okta.policies.manage
-      tags:
-        - Policy
-  /api/v1/policies/simulate:
-    parameters:
-      - $ref: '#/components/parameters/simulateParameter'
-    post:
-      summary: Create a Policy Simulation
-      description: |-
-        Creates a policy or policy rule simulation. The access simulation evaluates policy and policy rules based on the existing policy rule configuration.
-        The evaluation result simulates what the real-world authentication flow is and what policy rules have been applied or matched to the authentication flow.
-      operationId: createPolicySimulation
-      x-codegen-request-body-name: simulatePolicy
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/SimulatePolicyBody'
-            examples:
-              SimulatePolicy:
-                $ref: '#/components/examples/SimulatePolicyBody'
-        required: true
-      responses:
-        '204':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SimulatePolicyResponse'
-              examples:
-                SimulatePolicy:
-                  $ref: '#/components/examples/SimulatePolicyResponse'
-        '403':
-          $ref: '#/components/responses/ErrorAccessDenied403'
-        '404':
-          $ref: '#/components/responses/ErrorResourceNotFound404'
-        '429':
-          $ref: '#/components/responses/ErrorTooManyRequests429'
-      security:
-        - apiToken: []
-        - oauth2:
-            - okta.policies.read
       tags:
         - Policy
   /api/v1/policies/{policyId}:
@@ -12324,7 +12282,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Policy'
+              $ref: '#/components/schemas/PolicyCanBeCreatedOrReplaced'
         required: true
       responses:
         '200':
@@ -12332,7 +12290,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Policy'
+                $ref: '#/components/schemas/PolicyCanBeCreatedOrReplaced'
         '400':
           $ref: '#/components/responses/ErrorApiValidationFailed400'
         '403':
@@ -12372,7 +12330,10 @@ paths:
     get:
       deprecated: true
       summary: List all Applications mapped to a Policy
-      description: Lists all applications mapped to a policy identified by `policyId`
+      description: |-
+        Lists all applications mapped to a policy identified by `policyId`
+
+        > **Note:** Use [List all resources mapped to a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyMappings) to list all applications mapped to a policy.
       operationId: listPolicyApps
       responses:
         '200':
@@ -12620,6 +12581,12 @@ paths:
                 $ref: '#/components/examples/sspr-enabled-sso-step-up'
               EnableSsprNoStepUp:
                 $ref: '#/components/examples/sspr-enabled-no-step-up'
+              Enable2FAPreciseAuth:
+                $ref: "#/components/examples/twofa-enabled-disallow-password-allow-phishing"
+              EnableSpecificRoutingRule:
+                $ref: "#/components/examples/idp-discovery-specific-routing-rule"
+              EnableDynamicRoutingRule:
+                $ref: "#/components/examples/idp-discovery-dynamic-routing-rule"
             x-okta-feature-flag-amends:
               IDX_SSPR_EXTENDED_PRIMARY_FACTORS:
                 examples:
@@ -12640,6 +12607,12 @@ paths:
                   $ref: '#/components/examples/sspr-enabled-sso-step-up-response'
                 EnableSsprNoStepUp:
                   $ref: '#/components/examples/sspr-enabled-no-step-up-response'
+                Enable2FAPreciseAuth:
+                  $ref: '#/components/examples/twofa-enabled-disallow-password-allow-phishing-response'
+                EnableSpecificRoutingRule:
+                  $ref: "#/components/examples/idp-discovery-specific-routing-rule-response"
+                EnableDynamicRoutingRule:
+                  $ref: "#/components/examples/idp-discovery-dynamic-routing-rule-response"
               x-okta-feature-flag-amends:
                 IDX_SSPR_EXTENDED_PRIMARY_FACTORS:
                   examples:
@@ -12818,6 +12791,49 @@ paths:
         - apiToken: []
         - oauth2:
             - okta.policies.manage
+      tags:
+        - Policy
+  /api/v1/policies/simulate:
+    parameters:
+      - $ref: '#/components/parameters/simulateParameter'
+    post:
+      summary: Create a Policy Simulation
+      description: |-
+        Creates a policy or policy rule simulation. The access simulation evaluates policy and policy rules based on the existing policy rule configuration.
+        The evaluation result simulates what the real-world authentication flow is and what policy rules have been applied or matched to the authentication flow.
+      operationId: createPolicySimulation
+      x-codegen-request-body-name: simulatePolicy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SimulatePolicyBody'
+            examples:
+              SimulatePolicy:
+                $ref: '#/components/examples/SimulatePolicyBody'
+        required: true
+      responses:
+        '204':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimulatePolicyResponse'
+              examples:
+                SimulatePolicy:
+                  $ref: '#/components/examples/SimulatePolicyResponse'
+        '403':
+          $ref: '#/components/responses/ErrorAccessDenied403'
+        '404':
+          $ref: '#/components/responses/ErrorResourceNotFound404'
+        '429':
+          $ref: '#/components/responses/ErrorTooManyRequests429'
+      security:
+        - apiToken: []
+        - oauth2:
+            - okta.policies.read
       tags:
         - Policy
   /api/v1/principal-rate-limits:
@@ -22383,15 +22399,70 @@ components:
       type: object
       properties:
         methods:
+          description: The Authenticator methods that are permitted
           items:
             type: string
+            enum:
+              - PASSWORD
+              - SECURITY_QUESTION
+              - SMS
+              - VOICE
+              - EMAIL
+              - PUSH
+              - SIGNED_NONCE
+              - OTP
+              - TOTP
+              - WEBAUTHN
+              - DUO
+              - IDP
+              - CERT
           type: array
         reauthenticateIn:
+          description: The duration after which the user must re-authenticate regardless of user activity. This re-authentication interval overrides the Verification Method object's `reauthenticateIn` interval. The supported values use ISO 8601 period format for recurring time intervals (for example, `PT1H`).
           type: string
         types:
+          description: The Authenticator types that are permitted
           items:
             type: string
+            enum:
+              - SECURITY_KEY
+              - PHONE
+              - EMAIL
+              - PASSWORD
+              - SECURITY_QUESTION
+              - APP
+              - FEDERATED
           type: array
+        authenticationMethods:
+          x-okta-lifecycle:
+            features:
+              - ASSURANCE_GRANULAR_AUTHENTICATOR_CONSTRAINTS
+          description: This property specifies the precise authenticator and method for authentication.
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticationMethodObject'
+        excludedAuthenticationMethods:
+          x-okta-lifecycle:
+            features:
+              - ASSURANCE_GRANULAR_AUTHENTICATOR_CONSTRAINTS
+          description: This property specifies the precise authenticator and method to exclude from authentication.
+          items:
+            $ref: '#/components/schemas/AuthenticationMethodObject'
+        required:
+          x-okta-lifecycle:
+            features:
+              - ASSURANCE_GRANULAR_AUTHENTICATOR_CONSTRAINTS
+          description: This property indicates whether the knowledge or possession factor is required by the assurance. It's optional in the request, but is always returned in the response. By default, this field is `true`. If the knowledge or possession constraint has values for`excludedAuthenticationMethods` the `required` value is false.
+          type: boolean
+    AuthenticationMethodObject:
+      type: object
+      properties:
+        key:
+          type: string
+          description: A label that identifies the authenticator
+        method:
+          type: string
+          description: Specifies the method used for the authenticator
     AccessPolicyConstraints:
       type: object
       properties:
@@ -22639,9 +22710,11 @@ components:
       properties:
         id:
           type: string
+          description: ID of the app
           readOnly: true
         name:
           type: string
+          description: Name of the app type
         type:
           $ref: '#/components/schemas/AppAndInstanceType'
     AppAndInstancePolicyRuleCondition:
@@ -23325,16 +23398,17 @@ components:
           duo: '#/components/schemas/AuthenticatorMethodWithVerifiableProperties'
           cert: '#/components/schemas/AuthenticatorMethodWithVerifiableProperties'
     AuthenticatorMethodConstraint:
-      description: 'Limits the authenticators that can be used for a given method. Currently, only the `otp` method supports constraints, and Google authenticator (key : ''google_otp'') is the only allowed authenticator.'
+      description: |-
+        Limits the authenticators that can be used for a given method. Currently, only the `otp` method supports constraints, and Google authenticator (key : 'google_otp') is the only allowed authenticator.
       type: object
       properties:
+        method:
+          enum:
+            - otp
         allowedAuthenticators:
           type: array
           items:
             $ref: '#/components/schemas/AuthenticatorIdentity'
-        method:
-          enum:
-            - otp
     AuthenticatorMethodOtp:
       allOf:
         - $ref: '#/components/schemas/AuthenticatorMethodWithVerifiableProperties'
@@ -24167,9 +24241,11 @@ components:
           type: string
     ClientPolicyCondition:
       type: object
+      description: Specifies which clients are included in the Policy
       properties:
         include:
           type: array
+          description: Which clients are included in the Policy
           items:
             type: string
     Compliance:
@@ -24557,6 +24633,15 @@ components:
               type: boolean
             registered:
               type: boolean
+            assurance:
+              $ref: '#/components/schemas/DevicePolicyRuleConditionAssurance'
+    DevicePolicyRuleConditionAssurance:
+      type: object
+      properties:
+        include:
+          type: array
+          items:
+            type: string
     DeviceAssurance:
       title: DeviceAssurance
       type: object
@@ -25562,9 +25647,11 @@ components:
       readOnly: true
     GrantTypePolicyRuleCondition:
       type: object
+      description: Array of grant types that this condition includes. Determines the mechanism that Okta uses to authorize the creation of the tokens.
       properties:
         include:
           type: array
+          description: Array of grant types thagt this condition includes.
           items:
             type: string
     Group:
@@ -25616,13 +25703,16 @@ components:
                   $ref: '#/components/schemas/HrefObject'
     GroupCondition:
       type: object
+      description: Specifies a set of Groups whose Users are to be included or excluded
       properties:
         exclude:
           type: array
+          description: Groups to be excluded
           items:
             type: string
         include:
           type: array
+          description: Groups to be included
           items:
             type: string
     GroupOwner:
@@ -25664,13 +25754,16 @@ components:
         - USER
     GroupPolicyRuleCondition:
       type: object
+      description: Specifies a set of Groups whose Users are to be included or excluded
       properties:
         exclude:
           type: array
+          description: Groups to be excluded
           items:
             type: string
         include:
           type: array
+          description: Groups to be included
           items:
             type: string
     GroupProfile:
@@ -25973,6 +26066,14 @@ components:
       required:
         - href
       readOnly: true
+    HrefObjectMappingsLink:
+      allOf:
+        - $ref: '#/components/schemas/HrefObject'
+        - description: Link to the mappings resource
+    HrefObjectRulesLink:
+      allOf:
+        - $ref: '#/components/schemas/HrefObject'
+        - description: Link to the rules resource    
     HrefObjectActivateLink:
       allOf:
         - $ref: '#/components/schemas/HrefObject'
@@ -26159,13 +26260,10 @@ components:
         - OCSP
     IdentityProviderPolicy:
       allOf:
-        - $ref: '#/components/schemas/Policy'
         - type: object
           properties:
             accountLink:
               $ref: '#/components/schemas/PolicyAccountLink'
-            conditions:
-              $ref: '#/components/schemas/PolicyRuleConditions'
             mapAMRClaims:
               type: boolean
               description: Enable mapping AMR from IdP to Okta to downstream apps
@@ -26179,12 +26277,25 @@ components:
               $ref: '#/components/schemas/Provisioning'
             subject:
               $ref: '#/components/schemas/PolicySubject'
+    IdpDiscoveryPolicy:
+      allOf:
+        - $ref: '#/components/schemas/Policy'
+        - type: object
+          properties:
+            conditions:
+              type: object
+              nullable: true
     IdentityProviderPolicyProvider:
       type: string
       enum:
         - ANY
         - OKTA
         - SPECIFIC_IDP
+    IdpSelectionType:
+      type: string
+      enum:
+        - DYNAMIC
+        - SPECIFIC
     IdentityProviderPolicyRuleCondition:
       type: object
       properties:
@@ -26292,18 +26403,43 @@ components:
     IdpPolicyRuleAction:
       type: object
       properties:
-        providers:
-          items:
-            $ref: '#/components/schemas/IdpPolicyRuleActionProvider'
-          type: array
+        idp:
+          type: object
+          properties:
+            providers:
+              items:
+                $ref: '#/components/schemas/IdpPolicyRuleActionProvider'
+              type: array
+              description: List of configured Identity Providers that a given Rule can route to. Ability to define multiple providers is a part of the Okta Identity Engine. This allows users to choose a Provider when they sign in. Contact support for information on the Identity Engine.
+            idpSelectionType:
+              description: Determines whether the rule should use expression language or a specific IdP
+              $ref: '#/components/schemas/IdpSelectionType'
+            matchCriteria:
+              items:
+                $ref: '#/components/schemas/IdpPolicyRuleActionMatchCriteria'
+              type: array
+              description: Required if `idpSelectionType` is set to `DYNAMIC`
+    IdpPolicyRuleActionMatchCriteria:
+      type: object
+      properties:
+        providerExpression:
+          type: string
+          description: |
+            You can provide an Okta Expression Language expression with the Login Context that's evaluated with the IdP. For example, the value `login.identifier` refers to the user's username. If the user is signing in with the username `john.doe@mycompany.com`, the expression `login.identifier.substringAfter(@))` is evaluated to the domain name of the user, for example: `mycompany.com`.
+        propertyName:
+          type: string
+          description: The IdP property that the evaluated string should match to              
     IdpPolicyRuleActionProvider:
       type: object
       properties:
         id:
-          readOnly: true
           type: string
+          description: IdP types of `OKTA`, `AgentlessDSSO`, and `IWA` don't require an ID.
+        name:
+          type: string
+          description: Provider `name` in Okta. Optional. Supported in `IDENTITY ENGINE`.
         type:
-          type: string
+          $ref: '#/components/schemas/IdentityProviderType'
     IframeEmbedScopeAllowedApps:
       type: string
       enum:
@@ -28565,25 +28701,82 @@ components:
       type: object
       properties:
         created:
+          description: Timestamp when the Policy was created
           type: string
           format: date-time
           readOnly: true
         description:
+          description: Policy description
           type: string
         id:
+          description: Policy ID
           type: string
           readOnly: true
         lastUpdated:
+          description: Timestamp when the Policy was last updated
           type: string
           format: date-time
           readOnly: true
         name:
+          description: Policy name
           type: string
         priority:
+          description: Specifies the order in which this Policy is evaluated in relation to the other policies
           type: integer
         status:
           $ref: '#/components/schemas/LifecycleStatus'
         system:
+          description: Specifies whether Okta created the Policy
+          type: boolean
+        type:
+          $ref: '#/components/schemas/PolicyType'
+        _embedded:
+          type: object
+          additionalProperties:
+            type: object
+            properties: {}
+          readOnly: true
+        _links:
+          $ref: '#/components/schemas/PolicyLinks'
+      discriminator:
+        propertyName: type
+        mapping:
+          ACCESS_POLICY: '#/components/schemas/AccessPolicy'
+          IDP_DISCOVERY: '#/components/schemas/IdpDiscoveryPolicy'
+          MFA_ENROLL: '#/components/schemas/MultifactorEnrollmentPolicy'
+          OKTA_SIGN_ON: '#/components/schemas/OktaSignOnPolicy'
+          PASSWORD: '#/components/schemas/PasswordPolicy'
+          PROFILE_ENROLLMENT: '#/components/schemas/ProfileEnrollmentPolicy'
+    PolicyCanBeCreatedOrReplaced:
+      type: object
+      properties:
+        created:
+          description: Timestamp when the Policy was created
+          type: string
+          format: date-time
+          readOnly: true
+        description:
+          description: Policy description
+          type: string
+        id:
+          description: Policy ID
+          type: string
+          readOnly: true
+        lastUpdated:
+          description: Timestamp when the Policy was last updated
+          type: string
+          format: date-time
+          readOnly: true
+        name:
+          description: Policy name
+          type: string
+        priority:
+          description: Specifies the order in which this Policy is evaluated in relation to the other policies
+          type: integer
+        status:
+          $ref: '#/components/schemas/LifecycleStatus'
+        system:
+          description: Specifies whether Okta created the Policy
           type: boolean
         type:
           $ref: '#/components/schemas/PolicyType'
@@ -28599,11 +28792,23 @@ components:
         propertyName: type
         mapping:
           ACCESS_POLICY: '#/components/schemas/AccessPolicy'
-          IDP_DISCOVERY: '#/components/schemas/IdentityProviderPolicy'
           MFA_ENROLL: '#/components/schemas/MultifactorEnrollmentPolicy'
           OKTA_SIGN_ON: '#/components/schemas/OktaSignOnPolicy'
           PASSWORD: '#/components/schemas/PasswordPolicy'
           PROFILE_ENROLLMENT: '#/components/schemas/ProfileEnrollmentPolicy'
+    PolicyLinks:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HrefObjectSelfLink'
+        activate:
+          $ref: '#/components/schemas/HrefObjectActivateLink'
+        deactivate:
+          $ref: '#/components/schemas/HrefObjectDeactivateLink'
+        rules:
+          $ref: '#/components/schemas/HrefObjectRulesLink'
+        mappings:
+          $ref: '#/components/schemas/HrefObjectMappingsLink'
     PolicyAccess:
       type: string
       enum:
@@ -28636,6 +28841,46 @@ components:
     PolicyContext:
       type: object
       properties:
+        user:
+          type: object
+          description: The user ID for the simulate operation. Only user IDs or Group IDs are allowed, not both.
+          properties:
+            id:
+              type: string
+              description: The unique ID number for the user.
+          required:
+            -  id
+        groups:
+          type: object
+          description: An array of Group IDs for the simulate operation. Only user IDs or Group IDs are allowed, not both.
+          properties:
+            ids:
+              type: array
+              items:
+                type: string
+                uniqueItems: true
+          required:
+            -  ids
+        risk:
+          type: object
+          description: The risk rule condition level
+          properties:
+            level:
+              type: string
+              enum:
+                - LOW
+                - MEDIUM
+                - HIGH
+        ip:
+          type: string
+          description: The network rule condition, zone, or IP address
+        zones:
+          type: object
+          properties:
+            ids:
+              type: array
+              items:
+                type: string
         device:
           type: object
           properties:
@@ -28648,44 +28893,6 @@ components:
             managed:
               type: boolean
               description: If the device is managed
-        groups:
-          type: array
-          description: An array of Group IDs for the simulate operation. Only user IDs or Group IDs are allowed, not both.
-          properties:
-            ids:
-              type: array
-          required:
-            - ids
-        ip:
-          type: string
-          description: The network rule condition, zone, or IP address
-        risk:
-          type: object
-          description: The risk rule condition level
-          properties:
-            level:
-              type: string
-              enum:
-                - LOW
-                - MEDIUM
-                - HIGH
-        user:
-          type: object
-          description: The user ID for the simulate operation. Only user IDs or Group IDs are allowed, not both.
-          properties:
-            id:
-              type: string
-              description: The unique ID number for the user.
-          required:
-            - id
-        zones:
-          type: object
-          properties:
-            ids:
-              type: array
-              properties:
-                ids:
-                  type: string
       required:
         - user
         - groups
@@ -28702,6 +28909,14 @@ components:
                   allOf:
                     - $ref: '#/components/schemas/HrefObject'
                     - description: Link to the mapped application
+                authenticator:
+                  allOf:
+                    - $ref: '#/components/schemas/HrefObject'
+                    - description: Link to the mapped authenticator
+                policy:
+                  allOf:
+                    - $ref: '#/components/schemas/HrefObject'
+                    - description: Link to the mapped policy
     PolicyMappingRequest:
       type: object
       properties:
@@ -28759,24 +28974,30 @@ components:
       properties:
         created:
           type: string
+          description: Timestamp when the rule was created
           format: date-time
           readOnly: true
           nullable: true
         id:
           type: string
+          description: Identifier for the rule
         lastUpdated:
           type: string
+          description: Timestamp when the rule was last modified
           format: date-time
           readOnly: true
           nullable: true
         name:
           type: string
+          description: Name of the rule
         priority:
           type: integer
+          description: Priority of the rule
         status:
           $ref: '#/components/schemas/LifecycleStatus'
         system:
           type: boolean
+          description: Specifies whether Okta created the Policy Rule (`system=true`). You can't delete Policy Rules that have `system` set to `true`.
           default: false
         type:
           $ref: '#/components/schemas/PolicyRuleType'
@@ -28788,6 +29009,7 @@ components:
           PROFILE_ENROLLMENT: '#/components/schemas/ProfileEnrollmentPolicyRule'
           RESOURCE_ACCESS: '#/components/schemas/AuthorizationServerPolicyRule'
           SIGN_ON: '#/components/schemas/OktaSignOnPolicyRule'
+          IDP_DISCOVERY: '#/components/schemas/IdpDiscoveryPolicyRule'
     PolicyRuleActions:
       type: object
     PolicyRuleActionsEnroll:
@@ -28920,12 +29142,39 @@ components:
           properties:
             deviceBound:
               type: string
+              description: Indicates if device-bound Factors are required. This property is only set for `POSSESSION` constraints.
+              enum:
+                - OPTIONAL
+                - REQUIRED
+              default: OPTIONAL
             hardwareProtection:
               type: string
+              description: Indicates if any secrets or private keys used during authentication must be hardware protected and not exportable. This property is only set for `POSSESSION` constraints.
+              enum:
+                - OPTIONAL
+                - REQUIRED
+              default: OPTIONAL
             phishingResistant:
               type: string
+              description: Indicates if phishing-resistant Factors are required. This property is only set for `POSSESSION` constraints.
+              enum:
+                - OPTIONAL
+                - REQUIRED
+              default: OPTIONAL
             userPresence:
               type: string
+              description: Indicates if the user needs to approve an Okta Verify prompt or provide biometrics (meets NIST AAL2 requirements). This property is only set for `POSSESSION` constraints.
+              enum:
+                - OPTIONAL
+                - REQUIRED
+              default: REQUIRED
+            userVerification:
+              type: string
+              description: Indicates the user interaction requirement (PIN or biometrics) to ensure verification of a possession factor
+              enum:
+                - OPTIONAL
+                - REQUIRED
+              default: OPTIONAL
     PreRegistrationInlineHook:
       type: object
       properties:
@@ -29004,20 +29253,20 @@ components:
           items:
             $ref: '#/components/schemas/ProfileEnrollmentPolicyRuleProfileAttribute'
           type: array
-        progressiveProfilingAction:
-          type: string
-          enum:
-            - ENABLED
-            - DISABLED
         targetGroupIds:
           items:
             type: string
           type: array
         unknownUserAction:
           type: string
-          enum: #TODO: Convert to StringEnum
+          enum:
             - DENY
             - REGISTER
+        progressiveProfilingAction:
+          type: string
+          enum:
+            - ENABLED
+            - DISABLED
     ProfileEnrollmentPolicyRuleActions:
       allOf:
         - $ref: '#/components/schemas/PolicyRuleActions'
@@ -29029,7 +29278,7 @@ components:
       type: object
       properties:
         emailVerification:
-          type: boolean
+          type: boolean          
     ProfileEnrollmentPolicyRuleProfileAttribute:
       type: object
       properties:
@@ -29039,6 +29288,27 @@ components:
           type: string
         required:
           type: boolean
+    IdpDiscoveryPolicyRule:
+      allOf:
+        - $ref: '#/components/schemas/PolicyRule'
+        - type: object
+          properties:
+            actions:
+              $ref: '#/components/schemas/IdpPolicyRuleAction'
+            conditions:
+              $ref: '#/components/schemas/IdpDiscoveryPolicyRuleCondition'
+    IdpDiscoveryPolicyRuleCondition:
+      allOf:
+        - type: object
+          properties:
+            app:
+              $ref: '#/components/schemas/AppAndInstancePolicyRuleCondition'
+            network:
+              $ref: '#/components/schemas/PolicyNetworkCondition'
+            userIdentifier:
+              $ref: '#/components/schemas/UserIdentifierPolicyRuleCondition'
+            platform:
+              $ref: '#/components/schemas/PlatformPolicyRuleCondition'          
     ProfileMapping:
       description: |-
         The Profile Mapping object describes a mapping between an Okta User's and an App User's properties using [JSON Schema Draft 4](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04).
@@ -30378,37 +30648,24 @@ components:
           type: string
           readOnly: false
     SimulatePolicyBody:
-      description: The request body required for a simulate policy operation.
       type: object
+      description: The request body required for a simulate policy operation.
       properties:
+        policyTypes:
+          type: array
+          description: Supported policy types for a simulate operation. The default value, `null`, returns all types.
+          items:
+            $ref: '#/components/schemas/PolicyType'
         appInstance:
           type: string
           description: The application instance ID for a simulate operation
         policyContext:
           $ref: '#/components/schemas/PolicyContext'
-        policyTypes:
-          type: array
-          description: Supported policy types for a simulate operation. The default value, `null`, returns all types.
-          items:
-            $ref: '#/components/schemas/PolicyType' #TODO: Revisit with API team
       required:
-        - appInstance
+        -  appInstance
     SimulatePolicyEvaluations:
       type: object
       properties:
-        evaluated:
-          type: object
-          description: A list of evaluated but not matched policies and rules
-          properties:
-            policies:
-              $ref: '#/components/schemas/SimulateResultPolicies'
-        policyType:
-          type: array
-          description: The policy type of the simulate operation
-          items:
-            $ref: '#/components/schemas/PolicyType' #TODO: Revisit with API TEAM
-        result:
-          $ref: '#/components/schemas/SimulatePolicyResult'
         status:
           type: string
           description: The result of this entity evaluation
@@ -30416,12 +30673,25 @@ components:
             - MATCH
             - NOT_MATCH
             - UNDEFINED
+        policyType:
+          type: array
+          description: The policy type of the simulate operation
+          items:
+            $ref: '#/components/schemas/PolicyType'
+        result:
+          $ref: "#/components/schemas/SimulatePolicyResult"
         undefined:
           type: object
           description: A list of undefined but not matched policies and rules
           properties:
             policies:
-              $ref: '#/components/schemas/SimulateResultPolicies'
+              $ref: "#/components/schemas/SimulateResultPolicies"
+        evaluated:
+          type: object
+          description: A list of evaluated but not matched policies and rules
+          properties:
+            policies:
+              $ref: "#/components/schemas/SimulateResultPolicies"
     SimulatePolicyResponse:
       description: The response body returned for a simulate policy operation. An array of `evaluations`.
       items:
@@ -30453,24 +30723,21 @@ components:
     SimulateResultPoliciesItems:
       type: object
       properties:
-        conditions:
-          type: array
-          $ref: '#/components/schemas/SimulateResultConditions'
         id:
           type: string
         name:
           type: string
-        rules:
-          type: array
-          $ref: '#/components/schemas/SimulateResultRules'
         status:
           type: string
+        conditions:
+          type: array
+          $ref: "#/components/schemas/SimulateResultConditions"
+        rules:
+          type: array
+          $ref: "#/components/schemas/SimulateResultRules"
     SimulateResultRules:
       type: object
       properties:
-        conditions:
-          type: array
-          $ref: '#/components/schemas/SimulateResultConditions'
         id:
           type: string
           description: The unique ID number of the policy rule
@@ -30484,6 +30751,9 @@ components:
             - MATCH
             - UNMATCHED
             - UNDEFINED
+        conditions:
+          type: array
+          $ref: "#/components/schemas/SimulateResultConditions"
     SingleLogout:
       type: object
       properties:
@@ -30609,17 +30879,9 @@ components:
       type: string
       pattern: (?i)^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$
     SsprPrimaryRequirement:
-      description: Defines the authenticators permitted for the initial authentication step of password recovery
       type: object
+      description: Defines the authenticators permitted for the initial authentication step of password recovery
       properties:
-        methodConstraints:
-          description: Constraints on the values specified in the `methods` array. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint.
-          x-okta-lifecycle:
-            features:
-              - IDX_SSPR_EXTENDED_PRIMARY_FACTORS
-          type: array
-          items:
-            $ref: '#/components/schemas/AuthenticatorMethodConstraint'
         methods:
           type: array
           description: Authenticator methods allowed for the initial authentication step of password recovery
@@ -30641,6 +30903,14 @@ components:
                   - voice
                   - email
                   - otp
+        methodConstraints:
+          description: Constraints on the values specified in the `methods` array. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint.
+          x-okta-lifecycle:
+            features:
+              - IDX_SSPR_EXTENDED_PRIMARY_FACTORS
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticatorMethodConstraint'
     SsprRequirement:
       description: Describes the initial and secondary authenticator requirements a user needs to reset their password
       type: object
@@ -31003,7 +31273,8 @@ components:
           description: Specifies the button label for the `Submit` button at the bottom of the enrollment form.
           default: Submit
         elements:
-          $ref: '#/components/schemas/UIElement'
+          allOf:
+            $ref: '#/components/schemas/UIElement'
         label:
           type: string
           description: Specifies the label at the top of the enrollment form under the logo.
@@ -31163,13 +31434,16 @@ components:
           type: string
           readOnly: true
     UserCondition:
+      description: Specifies a set of Users to be included or excluded
       type: object
       properties:
         exclude:
+          description: Users to be excluded
           type: array
           items:
             type: string
         include:
+          description: Users to be included
           type: array
           items:
             type: string
@@ -31233,13 +31507,16 @@ components:
           hotp: '#/components/schemas/CustomHotpUserFactor'
     UserIdentifierConditionEvaluatorPattern:
       type: object
+      description: Used in the User Identifier Condition object. Specifies the details of the patterns to match against.
       properties:
         matchType:
           $ref: '#/components/schemas/UserIdentifierMatchType'
         value:
           type: string
+          description: The regex expression of a simple match string
     UserIdentifierMatchType:
       type: string
+      description: The type of pattern. For regex, use `EXPRESSION`.
       enum:
         - CONTAINS
         - EQUALS
@@ -31801,8 +32078,6 @@ components:
         registrationData:
           type: string
         stateToken:
-          type: string
-        clientData:
           type: string
         authenticatorData:
           type: string
