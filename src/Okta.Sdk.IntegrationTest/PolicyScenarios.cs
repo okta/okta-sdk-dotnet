@@ -315,6 +315,93 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
+
+        [Fact]
+        public async Task ListIdpDiscoveryRules()
+        {
+            var guid = Guid.NewGuid();
+
+            var policies = await _policyApi.ListPolicies(PolicyType.IDPDISCOVERY).ToListAsync();
+            var idpPolicy = policies.FirstOrDefault() as IdpDiscoveryPolicy;
+            PolicyRule createdRule = null;
+
+            try
+            {
+                var policyRule = new IdpDiscoveryPolicyRule
+                {
+                    Type = PolicyRuleType.IDPDISCOVERY,
+                    Priority = 1,
+                    Name = $"dotnet-sdk: {nameof(ListIdpDiscoveryRules)} {guid}".Substring(0, 50),
+                    Actions = new IdpPolicyRuleAction
+                    {
+                        Idp = new IdpPolicyRuleActionIdp
+                        {
+                            Providers = new List<IdpPolicyRuleActionProvider>
+                            {
+                                new IdpPolicyRuleActionProvider
+                                {
+                                    Type = IdentityProviderType.OKTA
+                                }
+                            }
+                        }
+                    },
+                    Conditions = new IdpDiscoveryPolicyRuleCondition
+                    {
+                        Network = new PolicyNetworkCondition
+                        {
+                            Connection = PolicyNetworkConnection.ZONE,
+                            Include = new List<string> { "ALL_ZONES" }
+                        },
+                        App = new AppAndInstancePolicyRuleCondition
+                        {
+                            Exclude = new List<AppAndInstanceConditionEvaluatorAppOrInstance>(),
+                            Include = new List<AppAndInstanceConditionEvaluatorAppOrInstance>()
+                        },
+                        Platform = new PlatformPolicyRuleCondition
+                        {
+                            Include = new List<PlatformConditionEvaluatorPlatform>
+                            {
+                                new PlatformConditionEvaluatorPlatform
+                                {
+                                    Os = new PlatformConditionEvaluatorPlatformOperatingSystem
+                                    {
+                                        Type = PolicyPlatformOperatingSystemType.ANY
+                                    },
+
+                                    Type = PolicyPlatformType.ANY
+                                }
+                            }
+                        }
+                    }
+                };
+
+                createdRule = await _policyApi.CreatePolicyRuleAsync(idpPolicy.Id, policyRule);
+                createdRule.Should().NotBeNull();
+
+                var rules = await _policyApi.ListPolicyRules(idpPolicy.Id).ToListAsync();
+
+                rules.Should().NotBeNullOrEmpty();
+
+                var retrievedRule = rules.FirstOrDefault(x => x.Id == createdRule.Id);
+
+                retrievedRule.Name.Should().Be(policyRule.Name);
+                retrievedRule.Type.Should().Be(PolicyRuleType.IDPDISCOVERY);
+                retrievedRule.Status.Should().Be(LifecycleStatus.ACTIVE);
+                ((IdpDiscoveryPolicyRule)retrievedRule).Actions.Idp.Providers.Any(x => x.Type == IdentityProviderType.OKTA).Should().BeTrue();
+                ((IdpDiscoveryPolicyRule)retrievedRule).Conditions.Network.Connection.Should().Be(PolicyNetworkConnection.ZONE);
+                ((IdpDiscoveryPolicyRule)retrievedRule).Conditions.Platform.Include.Any(x => x.Os.Type == PolicyPlatformOperatingSystemType.ANY).Should().BeTrue();
+
+            }
+            finally
+            {
+
+                if (createdRule != null)
+                {
+                    await _policyApi.DeletePolicyRuleAsync(idpPolicy.Id, createdRule.Id);
+                }
+            }
+        }
+
         [Fact]
         public async Task CreateSignOnPolicyWithGroupConditions()
         {
