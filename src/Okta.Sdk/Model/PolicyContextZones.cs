@@ -38,7 +38,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Ids
         /// </summary>
         [DataMember(Name = "ids", EmitDefaultValue = true)]
-        public Object Ids { get; set; }
+        public List<string> Ids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -86,8 +86,9 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Ids == input.Ids ||
-                    (this.Ids != null &&
-                    this.Ids.Equals(input.Ids))
+                    this.Ids != null &&
+                    input.Ids != null &&
+                    this.Ids.SequenceEqual(input.Ids)
                 );
         }
 

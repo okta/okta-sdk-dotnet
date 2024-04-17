@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Conditions** | [**SimulateResultConditions**](SimulateResultConditions.md) |  | [optional] 
 **Id** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
-**Rules** | [**SimulateResultRules**](SimulateResultRules.md) |  | [optional] 
 **Status** | **string** |  | [optional] 
+**Conditions** | [**SimulateResultConditions**](SimulateResultConditions.md) |  | [optional] 
+**Rules** | [**SimulateResultRules**](SimulateResultRules.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

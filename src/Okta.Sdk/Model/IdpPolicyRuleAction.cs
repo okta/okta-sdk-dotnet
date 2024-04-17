@@ -35,10 +35,10 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets Providers
+        /// Gets or Sets Idp
         /// </summary>
-        [DataMember(Name = "providers", EmitDefaultValue = true)]
-        public List<IdpPolicyRuleActionProvider> Providers { get; set; }
+        [DataMember(Name = "idp", EmitDefaultValue = true)]
+        public IdpPolicyRuleActionIdp Idp { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -48,7 +48,7 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class IdpPolicyRuleAction {\n");
-            sb.Append("  Providers: ").Append(Providers).Append("\n");
+            sb.Append("  Idp: ").Append(Idp).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,10 +85,9 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Providers == input.Providers ||
-                    this.Providers != null &&
-                    input.Providers != null &&
-                    this.Providers.SequenceEqual(input.Providers)
+                    this.Idp == input.Idp ||
+                    (this.Idp != null &&
+                    this.Idp.Equals(input.Idp))
                 );
         }
 
@@ -102,9 +101,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Providers != null)
+                if (this.Idp != null)
                 {
-                    hashCode = (hashCode * 59) + this.Providers.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Idp.GetHashCode();
                 }
                 return hashCode;
             }

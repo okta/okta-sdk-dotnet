@@ -27,7 +27,7 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// GrantTypePolicyRuleCondition
+    /// Array of grant types that this condition includes. Determines the mechanism that Okta uses to authorize the creation of the tokens.
     /// </summary>
     [DataContract(Name = "GrantTypePolicyRuleCondition")]
     
@@ -35,8 +35,9 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets Include
+        /// Array of grant types thagt this condition includes.
         /// </summary>
+        /// <value>Array of grant types thagt this condition includes.</value>
         [DataMember(Name = "include", EmitDefaultValue = true)]
         public List<string> Include { get; set; }
 

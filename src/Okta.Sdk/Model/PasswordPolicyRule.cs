@@ -33,6 +33,7 @@ namespace Okta.Sdk.Model
     [DataContract(Name = "PasswordPolicyRule")]
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(AccessPolicyRule), "ACCESS_POLICY")]
+    [JsonSubtypes.KnownSubType(typeof(IdpDiscoveryPolicyRule), "IDP_DISCOVERY")]
     [JsonSubtypes.KnownSubType(typeof(PasswordPolicyRule), "PASSWORD")]
     [JsonSubtypes.KnownSubType(typeof(ProfileEnrollmentPolicyRule), "PROFILE_ENROLLMENT")]
     [JsonSubtypes.KnownSubType(typeof(AuthorizationServerPolicyRule), "RESOURCE_ACCESS")]

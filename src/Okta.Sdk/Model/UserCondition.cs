@@ -27,7 +27,7 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// UserCondition
+    /// Specifies a set of Users to be included or excluded
     /// </summary>
     [DataContract(Name = "UserCondition")]
     
@@ -35,14 +35,16 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets Exclude
+        /// Users to be excluded
         /// </summary>
+        /// <value>Users to be excluded</value>
         [DataMember(Name = "exclude", EmitDefaultValue = true)]
         public List<string> Exclude { get; set; }
 
         /// <summary>
-        /// Gets or Sets Include
+        /// Users to be included
         /// </summary>
+        /// <value>Users to be included</value>
         [DataMember(Name = "include", EmitDefaultValue = true)]
         public List<string> Include { get; set; }
 

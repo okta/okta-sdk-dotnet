@@ -33,26 +33,27 @@ namespace Okta.Sdk.Model
     
     public partial class IdpPolicyRuleActionProvider : IEquatable<IdpPolicyRuleActionProvider>
     {
-        
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
-        public string Id { get; private set; }
 
-        /// <summary>
-        /// Returns false as Id should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeId()
-        {
-            return false;
-        }
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = true)]
-        public string Type { get; set; }
+        
+        public IdentityProviderType Type { get; set; }
+        
+        /// <summary>
+        /// IdP types of &#x60;OKTA&#x60;, &#x60;AgentlessDSSO&#x60;, and &#x60;IWA&#x60; don&#39;t require an ID.
+        /// </summary>
+        /// <value>IdP types of &#x60;OKTA&#x60;, &#x60;AgentlessDSSO&#x60;, and &#x60;IWA&#x60; don&#39;t require an ID.</value>
+        [DataMember(Name = "id", EmitDefaultValue = true)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Provider &#x60;name&#x60; in Okta. Optional. Supported in &#x60;IDENTITY ENGINE&#x60;.
+        /// </summary>
+        /// <value>Provider &#x60;name&#x60; in Okta. Optional. Supported in &#x60;IDENTITY ENGINE&#x60;.</value>
+        [DataMember(Name = "name", EmitDefaultValue = true)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,6 +64,7 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class IdpPolicyRuleActionProvider {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -105,9 +107,13 @@ namespace Okta.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 );
         }
 
@@ -124,6 +130,10 @@ namespace Okta.Sdk.Model
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 if (this.Type != null)
                 {

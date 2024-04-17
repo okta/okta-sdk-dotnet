@@ -42,8 +42,9 @@ namespace Okta.Sdk.Model
         public AppAndInstanceType Type { get; set; }
         
         /// <summary>
-        /// Gets or Sets Id
+        /// ID of the app
         /// </summary>
+        /// <value>ID of the app</value>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
@@ -56,8 +57,9 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of the app type
         /// </summary>
+        /// <value>Name of the app type</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 

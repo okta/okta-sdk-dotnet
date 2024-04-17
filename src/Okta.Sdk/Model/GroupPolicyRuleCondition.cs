@@ -27,7 +27,7 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// GroupPolicyRuleCondition
+    /// Specifies a set of Groups whose Users are to be included or excluded
     /// </summary>
     [DataContract(Name = "GroupPolicyRuleCondition")]
     
@@ -35,14 +35,16 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets Exclude
+        /// Groups to be excluded
         /// </summary>
+        /// <value>Groups to be excluded</value>
         [DataMember(Name = "exclude", EmitDefaultValue = true)]
         public List<string> Exclude { get; set; }
 
         /// <summary>
-        /// Gets or Sets Include
+        /// Groups to be included
         /// </summary>
+        /// <value>Groups to be included</value>
         [DataMember(Name = "include", EmitDefaultValue = true)]
         public List<string> Include { get; set; }
 

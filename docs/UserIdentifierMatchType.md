@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.UserIdentifierMatchType
+The type of pattern. For regex, use `EXPRESSION`.
 
 ## Properties
 

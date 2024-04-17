@@ -27,7 +27,7 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// ClientPolicyCondition
+    /// Specifies which clients are included in the Policy
     /// </summary>
     [DataContract(Name = "ClientPolicyCondition")]
     
@@ -35,8 +35,9 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets Include
+        /// Which clients are included in the Policy
         /// </summary>
+        /// <value>Which clients are included in the Policy</value>
         [DataMember(Name = "include", EmitDefaultValue = true)]
         public List<string> Include { get; set; }
 

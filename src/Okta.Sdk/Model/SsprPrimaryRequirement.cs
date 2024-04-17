@@ -105,8 +105,8 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SsprPrimaryRequirement {\n");
-            sb.Append("  MethodConstraints: ").Append(MethodConstraints).Append("\n");
             sb.Append("  Methods: ").Append(Methods).Append("\n");
+            sb.Append("  MethodConstraints: ").Append(MethodConstraints).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -143,14 +143,14 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
+                    this.Methods == input.Methods ||
+                    this.Methods.SequenceEqual(input.Methods)
+                ) && 
+                (
                     this.MethodConstraints == input.MethodConstraints ||
                     this.MethodConstraints != null &&
                     input.MethodConstraints != null &&
                     this.MethodConstraints.SequenceEqual(input.MethodConstraints)
-                ) && 
-                (
-                    this.Methods == input.Methods ||
-                    this.Methods.SequenceEqual(input.Methods)
                 );
         }
 
@@ -164,13 +164,13 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.MethodConstraints != null)
-                {
-                    hashCode = (hashCode * 59) + this.MethodConstraints.GetHashCode();
-                }
                 if (this.Methods != null)
                 {
                     hashCode = (hashCode * 59) + this.Methods.GetHashCode();
+                }
+                if (this.MethodConstraints != null)
+                {
+                    hashCode = (hashCode * 59) + this.MethodConstraints.GetHashCode();
                 }
                 return hashCode;
             }

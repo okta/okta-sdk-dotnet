@@ -85,12 +85,6 @@ namespace Okta.Sdk.Model
         public StatusEnum Status { get; set; }
         
         /// <summary>
-        /// Gets or Sets Conditions
-        /// </summary>
-        [DataMember(Name = "conditions", EmitDefaultValue = true)]
-        public SimulateResultConditions Conditions { get; set; }
-
-        /// <summary>
         /// The unique ID number of the policy rule
         /// </summary>
         /// <value>The unique ID number of the policy rule</value>
@@ -105,6 +99,12 @@ namespace Okta.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or Sets Conditions
+        /// </summary>
+        [DataMember(Name = "conditions", EmitDefaultValue = true)]
+        public SimulateResultConditions Conditions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -112,10 +112,10 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SimulateResultRules {\n");
-            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,11 +152,6 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Conditions == input.Conditions ||
-                    (this.Conditions != null &&
-                    this.Conditions.Equals(input.Conditions))
-                ) && 
-                (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
@@ -169,6 +164,11 @@ namespace Okta.Sdk.Model
                 (
                     this.Status == input.Status ||
                     this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this.Conditions == input.Conditions ||
+                    (this.Conditions != null &&
+                    this.Conditions.Equals(input.Conditions))
                 );
         }
 
@@ -182,10 +182,6 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Conditions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
-                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
@@ -197,6 +193,10 @@ namespace Okta.Sdk.Model
                 if (this.Status != null)
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.Conditions != null)
+                {
+                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
                 }
                 return hashCode;
             }

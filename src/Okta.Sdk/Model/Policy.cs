@@ -35,8 +35,8 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(AccessPolicy), "ACCESS_POLICY")]
     [JsonSubtypes.KnownSubType(typeof(AccessPolicy), "AccessPolicy")]
     [JsonSubtypes.KnownSubType(typeof(AuthorizationServerPolicy), "AuthorizationServerPolicy")]
-    [JsonSubtypes.KnownSubType(typeof(IdentityProviderPolicy), "IDP_DISCOVERY")]
-    [JsonSubtypes.KnownSubType(typeof(IdentityProviderPolicy), "IdentityProviderPolicy")]
+    [JsonSubtypes.KnownSubType(typeof(IdpDiscoveryPolicy), "IDP_DISCOVERY")]
+    [JsonSubtypes.KnownSubType(typeof(IdpDiscoveryPolicy), "IdpDiscoveryPolicy")]
     [JsonSubtypes.KnownSubType(typeof(MultifactorEnrollmentPolicy), "MFA_ENROLL")]
     [JsonSubtypes.KnownSubType(typeof(MultifactorEnrollmentPolicy), "MultifactorEnrollmentPolicy")]
     [JsonSubtypes.KnownSubType(typeof(OktaSignOnPolicy), "OKTA_SIGN_ON")]
@@ -64,8 +64,9 @@ namespace Okta.Sdk.Model
         public PolicyType Type { get; set; }
         
         /// <summary>
-        /// Gets or Sets Created
+        /// Timestamp when the Policy was created
         /// </summary>
+        /// <value>Timestamp when the Policy was created</value>
         [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset Created { get; private set; }
 
@@ -78,14 +79,16 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets Description
+        /// Policy description
         /// </summary>
+        /// <value>Policy description</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Policy ID
         /// </summary>
+        /// <value>Policy ID</value>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
@@ -98,8 +101,9 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets LastUpdated
+        /// Timestamp when the Policy was last updated
         /// </summary>
+        /// <value>Timestamp when the Policy was last updated</value>
         [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
         public DateTimeOffset LastUpdated { get; private set; }
 
@@ -112,20 +116,23 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets Name
+        /// Policy name
         /// </summary>
+        /// <value>Policy name</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Priority
+        /// Specifies the order in which this Policy is evaluated in relation to the other policies
         /// </summary>
+        /// <value>Specifies the order in which this Policy is evaluated in relation to the other policies</value>
         [DataMember(Name = "priority", EmitDefaultValue = true)]
         public int Priority { get; set; }
 
         /// <summary>
-        /// Gets or Sets System
+        /// Specifies whether Okta created the Policy
         /// </summary>
+        /// <value>Specifies whether Okta created the Policy</value>
         [DataMember(Name = "system", EmitDefaultValue = true)]
         public bool System { get; set; }
 
@@ -147,7 +154,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "_links", EmitDefaultValue = true)]
-        public LinksSelf Links { get; set; }
+        public PolicyLinks Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

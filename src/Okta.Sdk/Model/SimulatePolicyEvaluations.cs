@@ -85,12 +85,6 @@ namespace Okta.Sdk.Model
         public StatusEnum Status { get; set; }
         
         /// <summary>
-        /// Gets or Sets Evaluated
-        /// </summary>
-        [DataMember(Name = "evaluated", EmitDefaultValue = true)]
-        public SimulatePolicyEvaluationsEvaluated Evaluated { get; set; }
-
-        /// <summary>
         /// The policy type of the simulate operation
         /// </summary>
         /// <value>The policy type of the simulate operation</value>
@@ -110,6 +104,12 @@ namespace Okta.Sdk.Model
         public SimulatePolicyEvaluationsUndefined Undefined { get; set; }
 
         /// <summary>
+        /// Gets or Sets Evaluated
+        /// </summary>
+        [DataMember(Name = "evaluated", EmitDefaultValue = true)]
+        public SimulatePolicyEvaluationsEvaluated Evaluated { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -117,11 +117,11 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SimulatePolicyEvaluations {\n");
-            sb.Append("  Evaluated: ").Append(Evaluated).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  PolicyType: ").Append(PolicyType).Append("\n");
             sb.Append("  Result: ").Append(Result).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Undefined: ").Append(Undefined).Append("\n");
+            sb.Append("  Evaluated: ").Append(Evaluated).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -158,9 +158,8 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Evaluated == input.Evaluated ||
-                    (this.Evaluated != null &&
-                    this.Evaluated.Equals(input.Evaluated))
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
                 ) && 
                 (
                     this.PolicyType == input.PolicyType ||
@@ -174,13 +173,14 @@ namespace Okta.Sdk.Model
                     this.Result.Equals(input.Result))
                 ) && 
                 (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
                     this.Undefined == input.Undefined ||
                     (this.Undefined != null &&
                     this.Undefined.Equals(input.Undefined))
+                ) && 
+                (
+                    this.Evaluated == input.Evaluated ||
+                    (this.Evaluated != null &&
+                    this.Evaluated.Equals(input.Evaluated))
                 );
         }
 
@@ -194,9 +194,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Evaluated != null)
+                if (this.Status != null)
                 {
-                    hashCode = (hashCode * 59) + this.Evaluated.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
                 if (this.PolicyType != null)
                 {
@@ -206,13 +206,13 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Result.GetHashCode();
                 }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
                 if (this.Undefined != null)
                 {
                     hashCode = (hashCode * 59) + this.Undefined.GetHashCode();
+                }
+                if (this.Evaluated != null)
+                {
+                    hashCode = (hashCode * 59) + this.Evaluated.GetHashCode();
                 }
                 return hashCode;
             }
