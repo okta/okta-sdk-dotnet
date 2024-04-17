@@ -251,5 +251,99 @@ namespace Okta.Sdk.UnitTest
             mockClient.ReceivedPath.Should().StartWith("/api/v1/idps");
             mockClient.ReceivedBody.Should().Be(expectedBody);
         }
+
+        [Fact]
+        public async Task GetIdentityProviderLinks()
+        {
+            var rawResponse = @"{
+                                  ""id"": ""0oadzrxo31w9QZTVF1d7"",
+                                  ""issuerMode"": ""DYNAMIC"",
+                                  ""name"": ""dotnet-sdk:GetIdp2024-04-12 8:42:11 PM"",
+                                  ""status"": ""ACTIVE"",
+                                  ""created"": ""2024-04-12T20:42:12.000Z"",
+                                  ""lastUpdated"": ""2024-04-12T20:42:12.000Z"",
+                                  ""protocol"": {
+                                    ""type"": ""OAUTH2"",
+                                    ""endpoints"": {
+                                      ""authorization"": {
+                                        ""url"": ""https://www.linkedin.com/uas/oauth2/authorization"",
+                                        ""binding"": ""HTTP-REDIRECT""
+                                      },
+                                      ""token"": {
+                                        ""url"": ""https://www.linkedin.com/uas/oauth2/accessToken"",
+                                        ""binding"": ""HTTP-POST""
+                                      }
+                                    },
+                                    ""scopes"": [
+                                      ""r_basicprofile"",
+                                      ""r_emailaddress""
+                                    ],
+                                    ""credentials"": {
+                                      ""client"": {
+                                        ""client_id"": ""your-client-id"",
+                                        ""client_secret"": ""your-client-secret""
+                                      }
+                                    }
+                                  },
+                                  ""policy"": {
+                                    ""provisioning"": {
+                                      ""action"": ""AUTO"",
+                                      ""profileMaster"": true,
+                                      ""groups"": {
+                                        ""action"": ""NONE""
+                                      },
+                                      ""conditions"": {
+                                        ""deprovisioned"": {
+                                          ""action"": ""NONE""
+                                        },
+                                        ""suspended"": {
+                                          ""action"": ""NONE""
+                                        }
+                                      }
+                                    },
+                                    ""accountLink"": {
+                                      ""filter"": null,
+                                      ""action"": ""AUTO""
+                                    },
+                                    ""subject"": {
+                                      ""userNameTemplate"": {
+                                        ""template"": ""idpuser.email""
+                                      },
+                                      ""filter"": null,
+                                      ""matchType"": ""USERNAME"",
+                                      ""matchAttribute"": null
+                                    },
+                                    ""maxClockSkew"": 0
+                                  },
+                                  ""type"": ""LINKEDIN"",
+                                  ""_links"": {
+                                    ""authorize"": {
+                                      ""href"": $""https://testorg.com/oauth2/v1/authorize?idp=foo"",
+                                      ""templated"": true,
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""GET""
+                                        ]
+                                      }
+                                    },
+                                    ""clientRedirectUri"": {
+                                      ""href"": ""https://testorg.com/oauth2/v1/authorize/callback"",
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""POST""
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }";
+
+
+            var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
+            var idpApi = new IdentityProviderApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+
+            var idp = await idpApi.GetIdentityProviderAsync("foo");
+
+           //idp.Links.
+        }
     }
 }
