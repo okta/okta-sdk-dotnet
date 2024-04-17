@@ -14,10 +14,12 @@ using System.Net;
 using Xunit;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Newtonsoft.Json.Linq;
 using Okta.Sdk.UnitTest.Internal;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
+using HttpMethod = Okta.Sdk.Model.HttpMethod;
 
 // uncomment below to import models
 //using Org.OpenAPITools.Model;
@@ -318,7 +320,7 @@ namespace Okta.Sdk.UnitTest
                                   ""type"": ""LINKEDIN"",
                                   ""_links"": {
                                     ""authorize"": {
-                                      ""href"": $""https://testorg.com/oauth2/v1/authorize?idp=foo"",
+                                      ""href"": ""https://testorg.com/oauth2/v1/authorize?idp=foo"",
                                       ""templated"": true,
                                       ""hints"": {
                                         ""allow"": [
@@ -327,6 +329,14 @@ namespace Okta.Sdk.UnitTest
                                       }
                                     },
                                     ""clientRedirectUri"": {
+                                      ""href"": ""https://testorg.com/oauth2/v1/authorize/callback"",
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""POST""
+                                        ]
+                                      }
+                                    },
+                                    ""undefinedLink"": {
                                       ""href"": ""https://testorg.com/oauth2/v1/authorize/callback"",
                                       ""hints"": {
                                         ""allow"": [
@@ -343,7 +353,18 @@ namespace Okta.Sdk.UnitTest
 
             var idp = await idpApi.GetIdentityProviderAsync("foo");
 
-           //idp.Links.
+            idp.Links.Authorize.Href.Should().Be("https://testorg.com/oauth2/v1/authorize?idp=foo");
+            idp.Links.Authorize.Hints.Allow.Any(x => x == HttpMethod.GET).Should().BeTrue();
+            idp.Links.Authorize.Templated.Should().BeTrue();
+
+            idp.Links.ClientRedirectUri.Href.Should().Be("https://testorg.com/oauth2/v1/authorize/callback");
+            idp.Links.ClientRedirectUri.Hints.Allow.Any(x => x == HttpMethod.POST).Should().BeTrue();
+
+            var undefinedLink = (JObject)idp.Links.AdditionalProperties["undefinedLink"];
+            undefinedLink["href"].ToString().Should().Be("https://testorg.com/oauth2/v1/authorize/callback");
+            var allow = JArray.Parse(((JObject)undefinedLink["hints"])["allow"].ToString());
+            allow[0].ToString().Should().Be("POST");
+
         }
     }
 }

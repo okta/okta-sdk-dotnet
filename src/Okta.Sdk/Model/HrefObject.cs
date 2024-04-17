@@ -30,14 +30,17 @@ namespace Okta.Sdk.Model
     /// HrefObject
     /// </summary>
     [DataContract(Name = "HrefObject")]
-    
     public partial class HrefObject : IEquatable<HrefObject>
+    
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="HrefObject" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public HrefObject() { }
+        public HrefObject()
+        {
+            this.AdditionalProperties = new Dictionary<string, object>();
+        }
         
         /// <summary>
         /// Gets or Sets Hints
@@ -67,6 +70,19 @@ namespace Okta.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// Indicates wether the Link Object&#39;s \&quot;href\&quot; property is a URI Template.
+        /// </summary>
+        /// <value>Indicates wether the Link Object&#39;s \&quot;href\&quot; property is a URI Template.</value>
+        [DataMember(Name = "templated", EmitDefaultValue = true)]
+        public bool Templated { get; set; }
+
+        /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -78,6 +94,8 @@ namespace Okta.Sdk.Model
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Templated: ").Append(Templated).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,7 +104,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -132,7 +150,12 @@ namespace Okta.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                );
+                ) && 
+                (
+                    this.Templated == input.Templated ||
+                    this.Templated.Equals(input.Templated)
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -160,6 +183,11 @@ namespace Okta.Sdk.Model
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Templated.GetHashCode();
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

@@ -1,4 +1,5 @@
-# Okta.Sdk.Model.HrefObjectMappingsLink
+# Okta.Sdk.Model.IdentityProviderLinksAllOfClientRedirectUri
+Redirect URI for the OAuth 2.0 Authorization Code flow
 
 ## Properties
 

@@ -27,17 +27,17 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// HrefObjectSuspendLink
+    /// Redirect URI for the OAuth 2.0 Authorization Code flow
     /// </summary>
-    [DataContract(Name = "HrefObjectSuspendLink")]
+    [DataContract(Name = "IdentityProvider__links_allOf_clientRedirectUri")]
     
-    public partial class HrefObjectSuspendLink : IEquatable<HrefObjectSuspendLink>
+    public partial class IdentityProviderLinksAllOfClientRedirectUri : IEquatable<IdentityProviderLinksAllOfClientRedirectUri>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="HrefObjectSuspendLink" /> class.
+        /// Initializes a new instance of the <see cref="IdentityProviderLinksAllOfClientRedirectUri" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public HrefObjectSuspendLink() { }
+        public IdentityProviderLinksAllOfClientRedirectUri() { }
         
         /// <summary>
         /// Gets or Sets Hints
@@ -80,7 +80,7 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class HrefObjectSuspendLink {\n");
+            sb.Append("class IdentityProviderLinksAllOfClientRedirectUri {\n");
             sb.Append("  Hints: ").Append(Hints).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -106,15 +106,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as HrefObjectSuspendLink);
+            return this.Equals(input as IdentityProviderLinksAllOfClientRedirectUri);
         }
 
         /// <summary>
-        /// Returns true if HrefObjectSuspendLink instances are equal
+        /// Returns true if IdentityProviderLinksAllOfClientRedirectUri instances are equal
         /// </summary>
-        /// <param name="input">Instance of HrefObjectSuspendLink to be compared</param>
+        /// <param name="input">Instance of IdentityProviderLinksAllOfClientRedirectUri to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(HrefObjectSuspendLink input)
+        public bool Equals(IdentityProviderLinksAllOfClientRedirectUri input)
         {
             if (input == null)
             {
