@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **ClientRedirectUri** | [**IdentityProviderLinksAllOfClientRedirectUri**](IdentityProviderLinksAllOfClientRedirectUri.md) |  | [optional] 
 **Metadata** | [**IdentityProviderLinksAllOfMetadata**](IdentityProviderLinksAllOfMetadata.md) |  | [optional] 
 **Users** | [**IdentityProviderLinksAllOfUsers**](IdentityProviderLinksAllOfUsers.md) |  | [optional] 
+**Deactivate** | [**IdentityProviderLinksAllOfDeactivate**](IdentityProviderLinksAllOfDeactivate.md) |  | [optional] 
+**Activate** | [**IdentityProviderLinksAllOfActivate**](IdentityProviderLinksAllOfActivate.md) |  | [optional] 
+**Keys** | [**IdentityProviderLinksAllOfKeys**](IdentityProviderLinksAllOfKeys.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

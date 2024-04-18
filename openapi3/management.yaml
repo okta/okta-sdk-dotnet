@@ -26221,6 +26221,18 @@ components:
                   description: IdP users
                   allOf:
                     - $ref: '#/components/schemas/HrefObject'
+                deactivate:
+                  description: Deactivate IdP
+                  allOf:
+                    - $ref: '#/components/schemas/HrefObject'
+                activate:
+                  description: Activate IdP
+                  allOf:
+                    - $ref: '#/components/schemas/HrefObject'
+                keys:
+                  description: IdP keys
+                  allOf:
+                    - $ref: '#/components/schemas/HrefObject'
     IdentityProviderApplicationUser:
       type: object
       properties:

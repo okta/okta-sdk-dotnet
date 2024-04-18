@@ -71,6 +71,24 @@ namespace Okta.Sdk.Model
         public IdentityProviderLinksAllOfUsers Users { get; set; }
 
         /// <summary>
+        /// Gets or Sets Deactivate
+        /// </summary>
+        [DataMember(Name = "deactivate", EmitDefaultValue = true)]
+        public IdentityProviderLinksAllOfDeactivate Deactivate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Activate
+        /// </summary>
+        [DataMember(Name = "activate", EmitDefaultValue = true)]
+        public IdentityProviderLinksAllOfActivate Activate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Keys
+        /// </summary>
+        [DataMember(Name = "keys", EmitDefaultValue = true)]
+        public IdentityProviderLinksAllOfKeys Keys { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -90,6 +108,9 @@ namespace Okta.Sdk.Model
             sb.Append("  ClientRedirectUri: ").Append(ClientRedirectUri).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Users: ").Append(Users).Append("\n");
+            sb.Append("  Deactivate: ").Append(Deactivate).Append("\n");
+            sb.Append("  Activate: ").Append(Activate).Append("\n");
+            sb.Append("  Keys: ").Append(Keys).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -155,6 +176,21 @@ namespace Okta.Sdk.Model
                     this.Users == input.Users ||
                     (this.Users != null &&
                     this.Users.Equals(input.Users))
+                ) && 
+                (
+                    this.Deactivate == input.Deactivate ||
+                    (this.Deactivate != null &&
+                    this.Deactivate.Equals(input.Deactivate))
+                ) && 
+                (
+                    this.Activate == input.Activate ||
+                    (this.Activate != null &&
+                    this.Activate.Equals(input.Activate))
+                ) && 
+                (
+                    this.Keys == input.Keys ||
+                    (this.Keys != null &&
+                    this.Keys.Equals(input.Keys))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -192,6 +228,18 @@ namespace Okta.Sdk.Model
                 if (this.Users != null)
                 {
                     hashCode = (hashCode * 59) + this.Users.GetHashCode();
+                }
+                if (this.Deactivate != null)
+                {
+                    hashCode = (hashCode * 59) + this.Deactivate.GetHashCode();
+                }
+                if (this.Activate != null)
+                {
+                    hashCode = (hashCode * 59) + this.Activate.GetHashCode();
+                }
+                if (this.Keys != null)
+                {
+                    hashCode = (hashCode * 59) + this.Keys.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {
