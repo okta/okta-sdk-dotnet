@@ -31313,7 +31313,8 @@ components:
           description: Specifies the button label for the `Submit` button at the bottom of the enrollment form.
           default: Submit
         elements:
-          $ref: '#/components/schemas/UIElement'
+          allOf:
+            $ref: '#/components/schemas/UIElement'
         label:
           type: string
           description: Specifies the label at the top of the enrollment form under the logo.
