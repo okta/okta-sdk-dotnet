@@ -319,6 +319,48 @@ namespace Okta.Sdk.UnitTest
                                   },
                                   ""type"": ""LINKEDIN"",
                                   ""_links"": {
+                                     ""metadata"": {
+                                          ""href"": ""https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/metadata.xml"",
+                                          ""type"": ""application/xml"",
+                                          ""hints"": {
+                                            ""allow"": [
+                                              ""GET""
+                                            ]
+                                          }
+                                        },
+                                    ""acs"": {
+                                      ""href"": ""https://{yourOktaDomain}/sso/saml2/0oa1k5d68qR2954hb0g4"",
+                                      ""type"": ""application/xml"",
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""POST""
+                                        ]
+                                      }
+                                    },
+                                    ""users"": {
+                                      ""href"": ""https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/users"",
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""GET""
+                                        ]
+                                      }
+                                    },
+                                    ""activate"": {
+                                      ""href"": ""https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/lifecycle/activate"",
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""POST""
+                                        ]
+                                      }
+                                    },
+                                    ""deactivate"": {
+                                      ""href"": ""https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/lifecycle/deactivate"",
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""POST""
+                                        ]
+                                      }
+                                    },
                                     ""authorize"": {
                                       ""href"": ""https://testorg.com/oauth2/v1/authorize?idp=foo"",
                                       ""templated"": true,
@@ -352,6 +394,29 @@ namespace Okta.Sdk.UnitTest
             var idpApi = new IdentityProviderApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
             var idp = await idpApi.GetIdentityProviderAsync("foo");
+
+            idp.Links.Metadata.Href.Should()
+                .Be("https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/metadata.xml");
+            idp.Links.Metadata.Hints.Allow.Any(x => x == HttpMethod.GET).Should().BeTrue();
+            idp.Links.Metadata.Type.Should().Be("application/xml");
+
+            idp.Links.Acs.Href.Should()
+                .Be("https://{yourOktaDomain}/sso/saml2/0oa1k5d68qR2954hb0g4");
+            idp.Links.Acs.Hints.Allow.Any(x => x == HttpMethod.POST).Should().BeTrue();
+            idp.Links.Acs.Type.Should().Be("application/xml");
+
+            idp.Links.Users.Href.Should()
+                .Be("https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/users");
+            idp.Links.Users.Hints.Allow.Any(x => x == HttpMethod.GET).Should().BeTrue();
+
+            idp.Links.Activate.Href.Should()
+                .Be("https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/lifecycle/activate");
+            idp.Links.Activate.Hints.Allow.Any(x => x == HttpMethod.POST).Should().BeTrue();
+
+            idp.Links.Deactivate.Href.Should()
+                .Be("https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/lifecycle/deactivate");
+            idp.Links.Deactivate.Hints.Allow.Any(x => x == HttpMethod.POST).Should().BeTrue();
+
 
             idp.Links.Authorize.Href.Should().Be("https://testorg.com/oauth2/v1/authorize?idp=foo");
             idp.Links.Authorize.Hints.Allow.Any(x => x == HttpMethod.GET).Should().BeTrue();
