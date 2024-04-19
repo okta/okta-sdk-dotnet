@@ -1,4 +1,3 @@
-﻿
 /*
  * Okta Admin Management
  *
