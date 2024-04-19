@@ -6,7 +6,7 @@
     "packageName" : "Okta.Sdk",
     "outputDir" : "../",
     "inputSpec" : "./management.yaml", 
-    "packageVersion" : "7.0.5",
+    "packageVersion" : "7.0.6",
     "packageDescription" : "Official .NET SDK for the Okta API",
     "packageTitle" : "Official .NET SDK for the Okta API",
     "packageCompany" : "Okta, Inc.",
@@ -102,12 +102,12 @@
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Model"
         },
-        "PolicyApi.mustache":{
+        "ObsoletePolicyApi.mustache":{
             "destinationFilename": "PolicyApi.cs",
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Obsolete"
         },
-        "IdentityProviderPolicy.mustache":{
+        "ObsoleteIdentityProviderPolicy.mustache":{
             "destinationFilename": "IdentityProviderPolicy.cs",
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Obsolete"
