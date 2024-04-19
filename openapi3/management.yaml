@@ -26045,6 +26045,7 @@ components:
     HrefObject:
       title: Link Object
       type: object
+      additionalProperties: true
       properties:
         hints:
           type: object
@@ -26063,6 +26064,9 @@ components:
         type:
           type: string
           description: The media type of the link. If omitted, it is implicitly `application/json`.
+        templated:
+          type: boolean
+          description: Indicates wether the Link Object's "href" property is a URI Template.
       required:
         - href
       readOnly: true
@@ -26192,7 +26196,43 @@ components:
         type:
           $ref: '#/components/schemas/IdentityProviderType'
         _links:
-          $ref: '#/components/schemas/LinksSelf'
+          type: object
+          additionalProperties: true
+          allOf:
+            - $ref: '#/components/schemas/LinksSelf'
+            - properties:
+                acs:
+                  description: SAML 2.0 Assertion Consumer Service URL for the Okta SP
+                  allOf:
+                    - $ref: '#/components/schemas/HrefObject'
+                authorize:
+                  description: OAuth 2.0 authorization endpoint for the IdP OAuth 2.0 Authorization Code flow
+                  allOf:
+                    - $ref: '#/components/schemas/HrefObject'
+                clientRedirectUri:
+                  description: Redirect URI for the OAuth 2.0 Authorization Code flow
+                  allOf:
+                    - $ref: '#/components/schemas/HrefObject'
+                metadata:
+                  description: 'Federation metadata document for the IdP (for example: SAML 2.0 Metadata)'
+                  allOf:
+                    - $ref: '#/components/schemas/HrefObject'                           
+                users:
+                  description: IdP users
+                  allOf:
+                    - $ref: '#/components/schemas/HrefObject'
+                deactivate:
+                  description: Deactivate IdP
+                  allOf:
+                    - $ref: '#/components/schemas/HrefObject'
+                activate:
+                  description: Activate IdP
+                  allOf:
+                    - $ref: '#/components/schemas/HrefObject'
+                keys:
+                  description: IdP keys
+                  allOf:
+                    - $ref: '#/components/schemas/HrefObject'
     IdentityProviderApplicationUser:
       type: object
       properties:

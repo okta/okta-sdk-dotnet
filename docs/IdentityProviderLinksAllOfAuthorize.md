@@ -1,4 +1,5 @@
-# Okta.Sdk.Model.HrefObjectMappingsLink
+# Okta.Sdk.Model.IdentityProviderLinksAllOfAuthorize
+OAuth 2.0 authorization endpoint for the IdP OAuth 2.0 Authorization Code flow
 
 ## Properties
 

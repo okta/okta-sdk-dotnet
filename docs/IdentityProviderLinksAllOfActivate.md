@@ -1,4 +1,5 @@
-# Okta.Sdk.Model.HrefObjectMappingsLink
+# Okta.Sdk.Model.IdentityProviderLinksAllOfActivate
+Activate IdP
 
 ## Properties
 

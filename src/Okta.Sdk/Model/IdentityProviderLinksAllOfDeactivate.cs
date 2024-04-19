@@ -27,17 +27,17 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// HrefObjectSuspendLink
+    /// Deactivate IdP
     /// </summary>
-    [DataContract(Name = "HrefObjectSuspendLink")]
+    [DataContract(Name = "IdentityProvider__links_allOf_deactivate")]
     
-    public partial class HrefObjectSuspendLink : IEquatable<HrefObjectSuspendLink>
+    public partial class IdentityProviderLinksAllOfDeactivate : IEquatable<IdentityProviderLinksAllOfDeactivate>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="HrefObjectSuspendLink" /> class.
+        /// Initializes a new instance of the <see cref="IdentityProviderLinksAllOfDeactivate" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public HrefObjectSuspendLink() { }
+        public IdentityProviderLinksAllOfDeactivate() { }
         
         /// <summary>
         /// Gets or Sets Hints
@@ -80,7 +80,7 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class HrefObjectSuspendLink {\n");
+            sb.Append("class IdentityProviderLinksAllOfDeactivate {\n");
             sb.Append("  Hints: ").Append(Hints).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -106,15 +106,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as HrefObjectSuspendLink);
+            return this.Equals(input as IdentityProviderLinksAllOfDeactivate);
         }
 
         /// <summary>
-        /// Returns true if HrefObjectSuspendLink instances are equal
+        /// Returns true if IdentityProviderLinksAllOfDeactivate instances are equal
         /// </summary>
-        /// <param name="input">Instance of HrefObjectSuspendLink to be compared</param>
+        /// <param name="input">Instance of IdentityProviderLinksAllOfDeactivate to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(HrefObjectSuspendLink input)
+        public bool Equals(IdentityProviderLinksAllOfDeactivate input)
         {
             if (input == null)
             {

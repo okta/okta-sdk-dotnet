@@ -635,6 +635,7 @@ namespace Okta.Sdk.IntegrationTest
                 retrievedIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.email");
                 retrievedIdp.Policy.Subject.Filter.Should().BeNull();
                 retrievedIdp.Policy.Subject.MatchType.Value.Should().Be("USERNAME");
+
             }
             finally
             {

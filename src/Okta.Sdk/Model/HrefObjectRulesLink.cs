@@ -67,6 +67,13 @@ namespace Okta.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// Indicates whether the Link Object&#39;s \&quot;href\&quot; property is a URI template.
+        /// </summary>
+        /// <value>Indicates whether the Link Object&#39;s \&quot;href\&quot; property is a URI template.</value>
+        [DataMember(Name = "templated", EmitDefaultValue = true)]
+        public bool Templated { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -78,6 +85,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Templated: ").Append(Templated).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -132,6 +140,10 @@ namespace Okta.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.Templated == input.Templated ||
+                    this.Templated.Equals(input.Templated)
                 );
         }
 
@@ -161,6 +173,7 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Templated.GetHashCode();
                 return hashCode;
             }
         }

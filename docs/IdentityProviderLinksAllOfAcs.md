@@ -1,4 +1,5 @@
-# Okta.Sdk.Model.HrefObjectMappingsLink
+# Okta.Sdk.Model.IdentityProviderLinksAllOfAcs
+SAML 2.0 Assertion Consumer Service URL for the Okta SP
 
 ## Properties
 

@@ -1,4 +1,5 @@
-# Okta.Sdk.Model.HrefObjectMappingsLink
+# Okta.Sdk.Model.IdentityProviderLinksAllOfMetadata
+Federation metadata document for the IdP (for example: SAML 2.0 Metadata)
 
 ## Properties
 
