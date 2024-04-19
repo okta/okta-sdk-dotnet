@@ -1778,4 +1778,6 @@ src/Okta.Sdk/Model/WellKnownOrgMetadataSettings.cs
 src/Okta.Sdk/Model/WsFederationApplication.cs
 src/Okta.Sdk/Model/WsFederationApplicationSettings.cs
 src/Okta.Sdk/Model/WsFederationApplicationSettingsApplication.cs
+src/Okta.Sdk/Obsolete/IdentityProviderPolicy.cs
+src/Okta.Sdk/Obsolete/PolicyApi.cs
 src/Okta.Sdk/Okta.Sdk.csproj

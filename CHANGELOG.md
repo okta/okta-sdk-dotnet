@@ -1,6 +1,22 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 7.0.6
+
+- Update OAS3 with the latest IdP Discovery policy changes. 
+- `IdentityProviderPolicy` will no longer inherit from Policy in the major release. The inheritance has been marked as obsolete.
+- The following `PolicyApi` methods have been marked as obsolete, and will be removed in the next major version: 
+    - `System.Threading.Tasks.Task<Policy> CreatePolicyAsync(Policy policy, bool? activate = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));`
+    - `System.Threading.Tasks.Task<ApiResponse<Policy>> CreatePolicyWithHttpInfoAsync(Policy policy, bool? activate = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));`
+    - `System.Threading.Tasks.Task<Policy> ReplacePolicyAsync(string policyId, Policy policy, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));`
+    - `System.Threading.Tasks.Task<ApiResponse<Policy>> ReplacePolicyWithHttpInfoAsync(string policyId, Policy policy, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));`
+They will be replaced by the following ones:
+    - `System.Threading.Tasks.Task<PolicyCanBeCreatedOrReplaced> CreatePolicyAsync(  PolicyCanBeCreatedOrReplaced policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));`
+    - `System.Threading.Tasks.Task<ApiResponse<PolicyCanBeCreatedOrReplaced>> CreatePolicyWithHttpInfoAsync(  PolicyCanBeCreatedOrReplaced policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));`
+    - `System.Threading.Tasks.Task<Policy> ReplacePolicyAsync(string policyId, Policy policy, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));`
+    - `System.Threading.Tasks.Task<ApiResponse<Policy>> ReplacePolicyWithHttpInfoAsync(string policyId, Policy policy, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));`
+- Fix "API Gap - IdP Discovery Policy Rule does not exist" issue (#687)
+
 ## 7.0.5
 
 - Downgrade `System.IdentityModel.Tokens*` dependencies from 7.2.0 to 6.35.0 to avoid breaking changes (#692)

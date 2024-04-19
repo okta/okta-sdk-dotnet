@@ -106,7 +106,7 @@ namespace Okta.Sdk.Model
         /// </summary>
         /// <param name="input">Instance of IdentityProviderPolicy to be compared</param>
         /// <returns>Boolean</returns>
-        public virtual bool Equals(IdentityProviderPolicy input)
+        public bool Equals(IdentityProviderPolicy input)
         {
             if (input == null)
             {
