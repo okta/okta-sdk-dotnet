@@ -381,7 +381,7 @@ while (await enumerator.MoveNextAsync())
 }
 ```
 
-> Note: For more API samples checkout our [tests](https://github.com/okta/okta-sdk-dotnet/tree/master/src/Okta.Sdk.IntegrationTest)
+> Note: For more API samples check out our [tests](https://github.com/okta/okta-sdk-dotnet/tree/master/src/Okta.Sdk.IntegrationTest)
 
 ## Rate Limiting
 
