@@ -17,6 +17,7 @@ using System.Net;
 using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -2415,8 +2416,15 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                var tokenResponse = await _oAuthTokenProvider.GetAccessTokenResponseAsync(cancellationToken: cancellationToken);
+                localVarRequestOptions.HeaderParameters.Add("Authorization", $"{tokenResponse.TokenType} {tokenResponse.AccessToken}");
+
+                if (tokenResponse.IsDpopBound)
+                {
+                    var requestAbsoluteUri = new Uri(new Uri(this.Configuration.OktaDomain, UriKind.Absolute), new Uri($"/api/v1/users/{userId}", UriKind.Relative));
+                    var dPopProofJwt = _oAuthTokenProvider.GetDPopProofJwt(accessToken: tokenResponse.AccessToken, uri: requestAbsoluteUri.ToString(), httpMethod: "GET");
+                    localVarRequestOptions.HeaderParameters.Add("DPoP", dPopProofJwt);
+                }
             }
 
             // make the HTTP request

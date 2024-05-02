@@ -210,7 +210,7 @@ namespace Okta.Sdk.Client
         /// Gets or sets the Okta scopes
         /// </summary>
         public HashSet<string> Scopes { get; set; }
-        
+
         /// <summary>
         /// Returns true if the AuthorizationMode is equals to PrivateKey, false otherwise.
         /// </summary>

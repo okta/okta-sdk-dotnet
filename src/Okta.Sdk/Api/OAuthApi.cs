@@ -74,13 +74,15 @@ namespace Okta.Sdk.Api
     {
         private Okta.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
         private IJwtGenerator _jwtGenerator;
+        private DefaultDpopProofJwtGenerator _dpopProofJwtGenerator;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public OAuthApi(Okta.Sdk.Client.Configuration configuration = null, IJwtGenerator jwtGenerator = null)
+        public OAuthApi(Okta.Sdk.Client.Configuration configuration = null, IJwtGenerator jwtGenerator = null, DefaultDpopProofJwtGenerator dpopProofJwtGenerator = null)
         {
             configuration = Sdk.Client.Configuration.GetConfigurationOrDefault(configuration);
 
@@ -93,6 +95,7 @@ namespace Okta.Sdk.Api
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain, NullOAuthTokenProvider.Instance);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
             _jwtGenerator = jwtGenerator ?? new DefaultJwtGenerator(Configuration);
+            _dpopProofJwtGenerator = dpopProofJwtGenerator ?? new DefaultDpopProofJwtGenerator(this.Configuration);
         }
 
         /// <summary>
@@ -168,6 +171,7 @@ namespace Okta.Sdk.Api
                 "application/json"
             };
 
+            _dpopProofJwtGenerator.RotateKeys();
             var jwtSecurityToken = _jwtGenerator.GenerateSignedJWT();
             var scopes = string.Join("+", Configuration.Scopes);
             var accessTokenUri = $@"/oauth2/v1/token?grant_type=client_credentials&scope={scopes}&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion={jwtSecurityToken.ToString()}";
@@ -183,9 +187,27 @@ namespace Okta.Sdk.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
-
-            // make the HTTP request
+            
+            var dpopJwt = _dpopProofJwtGenerator.GenerateJWT();
+            localVarRequestOptions.HeaderParameters.Add("DPoP", dpopJwt);
+            
             var localVarResponse = await this.AsynchronousClient.PostAsync<OAuthTokenResponse>(accessTokenUri.Trim(), localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (localVarResponse.StatusCode == HttpStatusCode.BadRequest && localVarResponse.Data.Error == "use_dpop_nonce")
+            {
+                if (localVarResponse.Headers.TryGetValue("dpop-nonce", out var header))
+                {
+                    
+                    var nonce = header.FirstOrDefault();
+                    dpopJwt = _dpopProofJwtGenerator.GenerateJWT(nonce);
+                    jwtSecurityToken = _jwtGenerator.GenerateSignedJWT();
+                    accessTokenUri = $@"/oauth2/v1/token?grant_type=client_credentials&scope={scopes}&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion={jwtSecurityToken.ToString()}";
+                    localVarRequestOptions.HeaderParameters["DPoP"].Clear();
+                    localVarRequestOptions.HeaderParameters["DPoP"].Add(dpopJwt);
+
+                    localVarResponse = await this.AsynchronousClient.PostAsync<OAuthTokenResponse>(accessTokenUri.Trim(), localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                }
+            }
 
             if (this.ExceptionFactory != null)
             {

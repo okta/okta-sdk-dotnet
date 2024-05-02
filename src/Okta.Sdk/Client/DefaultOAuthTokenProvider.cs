@@ -39,12 +39,27 @@ namespace Okta.Sdk.Client
         /// <param name="forceRenew">The flag to indicate if the access token should be renewed.</param>
         Task<string> GetAccessTokenAsync(bool forceRenew = false, CancellationToken cancellationToken = default);
 
+
+        /// <summary>
+        /// Gets an access token.
+        /// </summary>
+        /// <returns>The access token.</returns>
+        /// <param name="forceRenew">The flag to indicate if the access token should be renewed.</param>
+        Task<OAuthTokenResponse> GetAccessTokenResponseAsync(bool forceRenew = false, CancellationToken cancellationToken = default);
+
+
         /// <summary>
         /// Gets the OAuth policy to get a new access token after expiration.
         /// </summary>
         /// <param name="onRetryAsyncFunc"></param>
         /// <returns></returns>
         Polly.AsyncPolicy<RestResponse> GetOAuthRetryPolicy(Func<DelegateResult<RestResponse>, int, Context, Task> onRetryAsyncFunc = null);
+
+        /// <summary>
+        /// Gets a DPoP JWT
+        /// </summary>
+        /// <returns>The DPoP JWT</returns>
+        string GetDPopProofJwt(String? nonce = null, String? httpMethod = null, String? uri = null, String? accessToken = null);
     }
     #endregion IOAuthTokenProvider
     
@@ -59,6 +74,8 @@ namespace Okta.Sdk.Client
 
         private IOAuthApi _oauthApi;
 
+        private DefaultDpopProofJwtGenerator _defaultDpopJwtGenerator;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultOAuthTokenProvider"/> class.
         /// </summary>
@@ -66,7 +83,8 @@ namespace Okta.Sdk.Client
         public DefaultOAuthTokenProvider(IReadableConfiguration configuration, IOAuthApi oAuthApi = null)
         {
             Configuration = configuration;
-            _oauthApi = oAuthApi ?? new OAuthApi((Configuration)configuration);
+            _defaultDpopJwtGenerator = new DefaultDpopProofJwtGenerator(configuration);
+            _oauthApi = oAuthApi ?? new OAuthApi((Configuration)configuration, dpopProofJwtGenerator: _defaultDpopJwtGenerator);
         }
 
         /// <inheritdoc/>
@@ -78,6 +96,16 @@ namespace Okta.Sdk.Client
             }
 
             return _oAuthTokenResponse.AccessToken;
+        }
+
+        public async Task<OAuthTokenResponse> GetAccessTokenResponseAsync(bool forceRenew = false, CancellationToken cancellationToken = default)
+        {
+            if (string.IsNullOrEmpty(_oAuthTokenResponse?.AccessToken) || forceRenew)
+            {
+                _oAuthTokenResponse = await RequestAccessTokenAsync(cancellationToken).ConfigureAwait(false);
+            }
+
+            return _oAuthTokenResponse;
         }
 
         /// <summary>
@@ -95,6 +123,11 @@ namespace Okta.Sdk.Client
                     => await OnOAuthRetryAsync(response, retryCount, context, onRetryAsyncFunc));
 
             return retryAsyncPolicy;
+        }
+
+        public string GetDPopProofJwt(String? nonce = null, String? httpMethod = null, String? requestUri = null, String? accessToken = null)
+        {
+            return _defaultDpopJwtGenerator.GenerateJWT(nonce, httpMethod, requestUri, accessToken);
         }
 
         /// <summary>

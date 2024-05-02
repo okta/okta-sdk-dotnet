@@ -51,10 +51,20 @@ namespace Okta.Sdk.Client
             return Task.FromResult<string>(null);
         }
 
+        public Task<OAuthTokenResponse> GetAccessTokenResponseAsync(bool forceRenew = false, CancellationToken cancellationToken = default)
+        {
+            return Task.FromResult<OAuthTokenResponse>(null);
+        }
+
         /// <inheritdoc/>
         public AsyncPolicy<RestResponse> GetOAuthRetryPolicy(Func<DelegateResult<RestResponse>, int, Context, Task> onRetryAsyncFunc = null)
         {
             return Policy.NoOpAsync<RestResponse>();
+        }
+
+        public string GetDPopProofJwt(String? nonce = null, String? htm = null, String? htu = null, String? accessToken = null)
+        {
+            return String.Empty;
         }
     }
 }

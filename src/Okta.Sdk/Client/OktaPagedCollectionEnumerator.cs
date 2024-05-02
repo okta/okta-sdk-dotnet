@@ -94,8 +94,7 @@ namespace Okta.Sdk.Client
 
             var nextLink = ClientUtils
                 .Parse(linkHeaders.SelectMany(x => x))
-                .Where(x => x.Relation == "next")
-                .FirstOrDefault();
+                .FirstOrDefault(x => x.Relation == "next");
 
             return nextLink;
         }
@@ -113,9 +112,16 @@ namespace Okta.Sdk.Client
             
             if (Okta.Sdk.Client.Configuration.IsPrivateKeyMode(_configuration))
             {
-                var accessToken = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: _cancellationToken);
+                var tokenResponse = await _oAuthTokenProvider.GetAccessTokenResponseAsync(cancellationToken: _cancellationToken);
                 _nextRequest.HeaderParameters.Remove("Authorization");
-                _nextRequest.HeaderParameters.Add("Authorization", $"Bearer {accessToken}");
+                _nextRequest.HeaderParameters.Add("Authorization", $"{tokenResponse.TokenType} {tokenResponse.AccessToken}");
+
+                if (tokenResponse.IsDpopBound)
+                {
+                    var requestAbsoluteUri = new Uri(new Uri(_configuration.OktaDomain, UriKind.Absolute), new Uri(_nextPath, UriKind.Relative));
+                    _nextRequest.HeaderParameters.Remove("DPoP");
+                    _nextRequest.HeaderParameters.Add("DPoP", _oAuthTokenProvider.GetDPopProofJwt(accessToken: tokenResponse.AccessToken, httpMethod: "GET", uri: requestAbsoluteUri.ToString()));
+                }
             }
             
             var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, _configuration, _cancellationToken).ConfigureAwait(false);
