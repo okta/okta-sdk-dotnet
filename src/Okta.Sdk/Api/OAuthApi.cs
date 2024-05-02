@@ -201,23 +201,21 @@ namespace Okta.Sdk.Api
             
             var localVarResponse = await this.AsynchronousClient.PostAsync<OAuthTokenResponse>(accessTokenUri.Trim(), localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
-            if (localVarResponse.StatusCode == HttpStatusCode.BadRequest && localVarResponse.Data.Error == "use_dpop_nonce")
+            if (localVarResponse.StatusCode == HttpStatusCode.BadRequest 
+                && localVarResponse.Data.Error == "use_dpop_nonce"
+                && localVarResponse.Headers.TryGetValue("dpop-nonce", out var header))
             {
-                if (localVarResponse.Headers.TryGetValue("dpop-nonce", out var header))
-                {
-                    
-                    var nonce = header.FirstOrDefault();
-                    dpopJwt = _dpopProofJwtGenerator.GenerateJWT(nonce);
-                    jwtSecurityToken = _jwtGenerator.GenerateSignedJWT();
-                    
-                    localVarRequestOptions.FormParameters.Remove("client_assertion");
-                    localVarRequestOptions.FormParameters.Add("client_assertion", jwtSecurityToken.ToString());
+                var nonce = header.FirstOrDefault();
+                dpopJwt = _dpopProofJwtGenerator.GenerateJWT(nonce);
+                jwtSecurityToken = _jwtGenerator.GenerateSignedJWT();
+                
+                localVarRequestOptions.FormParameters.Remove("client_assertion");
+                localVarRequestOptions.FormParameters.Add("client_assertion", jwtSecurityToken.ToString());
 
-                    localVarRequestOptions.HeaderParameters["DPoP"].Clear();
-                    localVarRequestOptions.HeaderParameters["DPoP"].Add(dpopJwt);
+                localVarRequestOptions.HeaderParameters["DPoP"].Clear();
+                localVarRequestOptions.HeaderParameters["DPoP"].Add(dpopJwt);
 
-                    localVarResponse = await this.AsynchronousClient.PostAsync<OAuthTokenResponse>(accessTokenUri.Trim(), localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-                }
+                localVarResponse = await this.AsynchronousClient.PostAsync<OAuthTokenResponse>(accessTokenUri.Trim(), localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
             }
 
             if (this.ExceptionFactory != null)
