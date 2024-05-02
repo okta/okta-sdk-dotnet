@@ -74,7 +74,7 @@ namespace Okta.Sdk.Api
     {
         private Okta.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
         private IJwtGenerator _jwtGenerator;
-        private DefaultDpopProofJwtGenerator _dpopProofJwtGenerator;
+        private IDpopProofJwtGenerator _dpopProofJwtGenerator;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthApi"/> class
@@ -82,7 +82,7 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public OAuthApi(Okta.Sdk.Client.Configuration configuration = null, IJwtGenerator jwtGenerator = null, DefaultDpopProofJwtGenerator dpopProofJwtGenerator = null)
+        public OAuthApi(Okta.Sdk.Client.Configuration configuration = null, IJwtGenerator jwtGenerator = null, IDpopProofJwtGenerator dpopProofJwtGenerator = null)
         {
             configuration = Sdk.Client.Configuration.GetConfigurationOrDefault(configuration);
 
@@ -174,7 +174,15 @@ namespace Okta.Sdk.Api
             _dpopProofJwtGenerator.RotateKeys();
             var jwtSecurityToken = _jwtGenerator.GenerateSignedJWT();
             var scopes = string.Join("+", Configuration.Scopes);
-            var accessTokenUri = $@"/oauth2/v1/token?grant_type=client_credentials&scope={scopes}&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion={jwtSecurityToken.ToString()}";
+            var accessTokenUri = "/oauth2/v1/token";
+            //?grant_type=client_credentials
+            //&scope={scopes}
+            //&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+            //&client_assertion={jwtSecurityToken.ToString()}";
+            localVarRequestOptions.FormParameters.Add("grant_type", "client_credentials");
+            localVarRequestOptions.FormParameters.Add("scope", scopes);
+            localVarRequestOptions.FormParameters.Add("client_assertion_type", "urn:ietf:params:oauth:client-assertion-type:jwt-bearer");
+            localVarRequestOptions.FormParameters.Add("client_assertion", jwtSecurityToken.ToString());
 
             var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
@@ -201,7 +209,12 @@ namespace Okta.Sdk.Api
                     var nonce = header.FirstOrDefault();
                     dpopJwt = _dpopProofJwtGenerator.GenerateJWT(nonce);
                     jwtSecurityToken = _jwtGenerator.GenerateSignedJWT();
-                    accessTokenUri = $@"/oauth2/v1/token?grant_type=client_credentials&scope={scopes}&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion={jwtSecurityToken.ToString()}";
+                    
+                    accessTokenUri = "/oauth2/v1/token";
+
+                    localVarRequestOptions.FormParameters.Remove("client_assertion");
+                    localVarRequestOptions.FormParameters.Add("client_assertion", jwtSecurityToken.ToString());
+
                     localVarRequestOptions.HeaderParameters["DPoP"].Clear();
                     localVarRequestOptions.HeaderParameters["DPoP"].Add(dpopJwt);
 
