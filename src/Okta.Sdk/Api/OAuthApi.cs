@@ -210,8 +210,6 @@ namespace Okta.Sdk.Api
                     dpopJwt = _dpopProofJwtGenerator.GenerateJWT(nonce);
                     jwtSecurityToken = _jwtGenerator.GenerateSignedJWT();
                     
-                    accessTokenUri = "/oauth2/v1/token";
-
                     localVarRequestOptions.FormParameters.Remove("client_assertion");
                     localVarRequestOptions.FormParameters.Add("client_assertion", jwtSecurityToken.ToString());
 
