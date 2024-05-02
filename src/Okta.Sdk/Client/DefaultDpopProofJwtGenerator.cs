@@ -15,6 +15,16 @@ namespace Okta.Sdk.Client
         /// </summary>
         void RotateKeys();
 
+
+        /// <summary>
+        /// Generate a new DPoP Proof JWT
+        /// </summary>
+        /// <param name="nonce">The nonce</param>
+        /// <param name="httpMethod">The HTTP method of the request</param>
+        /// <param name="uri">The HTTP URI of the request (without query and fragment parts)</param>
+        /// <param name="accessToken">The access token</param>
+        /// <returns>A DPoP Proof JWT</returns>
+        /// <exception cref="InvalidOperationException"></exception>
         string GenerateJWT(String? nonce = null, String? httpMethod = null, String? uri = null, String? accessToken = null);
     }
     public class DefaultDpopProofJwtGenerator : IDpopProofJwtGenerator 

@@ -103,8 +103,6 @@ namespace Okta.Sdk.Client
                     { "jti", Guid.NewGuid().ToString() },
                 };
 
-                var jsonWebKey = new Microsoft.IdentityModel.Tokens.JsonWebKey(JsonConvert.SerializeObject(_configuration.PrivateKey));
-
                 var securityToken = new JwtSecurityToken(new JwtHeader(GetSigningCredentials(_configuration.PrivateKey)), payload);
 
                 return new JwtSecurityTokenHandler().WriteToken(securityToken);
