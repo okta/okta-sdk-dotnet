@@ -119,15 +119,6 @@ namespace Okta.Sdk.Client
             return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text));
         }
 
-        public static string Base64UrlEncode(byte[] text)
-        {
-            // Base64Url encoding is similar to Base64 encoding, but with URL and filename safe characters
-            // Here we replace '+' with '-' and '/' with '_' to make it URL safe
-            string base64 = Convert.ToBase64String(text);
-            string base64Url = base64.Replace('+', '-').Replace('/', '_').TrimEnd('=');
-            return base64Url;
-        }
-
         /// <summary>
         /// Convert stream to byte array
         /// </summary>

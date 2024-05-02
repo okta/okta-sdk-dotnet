@@ -119,7 +119,7 @@ namespace Okta.Sdk.Client
             var hashBytes = sha256.ComputeHash(encodedAccessTokenBytes);
 
             // Perform base64url encoding on the hash
-            return ClientUtils.Base64UrlEncode(hashBytes);
+            return Base64UrlEncoder.Encode(hashBytes);
         }
 
     }
