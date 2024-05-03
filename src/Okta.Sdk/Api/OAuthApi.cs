@@ -73,7 +73,7 @@ namespace Okta.Sdk.Api
     public class OAuthApi : IOAuthApi
     {
         private Okta.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
-        private IJwtGenerator _jwtGenerator;
+        private IClientAssertionJwtGenerator _clientAssertionJwtGenerator;
         private IDpopProofJwtGenerator _dpopProofJwtGenerator;
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public OAuthApi(Okta.Sdk.Client.Configuration configuration = null, IJwtGenerator jwtGenerator = null, IDpopProofJwtGenerator dpopProofJwtGenerator = null)
+        public OAuthApi(Okta.Sdk.Client.Configuration configuration = null, IClientAssertionJwtGenerator clientAssertionJwtGenerator = null, IDpopProofJwtGenerator dpopProofJwtGenerator = null)
         {
             configuration = Sdk.Client.Configuration.GetConfigurationOrDefault(configuration);
 
@@ -94,7 +94,7 @@ namespace Okta.Sdk.Api
             Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain, NullOAuthTokenProvider.Instance);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
-            _jwtGenerator = jwtGenerator ?? new DefaultJwtGenerator(Configuration);
+            _clientAssertionJwtGenerator = clientAssertionJwtGenerator ?? new DefaultClientAssertionJwtGenerator(Configuration);
             _dpopProofJwtGenerator = dpopProofJwtGenerator ?? new DefaultDpopProofJwtGenerator(this.Configuration);
         }
 
@@ -104,7 +104,7 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public OAuthApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration, IJwtGenerator jwtGenerator)
+        public OAuthApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration, IClientAssertionJwtGenerator clientAssertionJwtGenerator, IDpopProofJwtGenerator dpopProofJwtGenerator)
         {
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
             if (configuration == null) throw new ArgumentNullException("configuration");
@@ -112,7 +112,9 @@ namespace Okta.Sdk.Api
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
-            _jwtGenerator = jwtGenerator;
+            _clientAssertionJwtGenerator = clientAssertionJwtGenerator;
+            _dpopProofJwtGenerator = dpopProofJwtGenerator;
+
         }
 
         /// <summary>
@@ -172,7 +174,7 @@ namespace Okta.Sdk.Api
             };
 
             _dpopProofJwtGenerator.RotateKeys();
-            var jwtSecurityToken = _jwtGenerator.GenerateSignedJWT();
+            var jwtSecurityToken = _clientAssertionJwtGenerator.GenerateJWT();
             var scopes = string.Join("+", Configuration.Scopes);
             var accessTokenUri = "/oauth2/v1/token";
             //?grant_type=client_credentials
@@ -207,7 +209,7 @@ namespace Okta.Sdk.Api
             {
                 var nonce = header.FirstOrDefault();
                 dpopJwt = _dpopProofJwtGenerator.GenerateJWT(nonce);
-                jwtSecurityToken = _jwtGenerator.GenerateSignedJWT();
+                jwtSecurityToken = _clientAssertionJwtGenerator.GenerateJWT();
                 
                 localVarRequestOptions.FormParameters.Remove("client_assertion");
                 localVarRequestOptions.FormParameters.Add("client_assertion", jwtSecurityToken.ToString());

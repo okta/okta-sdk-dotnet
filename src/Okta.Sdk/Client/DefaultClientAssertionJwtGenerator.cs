@@ -19,34 +19,34 @@ using Okta.Sdk.Abstractions.Configuration;
 
 namespace Okta.Sdk.Client
 {
-    #region IJwtGenerator
+    #region IClientAssertionJwtGenerator
     /// <summary>
     /// Interface for JWT generators.
     /// </summary>
-    public interface IJwtGenerator
+    public interface IClientAssertionJwtGenerator
     {
         /// <summary>
-        /// Generates a signed JWT.
+        /// Generates a signed JWT using the private key provided in the configuration to obtain an access token.
         /// </summary>
         /// <returns>The generated signed JWT.</returns>
-        string GenerateSignedJWT();
+        string GenerateJWT();
     }
-    #endregion IJwtGenerator
-    
+    #endregion IClientAssertionJwtGenerator
+
     /// <summary>
     /// Default JWT generator.
     /// </summary>
-    public class DefaultJwtGenerator : IJwtGenerator
+    public class DefaultClientAssertionJwtGenerator : IClientAssertionJwtGenerator
     {
         private readonly IReadableConfiguration _configuration;
 
         private static IList<string> _supportedKeys = new List<string>() { "RSA", "EC" };
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DefaultJwtGenerator"/> class.
+        /// Initializes a new instance of the <see cref="DefaultClientAssertionJwtGenerator"/> class.
         /// </summary>
         /// <param name="configuration">The Okta client configuration.</param>
-        public DefaultJwtGenerator(IReadableConfiguration configuration)
+        public DefaultClientAssertionJwtGenerator(IReadableConfiguration configuration)
         {
             if (configuration == null)
             {
@@ -86,7 +86,7 @@ namespace Okta.Sdk.Client
         }
 
         /// <inheritdoc/>
-        public string GenerateSignedJWT()
+        public string GenerateJWT()
         {
             try
             {

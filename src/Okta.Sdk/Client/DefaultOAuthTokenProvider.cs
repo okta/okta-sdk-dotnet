@@ -11,6 +11,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -18,7 +19,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Linq;
 using Okta.Sdk.Api;
+using Okta.Sdk.Model;
 using Polly;
 using RestSharp;
 
@@ -54,6 +58,16 @@ namespace Okta.Sdk.Client
         /// <param name="onRetryAsyncFunc"></param>
         /// <returns></returns>
         Polly.AsyncPolicy<RestResponse> GetOAuthRetryPolicy(Func<DelegateResult<RestResponse>, int, Context, Task> onRetryAsyncFunc = null);
+
+        /// <summary>
+        /// Add the corresponding OAuth authorization header to the request
+        /// </summary>
+        /// <param name="requestOptions">The requestOptions object</param>
+        /// <param name="requestUri">The request's relative Uri. Required when Configuration.AuthorizationMode is PrivateKey</param>
+        /// <param name="httpMethod">The request's method </param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        Task AddOrUpdateAuthorizationHeader(RequestOptions requestOptions, string requestUri, string httpMethod,
+            CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets a DPoP JWT
@@ -98,6 +112,7 @@ namespace Okta.Sdk.Client
             return _oAuthTokenResponse.AccessToken;
         }
 
+        /// <inheritdoc/>
         public async Task<OAuthTokenResponse> GetAccessTokenResponseAsync(bool forceRenew = false, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrEmpty(_oAuthTokenResponse?.AccessToken) || forceRenew)
@@ -116,7 +131,7 @@ namespace Okta.Sdk.Client
         public Polly.AsyncPolicy<RestResponse> GetOAuthRetryPolicy(
             Func<DelegateResult<RestResponse>, int, Context, Task> onRetryAsyncFunc = null)
         {
-            AsyncPolicy<RestResponse> retryAsyncPolicy = Policy
+            AsyncPolicy<RestResponse> retryAsyncPolicy = Polly.Policy
                 .Handle<ApiException>(ex => ex.ErrorCode == 401)
                 .OrResult<RestResponse>(r => (int)r.StatusCode == 401)
                 .RetryAsync(2, onRetryAsync: async (response, retryCount, context) 
@@ -137,14 +152,60 @@ namespace Okta.Sdk.Client
         /// <param name="request">The request.</param>
         public static void AddOrUpdateAuthorizationHeader(Context context, RestRequest request)
         {
-            if (context.Keys.Contains("access_token"))
+            if (context.Keys.Contains("access_token", StringComparer.OrdinalIgnoreCase))
             {
+                context.TryGetValue("token_type", out object tokenType);
+
+                var isDopBound = tokenType?.ToString().Equals("dpop", StringComparison.InvariantCultureIgnoreCase) ?? false;
+                
                 foreach (var oldAuthHeader in request.Parameters.Where(p => p.Name.Equals("Authorization", StringComparison.OrdinalIgnoreCase)).ToArray())
                 {
                     request.Parameters.RemoveParameter(oldAuthHeader);
                 }
+
+                if (isDopBound)
+                {
+                    foreach (var oldDpopHeader in request.Parameters.Where(p => p.Name.Equals("DPoP", StringComparison.OrdinalIgnoreCase)).ToArray())
+                    {
+                        request.Parameters.RemoveParameter(oldDpopHeader);
+                    }
+
+                    context.TryGetValue("dpop_jwt", out object dpopJwt);
+                    request.AddOrUpdateHeader("DPoP", dpopJwt.ToString());
+                }
                 
-                request.AddOrUpdateHeader("Authorization", $"Bearer {context["access_token"].ToString()}");
+                request.AddOrUpdateHeader("Authorization", $"{tokenType} {context["access_token"]}"); 
+            }
+        }
+
+        /// <summary>
+        /// Add the corresponding OAuth authorization header to the request
+        /// </summary>
+        /// <param name="requestOptions">The requestOptions object</param>
+        /// <param name="requestUri">The request relative Uri. Required when Configuration.AuthorizationMode is PrivateKey</param>
+        /// <param name="httpMethod">The request </param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task AddOrUpdateAuthorizationHeader(RequestOptions requestOptions, string requestUri, string httpMethod, CancellationToken cancellationToken = default)
+        {
+            foreach (var oldAuthHeader in requestOptions.HeaderParameters.Where(p => p.Key.Equals("Authorization", StringComparison.OrdinalIgnoreCase)).ToArray())
+            {
+                requestOptions.HeaderParameters.Remove(oldAuthHeader);
+            }
+
+            var tokenResponse = await this.GetAccessTokenResponseAsync(cancellationToken: cancellationToken);
+            requestOptions.HeaderParameters.Add("Authorization", $"{tokenResponse.TokenType} {tokenResponse.AccessToken}");
+
+            if (tokenResponse.IsDpopBound)
+            {
+                foreach (var oldDpopHeader in requestOptions.HeaderParameters.Where(p => p.Key.Equals("DPoP", StringComparison.OrdinalIgnoreCase)).ToArray())
+                {
+                    requestOptions.HeaderParameters.Remove(oldDpopHeader);
+                }
+
+                var requestAbsoluteUri = new Uri(new Uri(this.Configuration.OktaDomain, UriKind.Absolute), new Uri(requestUri, UriKind.Relative));
+                var dPopProofJwt = this.GetDPopProofJwt(accessToken: tokenResponse.AccessToken, requestUri: requestAbsoluteUri.ToString(), httpMethod: httpMethod);
+                requestOptions.HeaderParameters.Add("DPoP", dPopProofJwt);
             }
         }
 
@@ -161,8 +222,19 @@ namespace Okta.Sdk.Client
 
         private async Task OnOAuthRetryAsync(DelegateResult<RestResponse> response, int retryCount, Context context, Func<DelegateResult<RestResponse>, int, Context, Task> onRetryAsyncFunc = null)
         {
-            var token = await GetAccessTokenAsync(forceRenew: true);
-            AddToContext(context, "access_token", token);
+            var tokenResponse = await GetAccessTokenResponseAsync(forceRenew: true);
+            AddToContext(context, "access_token", tokenResponse.AccessToken);
+            AddToContext(context, "token_type", tokenResponse.TokenType);
+
+            if (tokenResponse.IsDpopBound)
+            {
+                string requestUri = response.Result.Request.Parameters.Aggregate(response.Result.Request.Resource, (current, parameter) => current.Replace("{" + parameter.Name + "}", parameter.Value.ToString()));
+                var dPopJwt = _defaultDpopJwtGenerator.GenerateJWT(
+                    httpMethod: response.Result.Request.Method.ToString(), accessToken: tokenResponse.AccessToken,
+                    uri: requestUri);
+
+                AddToContext(context, "dpop_jwt", dPopJwt);
+            }
 
             if (onRetryAsyncFunc != null)
             {

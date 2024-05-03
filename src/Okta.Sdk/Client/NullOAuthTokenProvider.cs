@@ -62,6 +62,12 @@ namespace Okta.Sdk.Client
             return Policy.NoOpAsync<RestResponse>();
         }
 
+        public Task AddOrUpdateAuthorizationHeader(RequestOptions requestOptions, string requestUri, string httpMethod,
+            CancellationToken cancellationToken = default)
+        {
+            return Task.CompletedTask;
+        }
+
         public string GetDPopProofJwt(String? nonce = null, String? htm = null, String? htu = null, String? accessToken = null)
         {
             return String.Empty;

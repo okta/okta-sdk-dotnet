@@ -27,7 +27,7 @@ namespace Okta.Sdk.UnitTest.Internal
         public Task<OAuthTokenResponse> GetBearerTokenAsync(CancellationToken cancellationToken = default)
         {
             var token = _returnQueue?.Dequeue() ?? "foo";
-            return Task.FromResult<OAuthTokenResponse>(new OAuthTokenResponse { AccessToken = token });
+            return Task.FromResult<OAuthTokenResponse>(new OAuthTokenResponse { AccessToken = token, TokenType = "Bearer"});
         }
 
         public Task<ApiResponse<OAuthTokenResponse>> GetBearerTokenWithHttpInfoAsync(CancellationToken cancellationToken = default)

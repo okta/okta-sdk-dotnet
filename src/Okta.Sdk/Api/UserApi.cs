@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
@@ -2416,15 +2417,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var tokenResponse = await _oAuthTokenProvider.GetAccessTokenResponseAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", $"{tokenResponse.TokenType} {tokenResponse.AccessToken}");
-
-                if (tokenResponse.IsDpopBound)
-                {
-                    var requestAbsoluteUri = new Uri(new Uri(this.Configuration.OktaDomain, UriKind.Absolute), new Uri($"/api/v1/users/{userId}", UriKind.Relative));
-                    var dPopProofJwt = _oAuthTokenProvider.GetDPopProofJwt(accessToken: tokenResponse.AccessToken, uri: requestAbsoluteUri.ToString(), httpMethod: "GET");
-                    localVarRequestOptions.HeaderParameters.Add("DPoP", dPopProofJwt);
-                }
+                _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/users/{userId}", "GET", cancellationToken = default);
             }
 
             // make the HTTP request
