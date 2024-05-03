@@ -190,7 +190,7 @@ namespace Okta.Sdk.Client
         {
             foreach (var oldAuthHeader in requestOptions.HeaderParameters.Where(p => p.Key.Equals("Authorization", StringComparison.OrdinalIgnoreCase)).ToArray())
             {
-                requestOptions.HeaderParameters.Remove(oldAuthHeader);
+                requestOptions.HeaderParameters.Remove(oldAuthHeader.Key);
             }
 
             var tokenResponse = await this.GetAccessTokenResponseAsync(cancellationToken: cancellationToken);
@@ -200,7 +200,7 @@ namespace Okta.Sdk.Client
             {
                 foreach (var oldDpopHeader in requestOptions.HeaderParameters.Where(p => p.Key.Equals("DPoP", StringComparison.OrdinalIgnoreCase)).ToArray())
                 {
-                    requestOptions.HeaderParameters.Remove(oldDpopHeader);
+                    requestOptions.HeaderParameters.Remove(oldDpopHeader.Key);
                 }
 
                 var requestAbsoluteUri = new Uri(new Uri(this.Configuration.OktaDomain, UriKind.Absolute), new Uri(requestUri, UriKind.Relative));
