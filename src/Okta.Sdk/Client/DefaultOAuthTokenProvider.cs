@@ -206,6 +206,13 @@ namespace Okta.Sdk.Client
                 var requestAbsoluteUri = new Uri(new Uri(this.Configuration.OktaDomain, UriKind.Absolute), new Uri(requestUri, UriKind.Relative));
                 var dPopProofJwt = this.GetDPopProofJwt(accessToken: tokenResponse.AccessToken, requestUri: requestAbsoluteUri.ToString(), httpMethod: httpMethod);
                 requestOptions.HeaderParameters.Add("DPoP", dPopProofJwt);
+
+                foreach (var oktaUserAgentExtended in requestOptions.HeaderParameters.Where(p => p.Key.Equals("x-okta-user-agent-extended", StringComparison.OrdinalIgnoreCase)).ToArray())
+                {
+                    requestOptions.HeaderParameters.Remove(oktaUserAgentExtended.Key);
+                }
+
+                requestOptions.HeaderParameters.Add("x-okta-user-agent-extended", "isDPoP:true");
             }
         }
 
