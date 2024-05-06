@@ -48,7 +48,7 @@ namespace Okta.Sdk.IntegrationTest
         public async Task UpdateUserProfileSchemaProperty()
         {
             var testAttributeName = $"{nameof(UpdateUserProfileSchemaProperty)}_test_{RandomString(6)}";
-            var userSchema = await _schemaApi.GetUserSchemaAsync("default"); 
+            var userSchema = await _schemaApi.GetUserSchemaAsync("default");
             var guid = Guid.NewGuid();
 
             // Add custom attribute
@@ -82,6 +82,60 @@ namespace Okta.Sdk.IntegrationTest
             retrievedCustomAttribute.Required.Should().BeFalse();
             retrievedCustomAttribute.MinLength.Should().Be(1);
             retrievedCustomAttribute.MaxLength.Should().Be(20);
+            retrievedCustomAttribute.Permissions.FirstOrDefault().Principal.Should().Be("SELF");
+            retrievedCustomAttribute.Permissions.FirstOrDefault().Action.Should().Be("READ_WRITE");
+
+            // Wait for job to be finished
+            Thread.Sleep(6000);
+
+            // Remove custom attribute
+            customAttribute[testAttributeName] = null;
+            updatedUserSchema.Definitions.Custom.Properties = customAttribute;
+            updatedUserSchema = await _schemaApi.UpdateUserProfileAsync("default", updatedUserSchema);
+            updatedUserSchema.Definitions.Custom.Properties.ContainsKey(testAttributeName).Should().BeFalse();
+        }
+
+        [Fact]
+        public async Task AddArrayProperty()
+        {
+            var testAttributeName = $"{nameof(AddArrayProperty)}_test_{RandomString(6)}";
+            var userSchema = await _schemaApi.GetUserSchemaAsync("default");
+            var guid = Guid.NewGuid();
+
+            // Add custom attribute
+            var customAttributeDetails = new UserSchemaAttribute()
+            {
+                Title = testAttributeName,
+                Type = UserSchemaAttributeType.Array,
+                Description = guid.ToString(),
+                Permissions = new List<UserSchemaAttributePermission>
+                {
+                    new UserSchemaAttributePermission
+                    {
+                        Action = "READ_WRITE",
+                        Principal = "SELF",
+                    },
+                },
+                Items = new UserSchemaAttributeItems { Type = "string" }
+            };
+
+            var customAttribute = new Dictionary<string, UserSchemaAttribute>();
+            customAttribute[testAttributeName] = customAttributeDetails;
+            userSchema.Definitions.Custom.Properties = customAttribute;
+
+            var updatedUserSchema = await _schemaApi.UpdateUserProfileAsync("default", userSchema);
+
+            var retrievedCustomAttribute = updatedUserSchema.Definitions.Custom.Properties[testAttributeName];
+            retrievedCustomAttribute.Title.Should().Be(testAttributeName);
+            retrievedCustomAttribute.Type.Value.Should().Be("array");
+            retrievedCustomAttribute.Description.Should().Be(guid.ToString());
+            retrievedCustomAttribute.Required.Should().BeFalse();
+            
+            /*
+            retrievedCustomAttribute.MinLength.Should().BeNull();
+            retrievedCustomAttribute.MaxLength.Should().BeNull();
+            */
+
             retrievedCustomAttribute.Permissions.FirstOrDefault().Principal.Should().Be("SELF");
             retrievedCustomAttribute.Permissions.FirstOrDefault().Action.Should().Be("READ_WRITE");
 
