@@ -130,12 +130,8 @@ namespace Okta.Sdk.IntegrationTest
             retrievedCustomAttribute.Type.Value.Should().Be("array");
             retrievedCustomAttribute.Description.Should().Be(guid.ToString());
             retrievedCustomAttribute.Required.Should().BeFalse();
-            
-            /*
             retrievedCustomAttribute.MinLength.Should().BeNull();
             retrievedCustomAttribute.MaxLength.Should().BeNull();
-            */
-
             retrievedCustomAttribute.Permissions.FirstOrDefault().Principal.Should().Be("SELF");
             retrievedCustomAttribute.Permissions.FirstOrDefault().Action.Should().Be("READ_WRITE");
 
