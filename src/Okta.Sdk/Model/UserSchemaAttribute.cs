@@ -95,13 +95,13 @@ namespace Okta.Sdk.Model
         /// Gets or Sets MaxLength
         /// </summary>
         [DataMember(Name = "maxLength", EmitDefaultValue = true)]
-        public int MaxLength { get; set; }
+        public int? MaxLength { get; set; }
 
         /// <summary>
         /// Gets or Sets MinLength
         /// </summary>
         [DataMember(Name = "minLength", EmitDefaultValue = true)]
-        public int MinLength { get; set; }
+        public int? MinLength { get; set; }
 
         /// <summary>
         /// Gets or Sets Mutability
@@ -239,11 +239,13 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.MaxLength == input.MaxLength ||
-                    this.MaxLength.Equals(input.MaxLength)
+                    (this.MaxLength != null &&
+                    this.MaxLength.Equals(input.MaxLength))
                 ) && 
                 (
                     this.MinLength == input.MinLength ||
-                    this.MinLength.Equals(input.MinLength)
+                    (this.MinLength != null &&
+                    this.MinLength.Equals(input.MinLength))
                 ) && 
                 (
                     this.Mutability == input.Mutability ||
@@ -329,8 +331,14 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Master.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.MaxLength.GetHashCode();
-                hashCode = (hashCode * 59) + this.MinLength.GetHashCode();
+                if (this.MaxLength != null)
+                {
+                    hashCode = (hashCode * 59) + this.MaxLength.GetHashCode();
+                }
+                if (this.MinLength != null)
+                {
+                    hashCode = (hashCode * 59) + this.MinLength.GetHashCode();
+                }
                 if (this.Mutability != null)
                 {
                     hashCode = (hashCode * 59) + this.Mutability.GetHashCode();
