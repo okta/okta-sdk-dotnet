@@ -69,7 +69,7 @@ If you run into problems using the SDK, you can
 
 The SDK is compatible with:
 
-* [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/library) 2.0
+* [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/library) 2.1
 * .NET Framework 4.6.1 or higher
 * .NET Core 3.0 or higher
 * .NET 5.0 or higher
@@ -192,6 +192,8 @@ var oauthAppsApi = new ApplicationApi(configuration);
 ```
 
 It is possible to use an access token you retrieved outside of the SDK for authentication. For that, set `Configuration.AuthorizationMode` configuration property to `AuthorizationMode.BearerToken` and `Configuration.AccessToken` to the token string.
+
+> Note: Starting from 8.x series the Okta management SDK added support for DPoP. If the SDK detects the application has DPoP enabled, it will silently proceed to obtain a DPoP-bound access token, and will generate a new DPoP Proof JWT for every request. There's no additional configuration required for developers.
 
 ## Usage guide
 
