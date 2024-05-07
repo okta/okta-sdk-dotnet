@@ -56,7 +56,27 @@ namespace Okta.Sdk.Client
                 request.AddOrUpdateHeader(XOktaRetryForHeader, context[XOktaRequestId].ToString());
             }
         }
-        
+
+        public static bool TryAddRetryHeaders(Context context, RestRequest request)
+        {
+            bool retryHeadersAdded = false;
+
+            if (context.Keys.Contains(XOktaRetryCountHeader))
+            {
+                retryHeadersAdded = true;
+                request.AddOrUpdateHeader(XOktaRetryCountHeader, context[XOktaRetryCountHeader].ToString());
+            }
+
+            if (context.Keys.Contains(XOktaRequestId))
+            {
+                retryHeadersAdded = true;
+                request.AddOrUpdateHeader(XOktaRetryForHeader, context[XOktaRequestId].ToString());
+            }
+
+            return retryHeadersAdded;
+        }
+
+
         /// <summary>
         /// Gets the policy to be used for retrying requests.
         /// </summary>

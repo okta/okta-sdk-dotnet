@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -129,7 +130,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact(Skip = "Replication makes test flaky OKTA-710533")]
+        [Fact]
         public async Task ListAppsWithAccessToken()
         {
             var guid = Guid.NewGuid();
@@ -415,7 +416,7 @@ namespace Okta.Sdk.IntegrationTest
                                  }";
 
                 var configuration = new Configuration();
-                configuration.Scopes = new HashSet<string> { "okta.users.manage", "okta.users.read" };
+                configuration.Scopes = new HashSet<string> { "okta.users.read" };
                 configuration.ClientId = clientId;
                 configuration.PrivateKey = new JsonWebKeyConfiguration(jsonPrivateKey);
                 configuration.AuthorizationMode = AuthorizationMode.PrivateKey;
@@ -436,7 +437,185 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact(Skip = "Replication makes test flaky OKTA-710533")]
+     
+
+        [Fact]
+        public async Task RetrieveAccessTokenWhenDPoPIsEnabled()
+        {
+            var guid = Guid.NewGuid();
+         
+            var oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;
+
+            var clientId = Environment.GetEnvironmentVariable("Okta:DpopClientId");
+
+            string filePath = Environment.GetEnvironmentVariable("Okta:DpopClientPrivateKey");
+
+            // Check if the file exists
+            if (File.Exists(filePath))
+            {
+                string jsonPrivateKey = File.ReadAllText(filePath);
+                var configuration = new Configuration();
+                configuration.Scopes = new HashSet<string> { "okta.users.read" };
+                configuration.ClientId = clientId;
+                configuration.PrivateKey = new JsonWebKeyConfiguration(jsonPrivateKey);
+                configuration.AuthorizationMode = AuthorizationMode.PrivateKey;
+                configuration.OktaDomain = oktaDomain;
+
+                var oauthApi = new OAuthApi(configuration);
+                var tokenResponse = await oauthApi.GetBearerTokenAsync();
+                tokenResponse.AccessToken.Should().NotBeNullOrEmpty();
+                tokenResponse.IsDpopBound.Should().BeTrue();
+            }
+        }
+
+
+        [Fact]
+        public async Task ListUsersWithDPoPBoundAccessToken()
+        {
+            var guid = Guid.NewGuid();
+
+            var oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;
+
+            var clientId = Environment.GetEnvironmentVariable("Okta:DpopClientId");
+
+            string filePath = Environment.GetEnvironmentVariable("Okta:DpopClientPrivateKey");
+
+            // Check if the file exists
+            if (File.Exists(filePath))
+            {
+                string jsonPrivateKey = File.ReadAllText(filePath);
+                var configuration = new Configuration();
+                configuration.Scopes = new HashSet<string> { "okta.users.manage" };
+                configuration.ClientId = clientId;
+                configuration.PrivateKey = new JsonWebKeyConfiguration(jsonPrivateKey);
+                configuration.AuthorizationMode = AuthorizationMode.PrivateKey;
+                configuration.OktaDomain = oktaDomain;
+
+                var userApi = new UserApi(configuration);
+
+                var users = await userApi.ListUsers().ToListAsync();
+
+                users.Should().NotBeNullOrEmpty();
+
+                //var user = userApi.GetUserAsync(users?.FirstOrDefault()?.Id);
+                var user = await userApi.GetUserAsync(users.FirstOrDefault()?.Profile?.Login);
+
+                user.Should().NotBeNull();
+            }
+        }
+
+        [Fact(Skip = "401 should be tested differently - invalid token gets a 403")]
+        public async Task ListUsersWithPaginationAndRetryWhenDPoPIsEnabled()
+        {
+            var guid = Guid.NewGuid();
+
+            var oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;
+
+            var clientId = Environment.GetEnvironmentVariable("Okta:DpopClientId");
+
+            string filePath = Environment.GetEnvironmentVariable("Okta:DpopClientPrivateKey");
+
+            // Check if the file exists
+            if (File.Exists(filePath))
+            {
+                string jsonPrivateKey = File.ReadAllText(filePath);
+                var configuration = new Configuration();
+                configuration.Scopes = new HashSet<string> { "okta.users.manage" };
+                configuration.ClientId = clientId;
+                configuration.PrivateKey = new JsonWebKeyConfiguration(jsonPrivateKey);
+                configuration.AuthorizationMode = AuthorizationMode.PrivateKey;
+                configuration.OktaDomain = oktaDomain;
+
+                var userApi = new UserApi(configuration);
+
+                var createUserRequest1 = new CreateUserRequest
+                {
+                    Profile = new UserProfile
+                    {
+                        FirstName = "John",
+                        LastName = nameof(GetUserWithAccessToken),
+                        Email = $"john-{nameof(GetUserWithAccessToken)}-dotnet-sdk-{guid}@example.com",
+                        Login = $"john-{nameof(GetUserWithAccessToken)}-dotnet-sdk-{guid}@example.com",
+                        NickName = $"johny-{nameof(GetUserWithAccessToken)}-{guid}",
+                    },
+                    Credentials = new UserCredentials
+                    {
+                        Password = new PasswordCredential
+                        {
+                            Value = "Abcd1234"
+                        }
+                    }
+                };
+
+                var createdUser1 = await userApi.CreateUserAsync(createUserRequest1);
+
+                var createUserRequest2 = new CreateUserRequest
+                {
+                    Profile = new UserProfile
+                    {
+                        FirstName = "Bob",
+                        LastName = nameof(GetUserWithAccessToken),
+                        Email = $"bob-{nameof(GetUserWithAccessToken)}-dotnet-sdk-{guid}@example.com",
+                        Login = $"bob-{nameof(GetUserWithAccessToken)}-dotnet-sdk-{guid}@example.com",
+                        NickName = $"bobby-{nameof(GetUserWithAccessToken)}-{guid}",
+                    },
+                    Credentials = new UserCredentials
+                    {
+                        Password = new PasswordCredential
+                        {
+                            Value = "Abcd1234"
+                        }
+                    }
+                };
+
+                var createdUser2 = await userApi.CreateUserAsync(createUserRequest2);
+
+                // this delay and the below retry policy are to handle:
+                // https://developer.okta.com/docs/api/resources/users.html#list-users-with-search
+                // "Queries data from a replicated store, so changes aren’t always immediately available in search results."
+                await Task.Delay(8000);
+
+                try
+                {
+
+                    var mockOauthProvider = new MockOAuthProvider(new DefaultOAuthTokenProvider(configuration));
+                    var oauthUsersApi = new UserApi(configuration, mockOauthProvider);
+
+                    var usersCollection = oauthUsersApi.ListUsers(limit: 1);
+                    var pagedEnumerator = usersCollection.GetPagedEnumerator();
+                    var retrievedUsers = new List<User>();
+
+                    while (await pagedEnumerator.MoveNextAsync())
+                    {
+                        retrievedUsers.AddRange(pagedEnumerator.CurrentPage.Items);
+                    }
+
+                    retrievedUsers.Count.Should().BeGreaterOrEqualTo(2);
+                    var invalidTokensCounter = 0;
+
+                    while (mockOauthProvider.TokensQueue.Count > 0)
+                    {
+                        var queueValue = mockOauthProvider.TokensQueue.Dequeue();
+
+                        if (queueValue.Equals("invalidToken", StringComparison.CurrentCultureIgnoreCase))
+                        {
+                            invalidTokensCounter++;
+                        }
+                    }
+
+                    invalidTokensCounter.Should().Be(1);
+                }
+                finally
+                {
+                    await userApi.DeactivateUserAsync(createdUser1.Id);
+                    await userApi.DeleteUserAsync(createdUser1.Id);
+                    await userApi.DeactivateUserAsync(createdUser2.Id);
+                    await userApi.DeleteUserAsync(createdUser2.Id);
+                }
+            }
+        }
+
+        [Fact]
         public async Task ListUsersWithPagination()
         {
             var guid = Guid.NewGuid();
@@ -605,7 +784,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact(Skip = "Replication makes test flaky OKTA-710533")]
+        [Fact]
         public async Task ListUsersWithPaginationAndRetry()
         {
             var guid = Guid.NewGuid();
@@ -818,18 +997,21 @@ namespace Okta.Sdk.IntegrationTest
             private IOAuthTokenProvider _defaulTokenProvider;
             private int _counter;
             private Queue<string> _tokensQueue;
+            private bool _isDpop;
 
             public Queue<string> TokensQueue
             {
                 get { return _tokensQueue; }
             }
-            public MockOAuthProvider(DefaultOAuthTokenProvider defaultProvider)
+            public MockOAuthProvider(DefaultOAuthTokenProvider defaultProvider, bool isDpop = false)
             {
                 _defaulTokenProvider = defaultProvider;
                 _counter = 0;
                 _tokensQueue = new Queue<string>();
-
+                _isDpop = isDpop;
             }
+
+            public string TokenType => (_isDpop) ? "DPoP" : "Bearer";
             public Task<string> GetAccessTokenAsync(bool forceRenew = false, CancellationToken cancellationToken = default)
             {
                 
@@ -845,9 +1027,52 @@ namespace Okta.Sdk.IntegrationTest
                 return _defaulTokenProvider.GetAccessTokenAsync(forceRenew);
             }
 
+            public async Task<OAuthTokenResponse> GetAccessTokenResponseAsync(bool forceRenew = false, CancellationToken cancellationToken = default)
+            {
+                if (_counter == 0)
+                {
+                    _tokensQueue.Enqueue("invalidToken");
+                    _counter++;
+                    return await Task.FromResult(new OAuthTokenResponse() { AccessToken = "invalidToken", TokenType = TokenType});
+                }
+
+                _counter++;
+                _tokensQueue.Enqueue("validToken");
+                return await _defaulTokenProvider.GetAccessTokenResponseAsync(forceRenew);
+            }
+
             public AsyncPolicy<RestResponse> GetOAuthRetryPolicy(Func<DelegateResult<RestResponse>, int, Context, Task> onRetryAsyncFunc = null)
             {
                 return _defaulTokenProvider.GetOAuthRetryPolicy(onRetryAsyncFunc);
+            }
+
+            public async Task AddOrUpdateAuthorizationHeader(RequestOptions requestOptions, string requestUri, string httpMethod,
+                CancellationToken cancellationToken = default)
+            {
+                if (_counter == 0)
+                {
+                    _tokensQueue.Enqueue("invalidToken");
+                    _counter++;
+                    requestOptions.HeaderParameters.Add("Authorization", $"{TokenType} invalidToken");
+                    if (_isDpop)
+                    {
+                        requestOptions.HeaderParameters.Add("DPoP", "invalidToken");
+                    }
+                }
+                else
+                {
+                    _counter++;
+                    _tokensQueue.Enqueue("validToken");
+
+                    await _defaulTokenProvider.AddOrUpdateAuthorizationHeader(requestOptions, requestUri, httpMethod,
+                        cancellationToken);
+                }
+                
+            }
+
+            public string GetDPopProofJwt(String? nonce = null, String? htm = null, String? htu = null, String? accessToken = null)
+            {
+                return _defaulTokenProvider.GetDPopProofJwt(nonce, htm, htu, accessToken);
             }
         }
     }

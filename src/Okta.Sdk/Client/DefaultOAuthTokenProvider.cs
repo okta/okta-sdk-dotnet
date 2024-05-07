@@ -147,12 +147,15 @@ namespace Okta.Sdk.Client
         }
 
         /// <summary>
-        /// Add retry headers to the request
+        /// Add required headers to the request before a retry. The SDK may retry 429 responses (rate-limit exceeded) or 401 responses (access token expired).
+        /// When the client retries a request due to a 429 response, a new generated DPoP Proof JWT may be passed. 
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="request">The request.</param>
-        public static void AddOrUpdateAuthorizationHeader(Context context, RestRequest request)
+        /// <param name="dpopProofJwt">The DPoP Proof JWT to be used on retry. Optional.</param>
+        public static void AddOrUpdateAuthorizationHeader(Context context, RestRequest request, string? dpopProofJwt = null)
         {
+            // the access_token will come in context if the client retries a request due to a 401 response (access token expired)
             if (context.Keys.Contains("access_token", StringComparer.OrdinalIgnoreCase))
             {
                 context.TryGetValue("token_type", out object tokenType);
@@ -177,6 +180,41 @@ namespace Okta.Sdk.Client
 
                 request.AddOrUpdateHeader("Authorization", $"{tokenType} {context["access_token"]}");
             }
+            else if (!dpopProofJwt.IsNullOrEmpty()) // If the client retries a request due to a 429 response, we expect the dpopProofJwt not to be null (rate-limit exceeded)
+            {
+                foreach (var oldDpopHeader in request.Parameters.Where(p => p.Name.Equals("DPoP", StringComparison.OrdinalIgnoreCase)).ToArray())
+                {
+                    request.Parameters.RemoveParameter(oldDpopHeader);
+                }
+
+                request.AddOrUpdateHeader("DPoP", dpopProofJwt.ToString());
+
+            }
+        }
+
+        /// <summary>
+        /// Inspect the request headers to determine if it uses an access token and if the token is bound to a DPoP Proof JWT
+        /// </summary>
+        /// <param name="request">The request</param>
+        /// <returns><code>true</code> if the request uses a DPoP-bound access token</returns>
+        public static bool IsAccessTokenDpopBound(RestRequest request, out string? accessToken)
+        {
+            accessToken = null;
+
+            var authorizationHeader = request.Parameters.FirstOrDefault(p => p.Name.Equals("Authorization", StringComparison.OrdinalIgnoreCase));
+            // Split the authorization header by space - expected format Bearer <Access_Token> or DPoP <Access Token>
+            string[] headerValueParts = authorizationHeader.Value.ToString().Split(' ');
+            
+            if (headerValueParts != null && headerValueParts.Length > 1)
+            {
+                accessToken = headerValueParts[1];
+            }
+            
+            var isAccessTokenDpopBound =
+                (authorizationHeader?.ToString().StartsWith("dpop", StringComparison.InvariantCultureIgnoreCase) ??
+                 false);
+
+            return isAccessTokenDpopBound;
         }
 
         /// <summary>
@@ -185,7 +223,7 @@ namespace Okta.Sdk.Client
         /// <param name="requestOptions">The requestOptions object</param>
         /// <param name="requestUri">The request relative Uri. Required when Configuration.AuthorizationMode is PrivateKey</param>
         /// <param name="httpMethod">The request </param>
-        /// <param name="cancellationToken"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
         public async Task AddOrUpdateAuthorizationHeader(RequestOptions requestOptions, string requestUri, string httpMethod, CancellationToken cancellationToken = default)
         {
