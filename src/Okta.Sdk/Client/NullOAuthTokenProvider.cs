@@ -62,7 +62,7 @@ namespace Okta.Sdk.Client
             return Task.CompletedTask;
         }
 
-        public string GetDPopProofJwt(String? nonce = null, String? htm = null, String? htu = null, String? accessToken = null)
+        public string GetDpopProofJwt(String? nonce = null, String? htm = null, String? htu = null, String? accessToken = null)
         {
             return String.Empty;
         }

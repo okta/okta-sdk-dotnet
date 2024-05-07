@@ -57,7 +57,7 @@ namespace Okta.Sdk.Client
         /// Gets a DPoP JWT
         /// </summary>
         /// <returns>The DPoP JWT</returns>
-        string GetDPopProofJwt(String? nonce = null, String? httpMethod = null, String? uri = null, String? accessToken = null);
+        string GetDpopProofJwt(String? nonce = null, String? httpMethod = null, String? uri = null, String? accessToken = null);
     }
     #endregion IOAuthTokenProvider
     
@@ -114,7 +114,7 @@ namespace Okta.Sdk.Client
         }
 
         /// <inheritdoc cref="IOAuthTokenProvider"/>
-        public string GetDPopProofJwt(String? nonce = null, String? httpMethod = null, String? requestUri = null, String? accessToken = null)
+        public string GetDpopProofJwt(String? nonce = null, String? httpMethod = null, String? requestUri = null, String? accessToken = null)
         {
             return _defaultDpopJwtGenerator.GenerateJwt(nonce, httpMethod, requestUri, accessToken);
         }
@@ -216,7 +216,7 @@ namespace Okta.Sdk.Client
                 }
 
                 var uri = new Uri(new Uri(this.Configuration.OktaDomain, UriKind.Absolute), new Uri(requestUri, UriKind.RelativeOrAbsolute));
-                var dPopProofJwt = this.GetDPopProofJwt(accessToken: tokenResponse.AccessToken, requestUri: uri.AbsoluteUri, httpMethod: httpMethod);
+                var dPopProofJwt = this.GetDpopProofJwt(accessToken: tokenResponse.AccessToken, requestUri: uri.AbsoluteUri, httpMethod: httpMethod);
                 requestOptions.HeaderParameters.Add("DPoP", dPopProofJwt);
 
                 foreach (var oktaUserAgentExtended in requestOptions.HeaderParameters.Where(p => p.Key.Equals("x-okta-user-agent-extended", StringComparison.OrdinalIgnoreCase)).ToArray())

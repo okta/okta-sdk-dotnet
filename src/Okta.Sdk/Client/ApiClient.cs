@@ -613,7 +613,7 @@ namespace Okta.Sdk.Client
 
                 if (token.IsDpopBound)
                 {
-                    dpopJwt = _authTokenProvider.GetDPopProofJwt(httpMethod: request.Method.ToString(), uri: request.Resource, accessToken: token.AccessToken);
+                    dpopJwt = _authTokenProvider.GetDpopProofJwt(httpMethod: request.Method.ToString(), uri: request.Resource, accessToken: token.AccessToken);
                 }
             }
 

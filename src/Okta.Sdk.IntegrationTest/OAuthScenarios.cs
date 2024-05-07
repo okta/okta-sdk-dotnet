@@ -1056,9 +1056,9 @@ namespace Okta.Sdk.IntegrationTest
                 
             }
 
-            public string GetDPopProofJwt(String? nonce = null, String? htm = null, String? htu = null, String? accessToken = null)
+            public string GetDpopProofJwt(String? nonce = null, String? htm = null, String? htu = null, String? accessToken = null)
             {
-                return _defaulTokenProvider.GetDPopProofJwt(nonce, htm, htu, accessToken);
+                return _defaulTokenProvider.GetDpopProofJwt(nonce, htm, htu, accessToken);
             }
         }
     }
