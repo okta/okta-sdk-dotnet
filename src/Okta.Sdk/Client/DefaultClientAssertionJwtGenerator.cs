@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using Okta.Sdk.Abstractions.Configuration;
 
 
 namespace Okta.Sdk.Client
@@ -29,7 +28,7 @@ namespace Okta.Sdk.Client
         /// Generates a signed JWT using the private key provided in the configuration to obtain an access token.
         /// </summary>
         /// <returns>The generated signed JWT.</returns>
-        string GenerateJWT();
+        string GenerateJwt();
     }
     #endregion IClientAssertionJwtGenerator
 
@@ -86,7 +85,7 @@ namespace Okta.Sdk.Client
         }
 
         /// <inheritdoc/>
-        public string GenerateJWT()
+        public string GenerateJwt()
         {
             try
             {

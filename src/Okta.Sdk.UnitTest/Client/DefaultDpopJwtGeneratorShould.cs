@@ -28,7 +28,7 @@ namespace Okta.Sdk.UnitTest.Client
 
             var jwtGenerator = new DefaultDpopProofJwtGenerator(configuration);
 
-            var jwt = jwtGenerator.GenerateJWT();
+            var jwt = jwtGenerator.GenerateJwt();
             jwt.Should().NotBeNullOrEmpty();
 
             var decodedJWt = new JwtSecurityTokenHandler().ReadJwtToken(jwt);

@@ -10,15 +10,11 @@
 
 
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
-using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using Okta.Sdk.Client;
-using Okta.Sdk.Model;
 
 namespace Okta.Sdk.Api
 {
@@ -36,7 +32,6 @@ namespace Okta.Sdk.Api
         /// Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApplicationLayout</returns>
         System.Threading.Tasks.Task<OAuthTokenResponse> GetBearerTokenAsync(
@@ -49,7 +44,6 @@ namespace Okta.Sdk.Api
         /// Takes an Application name as an input parameter and retrieves the App Instance page Layout for that Application.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="appName"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApplicationLayout)</returns>
         System.Threading.Tasks.Task<ApiResponse<OAuthTokenResponse>> GetBearerTokenWithHttpInfoAsync(
@@ -73,8 +67,8 @@ namespace Okta.Sdk.Api
     public class OAuthApi : IOAuthApi
     {
         private Okta.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
-        private IClientAssertionJwtGenerator _clientAssertionJwtGenerator;
-        private IDpopProofJwtGenerator _dpopProofJwtGenerator;
+        private readonly IClientAssertionJwtGenerator _clientAssertionJwtGenerator;
+        private readonly IDpopProofJwtGenerator _dpopProofJwtGenerator;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthApi"/> class
@@ -177,10 +171,7 @@ namespace Okta.Sdk.Api
             var jwtSecurityToken = _clientAssertionJwtGenerator.GenerateJWT();
             var scopes = string.Join("+", Configuration.Scopes);
             var accessTokenUri = "/oauth2/v1/token";
-            //?grant_type=client_credentials
-            //&scope={scopes}
-            //&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-            //&client_assertion={jwtSecurityToken.ToString()}";
+            
             localVarRequestOptions.FormParameters.Add("grant_type", "client_credentials");
             localVarRequestOptions.FormParameters.Add("scope", scopes);
             localVarRequestOptions.FormParameters.Add("client_assertion_type", "urn:ietf:params:oauth:client-assertion-type:jwt-bearer");
@@ -198,7 +189,7 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
             
-            var dpopJwt = _dpopProofJwtGenerator.GenerateJWT();
+            var dpopJwt = _dpopProofJwtGenerator.GenerateJwt();
             localVarRequestOptions.HeaderParameters.Add("DPoP", dpopJwt);
             
             var localVarResponse = await this.AsynchronousClient.PostAsync<OAuthTokenResponse>(accessTokenUri.Trim(), localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
@@ -208,7 +199,7 @@ namespace Okta.Sdk.Api
                 && localVarResponse.Headers.TryGetValue("dpop-nonce", out var header))
             {
                 var nonce = header.FirstOrDefault();
-                dpopJwt = _dpopProofJwtGenerator.GenerateJWT(nonce);
+                dpopJwt = _dpopProofJwtGenerator.GenerateJwt(nonce);
                 jwtSecurityToken = _clientAssertionJwtGenerator.GenerateJWT();
                 
                 localVarRequestOptions.FormParameters.Remove("client_assertion");

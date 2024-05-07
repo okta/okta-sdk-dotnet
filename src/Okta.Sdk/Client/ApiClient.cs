@@ -523,7 +523,7 @@ namespace Okta.Sdk.Client
             
             if (policy != null)
             {
-                var policyResult = await policy.ExecuteAndCaptureAsync(action: (ctx) => ExecuteAsyncWithRetryHeaders(ctx, req, client, configuration), new Context()).ConfigureAwait(false);
+                var policyResult = await policy.ExecuteAndCaptureAsync(action: (ctx) => ExecuteAsyncWithRetryHeadersAsync(ctx, req, client, configuration, cancellationToken), new Context()).ConfigureAwait(false);
 
                 if (policyResult.Outcome == OutcomeType.Successful)
                 {
@@ -601,7 +601,7 @@ namespace Okta.Sdk.Client
             return result;
         }
         
-        internal async Task<RestResponse> ExecuteAsyncWithRetryHeaders(Context context, RestRequest request, RestClient client, IReadableConfiguration configuration, CancellationToken cancellationToken = default)
+        internal async Task<RestResponse> ExecuteAsyncWithRetryHeadersAsync(Context context, RestRequest request, RestClient client, IReadableConfiguration configuration, CancellationToken cancellationToken = default)
         {
             var is429Retry = DefaultRetryStrategy.TryAddRetryHeaders(context, request);
             string? dpopJwt = null;

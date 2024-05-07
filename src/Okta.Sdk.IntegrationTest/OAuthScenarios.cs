@@ -311,7 +311,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
-        [Fact(Skip = "Replication makes test flaky OKTA-710533")]
+        [Fact]
         public async Task GetUserWithAccessToken()
         {
             var guid = Guid.NewGuid();

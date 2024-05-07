@@ -10,19 +10,11 @@
 
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json.Linq;
 using Okta.Sdk.Api;
-using Okta.Sdk.Model;
 using Polly;
 using RestSharp;
 
@@ -143,7 +135,7 @@ namespace Okta.Sdk.Client
         /// <inheritdoc cref="IOAuthTokenProvider"/>
         public string GetDPopProofJwt(String? nonce = null, String? httpMethod = null, String? requestUri = null, String? accessToken = null)
         {
-            return _defaultDpopJwtGenerator.GenerateJWT(nonce, httpMethod, requestUri, accessToken);
+            return _defaultDpopJwtGenerator.GenerateJwt(nonce, httpMethod, requestUri, accessToken);
         }
 
         /// <summary>
@@ -277,7 +269,7 @@ namespace Okta.Sdk.Client
                 string requestUri = response.Result.Request.Parameters.Aggregate(response.Result.Request.Resource, (current, parameter) => current.Replace("{" + parameter.Name + "}", parameter.Value.ToString()));
                 var uri = new Uri(requestUri, UriKind.RelativeOrAbsolute);
                 
-                var dPopJwt = _defaultDpopJwtGenerator.GenerateJWT(
+                var dPopJwt = _defaultDpopJwtGenerator.GenerateJwt(
                     httpMethod: response.Result.Request.Method.ToString(), accessToken: tokenResponse.AccessToken,
                     uri: uri.AbsoluteUri);
 

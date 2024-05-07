@@ -25,7 +25,7 @@ namespace Okta.Sdk.Client
         /// <param name="accessToken">The access token</param>
         /// <returns>A DPoP Proof JWT</returns>
         /// <exception cref="InvalidOperationException"></exception>
-        string GenerateJWT(String? nonce = null, String? httpMethod = null, String? uri = null, String? accessToken = null);
+        string GenerateJwt(String? nonce = null, String? httpMethod = null, String? uri = null, String? accessToken = null);
     }
     public class DefaultDpopProofJwtGenerator : IDpopProofJwtGenerator 
     {
@@ -65,7 +65,7 @@ namespace Okta.Sdk.Client
         /// <param name="accessToken">The access token</param>
         /// <returns>A DPoP Proof JWT</returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public string GenerateJWT(String? nonce = null, String? httpMethod = null, String? uri = null, String? accessToken = null)
+        public string GenerateJwt(String? nonce = null, String? httpMethod = null, String? uri = null, String? accessToken = null)
         {
             try
             {
