@@ -440,7 +440,7 @@ namespace Okta.Sdk.IntegrationTest
      
 
         [Fact]
-        public async Task RetrieveAccessTokenWhenDPoPIsEnabled()
+        public async Task RetrieveAccessTokenWhenDpopIsEnabled()
         {
             var guid = Guid.NewGuid();
          
@@ -470,7 +470,7 @@ namespace Okta.Sdk.IntegrationTest
 
 
         [Fact]
-        public async Task ListUsersWithDPoPBoundAccessToken()
+        public async Task ListUsersWithDpopBoundAccessToken()
         {
             var guid = Guid.NewGuid();
 
@@ -505,7 +505,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact(Skip = "401 should be tested differently - invalid token gets a 403")]
-        public async Task ListUsersWithPaginationAndRetryWhenDPoPIsEnabled()
+        public async Task ListUsersWithPaginationAndRetryWhenDpopIsEnabled()
         {
             var guid = Guid.NewGuid();
 
@@ -1012,21 +1012,7 @@ namespace Okta.Sdk.IntegrationTest
             }
 
             public string TokenType => (_isDpop) ? "DPoP" : "Bearer";
-            public Task<string> GetAccessTokenAsync(bool forceRenew = false, CancellationToken cancellationToken = default)
-            {
-                
-                if (_counter == 0)
-                {
-                    _tokensQueue.Enqueue("invalidToken");
-                    _counter++;
-                    return Task.FromResult("invalidToken");
-                }
-
-                _counter++;
-                _tokensQueue.Enqueue("validToken");
-                return _defaulTokenProvider.GetAccessTokenAsync(forceRenew);
-            }
-
+          
             public async Task<OAuthTokenResponse> GetAccessTokenResponseAsync(bool forceRenew = false, CancellationToken cancellationToken = default)
             {
                 if (_counter == 0)

@@ -605,7 +605,7 @@ namespace Okta.Sdk.Client
         {
             var is429Retry = DefaultRetryStrategy.TryAddRetryHeaders(context, request);
             string? dpopJwt = null;
-            
+
             // If the client retries a request and DPoP is enabled, a new JWT should be generated
             if (is429Retry && Configuration.IsPrivateKeyMode(configuration))
             {
@@ -616,9 +616,8 @@ namespace Okta.Sdk.Client
                     dpopJwt = _authTokenProvider.GetDPopProofJwt(httpMethod: request.Method.ToString(), uri: request.Resource, accessToken: token.AccessToken);
                 }
             }
-    
+
             DefaultOAuthTokenProvider.AddOrUpdateAuthorizationHeader(context, request, dpopJwt);
-    
             return await client.ExecuteAsync(request);
         }
 

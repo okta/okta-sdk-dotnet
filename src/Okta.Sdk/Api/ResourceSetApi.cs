@@ -600,8 +600,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets/{resourceSetId}/bindings/{roleIdOrLabel}/members", "PATCH", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -695,8 +694,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets/{resourceSetId}/resources", "PATCH", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -781,8 +779,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets", "POST", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -876,8 +873,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets/{resourceSetId}/bindings", "POST", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -969,8 +965,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets/{resourceSetId}/bindings/{roleIdOrLabel}", "DELETE", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -1053,8 +1048,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets/{resourceSetId}", "DELETE", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -1146,8 +1140,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets/{resourceSetId}/resources/{resourceId}", "DELETE", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -1240,8 +1233,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets/{resourceSetId}/bindings/{roleIdOrLabel}", "GET", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -1343,8 +1335,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets/{resourceSetId}/bindings/{roleIdOrLabel}/members/{memberId}", "GET", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -1428,8 +1419,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets/{resourceSetId}", "GET", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -1519,8 +1509,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets/{resourceSetId}/bindings", "GET", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -1619,8 +1608,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets/{resourceSetId}/bindings/{roleIdOrLabel}/members", "GET", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -1704,8 +1692,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets/{resourceSetId}/resources", "GET", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -1786,8 +1773,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets", "GET", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -1881,8 +1867,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets/{resourceSetId}", "PUT", cancellationToken = default);
             }
 
             // make the HTTP request
@@ -1983,8 +1968,7 @@ namespace Okta.Sdk.Api
             
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/iam/resource-sets/{resourceSetId}/bindings/{roleIdOrLabel}/members/{memberId}", "DELETE", cancellationToken = default);
             }
 
             // make the HTTP request

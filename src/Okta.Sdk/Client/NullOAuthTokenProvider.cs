@@ -45,12 +45,6 @@ namespace Okta.Sdk.Client
             }
         }
 
-        /// <inheritdoc/>
-        public Task<string> GetAccessTokenAsync(bool forceRenew = false, CancellationToken cancellationToken = default)
-        {
-            return Task.FromResult<string>(null);
-        }
-
         public Task<OAuthTokenResponse> GetAccessTokenResponseAsync(bool forceRenew = false, CancellationToken cancellationToken = default)
         {
             return Task.FromResult<OAuthTokenResponse>(null);

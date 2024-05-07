@@ -33,14 +33,6 @@ namespace Okta.Sdk.Client
         /// </summary>
         /// <returns>The access token.</returns>
         /// <param name="forceRenew">The flag to indicate if the access token should be renewed.</param>
-        Task<string> GetAccessTokenAsync(bool forceRenew = false, CancellationToken cancellationToken = default);
-
-
-        /// <summary>
-        /// Gets an access token.
-        /// </summary>
-        /// <returns>The access token.</returns>
-        /// <param name="forceRenew">The flag to indicate if the access token should be renewed.</param>
         Task<OAuthTokenResponse> GetAccessTokenResponseAsync(bool forceRenew = false, CancellationToken cancellationToken = default);
 
 
@@ -91,17 +83,6 @@ namespace Okta.Sdk.Client
             Configuration = configuration;
             _defaultDpopJwtGenerator = new DefaultDpopProofJwtGenerator(configuration);
             _oauthApi = oAuthApi ?? new OAuthApi((Configuration)configuration, dpopProofJwtGenerator: _defaultDpopJwtGenerator);
-        }
-
-        /// <inheritdoc/>
-        public async Task<string> GetAccessTokenAsync(bool forceRenew = false, CancellationToken cancellationToken = default)
-        {
-            if (string.IsNullOrEmpty(_oAuthTokenResponse?.AccessToken) || forceRenew)
-            {
-                _oAuthTokenResponse = await RequestAccessTokenAsync(cancellationToken).ConfigureAwait(false);
-            }
-
-            return _oAuthTokenResponse.AccessToken;
         }
 
         /// <inheritdoc/>

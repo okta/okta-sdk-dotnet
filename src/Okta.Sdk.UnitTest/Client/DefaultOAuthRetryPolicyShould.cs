@@ -166,7 +166,7 @@ namespace Okta.Sdk.UnitTest.Client
         }
 
         [Fact]
-        public async Task UpdateTokenInRetryWhenDPoPIsEnabled()
+        public async Task UpdateTokenInRetryWhenDpopIsEnabled()
         {
             var globalRetry = 0;
             var request = new RestRequest(new Uri($"http://localhost/api/user/{globalRetry}"));

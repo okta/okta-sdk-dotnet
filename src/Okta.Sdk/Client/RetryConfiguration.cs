@@ -57,6 +57,12 @@ namespace Okta.Sdk.Client
             }
         }
 
+        /// <summary>
+        /// Add retry headers to the request if they are present in the context.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="request">The request.</param>
+        /// <returns>true if headers were added to the request, false otherwise.</returns>
         public static bool TryAddRetryHeaders(Context context, RestRequest request)
         {
             bool retryHeadersAdded = false;
@@ -75,8 +81,7 @@ namespace Okta.Sdk.Client
 
             return retryHeadersAdded;
         }
-
-
+        
         /// <summary>
         /// Gets the policy to be used for retrying requests.
         /// </summary>

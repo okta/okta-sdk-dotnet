@@ -168,7 +168,7 @@ namespace Okta.Sdk.Api
             };
 
             _dpopProofJwtGenerator.RotateKeys();
-            var jwtSecurityToken = _clientAssertionJwtGenerator.GenerateJWT();
+            var jwtSecurityToken = _clientAssertionJwtGenerator.GenerateJwt();
             var scopes = string.Join("+", Configuration.Scopes);
             var accessTokenUri = "/oauth2/v1/token";
             
@@ -200,7 +200,7 @@ namespace Okta.Sdk.Api
             {
                 var nonce = header.FirstOrDefault();
                 dpopJwt = _dpopProofJwtGenerator.GenerateJwt(nonce);
-                jwtSecurityToken = _clientAssertionJwtGenerator.GenerateJWT();
+                jwtSecurityToken = _clientAssertionJwtGenerator.GenerateJwt();
                 
                 localVarRequestOptions.FormParameters.Remove("client_assertion");
                 localVarRequestOptions.FormParameters.Add("client_assertion", jwtSecurityToken.ToString());
