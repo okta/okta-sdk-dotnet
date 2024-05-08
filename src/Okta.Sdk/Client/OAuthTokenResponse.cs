@@ -16,7 +16,7 @@ using Newtonsoft.Json;
 
 namespace Okta.Sdk.Client
 {
-    public class OAuthTokenResponse
+    public class OAuthTokenResponse : OAuthApiResponse
     {
         [JsonProperty("token_type")]
         public string TokenType { get; set; }
@@ -29,5 +29,7 @@ namespace Okta.Sdk.Client
 
         [JsonProperty("scope")]
         public string Scope { get; set; }
+
+        public bool IsDpopBound => TokenType.ToLower() == "dpop";
     }
 }

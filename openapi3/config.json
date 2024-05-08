@@ -16,6 +16,7 @@
     "gitHost": "github.com",
     "gitUserId" : "okta",
     "gitRepoId" : "okta-sdk-dotnet", 
+    "targetFramework" : "netstandard2.1",
     "globalProperties": {
         "apiTests": false,
         "modelTests": false,
@@ -52,6 +53,11 @@
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Api"
         },
+        "OAuthApiResponse.mustache":{
+            "destinationFilename": "OAuthApiResponse.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
         "OAuthTokenResponse.mustache":{
             "destinationFilename": "OAuthTokenResponse.cs",
             "templateType": "SupportingFiles",
@@ -63,7 +69,12 @@
             "folder": "/src/Okta.Sdk/Client"
         },
         "DefaultJwtGenerator.mustache":{
-            "destinationFilename": "DefaultJwtGenerator.cs",
+            "destinationFilename": "DefaultClientAssertionJwtGenerator.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "DefaultDpopProofJwtGenerator.mustache":{
+            "destinationFilename": "DefaultDpopProofJwtGenerator.cs",
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Client"
         },

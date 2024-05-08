@@ -523,7 +523,7 @@ namespace Okta.Sdk.Client
             
             if (policy != null)
             {
-                var policyResult = await policy.ExecuteAndCaptureAsync(action: (ctx) => ExecuteAsyncWithRetryHeaders(ctx, req, client), new Context()).ConfigureAwait(false);
+                var policyResult = await policy.ExecuteAndCaptureAsync(action: (ctx) => ExecuteAsyncWithRetryHeadersAsync(ctx, req, client, configuration, cancellationToken), new Context()).ConfigureAwait(false);
 
                 if (policyResult.Outcome == OutcomeType.Successful)
                 {
@@ -601,10 +601,23 @@ namespace Okta.Sdk.Client
             return result;
         }
         
-        private async Task<RestResponse> ExecuteAsyncWithRetryHeaders(Context context, RestRequest request, RestClient client)
+        internal async Task<RestResponse> ExecuteAsyncWithRetryHeadersAsync(Context context, RestRequest request, RestClient client, IReadableConfiguration configuration, CancellationToken cancellationToken = default)
         {
-            DefaultRetryStrategy.AddRetryHeaders(context, request);
-            DefaultOAuthTokenProvider.AddOrUpdateAuthorizationHeader(context, request);
+            var is429Retry = DefaultRetryStrategy.TryAddRetryHeaders(context, request);
+            string? dpopJwt = null;
+
+            // If the client retries a request and DPoP is enabled, a new JWT should be generated
+            if (is429Retry && Configuration.IsPrivateKeyMode(configuration))
+            {
+                var token = await _authTokenProvider.GetAccessTokenResponseAsync(cancellationToken: cancellationToken);
+
+                if (token.IsDpopBound)
+                {
+                    dpopJwt = _authTokenProvider.GetDpopProofJwt(httpMethod: request.Method.ToString(), uri: request.Resource, accessToken: token.AccessToken);
+                }
+            }
+
+            DefaultOAuthTokenProvider.AddOrUpdateAuthorizationHeader(context, request, dpopJwt);
             return await client.ExecuteAsync(request);
         }
 

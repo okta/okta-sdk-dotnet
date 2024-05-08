@@ -56,6 +56,31 @@ namespace Okta.Sdk.Client
                 request.AddOrUpdateHeader(XOktaRetryForHeader, context[XOktaRequestId].ToString());
             }
         }
+
+        /// <summary>
+        /// Add retry headers to the request if they are present in the context.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="request">The request.</param>
+        /// <returns>true if headers were added to the request, false otherwise.</returns>
+        public static bool TryAddRetryHeaders(Context context, RestRequest request)
+        {
+            bool retryHeadersAdded = false;
+
+            if (context.Keys.Contains(XOktaRetryCountHeader))
+            {
+                retryHeadersAdded = true;
+                request.AddOrUpdateHeader(XOktaRetryCountHeader, context[XOktaRetryCountHeader].ToString());
+            }
+
+            if (context.Keys.Contains(XOktaRequestId))
+            {
+                retryHeadersAdded = true;
+                request.AddOrUpdateHeader(XOktaRetryForHeader, context[XOktaRequestId].ToString());
+            }
+
+            return retryHeadersAdded;
+        }
         
         /// <summary>
         /// Gets the policy to be used for retrying requests.

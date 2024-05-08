@@ -948,7 +948,8 @@ src/Okta.Sdk/Client/ApiResponse.cs
 src/Okta.Sdk/Client/AuthorizationMode.cs
 src/Okta.Sdk/Client/ClientUtils.cs
 src/Okta.Sdk/Client/Configuration.cs
-src/Okta.Sdk/Client/DefaultJwtGenerator.cs
+src/Okta.Sdk/Client/DefaultClientAssertionJwtGenerator.cs
+src/Okta.Sdk/Client/DefaultDpopProofJwtGenerator.cs
 src/Okta.Sdk/Client/DefaultOAuthTokenProvider.cs
 src/Okta.Sdk/Client/ExceptionFactory.cs
 src/Okta.Sdk/Client/GlobalConfiguration.cs
@@ -959,6 +960,7 @@ src/Okta.Sdk/Client/IReadableConfiguration.cs
 src/Okta.Sdk/Client/JsonWebKeyConfiguration.cs
 src/Okta.Sdk/Client/Multimap.cs
 src/Okta.Sdk/Client/NullOAuthTokenProvider.cs
+src/Okta.Sdk/Client/OAuthApiResponse.cs
 src/Okta.Sdk/Client/OAuthTokenResponse.cs
 src/Okta.Sdk/Client/OktaCollectionAsyncEnumerator.cs
 src/Okta.Sdk/Client/OktaCollectionClient.cs

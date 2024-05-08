@@ -361,8 +361,7 @@ namespace {{packageName}}.{{apiPackage}}
             {{^isArray}}
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"{{{path}}}", "{{{httpMethod}}}", cancellationToken = default);
             }
             
             {{/isArray}}
@@ -576,8 +575,7 @@ namespace {{packageName}}.{{apiPackage}}
             {{^isArray}}
             if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                var token = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: cancellationToken);
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"{{{path}}}", "{{{httpMethod}}}", cancellationToken = default);
             }
             {{/isArray}}
             {{/isOAuth}}
