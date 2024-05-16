@@ -2,6 +2,62 @@
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/). In short, we don't make breaking changes unless the major version changes!
 
+## Migrating from 7.x to 8.x
+
+We have upgraded the Okta OpenAPI specifications which caused a few breaking changes due to schema changes and bug fixes in the spec.
+
+### Identity Provider breaking changes
+
+`IdentityProvider.Links` now returns an instance of `IdentityProviderLinks` class instead of `HrefObjectSelfLink`. The `IdentityProviderLinks` provides several predefined properties that were missing in 7.x; you can also access not-predefined properties via `additionalProperties`:
+
+_Before_
+
+```csharp
+var selfLinkHref = idp.Links.Href;
+```
+_Now_
+
+
+```csharp
+var selfLink = idp.Links.Self.Href;
+```
+The following assertions showcase what other properties are accessible via `Links`, and what they look like:
+
+```csharp
+idp.Links.Metadata.Href.Should().Be("https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/metadata.xml");
+idp.Links.Metadata.Hints.Allow.Any(x => x == HttpMethod.GET).Should().BeTrue();
+idp.Links.Metadata.Type.Should().Be("application/xml");
+
+idp.Links.Acs.Href.Should().Be("https://{yourOktaDomain}/sso/saml2/0oa1k5d68qR2954hb0g4");
+idp.Links.Acs.Hints.Allow.Any(x => x == HttpMethod.POST).Should().BeTrue();
+idp.Links.Acs.Type.Should().Be("application/xml");
+
+idp.Links.Users.Href.Should().Be("https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/users");
+idp.Links.Users.Hints.Allow.Any(x => x == HttpMethod.GET).Should().BeTrue();
+
+idp.Links.Activate.Href.Should().Be("https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/lifecycle/activate");
+idp.Links.Activate.Hints.Allow.Any(x => x == HttpMethod.POST).Should().BeTrue();
+
+idp.Links.Deactivate.Href.Should().Be("https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/lifecycle/deactivate");
+idp.Links.Deactivate.Hints.Allow.Any(x => x == HttpMethod.POST).Should().BeTrue();
+
+idp.Links.Authorize.Href.Should().Be("https://testorg.com/oauth2/v1/authorize?idp=foo");
+idp.Links.Authorize.Hints.Allow.Any(x => x == HttpMethod.GET).Should().BeTrue();
+idp.Links.Authorize.Templated.Should().BeTrue();
+
+idp.Links.ClientRedirectUri.Href.Should().Be("https://testorg.com/oauth2/v1/authorize/callback");
+idp.Links.ClientRedirectUri.Hints.Allow.Any(x => x == HttpMethod.POST).Should().BeTrue();
+```
+
+To access non-predefined links you can check the `AdditionalProperties` property:
+
+```csharp
+var undefinedLink = (JObject)idp.Links.AdditionalProperties["undefinedLink"];
+var href = undefinedLink["href"].ToString();
+```
+
+
+
 ## Migrating from 6.x to 7.x
 
 ### RestSharp upgraded to 110.2.0
