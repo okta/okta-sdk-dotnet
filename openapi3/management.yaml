@@ -31764,8 +31764,10 @@ components:
           $ref: '#/components/schemas/UserSchemaAttributeMaster'
         maxLength:
           type: integer
+          nullable: true
         minLength:
           type: integer
+          nullable: true
         mutability:
           type: string
         oneOf:
