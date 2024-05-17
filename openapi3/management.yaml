@@ -26066,7 +26066,7 @@ components:
           description: The media type of the link. If omitted, it is implicitly `application/json`.
         templated:
           type: boolean
-          description: Indicates wether the Link Object's "href" property is a URI Template.
+          description: Indicates whether the Link Object's "href" property is a URI Template.
       required:
         - href
       readOnly: true

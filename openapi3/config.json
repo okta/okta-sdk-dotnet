@@ -16,7 +16,7 @@
     "gitHost": "github.com",
     "gitUserId" : "okta",
     "gitRepoId" : "okta-sdk-dotnet", 
-    "targetFramework" : "netstandard2.1",
+    "targetFramework" : "netstandard2.0",
     "globalProperties": {
         "apiTests": false,
         "modelTests": false,

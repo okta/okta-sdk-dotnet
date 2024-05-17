@@ -67,9 +67,9 @@ namespace Okta.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Indicates whether the Link Object&#39;s \&quot;href\&quot; property is a URI template.
+        /// Indicates whether the Link Object&#39;s \&quot;href\&quot; property is a URI Template.
         /// </summary>
-        /// <value>Indicates whether the Link Object&#39;s \&quot;href\&quot; property is a URI template.</value>
+        /// <value>Indicates whether the Link Object&#39;s \&quot;href\&quot; property is a URI Template.</value>
         [DataMember(Name = "templated", EmitDefaultValue = true)]
         public bool Templated { get; set; }
 

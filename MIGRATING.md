@@ -8,15 +8,16 @@ We have upgraded the Okta OpenAPI specifications which caused a few breaking cha
 
 ### Identity Provider breaking changes
 
-`IdentityProvider.Links` now returns an instance of `IdentityProviderLinks` class instead of `HrefObjectSelfLink`. The `IdentityProviderLinks` provides several predefined properties that were missing in 7.x; you can also access not-predefined properties via `additionalProperties`:
+`IdentityProvider.Links` now returns an instance of `IdentityProviderLinks` class instead of `LinksSelf`. The `IdentityProviderLinks` provides several predefined properties that were missing in 7.x; you can also access not-predefined properties via `additionalProperties`:
 
 _Before_
 
 ```csharp
-var selfLinkHref = idp.Links.Href;
+var selfLinkHref = idp.Links.Self.Href;
 ```
 _Now_
 
+Get the `Self` link is the same as before:
 
 ```csharp
 var selfLink = idp.Links.Self.Href;
@@ -56,7 +57,27 @@ var undefinedLink = (JObject)idp.Links.AdditionalProperties["undefinedLink"];
 var href = undefinedLink["href"].ToString();
 ```
 
+> Note: This change fixed #700
 
+### User Schema breaking changes
+
+`UserSchemaAttribute.MinLength` and  `UserSchemaAttribute.MaxLength` are now `int?` instead of `int`.
+
+> Note: This change fixed #713.
+
+### OAuth 2.0 DPoP breaking changes
+
+Adding support for DPoP required a few breaking changes to make the code clearer.
+
+* The `IJwtGenerator` interface was replaced by `IClientAssertionJwtGenerator`
+* The `IOAuthTokenProvider` has been updated with the following changes and the default implementation has been adapted:
+    -  The `Task<string> GetAccessTokenAsync(bool forceRenew = false, CancellationToken cancellationToken = default);` method has been replaced by `Task<OAuthTokenResponse> GetAccessTokenResponseAsync(bool forceRenew = false, CancellationToken cancellationToken = default);`
+    - It now exposes `Task AddOrUpdateAuthorizationHeader(RequestOptions requestOptions string requestUri, string httpMethod, CancellationToken cancellationToken = default);` and `string GetDpopProofJwt(String? nonce = null, String? httpMethod = null, String? uri = null, String? accessToken = null);` methods
+* The `OAuthApi` constructors have been updated with the following changes:
+    - The `public OAuthApi(Okta.Sdk.Client.Configuration configuration = null, IJwtGenerator jwtGenerator = null)` constructor has been replaced by `public OAuthApi(Okta.Sdk.Client.Configuration configuration = null, IClientAssertionJwtGenerator clientAssertionJwtGenerator = null, IDpopProofJwtGenerator dpopProofJwtGenerator = null)`
+    - The ` public OAuthApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration, IJwtGenerator jwtGenerator)` constructor has been replaced by `public OAuthApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration, IClientAssertionJwtGenerator clientAssertionJwtGenerator, IDpopProofJwtGenerator dpopProofJwtGenerator)`
+
+If you have your own implementations of the updated interfaces, you will have to make the corresponding changes and implement the new exposed methods. You can check the `DefaultOAuthTokenProvider` and `DefaultClientAssertionJwtGenerator` classes for more details on how to implement the new/updated interfaces.
 
 ## Migrating from 6.x to 7.x
 
