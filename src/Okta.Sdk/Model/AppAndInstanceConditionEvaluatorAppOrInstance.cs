@@ -46,7 +46,7 @@ namespace Okta.Sdk.Model
         /// </summary>
         /// <value>ID of the app</value>
         [DataMember(Name = "id", EmitDefaultValue = true)]
-        public string Id { get; private set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Returns false as Id should not be serialized given that it's read-only.
