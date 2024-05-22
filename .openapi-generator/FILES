@@ -596,7 +596,6 @@ docs/PolicyAccountLinkAction.md
 docs/PolicyAccountLinkFilter.md
 docs/PolicyAccountLinkFilterGroups.md
 docs/PolicyApi.md
-docs/PolicyCanBeCreatedOrReplaced.md
 docs/PolicyContext.md
 docs/PolicyContextDevice.md
 docs/PolicyContextGroups.md
@@ -1533,7 +1532,6 @@ src/Okta.Sdk/Model/PolicyAccountLink.cs
 src/Okta.Sdk/Model/PolicyAccountLinkAction.cs
 src/Okta.Sdk/Model/PolicyAccountLinkFilter.cs
 src/Okta.Sdk/Model/PolicyAccountLinkFilterGroups.cs
-src/Okta.Sdk/Model/PolicyCanBeCreatedOrReplaced.cs
 src/Okta.Sdk/Model/PolicyContext.cs
 src/Okta.Sdk/Model/PolicyContextDevice.cs
 src/Okta.Sdk/Model/PolicyContextGroups.cs
@@ -1798,6 +1796,4 @@ src/Okta.Sdk/Model/WellKnownOrgMetadataSettings.cs
 src/Okta.Sdk/Model/WsFederationApplication.cs
 src/Okta.Sdk/Model/WsFederationApplicationSettings.cs
 src/Okta.Sdk/Model/WsFederationApplicationSettingsApplication.cs
-src/Okta.Sdk/Obsolete/IdentityProviderPolicy.cs
-src/Okta.Sdk/Obsolete/PolicyApi.cs
 src/Okta.Sdk/Okta.Sdk.csproj

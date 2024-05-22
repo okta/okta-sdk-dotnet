@@ -79,6 +79,39 @@ Adding support for DPoP required a few breaking changes to make the code clearer
 
 If you have your own implementations of the updated interfaces, you will have to make the corresponding changes and implement the new exposed methods. You can check the `DefaultOAuthTokenProvider` and `DefaultClientAssertionJwtGenerator` classes for more details on how to implement the new/updated interfaces.
 
+### Policy API breaking changes
+
+The Okta Engineering team decided to rollback the latest changes in the Policy OpenAPI specification which were released in v7.0.6, hence the schema `PolicyCanBeCreatedOrReplaced` has been removed and all the methods that received and returned an instance of `PolicyCanBeCreatedOrReplaced` will now receive or return a instance of `Policy`. The obsolete tag has been removed from the corresponding methods.
+
+_Before in v7.0.6_
+
+```csharp
+System.Threading.Tasks.Task<PolicyCanBeCreatedOrReplaced> CreatePolicyAsync(  PolicyCanBeCreatedOrReplaced policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+System.Threading.Tasks.Task<ApiResponse<PolicyCanBeCreatedOrReplaced>> CreatePolicyWithHttpInfoAsync(  PolicyCanBeCreatedOrReplaced policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+System.Threading.Tasks.Task<Policy> ReplacePolicyAsync(string policyId, Policy policy, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+System.Threading.Tasks.Task<ApiResponse<Policy>> ReplacePolicyWithHttpInfoAsync(string policyId, Policy policy, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+```
+_Now_
+
+> Note: The obsolete tag has been removed for the following methods.
+
+```csharp
+System.Threading.Tasks.Task<Policy> CreatePolicyAsync(Policy policy, bool? activate = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+System.Threading.Tasks.Task<ApiResponse<Policy>> CreatePolicyWithHttpInfoAsync(Policy policy, bool? activate = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+System.Threading.Tasks.Task<Policy> ReplacePolicyAsync(string policyId, Policy policy, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+System.Threading.Tasks.Task<ApiResponse<Policy>> ReplacePolicyWithHttpInfoAsync(string policyId, Policy policy, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+```
+
+### Identity Provider Policy breaking changes
+
+Obsolete methods and relations have been removed for the `IdentityProviderPolicy` schema, which no longer inherits from Policy.
+
 ## Migrating from 6.x to 7.x
 
 ### RestSharp upgraded to 110.2.0

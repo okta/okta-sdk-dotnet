@@ -35,7 +35,7 @@ namespace Okta.Sdk.IntegrationTest
         public async Task CreateSignOnPolicy()
         {
             
-            var policy = new PolicyCanBeCreatedOrReplaced()
+            var policy = new Policy()
             {
                 // Name has a maximum of 50 chars
                 Name = $"dotnet-sdk: CreateSignOnPolicy {Guid.NewGuid()}".Substring(0, 50),
@@ -63,7 +63,7 @@ namespace Okta.Sdk.IntegrationTest
         [Fact]
         public async Task CreateProfileEnrollmentPolicy()
         {
-            var policy = new PolicyCanBeCreatedOrReplaced()
+            var policy = new Policy()
             {
                 // Name has a maximum of 50 chars
                 Name = $"dotnet-sdk: ProfileEnrollmentPolicy {Guid.NewGuid()}".Substring(0, 50),
@@ -91,7 +91,7 @@ namespace Okta.Sdk.IntegrationTest
         [Fact]
         public async Task GetPolicy()
         {
-            var policy = new PolicyCanBeCreatedOrReplaced()
+            var policy = new Policy()
             {
                 // Name has a maximum of 50 chars
                 Name = $"dotnet-sdk: GetPolicy {Guid.NewGuid()}".Substring(0, 50),
@@ -123,7 +123,7 @@ namespace Okta.Sdk.IntegrationTest
         {
             var guid = Guid.NewGuid();
 
-            var policy = new PolicyCanBeCreatedOrReplaced()
+            var policy = new Policy()
             {
                 // Name has a maximum of 50 chars
                 Name = $"dotnet-sdk: GetPolicyOfType {guid}".Substring(0, 50),
@@ -685,7 +685,7 @@ namespace Okta.Sdk.IntegrationTest
         [Fact(Skip = "OKTA-698596")]
         public async Task CreateProfileEnrollmentPolicyRule()
         {
-            var policy = new PolicyCanBeCreatedOrReplaced()
+            var policy = new Policy()
             {
                 // Name has a maximum of 50 chars
                 Name = $"dotnet-sdk: ProfileEnrollmentPolicy {Guid.NewGuid()}".Substring(0, 50),

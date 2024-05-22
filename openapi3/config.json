@@ -112,16 +112,6 @@
             "destinationFilename": "StringEnumSerializingConverter.cs",
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Model"
-        },
-        "ObsoleteIdentityProviderPolicy.mustache":{
-            "destinationFilename": "IdentityProviderPolicy.cs",
-            "templateType": "SupportingFiles",
-            "folder": "/src/Okta.Sdk/Obsolete"
-        },
-        "ObsoletePolicyApi.mustache":{
-            "destinationFilename": "PolicyApi.cs",
-            "templateType": "SupportingFiles",
-            "folder": "/src/Okta.Sdk/Obsolete"
         }
     }
 }

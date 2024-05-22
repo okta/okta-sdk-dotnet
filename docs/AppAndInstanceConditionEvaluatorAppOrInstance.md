@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | ID of the app | [optional] [readonly] 
+**Id** | **string** | ID of the app | [optional] 
 **Name** | **string** | Name of the app type | [optional] 
 **Type** | **AppAndInstanceType** |  | [optional] 
 

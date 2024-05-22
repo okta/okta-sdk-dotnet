@@ -12220,7 +12220,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PolicyCanBeCreatedOrReplaced'
+              $ref: '#/components/schemas/Policy'
         required: true
       responses:
         '200':
@@ -12228,7 +12228,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PolicyCanBeCreatedOrReplaced'
+                $ref: '#/components/schemas/Policy'
         '400':
           $ref: '#/components/responses/ErrorApiValidationFailed400'
         '403':
@@ -12282,7 +12282,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PolicyCanBeCreatedOrReplaced'
+              $ref: '#/components/schemas/Policy'
         required: true
       responses:
         '200':
@@ -12290,7 +12290,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PolicyCanBeCreatedOrReplaced'
+                $ref: '#/components/schemas/Policy'
         '400':
           $ref: '#/components/responses/ErrorApiValidationFailed400'
         '403':
@@ -22711,7 +22711,7 @@ components:
         id:
           type: string
           description: ID of the app
-          readOnly: true
+          readOnly: false
         name:
           type: string
           description: Name of the app type
@@ -28783,55 +28783,6 @@ components:
         mapping:
           ACCESS_POLICY: '#/components/schemas/AccessPolicy'
           IDP_DISCOVERY: '#/components/schemas/IdpDiscoveryPolicy'
-          MFA_ENROLL: '#/components/schemas/MultifactorEnrollmentPolicy'
-          OKTA_SIGN_ON: '#/components/schemas/OktaSignOnPolicy'
-          PASSWORD: '#/components/schemas/PasswordPolicy'
-          PROFILE_ENROLLMENT: '#/components/schemas/ProfileEnrollmentPolicy'
-    PolicyCanBeCreatedOrReplaced:
-      type: object
-      properties:
-        created:
-          description: Timestamp when the Policy was created
-          type: string
-          format: date-time
-          readOnly: true
-        description:
-          description: Policy description
-          type: string
-        id:
-          description: Policy ID
-          type: string
-          readOnly: true
-        lastUpdated:
-          description: Timestamp when the Policy was last updated
-          type: string
-          format: date-time
-          readOnly: true
-        name:
-          description: Policy name
-          type: string
-        priority:
-          description: Specifies the order in which this Policy is evaluated in relation to the other policies
-          type: integer
-        status:
-          $ref: '#/components/schemas/LifecycleStatus'
-        system:
-          description: Specifies whether Okta created the Policy
-          type: boolean
-        type:
-          $ref: '#/components/schemas/PolicyType'
-        _embedded:
-          type: object
-          additionalProperties:
-            type: object
-            properties: {}
-          readOnly: true
-        _links:
-          $ref: '#/components/schemas/LinksSelf'
-      discriminator:
-        propertyName: type
-        mapping:
-          ACCESS_POLICY: '#/components/schemas/AccessPolicy'
           MFA_ENROLL: '#/components/schemas/MultifactorEnrollmentPolicy'
           OKTA_SIGN_ON: '#/components/schemas/OktaSignOnPolicy'
           PASSWORD: '#/components/schemas/PasswordPolicy'
