@@ -6,7 +6,7 @@
     "packageName" : "Okta.Sdk",
     "outputDir" : "../",
     "inputSpec" : "./management.yaml", 
-    "packageVersion" : "7.0.6",
+    "packageVersion" : "8.0.0",
     "packageDescription" : "Official .NET SDK for the Okta API",
     "packageTitle" : "Official .NET SDK for the Okta API",
     "packageCompany" : "Okta, Inc.",
@@ -16,7 +16,7 @@
     "gitHost": "github.com",
     "gitUserId" : "okta",
     "gitRepoId" : "okta-sdk-dotnet", 
-    "targetFramework" : "netstandard2.1",
+    "targetFramework" : "netstandard2.0",
     "globalProperties": {
         "apiTests": false,
         "modelTests": false,
@@ -112,16 +112,6 @@
             "destinationFilename": "StringEnumSerializingConverter.cs",
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Model"
-        },
-        "ObsoleteIdentityProviderPolicy.mustache":{
-            "destinationFilename": "IdentityProviderPolicy.cs",
-            "templateType": "SupportingFiles",
-            "folder": "/src/Okta.Sdk/Obsolete"
-        },
-        "ObsoletePolicyApi.mustache":{
-            "destinationFilename": "PolicyApi.cs",
-            "templateType": "SupportingFiles",
-            "folder": "/src/Okta.Sdk/Obsolete"
         }
     }
 }

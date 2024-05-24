@@ -123,7 +123,7 @@ namespace Okta.Sdk.IntegrationTest
         {
             var guid = Guid.NewGuid();
 
-            var policy = new OktaSignOnPolicy()
+            var policy = new Policy()
             {
                 // Name has a maximum of 50 chars
                 Name = $"dotnet-sdk: GetPolicyOfType {guid}".Substring(0, 50),
