@@ -6,7 +6,7 @@
     "packageName" : "Okta.Sdk",
     "outputDir" : "../",
     "inputSpec" : "./management.yaml", 
-    "packageVersion" : "7.0.6",
+    "packageVersion" : "8.0.0",
     "packageDescription" : "Official .NET SDK for the Okta API",
     "packageTitle" : "Official .NET SDK for the Okta API",
     "packageCompany" : "Okta, Inc.",
@@ -16,6 +16,7 @@
     "gitHost": "github.com",
     "gitUserId" : "okta",
     "gitRepoId" : "okta-sdk-dotnet", 
+    "targetFramework" : "netstandard2.0",
     "globalProperties": {
         "apiTests": false,
         "modelTests": false,
@@ -52,6 +53,11 @@
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Api"
         },
+        "OAuthApiResponse.mustache":{
+            "destinationFilename": "OAuthApiResponse.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
         "OAuthTokenResponse.mustache":{
             "destinationFilename": "OAuthTokenResponse.cs",
             "templateType": "SupportingFiles",
@@ -63,7 +69,12 @@
             "folder": "/src/Okta.Sdk/Client"
         },
         "DefaultJwtGenerator.mustache":{
-            "destinationFilename": "DefaultJwtGenerator.cs",
+            "destinationFilename": "DefaultClientAssertionJwtGenerator.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "DefaultDpopProofJwtGenerator.mustache":{
+            "destinationFilename": "DefaultDpopProofJwtGenerator.cs",
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Client"
         },
@@ -101,16 +112,6 @@
             "destinationFilename": "StringEnumSerializingConverter.cs",
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Model"
-        },
-        "ObsoletePolicyApi.mustache":{
-            "destinationFilename": "PolicyApi.cs",
-            "templateType": "SupportingFiles",
-            "folder": "/src/Okta.Sdk/Obsolete"
-        },
-        "ObsoleteIdentityProviderPolicy.mustache":{
-            "destinationFilename": "IdentityProviderPolicy.cs",
-            "templateType": "SupportingFiles",
-            "folder": "/src/Okta.Sdk/Obsolete"
         }
     }
 }

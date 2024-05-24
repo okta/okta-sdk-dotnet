@@ -352,6 +352,15 @@ docs/IdentityProviderCredentialsClient.md
 docs/IdentityProviderCredentialsSigning.md
 docs/IdentityProviderCredentialsTrust.md
 docs/IdentityProviderCredentialsTrustRevocation.md
+docs/IdentityProviderLinks.md
+docs/IdentityProviderLinksAllOfAcs.md
+docs/IdentityProviderLinksAllOfActivate.md
+docs/IdentityProviderLinksAllOfAuthorize.md
+docs/IdentityProviderLinksAllOfClientRedirectUri.md
+docs/IdentityProviderLinksAllOfDeactivate.md
+docs/IdentityProviderLinksAllOfKeys.md
+docs/IdentityProviderLinksAllOfMetadata.md
+docs/IdentityProviderLinksAllOfUsers.md
 docs/IdentityProviderPolicy.md
 docs/IdentityProviderPolicyProvider.md
 docs/IdentityProviderPolicyRuleCondition.md
@@ -587,7 +596,6 @@ docs/PolicyAccountLinkAction.md
 docs/PolicyAccountLinkFilter.md
 docs/PolicyAccountLinkFilterGroups.md
 docs/PolicyApi.md
-docs/PolicyCanBeCreatedOrReplaced.md
 docs/PolicyContext.md
 docs/PolicyContextDevice.md
 docs/PolicyContextGroups.md
@@ -939,7 +947,8 @@ src/Okta.Sdk/Client/ApiResponse.cs
 src/Okta.Sdk/Client/AuthorizationMode.cs
 src/Okta.Sdk/Client/ClientUtils.cs
 src/Okta.Sdk/Client/Configuration.cs
-src/Okta.Sdk/Client/DefaultJwtGenerator.cs
+src/Okta.Sdk/Client/DefaultClientAssertionJwtGenerator.cs
+src/Okta.Sdk/Client/DefaultDpopProofJwtGenerator.cs
 src/Okta.Sdk/Client/DefaultOAuthTokenProvider.cs
 src/Okta.Sdk/Client/ExceptionFactory.cs
 src/Okta.Sdk/Client/GlobalConfiguration.cs
@@ -950,6 +959,7 @@ src/Okta.Sdk/Client/IReadableConfiguration.cs
 src/Okta.Sdk/Client/JsonWebKeyConfiguration.cs
 src/Okta.Sdk/Client/Multimap.cs
 src/Okta.Sdk/Client/NullOAuthTokenProvider.cs
+src/Okta.Sdk/Client/OAuthApiResponse.cs
 src/Okta.Sdk/Client/OAuthTokenResponse.cs
 src/Okta.Sdk/Client/OktaCollectionAsyncEnumerator.cs
 src/Okta.Sdk/Client/OktaCollectionClient.cs
@@ -1285,6 +1295,15 @@ src/Okta.Sdk/Model/IdentityProviderCredentialsClient.cs
 src/Okta.Sdk/Model/IdentityProviderCredentialsSigning.cs
 src/Okta.Sdk/Model/IdentityProviderCredentialsTrust.cs
 src/Okta.Sdk/Model/IdentityProviderCredentialsTrustRevocation.cs
+src/Okta.Sdk/Model/IdentityProviderLinks.cs
+src/Okta.Sdk/Model/IdentityProviderLinksAllOfAcs.cs
+src/Okta.Sdk/Model/IdentityProviderLinksAllOfActivate.cs
+src/Okta.Sdk/Model/IdentityProviderLinksAllOfAuthorize.cs
+src/Okta.Sdk/Model/IdentityProviderLinksAllOfClientRedirectUri.cs
+src/Okta.Sdk/Model/IdentityProviderLinksAllOfDeactivate.cs
+src/Okta.Sdk/Model/IdentityProviderLinksAllOfKeys.cs
+src/Okta.Sdk/Model/IdentityProviderLinksAllOfMetadata.cs
+src/Okta.Sdk/Model/IdentityProviderLinksAllOfUsers.cs
 src/Okta.Sdk/Model/IdentityProviderPolicy.cs
 src/Okta.Sdk/Model/IdentityProviderPolicyProvider.cs
 src/Okta.Sdk/Model/IdentityProviderPolicyRuleCondition.cs
@@ -1513,7 +1532,6 @@ src/Okta.Sdk/Model/PolicyAccountLink.cs
 src/Okta.Sdk/Model/PolicyAccountLinkAction.cs
 src/Okta.Sdk/Model/PolicyAccountLinkFilter.cs
 src/Okta.Sdk/Model/PolicyAccountLinkFilterGroups.cs
-src/Okta.Sdk/Model/PolicyCanBeCreatedOrReplaced.cs
 src/Okta.Sdk/Model/PolicyContext.cs
 src/Okta.Sdk/Model/PolicyContextDevice.cs
 src/Okta.Sdk/Model/PolicyContextGroups.cs
@@ -1778,6 +1796,4 @@ src/Okta.Sdk/Model/WellKnownOrgMetadataSettings.cs
 src/Okta.Sdk/Model/WsFederationApplication.cs
 src/Okta.Sdk/Model/WsFederationApplicationSettings.cs
 src/Okta.Sdk/Model/WsFederationApplicationSettingsApplication.cs
-src/Okta.Sdk/Obsolete/IdentityProviderPolicy.cs
-src/Okta.Sdk/Obsolete/PolicyApi.cs
 src/Okta.Sdk/Okta.Sdk.csproj

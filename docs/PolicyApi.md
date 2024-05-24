@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 <a name="createpolicy"></a>
 # **CreatePolicy**
-> PolicyCanBeCreatedOrReplaced CreatePolicy (PolicyCanBeCreatedOrReplaced policy, bool? activate = null)
+> Policy CreatePolicy (Policy policy, bool? activate = null)
 
 Create a Policy
 
@@ -295,13 +295,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policy = new PolicyCanBeCreatedOrReplaced(); // PolicyCanBeCreatedOrReplaced | 
+            var policy = new Policy(); // Policy | 
             var activate = true;  // bool? |  (optional)  (default to true)
 
             try
             {
                 // Create a Policy
-                PolicyCanBeCreatedOrReplaced result = apiInstance.CreatePolicy(policy, activate);
+                Policy result = apiInstance.CreatePolicy(policy, activate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -319,12 +319,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policy** | [**PolicyCanBeCreatedOrReplaced**](PolicyCanBeCreatedOrReplaced.md)|  | 
+ **policy** | [**Policy**](Policy.md)|  | 
  **activate** | **bool?**|  | [optional] [default to true]
 
 ### Return type
 
-[**PolicyCanBeCreatedOrReplaced**](PolicyCanBeCreatedOrReplaced.md)
+[**Policy**](Policy.md)
 
 ### Authorization
 
@@ -1551,7 +1551,7 @@ Name | Type | Description  | Notes
 
 <a name="replacepolicy"></a>
 # **ReplacePolicy**
-> PolicyCanBeCreatedOrReplaced ReplacePolicy (string policyId, PolicyCanBeCreatedOrReplaced policy)
+> Policy ReplacePolicy (string policyId, Policy policy)
 
 Replace a Policy
 
@@ -1580,12 +1580,12 @@ namespace Example
 
             var apiInstance = new PolicyApi(config);
             var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
-            var policy = new PolicyCanBeCreatedOrReplaced(); // PolicyCanBeCreatedOrReplaced | 
+            var policy = new Policy(); // Policy | 
 
             try
             {
                 // Replace a Policy
-                PolicyCanBeCreatedOrReplaced result = apiInstance.ReplacePolicy(policyId, policy);
+                Policy result = apiInstance.ReplacePolicy(policyId, policy);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1604,11 +1604,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **policyId** | **string**| &#x60;id&#x60; of the Policy | 
- **policy** | [**PolicyCanBeCreatedOrReplaced**](PolicyCanBeCreatedOrReplaced.md)|  | 
+ **policy** | [**Policy**](Policy.md)|  | 
 
 ### Return type
 
-[**PolicyCanBeCreatedOrReplaced**](PolicyCanBeCreatedOrReplaced.md)
+[**Policy**](Policy.md)
 
 ### Authorization
 

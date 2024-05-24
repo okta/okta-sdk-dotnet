@@ -14,10 +14,12 @@ using System.Net;
 using Xunit;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Newtonsoft.Json.Linq;
 using Okta.Sdk.UnitTest.Internal;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
+using HttpMethod = Okta.Sdk.Model.HttpMethod;
 
 // uncomment below to import models
 //using Org.OpenAPITools.Model;
@@ -250,6 +252,184 @@ namespace Okta.Sdk.UnitTest
             var expectedBody = $"{{\"type\":\"CUSTOM TYPE IDP\",\"name\":\"dotnet-sdk:Custom Idp\"}}";
             mockClient.ReceivedPath.Should().StartWith("/api/v1/idps");
             mockClient.ReceivedBody.Should().Be(expectedBody);
+        }
+
+        [Fact]
+        public async Task GetIdentityProviderLinks()
+        {
+            var rawResponse = @"{
+                                  ""id"": ""0oadzrxo31w9QZTVF1d7"",
+                                  ""issuerMode"": ""DYNAMIC"",
+                                  ""name"": ""dotnet-sdk:GetIdp2024-04-12 8:42:11 PM"",
+                                  ""status"": ""ACTIVE"",
+                                  ""created"": ""2024-04-12T20:42:12.000Z"",
+                                  ""lastUpdated"": ""2024-04-12T20:42:12.000Z"",
+                                  ""protocol"": {
+                                    ""type"": ""OAUTH2"",
+                                    ""endpoints"": {
+                                      ""authorization"": {
+                                        ""url"": ""https://www.linkedin.com/uas/oauth2/authorization"",
+                                        ""binding"": ""HTTP-REDIRECT""
+                                      },
+                                      ""token"": {
+                                        ""url"": ""https://www.linkedin.com/uas/oauth2/accessToken"",
+                                        ""binding"": ""HTTP-POST""
+                                      }
+                                    },
+                                    ""scopes"": [
+                                      ""r_basicprofile"",
+                                      ""r_emailaddress""
+                                    ],
+                                    ""credentials"": {
+                                      ""client"": {
+                                        ""client_id"": ""your-client-id"",
+                                        ""client_secret"": ""your-client-secret""
+                                      }
+                                    }
+                                  },
+                                  ""policy"": {
+                                    ""provisioning"": {
+                                      ""action"": ""AUTO"",
+                                      ""profileMaster"": true,
+                                      ""groups"": {
+                                        ""action"": ""NONE""
+                                      },
+                                      ""conditions"": {
+                                        ""deprovisioned"": {
+                                          ""action"": ""NONE""
+                                        },
+                                        ""suspended"": {
+                                          ""action"": ""NONE""
+                                        }
+                                      }
+                                    },
+                                    ""accountLink"": {
+                                      ""filter"": null,
+                                      ""action"": ""AUTO""
+                                    },
+                                    ""subject"": {
+                                      ""userNameTemplate"": {
+                                        ""template"": ""idpuser.email""
+                                      },
+                                      ""filter"": null,
+                                      ""matchType"": ""USERNAME"",
+                                      ""matchAttribute"": null
+                                    },
+                                    ""maxClockSkew"": 0
+                                  },
+                                  ""type"": ""LINKEDIN"",
+                                  ""_links"": {
+                                     ""metadata"": {
+                                          ""href"": ""https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/metadata.xml"",
+                                          ""type"": ""application/xml"",
+                                          ""hints"": {
+                                            ""allow"": [
+                                              ""GET""
+                                            ]
+                                          }
+                                        },
+                                    ""acs"": {
+                                      ""href"": ""https://{yourOktaDomain}/sso/saml2/0oa1k5d68qR2954hb0g4"",
+                                      ""type"": ""application/xml"",
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""POST""
+                                        ]
+                                      }
+                                    },
+                                    ""users"": {
+                                      ""href"": ""https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/users"",
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""GET""
+                                        ]
+                                      }
+                                    },
+                                    ""activate"": {
+                                      ""href"": ""https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/lifecycle/activate"",
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""POST""
+                                        ]
+                                      }
+                                    },
+                                    ""deactivate"": {
+                                      ""href"": ""https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/lifecycle/deactivate"",
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""POST""
+                                        ]
+                                      }
+                                    },
+                                    ""authorize"": {
+                                      ""href"": ""https://testorg.com/oauth2/v1/authorize?idp=foo"",
+                                      ""templated"": true,
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""GET""
+                                        ]
+                                      }
+                                    },
+                                    ""clientRedirectUri"": {
+                                      ""href"": ""https://testorg.com/oauth2/v1/authorize/callback"",
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""POST""
+                                        ]
+                                      }
+                                    },
+                                    ""undefinedLink"": {
+                                      ""href"": ""https://testorg.com/oauth2/v1/authorize/callback"",
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""POST""
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }";
+
+
+            var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
+            var idpApi = new IdentityProviderApi(mockClient, new Configuration { BasePath = "https://foo.com" });
+
+            var idp = await idpApi.GetIdentityProviderAsync("foo");
+
+            idp.Links.Metadata.Href.Should()
+                .Be("https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/metadata.xml");
+            idp.Links.Metadata.Hints.Allow.Any(x => x == HttpMethod.GET).Should().BeTrue();
+            idp.Links.Metadata.Type.Should().Be("application/xml");
+
+            idp.Links.Acs.Href.Should()
+                .Be("https://{yourOktaDomain}/sso/saml2/0oa1k5d68qR2954hb0g4");
+            idp.Links.Acs.Hints.Allow.Any(x => x == HttpMethod.POST).Should().BeTrue();
+            idp.Links.Acs.Type.Should().Be("application/xml");
+
+            idp.Links.Users.Href.Should()
+                .Be("https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/users");
+            idp.Links.Users.Hints.Allow.Any(x => x == HttpMethod.GET).Should().BeTrue();
+
+            idp.Links.Activate.Href.Should()
+                .Be("https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/lifecycle/activate");
+            idp.Links.Activate.Hints.Allow.Any(x => x == HttpMethod.POST).Should().BeTrue();
+
+            idp.Links.Deactivate.Href.Should()
+                .Be("https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/lifecycle/deactivate");
+            idp.Links.Deactivate.Hints.Allow.Any(x => x == HttpMethod.POST).Should().BeTrue();
+
+
+            idp.Links.Authorize.Href.Should().Be("https://testorg.com/oauth2/v1/authorize?idp=foo");
+            idp.Links.Authorize.Hints.Allow.Any(x => x == HttpMethod.GET).Should().BeTrue();
+            idp.Links.Authorize.Templated.Should().BeTrue();
+
+            idp.Links.ClientRedirectUri.Href.Should().Be("https://testorg.com/oauth2/v1/authorize/callback");
+            idp.Links.ClientRedirectUri.Hints.Allow.Any(x => x == HttpMethod.POST).Should().BeTrue();
+
+            var undefinedLink = (JObject)idp.Links.AdditionalProperties["undefinedLink"];
+            undefinedLink["href"].ToString().Should().Be("https://testorg.com/oauth2/v1/authorize/callback");
+            var allow = JArray.Parse(((JObject)undefinedLink["hints"])["allow"].ToString());
+            allow[0].ToString().Should().Be("POST");
+
         }
     }
 }

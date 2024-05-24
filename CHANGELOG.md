@@ -1,6 +1,15 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 8.0.0
+
+- Add support for OAuth 2.0 DPoP (#697)
+- Fix "UserSchemaAttributes minLength and maxLength are non-nullable and cause array schema attribute creation to fail." issue (#702)
+- Fix "Unable to access Links (_links) in version 7 for an IdentityProvider when using GetIdentityProviderAsync/CreateIdentityProviderAsync" (#700)
+- Rollback `PolicyCanBeCreatedOrUpdated` schema changes
+- Remove obsolete methods for `IdentityProviderPolicy`
+- Update `AppAndInstanceConditionEvaluatorAppOrInstance.Id` readonly property from true to false (#716)
+
 ## 7.0.6
 
 - Update OAS3 with the latest IdP Discovery policy changes. 

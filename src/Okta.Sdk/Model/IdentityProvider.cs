@@ -125,7 +125,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "_links", EmitDefaultValue = true)]
-        public LinksSelf Links { get; set; }
+        public IdentityProviderLinks Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

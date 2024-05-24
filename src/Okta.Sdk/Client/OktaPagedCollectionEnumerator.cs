@@ -94,8 +94,7 @@ namespace Okta.Sdk.Client
 
             var nextLink = ClientUtils
                 .Parse(linkHeaders.SelectMany(x => x))
-                .Where(x => x.Relation == "next")
-                .FirstOrDefault();
+                .FirstOrDefault(x => x.Relation == "next");
 
             return nextLink;
         }
@@ -113,9 +112,7 @@ namespace Okta.Sdk.Client
             
             if (Okta.Sdk.Client.Configuration.IsPrivateKeyMode(_configuration))
             {
-                var accessToken = await _oAuthTokenProvider.GetAccessTokenAsync(cancellationToken: _cancellationToken);
-                _nextRequest.HeaderParameters.Remove("Authorization");
-                _nextRequest.HeaderParameters.Add("Authorization", $"Bearer {accessToken}");
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(_nextRequest, _nextPath, "GET", _cancellationToken);
             }
             
             var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, _configuration, _cancellationToken).ConfigureAwait(false);

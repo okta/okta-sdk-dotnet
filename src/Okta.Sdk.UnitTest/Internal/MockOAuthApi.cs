@@ -11,10 +11,13 @@ namespace Okta.Sdk.UnitTest.Internal
     public class MockOAuthApi : IOAuthApi
     {
         private Queue<string> _returnQueue;
-        public MockOAuthApi(IReadableConfiguration configuration, Queue<string> returnQueue = null)
+        private bool _isDpop;
+
+        public MockOAuthApi(IReadableConfiguration configuration, Queue<string> returnQueue = null, bool isDpop = false)
         {
             Configuration = configuration;
             _returnQueue = returnQueue;
+            _isDpop = isDpop;
         }
         public IReadableConfiguration Configuration { get ; set; }
         public ExceptionFactory ExceptionFactory { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -27,7 +30,7 @@ namespace Okta.Sdk.UnitTest.Internal
         public Task<OAuthTokenResponse> GetBearerTokenAsync(CancellationToken cancellationToken = default)
         {
             var token = _returnQueue?.Dequeue() ?? "foo";
-            return Task.FromResult<OAuthTokenResponse>(new OAuthTokenResponse { AccessToken = token });
+            return Task.FromResult<OAuthTokenResponse>(new OAuthTokenResponse { AccessToken = token, TokenType = (_isDpop) ? "DPoP" : "Bearer"});
         }
 
         public Task<ApiResponse<OAuthTokenResponse>> GetBearerTokenWithHttpInfoAsync(CancellationToken cancellationToken = default)

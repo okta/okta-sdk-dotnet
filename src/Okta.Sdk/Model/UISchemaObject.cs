@@ -45,7 +45,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Elements
         /// </summary>
         [DataMember(Name = "elements", EmitDefaultValue = true)]
-        public UIElement Elements { get; set; }
+        public Object Elements { get; set; }
 
         /// <summary>
         /// Specifies the label at the top of the enrollment form under the logo.

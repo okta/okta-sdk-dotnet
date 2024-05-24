@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Protocol** | [**Protocol**](Protocol.md) |  | [optional] 
 **Status** | **LifecycleStatus** |  | [optional] 
 **Type** | **IdentityProviderType** |  | [optional] 
-**Links** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
+**Links** | [**IdentityProviderLinks**](IdentityProviderLinks.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
