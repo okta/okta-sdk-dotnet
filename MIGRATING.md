@@ -81,7 +81,7 @@ If you have your own implementations of the updated interfaces, you will have to
 
 ### Policy API breaking changes
 
-The Okta Engineering team decided to rollback the latest changes in the Policy OpenAPI specification which were released in v7.0.6, hence the schema `PolicyCanBeCreatedOrReplaced` has been removed and all the methods that received and returned an instance of `PolicyCanBeCreatedOrReplaced` will now receive or return a instance of `Policy`. The obsolete tag has been removed from the corresponding methods.
+The Okta Engineering team decided to roll back the latest changes in the Policy OpenAPI specification, which were released in v7.0.6. Hence, the schema `PolicyCanBeCreatedOrReplaced` has been removed, and all the methods that received and/or returned an instance of `PolicyCanBeCreatedOrReplaced` will now accept and/or return an instance of the `Policy` schema. The obsolete tag has been removed from the corresponding methods.
 
 _Before in v7.0.6_
 
