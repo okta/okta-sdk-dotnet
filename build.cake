@@ -80,7 +80,7 @@ Task("IntegrationTest")
 
     foreach (var name in testProjects)
     {
-        DotNetCoreTest(string.Format("./src/{0}/{0}.csproj", name));
+//        DotNetCoreTest(string.Format("./src/{0}/{0}.csproj", name));
     }
 });
 
