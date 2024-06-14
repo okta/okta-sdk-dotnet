@@ -11,6 +11,8 @@ using Okta.Sdk.Model;
 using Polly;
 using RestSharp;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 using RichardSzalay.MockHttp;
 
 namespace Okta.Sdk.UnitTest.Api
@@ -380,6 +382,38 @@ namespace Okta.Sdk.UnitTest.Api
 
             dpopHeader = request.Parameters.FirstOrDefault(x => x.Name == "DPoP");
             dpopHeader.Value.Should().Be("myDpopJwt2");
+        }
+        
+        // Test for the conditions described in the github issue comment here: https://github.com/okta/okta-sdk-dotnet/issues/691#issuecomment-2130299272
+        [Fact]
+        public void NotFailOnEmptyProxyConfig()
+        {
+            Exception thrown = null;
+            string appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json");
+            try
+            {
+                dynamic appsettings = new
+                {
+                    proxy = new
+                    {
+                        host = "not a good uri"
+                    }
+                };
+                
+                File.WriteAllText(appSettingsPath, JsonConvert.SerializeObject(appsettings));
+                var apiClient = new ApiClient();
+                var client = apiClient.GetConfiguredClient(Configuration.GetConfigurationOrDefault());
+            }
+            catch (Exception ex)
+            {
+                thrown = ex;
+            }
+            finally
+            {
+                File.Delete(appSettingsPath);
+            }
+
+            thrown.Should().BeNull("because no exception was thrown");
         }
     }
 }

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>Okta.Sdk.UnitTest</AssemblyName>
     <RootNamespace>Okta.Sdk.UnitTest</RootNamespace>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
