@@ -39,7 +39,7 @@ namespace Okta.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "8.0.0";
+        public const string Version = "8.0.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -386,6 +386,7 @@ namespace Okta.Sdk.Client
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         public Configuration()
         {
+            UseProxy = true; // Set to true to avoid change of default behavior.  See #691.
             Proxy = null;
             UserAgent = "/okta-sdk-dotnet/csharp/oasv3";
             OktaDomain = "https://subdomain.okta.com";
@@ -554,6 +555,13 @@ namespace Okta.Sdk.Client
         /// </summary>
         /// <value>X509 Certificate collection.</value>
         public X509CertificateCollection ClientCertificates { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to use the proxy settings defined
+        /// in the Proxy node of the configuration.
+        /// </summary>
+        /// <value>Value indicating whether to use the proxy settings defined in the Proxy node.</value>
+        public bool? UseProxy { get; set; }
 
         /// <summary>
         /// Gets or sets the access token for OAuth2 authentication.
@@ -758,7 +766,7 @@ namespace Okta.Sdk.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 5.1.0\n";
-            report += "    SDK Package Version: 8.0.0\n";
+            report += "    SDK Package Version: 8.0.1\n";
 
             return report;
         }

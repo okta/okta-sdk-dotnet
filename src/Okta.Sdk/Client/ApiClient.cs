@@ -476,7 +476,7 @@ namespace Okta.Sdk.Client
             {
                 clientOptions.Proxy = _proxy;
             }
-            else if (configuration.Proxy != null)
+            else if (configuration.Proxy != null && configuration.UseProxy == true)
             {
                 clientOptions.Proxy = ProxyConfiguration.GetProxy(configuration.Proxy);
             }

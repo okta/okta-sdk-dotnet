@@ -394,6 +394,9 @@ namespace Okta.Sdk.UnitTest.Api
             {
                 dynamic appsettings = new
                 {
+                    useProxy = false, // advice to the configuration system not to treat proxy section as http client proxy.
+                                      // Assume that it is used in an unrelated way
+                                      // see https://github.com/okta/okta-sdk-dotnet/issues/691#issuecomment-2130299272
                     proxy = new
                     {
                         host = "not a good uri"
