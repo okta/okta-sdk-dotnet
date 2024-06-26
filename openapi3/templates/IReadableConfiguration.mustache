@@ -13,6 +13,13 @@ namespace {{packageName}}.Client
     public interface IReadableConfiguration
     {
         /// <summary>
+        /// Gets or sets a value indicating whether to use the proxy settings defined
+        /// in the Proxy node of the configuration.
+        /// </summary>
+        /// <value>Value indicating whether to use the proxy settings defined in the Proxy node.</value>
+        bool? UseProxy { get; set; }
+
+        /// <summary>
         /// Gets the access token.
         /// </summary>
         /// <value>Access token.</value>
