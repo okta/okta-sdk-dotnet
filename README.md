@@ -433,7 +433,7 @@ This library looks for configuration in the following sources:
 Higher numbers win. In other words, configuration passed via the constructor will override configuration found in environment variables, which will override configuration in `okta.yaml` (if any), and so on.
 
 Note that `json` files cannot be used if they contain JavaScript comments. Comments are not allowed by JSON format.
- 
+
 ### YAML configuration
  
 When you use an API Token instead of OAuth 2.0 the full YAML configuration looks like:
@@ -510,6 +510,15 @@ okta:
     rateLimit:
       maxRetries: 4
 ```
+ 
+ Beginning in version 8.0.1, If you have need for a `proxy` node in your configuration unrelated to a web proxy for the Okta API client, set `useProxy` to `false`:
+
+ ```json
+ {
+    "useProxy" : false
+    "proxy" : "non web proxy settings"
+ }
+ ```
 
 ### Environment variables
  
