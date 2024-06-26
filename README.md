@@ -511,7 +511,7 @@ okta:
       maxRetries: 4
 ```
  
- Beginning in version 8.0.1, If you have need for a `proxy` node in your configuration unrelated to a web proxy for the Okta API client, set `useProxy` to `false`:
+ Beginning in version 8.0.1, If you have need for a `proxy` node in your configuration unrelated to a web proxy for the Okta API client or you want to disable the proxy without removing it from your configuration, set `useProxy` to `false`:
 
  ```json
  {
