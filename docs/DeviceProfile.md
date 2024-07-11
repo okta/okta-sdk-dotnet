@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **SecureHardwarePresent** | **bool** | Indicates if the device contains a secure hardware functionality | [optional] 
 **SerialNumber** | **string** | Serial number of the device | [optional] 
 **Sid** | **string** | Windows Security identifier of the device | [optional] 
-**TpmPublicKeyHash** | **string** | Windows Trsted Platform Module hash value | [optional] 
+**TpmPublicKeyHash** | **string** | Windows Trusted Platform Module hash value | [optional] 
 **Udid** | **string** | macOS Unique Device identifier of the device | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LoginUrl** | **string** |  | [optional] 
-**RedirectUrl** | **string** |  | [optional] 
+**LoginUrl** | **string** | Primary URL of the sign-in page for this app | [optional] 
+**RedirectUrl** | **string** | Secondary URL of the sign-in page for this app | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

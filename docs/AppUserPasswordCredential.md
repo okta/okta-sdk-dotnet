@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.AppUserPasswordCredential
-Specifies a password for a user. This is a write-only property. An empty `password` object is returned to indicate that a password value exists.
+The user's password. This is a write-only property. An empty `password` object is returned to indicate that a password value exists.
 
 ## Properties
 

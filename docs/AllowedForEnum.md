@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.AllowedForEnum
+The allowed types of uses for the Authenticator
 
 ## Properties
 

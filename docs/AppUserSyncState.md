@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.AppUserSyncState
-The synchronization state for the App User. The App User's `syncState` depends on whether the `PROFILE_MASTERING` feature is enabled for the app.  > **Note:** User provisioning currently must be configured through the Admin Console.
+The synchronization state for the Application User. The Application User's `syncState` depends on whether the `PROFILE_MASTERING` feature is enabled for the app.  > **Note:** User provisioning currently must be configured through the Admin Console.
 
 ## Properties
 

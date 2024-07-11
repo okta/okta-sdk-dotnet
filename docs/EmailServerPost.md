@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Alias** | **string** | A name to identify this configuration | 
-**Enabled** | **bool** | True if and only if all email traffic should be routed through this SMTP Server | [optional] 
-**Host** | **string** | The address of the SMTP Server | 
-**Port** | **int** | The port number of the SMTP Server | 
-**Username** | **string** | The username to use with your SMTP Server | 
-**Password** | **string** | The password to use with your SMTP server | 
+**Alias** | **string** | Human-readable name for your SMTP server | 
+**Enabled** | **bool** | If &#x60;true&#x60;, routes all email traffic through your SMTP server | [optional] 
+**Host** | **string** | Hostname or IP address of your SMTP server | 
+**Port** | **int** | Port number of your SMTP server | 
+**Username** | **string** | Username used to access your SMTP server | 
+**Password** | **string** | Password used to access your SMTP server | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
