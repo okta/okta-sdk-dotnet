@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ApplicationSettings
+App settings
 
 ## Properties
 

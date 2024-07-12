@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.AuthenticationProviderType
+The type of authentication provider
 
 ## Properties
 

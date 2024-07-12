@@ -1,13 +1,12 @@
 # Okta.Sdk.Model.ApplicationFeature
-The Feature object is used to configure application feature settings.  The only feature currently supported is `USER_PROVISIONING` for the Org2Org application type. 
+The Feature object is used to configure application feature settings. 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Capabilities** | [**ApplicationFeatureCapabilities**](ApplicationFeatureCapabilities.md) |  | [optional] 
 **Description** | **string** | Description of the feature | [optional] [readonly] 
-**Name** | **string** | Identifying name of the feature | [optional] [readonly] 
+**Name** | **ApplicationFeatureType** |  | [optional] 
 **Status** | **EnabledStatus** |  | [optional] 
 **Links** | [**ApplicationFeatureLinks**](ApplicationFeatureLinks.md) |  | [optional] 
 

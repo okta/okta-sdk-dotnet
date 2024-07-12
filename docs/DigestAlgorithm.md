@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.DigestAlgorithm
+Algorithm used to generate the key. Only required for the PBKDF2 algorithm.
 
 ## Properties
 
