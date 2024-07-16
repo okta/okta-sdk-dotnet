@@ -1315,7 +1315,7 @@ Name | Type | Description  | Notes
 
 <a name="listidentityproviderapplicationusers"></a>
 # **ListIdentityProviderApplicationUsers**
-> List&lt;IdentityProviderApplicationUser&gt; ListIdentityProviderApplicationUsers (string idpId)
+> List&lt;IdentityProviderApplicationUser&gt; ListIdentityProviderApplicationUsers (string idpId, string q = null, string after = null, int? limit = null, string expand = null)
 
 List all Users
 
@@ -1344,11 +1344,15 @@ namespace Example
 
             var apiInstance = new IdentityProviderApi(config);
             var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
+            var q = "q_example";  // string | Searches the name property of IdPs for matching value (optional) 
+            var after = "after_example";  // string | Specifies the pagination cursor for the next page of IdPs (optional) 
+            var limit = 20;  // int? | Specifies the number of IdP results in a page (optional)  (default to 20)
+            var expand = "expand_example";  // string | Expand user data (optional) 
 
             try
             {
                 // List all Users
-                List<IdentityProviderApplicationUser> result = apiInstance.ListIdentityProviderApplicationUsers(idpId).ToListAsync();
+                List<IdentityProviderApplicationUser> result = apiInstance.ListIdentityProviderApplicationUsers(idpId, q, after, limit, expand).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1367,6 +1371,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **idpId** | **string**| &#x60;id&#x60; of IdP | 
+ **q** | **string**| Searches the name property of IdPs for matching value | [optional] 
+ **after** | **string**| Specifies the pagination cursor for the next page of IdPs | [optional] 
+ **limit** | **int?**| Specifies the number of IdP results in a page | [optional] [default to 20]
+ **expand** | **string**| Expand user data | [optional] 
 
 ### Return type
 

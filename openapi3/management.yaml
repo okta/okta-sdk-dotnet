@@ -10060,6 +10060,29 @@ paths:
       summary: List all Users
       description: Lists all users linked to the identity provider
       operationId: listIdentityProviderApplicationUsers
+      parameters:
+        - name: q
+          in: query
+          description: Searches the name property of IdPs for matching value
+          schema:
+            type: string
+        - name: after
+          in: query
+          description: Specifies the pagination cursor for the next page of IdPs
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Specifies the number of IdP results in a page
+          schema:
+            type: integer
+            format: int32
+            default: 20
+        - name: expand
+          in: query
+          description: Expand user data
+          schema:
+            type: string
       responses:
         '200':
           description: Success
