@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.PolicyPeopleCondition
+Identifies Users and Groups that are used together
 
 ## Properties
 

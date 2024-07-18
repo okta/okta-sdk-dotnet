@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**ChangeRecoveryQuestion**](UserApi.md#changerecoveryquestion) | **POST** /api/v1/users/{userId}/credentials/change_recovery_question | Change Recovery Question
 [**CreateUser**](UserApi.md#createuser) | **POST** /api/v1/users | Create a User
 [**DeactivateUser**](UserApi.md#deactivateuser) | **POST** /api/v1/users/{userId}/lifecycle/deactivate | Deactivate a User
-[**DeleteLinkedObjectForUser**](UserApi.md#deletelinkedobjectforuser) | **DELETE** /api/v1/users/{userId}/linkedObjects/{relationshipName} | Delete a Linked Object
+[**DeleteLinkedObjectForUser**](UserApi.md#deletelinkedobjectforuser) | **DELETE** /api/v1/users/{userIdOrLogin}/linkedObjects/{relationshipName} | Delete a Linked Object
 [**DeleteUser**](UserApi.md#deleteuser) | **DELETE** /api/v1/users/{userId} | Delete a User
 [**ExpirePassword**](UserApi.md#expirepassword) | **POST** /api/v1/users/{userId}/lifecycle/expire_password | Expire Password
 [**ExpirePasswordAndGetTemporaryPassword**](UserApi.md#expirepasswordandgettemporarypassword) | **POST** /api/v1/users/{userId}/lifecycle/expire_password_with_temp_password | Expire Password and Set Temporary Password
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 [**GetUserGrant**](UserApi.md#getusergrant) | **GET** /api/v1/users/{userId}/grants/{grantId} | Retrieve a User Grant
 [**ListAppLinks**](UserApi.md#listapplinks) | **GET** /api/v1/users/{userId}/appLinks | List all Assigned Application Links
 [**ListGrantsForUserAndClient**](UserApi.md#listgrantsforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/grants | List all Grants for a Client
-[**ListLinkedObjectsForUser**](UserApi.md#listlinkedobjectsforuser) | **GET** /api/v1/users/{userId}/linkedObjects/{relationshipName} | List all Linked Objects
+[**ListLinkedObjectsForUser**](UserApi.md#listlinkedobjectsforuser) | **GET** /api/v1/users/{userIdOrLogin}/linkedObjects/{relationshipName} | List the primary or all of the associated Linked Object values
 [**ListRefreshTokensForUserAndClient**](UserApi.md#listrefreshtokensforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/tokens | List all Refresh Tokens for a Client
 [**ListUserBlocks**](UserApi.md#listuserblocks) | **GET** /api/v1/users/{userId}/blocks | List all User Blocks
 [**ListUserClients**](UserApi.md#listuserclients) | **GET** /api/v1/users/{userId}/clients | List all Clients
@@ -30,6 +30,7 @@ Method | HTTP request | Description
 [**ListUserIdentityProviders**](UserApi.md#listuseridentityproviders) | **GET** /api/v1/users/{userId}/idps | List all Identity Providers
 [**ListUsers**](UserApi.md#listusers) | **GET** /api/v1/users | List all Users
 [**ReactivateUser**](UserApi.md#reactivateuser) | **POST** /api/v1/users/{userId}/lifecycle/reactivate | Reactivate a User
+[**ReplaceLinkedObjectForUser**](UserApi.md#replacelinkedobjectforuser) | **PUT** /api/v1/users/{userIdOrLogin}/linkedObjects/{primaryRelationshipName}/{primaryUserId} | Replace the Linked Object value for &#x60;primary&#x60;
 [**ReplaceUser**](UserApi.md#replaceuser) | **PUT** /api/v1/users/{userId} | Replace a User
 [**ResetFactors**](UserApi.md#resetfactors) | **POST** /api/v1/users/{userId}/lifecycle/reset_factors | Reset all Factors
 [**RevokeGrantsForUserAndClient**](UserApi.md#revokegrantsforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/grants | Revoke all Grants for a Client
@@ -38,7 +39,6 @@ Method | HTTP request | Description
 [**RevokeUserGrant**](UserApi.md#revokeusergrant) | **DELETE** /api/v1/users/{userId}/grants/{grantId} | Revoke a User Grant
 [**RevokeUserGrants**](UserApi.md#revokeusergrants) | **DELETE** /api/v1/users/{userId}/grants | Revoke all User Grants
 [**RevokeUserSessions**](UserApi.md#revokeusersessions) | **DELETE** /api/v1/users/{userId}/sessions | Revoke all User Sessions
-[**SetLinkedObjectForUser**](UserApi.md#setlinkedobjectforuser) | **PUT** /api/v1/users/{userId}/linkedObjects/{primaryRelationshipName}/{primaryUserId} | Create a Linked Object for two Users
 [**SuspendUser**](UserApi.md#suspenduser) | **POST** /api/v1/users/{userId}/lifecycle/suspend | Suspend a User
 [**UnlockUser**](UserApi.md#unlockuser) | **POST** /api/v1/users/{userId}/lifecycle/unlock | Unlock a User
 [**UnsuspendUser**](UserApi.md#unsuspenduser) | **POST** /api/v1/users/{userId}/lifecycle/unsuspend | Unsuspend a User
@@ -75,7 +75,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var sendEmail = true;  // bool | Sends an activation email to the user if true (default to true)
 
             try
@@ -99,7 +99,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **sendEmail** | **bool**| Sends an activation email to the user if true | [default to true]
 
 ### Return type
@@ -156,7 +156,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var changePasswordRequest = new ChangePasswordRequest(); // ChangePasswordRequest | 
             var strict = true;  // bool? |  (optional) 
 
@@ -181,7 +181,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **changePasswordRequest** | [**ChangePasswordRequest**](ChangePasswordRequest.md)|  | 
  **strict** | **bool?**|  | [optional] 
 
@@ -240,7 +240,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var userCredentials = new UserCredentials(); // UserCredentials | 
 
             try
@@ -264,7 +264,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **userCredentials** | [**UserCredentials**](UserCredentials.md)|  | 
 
 ### Return type
@@ -407,7 +407,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var sendEmail = false;  // bool? |  (optional)  (default to false)
 
             try
@@ -430,7 +430,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **sendEmail** | **bool?**|  | [optional] [default to false]
 
 ### Return type
@@ -459,7 +459,7 @@ void (empty response body)
 
 <a name="deletelinkedobjectforuser"></a>
 # **DeleteLinkedObjectForUser**
-> void DeleteLinkedObjectForUser (string userId, string relationshipName)
+> void DeleteLinkedObjectForUser (string userIdOrLogin, string relationshipName)
 
 Delete a Linked Object
 
@@ -487,13 +487,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
-            var relationshipName = "relationshipName_example";  // string | 
+            var userIdOrLogin = "userIdOrLogin_example";  // string | User ID or login value of the user assigned the `associated` relationship
+            var relationshipName = "relationshipName_example";  // string | Name of the `primary` or `associated` relationship being queried
 
             try
             {
                 // Delete a Linked Object
-                apiInstance.DeleteLinkedObjectForUser(userId, relationshipName);
+                apiInstance.DeleteLinkedObjectForUser(userIdOrLogin, relationshipName);
             }
             catch (ApiException  e)
             {
@@ -510,8 +510,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **relationshipName** | **string**|  | 
+ **userIdOrLogin** | **string**| User ID or login value of the user assigned the &#x60;associated&#x60; relationship | 
+ **relationshipName** | **string**| Name of the &#x60;primary&#x60; or &#x60;associated&#x60; relationship being queried | 
 
 ### Return type
 
@@ -567,7 +567,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var sendEmail = false;  // bool? |  (optional)  (default to false)
 
             try
@@ -590,7 +590,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **sendEmail** | **bool?**|  | [optional] [default to false]
 
 ### Return type
@@ -648,7 +648,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -671,7 +671,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -727,7 +727,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var revokeSessions = false;  // bool? | When set to `true` (and the session is a user session), all user sessions are revoked except the current session. (optional)  (default to false)
 
             try
@@ -751,7 +751,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **revokeSessions** | **bool?**| When set to &#x60;true&#x60; (and the session is a user session), all user sessions are revoked except the current session. | [optional] [default to false]
 
 ### Return type
@@ -808,7 +808,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var sendEmail = true;  // bool? |  (optional)  (default to true)
 
             try
@@ -832,7 +832,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **sendEmail** | **bool?**|  | [optional] [default to true]
 
 ### Return type
@@ -889,7 +889,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var userCredentials = new UserCredentials(); // UserCredentials | 
             var sendEmail = true;  // bool? |  (optional)  (default to true)
 
@@ -914,7 +914,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **userCredentials** | [**UserCredentials**](UserCredentials.md)|  | 
  **sendEmail** | **bool?**|  | [optional] [default to true]
 
@@ -973,7 +973,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var sendEmail = true;  // bool | 
             var revokeSessions = false;  // bool? | When set to `true` (and the session is a user session), all user sessions are revoked except the current session. (optional)  (default to false)
 
@@ -998,7 +998,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **sendEmail** | **bool**|  | 
  **revokeSessions** | **bool?**| When set to &#x60;true&#x60; (and the session is a user session), all user sessions are revoked except the current session. | [optional] [default to false]
 
@@ -1056,7 +1056,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
             var tokenId = sHHSth53yJAyNSTQKDJZ;  // string | `id` of Token
             var expand = "expand_example";  // string |  (optional) 
@@ -1084,7 +1084,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **clientId** | **string**| &#x60;client_id&#x60; of the app | 
  **tokenId** | **string**| &#x60;id&#x60; of Token | 
  **expand** | **string**|  | [optional] 
@@ -1117,7 +1117,7 @@ Name | Type | Description  | Notes
 
 <a name="getuser"></a>
 # **GetUser**
-> User GetUser (string userId)
+> UserGetSingleton GetUser (string userId, string expand = null)
 
 Retrieve a User
 
@@ -1145,12 +1145,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
+            var expand = blocks;  // string | An optional parameter to include metadata in the `_embedded` attribute. Valid value: `blocks` (optional) 
 
             try
             {
                 // Retrieve a User
-                User result = apiInstance.GetUser(userId);
+                UserGetSingleton result = apiInstance.GetUser(userId, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1168,11 +1169,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
+ **expand** | **string**| An optional parameter to include metadata in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;blocks&#x60; | [optional] 
 
 ### Return type
 
-[**User**](User.md)
+[**UserGetSingleton**](UserGetSingleton.md)
 
 ### Authorization
 
@@ -1224,8 +1226,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
-            var grantId = iJoqkwx50mrgX4T9LcaH;  // string | ID of the Grant
+            var userId = "userId_example";  // string | ID of an existing Okta user
+            var grantId = iJoqkwx50mrgX4T9LcaH;  // string | Grant ID
             var expand = "expand_example";  // string |  (optional) 
 
             try
@@ -1249,8 +1251,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **grantId** | **string**| ID of the Grant | 
+ **userId** | **string**| ID of an existing Okta user | 
+ **grantId** | **string**| Grant ID | 
  **expand** | **string**|  | [optional] 
 
 ### Return type
@@ -1307,7 +1309,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -1330,7 +1332,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -1386,7 +1388,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
             var expand = "expand_example";  // string |  (optional) 
             var after = "after_example";  // string |  (optional) 
@@ -1413,7 +1415,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **clientId** | **string**| &#x60;client_id&#x60; of the app | 
  **expand** | **string**|  | [optional] 
  **after** | **string**|  | [optional] 
@@ -1445,11 +1447,11 @@ Name | Type | Description  | Notes
 
 <a name="listlinkedobjectsforuser"></a>
 # **ListLinkedObjectsForUser**
-> List&lt;Object&gt; ListLinkedObjectsForUser (string userId, string relationshipName, string after = null, int? limit = null)
+> List&lt;Object&gt; ListLinkedObjectsForUser (string userIdOrLogin, string relationshipName, string after = null, int? limit = null)
 
-List all Linked Objects
+List the primary or all of the associated Linked Object values
 
-Lists all linked objects for a user, relationshipName can be a primary or associated relationship name
+Lists either the self link for the `primary` user or all `associated` users in the relationship specified by `relationshipName`. If the specified user isn't associated in any relationship, an empty array is returned.
 
 ### Example
 ```csharp
@@ -1473,15 +1475,15 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
-            var relationshipName = "relationshipName_example";  // string | 
+            var userIdOrLogin = "userIdOrLogin_example";  // string | User ID or login value of the user assigned the `associated` relationship
+            var relationshipName = "relationshipName_example";  // string | Name of the `primary` or `associated` relationship being queried
             var after = "after_example";  // string |  (optional) 
             var limit = -1;  // int? |  (optional)  (default to -1)
 
             try
             {
-                // List all Linked Objects
-                List<Object> result = apiInstance.ListLinkedObjectsForUser(userId, relationshipName, after, limit).ToListAsync();
+                // List the primary or all of the associated Linked Object values
+                List<Object> result = apiInstance.ListLinkedObjectsForUser(userIdOrLogin, relationshipName, after, limit).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1499,8 +1501,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **relationshipName** | **string**|  | 
+ **userIdOrLogin** | **string**| User ID or login value of the user assigned the &#x60;associated&#x60; relationship | 
+ **relationshipName** | **string**| Name of the &#x60;primary&#x60; or &#x60;associated&#x60; relationship being queried | 
  **after** | **string**|  | [optional] 
  **limit** | **int?**|  | [optional] [default to -1]
 
@@ -1558,7 +1560,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
             var expand = "expand_example";  // string |  (optional) 
             var after = "after_example";  // string |  (optional) 
@@ -1585,7 +1587,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **clientId** | **string**| &#x60;client_id&#x60; of the app | 
  **expand** | **string**|  | [optional] 
  **after** | **string**|  | [optional] 
@@ -1645,7 +1647,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -1668,7 +1670,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -1724,7 +1726,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -1747,7 +1749,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -1803,7 +1805,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var scopeId = "scopeId_example";  // string |  (optional) 
             var expand = "expand_example";  // string |  (optional) 
             var after = "after_example";  // string |  (optional) 
@@ -1830,7 +1832,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **scopeId** | **string**|  | [optional] 
  **expand** | **string**|  | [optional] 
  **after** | **string**|  | [optional] 
@@ -1862,7 +1864,7 @@ Name | Type | Description  | Notes
 
 <a name="listusergroups"></a>
 # **ListUserGroups**
-> List&lt;Group&gt; ListUserGroups (string userId)
+> List&lt;Group&gt; ListUserGroups (string userId, string after = null, int? limit = null)
 
 List all Groups
 
@@ -1890,12 +1892,14 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
+            var limit = 20;  // int? | A limit on the number of objects to return (optional)  (default to 20)
 
             try
             {
                 // List all Groups
-                List<Group> result = apiInstance.ListUserGroups(userId).ToListAsync();
+                List<Group> result = apiInstance.ListUserGroups(userId, after, limit).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1913,7 +1917,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
+ **limit** | **int?**| A limit on the number of objects to return | [optional] [default to 20]
 
 ### Return type
 
@@ -1969,7 +1975,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -1992,7 +1998,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -2049,7 +2055,7 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var q = "q_example";  // string | Finds a user that matches firstName, lastName, and email properties (optional) 
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
             var limit = 200;  // int? | Specifies the number of results returned. Defaults to 10 if `q` is provided. (optional)  (default to 200)
             var filter = "filter_example";  // string | Filters users with a supported expression for a subset of properties (optional) 
             var search = "search_example";  // string | Searches for users with a supported filtering expression for most properties. Okta recommends using this parameter for search for best performance. (optional) 
@@ -2078,7 +2084,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **string**| Finds a user that matches firstName, lastName, and email properties | [optional] 
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
  **limit** | **int?**| Specifies the number of results returned. Defaults to 10 if &#x60;q&#x60; is provided. | [optional] [default to 200]
  **filter** | **string**| Filters users with a supported expression for a subset of properties | [optional] 
  **search** | **string**| Searches for users with a supported filtering expression for most properties. Okta recommends using this parameter for search for best performance. | [optional] 
@@ -2114,7 +2120,7 @@ Name | Type | Description  | Notes
 
 Reactivate a User
 
-Reactivates a user.  This operation can only be performed on users with a `PROVISIONED` status.  This operation restarts the activation workflow if for some reason the user activation was not completed when using the activationToken from [Activate User](#activate-user).
+Reactivates a user. This operation can only be performed on users with a `PROVISIONED` status.  This operation restarts the activation workflow if the user activation wasn't completed with the `activationToken` from [Activate a user](/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser).  > **Note:** A successful request to this endpoint records the same set of events as when a user is activated in System Logs, since it invokes the same activation workflow.
 
 ### Example
 ```csharp
@@ -2138,7 +2144,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var sendEmail = false;  // bool? | Sends an activation email to the user if true (optional)  (default to false)
 
             try
@@ -2162,7 +2168,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **sendEmail** | **bool?**| Sends an activation email to the user if true | [optional] [default to false]
 
 ### Return type
@@ -2183,6 +2189,86 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="replacelinkedobjectforuser"></a>
+# **ReplaceLinkedObjectForUser**
+> void ReplaceLinkedObjectForUser (string userIdOrLogin, string primaryRelationshipName, string primaryUserId)
+
+Replace the Linked Object value for `primary`
+
+Replaces the first user as the `associated` and the second user as the `primary` for the specified relationship. If the first user is already associated with a different `primary` for this relationship, replaces the previous link. A Linked Object relationship can specify only one `primary` user for an `associated` user.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ReplaceLinkedObjectForUserExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UserApi(config);
+            var userIdOrLogin = "userIdOrLogin_example";  // string | User ID or login value of the user assigned the `associated` relationship
+            var primaryRelationshipName = "primaryRelationshipName_example";  // string | Name of the `primary` relationship being assigned
+            var primaryUserId = ctxeQ5JnAVdGFBB7Zr7W;  // string | User ID to be assigned to the `primary` relationship for the `associated` user
+
+            try
+            {
+                // Replace the Linked Object value for `primary`
+                apiInstance.ReplaceLinkedObjectForUser(userIdOrLogin, primaryRelationshipName, primaryUserId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UserApi.ReplaceLinkedObjectForUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userIdOrLogin** | **string**| User ID or login value of the user assigned the &#x60;associated&#x60; relationship | 
+ **primaryRelationshipName** | **string**| Name of the &#x60;primary&#x60; relationship being assigned | 
+ **primaryUserId** | **string**| User ID to be assigned to the &#x60;primary&#x60; relationship for the &#x60;associated&#x60; user | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Success |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
@@ -2219,7 +2305,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var user = new User(); // User | 
             var strict = true;  // bool? |  (optional) 
 
@@ -2244,7 +2330,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **user** | [**User**](User.md)|  | 
  **strict** | **bool?**|  | [optional] 
 
@@ -2275,7 +2361,7 @@ Name | Type | Description  | Notes
 
 <a name="resetfactors"></a>
 # **ResetFactors**
-> void ResetFactors (string userId)
+> void ResetFactors (string userId, bool? removeRecoveryEnrollment = null)
 
 Reset all Factors
 
@@ -2303,12 +2389,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
+            var removeRecoveryEnrollment = false;  // bool? | If `true`, removes the phone number as both a recovery method and a Factor. Supported Factors: `sms` and `call` (optional)  (default to false)
 
             try
             {
                 // Reset all Factors
-                apiInstance.ResetFactors(userId);
+                apiInstance.ResetFactors(userId, removeRecoveryEnrollment);
             }
             catch (ApiException  e)
             {
@@ -2325,7 +2412,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
+ **removeRecoveryEnrollment** | **bool?**| If &#x60;true&#x60;, removes the phone number as both a recovery method and a Factor. Supported Factors: &#x60;sms&#x60; and &#x60;call&#x60; | [optional] [default to false]
 
 ### Return type
 
@@ -2381,7 +2469,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
 
             try
@@ -2404,7 +2492,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **clientId** | **string**| &#x60;client_id&#x60; of the app | 
 
 ### Return type
@@ -2461,7 +2549,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
             var tokenId = sHHSth53yJAyNSTQKDJZ;  // string | `id` of Token
 
@@ -2485,7 +2573,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **clientId** | **string**| &#x60;client_id&#x60; of the app | 
  **tokenId** | **string**| &#x60;id&#x60; of Token | 
 
@@ -2543,7 +2631,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
 
             try
@@ -2566,7 +2654,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **clientId** | **string**| &#x60;client_id&#x60; of the app | 
 
 ### Return type
@@ -2623,8 +2711,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
-            var grantId = iJoqkwx50mrgX4T9LcaH;  // string | ID of the Grant
+            var userId = "userId_example";  // string | ID of an existing Okta user
+            var grantId = iJoqkwx50mrgX4T9LcaH;  // string | Grant ID
 
             try
             {
@@ -2646,8 +2734,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **grantId** | **string**| ID of the Grant | 
+ **userId** | **string**| ID of an existing Okta user | 
+ **grantId** | **string**| Grant ID | 
 
 ### Return type
 
@@ -2703,7 +2791,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -2725,7 +2813,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -2781,7 +2869,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var oauthTokens = false;  // bool? | Revoke issued OpenID Connect and OAuth refresh and access tokens (optional)  (default to false)
 
             try
@@ -2804,7 +2892,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **oauthTokens** | **bool?**| Revoke issued OpenID Connect and OAuth refresh and access tokens | [optional] [default to false]
 
 ### Return type
@@ -2825,86 +2913,6 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="setlinkedobjectforuser"></a>
-# **SetLinkedObjectForUser**
-> void SetLinkedObjectForUser (string userId, string primaryRelationshipName, string primaryUserId)
-
-Create a Linked Object for two Users
-
-Creates a Linked Object for two users
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class SetLinkedObjectForUserExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
-            var primaryRelationshipName = "primaryRelationshipName_example";  // string | 
-            var primaryUserId = ctxeQ5JnAVdGFBB7Zr7W;  // string | `id` of primary User
-
-            try
-            {
-                // Create a Linked Object for two Users
-                apiInstance.SetLinkedObjectForUser(userId, primaryRelationshipName, primaryUserId);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling UserApi.SetLinkedObjectForUser: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **primaryRelationshipName** | **string**|  | 
- **primaryUserId** | **string**| &#x60;id&#x60; of primary User | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Success |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
@@ -2941,7 +2949,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -2963,7 +2971,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -3019,7 +3027,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -3041,7 +3049,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -3097,7 +3105,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -3119,7 +3127,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -3175,7 +3183,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var user = new UpdateUserRequest(); // UpdateUserRequest | 
             var strict = true;  // bool? |  (optional) 
 
@@ -3200,7 +3208,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **user** | [**UpdateUserRequest**](UpdateUserRequest.md)|  | 
  **strict** | **bool?**|  | [optional] 
 

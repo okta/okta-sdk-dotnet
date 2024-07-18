@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.LinkedObjectDetailsType
+The object type for this relationship
 
 ## Properties
 

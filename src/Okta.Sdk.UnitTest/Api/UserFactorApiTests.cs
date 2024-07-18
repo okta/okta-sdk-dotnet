@@ -115,23 +115,24 @@ namespace Okta.Sdk.UnitTest.Api
             var mockClient = new MockAsyncClient(response, HttpStatusCode.OK);
             var userFactorApi = new UserFactorApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
-            var enrollFactorResponse = await userFactorApi.EnrollFactorAsync("foo", new TokenUserFactor
+            var enrollFactorResponse = await userFactorApi.EnrollFactorAsync("foo", new UserFactorToken()
             {
-                FactorType = FactorType.Token,
+                FactorType = UserFactorType.Token,
                 Provider = "RSA",
-                Profile = new TokenUserFactorProfile
+                Profile = new UserFactorTokenProfile()
                 {
                     CredentialId = "foo",
                 },
-                Verify = new VerifyFactorRequest
+                Verify = new UserFactorTokenAllOfVerify(new UserFactorTokenVerifyRSA()                
                 {
                     PassCode = "foo",
-                }
+                })
             });
 
-            mockClient.ReceivedBody.Should().BeEquivalentTo("{\"profile\":{\"credentialId\":\"foo\"},\"factorType\":\"token\",\"provider\":\"RSA\",\"verify\":{\"passCode\":\"foo\"}}");
-            enrollFactorResponse.FactorType.Should().Be(FactorType.Token);
-            enrollFactorResponse.Provider.Should().Be(FactorProvider.RSA);
+            var expected = "{\"provider\":\"RSA\",\"factorType\":\"token\",\"profile\":{\"credentialId\":\"foo\"},\"verify\":{\"passCode\":\"foo\"}}";
+            mockClient.ReceivedBody.Should().BeEquivalentTo(expected);
+            enrollFactorResponse.FactorType.Should().Be(UserFactorType.Token);
+            enrollFactorResponse.Provider.Should().Be(UserFactorProvider.RSA);
         }
 
         [Fact]
@@ -181,24 +182,25 @@ namespace Okta.Sdk.UnitTest.Api
             var mockClient = new MockAsyncClient(response, HttpStatusCode.OK);
             var userFactorApi = new UserFactorApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
-            var enrollFactorResponse = await userFactorApi.EnrollFactorAsync("foo", new TokenUserFactor
+            var enrollFactorResponse = await userFactorApi.EnrollFactorAsync("foo", new UserFactorToken()
             {
-                FactorType = FactorType.Token,
+                FactorType = UserFactorType.Token,
                 Provider = "SYMANTEC",
-                Profile = new TokenUserFactorProfile
+                Profile = new UserFactorTokenProfile()
                 {
                     CredentialId = "foo",
                 },
-                Verify = new VerifyFactorRequest
+                Verify = new UserFactorTokenAllOfVerify(new UserFactorTokenVerifySymantec()                
                 {
                     PassCode = "foo",
                     NextPassCode = "foo",
-                }
-            });
+                })
 
-            mockClient.ReceivedBody.Should().BeEquivalentTo("{\"profile\":{\"credentialId\":\"foo\"},\"factorType\":\"token\",\"provider\":\"SYMANTEC\",\"verify\":{\"nextPassCode\":\"foo\",\"passCode\":\"foo\"}}");
-            enrollFactorResponse.FactorType.Should().Be(FactorType.Token);
-            enrollFactorResponse.Provider.Should().Be(FactorProvider.SYMANTEC);
+            });
+            var expected = "{\"provider\":\"SYMANTEC\",\"factorType\":\"token\",\"profile\":{\"credentialId\":\"foo\"},\"verify\":{\"nextPassCode\":\"foo\",\"passCode\":\"foo\"}}";
+            mockClient.ReceivedBody.Should().BeEquivalentTo(expected);
+            enrollFactorResponse.FactorType.Should().Be(UserFactorType.Token);
+            enrollFactorResponse.Provider.Should().Be(UserFactorProvider.SYMANTEC);
         }
 
         [Fact]
@@ -248,19 +250,20 @@ namespace Okta.Sdk.UnitTest.Api
             var mockClient = new MockAsyncClient(response, HttpStatusCode.OK);
             var userFactorApi = new UserFactorApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
-            var enrollFactorResponse = await userFactorApi.EnrollFactorAsync("foo", new TokenUserFactor
+            var enrollFactorResponse = await userFactorApi.EnrollFactorAsync("foo", new UserFactorToken()
             {
-                FactorType = FactorType.Tokenhardware,
+                FactorType = UserFactorType.Tokenhardware,
                 Provider = "YUBICO",
-                Verify = new VerifyFactorRequest
+                Verify = new UserFactorTokenAllOfVerify(new UserFactorTokenVerifySymantec()
                 {
-                    PassCode = "foo",
-                }
+                    PassCode = "foo"
+                })
             });
 
-            mockClient.ReceivedBody.Should().BeEquivalentTo("{\"factorType\":\"token:hardware\",\"provider\":\"YUBICO\",\"verify\":{\"passCode\":\"foo\"}}");
-            enrollFactorResponse.FactorType.Should().Be(FactorType.Tokenhardware);
-            enrollFactorResponse.Provider.Should().Be(FactorProvider.YUBICO);
+            var expected = "{\"provider\":\"YUBICO\",\"factorType\":\"token:hardware\",\"verify\":{\"nextPassCode\":null,\"passCode\":\"foo\"}}";
+            mockClient.ReceivedBody.Should().BeEquivalentTo(expected);
+            enrollFactorResponse.FactorType.Should().Be(UserFactorType.Tokenhardware);
+            enrollFactorResponse.Provider.Should().Be(UserFactorProvider.YUBICO);
         }
 
         [Fact]
@@ -316,18 +319,19 @@ namespace Okta.Sdk.UnitTest.Api
             var userFactorApi = new UserFactorApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
             var enrollFactorResponse = await userFactorApi.EnrollFactorAsync("foo",
-                new EmailUserFactor
+                new UserFactorEmail()
                 {
-                    FactorType = FactorType.Email,
-                    Profile = new EmailUserFactorProfile
+                    FactorType = UserFactorType.Email,
+                    Profile = new UserFactorEmailProfile()
                     {
                         Email = "test@gmail.com"
                     }
                 });
 
-            mockClient.ReceivedBody.Should().BeEquivalentTo("{\"profile\":{\"email\":\"test@gmail.com\"},\"factorType\":\"email\"}");
-            enrollFactorResponse.FactorType.Should().Be(FactorType.Email);
-            enrollFactorResponse.Provider.Should().Be(FactorProvider.OKTA);
+            var expected = "{\"factorType\":\"email\",\"profile\":{\"email\":\"test@gmail.com\"}}";
+            mockClient.ReceivedBody.Should().BeEquivalentTo(expected);
+            enrollFactorResponse.FactorType.Should().Be(UserFactorType.Email);
+            enrollFactorResponse.Provider.Should().Be(UserFactorProvider.OKTA);
         }
 
         [Fact]
@@ -375,21 +379,22 @@ namespace Okta.Sdk.UnitTest.Api
             var userFactorApi = new UserFactorApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
             var enrollFactorResponse = await userFactorApi.EnrollFactorAsync("foo",
-                new CustomHotpUserFactor
+                new UserFactorCustomHOTP()
                 {
-                    FactorType = FactorType.Tokenhotp,
-                    Provider = FactorProvider.CUSTOM,
+                    FactorType = UserFactorType.Tokenhotp,
+                    Provider = UserFactorCustomHOTP.ProviderEnum.CUSTOM,
                     FactorProfileId = "fpr20l2mDyaUGWGCa0g4",
-                    Profile = new CustomHotpUserFactorProfile
+                    Profile = new UserFactorCustomHOTPProfile()
                     {
                         SharedSecret = "123",
                     }
 
                 });
 
-            mockClient.ReceivedBody.Should().BeEquivalentTo("{\"factorProfileId\":\"fpr20l2mDyaUGWGCa0g4\",\"profile\":{\"sharedSecret\":\"123\"},\"factorType\":\"token:hotp\",\"provider\":\"CUSTOM\"}");
-            enrollFactorResponse.FactorType.Should().Be(FactorType.Tokenhotp);
-            enrollFactorResponse.Provider.Should().Be(FactorProvider.CUSTOM);
+            var expected = "{\"provider\":\"CUSTOM\",\"factorProfileId\":\"fpr20l2mDyaUGWGCa0g4\",\"factorType\":\"token:hotp\",\"profile\":{\"sharedSecret\":\"123\"}}";
+            mockClient.ReceivedBody.Should().BeEquivalentTo(expected);
+            enrollFactorResponse.FactorType.Should().Be(UserFactorType.Tokenhotp);
+            enrollFactorResponse.Provider.Should().Be(UserFactorProvider.CUSTOM);
         }
 
         [Fact]
@@ -406,7 +411,7 @@ namespace Okta.Sdk.UnitTest.Api
             var mockClient = new MockAsyncClient(response, HttpStatusCode.OK);
             var userFactorApi = new UserFactorApi(mockClient, new Configuration { BasePath = "https://foo.com" });
 
-            var verifyFactorRequest = new VerifyFactorRequest
+            var verifyFactorRequest = new UserFactorVerifyRequest()
             {
                 ClientData = "foo",
                 AuthenticatorData = "bar",
@@ -415,7 +420,7 @@ namespace Okta.Sdk.UnitTest.Api
 
             var verifyResponse = await userFactorApi.VerifyFactorAsync("bax", "pcm", body: verifyFactorRequest);
             mockClient.ReceivedBody.Should().BeEquivalentTo("{\"clientData\":\"foo\",\"authenticatorData\":\"bar\",\"signatureData\":\"baz\"}");
-            verifyResponse.FactorResult.Should().Be(VerifyUserFactorResult.SUCCESS);
+            verifyResponse.FactorResult.Should().Be(UserFactorVerifyResult.SUCCESS);
             var profile = (JObject)verifyResponse.AdditionalProperties["profile"];
             profile["credentialId"].ToString().Should().Be("l3Br0n-7H3g047NqESqJynFtIgf3Ix9OfaRoNwLoloso99Xl2zS_O7EXUkmPeAIzTVtEL4dYjicJWBz7NpqhGA");
             profile["authenticatorName"].ToString().Should().Be("MacBook Touch ID");

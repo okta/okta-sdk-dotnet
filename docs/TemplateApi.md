@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
 
 Replace an SMS Template
 
-Replaces the SMS template
+Replaces the SMS Template > **Notes:** You can't update the default SMS Template. 
 
 ### Example
 ```csharp
@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 
 Update an SMS Template
 
-Updates an SMS template
+Updates only some of the SMS Template properties:   * All properties within the custom SMS Template that have values are updated.   * Any translation that doesn't exist is added.   * Any translation with a null or empty value is removed.   * Any translation with non-empty/null value is updated. 
 
 ### Example
 ```csharp

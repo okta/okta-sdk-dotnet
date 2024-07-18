@@ -5,7 +5,7 @@
     "templateDir" : "./templates",
     "packageName" : "Okta.Sdk",
     "outputDir" : "../",
-    "inputSpec" : "./management.yaml", 
+    "inputSpec" : "../submodules/okta-management-openapi-spec/dist/current/management-minimal-dotnet.yaml", 
     "packageVersion" : "8.0.1",
     "packageDescription" : "Official .NET SDK for the Okta API",
     "packageTitle" : "Official .NET SDK for the Okta API",
@@ -17,6 +17,7 @@
     "gitUserId" : "okta",
     "gitRepoId" : "okta-sdk-dotnet", 
     "targetFramework" : "netstandard2.0",
+    "useOneOfDiscriminatorLookup" : true,
     "globalProperties": {
         "apiTests": false,
         "modelTests": false,

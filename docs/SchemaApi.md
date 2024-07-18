@@ -4,8 +4,6 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAppUISchema**](SchemaApi.md#getappuischema) | **GET** /api/v1/meta/layouts/apps/{appName}/sections/{section}/{operation} | Retrieve the UI schema for a section
-[**GetAppUISchemaLinks**](SchemaApi.md#getappuischemalinks) | **GET** /api/v1/meta/layouts/apps/{appName} | Retrieve the links for UI schemas for an Application
 [**GetApplicationUserSchema**](SchemaApi.md#getapplicationuserschema) | **GET** /api/v1/meta/schemas/apps/{appId}/default | Retrieve the default Application User Schema for an Application
 [**GetGroupSchema**](SchemaApi.md#getgroupschema) | **GET** /api/v1/meta/schemas/group/default | Retrieve the default Group Schema
 [**GetLogStreamSchema**](SchemaApi.md#getlogstreamschema) | **GET** /api/v1/meta/schemas/logStream/{logStreamType} | Retrieve the Log Stream Schema for the schema type
@@ -15,168 +13,6 @@ Method | HTTP request | Description
 [**UpdateGroupSchema**](SchemaApi.md#updategroupschema) | **POST** /api/v1/meta/schemas/group/default | Update the default Group Schema
 [**UpdateUserProfile**](SchemaApi.md#updateuserprofile) | **POST** /api/v1/meta/schemas/user/{schemaId} | Update a User Schema
 
-
-<a name="getappuischema"></a>
-# **GetAppUISchema**
-> ApplicationLayout GetAppUISchema (string appName, string section, string operation)
-
-Retrieve the UI schema for a section
-
-Retrieves the UI schema for an Application given `appName`, `section` and `operation`
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class GetAppUISchemaExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SchemaApi(config);
-            var appName = oidc_client;  // string | 
-            var section = "section_example";  // string | 
-            var operation = "operation_example";  // string | 
-
-            try
-            {
-                // Retrieve the UI schema for a section
-                ApplicationLayout result = apiInstance.GetAppUISchema(appName, section, operation);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SchemaApi.GetAppUISchema: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **appName** | **string**|  | 
- **section** | **string**|  | 
- **operation** | **string**|  | 
-
-### Return type
-
-[**ApplicationLayout**](ApplicationLayout.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getappuischemalinks"></a>
-# **GetAppUISchemaLinks**
-> ApplicationLayouts GetAppUISchemaLinks (string appName)
-
-Retrieve the links for UI schemas for an Application
-
-Retrieves the links for UI schemas for an Application given `appName`
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class GetAppUISchemaLinksExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SchemaApi(config);
-            var appName = oidc_client;  // string | 
-
-            try
-            {
-                // Retrieve the links for UI schemas for an Application
-                ApplicationLayouts result = apiInstance.GetAppUISchemaLinks(appName);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SchemaApi.GetAppUISchemaLinks: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **appName** | **string**|  | 
-
-### Return type
-
-[**ApplicationLayouts**](ApplicationLayouts.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getapplicationuserschema"></a>
 # **GetApplicationUserSchema**
@@ -208,7 +44,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SchemaApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
 
             try
             {
@@ -231,7 +67,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
 
 ### Return type
 
@@ -593,7 +429,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SchemaApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
             var body = new UserSchema(); // UserSchema |  (optional) 
 
             try
@@ -617,7 +453,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
  **body** | [**UserSchema**](UserSchema.md)|  | [optional] 
 
 ### Return type

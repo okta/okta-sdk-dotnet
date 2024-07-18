@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.RolePermissionType
+Permission type
 
 ## Properties
 

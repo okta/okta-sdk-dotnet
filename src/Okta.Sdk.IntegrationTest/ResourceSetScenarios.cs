@@ -188,7 +188,7 @@ namespace Okta.Sdk.IntegrationTest
                 var resourceSets = await _resourceSetApi.ListResourceSetsAsync();
 
                 resourceSets.Should().NotBeNull();
-                resourceSets._ResourceSets.Any(x => x.Id == createdResourceSet.Id).Should().BeTrue();
+                resourceSets.VarResourceSets.Any(x => x.Id == createdResourceSet.Id).Should().BeTrue();
             }
             finally
             {

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Create a Linked Object Definition
 
-Creates a linked object definition
+Creates a Linked Object definition
 
 ### Example
 ```csharp
@@ -85,6 +85,7 @@ Name | Type | Description  | Notes
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
 | **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -95,7 +96,7 @@ Name | Type | Description  | Notes
 
 Delete a Linked Object Definition
 
-Deletes a linked object definition
+Deletes the Linked Object definition specified by either the `primary` or `associated` name. The entire definition is removed, regardless of which name that you specify.
 
 ### Example
 ```csharp
@@ -119,7 +120,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LinkedObjectApi(config);
-            var linkedObjectName = "linkedObjectName_example";  // string | 
+            var linkedObjectName = "linkedObjectName_example";  // string | Primary or Associated name
 
             try
             {
@@ -141,7 +142,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **linkedObjectName** | **string**|  | 
+ **linkedObjectName** | **string**| Primary or Associated name | 
 
 ### Return type
 
@@ -173,7 +174,7 @@ void (empty response body)
 
 Retrieve a Linked Object Definition
 
-Retrieves a linked object definition
+Retrieves a Linked Object definition
 
 ### Example
 ```csharp
@@ -197,7 +198,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LinkedObjectApi(config);
-            var linkedObjectName = "linkedObjectName_example";  // string | 
+            var linkedObjectName = "linkedObjectName_example";  // string | Primary or Associated name
 
             try
             {
@@ -220,7 +221,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **linkedObjectName** | **string**|  | 
+ **linkedObjectName** | **string**| Primary or Associated name | 
 
 ### Return type
 
@@ -252,7 +253,7 @@ Name | Type | Description  | Notes
 
 List all Linked Object Definitions
 
-Lists all linked object definitions
+Lists all Linked Object definitions
 
 ### Example
 ```csharp

@@ -32,6 +32,11 @@
 
         {{/anyOf}}
 
+        public T Cast<T>()
+        {
+            return (T)ActualInstance;
+        }
+        
         private Object _actualInstance;
 
         /// <summary>

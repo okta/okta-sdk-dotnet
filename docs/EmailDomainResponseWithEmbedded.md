@@ -5,6 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Embedded** | **Object** |  | [optional] [readonly] 
+**DnsValidationRecords** | [**List&lt;EmailDomainDNSRecord&gt;**](EmailDomainDNSRecord.md) |  | [optional] 
+**Domain** | **string** |  | [optional] 
+**Id** | **string** |  | [optional] 
+**ValidationStatus** | **EmailDomainStatus** |  | [optional] 
+**ValidationSubdomain** | **string** | The subdomain for the email sender&#39;s custom mail domain | [optional] [default to "mail"]
 **DisplayName** | **string** |  | 
 **UserName** | **string** |  | 
 

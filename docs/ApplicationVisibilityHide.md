@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ApplicationVisibilityHide
+Hides the app for specific end-user apps
 
 ## Properties
 

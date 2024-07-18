@@ -176,7 +176,7 @@ void (empty response body)
 
 Delete a Device
 
-Deletes (permanently) a device by `deviceId` if it has a status of `DEACTIVATED`. You can transition the device to `DEACTIVATED` status using the [Deactivate a Device](#tag/Device/operation/deactivateDevice) endpoint. This request is destructive and deletes all of the profile data related to the device. Once deleted, device data can't be recovered. However, reenrollment creates a new device record. > **Note:** Attempts to delete a device that isn't in a `DEACTIVATED` state raise an error.
+Deletes (permanently) a device by `deviceId` if it has a status of `DEACTIVATED`. You can transition the device to `DEACTIVATED` status using the [Deactivate a Device](/openapi/okta-management/management/tag/Device/#tag/Device/operation/deactivateDevice) endpoint. This request is destructive and deletes all of the profile data related to the device. Once deleted, device data can't be recovered. However, reenrollment creates a new device record. > **Note:** Attempts to delete a device that isn't in a `DEACTIVATED` state raise an error.
 
 ### Example
 ```csharp
@@ -408,7 +408,7 @@ Name | Type | Description  | Notes
 
 <a name="listdevices"></a>
 # **ListDevices**
-> List&lt;Device&gt; ListDevices (string after = null, int? limit = null, string search = null, string expand = null)
+> List&lt;DeviceList&gt; ListDevices (string after = null, int? limit = null, string search = null, ListDeviceExpandSummaryType? expand = null)
 
 List all Devices
 
@@ -436,15 +436,15 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DeviceApi(config);
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
-            var limit = 200;  // int? | A limit on the number of objects to return (recommend `20`) (optional)  (default to 200)
+            var after = 200u3des4afA47rYJu1d7;  // string |  (optional) 
+            var limit = 20;  // int? | A limit on the number of objects to return (recommend `20`) (optional)  (default to 200)
             var search = status eq "ACTIVE";  // string | A SCIM filter expression that filters the results. Searches include all Device `profile` properties and the Device `id`, `status`, and `lastUpdated` properties. (optional) 
-            var expand = "expand_example";  // string | Lists associated users for the device in `_embedded` element (optional) 
+            var expand = user;  // ListDeviceExpandSummaryType? | Includes associated user details and management status for the device in the `_embedded` attribute (optional) 
 
             try
             {
                 // List all Devices
-                List<Device> result = apiInstance.ListDevices(after, limit, search, expand).ToListAsync();
+                List<DeviceList> result = apiInstance.ListDevices(after, limit, search, expand).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -462,14 +462,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
+ **after** | **string**|  | [optional] 
  **limit** | **int?**| A limit on the number of objects to return (recommend &#x60;20&#x60;) | [optional] [default to 200]
  **search** | **string**| A SCIM filter expression that filters the results. Searches include all Device &#x60;profile&#x60; properties and the Device &#x60;id&#x60;, &#x60;status&#x60;, and &#x60;lastUpdated&#x60; properties. | [optional] 
- **expand** | **string**| Lists associated users for the device in &#x60;_embedded&#x60; element | [optional] 
+ **expand** | **ListDeviceExpandSummaryType?**| Includes associated user details and management status for the device in the &#x60;_embedded&#x60; attribute | [optional] 
 
 ### Return type
 
-[**List&lt;Device&gt;**](Device.md)
+[**List&lt;DeviceList&gt;**](DeviceList.md)
 
 ### Authorization
 

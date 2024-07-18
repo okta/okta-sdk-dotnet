@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.AppAndInstanceType
+Type of app
 
 ## Properties
 

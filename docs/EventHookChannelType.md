@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.EventHookChannelType
+The channel type. Currently supports `HTTP`.
 
 ## Properties
 

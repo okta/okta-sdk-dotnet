@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ApplicationLifecycleStatus
+App instance status
 
 ## Properties
 

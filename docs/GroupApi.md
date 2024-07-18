@@ -5,18 +5,15 @@ All URIs are relative to *https://subdomain.okta.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ActivateGroupRule**](GroupApi.md#activategrouprule) | **POST** /api/v1/groups/rules/{groupRuleId}/lifecycle/activate | Activate a Group Rule
-[**AssignGroupOwner**](GroupApi.md#assigngroupowner) | **POST** /api/v1/groups/{groupId}/owners | Assign a Group Owner
 [**AssignUserToGroup**](GroupApi.md#assignusertogroup) | **PUT** /api/v1/groups/{groupId}/users/{userId} | Assign a User
 [**CreateGroup**](GroupApi.md#creategroup) | **POST** /api/v1/groups | Create a Group
 [**CreateGroupRule**](GroupApi.md#creategrouprule) | **POST** /api/v1/groups/rules | Create a Group Rule
 [**DeactivateGroupRule**](GroupApi.md#deactivategrouprule) | **POST** /api/v1/groups/rules/{groupRuleId}/lifecycle/deactivate | Deactivate a Group Rule
 [**DeleteGroup**](GroupApi.md#deletegroup) | **DELETE** /api/v1/groups/{groupId} | Delete a Group
-[**DeleteGroupOwner**](GroupApi.md#deletegroupowner) | **DELETE** /api/v1/groups/{groupId}/owners/{ownerId} | Delete a Group Owner
 [**DeleteGroupRule**](GroupApi.md#deletegrouprule) | **DELETE** /api/v1/groups/rules/{groupRuleId} | Delete a group Rule
 [**GetGroup**](GroupApi.md#getgroup) | **GET** /api/v1/groups/{groupId} | Retrieve a Group
 [**GetGroupRule**](GroupApi.md#getgrouprule) | **GET** /api/v1/groups/rules/{groupRuleId} | Retrieve a Group Rule
 [**ListAssignedApplicationsForGroup**](GroupApi.md#listassignedapplicationsforgroup) | **GET** /api/v1/groups/{groupId}/apps | List all Assigned Applications
-[**ListGroupOwners**](GroupApi.md#listgroupowners) | **GET** /api/v1/groups/{groupId}/owners | List all Group Owners
 [**ListGroupRules**](GroupApi.md#listgrouprules) | **GET** /api/v1/groups/rules | List all Group Rules
 [**ListGroupUsers**](GroupApi.md#listgroupusers) | **GET** /api/v1/groups/{groupId}/users | List all Member Users
 [**ListGroups**](GroupApi.md#listgroups) | **GET** /api/v1/groups | List all Groups
@@ -103,88 +100,6 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="assigngroupowner"></a>
-# **AssignGroupOwner**
-> GroupOwner AssignGroupOwner (string groupId, AssignGroupOwnerRequestBody assignGroupOwnerRequestBody)
-
-Assign a Group Owner
-
-Assigns a group owner
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class AssignGroupOwnerExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new GroupApi(config);
-            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
-            var assignGroupOwnerRequestBody = new AssignGroupOwnerRequestBody(); // AssignGroupOwnerRequestBody | 
-
-            try
-            {
-                // Assign a Group Owner
-                GroupOwner result = apiInstance.AssignGroupOwner(groupId, assignGroupOwnerRequestBody);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling GroupApi.AssignGroupOwner: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| The &#x60;id&#x60; of the group | 
- **assignGroupOwnerRequestBody** | [**AssignGroupOwnerRequestBody**](AssignGroupOwnerRequestBody.md)|  | 
-
-### Return type
-
-[**GroupOwner**](GroupOwner.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="assignusertogroup"></a>
 # **AssignUserToGroup**
 > void AssignUserToGroup (string groupId, string userId)
@@ -216,7 +131,7 @@ namespace Example
 
             var apiInstance = new GroupApi(config);
             var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -239,7 +154,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupId** | **string**| The &#x60;id&#x60; of the group | 
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -554,86 +469,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupId** | **string**| The &#x60;id&#x60; of the group | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="deletegroupowner"></a>
-# **DeleteGroupOwner**
-> void DeleteGroupOwner (string groupId, string ownerId)
-
-Delete a Group Owner
-
-Deletes a group owner from a specific group
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class DeleteGroupOwnerExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new GroupApi(config);
-            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
-            var ownerId = 00u1emaK22TWRYd3TtG;  // string | The `id` of the group owner
-
-            try
-            {
-                // Delete a Group Owner
-                apiInstance.DeleteGroupOwner(groupId, ownerId);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling GroupApi.DeleteGroupOwner: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| The &#x60;id&#x60; of the group | 
- **ownerId** | **string**| The &#x60;id&#x60; of the group owner | 
 
 ### Return type
 
@@ -982,91 +817,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listgroupowners"></a>
-# **ListGroupOwners**
-> List&lt;GroupOwner&gt; ListGroupOwners (string groupId, string filter = null, string after = null, int? limit = null)
-
-List all Group Owners
-
-Lists all owners for a specific group
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
-
-namespace Example
-{
-    public class ListGroupOwnersExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.OktaDomain = "https://subdomain.okta.com";
-            // Configure API key authorization: apiToken
-            config.Token ="YOUR_API_KEY";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new GroupApi(config);
-            var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
-            var filter = "filter_example";  // string | SCIM Filter expression for group owners. Allows to filter owners by type. (optional) 
-            var after = "after_example";  // string | Specifies the pagination cursor for the next page of owners (optional) 
-            var limit = 1000;  // int? | Specifies the number of owner results in a page (optional)  (default to 1000)
-
-            try
-            {
-                // List all Group Owners
-                List<GroupOwner> result = apiInstance.ListGroupOwners(groupId, filter, after, limit).ToListAsync();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling GroupApi.ListGroupOwners: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| The &#x60;id&#x60; of the group | 
- **filter** | **string**| SCIM Filter expression for group owners. Allows to filter owners by type. | [optional] 
- **after** | **string**| Specifies the pagination cursor for the next page of owners | [optional] 
- **limit** | **int?**| Specifies the number of owner results in a page | [optional] [default to 1000]
-
-### Return type
-
-[**List&lt;GroupOwner&gt;**](GroupOwner.md)
-
-### Authorization
-
-[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **429** | Too Many Requests |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="listgrouprules"></a>
 # **ListGroupRules**
 > List&lt;GroupRule&gt; ListGroupRules (int? limit = null, string after = null, string search = null, string expand = null)
@@ -1153,7 +903,7 @@ Name | Type | Description  | Notes
 
 <a name="listgroupusers"></a>
 # **ListGroupUsers**
-> List&lt;User&gt; ListGroupUsers (string groupId, string after = null, int? limit = null)
+> List&lt;GroupMember&gt; ListGroupUsers (string groupId, string search = null, string sortBy = null, string sortOrder = null, string after = null, int? limit = null)
 
 List all Member Users
 
@@ -1182,13 +932,16 @@ namespace Example
 
             var apiInstance = new GroupApi(config);
             var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
-            var after = "after_example";  // string | Specifies the pagination cursor for the next page of users (optional) 
+            var search = "search_example";  // string | Searches for users with a supported filtering expression for user name, primary email, or user name (optional) 
+            var sortBy = id;  // string | Specifies which field to sort by. This can be any single property. (optional) 
+            var sortOrder = "\"asc\"";  // string | Specifies sort order: `asc` or `desc`. This parameter is ignored if `sortBy` is not present. Users with the same value for the `sortBy` parameter are ordered by `id`. (optional)  (default to "asc")
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
             var limit = 1000;  // int? | Specifies the number of user results in a page (optional)  (default to 1000)
 
             try
             {
                 // List all Member Users
-                List<User> result = apiInstance.ListGroupUsers(groupId, after, limit).ToListAsync();
+                List<GroupMember> result = apiInstance.ListGroupUsers(groupId, search, sortBy, sortOrder, after, limit).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1207,12 +960,15 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupId** | **string**| The &#x60;id&#x60; of the group | 
- **after** | **string**| Specifies the pagination cursor for the next page of users | [optional] 
+ **search** | **string**| Searches for users with a supported filtering expression for user name, primary email, or user name | [optional] 
+ **sortBy** | **string**| Specifies which field to sort by. This can be any single property. | [optional] 
+ **sortOrder** | **string**| Specifies sort order: &#x60;asc&#x60; or &#x60;desc&#x60;. This parameter is ignored if &#x60;sortBy&#x60; is not present. Users with the same value for the &#x60;sortBy&#x60; parameter are ordered by &#x60;id&#x60;. | [optional] [default to &quot;asc&quot;]
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
  **limit** | **int?**| Specifies the number of user results in a page | [optional] [default to 1000]
 
 ### Return type
 
-[**List&lt;User&gt;**](User.md)
+[**List&lt;GroupMember&gt;**](GroupMember.md)
 
 ### Authorization
 
@@ -1521,7 +1277,7 @@ namespace Example
 
             var apiInstance = new GroupApi(config);
             var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -1544,7 +1300,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupId** | **string**| The &#x60;id&#x60; of the group | 
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 

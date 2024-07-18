@@ -42,8 +42,7 @@ namespace Okta.Sdk.IntegrationTest
                 userType = await _userTypeApi.CreateUserTypeAsync(
                     new UserType
                     {
-                        DisplayName = $"dotnet-sdk{nameof(ListProfileMappings)}{randomSuffix}",
-                        Name = $"list_profile_mapping_{randomSuffix}",
+                        Id = $"dotnet-sdk{nameof(ListProfileMappings)}{randomSuffix}",
                     });
 
                 Thread.Sleep(10000);
@@ -73,8 +72,7 @@ namespace Okta.Sdk.IntegrationTest
                 userType = await _userTypeApi.CreateUserTypeAsync(
                     new UserType
                     {
-                        DisplayName = $"dotnet-sdk{nameof(GetProfileMapping)}{randomSuffix}",
-                        Name = $"get_profile_mapping_{randomSuffix}",
+                        Id = $"dotnet-sdk{nameof(GetProfileMapping)}{randomSuffix}",
                     });
 
                 Thread.Sleep(6000);

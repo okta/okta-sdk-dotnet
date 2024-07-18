@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.NetworkZoneUsage
-The usage of the network zone
+The usage of the Network Zone
 
 ## Properties
 

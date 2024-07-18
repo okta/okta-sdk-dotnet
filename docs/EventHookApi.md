@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Activate an Event Hook
 
-Activates an event hook
+Activates the event hook that matches the provided `id`
 
 ### Example
 ```csharp
@@ -44,7 +44,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
-            var eventHookId = YTDQbItFfFuy9RdHrvly;  // string | `id` of the Event Hook
+            var eventHookId = who8vt36qfNpCGz9H1e6;  // string | `id` of the Event Hook
 
             try
             {
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 Create an Event Hook
 
-Creates an event hook
+Creates a new event hook for your organization in `ACTIVE` status. You pass an event hook object in the JSON payload of your request. That object represents the set of required information about the event hook you're registering, including:   * The URI of your external service   * The [events](https://developer.okta.com/docs/reference/api/event-types/) in Okta you want to subscribe to   * An optional event hook filter that can reduce the number of event hook calls. This is a self-service Early Access (EA) feature.     See [Create an event hook filter](https://developer.okta.com/docs/concepts/event-hooks/#create-an-event-hook-filter).      Additionally, you can specify a secret API key for Okta to pass to your external service endpoint for security verification. Note that the API key you set here is unrelated to the Okta API token you must supply when making calls to Okta APIs. Optionally, you can specify extra headers that Okta passes to your external service with each call. Your external service must use a valid HTTPS endpoint.
 
 ### Example
 ```csharp
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 Deactivate an Event Hook
 
-Deactivates an event hook
+Deactivates the event hook that matches the provided `id`
 
 ### Example
 ```csharp
@@ -202,7 +202,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
-            var eventHookId = YTDQbItFfFuy9RdHrvly;  // string | `id` of the Event Hook
+            var eventHookId = who8vt36qfNpCGz9H1e6;  // string | `id` of the Event Hook
 
             try
             {
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 Delete an Event Hook
 
-Deletes an event hook
+Deletes the event hook that matches the provided `id`. After deletion, the event hook is unrecoverable. As a safety precaution, you can only delete event hooks with a status of `INACTIVE`.
 
 ### Example
 ```csharp
@@ -281,7 +281,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
-            var eventHookId = YTDQbItFfFuy9RdHrvly;  // string | `id` of the Event Hook
+            var eventHookId = who8vt36qfNpCGz9H1e6;  // string | `id` of the Event Hook
 
             try
             {
@@ -359,7 +359,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
-            var eventHookId = YTDQbItFfFuy9RdHrvly;  // string | `id` of the Event Hook
+            var eventHookId = who8vt36qfNpCGz9H1e6;  // string | `id` of the Event Hook
 
             try
             {
@@ -488,7 +488,7 @@ This endpoint does not need any parameter.
 
 Replace an Event Hook
 
-Replaces an event hook
+Replaces an event hook. Okta validates the new properties before replacing the existing values. Some event hook properties are immutable and can't be updated. Refer to the parameter description in the request body schema.  >**Note:** Updating the `channel` property requires you to verify the hook again.
 
 ### Example
 ```csharp
@@ -512,7 +512,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
-            var eventHookId = YTDQbItFfFuy9RdHrvly;  // string | `id` of the Event Hook
+            var eventHookId = who8vt36qfNpCGz9H1e6;  // string | `id` of the Event Hook
             var eventHook = new EventHook(); // EventHook | 
 
             try
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 
 Verify an Event Hook
 
-Verifies an event hook
+Verifies that the event hook matches the provided `eventHookId`. To verify ownership, your endpoint must send information back to Okta in JSON format. See [Event hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request).  Only `ACTIVE` and `VERIFIED` event hooks can receive events from Okta.  If a response is not received within 3 seconds, the outbound request times out. One retry is attempted after a timeout or error response. If a successful response still isn't received, this operation returns a 400 error with more information about the failure.
 
 ### Example
 ```csharp
@@ -594,7 +594,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
-            var eventHookId = YTDQbItFfFuy9RdHrvly;  // string | `id` of the Event Hook
+            var eventHookId = who8vt36qfNpCGz9H1e6;  // string | `id` of the Event Hook
 
             try
             {
@@ -637,6 +637,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |

@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.AuthorizationServerCredentialsUse
+How the key is used
 
 ## Properties
 

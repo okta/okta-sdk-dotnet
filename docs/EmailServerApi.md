@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Create a custom SMTP server
 
-Creates a custom email SMTP server configuration for your organization
+Creates a custom email SMTP server configuration for your org
 
 ### Example
 ```csharp
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 Delete an SMTP Server configuration
 
-Deletes your organization's custom SMTP server with the given ID
+Deletes the specified custom SMTP server configuration
 
 ### Example
 ```csharp
@@ -175,7 +175,7 @@ void (empty response body)
 
 Retrieve an SMTP Server configuration
 
-Retrieves a configuration of your organization's custom SMTP server with the given ID
+Retrieves the specified custom SMTP server configuration
 
 ### Example
 ```csharp
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 List all enrolled SMTP servers
 
-Lists all the enrolled custom email SMTP servers
+Lists all the enrolled custom SMTP server configurations
 
 ### Example
 ```csharp
@@ -328,7 +328,7 @@ This endpoint does not need any parameter.
 
 Test an SMTP Server configuration
 
-Tests your organization's custom SMTP Server with the given ID
+Tests the specified custom SMTP Server configuration
 
 ### Example
 ```csharp
@@ -409,7 +409,7 @@ void (empty response body)
 
 Update an SMTP Server configuration
 
-Updates one or more fields of your organization's custom SMTP Server configuration
+Updates the specified custom SMTP server configuration
 
 ### Example
 ```csharp

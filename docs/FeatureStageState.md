@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.FeatureStageState
+Indicates the release state of the feature
 
 ## Properties
 

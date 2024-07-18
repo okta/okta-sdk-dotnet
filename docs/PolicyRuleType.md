@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.PolicyRuleType
+Rule type
 
 ## Properties
 
