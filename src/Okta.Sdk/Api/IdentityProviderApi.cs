@@ -406,9 +406,13 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId">&#x60;id&#x60; of IdP</param>
+        /// <param name="q">Searches the name property of IdPs for matching value (optional)</param>
+        /// <param name="after">Specifies the pagination cursor for the next page of IdPs (optional)</param>
+        /// <param name="limit">Specifies the number of IdP results in a page (optional, default to 20)</param>
+        /// <param name="expand">Expand user data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;IdentityProviderApplicationUser&gt;</returns>
-        IOktaCollectionClient<IdentityProviderApplicationUser> ListIdentityProviderApplicationUsers(  string idpId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<IdentityProviderApplicationUser> ListIdentityProviderApplicationUsers(  string idpId ,   string q = default(string) ,   string after = default(string) ,   int? limit = default(int?) ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Users
         /// </summary>
@@ -417,9 +421,13 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId">&#x60;id&#x60; of IdP</param>
+        /// <param name="q">Searches the name property of IdPs for matching value (optional)</param>
+        /// <param name="after">Specifies the pagination cursor for the next page of IdPs (optional)</param>
+        /// <param name="limit">Specifies the number of IdP results in a page (optional, default to 20)</param>
+        /// <param name="expand">Expand user data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;IdentityProviderApplicationUser&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<IdentityProviderApplicationUser>>> ListIdentityProviderApplicationUsersWithHttpInfoAsync(  string idpId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<IdentityProviderApplicationUser>>> ListIdentityProviderApplicationUsersWithHttpInfoAsync(  string idpId ,   string q = default(string) ,   string after = default(string) ,   int? limit = default(int?) ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Credential Keys
         /// </summary>
@@ -2189,10 +2197,14 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId">&#x60;id&#x60; of IdP</param>
+        /// <param name="q">Searches the name property of IdPs for matching value (optional)</param>
+        /// <param name="after">Specifies the pagination cursor for the next page of IdPs (optional)</param>
+        /// <param name="limit">Specifies the number of IdP results in a page (optional, default to 20)</param>
+        /// <param name="expand">Expand user data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;IdentityProviderApplicationUser&gt;</returns>
         //a
-        public IOktaCollectionClient<IdentityProviderApplicationUser> ListIdentityProviderApplicationUsers(  string idpId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<IdentityProviderApplicationUser> ListIdentityProviderApplicationUsers(  string idpId ,   string q = default(string) ,   string after = default(string) ,   int? limit = default(int?) ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)
@@ -2224,6 +2236,22 @@ namespace Okta.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
+            if (q != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "q", q));
+            }
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (expand != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
+            }
 
             // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -2246,9 +2274,13 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId">&#x60;id&#x60; of IdP</param>
+        /// <param name="q">Searches the name property of IdPs for matching value (optional)</param>
+        /// <param name="after">Specifies the pagination cursor for the next page of IdPs (optional)</param>
+        /// <param name="limit">Specifies the number of IdP results in a page (optional, default to 20)</param>
+        /// <param name="expand">Expand user data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;IdentityProviderApplicationUser&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<IdentityProviderApplicationUser>>> ListIdentityProviderApplicationUsersWithHttpInfoAsync(  string idpId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<IdentityProviderApplicationUser>>> ListIdentityProviderApplicationUsersWithHttpInfoAsync(  string idpId ,   string q = default(string) ,   string after = default(string) ,   int? limit = default(int?) ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)
@@ -2280,6 +2312,22 @@ namespace Okta.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
+            if (q != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "q", q));
+            }
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (expand != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
+            }
 
             // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))

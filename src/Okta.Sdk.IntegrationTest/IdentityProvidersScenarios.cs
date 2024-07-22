@@ -17,10 +17,12 @@ namespace Okta.Sdk.IntegrationTest
     public class IdentityProvidersScenarios
     {
         private IdentityProviderApi _idpApi;
+        private UserApi _userApi;
 
         public IdentityProvidersScenarios()
         {
             _idpApi = new IdentityProviderApi();
+            _userApi = new UserApi();
 
             DeleteAllIdps().Wait();
         }
@@ -1582,6 +1584,55 @@ namespace Okta.Sdk.IntegrationTest
             
         }
 
+        [Fact]
+        public async Task ListIdentityProviderApplicationUsers()
+        {
+            var testIdentityProvider = await _idpApi.CreateIdentityProviderAsync(GetTestIdentityProvider($"{nameof(ListIdentityProviderApplicationUsers)}_", Guid.NewGuid().ToString()));
+            var testUser = await CreateTestUserAsync(nameof(ListIdentityProviderApplicationUsers), "Test");
+            var testExternalId = Guid.NewGuid().ToString();
+
+            try
+            {
+                await _idpApi.LinkUserToIdentityProviderAsync(testIdentityProvider.Id, testUser.Id, new UserIdentityProviderLinkRequest() { ExternalId = testExternalId });
+                var results = await _idpApi.ListIdentityProviderApplicationUsers(testIdentityProvider.Id).ToListAsync();
+
+                results.Count.Should().Be(1);
+                var appUser = results[0];
+                appUser.Id.Should().BeEquivalentTo(testUser.Id);
+                appUser.ExternalId.Should().BeEquivalentTo(testExternalId);
+            }
+            finally
+            {
+                await _idpApi.UnlinkUserFromIdentityProviderAsync(testIdentityProvider.Id, testUser.Id);
+                await _idpApi.DeactivateIdentityProviderAsync(testIdentityProvider.Id);
+                await _idpApi.DeleteIdentityProviderAsync(testIdentityProvider.Id);
+                
+                await _userApi.DeactivateUserAsync(testUser.Id);
+                await _userApi.DeleteUserAsync(testUser.Id);
+            }
+        }
+
+        private async Task<User> CreateTestUserAsync(string firstName, string lastName)
+        {
+            var createUserRequest = new CreateUserRequest
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Login = $"{Guid.NewGuid()}@login.com",
+                    Email = $"{Guid.NewGuid()}@email.com",
+                    PrimaryPhone = "123-321-4444",
+                    MobilePhone = "321-123-5555",
+                    Locale = "en_US",
+                    SecondEmail = $"{Guid.NewGuid()}@second.com",
+                    Timezone = "Japan",
+                }
+            };
+
+            return await _userApi.CreateUserAsync(createUserRequest);
+        }
+        
         private static IdentityProvider GetTestIdentityProvider(string idpName, string idpSuffix)
         {
             var idp = new IdentityProvider()
