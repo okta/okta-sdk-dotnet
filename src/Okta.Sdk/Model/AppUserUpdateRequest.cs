@@ -59,11 +59,6 @@ namespace Okta.Sdk.Model
         }
 
 
-        public T Cast<T>()
-        {
-            return (T)ActualInstance;
-        }
-
         private Object _actualInstance;
 
         /// <summary>

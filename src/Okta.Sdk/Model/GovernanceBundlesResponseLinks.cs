@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 
 namespace Okta.Sdk.Model
 {
-    /// <summary>
+/// <summary>
     /// Template: AnyOf
     /// GovernanceBundlesResponseLinks
     /// </summary>
@@ -58,11 +58,6 @@ namespace Okta.Sdk.Model
         }
 
 
-        public T Cast<T>()
-        {
-            return (T)ActualInstance;
-        }
-        
         private Object _actualInstance;
 
         /// <summary>
