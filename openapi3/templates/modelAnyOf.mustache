@@ -1,4 +1,4 @@
-    /// <summary>
+/// <summary>
     /// Template: AnyOf
     /// {{description}}{{^description}}{{classname}}{{/description}}
     /// </summary>
@@ -32,11 +32,6 @@
 
         {{/anyOf}}
 
-        public T Cast<T>()
-        {
-            return (T)ActualInstance;
-        }
-        
         private Object _actualInstance;
 
         /// <summary>

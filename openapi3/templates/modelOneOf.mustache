@@ -35,11 +35,6 @@
         {{/isNull}}
         {{/composedSchemas.oneOf}}
 
-        public T Cast<T>()
-        {
-            return (T)ActualInstance;
-        }
-
         private Object _actualInstance;
 
         /// <summary>
