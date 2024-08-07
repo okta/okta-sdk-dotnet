@@ -71916,6 +71916,7 @@ components:
           web: '#/components/schemas/UserFactorWeb'
           webauthn: '#/components/schemas/UserFactorWebAuthn'
           hotp: '#/components/schemas/UserFactorCustomHOTP'
+          signed_nonce: '#/components/schemas/UserFactor'
         propertyName: factorType
       example:
         lastUpdated: 2022-08-25T00:31:00Z

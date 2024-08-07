@@ -292,7 +292,7 @@ namespace Okta.Sdk.UnitTest
             mockClient.ReceivedQueryParams.ContainsKey("activate").Should().BeTrue();
             mockClient.ReceivedQueryParams["activate"].Should().Contain("true");
 
-            var expectedBody = @"{""profile"":{""clientId"":""foo"",""authScheme"":""TOKEN""}}";
+            var expectedBody = @"{""baseUrl"":null,""profile"":{""authScheme"":""TOKEN"",""token"":null}}";
             mockClient.ReceivedBody.Should().Be(expectedBody);
             response.Status.Value.Should().Be("ENABLED");
             response.Profile.AuthScheme.Value.Should().Be("TOKEN");

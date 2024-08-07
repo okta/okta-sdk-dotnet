@@ -37,6 +37,7 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(UserFactorCustomHOTP), "hotp")]
     [JsonSubtypes.KnownSubType(typeof(UserFactorPush), "push")]
     [JsonSubtypes.KnownSubType(typeof(UserFactorSecurityQuestion), "question")]
+    [JsonSubtypes.KnownSubType(typeof(UserFactor), "signed_nonce")]
     [JsonSubtypes.KnownSubType(typeof(UserFactorSMS), "sms")]
     [JsonSubtypes.KnownSubType(typeof(UserFactorToken), "token")]
     [JsonSubtypes.KnownSubType(typeof(UserFactorHardware), "token:hardware")]
