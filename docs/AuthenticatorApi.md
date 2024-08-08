@@ -10,17 +10,17 @@ Method | HTTP request | Description
 [**DeactivateAuthenticator**](AuthenticatorApi.md#deactivateauthenticator) | **POST** /api/v1/authenticators/{authenticatorId}/lifecycle/deactivate | Deactivate an Authenticator
 [**DeactivateAuthenticatorMethod**](AuthenticatorApi.md#deactivateauthenticatormethod) | **POST** /api/v1/authenticators/{authenticatorId}/methods/{methodType}/lifecycle/deactivate | Deactivate an Authenticator Method
 [**GetAuthenticator**](AuthenticatorApi.md#getauthenticator) | **GET** /api/v1/authenticators/{authenticatorId} | Retrieve an Authenticator
-[**GetAuthenticatorMethod**](AuthenticatorApi.md#getauthenticatormethod) | **GET** /api/v1/authenticators/{authenticatorId}/methods/{methodType} | Retrieve a Method
+[**GetAuthenticatorMethod**](AuthenticatorApi.md#getauthenticatormethod) | **GET** /api/v1/authenticators/{authenticatorId}/methods/{methodType} | Retrieve an Authenticator Method
 [**GetWellKnownAppAuthenticatorConfiguration**](AuthenticatorApi.md#getwellknownappauthenticatorconfiguration) | **GET** /.well-known/app-authenticator-configuration | Retrieve the Well-Known App Authenticator Configuration
 [**ListAuthenticatorMethods**](AuthenticatorApi.md#listauthenticatormethods) | **GET** /api/v1/authenticators/{authenticatorId}/methods | List all Methods of an Authenticator
 [**ListAuthenticators**](AuthenticatorApi.md#listauthenticators) | **GET** /api/v1/authenticators | List all Authenticators
 [**ReplaceAuthenticator**](AuthenticatorApi.md#replaceauthenticator) | **PUT** /api/v1/authenticators/{authenticatorId} | Replace an Authenticator
-[**ReplaceAuthenticatorMethod**](AuthenticatorApi.md#replaceauthenticatormethod) | **PUT** /api/v1/authenticators/{authenticatorId}/methods/{methodType} | Replace a Method
+[**ReplaceAuthenticatorMethod**](AuthenticatorApi.md#replaceauthenticatormethod) | **PUT** /api/v1/authenticators/{authenticatorId}/methods/{methodType} | Replace an Authenticator Method
 
 
 <a name="activateauthenticator"></a>
 # **ActivateAuthenticator**
-> Authenticator ActivateAuthenticator (string authenticatorId)
+> AuthenticatorBase ActivateAuthenticator (string authenticatorId)
 
 Activate an Authenticator
 
@@ -53,7 +53,7 @@ namespace Example
             try
             {
                 // Activate an Authenticator
-                Authenticator result = apiInstance.ActivateAuthenticator(authenticatorId);
+                AuthenticatorBase result = apiInstance.ActivateAuthenticator(authenticatorId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Authenticator**](Authenticator.md)
+[**AuthenticatorBase**](AuthenticatorBase.md)
 
 ### Authorization
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 Activate an Authenticator Method
 
-Activates a Method for an Authenticator identified by `authenticatorId` and `methodType`
+Activates a Method for an Authenticator identified by `authenticatorId` and `methodType` > **Note:** <x-lifecycle class=\"ea\"></x-lifecycle> > The AAGUID Group object supports the Early Access (Self-Service) Allow List for FIDO2 (WebAuthn) Authenticators feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console. > This feature has several limitations when enrolling a security key: > - Enrollment is currently unsupported on Firefox. > - Enrollment is currently unsupported on Chrome if User Verification is set to DISCOURAGED and a PIN is set on the security key. > - If prompted during enrollment, users must allow Okta to see the make and model of the security key.
 
 ### Example
 ```csharp
@@ -128,7 +128,7 @@ namespace Example
 
             var apiInstance = new AuthenticatorApi(config);
             var authenticatorId = aut1nd8PQhGcQtSxB0g4;  // string | `id` of the Authenticator
-            var methodType = (AuthenticatorMethodType) "cert";  // AuthenticatorMethodType | Type of the authenticator method
+            var methodType = (AuthenticatorMethodType) "cert";  // AuthenticatorMethodType | Type of authenticator method
 
             try
             {
@@ -152,7 +152,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authenticatorId** | **string**| &#x60;id&#x60; of the Authenticator | 
- **methodType** | **AuthenticatorMethodType**| Type of the authenticator method | 
+ **methodType** | **AuthenticatorMethodType**| Type of authenticator method | 
 
 ### Return type
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 <a name="createauthenticator"></a>
 # **CreateAuthenticator**
-> Authenticator CreateAuthenticator (Authenticator authenticator, bool? activate = null)
+> AuthenticatorBase CreateAuthenticator (AuthenticatorBase authenticator, bool? activate = null)
 
 Create an Authenticator
 
@@ -208,13 +208,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthenticatorApi(config);
-            var authenticator = new Authenticator(); // Authenticator | 
-            var activate = false;  // bool? | Whether to execute the activation lifecycle operation when Okta creates the authenticator (optional)  (default to false)
+            var authenticator = new AuthenticatorBase(); // AuthenticatorBase | 
+            var activate = true;  // bool? | Whether to execute the activation lifecycle operation when Okta creates the authenticator (optional)  (default to true)
 
             try
             {
                 // Create an Authenticator
-                Authenticator result = apiInstance.CreateAuthenticator(authenticator, activate);
+                AuthenticatorBase result = apiInstance.CreateAuthenticator(authenticator, activate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -232,12 +232,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authenticator** | [**Authenticator**](Authenticator.md)|  | 
- **activate** | **bool?**| Whether to execute the activation lifecycle operation when Okta creates the authenticator | [optional] [default to false]
+ **authenticator** | [**AuthenticatorBase**](AuthenticatorBase.md)|  | 
+ **activate** | **bool?**| Whether to execute the activation lifecycle operation when Okta creates the authenticator | [optional] [default to true]
 
 ### Return type
 
-[**Authenticator**](Authenticator.md)
+[**AuthenticatorBase**](AuthenticatorBase.md)
 
 ### Authorization
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 <a name="deactivateauthenticator"></a>
 # **DeactivateAuthenticator**
-> Authenticator DeactivateAuthenticator (string authenticatorId)
+> AuthenticatorBase DeactivateAuthenticator (string authenticatorId)
 
 Deactivate an Authenticator
 
@@ -294,7 +294,7 @@ namespace Example
             try
             {
                 // Deactivate an Authenticator
-                Authenticator result = apiInstance.DeactivateAuthenticator(authenticatorId);
+                AuthenticatorBase result = apiInstance.DeactivateAuthenticator(authenticatorId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Authenticator**](Authenticator.md)
+[**AuthenticatorBase**](AuthenticatorBase.md)
 
 ### Authorization
 
@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
 
 Deactivate an Authenticator Method
 
-Deactivates a Method for an Authenticator identified by `authenticatorId` and `methodType`
+Deactivates a Method for an Authenticator identified by `authenticatorId` and `methodType` > **Note:** <x-lifecycle class=\"ea\"></x-lifecycle> > The AAGUID Group object supports the Early Access (Self-Service) Allow List for FIDO2 (WebAuthn) Authenticators feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console. > This feature has several limitations when enrolling a security key: > - Enrollment is currently unsupported on Firefox. > - Enrollment is currently unsupported on Chrome if User Verification is set to DISCOURAGED and a PIN is set on the security key. > - If prompted during enrollment, users must allow Okta to see the make and model of the security key.
 
 ### Example
 ```csharp
@@ -369,7 +369,7 @@ namespace Example
 
             var apiInstance = new AuthenticatorApi(config);
             var authenticatorId = aut1nd8PQhGcQtSxB0g4;  // string | `id` of the Authenticator
-            var methodType = (AuthenticatorMethodType) "cert";  // AuthenticatorMethodType | Type of the authenticator method
+            var methodType = (AuthenticatorMethodType) "cert";  // AuthenticatorMethodType | Type of authenticator method
 
             try
             {
@@ -393,7 +393,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authenticatorId** | **string**| &#x60;id&#x60; of the Authenticator | 
- **methodType** | **AuthenticatorMethodType**| Type of the authenticator method | 
+ **methodType** | **AuthenticatorMethodType**| Type of authenticator method | 
 
 ### Return type
 
@@ -421,7 +421,7 @@ Name | Type | Description  | Notes
 
 <a name="getauthenticator"></a>
 # **GetAuthenticator**
-> Authenticator GetAuthenticator (string authenticatorId)
+> AuthenticatorBase GetAuthenticator (string authenticatorId)
 
 Retrieve an Authenticator
 
@@ -454,7 +454,7 @@ namespace Example
             try
             {
                 // Retrieve an Authenticator
-                Authenticator result = apiInstance.GetAuthenticator(authenticatorId);
+                AuthenticatorBase result = apiInstance.GetAuthenticator(authenticatorId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Authenticator**](Authenticator.md)
+[**AuthenticatorBase**](AuthenticatorBase.md)
 
 ### Authorization
 
@@ -502,9 +502,9 @@ Name | Type | Description  | Notes
 # **GetAuthenticatorMethod**
 > AuthenticatorMethodBase GetAuthenticatorMethod (string authenticatorId, AuthenticatorMethodType methodType)
 
-Retrieve a Method
+Retrieve an Authenticator Method
 
-Retrieves a Method identified by `methodType` of an Authenticator identified by `authenticatorId`
+Retrieves a Method identified by `methodType` of an Authenticator identified by `authenticatorId` > **Note:** <x-lifecycle class=\"ea\"></x-lifecycle> > The AAGUID Group object supports the Early Access (Self-Service) Allow List for FIDO2 (WebAuthn) Authenticators feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console. > This feature has several limitations when enrolling a security key: > - Enrollment is currently unsupported on Firefox. > - Enrollment is currently unsupported on Chrome if User Verification is set to DISCOURAGED and a PIN is set on the security key. > - If prompted during enrollment, users must allow Okta to see the make and model of the security key.
 
 ### Example
 ```csharp
@@ -529,11 +529,11 @@ namespace Example
 
             var apiInstance = new AuthenticatorApi(config);
             var authenticatorId = aut1nd8PQhGcQtSxB0g4;  // string | `id` of the Authenticator
-            var methodType = (AuthenticatorMethodType) "cert";  // AuthenticatorMethodType | Type of the authenticator method
+            var methodType = (AuthenticatorMethodType) "cert";  // AuthenticatorMethodType | Type of authenticator method
 
             try
             {
-                // Retrieve a Method
+                // Retrieve an Authenticator Method
                 AuthenticatorMethodBase result = apiInstance.GetAuthenticatorMethod(authenticatorId, methodType);
                 Debug.WriteLine(result);
             }
@@ -553,7 +553,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authenticatorId** | **string**| &#x60;id&#x60; of the Authenticator | 
- **methodType** | **AuthenticatorMethodType**| Type of the authenticator method | 
+ **methodType** | **AuthenticatorMethodType**| Type of authenticator method | 
 
 ### Return type
 
@@ -585,7 +585,7 @@ Name | Type | Description  | Notes
 
 Retrieve the Well-Known App Authenticator Configuration
 
-Retrieves the well-known app authenticator configuration, which includes an app authenticator's settings, supported methods and various other configuration details
+Retrieves the well-known app authenticator configuration. Includes an app authenticator's settings, supported methods, and other details.
 
 ### Example
 ```csharp
@@ -658,7 +658,7 @@ No authorization required
 
 List all Methods of an Authenticator
 
-Lists all Methods of an Authenticator identified by `authenticatorId`
+Lists all Methods of an Authenticator identified by `authenticatorId` > **Note:** <x-lifecycle class=\"ea\"></x-lifecycle> > The AAGUID Group object supports the Early Access (Self-Service) Allow List for FIDO2 (WebAuthn) Authenticators feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console. > This feature has several limitations when enrolling a security key: > - Enrollment is currently unsupported on Firefox. > - Enrollment is currently unsupported on Chrome if User Verification is set to DISCOURAGED and a PIN is set on the security key. > - If prompted during enrollment, users must allow Okta to see the make and model of the security key.
 
 ### Example
 ```csharp
@@ -733,7 +733,7 @@ Name | Type | Description  | Notes
 
 <a name="listauthenticators"></a>
 # **ListAuthenticators**
-> List&lt;Authenticator&gt; ListAuthenticators ()
+> List&lt;AuthenticatorBase&gt; ListAuthenticators ()
 
 List all Authenticators
 
@@ -765,7 +765,7 @@ namespace Example
             try
             {
                 // List all Authenticators
-                List<Authenticator> result = apiInstance.ListAuthenticators().ToListAsync();
+                List<AuthenticatorBase> result = apiInstance.ListAuthenticators().ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -784,7 +784,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;Authenticator&gt;**](Authenticator.md)
+[**List&lt;AuthenticatorBase&gt;**](AuthenticatorBase.md)
 
 ### Authorization
 
@@ -807,7 +807,7 @@ This endpoint does not need any parameter.
 
 <a name="replaceauthenticator"></a>
 # **ReplaceAuthenticator**
-> Authenticator ReplaceAuthenticator (string authenticatorId, Authenticator authenticator)
+> AuthenticatorBase ReplaceAuthenticator (string authenticatorId, AuthenticatorBase authenticator)
 
 Replace an Authenticator
 
@@ -836,12 +836,12 @@ namespace Example
 
             var apiInstance = new AuthenticatorApi(config);
             var authenticatorId = aut1nd8PQhGcQtSxB0g4;  // string | `id` of the Authenticator
-            var authenticator = new Authenticator(); // Authenticator | 
+            var authenticator = new AuthenticatorBase(); // AuthenticatorBase | 
 
             try
             {
                 // Replace an Authenticator
-                Authenticator result = apiInstance.ReplaceAuthenticator(authenticatorId, authenticator);
+                AuthenticatorBase result = apiInstance.ReplaceAuthenticator(authenticatorId, authenticator);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -860,11 +860,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authenticatorId** | **string**| &#x60;id&#x60; of the Authenticator | 
- **authenticator** | [**Authenticator**](Authenticator.md)|  | 
+ **authenticator** | [**AuthenticatorBase**](AuthenticatorBase.md)|  | 
 
 ### Return type
 
-[**Authenticator**](Authenticator.md)
+[**AuthenticatorBase**](AuthenticatorBase.md)
 
 ### Authorization
 
@@ -891,9 +891,9 @@ Name | Type | Description  | Notes
 # **ReplaceAuthenticatorMethod**
 > AuthenticatorMethodBase ReplaceAuthenticatorMethod (string authenticatorId, AuthenticatorMethodType methodType, AuthenticatorMethodBase authenticatorMethodBase = null)
 
-Replace a Method
+Replace an Authenticator Method
 
-Replaces a Method of `methodType` for an Authenticator identified by `authenticatorId`
+Replaces a Method of `methodType` for an Authenticator identified by `authenticatorId` > **Note:** <x-lifecycle class=\"ea\"></x-lifecycle> > The AAGUID Group object supports the Early Access (Self-Service) Allow List for FIDO2 (WebAuthn) Authenticators feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console. > This feature has several limitations when enrolling a security key: > - Enrollment is currently unsupported on Firefox. > - Enrollment is currently unsupported on Chrome if User Verification is set to DISCOURAGED and a PIN is set on the security key. > - If prompted during enrollment, users must allow Okta to see the make and model of the security key.
 
 ### Example
 ```csharp
@@ -918,12 +918,12 @@ namespace Example
 
             var apiInstance = new AuthenticatorApi(config);
             var authenticatorId = aut1nd8PQhGcQtSxB0g4;  // string | `id` of the Authenticator
-            var methodType = (AuthenticatorMethodType) "cert";  // AuthenticatorMethodType | Type of the authenticator method
+            var methodType = (AuthenticatorMethodType) "cert";  // AuthenticatorMethodType | Type of authenticator method
             var authenticatorMethodBase = new AuthenticatorMethodBase(); // AuthenticatorMethodBase |  (optional) 
 
             try
             {
-                // Replace a Method
+                // Replace an Authenticator Method
                 AuthenticatorMethodBase result = apiInstance.ReplaceAuthenticatorMethod(authenticatorId, methodType, authenticatorMethodBase);
                 Debug.WriteLine(result);
             }
@@ -943,7 +943,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authenticatorId** | **string**| &#x60;id&#x60; of the Authenticator | 
- **methodType** | **AuthenticatorMethodType**| Type of the authenticator method | 
+ **methodType** | **AuthenticatorMethodType**| Type of authenticator method | 
  **authenticatorMethodBase** | [**AuthenticatorMethodBase**](AuthenticatorMethodBase.md)|  | [optional] 
 
 ### Return type

@@ -40,9 +40,9 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationGrantsApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
-            var grantId = iJoqkwx50mrgX4T9LcaH;  // string | ID of the Grant
-            var expand = scope;  // string | An optional parameter to include scope details in the `_embedded` attribute. Valid value: `scope` (optional) 
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
+            var grantId = iJoqkwx50mrgX4T9LcaH;  // string | Grant ID
+            var expand = scope;  // string | An optional parameter to return scope details in the `_embedded` property. Valid value: `scope` (optional) 
 
             try
             {
@@ -65,9 +65,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
- **grantId** | **string**| ID of the Grant | 
- **expand** | **string**| An optional parameter to include scope details in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;scope&#x60; | [optional] 
+ **appId** | **string**| Application ID | 
+ **grantId** | **string**| Grant ID | 
+ **expand** | **string**| An optional parameter to return scope details in the &#x60;_embedded&#x60; property. Valid value: &#x60;scope&#x60; | [optional] 
 
 ### Return type
 
@@ -123,7 +123,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationGrantsApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
             var oAuth2ScopeConsentGrant = new OAuth2ScopeConsentGrant(); // OAuth2ScopeConsentGrant | 
 
             try
@@ -147,7 +147,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
  **oAuth2ScopeConsentGrant** | [**OAuth2ScopeConsentGrant**](OAuth2ScopeConsentGrant.md)|  | 
 
 ### Return type
@@ -205,8 +205,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationGrantsApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
-            var expand = scope;  // string | An optional parameter to include scope details in the `_embedded` attribute. Valid value: `scope` (optional) 
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
+            var expand = scope;  // string | An optional parameter to return scope details in the `_embedded` property. Valid value: `scope` (optional) 
 
             try
             {
@@ -229,8 +229,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
- **expand** | **string**| An optional parameter to include scope details in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;scope&#x60; | [optional] 
+ **appId** | **string**| Application ID | 
+ **expand** | **string**| An optional parameter to return scope details in the &#x60;_embedded&#x60; property. Valid value: &#x60;scope&#x60; | [optional] 
 
 ### Return type
 
@@ -286,8 +286,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationGrantsApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
-            var grantId = iJoqkwx50mrgX4T9LcaH;  // string | ID of the Grant
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
+            var grantId = iJoqkwx50mrgX4T9LcaH;  // string | Grant ID
 
             try
             {
@@ -309,8 +309,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
- **grantId** | **string**| ID of the Grant | 
+ **appId** | **string**| Application ID | 
+ **grantId** | **string**| Grant ID | 
 
 ### Return type
 

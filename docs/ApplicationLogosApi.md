@@ -37,7 +37,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationLogosApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The image file containing the logo.  The file must be in PNG, JPG, SVG, or GIF format, and less than one MB in size. For best results, use an image with a transparent background and a square dimension of 200 x 200 pixels to prevent upscaling. 
 
             try
@@ -60,7 +60,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
  **file** | **System.IO.Stream****System.IO.Stream**| The image file containing the logo.  The file must be in PNG, JPG, SVG, or GIF format, and less than one MB in size. For best results, use an image with a transparent background and a square dimension of 200 x 200 pixels to prevent upscaling.  | 
 
 ### Return type

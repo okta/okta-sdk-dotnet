@@ -101,7 +101,7 @@ namespace Okta.Sdk.IntegrationTest
                     Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
-                        _Client = new IdentityProviderCredentialsClient()
+                        VarClient = new IdentityProviderCredentialsClient()
                         {
                             ClientId = "your-client-id",
                             ClientSecret = "your-client-secret",
@@ -169,8 +169,8 @@ namespace Okta.Sdk.IntegrationTest
                 createdIdp.Protocol.Endpoints.Jwks.Binding.Should().Be(ProtocolEndpointBinding.REDIRECT);
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("openid", "profile", "email");
                 createdIdp.Protocol.Issuer.Url.Should().Be("https://idp.example.com");
-                createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
-                createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
+                createdIdp.Protocol.Credentials.VarClient.ClientId.Should().Be("your-client-id");
+                createdIdp.Protocol.Credentials.VarClient.ClientSecret.Should().Be("your-client-secret");
                 createdIdp.Policy.Provisioning.Action.Should().Be(ProvisioningAction.AUTO);
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeFalse();
                 createdIdp.Policy.Provisioning.Groups.Action.Should().Be(ProvisioningGroupsAction.NONE);
@@ -204,7 +204,7 @@ namespace Okta.Sdk.IntegrationTest
                     Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
-                        _Client = new IdentityProviderCredentialsClient()
+                        VarClient = new IdentityProviderCredentialsClient()
                         {
                             ClientId = "your-client-id",
                             ClientSecret = "your-client-secret",
@@ -261,8 +261,8 @@ namespace Okta.Sdk.IntegrationTest
                 createdIdp.Status.Value.Should().Be("ACTIVE");
                 createdIdp.Protocol.Type.Value.Should().Be("OAUTH2");
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("public_profile", "email");
-                createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
-                createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
+                createdIdp.Protocol.Credentials.VarClient.ClientId.Should().Be("your-client-id");
+                createdIdp.Protocol.Credentials.VarClient.ClientSecret.Should().Be("your-client-secret");
                 createdIdp.Policy.Provisioning.Action.Value.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
                 createdIdp.Policy.Provisioning.Groups.Action.Value.Should().Be("NONE");
@@ -295,7 +295,7 @@ namespace Okta.Sdk.IntegrationTest
                     Type = "OIDC",
                     Credentials = new IdentityProviderCredentials()
                     {
-                        _Client = new IdentityProviderCredentialsClient()
+                        VarClient = new IdentityProviderCredentialsClient()
                         {
                             ClientId = "your-client-id",
                             ClientSecret = "your-client-secret",
@@ -352,8 +352,8 @@ namespace Okta.Sdk.IntegrationTest
                 createdIdp.Status.Value.Should().Be("ACTIVE");
                 createdIdp.Protocol.Type.Value.Should().Be("OIDC");
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("public_profile", "email", "openid");
-                createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
-                createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
+                createdIdp.Protocol.Credentials.VarClient.ClientId.Should().Be("your-client-id");
+                createdIdp.Protocol.Credentials.VarClient.ClientSecret.Should().Be("your-client-secret");
                 createdIdp.Policy.Provisioning.Action.Value.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
                 createdIdp.Policy.Provisioning.Groups.Action.Value.Should().Be("NONE");
@@ -386,7 +386,7 @@ namespace Okta.Sdk.IntegrationTest
                     Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
-                        _Client = new IdentityProviderCredentialsClient()
+                        VarClient = new IdentityProviderCredentialsClient()
                         {
                             ClientId = "your-client-id",
                             ClientSecret = "your-client-secret",
@@ -443,8 +443,8 @@ namespace Okta.Sdk.IntegrationTest
                 createdIdp.Status.Value.Should().Be("ACTIVE");
                 createdIdp.Protocol.Type.Value.Should().Be("OAUTH2");
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("r_basicprofile", "r_emailaddress");
-                createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
-                createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
+                createdIdp.Protocol.Credentials.VarClient.ClientId.Should().Be("your-client-id");
+                createdIdp.Protocol.Credentials.VarClient.ClientSecret.Should().Be("your-client-secret");
                 createdIdp.Policy.Provisioning.Action.Value.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
                 createdIdp.Policy.Provisioning.Groups.Action.Value.Should().Be("NONE");
@@ -477,7 +477,7 @@ namespace Okta.Sdk.IntegrationTest
                     Type = "OIDC",
                     Credentials = new IdentityProviderCredentials()
                     {
-                        _Client = new IdentityProviderCredentialsClient()
+                        VarClient = new IdentityProviderCredentialsClient()
                         {
                             ClientId = "your-client-id",
                             ClientSecret = "your-client-secret",
@@ -534,8 +534,8 @@ namespace Okta.Sdk.IntegrationTest
                 createdIdp.Status.Value.Should().Be("ACTIVE");
                 createdIdp.Protocol.Type.Value.Should().Be("OIDC");
                 createdIdp.Protocol.Scopes.Should().ContainInOrder("openid", "email", "profile", "https://graph.microsoft.com/User.Read");
-                createdIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
-                createdIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
+                createdIdp.Protocol.Credentials.VarClient.ClientId.Should().Be("your-client-id");
+                createdIdp.Protocol.Credentials.VarClient.ClientSecret.Should().Be("your-client-secret");
                 createdIdp.Policy.Provisioning.Action.Value.Should().Be("AUTO");
                 createdIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
                 createdIdp.Policy.Provisioning.Groups.Action.Value.Should().Be("NONE");
@@ -568,7 +568,7 @@ namespace Okta.Sdk.IntegrationTest
                     Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
-                        _Client = new IdentityProviderCredentialsClient()
+                        VarClient = new IdentityProviderCredentialsClient()
                         {
                             ClientId = "your-client-id",
                             ClientSecret = "your-client-secret",
@@ -626,8 +626,8 @@ namespace Okta.Sdk.IntegrationTest
                 retrievedIdp.Status.Value.Should().Be("ACTIVE");
                 retrievedIdp.Protocol.Type.Value.Should().Be("OAUTH2");
                 retrievedIdp.Protocol.Scopes.Should().ContainInOrder("r_basicprofile", "r_emailaddress");
-                retrievedIdp.Protocol.Credentials._Client.ClientId.Should().Be("your-client-id");
-                retrievedIdp.Protocol.Credentials._Client.ClientSecret.Should().Be("your-client-secret");
+                retrievedIdp.Protocol.Credentials.VarClient.ClientId.Should().Be("your-client-id");
+                retrievedIdp.Protocol.Credentials.VarClient.ClientSecret.Should().Be("your-client-secret");
                 retrievedIdp.Policy.Provisioning.Action.Value.Should().Be("AUTO");
                 retrievedIdp.Policy.Provisioning.ProfileMaster.Should().BeTrue();
                 retrievedIdp.Policy.Provisioning.Groups.Action.Value.Should().Be("NONE");
@@ -661,7 +661,7 @@ namespace Okta.Sdk.IntegrationTest
                     Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
-                        _Client = new IdentityProviderCredentialsClient()
+                        VarClient = new IdentityProviderCredentialsClient()
                         {
                             ClientId = "your-client-id",
                             ClientSecret = "your-client-secret",
@@ -738,7 +738,7 @@ namespace Okta.Sdk.IntegrationTest
                     Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
-                        _Client = new IdentityProviderCredentialsClient()
+                        VarClient = new IdentityProviderCredentialsClient()
                         {
                             ClientId = "your-client-id",
                             ClientSecret = "your-client-secret",
@@ -817,7 +817,7 @@ namespace Okta.Sdk.IntegrationTest
                     Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
-                        _Client = new IdentityProviderCredentialsClient()
+                        VarClient = new IdentityProviderCredentialsClient()
                         {
                             ClientId = "your-client-id",
                             ClientSecret = "your-client-secret",
@@ -899,7 +899,7 @@ namespace Okta.Sdk.IntegrationTest
                     Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
-                        _Client = new IdentityProviderCredentialsClient()
+                        VarClient = new IdentityProviderCredentialsClient()
                         {
                             ClientId = "your-client-id",
                             ClientSecret = "your-client-secret",
@@ -981,7 +981,7 @@ namespace Okta.Sdk.IntegrationTest
                     Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
-                        _Client = new IdentityProviderCredentialsClient()
+                        VarClient = new IdentityProviderCredentialsClient()
                         {
                             ClientId = "your-client-id",
                             ClientSecret = "your-client-secret",
@@ -1311,7 +1311,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 generatedCsr.Should().NotBeNull();
                 generatedCsr.Kty.Should().Be("RSA");
-                generatedCsr._Csr.Should().NotBeNullOrEmpty();
+                generatedCsr.VarCsr.Should().NotBeNullOrEmpty();
             }
             finally
             {
@@ -1395,7 +1395,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 var retrievedCsr = await _idpApi.GetCsrForIdentityProviderAsync(createdIdp.Id, generatedCsr.Id);
                 retrievedCsr.Kty.Should().Be(generatedCsr.Kty);
-                retrievedCsr._Csr.Should().Be(generatedCsr._Csr);
+                retrievedCsr.VarCsr.Should().Be(generatedCsr.VarCsr);
 
             }
             finally
@@ -1645,7 +1645,7 @@ namespace Okta.Sdk.IntegrationTest
                     Type = "OAUTH2",
                     Credentials = new IdentityProviderCredentials()
                     {
-                        _Client = new IdentityProviderCredentialsClient()
+                        VarClient = new IdentityProviderCredentialsClient()
                         {
                             ClientId = "your-client-id",
                             ClientSecret = "your-client-secret",

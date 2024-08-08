@@ -4,14 +4,17 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**AssignClientPrivilegesSetting**](OrgSettingApi.md#assignclientprivilegessetting) | **PUT** /api/v1/org/settings/clientPrivilegesSetting | Assign the Super Admin role to a public client app
 [**BulkRemoveEmailAddressBounces**](OrgSettingApi.md#bulkremoveemailaddressbounces) | **POST** /api/v1/org/email/bounces/remove-list | Remove Emails from Email Provider Bounce List
 [**ExtendOktaSupport**](OrgSettingApi.md#extendoktasupport) | **POST** /api/v1/org/privacy/oktaSupport/extend | Extend Okta Support Access
+[**GetClientPrivilegesSetting**](OrgSettingApi.md#getclientprivilegessetting) | **GET** /api/v1/org/settings/clientPrivilegesSetting | Retrieve the Org settings to assign the Super Admin role
 [**GetOktaCommunicationSettings**](OrgSettingApi.md#getoktacommunicationsettings) | **GET** /api/v1/org/privacy/oktaCommunication | Retrieve the Okta Communication Settings
 [**GetOrgContactTypes**](OrgSettingApi.md#getorgcontacttypes) | **GET** /api/v1/org/contacts | Retrieve the Org Contact Types
 [**GetOrgContactUser**](OrgSettingApi.md#getorgcontactuser) | **GET** /api/v1/org/contacts/{contactType} | Retrieve the User of the Contact Type
 [**GetOrgOktaSupportSettings**](OrgSettingApi.md#getorgoktasupportsettings) | **GET** /api/v1/org/privacy/oktaSupport | Retrieve the Okta Support Settings
 [**GetOrgPreferences**](OrgSettingApi.md#getorgpreferences) | **GET** /api/v1/org/preferences | Retrieve the Org Preferences
 [**GetOrgSettings**](OrgSettingApi.md#getorgsettings) | **GET** /api/v1/org | Retrieve the Org Settings
+[**GetThirdPartyAdminSetting**](OrgSettingApi.md#getthirdpartyadminsetting) | **GET** /api/v1/org/orgSettings/thirdPartyAdminSetting | Retrieve the Org Third-Party Admin setting
 [**GetWellknownOrgMetadata**](OrgSettingApi.md#getwellknownorgmetadata) | **GET** /.well-known/okta-organization | Retrieve the Well-Known Org Metadata
 [**GrantOktaSupport**](OrgSettingApi.md#grantoktasupport) | **POST** /api/v1/org/privacy/oktaSupport/grant | Grant Okta Support Access to your Org
 [**OptInUsersToOktaCommunicationEmails**](OrgSettingApi.md#optinuserstooktacommunicationemails) | **POST** /api/v1/org/privacy/oktaCommunication/optIn | Opt in all Users to Okta Communication emails
@@ -22,8 +25,87 @@ Method | HTTP request | Description
 [**UpdateOrgHideOktaUIFooter**](OrgSettingApi.md#updateorghideoktauifooter) | **POST** /api/v1/org/preferences/hideEndUserFooter | Update the Preference to Hide the Okta Dashboard Footer
 [**UpdateOrgSettings**](OrgSettingApi.md#updateorgsettings) | **POST** /api/v1/org | Update the Org Settings
 [**UpdateOrgShowOktaUIFooter**](OrgSettingApi.md#updateorgshowoktauifooter) | **POST** /api/v1/org/preferences/showEndUserFooter | Update the Preference to Show the Okta Dashboard Footer
+[**UpdateThirdPartyAdminSetting**](OrgSettingApi.md#updatethirdpartyadminsetting) | **POST** /api/v1/org/orgSettings/thirdPartyAdminSetting | Update the Org Third-Party Admin setting
 [**UploadOrgLogo**](OrgSettingApi.md#uploadorglogo) | **POST** /api/v1/org/logo | Upload the Org Logo
 
+
+<a name="assignclientprivilegessetting"></a>
+# **AssignClientPrivilegesSetting**
+> ClientPrivilegesSetting AssignClientPrivilegesSetting (ClientPrivilegesSetting clientPrivilegesSetting = null)
+
+Assign the Super Admin role to a public client app
+
+Assigns the [Super Admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) by default to a public client app
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class AssignClientPrivilegesSettingExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new OrgSettingApi(config);
+            var clientPrivilegesSetting = new ClientPrivilegesSetting(); // ClientPrivilegesSetting |  (optional) 
+
+            try
+            {
+                // Assign the Super Admin role to a public client app
+                ClientPrivilegesSetting result = apiInstance.AssignClientPrivilegesSetting(clientPrivilegesSetting);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling OrgSettingApi.AssignClientPrivilegesSetting: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientPrivilegesSetting** | [**ClientPrivilegesSetting**](ClientPrivilegesSetting.md)|  | [optional] 
+
+### Return type
+
+[**ClientPrivilegesSetting**](ClientPrivilegesSetting.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="bulkremoveemailaddressbounces"></a>
 # **BulkRemoveEmailAddressBounces**
@@ -158,6 +240,80 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**OrgOktaSupportSettingsObj**](OrgOktaSupportSettingsObj.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getclientprivilegessetting"></a>
+# **GetClientPrivilegesSetting**
+> ClientPrivilegesSetting GetClientPrivilegesSetting ()
+
+Retrieve the Org settings to assign the Super Admin role
+
+Retrieves the Org settings to assign the [Super Admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) by default to a public client app
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class GetClientPrivilegesSettingExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new OrgSettingApi(config);
+
+            try
+            {
+                // Retrieve the Org settings to assign the Super Admin role
+                ClientPrivilegesSetting result = apiInstance.GetClientPrivilegesSetting();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling OrgSettingApi.GetClientPrivilegesSetting: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ClientPrivilegesSetting**](ClientPrivilegesSetting.md)
 
 ### Authorization
 
@@ -607,6 +763,80 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**OrgSetting**](OrgSetting.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getthirdpartyadminsetting"></a>
+# **GetThirdPartyAdminSetting**
+> ThirdPartyAdminSetting GetThirdPartyAdminSetting ()
+
+Retrieve the Org Third-Party Admin setting
+
+Retrieves the Third-Party Admin setting
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class GetThirdPartyAdminSettingExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new OrgSettingApi(config);
+
+            try
+            {
+                // Retrieve the Org Third-Party Admin setting
+                ThirdPartyAdminSetting result = apiInstance.GetThirdPartyAdminSetting();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling OrgSettingApi.GetThirdPartyAdminSetting: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ThirdPartyAdminSetting**](ThirdPartyAdminSetting.md)
 
 ### Authorization
 
@@ -1359,6 +1589,80 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**OrgPreferences**](OrgPreferences.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatethirdpartyadminsetting"></a>
+# **UpdateThirdPartyAdminSetting**
+> ThirdPartyAdminSetting UpdateThirdPartyAdminSetting ()
+
+Update the Org Third-Party Admin setting
+
+Updates the Third-Party Admin setting
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class UpdateThirdPartyAdminSettingExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new OrgSettingApi(config);
+
+            try
+            {
+                // Update the Org Third-Party Admin setting
+                ThirdPartyAdminSetting result = apiInstance.UpdateThirdPartyAdminSetting();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling OrgSettingApi.UpdateThirdPartyAdminSetting: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ThirdPartyAdminSetting**](ThirdPartyAdminSetting.md)
 
 ### Authorization
 

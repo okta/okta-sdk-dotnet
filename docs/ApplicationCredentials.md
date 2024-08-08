@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ApplicationCredentials
+Credentials for the specified `signOnMode`
 
 ## Properties
 

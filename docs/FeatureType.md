@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.FeatureType
+Type of feature
 
 ## Properties
 

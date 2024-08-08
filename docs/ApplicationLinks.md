@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ApplicationLinks
+Discoverable resources related to the app
 
 ## Properties
 

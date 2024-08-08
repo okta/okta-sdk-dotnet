@@ -5,6 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **HookKeyId** | **string** |  | [optional] 
+**AuthType** | **string** |  | [optional] 
+**ClientId** | **string** |  | [optional] 
+**Scope** | **string** |  | [optional] 
+**TokenUrl** | **string** |  | [optional] 
 **AuthScheme** | [**InlineHookChannelConfigAuthScheme**](InlineHookChannelConfigAuthScheme.md) |  | [optional] 
 **Headers** | [**List&lt;InlineHookChannelConfigHeaders&gt;**](InlineHookChannelConfigHeaders.md) |  | [optional] 
 **Method** | **string** |  | [optional] 

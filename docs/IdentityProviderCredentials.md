@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_Client** | [**IdentityProviderCredentialsClient**](IdentityProviderCredentialsClient.md) |  | [optional] 
+**VarClient** | [**IdentityProviderCredentialsClient**](IdentityProviderCredentialsClient.md) |  | [optional] 
 **Signing** | [**IdentityProviderCredentialsSigning**](IdentityProviderCredentialsSigning.md) |  | [optional] 
 **Trust** | [**IdentityProviderCredentialsTrust**](IdentityProviderCredentialsTrust.md) |  | [optional] 
 

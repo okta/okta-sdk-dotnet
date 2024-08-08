@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.UserStatus
+The current status of the user
 
 ## Properties
 

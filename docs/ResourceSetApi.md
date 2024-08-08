@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 Create a Resource Set
 
-Creates a new Resource Set
+Creates a new Resource Set. See [Supported Resources](/openapi/okta-management/guides/roles/#supported-resources). > **Note:** The maximum amount of `resources` allowed in a `resource set` object is 1000. Resources are identified by either an Okta Resource Name (ORN) or by a REST URL format. See [Okta Resource Name](/openapi/okta-management/guides/roles/#okta-resource-name-orn).
 
 ### Example
 ```csharp
@@ -861,7 +861,7 @@ namespace Example
 
             var apiInstance = new ResourceSetApi(config);
             var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
 
             try
             {
@@ -885,7 +885,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
 
 ### Return type
 
@@ -943,7 +943,7 @@ namespace Example
             var apiInstance = new ResourceSetApi(config);
             var resourceSetId = iamoJDFKaJxGIr0oamd9g;  // string | `id` of a Resource Set
             var roleIdOrLabel = cr0Yq6IJxGIr0ouum0g3;  // string | `id` or `label` of the role
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
 
             try
             {
@@ -968,7 +968,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **resourceSetId** | **string**| &#x60;id&#x60; of a Resource Set | 
  **roleIdOrLabel** | **string**| &#x60;id&#x60; or &#x60;label&#x60; of the role | 
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
 
 ### Return type
 
@@ -1103,7 +1103,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ResourceSetApi(config);
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
 
             try
             {
@@ -1126,7 +1126,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
 
 ### Return type
 

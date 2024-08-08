@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ProvisioningSuspendedCondition
+Not supported with OIDC IdPs
 
 ## Properties
 

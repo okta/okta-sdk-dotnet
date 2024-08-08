@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Actor** | [**LogActor**](LogActor.md) |  | [optional] 
 **AuthenticationContext** | [**LogAuthenticationContext**](LogAuthenticationContext.md) |  | [optional] 
-**_Client** | [**LogClient**](LogClient.md) |  | [optional] 
+**VarClient** | [**LogClient**](LogClient.md) |  | [optional] 
 **DebugContext** | [**LogDebugContext**](LogDebugContext.md) |  | [optional] 
 **DisplayMessage** | **string** |  | [optional] [readonly] 
 **EventType** | **string** |  | [optional] [readonly] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Target** | [**List&lt;LogTarget&gt;**](LogTarget.md) |  | [optional] [readonly] 
 **Transaction** | [**LogTransaction**](LogTransaction.md) |  | [optional] 
 **Uuid** | **string** |  | [optional] [readonly] 
-**_Version** | **string** |  | [optional] [readonly] 
+**VarVersion** | **string** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

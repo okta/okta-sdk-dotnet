@@ -4,19 +4,19 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetOAuth2TokenForApplication**](ApplicationTokensApi.md#getoauth2tokenforapplication) | **GET** /api/v1/apps/{appId}/tokens/{tokenId} | Retrieve an OAuth 2.0 Token
-[**ListOAuth2TokensForApplication**](ApplicationTokensApi.md#listoauth2tokensforapplication) | **GET** /api/v1/apps/{appId}/tokens | List all OAuth 2.0 Tokens
-[**RevokeOAuth2TokenForApplication**](ApplicationTokensApi.md#revokeoauth2tokenforapplication) | **DELETE** /api/v1/apps/{appId}/tokens/{tokenId} | Revoke an OAuth 2.0 Token
-[**RevokeOAuth2TokensForApplication**](ApplicationTokensApi.md#revokeoauth2tokensforapplication) | **DELETE** /api/v1/apps/{appId}/tokens | Revoke all OAuth 2.0 Tokens
+[**GetOAuth2TokenForApplication**](ApplicationTokensApi.md#getoauth2tokenforapplication) | **GET** /api/v1/apps/{appId}/tokens/{tokenId} | Retrieve an application Token
+[**ListOAuth2TokensForApplication**](ApplicationTokensApi.md#listoauth2tokensforapplication) | **GET** /api/v1/apps/{appId}/tokens | List all application refresh Tokens
+[**RevokeOAuth2TokenForApplication**](ApplicationTokensApi.md#revokeoauth2tokenforapplication) | **DELETE** /api/v1/apps/{appId}/tokens/{tokenId} | Revoke an application Token
+[**RevokeOAuth2TokensForApplication**](ApplicationTokensApi.md#revokeoauth2tokensforapplication) | **DELETE** /api/v1/apps/{appId}/tokens | Revoke all application Tokens
 
 
 <a name="getoauth2tokenforapplication"></a>
 # **GetOAuth2TokenForApplication**
-> OAuth2Token GetOAuth2TokenForApplication (string appId, string tokenId, string expand = null)
+> OAuth2RefreshToken GetOAuth2TokenForApplication (string appId, string tokenId, string expand = null)
 
-Retrieve an OAuth 2.0 Token
+Retrieve an application Token
 
-Retrieves a token for the specified application
+Retrieves a refresh token for the specified app
 
 ### Example
 ```csharp
@@ -40,14 +40,14 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationTokensApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
             var tokenId = sHHSth53yJAyNSTQKDJZ;  // string | `id` of Token
-            var expand = "expand_example";  // string |  (optional) 
+            var expand = scope;  // string | An optional parameter to return scope details in the `_embedded` property. Valid value: `scope` (optional) 
 
             try
             {
-                // Retrieve an OAuth 2.0 Token
-                OAuth2Token result = apiInstance.GetOAuth2TokenForApplication(appId, tokenId, expand);
+                // Retrieve an application Token
+                OAuth2RefreshToken result = apiInstance.GetOAuth2TokenForApplication(appId, tokenId, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -65,13 +65,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
  **tokenId** | **string**| &#x60;id&#x60; of Token | 
- **expand** | **string**|  | [optional] 
+ **expand** | **string**| An optional parameter to return scope details in the &#x60;_embedded&#x60; property. Valid value: &#x60;scope&#x60; | [optional] 
 
 ### Return type
 
-[**OAuth2Token**](OAuth2Token.md)
+[**OAuth2RefreshToken**](OAuth2RefreshToken.md)
 
 ### Authorization
 
@@ -95,11 +95,11 @@ Name | Type | Description  | Notes
 
 <a name="listoauth2tokensforapplication"></a>
 # **ListOAuth2TokensForApplication**
-> List&lt;OAuth2Token&gt; ListOAuth2TokensForApplication (string appId, string expand = null, string after = null, int? limit = null)
+> List&lt;OAuth2RefreshToken&gt; ListOAuth2TokensForApplication (string appId, string expand = null, string after = null, int? limit = null)
 
-List all OAuth 2.0 Tokens
+List all application refresh Tokens
 
-Lists all tokens for the application
+Lists all refresh tokens for an app  > **Note:** The results are [paginated](/#pagination) according to the `limit` parameter. > If there are multiple pages of results, the Link header contains a `next` link that you need to use as an opaque value (follow it, don't parse it). 
 
 ### Example
 ```csharp
@@ -123,15 +123,15 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationTokensApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
-            var expand = "expand_example";  // string |  (optional) 
-            var after = "after_example";  // string |  (optional) 
-            var limit = 20;  // int? |  (optional)  (default to 20)
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
+            var expand = scope;  // string | An optional parameter to return scope details in the `_embedded` property. Valid value: `scope` (optional) 
+            var after = 16275000448691;  // string | Specifies the pagination cursor for the next page of results. Treat this as an opaque value obtained through the next link relationship. See [Pagination](/#pagination). (optional) 
+            var limit = 20;  // int? | A limit on the number of objects to return (optional)  (default to 20)
 
             try
             {
-                // List all OAuth 2.0 Tokens
-                List<OAuth2Token> result = apiInstance.ListOAuth2TokensForApplication(appId, expand, after, limit).ToListAsync();
+                // List all application refresh Tokens
+                List<OAuth2RefreshToken> result = apiInstance.ListOAuth2TokensForApplication(appId, expand, after, limit).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -149,14 +149,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
- **expand** | **string**|  | [optional] 
- **after** | **string**|  | [optional] 
- **limit** | **int?**|  | [optional] [default to 20]
+ **appId** | **string**| Application ID | 
+ **expand** | **string**| An optional parameter to return scope details in the &#x60;_embedded&#x60; property. Valid value: &#x60;scope&#x60; | [optional] 
+ **after** | **string**| Specifies the pagination cursor for the next page of results. Treat this as an opaque value obtained through the next link relationship. See [Pagination](/#pagination). | [optional] 
+ **limit** | **int?**| A limit on the number of objects to return | [optional] [default to 20]
 
 ### Return type
 
-[**List&lt;OAuth2Token&gt;**](OAuth2Token.md)
+[**List&lt;OAuth2RefreshToken&gt;**](OAuth2RefreshToken.md)
 
 ### Authorization
 
@@ -182,9 +182,9 @@ Name | Type | Description  | Notes
 # **RevokeOAuth2TokenForApplication**
 > void RevokeOAuth2TokenForApplication (string appId, string tokenId)
 
-Revoke an OAuth 2.0 Token
+Revoke an application Token
 
-Revokes the specified token for the specified application
+Revokes the specified token for the specified app
 
 ### Example
 ```csharp
@@ -208,12 +208,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationTokensApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
             var tokenId = sHHSth53yJAyNSTQKDJZ;  // string | `id` of Token
 
             try
             {
-                // Revoke an OAuth 2.0 Token
+                // Revoke an application Token
                 apiInstance.RevokeOAuth2TokenForApplication(appId, tokenId);
             }
             catch (ApiException  e)
@@ -231,7 +231,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
  **tokenId** | **string**| &#x60;id&#x60; of Token | 
 
 ### Return type
@@ -262,9 +262,9 @@ void (empty response body)
 # **RevokeOAuth2TokensForApplication**
 > void RevokeOAuth2TokensForApplication (string appId)
 
-Revoke all OAuth 2.0 Tokens
+Revoke all application Tokens
 
-Revokes all tokens for the specified application
+Revokes all OAuth 2.0 refresh tokens for the specified app. Any access tokens issued with these refresh tokens are also revoked, but access tokens issued without a refresh token aren't affected.
 
 ### Example
 ```csharp
@@ -288,11 +288,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationTokensApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
 
             try
             {
-                // Revoke all OAuth 2.0 Tokens
+                // Revoke all application Tokens
                 apiInstance.RevokeOAuth2TokensForApplication(appId);
             }
             catch (ApiException  e)
@@ -310,7 +310,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
 
 ### Return type
 

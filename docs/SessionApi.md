@@ -4,11 +4,85 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CloseCurrentSession**](SessionApi.md#closecurrentsession) | **DELETE** /api/v1/sessions/me | Close the current Session
 [**CreateSession**](SessionApi.md#createsession) | **POST** /api/v1/sessions | Create a Session with session token
+[**GetCurrentSession**](SessionApi.md#getcurrentsession) | **GET** /api/v1/sessions/me | Retrieve the current Session
 [**GetSession**](SessionApi.md#getsession) | **GET** /api/v1/sessions/{sessionId} | Retrieve a Session
+[**RefreshCurrentSession**](SessionApi.md#refreshcurrentsession) | **POST** /api/v1/sessions/me/lifecycle/refresh | Refresh the current Session
 [**RefreshSession**](SessionApi.md#refreshsession) | **POST** /api/v1/sessions/{sessionId}/lifecycle/refresh | Refresh a Session
 [**RevokeSession**](SessionApi.md#revokesession) | **DELETE** /api/v1/sessions/{sessionId} | Revoke a Session
 
+
+<a name="closecurrentsession"></a>
+# **CloseCurrentSession**
+> void CloseCurrentSession (string cookie = null)
+
+Close the current Session
+
+Closes the Session for the user who is currently signed in. Use this method in a browser-based application to sign out a user.  > **Note:** This operation requires a session cookie for the user. An API token isn't allowed for this operation.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class CloseCurrentSessionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            var apiInstance = new SessionApi(config);
+            var cookie = sid=abcde-123 or idx=abcde-123;  // string |  (optional) 
+
+            try
+            {
+                // Close the current Session
+                apiInstance.CloseCurrentSession(cookie);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SessionApi.CloseCurrentSession: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cookie** | **string**|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="createsession"></a>
 # **CreateSession**
@@ -84,6 +158,78 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getcurrentsession"></a>
+# **GetCurrentSession**
+> Session GetCurrentSession (string cookie = null)
+
+Retrieve the current Session
+
+Retrieves Session information for the current user. Use this method in a browser-based application to determine if the user is signed in.   > **Note:** This operation requires a session cookie for the user. An API token isn't allowed for this operation. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class GetCurrentSessionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            var apiInstance = new SessionApi(config);
+            var cookie = sid=abcde-123 or idx=abcde-123;  // string |  (optional) 
+
+            try
+            {
+                // Retrieve the current Session
+                Session result = apiInstance.GetCurrentSession(cookie);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SessionApi.GetCurrentSession: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cookie** | **string**|  | [optional] 
+
+### Return type
+
+[**Session**](Session.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -164,6 +310,78 @@ Name | Type | Description  | Notes
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="refreshcurrentsession"></a>
+# **RefreshCurrentSession**
+> Session RefreshCurrentSession (string cookie = null)
+
+Refresh the current Session
+
+Refreshes the Session for the current user  > **Note:** This operation requires a session cookie for the user. An API token isn't allowed for this operation.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class RefreshCurrentSessionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            var apiInstance = new SessionApi(config);
+            var cookie = sid=abcde-123 or idx=abcde-123;  // string |  (optional) 
+
+            try
+            {
+                // Refresh the current Session
+                Session result = apiInstance.RefreshCurrentSession(cookie);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SessionApi.RefreshCurrentSession: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cookie** | **string**|  | [optional] 
+
+### Return type
+
+[**Session**](Session.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

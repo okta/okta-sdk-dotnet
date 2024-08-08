@@ -37,8 +37,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SystemLogApi(config);
-            var since = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? |  (optional) 
-            var until = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? |  (optional) 
+            var since = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? |  (optional) 
+            var until = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? |  (optional) 
             var filter = "filter_example";  // string |  (optional) 
             var q = "q_example";  // string |  (optional) 
             var limit = 100;  // int? |  (optional)  (default to 100)

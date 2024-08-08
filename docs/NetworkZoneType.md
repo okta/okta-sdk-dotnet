@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.NetworkZoneType
-The type of network zone
+The type of Network Zone
 
 ## Properties
 

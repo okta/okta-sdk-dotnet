@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **LastUpdated** | **DateTimeOffset** | Timestamp when the Log Stream object was last updated | [readonly] 
 **Name** | **string** | Unique name for the Log Stream object | 
 **Status** | **string** | Lifecycle status of the Log Stream object | [readonly] 
-**Type** | [**LogStreamType**](LogStreamType.md) |  | 
+**Type** | **LogStreamType** |  | 
 **Links** | [**LogStreamLinksSelfAndLifecycle**](LogStreamLinksSelfAndLifecycle.md) |  | 
 **Settings** | [**LogStreamSettingsSplunk**](LogStreamSettingsSplunk.md) |  | 
 

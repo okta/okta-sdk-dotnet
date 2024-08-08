@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** | **DateTimeOffset** |  | [optional] [readonly] 
-**_Csr** | **string** |  | [optional] [readonly] 
+**Created** | **DateTimeOffset** | Timestamp when the object was created | [optional] [readonly] 
+**VarCsr** | **string** |  | [optional] [readonly] 
 **Id** | **string** |  | [optional] [readonly] 
 **Kty** | **string** |  | [optional] [readonly] 
 

@@ -48,8 +48,8 @@ namespace Okta.Sdk.IntegrationTest
                newRole.Links.Permissions.Should().NotBeNull();
 
                var permissions = await _roleApi.ListRolePermissionsAsync(newRole.Id);
-               permissions._Permissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
-               permissions._Permissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
+               permissions.VarPermissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
+               permissions.VarPermissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
             }
             finally
             {
@@ -90,8 +90,8 @@ namespace Okta.Sdk.IntegrationTest
                 createdRole.Links.Permissions.Should().NotBeNull();
 
                 var permissions = await _roleApi.ListRolePermissionsAsync(createdRole.Id);
-                permissions._Permissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
-                permissions._Permissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
+                permissions.VarPermissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
+                permissions.VarPermissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
             }
             finally
             {
@@ -135,8 +135,8 @@ namespace Okta.Sdk.IntegrationTest
                 createdRole.Links.Permissions.Should().NotBeNull();
 
                 var permissions = await _roleApi.ListRolePermissionsAsync(createdRole.Id);
-                permissions._Permissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
-                permissions._Permissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
+                permissions.VarPermissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
+                permissions.VarPermissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
             }
             finally
             {
@@ -174,8 +174,8 @@ namespace Okta.Sdk.IntegrationTest
 
                 newRole.Links.Permissions.Should().NotBeNull();
                 var permissions = await _roleApi.ListRolePermissionsAsync(newRole.Id);
-                permissions._Permissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
-                permissions._Permissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
+                permissions.VarPermissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
+                permissions.VarPermissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
 
                 var updateRole = new UpdateIamRoleRequest
                 {
@@ -191,8 +191,8 @@ namespace Okta.Sdk.IntegrationTest
 
                 updatedRole.Links.Permissions.Should().NotBeNull();
                 permissions = await _roleApi.ListRolePermissionsAsync(updatedRole.Id);
-                permissions._Permissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
-                permissions._Permissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
+                permissions.VarPermissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
+                permissions.VarPermissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
             }
             finally
             {
@@ -231,13 +231,13 @@ namespace Okta.Sdk.IntegrationTest
                 newRole.Links.Permissions.Should().NotBeNull();
 
                 var permissions = await _roleApi.ListRolePermissionsAsync(newRole.Id);
-                permissions._Permissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
-                permissions._Permissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
+                permissions.VarPermissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
+                permissions.VarPermissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
 
                 await _roleApi.CreateRolePermissionAsync(newRole.Id, "okta.users.manage");
                 
                 permissions = await _roleApi.ListRolePermissionsAsync(newRole.Id);
-                permissions._Permissions.Any(x => x.Label == "okta.users.manage").Should().BeTrue();
+                permissions.VarPermissions.Any(x => x.Label == "okta.users.manage").Should().BeTrue();
             }
             finally
             {
@@ -276,13 +276,13 @@ namespace Okta.Sdk.IntegrationTest
                 newRole.Links.Permissions.Should().NotBeNull();
 
                 var permissions = await _roleApi.ListRolePermissionsAsync(newRole.Id);
-                permissions._Permissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
-                permissions._Permissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
+                permissions.VarPermissions.Any(x => x.Label == "okta.users.create").Should().BeTrue();
+                permissions.VarPermissions.Any(x => x.Label == "okta.users.read").Should().BeTrue();
 
                 await _roleApi.DeleteRolePermissionAsync(newRole.Id, "okta.users.create");
 
                 permissions = await _roleApi.ListRolePermissionsAsync(newRole.Id);
-                permissions._Permissions.Any(x => x.Label == "okta.users.create").Should().BeFalse();
+                permissions.VarPermissions.Any(x => x.Label == "okta.users.create").Should().BeFalse();
             }
             finally
             {

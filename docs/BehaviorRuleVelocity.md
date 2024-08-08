@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Id** | **string** |  | [optional] [readonly] 
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
 **Name** | **string** |  | 
-**Status** | [**LifecycleStatus**](LifecycleStatus.md) |  | [optional] 
-**Type** | [**BehaviorRuleType**](BehaviorRuleType.md) |  | 
+**Status** | **LifecycleStatus** |  | [optional] 
+**Type** | **BehaviorRuleType** |  | 
 **Link** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
 **Settings** | [**BehaviorRuleSettingsVelocity**](BehaviorRuleSettingsVelocity.md) |  | [optional] 
 

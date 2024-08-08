@@ -5,7 +5,7 @@ Specifies link relations (see [Web Linking](https://www.rfc-editor.org/rfc/rfc82
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_Client** | [**HrefObjectClientLink**](HrefObjectClientLink.md) |  | [optional] 
+**VarClient** | [**HrefObjectClientLink**](HrefObjectClientLink.md) |  | [optional] 
 **Logo** | [**HrefObjectLogoLink**](HrefObjectLogoLink.md) |  | [optional] 
 **Self** | [**HrefObjectSelfLink**](HrefObjectSelfLink.md) |  | [optional] 
 

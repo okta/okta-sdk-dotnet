@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.LoadingPageTouchPointVariant
+Variant for the Okta loading page. You can publish a theme for Okta loading page with different combinations of assets. Variants are preset combinations of those assets. 
 
 ## Properties
 

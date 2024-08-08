@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.PolicyNetworkConnection
+Network selection mode
 
 ## Properties
 

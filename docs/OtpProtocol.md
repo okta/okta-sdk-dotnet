@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.OtpProtocol
+The protocol used
 
 ## Properties
 

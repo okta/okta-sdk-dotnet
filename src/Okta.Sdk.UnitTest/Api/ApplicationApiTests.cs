@@ -123,20 +123,21 @@ namespace Okta.Sdk.UnitTest
                     },
                 },
             };
+            UpdateFeatureForApplicationRequest request = new UpdateFeatureForApplicationRequest(capabilitiesObj);
 
-            var feature = await appApi.UpdateFeatureForApplicationAsync("foo", "bar", capabilitiesObj);
+            var feature = await appApi.UpdateFeatureForApplicationAsync("foo", "bar", request);
 
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/features/{featureName}");
             mockClient.ReceivedPathParams["appId"].Should().Contain("foo");
             mockClient.ReceivedPathParams["featureName"].Should().Contain("bar");
 
-            var expectedBody = @"{""create"":{""lifecycleCreate"":{""status"":""DISABLED""}}}";
+            var expectedBody = @"{""create"":{""lifecycleCreate"":{""status"":""DISABLED""}},""update"":null}";
 
             mockClient.ReceivedBody.Should().Be(expectedBody);
 
             feature.Should().NotBeNull();
             feature.Status.Value.Should().Be("ENABLED");
-            feature.Name.Should().Be(ApplicationFeature.NameEnum.USERPROVISIONING);
+            feature.Name.Should().Be(ApplicationFeatureType.USERPROVISIONING);
             feature.Capabilities.Create.LifecycleCreate.Status.Value.Should().Be("DISABLED");
 
         }
@@ -179,8 +180,8 @@ namespace Okta.Sdk.UnitTest
 
             feature.Should().NotBeNull();
             feature.Status.Value.Should().Be("ENABLED");
-            feature.Name.Should().Be(ApplicationFeature.NameEnum.USERPROVISIONING);
-            feature.Capabilities.Create.LifecycleCreate.Status.Value.Should().Be("DISABLED");
+            feature.Name.Should().Be(ApplicationFeatureType.USERPROVISIONING);
+            ((UserProvisioningApplicationFeature)feature).Capabilities.Create.LifecycleCreate.Status.Value.Should().Be("DISABLED");
         }
 
         [Fact]
@@ -220,8 +221,8 @@ namespace Okta.Sdk.UnitTest
 
             features.Should().NotBeNull();
             features.FirstOrDefault().Status.Value.Should().Be("ENABLED");
-            features.FirstOrDefault().Name.Should().Be(ApplicationFeature.NameEnum.USERPROVISIONING);
-            features.FirstOrDefault().Capabilities.Create.LifecycleCreate.Status.Value.Should().Be("DISABLED");
+            features.FirstOrDefault().Name.Should().Be(ApplicationFeatureType.USERPROVISIONING);
+            ((UserProvisioningApplicationFeature)features.FirstOrDefault()).Capabilities.Create.LifecycleCreate.Status.Value.Should().Be("DISABLED");
         }
 
         [Fact]
@@ -276,22 +277,22 @@ namespace Okta.Sdk.UnitTest
 
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
             var appApi = new ApplicationConnectionsApi(mockClient, new Configuration { BasePath = "https://foo.com" });
-            var connectionProfile = new ProvisioningConnectionRequest
+
+            var connectionProfile = new ProvisioningConnectionTokenRequest
             {
-                Profile = new ProvisioningConnectionProfileOauth
+                Profile = new ProvisioningConnectionTokenRequestProfile()
                 {
-                    ClientId = "foo",
-                    AuthScheme = ProvisioningConnectionAuthScheme.TOKEN
+                    AuthScheme = ProvisioningConnectionTokenAuthScheme.TOKEN
                 }
             };
 
-            var response = await appApi.UpdateDefaultProvisioningConnectionForApplicationAsync("bar", connectionProfile, true);
+            var response = await appApi.UpdateDefaultProvisioningConnectionForApplicationAsync("bar", new UpdateDefaultProvisioningConnectionForApplicationRequest(connectionProfile), true);
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/connections/default");
             mockClient.ReceivedPathParams["appId"].Should().Contain("bar");
             mockClient.ReceivedQueryParams.ContainsKey("activate").Should().BeTrue();
             mockClient.ReceivedQueryParams["activate"].Should().Contain("true");
 
-            var expectedBody = @"{""profile"":{""clientId"":""foo"",""authScheme"":""TOKEN""}}";
+            var expectedBody = @"{""baseUrl"":null,""profile"":{""authScheme"":""TOKEN"",""token"":null}}";
             mockClient.ReceivedBody.Should().Be(expectedBody);
             response.Status.Value.Should().Be("ENABLED");
             response.Profile.AuthScheme.Value.Should().Be("TOKEN");
