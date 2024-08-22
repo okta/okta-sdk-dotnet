@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AaguidGroups** | [**List&lt;AAGUIDGroupObject&gt;**](AAGUIDGroupObject.md) | &lt;x-lifecycle class&#x3D;\&quot;ea\&quot;&gt;&lt;/x-lifecycle&gt; The FIDO2 AAGUID groups available to the WebAuthn authenticator | [optional] 
 **UserVerification** | **UserVerificationEnum** |  | [optional] 
 **Attachment** | **WebAuthnAttachment** |  | [optional] 
 

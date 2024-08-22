@@ -5,8 +5,8 @@ Limits the authenticators that can be used for a given method. Currently, only t
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Method** | **string** |  | [optional] 
 **AllowedAuthenticators** | [**List&lt;AuthenticatorIdentity&gt;**](AuthenticatorIdentity.md) |  | [optional] 
+**Method** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
