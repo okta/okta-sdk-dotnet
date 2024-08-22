@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.OAuth2ClaimConditions
+Specifies the scopes for the Claim
 
 ## Properties
 

@@ -459,17 +459,17 @@ namespace Okta.Sdk.IntegrationTest
                 createdUserType = await _userTypeApi.CreateUserTypeAsync(
                     new UserType
                     {
-                        Name = nameof(UpdateUserUserType),
-                        DisplayName = nameof(UpdateUserUserType),
+                        // Name = nameof(UpdateUserUserType),
+                        // DisplayName = nameof(UpdateUserUserType),
                     });
 
                 createdUser.Type.Id = createdUserType.Id;
 
                 var updatedUser = await _userApi.ReplaceUserAsync(createdUser.Id, createdUser);
 
-                updatedUser = await _userApi.GetUserAsync(createdUser.Id);
+                var userGetSingleton = await _userApi.GetUserAsync(createdUser.Id);
 
-                updatedUser.Type.Id.Should().Be(createdUserType.Id);
+                userGetSingleton.Type.Id.Should().Be(createdUserType.Id);
             }
             finally
             {
@@ -744,7 +744,7 @@ namespace Okta.Sdk.IntegrationTest
                     Provider = new AuthenticationProvider
                     {
                         Type = AuthenticationProviderType.FEDERATION,
-                        Name = "FEDERATION",
+                        //Name = "FEDERATION",
                     }
                 }
             };
@@ -1290,7 +1290,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                await _userApi.SetLinkedObjectForUserAsync(createdAssociatedUser.Id, primaryRelationshipName, createdPrimaryUser.Id);
+                await _userApi.ReplaceLinkedObjectForUserAsync(createdAssociatedUser.Id, primaryRelationshipName, createdPrimaryUser.Id);
 
                 var links = await _userApi.ListLinkedObjectsForUser(createdAssociatedUser.Id, primaryRelationshipName).ToListAsync();
                 links.Should().NotBeNull();
@@ -1384,7 +1384,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                await _userApi.SetLinkedObjectForUserAsync(createdAssociatedUser.Id, primaryRelationshipName, createdPrimaryUser.Id);
+                await _userApi.ReplaceLinkedObjectForUserAsync(createdAssociatedUser.Id, primaryRelationshipName, createdPrimaryUser.Id);
 
                 var links = await _userApi.ListLinkedObjectsForUser(createdAssociatedUser.Id, primaryRelationshipName).ToListAsync();
                 links.Should().NotBeNull();

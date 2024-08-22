@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.SamlAttributeStatement
+Define custom attribute statements for the integration. These statements are inserted into the SAML assertions shared with your app
 
 ## Properties
 

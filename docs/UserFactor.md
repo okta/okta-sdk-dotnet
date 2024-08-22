@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** | **DateTimeOffset** |  | [optional] [readonly] 
-**FactorType** | **FactorType** |  | [optional] 
-**Id** | **string** |  | [optional] [readonly] 
-**LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
-**Profile** | **Object** | Factor-specific attributes | [optional] 
-**Provider** | **FactorProvider** |  | [optional] 
-**Status** | **FactorStatus** |  | [optional] 
-**Verify** | [**VerifyFactorRequest**](VerifyFactorRequest.md) |  | [optional] 
+**Created** | **DateTimeOffset** | Timestamp when the Factor was enrolled | [optional] [readonly] 
+**FactorType** | **UserFactorType** |  | [optional] 
+**Id** | **string** | ID of the Factor | [optional] [readonly] 
+**LastUpdated** | **DateTimeOffset** | Timestamp when the Factor was last updated | [optional] [readonly] 
+**Profile** | **Object** | Specific attributes related to the Factor | [optional] 
+**Provider** | **UserFactorProviderType** |  | [optional] 
+**Status** | **UserFactorStatus** |  | [optional] 
+**VendorName** | **string** | Name of the Factor vendor. This is usually the same as the provider except for On-Prem MFA where it depends on administrator settings. | [optional] [readonly] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
-**Links** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
+**Links** | **Object** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

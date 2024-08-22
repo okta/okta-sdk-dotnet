@@ -37,7 +37,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationPoliciesApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
             var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
 
             try
@@ -60,7 +60,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
  **policyId** | **string**| &#x60;id&#x60; of the Policy | 
 
 ### Return type

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Activate a Network Zone
 
-Activates a network zone by `zoneId`
+Activates a Network Zone by `zoneId`
 
 ### Example
 ```csharp
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 Create a Network Zone
 
-Creates a new network zone. * At least one of either the `gateways` attribute or `proxies` attribute must be defined when creating a Network Zone. * At least one of the following attributes must be defined: `proxyType`, `locations`, or `asns`.
+Creates a Network Zone * For an IP Network Zone, you must define either `gateways` or `proxies`. * For a Dynamic Network Zone, you must define at least one of the following: `asns`, `locations`, or `proxyType`. * For an Enhanced Dynamic Network Zone, you must define at least one of the following: `asns`, `locations`, or `ipServiceCategories`.
 
 ### Example
 ```csharp
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 Deactivate a Network Zone
 
-Deactivates a network zone by `zoneId`
+Deactivates a Network Zone by `zoneId`
 
 ### Example
 ```csharp
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 Delete a Network Zone
 
-Deletes network zone by `zoneId`
+Deletes a Network Zone by `zoneId` > **Notes:** > * You can't delete a Network Zone that's used by a [Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/) or [Rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules). > * For Okta Identity Engine orgs, you can't delete a Network Zone with an ACTIVE `status`. <x-lifecycle class=\"oie\"></x-lifecycle>
 
 ### Example
 ```csharp
@@ -334,7 +334,7 @@ void (empty response body)
 
 Retrieve a Network Zone
 
-Retrieves a network zone by `zoneId`
+Retrieves a Network Zone by `zoneId`
 
 ### Example
 ```csharp
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 List all Network Zones
 
-Lists all network zones with pagination. A subset of zones can be returned that match a supported filter expression or query.  This operation requires URL encoding. For example, `filter=(id eq \"nzoul0wf9jyb8xwZm0g3\" or id eq \"nzoul1MxmGN18NDQT0g3\")` is encoded as `filter=%28id+eq+%22nzoul0wf9jyb8xwZm0g3%22+or+id+eq+%22nzoul1MxmGN18NDQT0g3%22%29`.  Okta supports filtering on the `id` and `usage` properties. See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions that are used in filtering.
+Lists all Network Zones with pagination. A subset of zones can be returned that match a supported filter expression or query.  This operation requires URL encoding. For example, `filter=(id eq \"nzoul0wf9jyb8xwZm0g3\" or id eq \"nzoul1MxmGN18NDQT0g3\")` is encoded as `filter=%28id+eq+%22nzoul0wf9jyb8xwZm0g3%22+or+id+eq+%22nzoul1MxmGN18NDQT0g3%22%29`.  Okta supports filtering on the `id` and `usage` properties. See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions that are used in filtering.
 
 ### Example
 ```csharp
@@ -437,9 +437,9 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new NetworkZoneApi(config);
-            var after = 200u7yq5goxNFTiMjW1d7;  // string | Specifies the pagination cursor for the next page of network zones (optional) 
-            var limit = 5;  // int? | Specifies the number of results for a page (optional)  (default to -1)
-            var filter = filter=%28id+eq+%22nzowc1U5Jh5xuAK0o0g3%22%29;  // string | Filters zones by usage or ID expression (optional) 
+            var after = BlockedIpZones;  // string |  (optional) 
+            var limit = 5;  // int? |  (optional)  (default to -1)
+            var filter = id eq "nzowc1U5Jh5xuAK0o0g3";  // string |  (optional) 
 
             try
             {
@@ -462,9 +462,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **after** | **string**| Specifies the pagination cursor for the next page of network zones | [optional] 
- **limit** | **int?**| Specifies the number of results for a page | [optional] [default to -1]
- **filter** | **string**| Filters zones by usage or ID expression | [optional] 
+ **after** | **string**|  | [optional] 
+ **limit** | **int?**|  | [optional] [default to -1]
+ **filter** | **string**|  | [optional] 
 
 ### Return type
 
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 Replace a Network Zone
 
-Replaces a network zone by `zoneId`. The replaced network zone type must be the same as the existing type. You may replace the usage (`POLICY`, `BLOCKLIST`) of a network zone by updating the `usage` attribute.
+Replaces a Network Zone by `zoneId`. The replaced Network Zone type must be the same as the existing type. You can replace the usage (`POLICY`, `BLOCKLIST`) of a Network Zone by updating the `usage` attribute.
 
 ### Example
 ```csharp

@@ -44,7 +44,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
-            var roleRef = new ListSubscriptionsRoleRoleRefParameter(); // ListSubscriptionsRoleRoleRefParameter | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types).
+            var roleRef = new ListSubscriptionsRoleRoleRefParameter(); // ListSubscriptionsRoleRoleRefParameter | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Roles](/openapi/okta-management/guides/roles/#standard-roles).
             var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
 
             try
@@ -68,7 +68,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleRef** | [**ListSubscriptionsRoleRoleRefParameter**](ListSubscriptionsRoleRoleRefParameter.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types). | 
+ **roleRef** | [**ListSubscriptionsRoleRoleRefParameter**](ListSubscriptionsRoleRoleRefParameter.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Roles](/openapi/okta-management/guides/roles/#standard-roles). | 
  **notificationType** | **NotificationType**|  | 
 
 ### Return type
@@ -126,7 +126,7 @@ namespace Example
 
             var apiInstance = new SubscriptionApi(config);
             var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -150,7 +150,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **notificationType** | **NotificationType**|  | 
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -206,7 +206,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
-            var roleRef = new ListSubscriptionsRoleRoleRefParameter(); // ListSubscriptionsRoleRoleRefParameter | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types).
+            var roleRef = new ListSubscriptionsRoleRoleRefParameter(); // ListSubscriptionsRoleRoleRefParameter | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Roles](/openapi/okta-management/guides/roles/#standard-roles).
 
             try
             {
@@ -229,7 +229,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleRef** | [**ListSubscriptionsRoleRoleRefParameter**](ListSubscriptionsRoleRoleRefParameter.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types). | 
+ **roleRef** | [**ListSubscriptionsRoleRoleRefParameter**](ListSubscriptionsRoleRoleRefParameter.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Roles](/openapi/okta-management/guides/roles/#standard-roles). | 
 
 ### Return type
 
@@ -285,7 +285,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -308,7 +308,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -364,7 +364,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
-            var roleRef = new ListSubscriptionsRoleRoleRefParameter(); // ListSubscriptionsRoleRoleRefParameter | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types).
+            var roleRef = new ListSubscriptionsRoleRoleRefParameter(); // ListSubscriptionsRoleRoleRefParameter | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Roles](/openapi/okta-management/guides/roles/#standard-roles).
             var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
 
             try
@@ -387,7 +387,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleRef** | [**ListSubscriptionsRoleRoleRefParameter**](ListSubscriptionsRoleRoleRefParameter.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types). | 
+ **roleRef** | [**ListSubscriptionsRoleRoleRefParameter**](ListSubscriptionsRoleRoleRefParameter.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Roles](/openapi/okta-management/guides/roles/#standard-roles). | 
  **notificationType** | **NotificationType**|  | 
 
 ### Return type
@@ -445,7 +445,7 @@ namespace Example
 
             var apiInstance = new SubscriptionApi(config);
             var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -468,7 +468,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **notificationType** | **NotificationType**|  | 
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -524,7 +524,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
-            var roleRef = new ListSubscriptionsRoleRoleRefParameter(); // ListSubscriptionsRoleRoleRefParameter | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types).
+            var roleRef = new ListSubscriptionsRoleRoleRefParameter(); // ListSubscriptionsRoleRoleRefParameter | A reference to an existing role. Standard roles require a `roleType`, while Custom Roles require a `roleId`. See [Standard Roles](/openapi/okta-management/guides/roles/#standard-roles).
             var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
 
             try
@@ -547,7 +547,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleRef** | [**ListSubscriptionsRoleRoleRefParameter**](ListSubscriptionsRoleRoleRefParameter.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Role Types](https://developer.okta.com/docs/concepts/role-assignment/#standard-role-types). | 
+ **roleRef** | [**ListSubscriptionsRoleRoleRefParameter**](ListSubscriptionsRoleRoleRefParameter.md)| A reference to an existing role. Standard roles require a &#x60;roleType&#x60;, while Custom Roles require a &#x60;roleId&#x60;. See [Standard Roles](/openapi/okta-management/guides/roles/#standard-roles). | 
  **notificationType** | **NotificationType**|  | 
 
 ### Return type
@@ -605,7 +605,7 @@ namespace Example
 
             var apiInstance = new SubscriptionApi(config);
             var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -628,7 +628,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **notificationType** | **NotificationType**|  | 
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 

@@ -4,7 +4,7 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PreviewSAMLmetadataForApplication**](ApplicationSSOApi.md#previewsamlmetadataforapplication) | **GET** /api/v1/apps/${appId}/sso/saml/metadata | Preview the application SAML metadata
+[**PreviewSAMLmetadataForApplication**](ApplicationSSOApi.md#previewsamlmetadataforapplication) | **GET** /api/v1/apps/{appId}/sso/saml/metadata | Preview the application SAML metadata
 
 
 <a name="previewsamlmetadataforapplication"></a>
@@ -37,7 +37,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationSSOApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
 
             try
             {
@@ -60,7 +60,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
 
 ### Return type
 

@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.EventSubscriptionType
+The events object type. Currently supports `EVENT_TYPE`.
 
 ## Properties
 

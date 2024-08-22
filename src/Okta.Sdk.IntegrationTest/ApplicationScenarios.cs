@@ -187,8 +187,7 @@ namespace Okta.Sdk.IntegrationTest
                 Kty = "RSA",
                 Kid = "SIGNING_KEY",
                 E = "AQAB",
-                N =
-                    "MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAnFo/4e91na8x/BsPkNS5QkwankewxJ1uZU6p827W/gkRcNHtNi/cE644W5OVdB4UaXV6koT+TsC1prhUEhRR3g5ggE0B/lwYqBaLq/Ejy19Crc4XYU3Aah67Y6HiHWcHGZ+BbpebtTixJv/UYW/Gw+k8M+zj4O001mOeBPpwlEiZZLIo33m/Xkfn28jaCFqTQBJHr67IQh4zEUFs4e5D5D6UE8ee93yeSUJyhbifeIgYh3tS/+ZW4Uo1KLIc0rcLRrnEMsS3aOQbrv/SEKij+Syx4KXI0Gi2xMdXctnFOVT6NM6/EkLxFp2POEdv9SNBtTvXcxIGRwK51W4Jdgh/xZcCAwEAAQ==",
+                N = "MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAnFo/4e91na8x/BsPkNS5QkwankewxJ1uZU6p827W/gkRcNHtNi/cE644W5OVdB4UaXV6koT+TsC1prhUEhRR3g5ggE0B/lwYqBaLq/Ejy19Crc4XYU3Aah67Y6HiHWcHGZ+BbpebtTixJv/UYW/Gw+k8M+zj4O001mOeBPpwlEiZZLIo33m/Xkfn28jaCFqTQBJHr67IQh4zEUFs4e5D5D6UE8ee93yeSUJyhbifeIgYh3tS/+ZW4Uo1KLIc0rcLRrnEMsS3aOQbrv/SEKij+Syx4KXI0Gi2xMdXctnFOVT6NM6/EkLxFp2POEdv9SNBtTvXcxIGRwK51W4Jdgh/xZcCAwEAAQ==",
             };
 
             var keys = new List<JsonWebKey>() { jwk };
@@ -825,7 +824,7 @@ namespace Okta.Sdk.IntegrationTest
 
             var createdApp = await _applicationApi.CreateApplicationAsync(app, true);
 
-            var appUser = new AppUser
+            var appUser = new AppUserAssignRequest()
             {
                 Id = createdUser.Id,
 
@@ -907,7 +906,7 @@ namespace Okta.Sdk.IntegrationTest
                 var createdApp = await _applicationApi.CreateApplicationAsync(app, true);
                 appId = createdApp.Id;
 
-                var appUser = new AppUser
+                var appUser = new AppUserAssignRequest()
                 {
                     Id = createdUser.Id,
 
@@ -987,7 +986,7 @@ namespace Okta.Sdk.IntegrationTest
                 var createdApp = await _applicationApi.CreateApplicationAsync(app, true);
                 appId = createdApp.Id;
 
-                var appUser = new AppUser
+                var appUser = new AppUserAssignRequest
                 {
                     Id = createdUser.Id,
 
@@ -1088,7 +1087,7 @@ namespace Okta.Sdk.IntegrationTest
 
             var createdApp = await _applicationApi.CreateApplicationAsync(app, true);
 
-            var appUser1 = new AppUser
+            var appUser1 = new AppUserAssignRequest()
             {
                 Id = createdUser1.Id,
 
@@ -1099,7 +1098,7 @@ namespace Okta.Sdk.IntegrationTest
                 },
             };
 
-            var appUser2 = new AppUser
+            var appUser2 = new AppUserAssignRequest()
             {
                 Id = createdUser2.Id,
 
@@ -1182,7 +1181,7 @@ namespace Okta.Sdk.IntegrationTest
 
             var createdApp = await _applicationApi.CreateApplicationAsync(app, true);
 
-            var appUser = new AppUser
+            var appUser = new AppUserAssignRequest()
             {
                 Id = createdUser.Id,
 
@@ -1204,11 +1203,18 @@ namespace Okta.Sdk.IntegrationTest
                 retrievedAppUser.Credentials.UserName.Should().Be($"john-update-creds-dotnet-sdk-{guid}@example.com");
 
                 // Update credentials
-                retrievedAppUser.Credentials.UserName = "$john-update-creds-updated-dotnet-sdk-{guid}@example.com";
-                retrievedAppUser.Credentials.Password = new AppUserPasswordCredential() { Value = "Okta12345" };
-
+                var appUserCredentialsRequestPayload = new AppUserCredentialsRequestPayload
+                {
+                    Credentials = new AppUserCredentials()
+                    {
+                        UserName = "$john-update-creds-updated-dotnet-sdk-{guid}@example.com",
+                        Password = new AppUserPasswordCredential() { Value = "Okta12345" }
+                    }
+                };
+                
+                var appUserUpdateRequest = new AppUserUpdateRequest(appUserCredentialsRequestPayload);
                 var updatedAppUser =
-                    await _applicationUsersApi.UpdateApplicationUserAsync(createdApp.Id, createdUser.Id, retrievedAppUser);
+                    await _applicationUsersApi.UpdateApplicationUserAsync(createdApp.Id, createdUser.Id, appUserUpdateRequest);
 
                 updatedAppUser.Should().NotBeNull();
                 updatedAppUser.Credentials.UserName.Should()
@@ -1270,7 +1276,7 @@ namespace Okta.Sdk.IntegrationTest
 
             var createdApp = await _applicationApi.CreateApplicationAsync(app, true);
 
-            var appUser = new AppUser
+            var appUser = new AppUserAssignRequest()
             {
                 Id = createdUser.Id,
 
@@ -2285,7 +2291,6 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Label = $"dotnet-sdk: okta_org2org {guid}",
                 SignOnMode = "SAML_2_0",
-                Name = "okta_org2org",
                 Settings = new SamlApplicationSettings()
                 {
                     App = new SamlApplicationSettingsApplication()

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** | **DateTimeOffset** |  | [optional] [readonly] 
+**Created** | **DateTimeOffset** | Timestamp when the object was created | [optional] [readonly] 
 **_Csr** | **string** |  | [optional] [readonly] 
 **Id** | **string** |  | [optional] [readonly] 
 **Kty** | **string** |  | [optional] [readonly] 

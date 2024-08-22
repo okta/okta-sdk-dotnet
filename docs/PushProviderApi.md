@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Create a Push Provider
 
-Creates a new push provider
+Creates a new push provider. Each Push Provider must have a unique `name`.
 
 ### Example
 ```csharp

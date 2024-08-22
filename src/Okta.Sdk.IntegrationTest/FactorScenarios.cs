@@ -53,10 +53,10 @@ namespace Okta.Sdk.IntegrationTest
             {
                 createdUser = await _userApi.CreateUserAsync(createUserRequest);
 
-                var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new SecurityQuestionUserFactor
+                var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new UserFactorSecurityQuestion()
                 {
-                    FactorType = FactorType.Question,
-                    Profile = new SecurityQuestionUserFactorProfile
+                    FactorType = UserFactorType.Question,
+                    Profile = new UserFactorSecurityQuestionProfile()
                     {
                         Question = "disliked_food",
                         Answer = "mayonnaise"
@@ -64,9 +64,9 @@ namespace Okta.Sdk.IntegrationTest
                 });
 
                 createdUserFactor.Should().NotBeNull();
-                createdUserFactor.FactorType.Should().Be(FactorType.Question);
-                ((SecurityQuestionUserFactor)createdUserFactor).Profile.Question.Should().Be("disliked_food");
-                ((SecurityQuestionUserFactor)createdUserFactor).Profile.QuestionText.Should().Be("What is the food you least liked as a child?");
+                createdUserFactor.FactorType.Should().Be(UserFactorType.Question);
+                ((UserFactorSecurityQuestion)createdUserFactor).Profile.Question.Should().Be("disliked_food");
+                ((UserFactorSecurityQuestion)createdUserFactor).Profile.QuestionText.Should().Be("What is the food you least liked as a child?");
             }
             finally
             {
@@ -105,18 +105,18 @@ namespace Okta.Sdk.IntegrationTest
             {
                 createdUser = await _userApi.CreateUserAsync(createUserRequest);
 
-                var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new SmsUserFactor
+                var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new UserFactorSMS()
                 {
-                    FactorType = FactorType.Sms,
-                    Profile = new SmsUserFactorProfile
+                    FactorType = UserFactorType.Sms,
+                    Profile = new UserFactorSMSProfile()
                     {
                         PhoneNumber = "+16284001133",
                     }
                 });
 
                 createdUserFactor.Should().NotBeNull();
-                createdUserFactor.FactorType.Should().Be(FactorType.Sms);
-                ((SmsUserFactor)createdUserFactor).Profile.PhoneNumber.Should().Be("+16284001133");
+                createdUserFactor.FactorType.Should().Be(UserFactorType.Sms);
+                ((UserFactorSMS)createdUserFactor).Profile.PhoneNumber.Should().Be("+16284001133");
             }
             finally
             {
@@ -155,10 +155,10 @@ namespace Okta.Sdk.IntegrationTest
             {
                 createdUser = await _userApi.CreateUserAsync(createUserRequest);
 
-                var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new CallUserFactor
+                var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new UserFactorCall
                 {
-                    FactorType = FactorType.Call,
-                    Profile = new CallUserFactorProfile
+                    FactorType = UserFactorType.Call,
+                    Profile = new UserFactorCallProfile()
                     {
                         PhoneNumber = "+16284001133",
                         PhoneExtension = "1234",
@@ -166,10 +166,10 @@ namespace Okta.Sdk.IntegrationTest
                 });
 
                 createdUserFactor.Should().NotBeNull();
-                createdUserFactor.FactorType.Should().Be(FactorType.Call);
-                ((CallUserFactor)createdUserFactor).Profile.PhoneNumber.Should().Be("+16284001133");
-                ((CallUserFactor)createdUserFactor).Profile.PhoneExtension.Should().Be("1234");
-                createdUserFactor.Status.Should().Be(FactorStatus.PENDINGACTIVATION);
+                createdUserFactor.FactorType.Should().Be(UserFactorType.Call);
+                ((UserFactorCall)createdUserFactor).Profile.PhoneNumber.Should().Be("+16284001133");
+                ((UserFactorCall)createdUserFactor).Profile.PhoneExtension.Should().Be("1234");
+                createdUserFactor.Status.Should().Be(UserFactorStatus.PENDINGACTIVATION);
             }
             finally
             {
@@ -184,13 +184,13 @@ namespace Okta.Sdk.IntegrationTest
         public static IEnumerable<object[]> FactorTypes =>
          new List<object[]>
          {
-            new object[] {FactorType.Tokensoftwaretotp },
-            new object[] {FactorType.Push },
+            new object[] {UserFactorType.Tokensoftwaretotp },
+            new object[] {UserFactorType.Push },
          };
 
         [Theory]
         [MemberData(nameof(FactorTypes))]
-        public async Task EnrollFactors(FactorType factorType)
+        public async Task EnrollFactors(UserFactorType factorType)
         {
             var guid = Guid.NewGuid();
             User createdUser = null;
@@ -262,26 +262,30 @@ namespace Okta.Sdk.IntegrationTest
             {
                 createdUser = await _userApi.CreateUserAsync(createUserRequest);
 
-                var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new SmsUserFactor
+                var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new UserFactorSMS()
                 {
-                    FactorType = FactorType.Sms,
-                    Profile = new SmsUserFactorProfile
+                    FactorType = UserFactorType.Sms,
+                    Profile = new UserFactorSMSProfile()
                     {
                         PhoneNumber = "+16284001133",
                     }
                 });
 
                 createdUserFactor.Should().NotBeNull();
-                createdUserFactor.FactorType.Should().Be(FactorType.Sms);
-                ((SmsUserFactor)createdUserFactor).Profile.PhoneNumber.Should().Be("+16284001133");
+                createdUserFactor.FactorType.Should().Be(UserFactorType.Sms);
+                ((UserFactorSMS)createdUserFactor).Profile.PhoneNumber.Should().Be("+16284001133");
 
                 // Time window to resend an sms and avoid 429 is 30 secs
                 Thread.Sleep(31000);
 
-                var resendUserFactor = await _userFactorApi.ResendEnrollFactorAsync(createdUser.Id, createdUserFactor.Id, createdUserFactor);
+                var resendUserFactorRequest = new ResendUserFactor()
+                {
+                    FactorType = ResendUserFactorType.Sms
+                };
+                
+                var resendUserFactor = await _userFactorApi.ResendEnrollFactorAsync(createdUser.Id, createdUserFactor.Id, resendUserFactorRequest);
                 resendUserFactor.Should().NotBeNull();
-                resendUserFactor.FactorType.Should().Be(FactorType.Sms);
-                ((SmsUserFactor)resendUserFactor).Profile.PhoneNumber.Should().Be("+16284001133");
+                resendUserFactor.FactorType.Should().Be(UserFactorType.Sms);
             }
             finally
             {
@@ -320,32 +324,32 @@ namespace Okta.Sdk.IntegrationTest
             {
                 createdUser = await _userApi.CreateUserAsync(createUserRequest);
 
-                var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new SmsUserFactor
+                var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new UserFactorSMS()
                 {
-                    FactorType = FactorType.Sms,
-                    Profile = new SmsUserFactorProfile
+                    FactorType = UserFactorType.Sms,
+                    Profile = new UserFactorSMSProfile()
                     {
                         PhoneNumber = "+16284001133",
                     }
                 }, activate:true);
 
                 createdUserFactor.Should().NotBeNull();
-                createdUserFactor.FactorType.Should().Be(FactorType.Sms);
-                createdUserFactor.Status.Should().Be(FactorStatus.ACTIVE);
-                ((SmsUserFactor)createdUserFactor).Profile.PhoneNumber.Should().Be("+16284001133");
+                createdUserFactor.FactorType.Should().Be(UserFactorType.Sms);
+                createdUserFactor.Status.Should().Be(UserFactorStatus.ACTIVE);
+                ((UserFactorSMS)createdUserFactor).Profile.PhoneNumber.Should().Be("+16284001133");
 
                 var userFactorsCatalog = await _userFactorApi.ListSupportedFactors(createdUser.Id).ToListAsync();
 
-                userFactorsCatalog.Any(x => x.FactorType == FactorType.Sms).Should().BeTrue();
+                userFactorsCatalog.Any(x => x.FactorType == UserFactorType.Sms).Should().BeTrue();
 
                 await _userFactorApi.UnenrollFactorAsync(createdUser.Id, createdUserFactor.Id, removeRecoveryEnrollment: true);
 
                 userFactorsCatalog = await _userFactorApi.ListSupportedFactors(createdUser.Id).ToListAsync();
 
-                var smsFactor = userFactorsCatalog.FirstOrDefault(x => x.FactorType == FactorType.Sms);
+                var smsFactor = userFactorsCatalog.FirstOrDefault(x => x.FactorType == UserFactorType.Sms);
 
                 smsFactor.Should().NotBeNull();
-                smsFactor.Status.Should().Be(FactorStatus.NOTSETUP);
+                smsFactor.Status.Should().Be(UserFactorStatus.NOTSETUP);
             }
             finally
             {

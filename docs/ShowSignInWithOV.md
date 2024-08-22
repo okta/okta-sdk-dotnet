@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ShowSignInWithOV
+Controls whether to show the Sign in with Okta Verify button on the Sign-In Widget
 
 ## Properties
 

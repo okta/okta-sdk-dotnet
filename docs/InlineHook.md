@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
 **Id** | **string** |  | [optional] [readonly] 
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
+**Metadata** | **Dictionary&lt;string, string&gt;** | Specific properties for the inline hook configuration, for example, &#x60;optOutServiceProtectionRateLimit&#x60; to opt-out of Telephony Service Protection Rate Limits when using the Telephony inline hook. | [optional] 
 **Name** | **string** |  | [optional] 
 **Status** | **InlineHookStatus** |  | [optional] 
 **Type** | **InlineHookType** |  | [optional] 

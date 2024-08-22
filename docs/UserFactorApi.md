@@ -7,22 +7,22 @@ Method | HTTP request | Description
 [**ActivateFactor**](UserFactorApi.md#activatefactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/lifecycle/activate | Activate a Factor
 [**EnrollFactor**](UserFactorApi.md#enrollfactor) | **POST** /api/v1/users/{userId}/factors | Enroll a Factor
 [**GetFactor**](UserFactorApi.md#getfactor) | **GET** /api/v1/users/{userId}/factors/{factorId} | Retrieve a Factor
-[**GetFactorTransactionStatus**](UserFactorApi.md#getfactortransactionstatus) | **GET** /api/v1/users/{userId}/factors/{factorId}/transactions/{transactionId} | Retrieve a Factor Transaction Status
-[**ListFactors**](UserFactorApi.md#listfactors) | **GET** /api/v1/users/{userId}/factors | List all Factors
-[**ListSupportedFactors**](UserFactorApi.md#listsupportedfactors) | **GET** /api/v1/users/{userId}/factors/catalog | List all Supported Factors
-[**ListSupportedSecurityQuestions**](UserFactorApi.md#listsupportedsecurityquestions) | **GET** /api/v1/users/{userId}/factors/questions | List all Supported Security Questions
-[**ResendEnrollFactor**](UserFactorApi.md#resendenrollfactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/resend | Resend a factor enrollment
+[**GetFactorTransactionStatus**](UserFactorApi.md#getfactortransactionstatus) | **GET** /api/v1/users/{userId}/factors/{factorId}/transactions/{transactionId} | Retrieve a Factor transaction status
+[**ListFactors**](UserFactorApi.md#listfactors) | **GET** /api/v1/users/{userId}/factors | List all enrolled Factors
+[**ListSupportedFactors**](UserFactorApi.md#listsupportedfactors) | **GET** /api/v1/users/{userId}/factors/catalog | List all supported Factors
+[**ListSupportedSecurityQuestions**](UserFactorApi.md#listsupportedsecurityquestions) | **GET** /api/v1/users/{userId}/factors/questions | List all supported Security Questions
+[**ResendEnrollFactor**](UserFactorApi.md#resendenrollfactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/resend | Resend a Factor enrollment
 [**UnenrollFactor**](UserFactorApi.md#unenrollfactor) | **DELETE** /api/v1/users/{userId}/factors/{factorId} | Unenroll a Factor
-[**VerifyFactor**](UserFactorApi.md#verifyfactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/verify | Verify an MFA Factor
+[**VerifyFactor**](UserFactorApi.md#verifyfactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/verify | Verify a Factor
 
 
 <a name="activatefactor"></a>
 # **ActivateFactor**
-> UserFactor ActivateFactor (string userId, string factorId, ActivateFactorRequest body = null)
+> UserFactor ActivateFactor (string userId, string factorId, UserFactorActivateRequest body = null)
 
 Activate a Factor
 
-Activates a factor. The `sms` and `token:software:totp` factor types require activation to complete the enrollment process.
+Activates a Factor. Some Factors (`call`, `email`, `push`, `sms`, `token:software:totp`, `u2f`, and `webauthn`) require activation to complete the enrollment process.  Okta enforces a rate limit of five activation attempts within five minutes. After a user exceeds the rate limit, Okta returns an error message.
 
 ### Example
 ```csharp
@@ -46,9 +46,9 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
-            var userId = "userId_example";  // string | 
-            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | `id` of the Factor
-            var body = new ActivateFactorRequest(); // ActivateFactorRequest |  (optional) 
+            var userId = "userId_example";  // string | ID of an existing Okta user
+            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | ID of an existing user Factor
+            var body = new UserFactorActivateRequest(); // UserFactorActivateRequest |  (optional) 
 
             try
             {
@@ -71,9 +71,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **factorId** | **string**| &#x60;id&#x60; of the Factor | 
- **body** | [**ActivateFactorRequest**](ActivateFactorRequest.md)|  | [optional] 
+ **userId** | **string**| ID of an existing Okta user | 
+ **factorId** | **string**| ID of an existing user Factor | 
+ **body** | [**UserFactorActivateRequest**](UserFactorActivateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -102,11 +102,11 @@ Name | Type | Description  | Notes
 
 <a name="enrollfactor"></a>
 # **EnrollFactor**
-> UserFactor EnrollFactor (string userId, UserFactor body, bool? updatePhone = null, string templateId = null, int? tokenLifetimeSeconds = null, bool? activate = null)
+> UserFactor EnrollFactor (string userId, UserFactor body, bool? updatePhone = null, string templateId = null, int? tokenLifetimeSeconds = null, bool? activate = null, string acceptLanguage = null)
 
 Enroll a Factor
 
-Enrolls a user with a supported factor
+Enrolls a supported Factor for the specified user. Some Factor types require a seperate activation to complete the enrollment process. See [Activate a Factor](./#tag/UserFactor/operation/activateFactor).
 
 ### Example
 ```csharp
@@ -130,17 +130,18 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var body = new UserFactor(); // UserFactor | Factor
-            var updatePhone = false;  // bool? |  (optional)  (default to false)
-            var templateId = "templateId_example";  // string | id of SMS template (only for SMS factor) (optional) 
-            var tokenLifetimeSeconds = 300;  // int? |  (optional)  (default to 300)
-            var activate = false;  // bool? |  (optional)  (default to false)
+            var updatePhone = false;  // bool? | If `true`, indicates you are replacing the currently registered phone number for the specified user. This parameter is ignored if the existing phone number is used by an activated Factor. (optional)  (default to false)
+            var templateId = cstk2flOtuCMDJK4b0g3;  // string | ID of an existing custom SMS template. See the [SMS Templates API](../Template). Only used by `sms` Factors. If the provided ID doesn't exist, the default template is used instead. (optional) 
+            var tokenLifetimeSeconds = 300;  // int? | Defines how long the token remains valid (optional)  (default to 300)
+            var activate = false;  // bool? | If `true`, the `sms` Factor is immediately activated as part of the enrollment. An activation text message isn't sent to the device. (optional)  (default to false)
+            var acceptLanguage = fr;  // string | An ISO 639-1 two-letter language code that defines a localized message to send. Only used by `sms` Factors. If a localized message doesn't exist or the `templateId` is incorrect, the default template is used instead. (optional) 
 
             try
             {
                 // Enroll a Factor
-                UserFactor result = apiInstance.EnrollFactor(userId, body, updatePhone, templateId, tokenLifetimeSeconds, activate);
+                UserFactor result = apiInstance.EnrollFactor(userId, body, updatePhone, templateId, tokenLifetimeSeconds, activate, acceptLanguage);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -158,12 +159,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **body** | [**UserFactor**](UserFactor.md)| Factor | 
- **updatePhone** | **bool?**|  | [optional] [default to false]
- **templateId** | **string**| id of SMS template (only for SMS factor) | [optional] 
- **tokenLifetimeSeconds** | **int?**|  | [optional] [default to 300]
- **activate** | **bool?**|  | [optional] [default to false]
+ **updatePhone** | **bool?**| If &#x60;true&#x60;, indicates you are replacing the currently registered phone number for the specified user. This parameter is ignored if the existing phone number is used by an activated Factor. | [optional] [default to false]
+ **templateId** | **string**| ID of an existing custom SMS template. See the [SMS Templates API](../Template). Only used by &#x60;sms&#x60; Factors. If the provided ID doesn&#39;t exist, the default template is used instead. | [optional] 
+ **tokenLifetimeSeconds** | **int?**| Defines how long the token remains valid | [optional] [default to 300]
+ **activate** | **bool?**| If &#x60;true&#x60;, the &#x60;sms&#x60; Factor is immediately activated as part of the enrollment. An activation text message isn&#39;t sent to the device. | [optional] [default to false]
+ **acceptLanguage** | **string**| An ISO 639-1 two-letter language code that defines a localized message to send. Only used by &#x60;sms&#x60; Factors. If a localized message doesn&#39;t exist or the &#x60;templateId&#x60; is incorrect, the default template is used instead. | [optional] 
 
 ### Return type
 
@@ -196,7 +198,7 @@ Name | Type | Description  | Notes
 
 Retrieve a Factor
 
-Retrieves a factor for the specified user
+Retrieves an existing Factor for the specified user
 
 ### Example
 ```csharp
@@ -220,8 +222,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
-            var userId = "userId_example";  // string | 
-            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | `id` of the Factor
+            var userId = "userId_example";  // string | ID of an existing Okta user
+            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | ID of an existing user Factor
 
             try
             {
@@ -244,8 +246,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **factorId** | **string**| &#x60;id&#x60; of the Factor | 
+ **userId** | **string**| ID of an existing Okta user | 
+ **factorId** | **string**| ID of an existing user Factor | 
 
 ### Return type
 
@@ -273,11 +275,11 @@ Name | Type | Description  | Notes
 
 <a name="getfactortransactionstatus"></a>
 # **GetFactorTransactionStatus**
-> VerifyUserFactorResponse GetFactorTransactionStatus (string userId, string factorId, string transactionId)
+> UserFactorPushTransaction GetFactorTransactionStatus (string userId, string factorId, string transactionId)
 
-Retrieve a Factor Transaction Status
+Retrieve a Factor transaction status
 
-Retrieves the factors verification transaction status
+Retrieves the status of a `push` Factor verification transaction
 
 ### Example
 ```csharp
@@ -301,14 +303,14 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
-            var userId = "userId_example";  // string | 
-            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | `id` of the Factor
-            var transactionId = gPAQcN3NDjSGOCAeG2Jv;  // string | `id` of the Transaction
+            var userId = "userId_example";  // string | ID of an existing Okta user
+            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | ID of an existing user Factor
+            var transactionId = gPAQcN3NDjSGOCAeG2Jv;  // string | ID of an existing Factor verification transaction
 
             try
             {
-                // Retrieve a Factor Transaction Status
-                VerifyUserFactorResponse result = apiInstance.GetFactorTransactionStatus(userId, factorId, transactionId);
+                // Retrieve a Factor transaction status
+                UserFactorPushTransaction result = apiInstance.GetFactorTransactionStatus(userId, factorId, transactionId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -326,13 +328,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **factorId** | **string**| &#x60;id&#x60; of the Factor | 
- **transactionId** | **string**| &#x60;id&#x60; of the Transaction | 
+ **userId** | **string**| ID of an existing Okta user | 
+ **factorId** | **string**| ID of an existing user Factor | 
+ **transactionId** | **string**| ID of an existing Factor verification transaction | 
 
 ### Return type
 
-[**VerifyUserFactorResponse**](VerifyUserFactorResponse.md)
+[**UserFactorPushTransaction**](UserFactorPushTransaction.md)
 
 ### Authorization
 
@@ -358,9 +360,9 @@ Name | Type | Description  | Notes
 # **ListFactors**
 > List&lt;UserFactor&gt; ListFactors (string userId)
 
-List all Factors
+List all enrolled Factors
 
-Lists all the enrolled factors for the specified user
+Lists all enrolled Factors for the specified user
 
 ### Example
 ```csharp
@@ -384,11 +386,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
-                // List all Factors
+                // List all enrolled Factors
                 List<UserFactor> result = apiInstance.ListFactors(userId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -407,7 +409,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -435,11 +437,11 @@ Name | Type | Description  | Notes
 
 <a name="listsupportedfactors"></a>
 # **ListSupportedFactors**
-> List&lt;UserFactor&gt; ListSupportedFactors (string userId)
+> List&lt;UserFactorSupported&gt; ListSupportedFactors (string userId)
 
-List all Supported Factors
+List all supported Factors
 
-Lists all the supported factors that can be enrolled for the specified user
+Lists all the supported Factors that can be enrolled for the specified user
 
 ### Example
 ```csharp
@@ -463,12 +465,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
-                // List all Supported Factors
-                List<UserFactor> result = apiInstance.ListSupportedFactors(userId).ToListAsync();
+                // List all supported Factors
+                List<UserFactorSupported> result = apiInstance.ListSupportedFactors(userId).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -486,11 +488,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
-[**List&lt;UserFactor&gt;**](UserFactor.md)
+[**List&lt;UserFactorSupported&gt;**](UserFactorSupported.md)
 
 ### Authorization
 
@@ -514,11 +516,11 @@ Name | Type | Description  | Notes
 
 <a name="listsupportedsecurityquestions"></a>
 # **ListSupportedSecurityQuestions**
-> List&lt;SecurityQuestion&gt; ListSupportedSecurityQuestions (string userId)
+> List&lt;UserFactorSecurityQuestionProfile&gt; ListSupportedSecurityQuestions (string userId)
 
-List all Supported Security Questions
+List all supported Security Questions
 
-Lists all available security questions for a user's `question` factor
+Lists all available Security Questions for the specified user
 
 ### Example
 ```csharp
@@ -540,12 +542,12 @@ namespace Example
             config.Token ="YOUR_API_KEY";
 
             var apiInstance = new UserFactorApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
-                // List all Supported Security Questions
-                List<SecurityQuestion> result = apiInstance.ListSupportedSecurityQuestions(userId).ToListAsync();
+                // List all supported Security Questions
+                List<UserFactorSecurityQuestionProfile> result = apiInstance.ListSupportedSecurityQuestions(userId).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -563,11 +565,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
-[**List&lt;SecurityQuestion&gt;**](SecurityQuestion.md)
+[**List&lt;UserFactorSecurityQuestionProfile&gt;**](UserFactorSecurityQuestionProfile.md)
 
 ### Authorization
 
@@ -591,11 +593,11 @@ Name | Type | Description  | Notes
 
 <a name="resendenrollfactor"></a>
 # **ResendEnrollFactor**
-> UserFactor ResendEnrollFactor (string userId, string factorId, UserFactor userFactor, string templateId = null)
+> ResendUserFactor ResendEnrollFactor (string userId, string factorId, ResendUserFactor resendUserFactor, string templateId = null)
 
-Resend a factor enrollment
+Resend a Factor enrollment
 
-Resends a factor challenge (SMS/call/email OTP) as part of an enrollment flow. The current rate limit is one OTP challenge (call or SMS) per device every 30 seconds. Okta round-robins between SMS providers with every resend request to help ensure delivery of an SMS OTP across different carriers.
+Resends an `sms`, `call`, or `email` factor challenge as part of an enrollment flow.  For `call` and `sms` factors, Okta enforces a rate limit of one OTP challenge per device every 30 seconds. You can configure your `sms` and `call` factors to use a third-party telephony provider. See the [Telephony inline hook reference](https://developer.okta.com/docs/reference/telephony-hook/). Okta round-robins between SMS providers with every resend request to help ensure delivery of an SMS and Call OTPs across different carriers.  > **Note**: Resend operations aren't allowed after a factor exceeds the activation rate limit. See [Activate a Factor](./#tag/UserFactor/operation/activateFactor).
 
 ### Example
 ```csharp
@@ -619,15 +621,15 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
-            var userId = "userId_example";  // string | 
-            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | `id` of the Factor
-            var userFactor = new UserFactor(); // UserFactor | Factor
-            var templateId = "templateId_example";  // string | ID of SMS template (only for SMS factor) (optional) 
+            var userId = "userId_example";  // string | ID of an existing Okta user
+            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | ID of an existing user Factor
+            var resendUserFactor = new ResendUserFactor(); // ResendUserFactor | 
+            var templateId = cstk2flOtuCMDJK4b0g3;  // string | ID of an existing custom SMS template. See the [SMS Templates API](../Template). Only used by `sms` Factors. (optional) 
 
             try
             {
-                // Resend a factor enrollment
-                UserFactor result = apiInstance.ResendEnrollFactor(userId, factorId, userFactor, templateId);
+                // Resend a Factor enrollment
+                ResendUserFactor result = apiInstance.ResendEnrollFactor(userId, factorId, resendUserFactor, templateId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -645,14 +647,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **factorId** | **string**| &#x60;id&#x60; of the Factor | 
- **userFactor** | [**UserFactor**](UserFactor.md)| Factor | 
- **templateId** | **string**| ID of SMS template (only for SMS factor) | [optional] 
+ **userId** | **string**| ID of an existing Okta user | 
+ **factorId** | **string**| ID of an existing user Factor | 
+ **resendUserFactor** | [**ResendUserFactor**](ResendUserFactor.md)|  | 
+ **templateId** | **string**| ID of an existing custom SMS template. See the [SMS Templates API](../Template). Only used by &#x60;sms&#x60; Factors. | [optional] 
 
 ### Return type
 
-[**UserFactor**](UserFactor.md)
+[**ResendUserFactor**](ResendUserFactor.md)
 
 ### Authorization
 
@@ -681,7 +683,7 @@ Name | Type | Description  | Notes
 
 Unenroll a Factor
 
-Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor
+Unenrolls an existing Factor for the specified user. This allows the user to enroll a new Factor.  > **Note**: If you unenroll the `push` or the `signed_nonce` Factors, Okta also unenrolls any other `totp`, `signed_nonce`, or Okta Verify `push` Factors associated with the user.
 
 ### Example
 ```csharp
@@ -705,9 +707,9 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
-            var userId = "userId_example";  // string | 
-            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | `id` of the Factor
-            var removeRecoveryEnrollment = false;  // bool? |  (optional)  (default to false)
+            var userId = "userId_example";  // string | ID of an existing Okta user
+            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | ID of an existing user Factor
+            var removeRecoveryEnrollment = false;  // bool? | If `true`, removes the the phone number as both a recovery method and a Factor. Only used for `sms` and `call` Factors. (optional)  (default to false)
 
             try
             {
@@ -729,9 +731,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **factorId** | **string**| &#x60;id&#x60; of the Factor | 
- **removeRecoveryEnrollment** | **bool?**|  | [optional] [default to false]
+ **userId** | **string**| ID of an existing Okta user | 
+ **factorId** | **string**| ID of an existing user Factor | 
+ **removeRecoveryEnrollment** | **bool?**| If &#x60;true&#x60;, removes the the phone number as both a recovery method and a Factor. Only used for &#x60;sms&#x60; and &#x60;call&#x60; Factors. | [optional] [default to false]
 
 ### Return type
 
@@ -759,11 +761,11 @@ void (empty response body)
 
 <a name="verifyfactor"></a>
 # **VerifyFactor**
-> VerifyUserFactorResponse VerifyFactor (string userId, string factorId, string templateId = null, int? tokenLifetimeSeconds = null, string xForwardedFor = null, string userAgent = null, string acceptLanguage = null, VerifyFactorRequest body = null)
+> UserFactorVerifyResponse VerifyFactor (string userId, string factorId, string templateId = null, int? tokenLifetimeSeconds = null, string xForwardedFor = null, string userAgent = null, string acceptLanguage = null, UserFactorVerifyRequest body = null)
 
-Verify an MFA Factor
+Verify a Factor
 
-Verifies an OTP for a `token` or `token:hardware` factor
+Verifies an OTP for a Factor. Some Factors (`call`, `email`, `push`, `sms`, `u2f`, and `webauthn`) must first issue a challenge before you can verify the Factor. Do this by making a request without a body. After a challenge is issued, make another request to verify the Factor.  **Note**: To verify a `push` factor, use the **poll** link returned when you issue the challenge. See [Retrieve a Factor Transaction Status](/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/getFactorTransactionStatus).
 
 ### Example
 ```csharp
@@ -787,19 +789,19 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
-            var userId = "userId_example";  // string | 
-            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | `id` of the Factor
-            var templateId = "templateId_example";  // string |  (optional) 
-            var tokenLifetimeSeconds = 300;  // int? |  (optional)  (default to 300)
-            var xForwardedFor = "xForwardedFor_example";  // string |  (optional) 
-            var userAgent = "userAgent_example";  // string |  (optional) 
-            var acceptLanguage = "acceptLanguage_example";  // string |  (optional) 
-            var body = new VerifyFactorRequest(); // VerifyFactorRequest |  (optional) 
+            var userId = "userId_example";  // string | ID of an existing Okta user
+            var factorId = zAgrsaBe0wVGRugDYtdv;  // string | ID of an existing user Factor
+            var templateId = cstk2flOtuCMDJK4b0g3;  // string | ID of an existing custom SMS template. See the [SMS Templates API](../Template). Only used by `sms` Factors. (optional) 
+            var tokenLifetimeSeconds = 300;  // int? | Defines how long the token remains valid (optional)  (default to 300)
+            var xForwardedFor = "xForwardedFor_example";  // string | Public IP address for the user agent (optional) 
+            var userAgent = "userAgent_example";  // string | Type of user agent detected when the request is made. Required to verify `push` Factors. (optional) 
+            var acceptLanguage = fr;  // string | An ISO 639-1 two-letter language code that defines a localized message to send. Only used by `sms` Factors. If a localized message doesn't exist or the `templateId` is incorrect, the default template is used instead. (optional) 
+            var body = new UserFactorVerifyRequest(); // UserFactorVerifyRequest | Some Factors (`call`, `email`, `push`, `sms`, `u2f`, and `webauthn`) must first issue a challenge before you can verify the Factor. Do this by making a request without a body. After a challenge is issued, make another request to verify the Factor. (optional) 
 
             try
             {
-                // Verify an MFA Factor
-                VerifyUserFactorResponse result = apiInstance.VerifyFactor(userId, factorId, templateId, tokenLifetimeSeconds, xForwardedFor, userAgent, acceptLanguage, body);
+                // Verify a Factor
+                UserFactorVerifyResponse result = apiInstance.VerifyFactor(userId, factorId, templateId, tokenLifetimeSeconds, xForwardedFor, userAgent, acceptLanguage, body);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -817,18 +819,18 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
- **factorId** | **string**| &#x60;id&#x60; of the Factor | 
- **templateId** | **string**|  | [optional] 
- **tokenLifetimeSeconds** | **int?**|  | [optional] [default to 300]
- **xForwardedFor** | **string**|  | [optional] 
- **userAgent** | **string**|  | [optional] 
- **acceptLanguage** | **string**|  | [optional] 
- **body** | [**VerifyFactorRequest**](VerifyFactorRequest.md)|  | [optional] 
+ **userId** | **string**| ID of an existing Okta user | 
+ **factorId** | **string**| ID of an existing user Factor | 
+ **templateId** | **string**| ID of an existing custom SMS template. See the [SMS Templates API](../Template). Only used by &#x60;sms&#x60; Factors. | [optional] 
+ **tokenLifetimeSeconds** | **int?**| Defines how long the token remains valid | [optional] [default to 300]
+ **xForwardedFor** | **string**| Public IP address for the user agent | [optional] 
+ **userAgent** | **string**| Type of user agent detected when the request is made. Required to verify &#x60;push&#x60; Factors. | [optional] 
+ **acceptLanguage** | **string**| An ISO 639-1 two-letter language code that defines a localized message to send. Only used by &#x60;sms&#x60; Factors. If a localized message doesn&#39;t exist or the &#x60;templateId&#x60; is incorrect, the default template is used instead. | [optional] 
+ **body** | [**UserFactorVerifyRequest**](UserFactorVerifyRequest.md)| Some Factors (&#x60;call&#x60;, &#x60;email&#x60;, &#x60;push&#x60;, &#x60;sms&#x60;, &#x60;u2f&#x60;, and &#x60;webauthn&#x60;) must first issue a challenge before you can verify the Factor. Do this by making a request without a body. After a challenge is issued, make another request to verify the Factor. | [optional] 
 
 ### Return type
 
-[**VerifyUserFactorResponse**](VerifyUserFactorResponse.md)
+[**UserFactorVerifyResponse**](UserFactorVerifyResponse.md)
 
 ### Authorization
 

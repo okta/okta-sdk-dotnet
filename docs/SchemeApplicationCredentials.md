@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Signing** | [**ApplicationCredentialsSigning**](ApplicationCredentialsSigning.md) |  | [optional] 
 **UserNameTemplate** | [**ApplicationCredentialsUsernameTemplate**](ApplicationCredentialsUsernameTemplate.md) |  | [optional] 
 **Password** | [**PasswordCredential**](PasswordCredential.md) |  | [optional] 
-**RevealPassword** | **bool** |  | [optional] 
+**RevealPassword** | **bool** | Allow users to securely see their password | [optional] 
 **Scheme** | **ApplicationCredentialsScheme** |  | [optional] 
 **UserName** | **string** |  | [optional] 
 

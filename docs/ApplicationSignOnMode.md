@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ApplicationSignOnMode
+Authentication mode for the app
 
 ## Properties
 

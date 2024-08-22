@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ProvisioningDeprovisionedCondition
+Not supported with OIDC IdPs
 
 ## Properties
 

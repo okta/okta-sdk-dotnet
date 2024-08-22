@@ -6,8 +6,8 @@ A collection of the profile mappings that include a subset of the profile mappin
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique identifier for profile mapping | [optional] [readonly] 
-**Source** | [**ProfileMappingSource**](.md) |  | [optional] 
-**Target** | [**ProfileMappingTarget**](.md) |  | [optional] 
+**Source** | [**ProfileMappingSource**](ProfileMappingSource.md) |  | [optional] 
+**Target** | [**ProfileMappingTarget**](ProfileMappingTarget.md) |  | [optional] 
 **Links** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
