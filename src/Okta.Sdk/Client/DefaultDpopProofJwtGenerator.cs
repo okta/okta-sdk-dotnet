@@ -90,7 +90,7 @@ namespace Okta.Sdk.Client
                     { "jti", Guid.NewGuid().ToString()}
                 };
 
-                if (!string.IsNullOrEmpty(nonce.IsNullOrEmpty))
+                if (!string.IsNullOrEmpty(nonce))
                 {
                     payload.AddClaim(new Claim("nonce", nonce));
                 }
