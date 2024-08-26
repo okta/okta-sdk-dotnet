@@ -171,7 +171,7 @@ namespace Okta.Sdk.UnitTest
                                     }";
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
             var appApi = new ApplicationFeaturesApi(mockClient, new Configuration { BasePath = "https://foo.com" });
-            var feature = await appApi.GetFeatureForApplicationAsync("foo", "bar") as UserProvisioningApplicationFeature;
+            var feature = await appApi.GetFeatureForApplicationAsync("foo", "bar");
 
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/features/{featureName}");
             mockClient.ReceivedPathParams["appId"].Should().Contain("foo");
@@ -221,7 +221,7 @@ namespace Okta.Sdk.UnitTest
             features.Should().NotBeNull();
             features.FirstOrDefault().Status.Value.Should().Be("ENABLED");
             features.FirstOrDefault().Name.Should().Be(ApplicationFeatureType.USERPROVISIONING);
-            (features.FirstOrDefault() as UserProvisioningApplicationFeature).Capabilities.Create.LifecycleCreate.Status.Value.Should().Be("DISABLED");
+            features.FirstOrDefault().Capabilities.Create.LifecycleCreate.Status.Value.Should().Be("DISABLED");
         }
 
         [Fact]
@@ -281,7 +281,6 @@ namespace Okta.Sdk.UnitTest
             {
                 Profile = new ProvisioningConnectionTokenRequestProfile
                 {
-                    //ClientId = "foo",
                     AuthScheme = ProvisioningConnectionTokenAuthScheme.TOKEN
                 }
             });
