@@ -87,7 +87,7 @@ namespace Okta.Sdk.Client
                     { "htm", httpMethod ?? "POST" },
                     { "htu", uri ?? $"{ClientUtils.EnsureTrailingSlash(_configuration.OktaDomain)}oauth2/v1/token" },
                     { "iat", (int)timeSpanIat.TotalSeconds },
-                    { "jti", Guid.NewGuid()}
+                    { "jti", Guid.NewGuid().ToString()}
                 };
 
                 if (!nonce.IsNullOrEmpty())
