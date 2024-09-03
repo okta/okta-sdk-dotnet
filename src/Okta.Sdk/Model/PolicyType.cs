@@ -33,26 +33,6 @@ namespace Okta.Sdk.Model
     public sealed class PolicyType : StringEnum
     {
         /// <summary>
-        /// StringEnum PolicyType for value: ACCESS_POLICY
-        /// </summary>
-        public static PolicyType ACCESSPOLICY = new PolicyType("ACCESS_POLICY");
-        /// <summary>
-        /// StringEnum PolicyType for value: CONTINUOUS_ACCESS
-        /// </summary>
-        public static PolicyType CONTINUOUSACCESS = new PolicyType("CONTINUOUS_ACCESS");
-        /// <summary>
-        /// StringEnum PolicyType for value: ENTITY_RISK
-        /// </summary>
-        public static PolicyType ENTITYRISK = new PolicyType("ENTITY_RISK");
-        /// <summary>
-        /// StringEnum PolicyType for value: IDP_DISCOVERY
-        /// </summary>
-        public static PolicyType IDPDISCOVERY = new PolicyType("IDP_DISCOVERY");
-        /// <summary>
-        /// StringEnum PolicyType for value: MFA_ENROLL
-        /// </summary>
-        public static PolicyType MFAENROLL = new PolicyType("MFA_ENROLL");
-        /// <summary>
         /// StringEnum PolicyType for value: OKTA_SIGN_ON
         /// </summary>
         public static PolicyType OKTASIGNON = new PolicyType("OKTA_SIGN_ON");
@@ -61,13 +41,29 @@ namespace Okta.Sdk.Model
         /// </summary>
         public static PolicyType PASSWORD = new PolicyType("PASSWORD");
         /// <summary>
+        /// StringEnum PolicyType for value: MFA_ENROLL
+        /// </summary>
+        public static PolicyType MFAENROLL = new PolicyType("MFA_ENROLL");
+        /// <summary>
+        /// StringEnum PolicyType for value: IDP_DISCOVERY
+        /// </summary>
+        public static PolicyType IDPDISCOVERY = new PolicyType("IDP_DISCOVERY");
+        /// <summary>
+        /// StringEnum PolicyType for value: ACCESS_POLICY
+        /// </summary>
+        public static PolicyType ACCESSPOLICY = new PolicyType("ACCESS_POLICY");
+        /// <summary>
         /// StringEnum PolicyType for value: PROFILE_ENROLLMENT
         /// </summary>
         public static PolicyType PROFILEENROLLMENT = new PolicyType("PROFILE_ENROLLMENT");
         /// <summary>
-        /// StringEnum PolicyType for value: RESOURCE_ACCESS
+        /// StringEnum PolicyType for value: POST_AUTH_SESSION
         /// </summary>
-        public static PolicyType RESOURCEACCESS = new PolicyType("RESOURCE_ACCESS");
+        public static PolicyType POSTAUTHSESSION = new PolicyType("POST_AUTH_SESSION");
+        /// <summary>
+        /// StringEnum PolicyType for value: ENTITY_RISK
+        /// </summary>
+        public static PolicyType ENTITYRISK = new PolicyType("ENTITY_RISK");
 
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="PolicyType"/>

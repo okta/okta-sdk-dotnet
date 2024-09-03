@@ -1180,7 +1180,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var type = "ACCESS_POLICY";  // PolicyType | Specifies the type of policy to return. The following policy types are available only with the Okta Identity Engine - `ACCESS_POLICY`, `PROFILE_ENROLLMENT`, `CONTINUOUS_ACCESS`, and `ENTITY_RISK`. The `CONTINUOUS_ACCESS` and `ENTITY_RISK` are in Early Access (EA). Contact your Okta account team to enable these features.
+            var type = "OKTA_SIGN_ON";  // PolicyType | Specifies the type of policy to return. The following policy types are available only with the Okta Identity Engine - `ACCESS_POLICY`, `PROFILE_ENROLLMENT`, `CONTINUOUS_ACCESS`, and `ENTITY_RISK`. The `CONTINUOUS_ACCESS` and `ENTITY_RISK` are in Early Access (EA). Contact your Okta account team to enable these features.
             var status = "status_example";  // string | Refines the query by the `status` of the policy - `ACTIVE` or `INACTIVE` (optional) 
             var expand = "\"\"";  // string |  (optional)  (default to "")
             var sortBy = "sortBy_example";  // string | Refines the query by sorting on the policy `name` in ascending order (optional) 
