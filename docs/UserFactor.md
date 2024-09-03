@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Id** | **string** | ID of the Factor | [optional] [readonly] 
 **LastUpdated** | **DateTimeOffset** | Timestamp when the Factor was last updated | [optional] [readonly] 
 **Profile** | **Object** | Specific attributes related to the Factor | [optional] 
-**Provider** | **UserFactorProviderType** |  | [optional] 
+**Provider** | **UserFactorProvider** |  | [optional] 
 **Status** | **UserFactorStatus** |  | [optional] 
 **VendorName** | **string** | Name of the Factor vendor. This is usually the same as the provider except for On-Prem MFA where it depends on administrator settings. | [optional] [readonly] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 

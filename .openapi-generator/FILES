@@ -1153,7 +1153,6 @@ docs/UserFactorHardwareAllOfVerify.md
 docs/UserFactorHardwareProfile.md
 docs/UserFactorLinks.md
 docs/UserFactorProvider.md
-docs/UserFactorProviderType.md
 docs/UserFactorPush.md
 docs/UserFactorPushProfile.md
 docs/UserFactorPushTransaction.md
@@ -2450,7 +2449,6 @@ src/Okta.Sdk/Model/UserFactorHardwareAllOfVerify.cs
 src/Okta.Sdk/Model/UserFactorHardwareProfile.cs
 src/Okta.Sdk/Model/UserFactorLinks.cs
 src/Okta.Sdk/Model/UserFactorProvider.cs
-src/Okta.Sdk/Model/UserFactorProviderType.cs
 src/Okta.Sdk/Model/UserFactorPush.cs
 src/Okta.Sdk/Model/UserFactorPushProfile.cs
 src/Okta.Sdk/Model/UserFactorPushTransaction.cs

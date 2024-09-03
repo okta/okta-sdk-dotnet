@@ -1844,7 +1844,6 @@ Class | Method | HTTP request | Description
  - [Model.UserFactorHardwareProfile](docs/UserFactorHardwareProfile.md)
  - [Model.UserFactorLinks](docs/UserFactorLinks.md)
  - [Model.UserFactorProvider](docs/UserFactorProvider.md)
- - [Model.UserFactorProviderType](docs/UserFactorProviderType.md)
  - [Model.UserFactorPush](docs/UserFactorPush.md)
  - [Model.UserFactorPushAllOf](docs/UserFactorPushAllOf.md)
  - [Model.UserFactorPushProfile](docs/UserFactorPushProfile.md)

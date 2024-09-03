@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **FactorType** | [**UserFactorType**](UserFactorType.md) |  | [optional] 
 **Id** | **string** | ID of the Factor | [optional] [readonly] 
 **LastUpdated** | **DateTimeOffset** | Timestamp when the Factor was last updated | [optional] [readonly] 
-**Provider** | [**UserFactorProviderType**](UserFactorProviderType.md) |  | [optional] 
+**Provider** | [**UserFactorProvider**](UserFactorProvider.md) |  | [optional] 
 **Status** | [**UserFactorStatus**](UserFactorStatus.md) |  | [optional] 
 **VendorName** | **string** | Name of the Factor vendor. This is usually the same as the provider except for On-Prem MFA where it depends on administrator settings. | [optional] [readonly] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 

@@ -74,7 +74,7 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "provider", EmitDefaultValue = true)]
         
-        public UserFactorProviderType Provider { get; set; }
+        public UserFactorProvider Provider { get; set; }
 
         /// <summary>
         /// Gets or Sets Status

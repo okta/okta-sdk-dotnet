@@ -131,7 +131,7 @@ namespace Okta.Sdk.UnitTest.Api
 
             mockClient.ReceivedBody.Should().BeEquivalentTo("{\"profile\":{\"credentialId\":\"foo\"},\"verify\":{\"passCode\":\"foo\"},\"factorType\":\"token\",\"provider\":\"RSA\"}");
             enrollFactorResponse.FactorType.Equals(UserFactorType.Token).Should().BeTrue();
-            enrollFactorResponse.Provider.Equals(UserFactorProviderType.RSA).Should().BeTrue();
+            enrollFactorResponse.Provider.Equals(UserFactorProvider.RSA).Should().BeTrue();
         }
 
         [Fact]
@@ -198,7 +198,7 @@ namespace Okta.Sdk.UnitTest.Api
 
             mockClient.ReceivedBody.Should().BeEquivalentTo("{\"profile\":{\"credentialId\":\"foo\"},\"verify\":{\"nextPassCode\":\"foo\",\"passCode\":\"foo\"},\"factorType\":\"token\",\"provider\":\"SYMANTEC\"}");
             enrollFactorResponse.FactorType.Equals(UserFactorType.Token).Should().BeTrue();
-            enrollFactorResponse.Provider.Equals(UserFactorProviderType.SYMANTEC).Should().BeTrue();
+            enrollFactorResponse.Provider.Equals(UserFactorProvider.SYMANTEC).Should().BeTrue();
         }
 
         [Fact]
@@ -260,7 +260,7 @@ namespace Okta.Sdk.UnitTest.Api
 
             mockClient.ReceivedBody.Should().BeEquivalentTo("{\"verify\":{\"passCode\":\"foo\"},\"factorType\":\"token:hardware\",\"provider\":\"YUBICO\"}");
             enrollFactorResponse.FactorType.Equals(UserFactorType.Tokenhardware).Should().BeTrue();
-            enrollFactorResponse.Provider.Equals(UserFactorProviderType.YUBICO).Should().BeTrue();
+            enrollFactorResponse.Provider.Equals(UserFactorProvider.YUBICO).Should().BeTrue();
         }
 
         [Fact]
@@ -327,7 +327,7 @@ namespace Okta.Sdk.UnitTest.Api
 
             mockClient.ReceivedBody.Should().BeEquivalentTo("{\"profile\":{\"email\":\"test@gmail.com\"},\"factorType\":\"email\"}");
             enrollFactorResponse.FactorType.Equals(UserFactorType.Email).Should().BeTrue();
-            enrollFactorResponse.Provider.Equals(UserFactorProviderType.OKTA).Should().BeTrue();
+            enrollFactorResponse.Provider.Equals(UserFactorProvider.OKTA).Should().BeTrue();
         }
 
         [Fact]
@@ -378,7 +378,7 @@ namespace Okta.Sdk.UnitTest.Api
                 new UserFactorCustomHOTP()
                 {
                     FactorType = UserFactorType.Tokenhotp,
-                    Provider = UserFactorProviderType.CUSTOM,
+                    Provider = UserFactorProvider.CUSTOM,
                     FactorProfileId = "fpr20l2mDyaUGWGCa0g4",
                     Profile = new UserFactorCustomHOTPProfile()
                     {
@@ -389,7 +389,7 @@ namespace Okta.Sdk.UnitTest.Api
 
             mockClient.ReceivedBody.Should().BeEquivalentTo("{\"factorProfileId\":\"fpr20l2mDyaUGWGCa0g4\",\"profile\":{\"sharedSecret\":\"123\"},\"factorType\":\"token:hotp\",\"provider\":\"CUSTOM\"}");
             enrollFactorResponse.FactorType.Equals(UserFactorType.Tokenhotp).Should().BeTrue();
-            enrollFactorResponse.Provider.Equals(UserFactorProviderType.CUSTOM).Should().BeTrue();
+            enrollFactorResponse.Provider.Equals(UserFactorProvider.CUSTOM).Should().BeTrue();
         }
 
         [Fact]
