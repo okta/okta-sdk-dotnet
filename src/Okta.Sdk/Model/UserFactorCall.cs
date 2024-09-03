@@ -49,49 +49,6 @@ namespace Okta.Sdk.Model
     
     public partial class UserFactorCall : UserFactor, IEquatable<UserFactorCall>
     {
-
-        /// <summary>
-        /// Gets or Sets FactorType
-        /// </summary>
-        [DataMember(Name = "factorType", EmitDefaultValue = true)]
-        
-        public UserFactorType FactorType { get; set; }
-        /// <summary>
-        /// Defines Provider
-        /// </summary>
-        [JsonConverter(typeof(StringEnumSerializingConverter))]
-        public sealed class ProviderEnum : StringEnum
-        {
-            /// <summary>
-            /// StringEnum OKTA for value: OKTA
-            /// </summary>
-            
-            public static ProviderEnum OKTA = new ProviderEnum("OKTA");
-
-
-            /// <summary>
-            /// Implicit operator declaration to accept and convert a string value as a <see cref="ProviderEnum"/>
-            /// </summary>
-            /// <param name="value">The value to use</param>
-            public static implicit operator ProviderEnum(string value) => new ProviderEnum(value);
-
-            /// <summary>
-            /// Creates a new <see cref="Provider"/> instance.
-            /// </summary>
-            /// <param name="value">The value to use.</param>
-            public ProviderEnum(string value)
-                : base(value)
-            {
-            }
-        }
-
-
-        /// <summary>
-        /// Gets or Sets Provider
-        /// </summary>
-        [DataMember(Name = "provider", EmitDefaultValue = true)]
-        
-        public ProviderEnum Provider { get; set; }
         
         /// <summary>
         /// Gets or Sets Profile
@@ -108,9 +65,7 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class UserFactorCall {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  FactorType: ").Append(FactorType).Append("\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
-            sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,17 +102,9 @@ namespace Okta.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.FactorType == input.FactorType ||
-                    this.FactorType.Equals(input.FactorType)
-                ) && base.Equals(input) && 
-                (
                     this.Profile == input.Profile ||
                     (this.Profile != null &&
                     this.Profile.Equals(input.Profile))
-                ) && base.Equals(input) && 
-                (
-                    this.Provider == input.Provider ||
-                    this.Provider.Equals(input.Provider)
                 );
         }
 
@@ -171,17 +118,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = base.GetHashCode();
                 
-                if (this.FactorType != null)
-                {
-                    hashCode = (hashCode * 59) + this.FactorType.GetHashCode();
-                }
                 if (this.Profile != null)
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();
-                }
-                if (this.Provider != null)
-                {
-                    hashCode = (hashCode * 59) + this.Provider.GetHashCode();
                 }
                 return hashCode;
             }
