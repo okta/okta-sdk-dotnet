@@ -33,10 +33,6 @@ namespace Okta.Sdk.Model
     public sealed class UserFactorVerifyResult : StringEnum
     {
         /// <summary>
-        /// StringEnum UserFactorVerifyResult for value: CANCELED
-        /// </summary>
-        public static UserFactorVerifyResult CANCELED = new UserFactorVerifyResult("CANCELED");
-        /// <summary>
         /// StringEnum UserFactorVerifyResult for value: CHALLENGE
         /// </summary>
         public static UserFactorVerifyResult CHALLENGE = new UserFactorVerifyResult("CHALLENGE");

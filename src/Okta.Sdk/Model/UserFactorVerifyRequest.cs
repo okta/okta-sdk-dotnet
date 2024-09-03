@@ -35,22 +35,11 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets ActivationToken
+        /// Answer to the question
         /// </summary>
-        [DataMember(Name = "activationToken", EmitDefaultValue = true)]
-        public string ActivationToken { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Answer
-        /// </summary>
+        /// <value>Answer to the question</value>
         [DataMember(Name = "answer", EmitDefaultValue = true)]
         public string Answer { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Attestation
-        /// </summary>
-        [DataMember(Name = "attestation", EmitDefaultValue = true)]
-        public string Attestation { get; set; }
 
         /// <summary>
         /// Gets or Sets ClientData
@@ -65,8 +54,9 @@ namespace Okta.Sdk.Model
         public string NextPassCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets PassCode
+        /// Verifies an OTP sent by a &#x60;call&#x60; Factor challenge. If you omit &#x60;passCode&#x60; in the request, a new OTP is sent to the phone.
         /// </summary>
+        /// <value>Verifies an OTP sent by a &#x60;call&#x60; Factor challenge. If you omit &#x60;passCode&#x60; in the request, a new OTP is sent to the phone.</value>
         [DataMember(Name = "passCode", EmitDefaultValue = true)]
         public string PassCode { get; set; }
 
@@ -102,9 +92,7 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class UserFactorVerifyRequest {\n");
-            sb.Append("  ActivationToken: ").Append(ActivationToken).Append("\n");
             sb.Append("  Answer: ").Append(Answer).Append("\n");
-            sb.Append("  Attestation: ").Append(Attestation).Append("\n");
             sb.Append("  ClientData: ").Append(ClientData).Append("\n");
             sb.Append("  NextPassCode: ").Append(NextPassCode).Append("\n");
             sb.Append("  PassCode: ").Append(PassCode).Append("\n");
@@ -148,19 +136,9 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.ActivationToken == input.ActivationToken ||
-                    (this.ActivationToken != null &&
-                    this.ActivationToken.Equals(input.ActivationToken))
-                ) && 
-                (
                     this.Answer == input.Answer ||
                     (this.Answer != null &&
                     this.Answer.Equals(input.Answer))
-                ) && 
-                (
-                    this.Attestation == input.Attestation ||
-                    (this.Attestation != null &&
-                    this.Attestation.Equals(input.Attestation))
                 ) && 
                 (
                     this.ClientData == input.ClientData ||
@@ -209,17 +187,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.ActivationToken != null)
-                {
-                    hashCode = (hashCode * 59) + this.ActivationToken.GetHashCode();
-                }
                 if (this.Answer != null)
                 {
                     hashCode = (hashCode * 59) + this.Answer.GetHashCode();
-                }
-                if (this.Attestation != null)
-                {
-                    hashCode = (hashCode * 59) + this.Attestation.GetHashCode();
                 }
                 if (this.ClientData != null)
                 {

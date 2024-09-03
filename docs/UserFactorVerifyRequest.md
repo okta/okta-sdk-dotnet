@@ -4,12 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ActivationToken** | **string** |  | [optional] 
-**Answer** | **string** |  | [optional] 
-**Attestation** | **string** |  | [optional] 
+**Answer** | **string** | Answer to the question | [optional] 
 **ClientData** | **string** |  | [optional] 
 **NextPassCode** | **string** |  | [optional] 
-**PassCode** | **string** |  | [optional] 
+**PassCode** | **string** | Verifies an OTP sent by a &#x60;call&#x60; Factor challenge. If you omit &#x60;passCode&#x60; in the request, a new OTP is sent to the phone. | [optional] 
 **RegistrationData** | **string** |  | [optional] 
 **StateToken** | **string** |  | [optional] 
 **AuthenticatorData** | **string** |  | [optional] 
