@@ -36,10 +36,6 @@ namespace Okta.Sdk.Model
         /// StringEnum ApplicationFeatureType for value: USER_PROVISIONING
         /// </summary>
         public static ApplicationFeatureType USERPROVISIONING = new ApplicationFeatureType("USER_PROVISIONING");
-        /// <summary>
-        /// StringEnum ApplicationFeatureType for value: INBOUND_PROVISIONING
-        /// </summary>
-        public static ApplicationFeatureType INBOUNDPROVISIONING = new ApplicationFeatureType("INBOUND_PROVISIONING");
 
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="ApplicationFeatureType"/>
