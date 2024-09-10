@@ -27,7 +27,7 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// BundleEntitlementsResponse
+    /// Specifies link relations (see [Web Linking](https://www.rfc-editor.org/rfc/rfc8288)) available using the [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) specification
     /// </summary>
     [DataContract(Name = "BundleEntitlementsResponse")]
     
@@ -35,16 +35,22 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets Entitlements
+        /// Gets or Sets Next
         /// </summary>
-        [DataMember(Name = "entitlements", EmitDefaultValue = true)]
-        public List<BundleEntitlement> Entitlements { get; set; }
+        [DataMember(Name = "next", EmitDefaultValue = true)]
+        public BundleEntitlementsResponseNext Next { get; set; }
 
         /// <summary>
-        /// Gets or Sets Links
+        /// Gets or Sets Self
         /// </summary>
-        [DataMember(Name = "_links", EmitDefaultValue = true)]
-        public BundleEntitlementsResponseLinks Links { get; set; }
+        [DataMember(Name = "self", EmitDefaultValue = true)]
+        public HrefObjectSelfLink Self { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Bundle
+        /// </summary>
+        [DataMember(Name = "bundle", EmitDefaultValue = true)]
+        public BundleEntitlementsResponseBundle Bundle { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,8 +60,9 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class BundleEntitlementsResponse {\n");
-            sb.Append("  Entitlements: ").Append(Entitlements).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  Next: ").Append(Next).Append("\n");
+            sb.Append("  Self: ").Append(Self).Append("\n");
+            sb.Append("  Bundle: ").Append(Bundle).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,15 +99,19 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Entitlements == input.Entitlements ||
-                    this.Entitlements != null &&
-                    input.Entitlements != null &&
-                    this.Entitlements.SequenceEqual(input.Entitlements)
+                    this.Next == input.Next ||
+                    (this.Next != null &&
+                    this.Next.Equals(input.Next))
                 ) && 
                 (
-                    this.Links == input.Links ||
-                    (this.Links != null &&
-                    this.Links.Equals(input.Links))
+                    this.Self == input.Self ||
+                    (this.Self != null &&
+                    this.Self.Equals(input.Self))
+                ) && 
+                (
+                    this.Bundle == input.Bundle ||
+                    (this.Bundle != null &&
+                    this.Bundle.Equals(input.Bundle))
                 );
         }
 
@@ -114,13 +125,17 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Entitlements != null)
+                if (this.Next != null)
                 {
-                    hashCode = (hashCode * 59) + this.Entitlements.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Next.GetHashCode();
                 }
-                if (this.Links != null)
+                if (this.Self != null)
                 {
-                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Self.GetHashCode();
+                }
+                if (this.Bundle != null)
+                {
+                    hashCode = (hashCode * 59) + this.Bundle.GetHashCode();
                 }
                 return hashCode;
             }

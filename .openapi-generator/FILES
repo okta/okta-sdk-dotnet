@@ -216,7 +216,8 @@ docs/BulkUpsertRequestBody.md
 docs/BundleEntitlement.md
 docs/BundleEntitlementLinks.md
 docs/BundleEntitlementsResponse.md
-docs/BundleEntitlementsResponseLinks.md
+docs/BundleEntitlementsResponseBundle.md
+docs/BundleEntitlementsResponseNext.md
 docs/CAPTCHAApi.md
 docs/CAPTCHAInstance.md
 docs/CAPTCHAType.md
@@ -1560,7 +1561,8 @@ src/Okta.Sdk/Model/BulkUpsertRequestBody.cs
 src/Okta.Sdk/Model/BundleEntitlement.cs
 src/Okta.Sdk/Model/BundleEntitlementLinks.cs
 src/Okta.Sdk/Model/BundleEntitlementsResponse.cs
-src/Okta.Sdk/Model/BundleEntitlementsResponseLinks.cs
+src/Okta.Sdk/Model/BundleEntitlementsResponseBundle.cs
+src/Okta.Sdk/Model/BundleEntitlementsResponseNext.cs
 src/Okta.Sdk/Model/CAPTCHAInstance.cs
 src/Okta.Sdk/Model/CAPTCHAType.cs
 src/Okta.Sdk/Model/CaepDeviceComplianceChangeEvent.cs
