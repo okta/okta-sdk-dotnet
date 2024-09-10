@@ -837,6 +837,7 @@ namespace Okta.Sdk.Client
                 PrivateKey = second.PrivateKey ?? first.PrivateKey,
                 DisableOktaDomainCheck = second.DisableOktaDomainCheck ?? first.DisableOktaDomainCheck,
                 DisableHttpsCheck = second.DisableHttpsCheck ?? first.DisableHttpsCheck,
+                UseProxy = second.UseProxy ?? first.UseProxy,
             };
             return config;
         }
