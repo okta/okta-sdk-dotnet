@@ -216,5 +216,23 @@ namespace Okta.Sdk.UnitTest.Client
             action.Should().NotThrow();
         }
 
+        [Fact]
+        public void MergeConfigurations()
+        {
+            var firstConfig = new Configuration
+            {
+            };
+            firstConfig.UseProxy.Should().BeTrue();
+            firstConfig.Proxy.Should().BeNull();
+            var secondConfig = new Configuration
+            {
+                UseProxy = false,
+                Proxy = new ProxyConfiguration()
+            };
+
+            var config = Configuration.MergeConfigurations(firstConfig, secondConfig);
+            config.UseProxy.Should().BeFalse();
+            config.Proxy.Should().NotBeNull();
+        }
     }
 }
