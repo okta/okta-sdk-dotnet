@@ -39,7 +39,7 @@ namespace Okta.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "8.1.2";
+        public const string Version = "8.1.3";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -766,7 +766,7 @@ namespace Okta.Sdk.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 5.1.0\n";
-            report += "    SDK Package Version: 8.1.2\n";
+            report += "    SDK Package Version: 8.1.3\n";
 
             return report;
         }
@@ -837,6 +837,7 @@ namespace Okta.Sdk.Client
                 PrivateKey = second.PrivateKey ?? first.PrivateKey,
                 DisableOktaDomainCheck = second.DisableOktaDomainCheck ?? first.DisableOktaDomainCheck,
                 DisableHttpsCheck = second.DisableHttpsCheck ?? first.DisableHttpsCheck,
+                UseProxy = second.UseProxy ?? first.UseProxy,
             };
             return config;
         }
