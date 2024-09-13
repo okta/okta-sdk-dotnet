@@ -61,8 +61,16 @@ namespace Okta.Sdk.Model
         /// </summary>
         /// <value>RSA key value (public exponent) for Key binding</value>
         [DataMember(Name = "e", EmitDefaultValue = true)]
-        public string E { get; set; }
+        public string E { get; private set; }
 
+        /// <summary>
+        /// Returns false as E should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeE()
+        {
+            return false;
+        }
         /// <summary>
         /// Timestamp when the certificate expires
         /// </summary>
@@ -90,15 +98,31 @@ namespace Okta.Sdk.Model
         /// </summary>
         /// <value>Unique identifier for the certificate</value>
         [DataMember(Name = "kid", EmitDefaultValue = true)]
-        public string Kid { get; set; }
+        public string Kid { get; private set; }
 
+        /// <summary>
+        /// Returns false as Kid should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeKid()
+        {
+            return false;
+        }
         /// <summary>
         /// Cryptographic algorithm family for the certificate&#39;s keypair. Valid value: &#x60;RSA&#x60;
         /// </summary>
         /// <value>Cryptographic algorithm family for the certificate&#39;s keypair. Valid value: &#x60;RSA&#x60;</value>
         [DataMember(Name = "kty", EmitDefaultValue = true)]
-        public string Kty { get; set; }
+        public string Kty { get; private set; }
 
+        /// <summary>
+        /// Returns false as Kty should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeKty()
+        {
+            return false;
+        }
         /// <summary>
         /// Timestamp when the object was last updated
         /// </summary>

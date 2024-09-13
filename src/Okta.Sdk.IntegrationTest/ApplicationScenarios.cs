@@ -184,9 +184,6 @@ namespace Okta.Sdk.IntegrationTest
 
             var jwk = new JsonWebKey()
             {
-                Kty = "RSA",
-                Kid = "SIGNING_KEY",
-                E = "AQAB",
                 N = "MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAnFo/4e91na8x/BsPkNS5QkwankewxJ1uZU6p827W/gkRcNHtNi/cE644W5OVdB4UaXV6koT+TsC1prhUEhRR3g5ggE0B/lwYqBaLq/Ejy19Crc4XYU3Aah67Y6HiHWcHGZ+BbpebtTixJv/UYW/Gw+k8M+zj4O001mOeBPpwlEiZZLIo33m/Xkfn28jaCFqTQBJHr67IQh4zEUFs4e5D5D6UE8ee93yeSUJyhbifeIgYh3tS/+ZW4Uo1KLIc0rcLRrnEMsS3aOQbrv/SEKij+Syx4KXI0Gi2xMdXctnFOVT6NM6/EkLxFp2POEdv9SNBtTvXcxIGRwK51W4Jdgh/xZcCAwEAAQ==",
             };
 
@@ -252,7 +249,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as OpenIdConnectApplication;
 
-                retrieved.Name.Should().Be("oidc_client");
+                retrieved.Name.Should().Be(OpenIdConnectApplication.NameEnum.OidcClient);
                 retrieved.Label.Should().Be($"dotnet-sdk: AddOpenIdConnectApp {guid}");
                 retrieved.SignOnMode.Value.Should().Be("OPENID_CONNECT");
                 retrieved.Credentials.OauthClient.ClientId.Should().Be(testClientId);
