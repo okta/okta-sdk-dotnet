@@ -16,6 +16,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 
 namespace Okta.Sdk.Client
 {
@@ -90,12 +91,12 @@ namespace Okta.Sdk.Client
                     { "jti", Guid.NewGuid().ToString()}
                 };
 
-                if (!nonce.IsNullOrEmpty())
+                if (!string.IsNullOrEmpty(nonce))
                 {
                     payload.AddClaim(new Claim("nonce", nonce));
                 }
 
-                if (!accessToken.IsNullOrEmpty())
+                if (!string.IsNullOrEmpty(accessToken))
                 {
                     payload.AddClaim(new Claim("ath", HashAccessTokenForDpopProof(accessToken)));
                 }
@@ -109,7 +110,7 @@ namespace Okta.Sdk.Client
                 
                 var outboundAlgorithmMap = new Dictionary<string, string> { { "alg", SecurityAlgorithms.RsaSha256 } };
 
-                var additionalHeaders = new Dictionary<string, object> { { "jwk", publicJsonWebKey } };
+                var additionalHeaders = new Dictionary<string, object> { { "jwk", JsonConvert.SerializeObject(publicJsonWebKey) } };
 
                 var securityToken =
                     new JwtSecurityToken(
