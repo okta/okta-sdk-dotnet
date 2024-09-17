@@ -91,12 +91,12 @@ namespace Okta.Sdk.Client
                     { "jti", Guid.NewGuid().ToString()}
                 };
 
-                if (!nonce.IsNullOrEmpty())
+                if (!string.IsNullOrEmpty(nonce))
                 {
                     payload.AddClaim(new Claim("nonce", nonce));
                 }
 
-                if (!accessToken.IsNullOrEmpty())
+                if (!string.IsNullOrEmpty(accessToken))
                 {
                     payload.AddClaim(new Claim("ath", HashAccessTokenForDpopProof(accessToken)));
                 }

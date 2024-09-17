@@ -153,7 +153,7 @@ namespace Okta.Sdk.Client
 
                 request.AddOrUpdateHeader("Authorization", $"{tokenType} {context["access_token"]}");
             }
-            else if (!dpopProofJwt.IsNullOrEmpty()) // If the client retries a request due to a 429 response, we expect the dpopProofJwt not to be null (rate-limit exceeded)
+            else if (!string.IsNullOrEmpty(dpopProofJwt)) // If the client retries a request due to a 429 response, we expect the dpopProofJwt not to be null (rate-limit exceeded)
             {
                 foreach (var oldDpopHeader in request.Parameters.Where(p => p.Name.Equals("DPoP", StringComparison.OrdinalIgnoreCase)).ToArray())
                 {
