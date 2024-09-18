@@ -52,7 +52,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 createdUser = await _userApi.CreateUserAsync(createUserRequest);
-
+                
                 var createdUserFactor = await _userFactorApi.EnrollFactorAsync(createdUser.Id, new UserFactorSecurityQuestion()
                 {
                     FactorType = UserFactorType.Question,
