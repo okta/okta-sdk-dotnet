@@ -42099,6 +42099,7 @@ components:
         priority:
           type: integer
           description: Priority of the rule
+          nullable: true
         status:
           $ref: '#/components/schemas/LifecycleStatus'
         system:

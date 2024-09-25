@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Identifier for the rule | [optional] 
 **LastUpdated** | **DateTimeOffset?** | Timestamp when the rule was last modified | [optional] [readonly] 
 **Name** | **string** | Name of the rule | [optional] 
-**Priority** | **int** | Priority of the rule | [optional] 
+**Priority** | **int?** | Priority of the rule | [optional] 
 **Status** | **LifecycleStatus** |  | [optional] 
 **System** | **bool** | Specifies whether Okta created the Policy Rule (&#x60;system&#x3D;true&#x60;). You can&#39;t delete Policy Rules that have &#x60;system&#x60; set to &#x60;true&#x60;. | [optional] [default to false]
 **Type** | **PolicyRuleType** |  | [optional] 

@@ -115,7 +115,7 @@ namespace Okta.Sdk.Model
         /// </summary>
         /// <value>Priority of the rule</value>
         [DataMember(Name = "priority", EmitDefaultValue = true)]
-        public int Priority { get; set; }
+        public int? Priority { get; set; }
 
         /// <summary>
         /// Specifies whether Okta created the Policy Rule (&#x60;system&#x3D;true&#x60;). You can&#39;t delete Policy Rules that have &#x60;system&#x60; set to &#x60;true&#x60;.
@@ -197,7 +197,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Priority == input.Priority ||
-                    this.Priority.Equals(input.Priority)
+                    (this.Priority != null &&
+                    this.Priority.Equals(input.Priority))
                 ) && 
                 (
                     this.Status == input.Status ||
@@ -239,7 +240,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Priority.GetHashCode();
+                if (this.Priority != null)
+                {
+                    hashCode = (hashCode * 59) + this.Priority.GetHashCode();
+                }
                 if (this.Status != null)
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
