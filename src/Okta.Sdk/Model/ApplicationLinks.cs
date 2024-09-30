@@ -83,6 +83,13 @@ namespace Okta.Sdk.Model
         public HrefObject Users { get; set; }
 
         /// <summary>
+        /// List of app link resources
+        /// </summary>
+        /// <value>List of app link resources</value>
+        [DataMember(Name = "appLinks", EmitDefaultValue = true)]
+        public List<HrefObject> AppLinks { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -98,6 +105,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
             sb.Append("  Users: ").Append(Users).Append("\n");
+            sb.Append("  AppLinks: ").Append(AppLinks).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,6 +181,12 @@ namespace Okta.Sdk.Model
                     this.Users == input.Users ||
                     (this.Users != null &&
                     this.Users.Equals(input.Users))
+                ) && 
+                (
+                    this.AppLinks == input.AppLinks ||
+                    this.AppLinks != null &&
+                    input.AppLinks != null &&
+                    this.AppLinks.SequenceEqual(input.AppLinks)
                 );
         }
 
@@ -217,6 +231,10 @@ namespace Okta.Sdk.Model
                 if (this.Users != null)
                 {
                     hashCode = (hashCode * 59) + this.Users.GetHashCode();
+                }
+                if (this.AppLinks != null)
+                {
+                    hashCode = (hashCode * 59) + this.AppLinks.GetHashCode();
                 }
                 return hashCode;
             }

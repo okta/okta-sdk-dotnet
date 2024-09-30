@@ -33553,6 +33553,11 @@ components:
           $ref: '#/components/schemas/HrefObjectSelfLink'
         users:
           $ref: '#/components/schemas/HrefObject'
+        appLinks:
+            type: array
+            description: List of app link resources
+            items:
+              $ref: '#/components/schemas/HrefObject'
     ApplicationSettings:
       description: App settings
       type: object
