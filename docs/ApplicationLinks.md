@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ApplicationLinks
+Discoverable resources related to the app
 
 ## Properties
 
@@ -12,6 +13,7 @@ Name | Type | Description | Notes
 **Metadata** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **Self** | [**HrefObjectSelfLink**](HrefObjectSelfLink.md) |  | [optional] 
 **Users** | [**HrefObject**](HrefObject.md) |  | [optional] 
+**AppLinks** | [**List&lt;HrefObject&gt;**](HrefObject.md) | List of app link resources | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

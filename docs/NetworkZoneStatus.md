@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.NetworkZoneStatus
-Network zone status
+Network Zone status
 
 ## Properties
 

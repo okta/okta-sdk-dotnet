@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.WebAuthnAttachment
+Method attachment
 
 ## Properties
 

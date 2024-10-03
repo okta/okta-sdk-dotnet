@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique identifier for a profile mapping | [optional] [readonly] 
 **Properties** | [**Dictionary&lt;string, ProfileMappingProperty&gt;**](ProfileMappingProperty.md) |  | [optional] 
-**Source** | [**ProfileMappingSource**](.md) |  | [optional] 
-**Target** | [**ProfileMappingTarget**](.md) |  | [optional] 
+**Source** | [**ProfileMappingSource**](ProfileMappingSource.md) |  | [optional] 
+**Target** | [**ProfileMappingTarget**](ProfileMappingTarget.md) |  | [optional] 
 **Links** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

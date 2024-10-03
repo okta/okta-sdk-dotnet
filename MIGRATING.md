@@ -2,6 +2,142 @@
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/). In short, we don't make breaking changes unless the major version changes!
 
+## Migrating from 8.x to 9.x
+There are a number of changes to be aware of when migrating from version 8 to version 9.  
+
+### Changed
+When you change your project to reference version 9 instead of 8, reference the following to help correct compilation errors:
+
+- ApiTokenApi
+  - ListApiTokens
+    - parameters removed.
+- ApplicationTokensApi
+  - ListOAuth2TokensForApplication
+    - return type OAuth2Token changed to OAuth2RefreshToken.
+  - GetOAuth2TokenForApplication
+    - return type OAuth2Token changed to OAuth2RefreshToken.
+- ApplicationUsersApi
+  - AssignUserToApplication
+    - parameter of type AppUser changed to AppUserAssignRequest.
+  - UpdateApplicationUser
+    - parameter of type AppUser changed to AppUserUpdateRequest.
+- AuthenticatorApi
+  - ListAuthenticators
+    - return type Authenticator changed to AuthenticatorBase
+- AuthorizationServerKeysApi
+  - ListAuthorizationServerKeys
+    - return type collection of JsonWebKey changed to collection of AuthorizationServerJsonWebKey.
+  - RotateAuthorizationServerKeys
+    - return type collection of JsonWebKey changed to collection of AuthorizationServerJsonWebKey.
+- CustomTemplatesApi
+  - ListEmailTemplates
+    - return type EmailTemplate changed to EmailTemplateResponse.
+  - GetEmailTemplate
+    - return type EmailTemplate changed to EmailTemplateResponse.
+  - GetEmailSettings
+    - return type EmailSettings changed to EmailSettingsResponse.
+- ThemesApi
+  - ReplaceBrandTheme
+    - parameter of type Theme changed to UpdateThemeRequest
+- DeviceApi
+  - ListDevices
+    - return type collection of Device changed to collection of DeviceList.
+- ApplicationConnectionsApi
+  - GetDefaultProvisioningConnectionForApplication
+    - return type ProvisioningConnection changed to ProvisioningConnectionResponse
+  - UpdateDefaultProvisioningConnectionForApplication
+    - return type ProvisioningConnection changed to ProvisioningConnectionResponse
+- AuthenticatorApi methods that previously returned Authenticator now return AuthenticatorBase.
+- GroupApi
+  - ListGroupUsers
+    - return type collection of User changed to collectio of GroupMember.
+- RealmApi
+  - CreateRealm
+    - parameter of type Realm changed to CreateRealmRequest.
+- UserFacorApi
+  - ResendEnrollFactor 
+    - parameter of type UserFactor changed to ResendUserFactor.
+    - return type UserFactor changed to ResendUserFactor.
+  - GetFactorTransactionStatus
+    - return type VerifyUserFactorResponse changed to UserFactorPushTransaction 
+  - VerifyFactor
+    - parameter of type VerifyFactorRequest changed to UserFactorVerifyRequest
+    - return type VerifyUserFactorResponse changed to UserFactorVerifyResponse 
+
+### Moved
+Some functionality has moved from generic high level API classes to more specific API classes.
+
+- AuthorizationServerApi functionality is now broken out into more specific API classes.
+- GroupOwnerApi contains functionality previously in GroupsApi.
+
+See also [added](#added).
+
+### Replaced
+The following are methods and classes that have been replaced and the methods or classes that replaced them.
+
+- CustomizationApi is replaced by CustomTemplatesApi, CusomPagesApi and BrandsApi, ThemesApi see [added](#added).
+- RealmApi.UpdateRealm is replaced by RealmApi.ReplaceRealm.
+- ProvisioningConnection is replaced by ProvisioningConnectionRequest & ProvisioningConnectionResponse.
+- VerifyFactorRequest is replaced by UserFactorVerifyRequest
+- VerifyUserFactorResponse is replaced by UserFactorVerifyResponse 
+
+### Removed
+The following are methods that are removed in version 9:
+
+- SchemaApi methods removed:
+  - GetAppUISchemaLinksAsync
+- UserApi methods removed:
+  - SetLinkedObjectForUser
+
+### Added
+The following are methods and APIs that are added in version 9:
+
+- ApiTokenApi methods added:
+  - UpsertApiToken
+- ApplicationConnectionsApi methods added:
+  - VerifyProvisioningConnectionForApplication
+- AuthorizationAssocApi is a new API to maange authorization server associations.
+- AuthorizationServerClaimsApi is a new API to manage authorization server claims.
+- AuthroziationServerClientsApi is a new API to manage authorization server clients.
+- AuthorizationServerKeysApi is a new API to manage authorization server keys.
+- AuthorizationServerPoliciesApi is a new API to manage authorization server policies.
+- AuthorizationServerRulesApi is a new API to manage authorization server rules.
+- AuthorizationServerScopesApi is a new API to manage authorization server scopes.
+- ApplicationGroupsApi methods added:
+  - UpdateGroupAssignmentToApplication overload accepting a list of JsonPathOperation objects.
+- BrandsApi is a new API to manage brands.
+- CustomTemplatesApi is new API to manage custom templates.
+- CustotmPagesApi is new API to manage custom pages.
+- DirectoriesIntegrationApi is a new API to manage AD integrations.
+- GroupOwnerApi is a new API to manage group owners.
+- InlineHookApi methods added:
+  - UpdateInlineHook
+- OktaApplicationSettingsApi is a new API to manage Okta application settings.
+- ThemesApi is a new API to manage themes.
+- OrgSettingApi methods added:
+  - GetThirdPartyAdminSetting
+  - UpdateThirdPartyAdminSetting
+  - GetClientPrivilegesSetting
+  - AssignClientPrivilegesSetting
+- RealAssignmentApi is a new API to manage realm assignments.
+- SSFReceiverApi is a new API to manage the consumption of security events.
+- SSFSecurityEventTokenApi is a new API to manage security event tokens.
+- SSFTransmitterApi is a new API to manage security event transmitters.
+- SessionApi methods added:
+  - GetCurrentSession
+  - CloseCurrentSession
+  - RefreshCurrentSession
+- UserApi methods added:
+  - ReplaceLinkedObjectForUser
+  - ListLinkedObjectsForUser
+  - DeleteLinkedObjectForUser
+- AttackProtectionApi methods added:
+  - GetAuthenticatorSettings
+  - ReplaceAuthenticatorSettings
+- RoleAssignmentApi methods added:
+  - ListRolesForClient
+  - AssignRoleToClient
+
 ## Migrating from 7.x to 8.x
 
 We have upgraded the Okta OpenAPI specifications which caused a few breaking changes due to schema changes and bug fixes in the spec.

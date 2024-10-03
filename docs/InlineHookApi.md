@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**GetInlineHook**](InlineHookApi.md#getinlinehook) | **GET** /api/v1/inlineHooks/{inlineHookId} | Retrieve an Inline Hook
 [**ListInlineHooks**](InlineHookApi.md#listinlinehooks) | **GET** /api/v1/inlineHooks | List all Inline Hooks
 [**ReplaceInlineHook**](InlineHookApi.md#replaceinlinehook) | **PUT** /api/v1/inlineHooks/{inlineHookId} | Replace an Inline Hook
+[**UpdateInlineHook**](InlineHookApi.md#updateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId} | Update an Inline Hook
 
 
 <a name="activateinlinehook"></a>
@@ -610,6 +611,88 @@ namespace Example
             catch (ApiException  e)
             {
                 Debug.Print("Exception when calling InlineHookApi.ReplaceInlineHook: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineHookId** | **string**| &#x60;id&#x60; of the Inline Hook | 
+ **inlineHook** | [**InlineHook**](InlineHook.md)|  | 
+
+### Return type
+
+[**InlineHook**](InlineHook.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateinlinehook"></a>
+# **UpdateInlineHook**
+> InlineHook UpdateInlineHook (string inlineHookId, InlineHook inlineHook)
+
+Update an Inline Hook
+
+Updates an inline hook by `inlineHookId`
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class UpdateInlineHookExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new InlineHookApi(config);
+            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the Inline Hook
+            var inlineHook = new InlineHook(); // InlineHook | 
+
+            try
+            {
+                // Update an Inline Hook
+                InlineHook result = apiInstance.UpdateInlineHook(inlineHookId, inlineHook);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InlineHookApi.UpdateInlineHook: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

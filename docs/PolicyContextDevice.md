@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Platform** | **string** | The platform of the device, for example, IOS. | [optional] 
 **Registered** | **bool** | If the device is registered | [optional] 
 **Managed** | **bool** | If the device is managed | [optional] 
+**AssuranceId** | **string** | The device assurance policy ID for the simulation | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

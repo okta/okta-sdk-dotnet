@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **AuthenticatorPageCustomLinkLabel** | **string** |  | [optional] 
 **AuthenticatorPageCustomLinkUrl** | **string** |  | [optional] 
 **ClassicRecoveryFlowEmailOrUsernameLabel** | **string** |  | [optional] 
+**WidgetGeneration** | **WidgetGeneration** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

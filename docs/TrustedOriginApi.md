@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Activate a Trusted Origin
 
-Activates a trusted origin
+Activates a Trusted Origin. Sets the `status` to `ACTIVE`.
 
 ### Example
 ```csharp
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 <a name="createtrustedorigin"></a>
 # **CreateTrustedOrigin**
-> TrustedOrigin CreateTrustedOrigin (TrustedOrigin trustedOrigin)
+> TrustedOrigin CreateTrustedOrigin (TrustedOriginWrite trustedOrigin)
 
 Create a Trusted Origin
 
@@ -122,7 +122,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
-            var trustedOrigin = new TrustedOrigin(); // TrustedOrigin | 
+            var trustedOrigin = new TrustedOriginWrite(); // TrustedOriginWrite | 
 
             try
             {
@@ -145,7 +145,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trustedOrigin** | [**TrustedOrigin**](TrustedOrigin.md)|  | 
+ **trustedOrigin** | [**TrustedOriginWrite**](TrustedOriginWrite.md)|  | 
 
 ### Return type
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 Deactivate a Trusted Origin
 
-Deactivates a trusted origin
+Deactivates a Trusted Origin. Sets the `status` to `INACTIVE`.
 
 ### Example
 ```csharp
@@ -437,10 +437,10 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
-            var q = "q_example";  // string |  (optional) 
-            var filter = "filter_example";  // string |  (optional) 
-            var after = "after_example";  // string |  (optional) 
-            var limit = -1;  // int? |  (optional)  (default to -1)
+            var q = "q_example";  // string | A search string that will prefix match against the `name` and `origin` (optional) 
+            var filter = name eq "Example Trusted Origin";  // string | [Filter](/#filter) Trusted Origins with a supported expression for a subset of properties. You can filter on the following properties: `name`, `origin`, `status`, and `type` (type of scopes).  (optional) 
+            var after = "after_example";  // string | The after cursor provided by a prior request. (optional) 
+            var limit = 20;  // int? | Specifies the number of results. (optional)  (default to 20)
 
             try
             {
@@ -463,10 +463,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **q** | **string**|  | [optional] 
- **filter** | **string**|  | [optional] 
- **after** | **string**|  | [optional] 
- **limit** | **int?**|  | [optional] [default to -1]
+ **q** | **string**| A search string that will prefix match against the &#x60;name&#x60; and &#x60;origin&#x60; | [optional] 
+ **filter** | **string**| [Filter](/#filter) Trusted Origins with a supported expression for a subset of properties. You can filter on the following properties: &#x60;name&#x60;, &#x60;origin&#x60;, &#x60;status&#x60;, and &#x60;type&#x60; (type of scopes).  | [optional] 
+ **after** | **string**| The after cursor provided by a prior request. | [optional] 
+ **limit** | **int?**| Specifies the number of results. | [optional] [default to 20]
 
 ### Return type
 

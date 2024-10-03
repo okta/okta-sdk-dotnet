@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.AuthorizationServerCredentialsRotationMode
+The Key rotation mode for the authorization server
 
 ## Properties
 

@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.SmsTemplateType
+Type of the Template
 
 ## Properties
 

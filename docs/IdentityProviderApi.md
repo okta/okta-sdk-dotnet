@@ -940,7 +940,7 @@ namespace Example
 
             var apiInstance = new IdentityProviderApi(config);
             var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -964,7 +964,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **idpId** | **string**| &#x60;id&#x60; of IdP | 
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -1181,7 +1181,7 @@ namespace Example
 
             var apiInstance = new IdentityProviderApi(config);
             var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
             var userIdentityProviderLinkRequest = new UserIdentityProviderLinkRequest(); // UserIdentityProviderLinkRequest | 
 
             try
@@ -1206,7 +1206,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **idpId** | **string**| &#x60;id&#x60; of IdP | 
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
  **userIdentityProviderLinkRequest** | [**UserIdentityProviderLinkRequest**](UserIdentityProviderLinkRequest.md)|  | 
 
 ### Return type
@@ -1674,7 +1674,7 @@ namespace Example
 
             var apiInstance = new IdentityProviderApi(config);
             var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -1698,7 +1698,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **idpId** | **string**| &#x60;id&#x60; of IdP | 
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 
@@ -2001,7 +2001,7 @@ namespace Example
 
             var apiInstance = new IdentityProviderApi(config);
             var idpId = SVHoAOh0l8cPQkVX1LRl;  // string | `id` of IdP
-            var userId = "userId_example";  // string | 
+            var userId = "userId_example";  // string | ID of an existing Okta user
 
             try
             {
@@ -2024,7 +2024,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **idpId** | **string**| &#x60;id&#x60; of IdP | 
- **userId** | **string**|  | 
+ **userId** | **string**| ID of an existing Okta user | 
 
 ### Return type
 

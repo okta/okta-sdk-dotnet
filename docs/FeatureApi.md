@@ -5,10 +5,10 @@ All URIs are relative to *https://subdomain.okta.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetFeature**](FeatureApi.md#getfeature) | **GET** /api/v1/features/{featureId} | Retrieve a Feature
-[**ListFeatureDependencies**](FeatureApi.md#listfeaturedependencies) | **GET** /api/v1/features/{featureId}/dependencies | List all Dependencies
-[**ListFeatureDependents**](FeatureApi.md#listfeaturedependents) | **GET** /api/v1/features/{featureId}/dependents | List all Dependents
+[**ListFeatureDependencies**](FeatureApi.md#listfeaturedependencies) | **GET** /api/v1/features/{featureId}/dependencies | List all dependencies
+[**ListFeatureDependents**](FeatureApi.md#listfeaturedependents) | **GET** /api/v1/features/{featureId}/dependents | List all dependents
 [**ListFeatures**](FeatureApi.md#listfeatures) | **GET** /api/v1/features | List all Features
-[**UpdateFeatureLifecycle**](FeatureApi.md#updatefeaturelifecycle) | **POST** /api/v1/features/{featureId}/{lifecycle} | Update a Feature Lifecycle
+[**UpdateFeatureLifecycle**](FeatureApi.md#updatefeaturelifecycle) | **POST** /api/v1/features/{featureId}/{lifecycle} | Update a Feature lifecycle
 
 
 <a name="getfeature"></a>
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Retrieve a Feature
 
-Retrieves a feature
+Retrieves a feature by ID
 
 ### Example
 ```csharp
@@ -41,7 +41,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new FeatureApi(config);
-            var featureId = R5HjqNn1pEqWGy48E9jg;  // string | `id` of the Feature
+            var featureId = R5HjqNn1pEqWGy48E9jg;  // string | `id` of the feature
 
             try
             {
@@ -64,7 +64,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featureId** | **string**| &#x60;id&#x60; of the Feature | 
+ **featureId** | **string**| &#x60;id&#x60; of the feature | 
 
 ### Return type
 
@@ -94,9 +94,9 @@ Name | Type | Description  | Notes
 # **ListFeatureDependencies**
 > List&lt;Feature&gt; ListFeatureDependencies (string featureId)
 
-List all Dependencies
+List all dependencies
 
-Lists all dependencies
+Lists all feature dependencies for a specified feature.  A feature's dependencies are the features that it requires to be enabled in order for itself to be enabled.
 
 ### Example
 ```csharp
@@ -120,11 +120,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new FeatureApi(config);
-            var featureId = R5HjqNn1pEqWGy48E9jg;  // string | `id` of the Feature
+            var featureId = R5HjqNn1pEqWGy48E9jg;  // string | `id` of the feature
 
             try
             {
-                // List all Dependencies
+                // List all dependencies
                 List<Feature> result = apiInstance.ListFeatureDependencies(featureId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -143,7 +143,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featureId** | **string**| &#x60;id&#x60; of the Feature | 
+ **featureId** | **string**| &#x60;id&#x60; of the feature | 
 
 ### Return type
 
@@ -173,9 +173,9 @@ Name | Type | Description  | Notes
 # **ListFeatureDependents**
 > List&lt;Feature&gt; ListFeatureDependents (string featureId)
 
-List all Dependents
+List all dependents
 
-Lists all dependents
+Lists all feature dependents for the specified feature.  A feature's dependents are the features that need to be disabled in order for the feature itself to be disabled.
 
 ### Example
 ```csharp
@@ -199,11 +199,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new FeatureApi(config);
-            var featureId = R5HjqNn1pEqWGy48E9jg;  // string | `id` of the Feature
+            var featureId = R5HjqNn1pEqWGy48E9jg;  // string | `id` of the feature
 
             try
             {
-                // List all Dependents
+                // List all dependents
                 List<Feature> result = apiInstance.ListFeatureDependents(featureId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -222,7 +222,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featureId** | **string**| &#x60;id&#x60; of the Feature | 
+ **featureId** | **string**| &#x60;id&#x60; of the feature | 
 
 ### Return type
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 List all Features
 
-Lists all features
+Lists all self-service features for your org
 
 ### Example
 ```csharp
@@ -326,9 +326,9 @@ This endpoint does not need any parameter.
 # **UpdateFeatureLifecycle**
 > Feature UpdateFeatureLifecycle (string featureId, FeatureLifecycle lifecycle, string mode = null)
 
-Update a Feature Lifecycle
+Update a Feature lifecycle
 
-Updates a feature lifecycle
+Updates a feature's lifecycle status. Use this endpoint to enable or disable a feature for your org.  Use the `mode=force` parameter to override dependency restrictions for a particular feature. Normally, you can't enable a feature if it has one or more dependencies that aren't enabled.  When you use the `mode=force` parameter while enabling a feature, Okta first tries to enable any disabled features that this feature may have as dependencies. If you don't pass the `mode=force` parameter and the feature has dependencies that need to be enabled before the feature is enabled, a 400 error is returned.  When you use the `mode=force` parameter while disabling a feature, Okta first tries to disable any enabled features that this feature may have as dependents. If you don't pass the `mode=force` parameter and the feature has dependents that need to be disabled before the feature is disabled, a 400 error is returned.  The following chart shows the different state transitions for a feature.  ![State transitions of a feature](../../../../../images/features/update-ssfeat-flowchart.png '#width=500px;')
 
 ### Example
 ```csharp
@@ -352,13 +352,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new FeatureApi(config);
-            var featureId = R5HjqNn1pEqWGy48E9jg;  // string | `id` of the Feature
-            var lifecycle = (FeatureLifecycle) "disable";  // FeatureLifecycle | Whether to `enable` or `disable` the feature
-            var mode = "mode_example";  // string |  (optional) 
+            var featureId = R5HjqNn1pEqWGy48E9jg;  // string | `id` of the feature
+            var lifecycle = (FeatureLifecycle) "DISABLE";  // FeatureLifecycle | Whether to `ENABLE` or `DISABLE` the feature
+            var mode = "mode_example";  // string | Indicates if you want to force enable or disable a feature. Supported value is `force`. (optional) 
 
             try
             {
-                // Update a Feature Lifecycle
+                // Update a Feature lifecycle
                 Feature result = apiInstance.UpdateFeatureLifecycle(featureId, lifecycle, mode);
                 Debug.WriteLine(result);
             }
@@ -377,9 +377,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featureId** | **string**| &#x60;id&#x60; of the Feature | 
- **lifecycle** | **FeatureLifecycle**| Whether to &#x60;enable&#x60; or &#x60;disable&#x60; the feature | 
- **mode** | **string**|  | [optional] 
+ **featureId** | **string**| &#x60;id&#x60; of the feature | 
+ **lifecycle** | **FeatureLifecycle**| Whether to &#x60;ENABLE&#x60; or &#x60;DISABLE&#x60; the feature | 
+ **mode** | **string**| Indicates if you want to force enable or disable a feature. Supported value is &#x60;force&#x60;. | [optional] 
 
 ### Return type
 

@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppAuthenticatorEnrollEndpoint** | **string** |  | [optional] 
+**AppAuthenticatorEnrollEndpoint** | **string** | The authenticator enrollment endpoint | [optional] 
 **AuthenticatorId** | **string** | The unique identifier of the app authenticator | [optional] 
-**CreatedDate** | **DateTimeOffset** |  | [optional] 
-**Key** | **string** |  | [optional] 
-**LastUpdated** | **DateTimeOffset** |  | [optional] 
+**CreatedDate** | **DateTimeOffset** | Timestamp when the Authenticator was created | [optional] 
+**Key** | **AuthenticatorKeyEnum** |  | [optional] 
+**LastUpdated** | **DateTimeOffset** | Timestamp when the Authenticator was last modified | [optional] 
 **Name** | **string** | The authenticator display name | [optional] 
-**OrgId** | **string** |  | [optional] 
+**OrgId** | **string** | The &#x60;id&#x60; of the Okta Org | [optional] 
 **Settings** | [**WellKnownAppAuthenticatorConfigurationSettings**](WellKnownAppAuthenticatorConfigurationSettings.md) |  | [optional] 
 **SupportedMethods** | [**List&lt;SupportedMethods&gt;**](SupportedMethods.md) |  | [optional] 
-**Type** | **string** |  | [optional] 
+**Type** | **string** | The type of Authenticator | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

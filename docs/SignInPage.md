@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PageContent** | **string** |  | [optional] 
+**PageContent** | **string** | The HTML for the page | [optional] 
 **ContentSecurityPolicySetting** | [**ContentSecurityPolicySetting**](ContentSecurityPolicySetting.md) |  | [optional] 
 **WidgetCustomizations** | [**SignInPageAllOfWidgetCustomizations**](SignInPageAllOfWidgetCustomizations.md) |  | [optional] 
 **WidgetVersion** | **string** | The version specified as a [Semantic Version](https://semver.org/). | [optional] 

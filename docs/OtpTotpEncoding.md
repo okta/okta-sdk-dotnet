@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.OtpTotpEncoding
+The shared secret encoding
 
 ## Properties
 

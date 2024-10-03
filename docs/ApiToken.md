@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | [optional] [readonly] 
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
 **Name** | **string** |  | 
+**Network** | [**ApiTokenNetwork**](ApiTokenNetwork.md) |  | [optional] 
 **TokenWindow** | **string** | A time duration specified as an [ISO-8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). | [optional] 
 **UserId** | **string** |  | [optional] 
 **Link** | [**LinksSelf**](LinksSelf.md) |  | [optional] 

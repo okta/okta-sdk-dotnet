@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.RoleType
+Standard role type
 
 ## Properties
 

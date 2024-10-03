@@ -8,12 +8,12 @@ Method | HTTP request | Description
 [**DeleteRealm**](RealmApi.md#deleterealm) | **DELETE** /api/v1/realms/{realmId} | Delete a Realm
 [**GetRealm**](RealmApi.md#getrealm) | **GET** /api/v1/realms/{realmId} | Retrieve a Realm
 [**ListRealms**](RealmApi.md#listrealms) | **GET** /api/v1/realms | List all Realms
-[**UpdateRealm**](RealmApi.md#updaterealm) | **POST** /api/v1/realms/{realmId} | Update a Realm
+[**ReplaceRealm**](RealmApi.md#replacerealm) | **PUT** /api/v1/realms/{realmId} | Replace the realm profile
 
 
 <a name="createrealm"></a>
 # **CreateRealm**
-> Realm CreateRealm (Realm body)
+> Realm CreateRealm (CreateRealmRequest body)
 
 Create a Realm
 
@@ -41,7 +41,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RealmApi(config);
-            var body = new Realm(); // Realm | 
+            var body = new CreateRealmRequest(); // CreateRealmRequest | 
 
             try
             {
@@ -64,7 +64,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Realm**](Realm.md)|  | 
+ **body** | [**CreateRealmRequest**](CreateRealmRequest.md)|  | 
 
 ### Return type
 
@@ -280,7 +280,7 @@ namespace Example
 
             var apiInstance = new RealmApi(config);
             var limit = 200;  // int? | Specifies the number of results returned. Defaults to 10 if `search` is provided. (optional)  (default to 200)
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination) for more information. (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
             var search = "search_example";  // string | Searches for Realms with a supported filtering expression for most properties (optional) 
             var sortBy = profile.name;  // string | Specifies field to sort by and can be any single property (for search queries only). (optional) 
             var sortOrder = "\"asc\"";  // string | Specifies sort order `asc` or `desc` (for search queries only). This parameter is ignored if `sortBy` isn't present. (optional)  (default to "asc")
@@ -307,7 +307,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int?**| Specifies the number of results returned. Defaults to 10 if &#x60;search&#x60; is provided. | [optional] [default to 200]
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination) for more information. | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
  **search** | **string**| Searches for Realms with a supported filtering expression for most properties | [optional] 
  **sortBy** | **string**| Specifies field to sort by and can be any single property (for search queries only). | [optional] 
  **sortOrder** | **string**| Specifies sort order &#x60;asc&#x60; or &#x60;desc&#x60; (for search queries only). This parameter is ignored if &#x60;sortBy&#x60; isn&#39;t present. | [optional] [default to &quot;asc&quot;]
@@ -335,13 +335,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updaterealm"></a>
-# **UpdateRealm**
-> Realm UpdateRealm (string realmId, Realm body)
+<a name="replacerealm"></a>
+# **ReplaceRealm**
+> Realm ReplaceRealm (string realmId, UpdateRealmRequest body)
 
-Update a Realm
+Replace the realm profile
 
-Updates a Realm
+Replaces the realm profile
 
 ### Example
 ```csharp
@@ -353,7 +353,7 @@ using Okta.Sdk.Model;
 
 namespace Example
 {
-    public class UpdateRealmExample
+    public class ReplaceRealmExample
     {
         public static void Main()
         {
@@ -366,17 +366,17 @@ namespace Example
 
             var apiInstance = new RealmApi(config);
             var realmId = vvrcFogtKCrK9aYq3fgV;  // string | `id` of the Realm
-            var body = new Realm(); // Realm | 
+            var body = new UpdateRealmRequest(); // UpdateRealmRequest | 
 
             try
             {
-                // Update a Realm
-                Realm result = apiInstance.UpdateRealm(realmId, body);
+                // Replace the realm profile
+                Realm result = apiInstance.ReplaceRealm(realmId, body);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RealmApi.UpdateRealm: " + e.Message );
+                Debug.Print("Exception when calling RealmApi.ReplaceRealm: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -390,7 +390,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **realmId** | **string**| &#x60;id&#x60; of the Realm | 
- **body** | [**Realm**](Realm.md)|  | 
+ **body** | [**UpdateRealmRequest**](UpdateRealmRequest.md)|  | 
 
 ### Return type
 

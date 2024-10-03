@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.AuthenticatorType
+The type of Authenticator
 
 ## Properties
 

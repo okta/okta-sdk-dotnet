@@ -4,6 +4,7 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CreateCustomDomain**](CustomDomainApi.md#createcustomdomain) | **POST** /api/v1/domains | Create a Custom Domain
 [**DeleteCustomDomain**](CustomDomainApi.md#deletecustomdomain) | **DELETE** /api/v1/domains/{domainId} | Delete a Custom Domain
 [**GetCustomDomain**](CustomDomainApi.md#getcustomdomain) | **GET** /api/v1/domains/{domainId} | Retrieve a Custom Domain
 [**ListCustomDomains**](CustomDomainApi.md#listcustomdomains) | **GET** /api/v1/domains | List all Custom Domains
@@ -11,6 +12,85 @@ Method | HTTP request | Description
 [**UpsertCertificate**](CustomDomainApi.md#upsertcertificate) | **PUT** /api/v1/domains/{domainId}/certificate | Upsert the Custom Domain&#39;s Certificate
 [**VerifyDomain**](CustomDomainApi.md#verifydomain) | **POST** /api/v1/domains/{domainId}/verify | Verify a Custom Domain
 
+
+<a name="createcustomdomain"></a>
+# **CreateCustomDomain**
+> DomainResponse CreateCustomDomain (DomainRequest domain)
+
+Create a Custom Domain
+
+Creates your custom domain
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class CreateCustomDomainExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomDomainApi(config);
+            var domain = new DomainRequest(); // DomainRequest | 
+
+            try
+            {
+                // Create a Custom Domain
+                DomainResponse result = apiInstance.CreateCustomDomain(domain);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomDomainApi.CreateCustomDomain: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain** | [**DomainRequest**](DomainRequest.md)|  | 
+
+### Return type
+
+[**DomainResponse**](DomainResponse.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="deletecustomdomain"></a>
 # **DeleteCustomDomain**

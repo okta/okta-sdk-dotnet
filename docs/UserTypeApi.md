@@ -328,7 +328,7 @@ This endpoint does not need any parameter.
 
 Replace a User Type
 
-Replaces an existing User Type. > **Note**: The `name` of an existing User Type can't be changed, but must be part of the request body. You can only replace the `displayName` and `description` elements.
+Replaces an existing User Type. This operation is a full update. > **Note**: The `name` of an existing User Type can't be changed, but must be part of the request body. You can only replace the `displayName` and `description` elements.
 
 ### Example
 ```csharp
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 Update a User Type
 
-Updates an existing User Type. > **Note**: You can only update the `displayName` and `description` elements. The `name` of an existing User Type can't be changed.
+Updates an existing User Type. This operation is a partial update. > **Note**: You can only update the `displayName` and `description` elements. The `name` of an existing User Type can't be changed.
 
 ### Example
 ```csharp

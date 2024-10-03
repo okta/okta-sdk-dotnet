@@ -43,7 +43,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
 
             try
             {
@@ -65,7 +65,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
 
 ### Return type
 
@@ -204,7 +204,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
 
             try
             {
@@ -226,7 +226,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
 
 ### Return type
 
@@ -282,7 +282,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
 
             try
             {
@@ -304,7 +304,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
 
 ### Return type
 
@@ -360,7 +360,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
             var expand = "expand_example";  // string |  (optional) 
 
             try
@@ -384,7 +384,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
  **expand** | **string**|  | [optional] 
 
 ### Return type
@@ -445,7 +445,7 @@ namespace Example
             var after = "after_example";  // string | Specifies the pagination cursor for the next page of apps (optional) 
             var limit = -1;  // int? | Specifies the number of results for a page (optional)  (default to -1)
             var filter = "filter_example";  // string | Filters apps by status, user.id, group.id or credentials.signing.kid expression (optional) 
-            var expand = "expand_example";  // string | Traverses users link relationship and optionally embeds Application User resource (optional) 
+            var expand = user/{userId};  // string | An optional parameter used for link expansion to embed more resources in the response. Only supports `expand=user/{userId}` and must be used with the `user.id eq \"{userId}\"` filter query for the same user. Returns the assigned [Application User](/openapi/okta-management/management/tag/ApplicationUsers/) in the `_embedded` property. (optional) 
             var includeNonDeleted = false;  // bool? |  (optional)  (default to false)
 
             try
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
  **after** | **string**| Specifies the pagination cursor for the next page of apps | [optional] 
  **limit** | **int?**| Specifies the number of results for a page | [optional] [default to -1]
  **filter** | **string**| Filters apps by status, user.id, group.id or credentials.signing.kid expression | [optional] 
- **expand** | **string**| Traverses users link relationship and optionally embeds Application User resource | [optional] 
+ **expand** | **string**| An optional parameter used for link expansion to embed more resources in the response. Only supports &#x60;expand&#x3D;user/{userId}&#x60; and must be used with the &#x60;user.id eq \&quot;{userId}\&quot;&#x60; filter query for the same user. Returns the assigned [Application User](/openapi/okta-management/management/tag/ApplicationUsers/) in the &#x60;_embedded&#x60; property. | [optional] 
  **includeNonDeleted** | **bool?**|  | [optional] [default to false]
 
 ### Return type
@@ -529,7 +529,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
             var application = new Application(); // Application | 
 
             try
@@ -553,7 +553,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
  **application** | [**Application**](Application.md)|  | 
 
 ### Return type

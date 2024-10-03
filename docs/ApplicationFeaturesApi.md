@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getfeatureforapplication"></a>
 # **GetFeatureForApplication**
-> ApplicationFeature GetFeatureForApplication (string appId, string featureName)
+> ApplicationFeature GetFeatureForApplication (string appId, ApplicationFeatureType featureName)
 
 Retrieve a Feature
 
@@ -39,8 +39,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationFeaturesApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
-            var featureName = USER_PROVISIONING;  // string | Name of the Feature
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
+            var featureName = (ApplicationFeatureType) "USER_PROVISIONING";  // ApplicationFeatureType | Name of the Feature
 
             try
             {
@@ -63,8 +63,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
- **featureName** | **string**| Name of the Feature | 
+ **appId** | **string**| Application ID | 
+ **featureName** | **ApplicationFeatureType**| Name of the Feature | 
 
 ### Return type
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 List all Features
 
-Lists all features for an application > **Note:** The only application feature currently supported is `USER_PROVISIONING`. > This request returns an error if provisioning isn't enabled for the application. > To set up provisioning, see [Update the default Provisioning Connection](/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication). 
+Lists all features for an application > **Note:** This request returns an error if provisioning isn't enabled for the application. > To set up provisioning, see [Update the default Provisioning Connection](/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication). 
 
 ### Example
 ```csharp
@@ -120,7 +120,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationFeaturesApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
 
             try
             {
@@ -143,7 +143,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
+ **appId** | **string**| Application ID | 
 
 ### Return type
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 <a name="updatefeatureforapplication"></a>
 # **UpdateFeatureForApplication**
-> ApplicationFeature UpdateFeatureForApplication (string appId, string featureName, CapabilitiesObject capabilitiesObject)
+> ApplicationFeature UpdateFeatureForApplication (string appId, ApplicationFeatureType featureName, UpdateFeatureForApplicationRequest updateFeatureForApplicationRequest)
 
 Update a Feature
 
@@ -200,14 +200,14 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationFeaturesApi(config);
-            var appId = 0oafxqCAJWWGELFTYASJ;  // string | ID of the Application
-            var featureName = USER_PROVISIONING;  // string | Name of the Feature
-            var capabilitiesObject = new CapabilitiesObject(); // CapabilitiesObject | 
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
+            var featureName = (ApplicationFeatureType) "USER_PROVISIONING";  // ApplicationFeatureType | Name of the Feature
+            var updateFeatureForApplicationRequest = new UpdateFeatureForApplicationRequest(); // UpdateFeatureForApplicationRequest | 
 
             try
             {
                 // Update a Feature
-                ApplicationFeature result = apiInstance.UpdateFeatureForApplication(appId, featureName, capabilitiesObject);
+                ApplicationFeature result = apiInstance.UpdateFeatureForApplication(appId, featureName, updateFeatureForApplicationRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -225,9 +225,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string**| ID of the Application | 
- **featureName** | **string**| Name of the Feature | 
- **capabilitiesObject** | [**CapabilitiesObject**](CapabilitiesObject.md)|  | 
+ **appId** | **string**| Application ID | 
+ **featureName** | **ApplicationFeatureType**| Name of the Feature | 
+ **updateFeatureForApplicationRequest** | [**UpdateFeatureForApplicationRequest**](UpdateFeatureForApplicationRequest.md)|  | 
 
 ### Return type
 

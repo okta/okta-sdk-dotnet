@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountLink** | [**PolicyAccountLink**](PolicyAccountLink.md) |  | [optional] 
-**MapAMRClaims** | **bool** | Enable mapping AMR from IdP to Okta to downstream apps | [optional] [default to false]
 **MaxClockSkew** | **int** |  | [optional] 
 **Provisioning** | [**Provisioning**](Provisioning.md) |  | [optional] 
 **Subject** | [**PolicySubject**](PolicySubject.md) |  | [optional] 

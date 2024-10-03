@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | [optional] 
-**Name** | **string** |  | [optional] 
-**Status** | **string** |  | [optional] 
-**Conditions** | [**SimulateResultConditions**](SimulateResultConditions.md) |  | [optional] 
-**Rules** | [**SimulateResultRules**](SimulateResultRules.md) |  | [optional] 
+**Conditions** | [**List&lt;SimulateResultConditions&gt;**](SimulateResultConditions.md) | List of all conditions involved for this policy evaluation | [optional] 
+**Id** | **string** | ID of the specified policy type | [optional] 
+**Name** | **string** | Policy name | [optional] 
+**Rules** | [**List&lt;SimulateResultRules&gt;**](SimulateResultRules.md) |  | [optional] 
+**Status** | **SimulateResultStatus** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

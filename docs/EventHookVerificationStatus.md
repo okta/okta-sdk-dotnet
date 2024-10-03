@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.EventHookVerificationStatus
+Verification status of the event hook. `UNVERIFIED` event hooks won't receive any events.
 
 ## Properties
 

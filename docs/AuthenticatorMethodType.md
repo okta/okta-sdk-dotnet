@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.AuthenticatorMethodType
+The type of authenticator method
 
 ## Properties
 

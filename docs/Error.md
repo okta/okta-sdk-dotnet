@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ErrorCauses** | [**List&lt;ErrorErrorCausesInner&gt;**](ErrorErrorCausesInner.md) |  | [optional] 
+**ErrorCauses** | [**List&lt;ErrorCause&gt;**](ErrorCause.md) |  | [optional] 
 **ErrorCode** | **string** | An Okta code for this type of error | [optional] 
 **ErrorId** | **string** | A unique identifier for this error. This can be used by Okta Support to help with troubleshooting. | [optional] 
 **ErrorLink** | **string** | An Okta code for this type of error | [optional] 

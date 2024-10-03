@@ -296,7 +296,7 @@ namespace Example
 
             var apiInstance = new PolicyApi(config);
             var policy = new Policy(); // Policy | 
-            var activate = true;  // bool? |  (optional)  (default to true)
+            var activate = true;  // bool? | This query parameter is only valid for Classic Engine orgs. (optional)  (default to true)
 
             try
             {
@@ -320,7 +320,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **policy** | [**Policy**](Policy.md)|  | 
- **activate** | **bool?**|  | [optional] [default to true]
+ **activate** | **bool?**| This query parameter is only valid for Classic Engine orgs. | [optional] [default to true]
 
 ### Return type
 
@@ -348,11 +348,11 @@ Name | Type | Description  | Notes
 
 <a name="createpolicyrule"></a>
 # **CreatePolicyRule**
-> PolicyRule CreatePolicyRule (string policyId, PolicyRule policyRule)
+> PolicyRule CreatePolicyRule (string policyId, PolicyRule policyRule, bool? activate = null)
 
 Create a Policy Rule
 
-Creates a policy rule
+Creates a policy rule. **Note:** You can't create additional rules for the `PROFILE_ENROLLMENT` or `CONTINUOUS_ACCESS` policies.
 
 ### Example
 ```csharp
@@ -378,11 +378,12 @@ namespace Example
             var apiInstance = new PolicyApi(config);
             var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
             var policyRule = new PolicyRule(); // PolicyRule | 
+            var activate = true;  // bool? | Set this parameter to `false` to create an `INACTIVE` rule. (optional)  (default to true)
 
             try
             {
                 // Create a Policy Rule
-                PolicyRule result = apiInstance.CreatePolicyRule(policyId, policyRule);
+                PolicyRule result = apiInstance.CreatePolicyRule(policyId, policyRule, activate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -402,6 +403,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **policyId** | **string**| &#x60;id&#x60; of the Policy | 
  **policyRule** | [**PolicyRule**](PolicyRule.md)|  | 
+ **activate** | **bool?**| Set this parameter to &#x60;false&#x60; to create an &#x60;INACTIVE&#x60; rule. | [optional] [default to true]
 
 ### Return type
 
@@ -502,7 +504,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
+| **200** | Success |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
@@ -1150,7 +1152,7 @@ Name | Type | Description  | Notes
 
 <a name="listpolicies"></a>
 # **ListPolicies**
-> List&lt;Policy&gt; ListPolicies (string type, string status = null, string expand = null)
+> List&lt;Policy&gt; ListPolicies (PolicyType type, string status = null, string expand = null, string sortBy = null, string limit = null, string after = null)
 
 List all Policies
 
@@ -1178,14 +1180,17 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var type = "type_example";  // string | 
-            var status = "status_example";  // string |  (optional) 
+            var type = "OKTA_SIGN_ON";  // PolicyType | Specifies the type of policy to return. The following policy types are available only with the Okta Identity Engine - `ACCESS_POLICY`, `PROFILE_ENROLLMENT`, `CONTINUOUS_ACCESS`, and `ENTITY_RISK`. The `CONTINUOUS_ACCESS` and `ENTITY_RISK` are in Early Access (EA). Contact your Okta account team to enable these features.
+            var status = "status_example";  // string | Refines the query by the `status` of the policy - `ACTIVE` or `INACTIVE` (optional) 
             var expand = "\"\"";  // string |  (optional)  (default to "")
+            var sortBy = "sortBy_example";  // string | Refines the query by sorting on the policy `name` in ascending order (optional) 
+            var limit = "limit_example";  // string | Defines the number of policies returned, see [Pagination](https://developer.okta.com/docs/api/#pagination) (optional) 
+            var after = "after_example";  // string | End page cursor for pagination, see [Pagination](https://developer.okta.com/docs/api/#pagination) (optional) 
 
             try
             {
                 // List all Policies
-                List<Policy> result = apiInstance.ListPolicies(type, status, expand).ToListAsync();
+                List<Policy> result = apiInstance.ListPolicies(type, status, expand, sortBy, limit, after).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1203,9 +1208,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **string**|  | 
- **status** | **string**|  | [optional] 
+ **type** | **PolicyType**| Specifies the type of policy to return. The following policy types are available only with the Okta Identity Engine - &#x60;ACCESS_POLICY&#x60;, &#x60;PROFILE_ENROLLMENT&#x60;, &#x60;CONTINUOUS_ACCESS&#x60;, and &#x60;ENTITY_RISK&#x60;. The &#x60;CONTINUOUS_ACCESS&#x60; and &#x60;ENTITY_RISK&#x60; are in Early Access (EA). Contact your Okta account team to enable these features. | 
+ **status** | **string**| Refines the query by the &#x60;status&#x60; of the policy - &#x60;ACTIVE&#x60; or &#x60;INACTIVE&#x60; | [optional] 
  **expand** | **string**|  | [optional] [default to &quot;&quot;]
+ **sortBy** | **string**| Refines the query by sorting on the policy &#x60;name&#x60; in ascending order | [optional] 
+ **limit** | **string**| Defines the number of policies returned, see [Pagination](https://developer.okta.com/docs/api/#pagination) | [optional] 
+ **after** | **string**| End page cursor for pagination, see [Pagination](https://developer.okta.com/docs/api/#pagination) | [optional] 
 
 ### Return type
 

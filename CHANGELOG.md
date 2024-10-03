@@ -1,6 +1,138 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 9.0.0
+### Fixed
+
+- Factors Api doesn't return factors setup on users (#650)
+- AppAndInstanceConditionEvaluatorAppOrInstance ID property setter is private (#718)
+- PolicyRule does not allow a null Priority to be specified. (#719)
+
+### Changed
+
+- ApiTokenApi
+  - ListApiTokens
+    - parameters removed.
+- ApplicationTokensApi
+  - ListOAuth2TokensForApplication
+    - return type OAuth2Token changed to OAuth2RefreshToken.
+  - GetOAuth2TokenForApplication
+    - return type OAuth2Token changed to OAuth2RefreshToken.
+- ApplicationUsersApi
+  - AssignUserToApplication
+    - parameter of type AppUser changed to AppUserAssignRequest.
+  - UpdateApplicationUser
+    - parameter of type AppUser changed to AppUserUpdateRequest.
+- AuthenticatorApi
+  - ListAuthenticators
+    - return type Authenticator changed to AuthenticatorBase
+- AuthorizationServerKeysApi
+  - ListAuthorizationServerKeys
+    - return type collection of JsonWebKey changed to collection of AuthorizationServerJsonWebKey.
+  - RotateAuthorizationServerKeys
+    - return type collection of JsonWebKey changed to collection of AuthorizationServerJsonWebKey.
+- CustomTemplatesApi
+  - ListEmailTemplates
+    - return type EmailTemplate changed to EmailTemplateResponse.
+  - GetEmailTemplate
+    - return type EmailTemplate changed to EmailTemplateResponse.
+  - GetEmailSettings
+    - return type EmailSettings changed to EmailSettingsResponse.
+- ThemesApi
+  - ReplaceBrandTheme
+    - parameter of type Theme changed to UpdateThemeRequest
+- DeviceApi
+  - ListDevices
+    - return type collection of Device changed to collection of DeviceList.
+- ApplicationConnectionsApi
+  - GetDefaultProvisioningConnectionForApplication
+    - return type ProvisioningConnection changed to ProvisioningConnectionResponse
+  - UpdateDefaultProvisioningConnectionForApplication
+    - return type ProvisioningConnection changed to ProvisioningConnectionResponse
+- AuthenticatorApi methods that previously returned Authenticator now return AuthenticatorBase.
+- GroupApi
+  - ListGroupUsers
+    - return type collection of User changed to collectio of GroupMember.
+- RealmApi
+  - CreateRealm
+    - parameter of type Realm changed to CreateRealmRequest.
+- UserFacorApi
+  - ResendEnrollFactor 
+    - parameter of type UserFactor changed to ResendUserFactor.
+    - return type UserFactor changed to ResendUserFactor.
+  - GetFactorTransactionStatus
+    - return type VerifyUserFactorResponse changed to UserFactorPushTransaction 
+  - VerifyFactor
+    - parameter of type VerifyFactorRequest changed to UserFactorVerifyRequest
+    - return type VerifyUserFactorResponse changed to UserFactorVerifyResponse 
+
+### Moved
+
+- AuthorizationServerApi functionality is now broken out into more specific API classes.
+- GroupOwnerApi contains functionality previously in GroupsApi.
+
+### Replaced
+
+- CustomizationApi is replaced by CustomTemplatesApi, CusomPagesApi and BrandsApi.
+- RealmApi.UpdateRealm is replaced by RealmApi.ReplaceRealm.
+- ProvisioningConnection is replaced by ProvisioningConnectionRequest & ProvisioningConnectionResponse.
+- VerifyFactorRequest is replaced by UserFactorVerifyRequest
+- VerifyUserFactorResponse is replaced by UserFactorVerifyResponse 
+
+### Removed
+- SchemaApi methods removed:
+  - GetAppUISchemaLinksAsync
+- UserApi methods removed:
+  - SetLinkedObjectForUser
+
+### Added
+
+- ApiTokenApi methods added:
+  - UpsertApiToken
+- ApplicationConnectionsApi methods added:
+  - VerifyProvisioningConnectionForApplication
+- AuthorizationAssocApi is a new API to maange authorization server associations.
+- AuthorizationServerClaimsApi is a new API to manage authorization server claims.
+- AuthroziationServerClientsApi is a new API to manage authorization server clients.
+- AuthorizationServerKeysApi is a new API to manage authorization server keys.
+- AuthorizationServerPoliciesApi is a new API to manage authorization server policies.
+- AuthorizationServerRulesApi is a new API to manage authorization server rules.
+- AuthorizationServerScopesApi is a new API to manage authorization server scopes.
+- ApplicationGroupsApi methods added:
+  - UpdateGroupAssignmentToApplication overload accepting a list of JsonPathOperation objects.
+- BrandsApi is a new API to manage brands.
+- CustomTemplatesApi is new API to manage custom templates.
+- CustotmPagesApi is new API to manage custom pages.
+- DirectoriesIntegrationApi is a new API to manage AD integrations.
+- GroupOwnerApi is a new API to manage group owners.
+- InlineHookApi methods added:
+  - UpdateInlineHook
+- OktaApplicationSettingsApi is a new API to manage Okta application settings.
+- ThemesApi is a new API to manage themes.
+- OrgSettingApi methods added:
+  - GetThirdPartyAdminSetting
+  - UpdateThirdPartyAdminSetting
+  - GetClientPrivilegesSetting
+  - AssignClientPrivilegesSetting
+- RealAssignmentApi is a new API to manage realm assignments.
+- SSFReceiverApi is a new API to manage the consumption of security events.
+- SSFSecurityEventTokenApi is a new API to manage security event tokens.
+- SSFTransmitterApi is a new API to manage security event transmitters.
+- SessionApi methods added:
+  - GetCurrentSession
+  - CloseCurrentSession
+  - RefreshCurrentSession
+- UserApi methods added:
+  - ReplaceLinkedObjectForUser
+  - ListLinkedObjectsForUser
+  - DeleteLinkedObjectForUser
+- AttackProtectionApi methods added:
+  - GetAuthenticatorSettings
+  - ReplaceAuthenticatorSettings
+- RoleAssignmentApi methods added:
+  - ListRolesForClient
+  - AssignRoleToClient
+
 ## 8.0.0
 
 - Add support for OAuth 2.0 DPoP (#697)
