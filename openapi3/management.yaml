@@ -47751,14 +47751,6 @@ components:
         siteDomain:
           type: string
           description: Your Zscaler domain
-    appLink:
-      type: object
-      properties:
-        login:
-          $ref: '#/components/schemas/HrefObjectAppLink'
-        logo:
-          $ref: '#/components/schemas/HrefObjectLogoLink'
-      readOnly: true
     createdProperty:
       description: Timestamp when the object was created
       format: date-time
