@@ -797,6 +797,7 @@ Class | Method | HTTP request | Description
  - [Model.AuthorizationServerPolicyRuleConditions](docs/AuthorizationServerPolicyRuleConditions.md)
  - [Model.AuthorizationServerPolicyRuleGroupCondition](docs/AuthorizationServerPolicyRuleGroupCondition.md)
  - [Model.AuthorizationServerPolicyRuleUserCondition](docs/AuthorizationServerPolicyRuleUserCondition.md)
+ - [Model.AuthorizationServerPolicyStatus](docs/AuthorizationServerPolicyStatus.md)
  - [Model.AutoAssignAdminAppSetting](docs/AutoAssignAdminAppSetting.md)
  - [Model.AutoLoginApplication](docs/AutoLoginApplication.md)
  - [Model.AutoLoginApplicationAllOf](docs/AutoLoginApplicationAllOf.md)

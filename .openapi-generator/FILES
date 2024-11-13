@@ -171,6 +171,7 @@ docs/AuthorizationServerPolicyRuleActions.md
 docs/AuthorizationServerPolicyRuleConditions.md
 docs/AuthorizationServerPolicyRuleGroupCondition.md
 docs/AuthorizationServerPolicyRuleUserCondition.md
+docs/AuthorizationServerPolicyStatus.md
 docs/AuthorizationServerRulesApi.md
 docs/AuthorizationServerScopesApi.md
 docs/AutoAssignAdminAppSetting.md
@@ -1520,6 +1521,7 @@ src/Okta.Sdk/Model/AuthorizationServerPolicyRuleActions.cs
 src/Okta.Sdk/Model/AuthorizationServerPolicyRuleConditions.cs
 src/Okta.Sdk/Model/AuthorizationServerPolicyRuleGroupCondition.cs
 src/Okta.Sdk/Model/AuthorizationServerPolicyRuleUserCondition.cs
+src/Okta.Sdk/Model/AuthorizationServerPolicyStatus.cs
 src/Okta.Sdk/Model/AutoAssignAdminAppSetting.cs
 src/Okta.Sdk/Model/AutoLoginApplication.cs
 src/Okta.Sdk/Model/AutoLoginApplicationSettings.cs

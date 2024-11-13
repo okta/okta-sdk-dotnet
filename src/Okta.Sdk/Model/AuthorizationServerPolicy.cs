@@ -33,12 +33,128 @@ namespace Okta.Sdk.Model
     
     public partial class AuthorizationServerPolicy : IEquatable<AuthorizationServerPolicy>
     {
+        /// <summary>
+        /// Indicates that the Policy is an authorization server Policy
+        /// </summary>
+        /// <value>Indicates that the Policy is an authorization server Policy</value>
+        [JsonConverter(typeof(StringEnumSerializingConverter))]
+        public sealed class TypeEnum : StringEnum
+        {
+            /// <summary>
+            /// StringEnum OAUTHAUTHORIZATIONPOLICY for value: OAUTH_AUTHORIZATION_POLICY
+            /// </summary>
+            
+            public static TypeEnum OAUTHAUTHORIZATIONPOLICY = new TypeEnum("OAUTH_AUTHORIZATION_POLICY");
+
+
+            /// <summary>
+            /// Implicit operator declaration to accept and convert a string value as a <see cref="TypeEnum"/>
+            /// </summary>
+            /// <param name="value">The value to use</param>
+            public static implicit operator TypeEnum(string value) => new TypeEnum(value);
+
+            /// <summary>
+            /// Creates a new <see cref="Type"/> instance.
+            /// </summary>
+            /// <param name="value">The value to use.</param>
+            public TypeEnum(string value)
+                : base(value)
+            {
+            }
+        }
+
+
+        /// <summary>
+        /// Indicates that the Policy is an authorization server Policy
+        /// </summary>
+        /// <value>Indicates that the Policy is an authorization server Policy</value>
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         
+        public TypeEnum Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = true)]
+        
+        public AuthorizationServerPolicyStatus Status { get; set; }
+        
+        /// <summary>
+        /// ID of the Policy
+        /// </summary>
+        /// <value>ID of the Policy</value>
+        [DataMember(Name = "id", EmitDefaultValue = true)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Name of the Policy
+        /// </summary>
+        /// <value>Name of the Policy</value>
+        [DataMember(Name = "name", EmitDefaultValue = true)]
+        public string Name { get; set; }
+
         /// <summary>
         /// Gets or Sets Conditions
         /// </summary>
         [DataMember(Name = "conditions", EmitDefaultValue = true)]
         public AuthorizationServerPolicyConditions Conditions { get; set; }
+
+        /// <summary>
+        /// Description of the Policy
+        /// </summary>
+        /// <value>Description of the Policy</value>
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Specifies the order in which this Policy is evaluated in relation to the other Policies in a custom authorization server
+        /// </summary>
+        /// <value>Specifies the order in which this Policy is evaluated in relation to the other Policies in a custom authorization server</value>
+        [DataMember(Name = "priority", EmitDefaultValue = true)]
+        public int Priority { get; set; }
+
+        /// <summary>
+        /// Specifies whether Okta created this Policy
+        /// </summary>
+        /// <value>Specifies whether Okta created this Policy</value>
+        [DataMember(Name = "system", EmitDefaultValue = true)]
+        public bool System { get; set; }
+
+        /// <summary>
+        /// Timestamp when the Policy was created
+        /// </summary>
+        /// <value>Timestamp when the Policy was created</value>
+        [DataMember(Name = "created", EmitDefaultValue = true)]
+        public DateTimeOffset Created { get; private set; }
+
+        /// <summary>
+        /// Returns false as Created should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeCreated()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Timestamp when the Policy was last updated
+        /// </summary>
+        /// <value>Timestamp when the Policy was last updated</value>
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = true)]
+        public DateTimeOffset LastUpdated { get; private set; }
+
+        /// <summary>
+        /// Returns false as LastUpdated should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeLastUpdated()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "_links", EmitDefaultValue = true)]
+        public LinksSelfAndLifecycle Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -48,7 +164,17 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class AuthorizationServerPolicy {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Conditions: ").Append(Conditions).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Priority: ").Append(Priority).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  System: ").Append(System).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,9 +211,55 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
                     this.Conditions == input.Conditions ||
                     (this.Conditions != null &&
                     this.Conditions.Equals(input.Conditions))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Priority == input.Priority ||
+                    this.Priority.Equals(input.Priority)
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this.System == input.System ||
+                    this.System.Equals(input.System)
+                ) && 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.LastUpdated == input.LastUpdated ||
+                    (this.LastUpdated != null &&
+                    this.LastUpdated.Equals(input.LastUpdated))
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    (this.Links != null &&
+                    this.Links.Equals(input.Links))
                 );
         }
 
@@ -101,9 +273,43 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Conditions != null)
                 {
                     hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Priority.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.System.GetHashCode();
+                if (this.Created != null)
+                {
+                    hashCode = (hashCode * 59) + this.Created.GetHashCode();
+                }
+                if (this.LastUpdated != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastUpdated.GetHashCode();
+                }
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }
