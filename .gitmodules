@@ -1,0 +1,3 @@
+[submodule "submodules/okta-sdk-dotnet"]
+	path = submodules/okta-sdk-dotnet
+	url = https://github.com/okta/okta-sdk-dotnet.git

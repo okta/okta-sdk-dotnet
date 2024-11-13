@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Okta.Sdk.Support\Okta.Sdk.Support.csproj" />
     <ProjectReference Include="..\Okta.Sdk\Okta.Sdk.csproj" />
   </ItemGroup>
 

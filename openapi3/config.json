@@ -23,6 +23,16 @@
         "isOAuth": true
     },
     "files": {
+        "OktaApiClientOptions.mustache":{
+            "destinationFilename": "OktaApiClientOptions.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "OktaApiServiceBuilder.mustache":{
+            "destinationFilename": "OktaApiServiceBuilder.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
         "WebLink.mustache":{
             "destinationFilename": "WebLink.cs",
             "templateType": "SupportingFiles",
