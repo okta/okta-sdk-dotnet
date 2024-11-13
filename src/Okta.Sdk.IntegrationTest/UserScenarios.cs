@@ -11,8 +11,12 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Okta.Sdk.Client;
+using Okta.Sdk.UnitTest.Interceptors;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Okta.Sdk.IntegrationTest
 {
@@ -25,10 +29,18 @@ namespace Okta.Sdk.IntegrationTest
         private RoleAssignmentApi _roleAssignmentApi;
         private RoleTargetApi _roleTargetApi;
         private UserTypeApi _userTypeApi;
+        private ITestOutputHelper _output;
 
-        public UserScenarios()
+        public UserScenarios(ITestOutputHelper output)
         {
-            _userApi = new UserApi();
+            _output = output;
+            _userApi = OktaApiClientOptions
+                .UseDefaultConfiguration()
+                .For<ITestOutputHelper>().Use(_output)
+                .For<IOutput>().Use<XUnitTestOutput>()
+                .UseInterceptor<OutputInterceptor>()
+                .BuildApi<UserApi>();
+            
             _groupApi = new GroupApi();
             _linkedObjectApi = new LinkedObjectApi();
             _roleAssignmentApi = new RoleAssignmentApi();
@@ -723,6 +735,16 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
+        [Fact]
+        public async Task UserApiFromServices()
+        {
+            UserApi api = OktaApiClientOptions
+                .UseDefaultConfiguration()
+                .BuildApi<UserApi>();
+            api.Should().NotBeNull();
+            api.Configuration.Should().NotBeNull();
+        }
+        
         [Fact]
         public async Task CreateUserWithProvider()
         {

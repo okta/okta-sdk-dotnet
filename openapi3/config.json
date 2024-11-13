@@ -6,7 +6,7 @@
     "packageName" : "Okta.Sdk",
     "outputDir" : "../",
     "inputSpec" : "./management.yaml", 
-    "packageVersion" : "9.1.1",
+    "packageVersion" : "9.2.0",
     "packageDescription" : "Official .NET SDK for the Okta API",
     "packageTitle" : "Official .NET SDK for the Okta API",
     "packageCompany" : "Okta, Inc.",
@@ -23,6 +23,16 @@
         "isOAuth": true
     },
     "files": {
+        "OktaApiClientOptions.mustache":{
+            "destinationFilename": "OktaApiClientOptions.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
+        "OktaApiServiceBuilder.mustache":{
+            "destinationFilename": "OktaApiServiceBuilder.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Client"
+        },
         "WebLink.mustache":{
             "destinationFilename": "WebLink.cs",
             "templateType": "SupportingFiles",

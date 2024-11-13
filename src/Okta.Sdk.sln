@@ -4,9 +4,11 @@ VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk", "Okta.Sdk\Okta.Sdk.csproj", "{0A22C763-10B4-4805-A285-96940F61A6FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk.IntegrationTest", "Okta.Sdk.IntegrationTest\Okta.Sdk.IntegrationTest.csproj", "{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk.UnitTest", "Okta.Sdk.UnitTest\Okta.Sdk.UnitTest.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Sdk.Support", "Okta.Sdk.Support\Okta.Sdk.Support.csproj", "{6CFDB742-9C70-46DB-9AB3-5F461443ADBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Sdk.IntegrationTest", "Okta.Sdk.IntegrationTest\Okta.Sdk.IntegrationTest.csproj", "{E0F46A03-1D97-47B7-8F16-DE6ACEA0DC65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,19 +20,25 @@ Global
 		{0A22C763-10B4-4805-A285-96940F61A6FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A22C763-10B4-4805-A285-96940F61A6FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A22C763-10B4-4805-A285-96940F61A6FB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CFDB742-9C70-46DB-9AB3-5F461443ADBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CFDB742-9C70-46DB-9AB3-5F461443ADBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CFDB742-9C70-46DB-9AB3-5F461443ADBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CFDB742-9C70-46DB-9AB3-5F461443ADBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0F46A03-1D97-47B7-8F16-DE6ACEA0DC65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F46A03-1D97-47B7-8F16-DE6ACEA0DC65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F46A03-1D97-47B7-8F16-DE6ACEA0DC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0F46A03-1D97-47B7-8F16-DE6ACEA0DC65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1C488724-475C-4E6E-8E55-DC908240A2BA}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal
