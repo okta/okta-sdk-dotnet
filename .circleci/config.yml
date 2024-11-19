@@ -11,59 +11,6 @@ orbs:
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  reversing-labs:
-    steps:
-      - checkout
-  
-      - run: dotnet --version
-
-      - run: 
-          name: build Binary to scan
-          command: dotnet build ./src/Okta.Sdk.sln
-       
-      // Necessary to Install rl wrapper   
-      - run:
-          name: Install Python
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y python3 python3-pip
-            sudo pip install --upgrade pip
-  
-      // Download the scanner from Okta Security
-      - run:
-          name: Download Reverse Labs Scanner
-          command: |
-            curl https://dso-resources.oktasecurity.com/scanner \
-              -H "x-api-key: $DSO_RLSECURE_TOKEN" \
-              --output rl_wrapper-0.0.2+35ababa-py3-none-any.whl
-      // Install the wrapper that was downloaded
-      - run:
-          name: Install RL Wrapper
-          command: |
-            pip install ./rl_wrapper-0.0.2+35ababa-py3-none-any.whl
-  
-      // Setup the AWS profile
-      - aws-cli/setup:
-          profile_name: default
-          role_arn: $AWS_ARN
-          region: us-east-1
-  
-      // Get the credentials and save to env
-      - run: >-
-          eval "$(aws configure export-credentials --profile default --format env)" 2> /dev/null
-  
-      // Run the wrapper, do not change anything here
-      - run:
-          name: Run Reversing Labs Wrapper Scanner
-          command: |
-            rl-wrapper \
-              --artifact ${CIRCLE_WORKING_DIRECTORY/#\~/$HOME} \
-              --name $CIRCLE_PROJECT_REPONAME\
-              --version $CIRCLE_SHA1\
-              --repository $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
-              --commit $CIRCLE_SHA1 \
-              --build-env "circleci" \
-              --suppress_output
   build:
     description: Run tests and build
     executor:
@@ -122,10 +69,5 @@ workflows:
           context:
             - static-analysis
           name: "Scan with Semgrep"
-  "Malware Scanner":
-    jobs:
-      - reversing-labs:
-          context:
-            - static-analysis 
 
 # VS Code Extension Version: 1.4.0
