@@ -32,7 +32,9 @@ jobs:
             - .git
       - when:
           condition:
-            equal: [ "<<pipeline.git.branch>>", "master" ]
+            or:
+              - equal: [ "<<pipeline.git.branch>>", "master" ]
+              - equal: [ "<<pipeline.git.branch>>", "v9.0.1" ]
           steps:
             - general-platform-helpers/step-artifacts-prepare-and-upload-windows:
                 files-to-upload: "artifacts"
