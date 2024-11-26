@@ -2296,6 +2296,34 @@ namespace Okta.Sdk.IntegrationTest
                         AudRestriction = "https://www.okta.com/saml2/service-provider/exampleid",
                         BaseUrl = "https://example.okta.com",
                     },
+                    SignOn = new SamlApplicationSettingsSignOn()
+                    {
+                        SpCertificate = new SpCertificate()
+                        {
+                            X5c = new List<string>(new string[]{"MIIDQjCCAiqgAwIBAgIGATz/FuLiMA0GCSqGSIb3DQEBBQUAMGIxCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDTzEPMA0GA1UEBxMGRGVudmVyMRwwGgYDVQQKExNQaW5nIElkZW50aXR5IENvcnAuMRcwFQYDVQQDEw5CcmlhbiBDYW1wYmVsbDAeFw0xMzAyMjEyMzI5MTVaFw0xODA4MTQyMjI5MTVaMGIxCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDTzEPMA0GA1UEBxMGRGVudmVyMRwwGgYDVQQKExNQaW5nIElkZW50aXR5IENvcnAuMRcwFQYDVQQDEw5CcmlhbiBDYW1wYmVsbDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL64zn8/QnHYMeZ0LncoXaEde1fiLm1jHjmQsF/449IYALM9if6amFtPDy2yvz3YlRij66s5gyLCyO7ANuVRJx1NbgizcAblIgjtdf/u3WG7K+IiZhtELto/A7Fck9Ws6SQvzRvOE8uSirYbgmj6He4iO8NCyvaK0jIQRMMGQwsU1quGmFgHIXPLfnpnfajr1rVTAwtgV5LEZ4Iel+W1GC8ugMhyr4/p1MtcIM42EA8BzE6ZQqC7VPqPvEjZ2dbZkaBhPbiZAS3YeYBRDWm1p1OZtWamT3cEvqqPpnjL1XyW+oyVVkaZdklLQp2Btgt9qr21m42f4wTw+Xrp6rCKNb0CAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAh8zGlfSlcI0o3rYDPBB07aXNswb4ECNIKG0CETTUxmXl9KUL+9gGlqCz5iWLOgWsnrcKcY0vXPG9J1r9AqBNTqNgHq2G03X09266X5CpOe1zFo+Owb1zxtp3PehFdfQJ610CDLEaS9V9Rqp17hCyybEpOGVwe8fnk+fbEL2Bo3UPGrpsHzUoaGpDftmWssZkhpBJKVMJyf/RuP2SmmaIzmnw9JiSlYhzo4tpzd5rFXhjRbg4zW9C+2qok+2+qDM1iJ684gPHMIY8aLWrdgQTxkumGmTqgawR+N5MDtdPTEQ0XfIBc2cJEUyMTY5MPvACWpkA6SdS4xSvdXK3IVfOWA=="}) 
+                        },
+                        SamlAssertionLifetimeSeconds = 30,
+                        DefaultRelayState = string.Empty,
+                        SsoAcsUrl = "https://dev-37031705.okta.com",
+                        IdpIssuer = "https://www.okta.com/${org.externalKey}",
+                        Audience = "https://example.com/tenant/123",
+                        Recipient = "https://recipient.okta.com",
+                        Destination = "https://destination.okta.com",
+                        SubjectNameIdTemplate = "${user.userName}",
+                        SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+                        ResponseSigned = true,
+                        AssertionSigned = true,
+                        SignatureAlgorithm = "RSA_SHA256",
+                        DigestAlgorithm = "SHA256",
+                        HonorForceAuthn = true,
+                        AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified",
+                        Slo = new SingleLogout()
+                        {
+                            Enabled = true,
+                            Issuer = "http://testorgone.okta.com",
+                            LogoutUrl = "http://testorgone.okta.com/logout"
+                        }
+                    }
                 },
                 Visibility = new ApplicationVisibility
                 {
@@ -2304,14 +2332,14 @@ namespace Okta.Sdk.IntegrationTest
                 },
             };
 
-            var newApp = await _applicationApi.CreateApplicationAsync(org2orgApp);
+            var newApp = (await _applicationApi.CreateApplicationAsync(org2orgApp)) as SamlApplication;
 
             try
             {
-
+                newApp.Should().NotBeNull();
                 newApp.Id.Should().NotBeNullOrEmpty();
                 newApp.SignOnMode.Value.Should().Be("SAML_2_0");
-                ((SamlApplication)newApp).Name.Should().Be(org2orgApp.Name);
+                newApp.Name.Should().NotBeNull();
                 newApp.Label.Should().Be(org2orgApp.Label);
 
                 var retrievedApp = await _applicationApi.GetApplicationAsync(newApp.Id);
@@ -2322,6 +2350,88 @@ namespace Okta.Sdk.IntegrationTest
             {
                 await _applicationApi.DeactivateApplicationAsync(newApp.Id);
                 await _applicationApi.DeleteApplicationAsync(newApp.Id);
+            }
+        }
+        
+        [Fact]
+        public async Task UpdateAttributeStatements()
+        {
+            var guid = Guid.NewGuid();
+
+            var samlApp = new SamlApplication
+            {
+                Label = $"dotnet-sdk: okta_org2org {guid}",
+                SignOnMode = "SAML_2_0",
+                Settings = new SamlApplicationSettings()
+                {
+                    App = new SamlApplicationSettingsApplication()
+                    {
+                        AcsUrl = "https://example.okta.com/sso/saml2/exampleid",
+                        AudRestriction = "https://www.okta.com/saml2/service-provider/exampleid",
+                        BaseUrl = "https://example.okta.com",
+                    },
+                    SignOn = new SamlApplicationSettingsSignOn()
+                    {
+                        SpCertificate = new SpCertificate()
+                        {
+                            X5c = new List<string>(new string[]{"MIIDQjCCAiqgAwIBAgIGATz/FuLiMA0GCSqGSIb3DQEBBQUAMGIxCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDTzEPMA0GA1UEBxMGRGVudmVyMRwwGgYDVQQKExNQaW5nIElkZW50aXR5IENvcnAuMRcwFQYDVQQDEw5CcmlhbiBDYW1wYmVsbDAeFw0xMzAyMjEyMzI5MTVaFw0xODA4MTQyMjI5MTVaMGIxCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDTzEPMA0GA1UEBxMGRGVudmVyMRwwGgYDVQQKExNQaW5nIElkZW50aXR5IENvcnAuMRcwFQYDVQQDEw5CcmlhbiBDYW1wYmVsbDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL64zn8/QnHYMeZ0LncoXaEde1fiLm1jHjmQsF/449IYALM9if6amFtPDy2yvz3YlRij66s5gyLCyO7ANuVRJx1NbgizcAblIgjtdf/u3WG7K+IiZhtELto/A7Fck9Ws6SQvzRvOE8uSirYbgmj6He4iO8NCyvaK0jIQRMMGQwsU1quGmFgHIXPLfnpnfajr1rVTAwtgV5LEZ4Iel+W1GC8ugMhyr4/p1MtcIM42EA8BzE6ZQqC7VPqPvEjZ2dbZkaBhPbiZAS3YeYBRDWm1p1OZtWamT3cEvqqPpnjL1XyW+oyVVkaZdklLQp2Btgt9qr21m42f4wTw+Xrp6rCKNb0CAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAh8zGlfSlcI0o3rYDPBB07aXNswb4ECNIKG0CETTUxmXl9KUL+9gGlqCz5iWLOgWsnrcKcY0vXPG9J1r9AqBNTqNgHq2G03X09266X5CpOe1zFo+Owb1zxtp3PehFdfQJ610CDLEaS9V9Rqp17hCyybEpOGVwe8fnk+fbEL2Bo3UPGrpsHzUoaGpDftmWssZkhpBJKVMJyf/RuP2SmmaIzmnw9JiSlYhzo4tpzd5rFXhjRbg4zW9C+2qok+2+qDM1iJ684gPHMIY8aLWrdgQTxkumGmTqgawR+N5MDtdPTEQ0XfIBc2cJEUyMTY5MPvACWpkA6SdS4xSvdXK3IVfOWA=="}) 
+                        },
+                        SamlAssertionLifetimeSeconds = 30,
+                        DefaultRelayState = string.Empty,
+                        SsoAcsUrl = "https://dev-37031705.okta.com",
+                        IdpIssuer = "https://www.okta.com/${org.externalKey}",
+                        Audience = "https://example.com/tenant/123",
+                        Recipient = "https://recipient.okta.com",
+                        Destination = "https://destination.okta.com",
+                        SubjectNameIdTemplate = "${user.userName}",
+                        SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+                        ResponseSigned = true,
+                        AssertionSigned = true,
+                        SignatureAlgorithm = "RSA_SHA256",
+                        DigestAlgorithm = "SHA256",
+                        HonorForceAuthn = true,
+                        AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified",
+                        Slo = new SingleLogout()
+                        {
+                            Enabled = true,
+                            Issuer = "http://testorgone.okta.com",
+                            LogoutUrl = "http://testorgone.okta.com/logout"
+                        }
+                    }
+                },
+                Visibility = new ApplicationVisibility
+                {
+                    AutoLaunch = true,
+                    AutoSubmitToolbar = true,
+                },
+            };
+
+            var createdApp = (await _applicationApi.CreateApplicationAsync(samlApp)) as SamlApplication;
+
+            try
+            {
+                createdApp.Should().NotBeNull();
+                createdApp.Id.Should().NotBeNullOrEmpty();
+                createdApp.SignOnMode.Value.Should().Be("SAML_2_0");
+                createdApp.Name.Should().NotBeNull();
+                createdApp.Label.Should().Be(samlApp.Label);
+                int count = createdApp.Settings.SignOn.AttributeStatements.Count;
+                createdApp.Settings.SignOn.AttributeStatements.Add(new SamlAttributeStatement
+                {
+                    Name = "JobTitle",
+                    Values = new List<string>(new string[]{"engineer", "developer"})
+                });
+
+                await _applicationApi.ReplaceApplicationAsync(createdApp.Id, createdApp);
+                
+                var retrievedApp = (await _applicationApi.GetApplicationAsync(createdApp.Id)) as SamlApplication;
+                retrievedApp.Should().NotBeNull();
+                retrievedApp.Settings.SignOn.AttributeStatements.Count.Should().Be(count + 1);
+            }
+            finally
+            {
+                await _applicationApi.DeactivateApplicationAsync(createdApp.Id);
+                await _applicationApi.DeleteApplicationAsync(createdApp.Id);
             }
         }
     }
