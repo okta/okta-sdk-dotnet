@@ -744,7 +744,7 @@ namespace Okta.Sdk.IntegrationTest
                     Provider = new AuthenticationProvider
                     {
                         Type = AuthenticationProviderType.FEDERATION,
-                        //Name = "FEDERATION",
+                        Name = "FEDERATION",
                     }
                 }
             };
