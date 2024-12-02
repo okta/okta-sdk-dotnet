@@ -46,16 +46,8 @@ namespace Okta.Sdk.Model
         /// </summary>
         /// <value>The name of the authentication provider</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
-        /// <summary>
-        /// Returns false as Name should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeName()
-        {
-            return false;
-        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

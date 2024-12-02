@@ -5,7 +5,7 @@ Specifies the authentication provider that validates the user's password credent
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | The name of the authentication provider | [optional] [readonly] 
+**Name** | **string** | The name of the authentication provider | [optional] 
 **Type** | **AuthenticationProviderType** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
