@@ -165,6 +165,8 @@ docs/AuthorizationServerKeysApi.md
 docs/AuthorizationServerPoliciesApi.md
 docs/AuthorizationServerPolicy.md
 docs/AuthorizationServerPolicyConditions.md
+docs/AuthorizationServerPolicyLinks.md
+docs/AuthorizationServerPolicyLinksAllOfRules.md
 docs/AuthorizationServerPolicyPeopleCondition.md
 docs/AuthorizationServerPolicyRule.md
 docs/AuthorizationServerPolicyRuleActions.md
@@ -1515,6 +1517,8 @@ src/Okta.Sdk/Model/AuthorizationServerCredentialsUse.cs
 src/Okta.Sdk/Model/AuthorizationServerJsonWebKey.cs
 src/Okta.Sdk/Model/AuthorizationServerPolicy.cs
 src/Okta.Sdk/Model/AuthorizationServerPolicyConditions.cs
+src/Okta.Sdk/Model/AuthorizationServerPolicyLinks.cs
+src/Okta.Sdk/Model/AuthorizationServerPolicyLinksAllOfRules.cs
 src/Okta.Sdk/Model/AuthorizationServerPolicyPeopleCondition.cs
 src/Okta.Sdk/Model/AuthorizationServerPolicyRule.cs
 src/Okta.Sdk/Model/AuthorizationServerPolicyRuleActions.cs

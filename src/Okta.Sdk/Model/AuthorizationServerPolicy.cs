@@ -154,7 +154,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "_links", EmitDefaultValue = true)]
-        public LinksSelfAndLifecycle Links { get; set; }
+        public AuthorizationServerPolicyLinks Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

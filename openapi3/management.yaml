@@ -34304,52 +34304,51 @@ components:
         _links:
           $ref: '#/components/schemas/LinksSelf'
     AuthorizationServerPolicy:
-      allOf:
-        - type: object
-          properties:
-            id:
-              type: string
-              description: ID of the Policy
-            type:
-              type: string
-              description: Indicates that the Policy is an authorization server Policy
-              enum:
-                - OAUTH_AUTHORIZATION_POLICY
-            name:
-              type: string
-              description: Name of the Policy
-            conditions:
-              $ref: '#/components/schemas/AuthorizationServerPolicyConditions'
-            description:
-              type: string
-              description: Description of the Policy
-            priority:
-              type: integer
-              description: Specifies the order in which this Policy is evaluated in relation to the other Policies in a custom authorization server
-            status:
-              $ref: '#/components/schemas/AuthorizationServerPolicyStatus'
-            system:
-              type: boolean
-              description: Specifies whether Okta created this Policy
-            created:
-              type: string
-              format: date-time
-              readOnly: true
-              description: Timestamp when the Policy was created
-            lastUpdated:
-              type: string
-              format: date-time
-              readOnly: true
-              description: Timestamp when the Policy was last updated
-            _links:
-              allOf:
-                - $ref: '#/components/schemas/LinksSelfAndLifecycle'
-                - type: object
-                  properties:
-                    rules:
-                      allOf:
-                        - description: Link to the authorization server policy's rules
-                        - $ref: '#/components/schemas/HrefObject'
+        type: object
+        properties:
+          id:
+            type: string
+            description: ID of the Policy
+          type:
+            type: string
+            description: Indicates that the Policy is an authorization server Policy
+            enum:
+              - OAUTH_AUTHORIZATION_POLICY
+          name:
+            type: string
+            description: Name of the Policy
+          conditions:
+            $ref: '#/components/schemas/AuthorizationServerPolicyConditions'
+          description:
+            type: string
+            description: Description of the Policy
+          priority:
+            type: integer
+            description: Specifies the order in which this Policy is evaluated in relation to the other Policies in a custom authorization server
+          status:
+            $ref: '#/components/schemas/AuthorizationServerPolicyStatus'
+          system:
+            type: boolean
+            description: Specifies whether Okta created this Policy
+          created:
+            type: string
+            format: date-time
+            readOnly: true
+            description: Timestamp when the Policy was created
+          lastUpdated:
+            type: string
+            format: date-time
+            readOnly: true
+            description: Timestamp when the Policy was last updated
+          _links:
+            allOf:
+              - $ref: '#/components/schemas/LinksSelfAndLifecycle'
+              - type: object
+                properties:
+                  rules:
+                    allOf:
+                      - description: Link to the authorization server policy's rules
+                      - $ref: '#/components/schemas/HrefObject'
     AuthorizationServerPolicyConditions:
       type: object
       properties:

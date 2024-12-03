@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **System** | **bool** | Specifies whether Okta created this Policy | [optional] 
 **Created** | **DateTimeOffset** | Timestamp when the Policy was created | [optional] [readonly] 
 **LastUpdated** | **DateTimeOffset** | Timestamp when the Policy was last updated | [optional] [readonly] 
-**Links** | [**LinksSelfAndLifecycle**](LinksSelfAndLifecycle.md) |  | [optional] 
+**Links** | [**AuthorizationServerPolicyLinks**](AuthorizationServerPolicyLinks.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
