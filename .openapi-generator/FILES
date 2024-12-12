@@ -713,7 +713,6 @@ docs/OSVersionFourComponents.md
 docs/OSVersionThreeComponents.md
 docs/Office365Application.md
 docs/Office365ApplicationSettings.md
-docs/Office365ApplicationSettingsApplication.md
 docs/Office365ProvisioningSettings.md
 docs/Oidc.md
 docs/OktaApplicationSettingsApi.md
@@ -2039,7 +2038,6 @@ src/Okta.Sdk/Model/OSVersionFourComponents.cs
 src/Okta.Sdk/Model/OSVersionThreeComponents.cs
 src/Okta.Sdk/Model/Office365Application.cs
 src/Okta.Sdk/Model/Office365ApplicationSettings.cs
-src/Okta.Sdk/Model/Office365ApplicationSettingsApplication.cs
 src/Okta.Sdk/Model/Office365ProvisioningSettings.cs
 src/Okta.Sdk/Model/Oidc.cs
 src/Okta.Sdk/Model/OktaDeviceRiskChangeEvent.cs
