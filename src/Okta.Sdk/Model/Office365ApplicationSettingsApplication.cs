@@ -47,6 +47,13 @@ namespace Okta.Sdk.Model
         public string Domain { get; set; }
 
         /// <summary>
+        /// A list of the domains for your Office 365 account
+        /// </summary>
+        /// <value>A list of the domains for your Office 365 account</value>
+        [DataMember(Name = "domains", EmitDefaultValue = true)]
+        public List<string> Domains { get; set; }
+
+        /// <summary>
         /// Microsoft tenant name
         /// </summary>
         /// <value>Microsoft tenant name</value>
@@ -62,6 +69,7 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class Office365ApplicationSettingsApplication {\n");
             sb.Append("  Domain: ").Append(Domain).Append("\n");
+            sb.Append("  Domains: ").Append(Domains).Append("\n");
             sb.Append("  MsftTenant: ").Append(MsftTenant).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -104,6 +112,12 @@ namespace Okta.Sdk.Model
                     this.Domain.Equals(input.Domain))
                 ) && 
                 (
+                    this.Domains == input.Domains ||
+                    this.Domains != null &&
+                    input.Domains != null &&
+                    this.Domains.SequenceEqual(input.Domains)
+                ) && 
+                (
                     this.MsftTenant == input.MsftTenant ||
                     (this.MsftTenant != null &&
                     this.MsftTenant.Equals(input.MsftTenant))
@@ -123,6 +137,10 @@ namespace Okta.Sdk.Model
                 if (this.Domain != null)
                 {
                     hashCode = (hashCode * 59) + this.Domain.GetHashCode();
+                }
+                if (this.Domains != null)
+                {
+                    hashCode = (hashCode * 59) + this.Domains.GetHashCode();
                 }
                 if (this.MsftTenant != null)
                 {

@@ -40636,6 +40636,11 @@ components:
         domain:
           type: string
           description: The domain for your Office 365 account
+        domains:
+          type: array
+          description: A list of the domains for your Office 365 account
+          items: 
+            type: string
         msftTenant:
           type: string
           description: Microsoft tenant name
