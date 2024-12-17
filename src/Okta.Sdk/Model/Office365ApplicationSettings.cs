@@ -73,7 +73,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets App
         /// </summary>
         [DataMember(Name = "app", EmitDefaultValue = true)]
-        public Office365ApplicationSettingsApplication App { get; set; }
+        public Dictionary<string, string> App { get; set; }
 
         /// <summary>
         /// Gets or Sets SignOn
@@ -157,8 +157,9 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.App == input.App ||
-                    (this.App != null &&
-                    this.App.Equals(input.App))
+                    this.App != null &&
+                    input.App != null &&
+                    this.App.SequenceEqual(input.App)
                 ) && 
                 (
                     this.SignOn == input.SignOn ||

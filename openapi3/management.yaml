@@ -40626,22 +40626,11 @@ components:
             - app
           properties:
             app:
-              $ref: '#/components/schemas/Office365ApplicationSettingsApplication'
+              type: object
+              additionalProperties:
+                type: string
             signOn:
               $ref: '#/components/schemas/OINSaml11ApplicationSettingsSignOn'
-    Office365ApplicationSettingsApplication:
-      description: Office365 app instance properties
-      type: object
-      properties:
-        domain:
-          type: string
-          description: The domain for your Office 365 account
-        msftTenant:
-          type: string
-          description: Microsoft tenant name
-      required:
-        - msftTenant
-        - domain
     Office365ProvisioningSettings:
       x-okta-lifecycle:
         lifecycle: GA
