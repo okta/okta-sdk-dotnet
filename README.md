@@ -184,7 +184,7 @@ var configuration = new Configuration
     OktaDomain = "https://{{yourOktaDomain}}",
     AuthorizationMode = AuthorizationMode.PrivateKey,
     ClientId = "{{clientId}}",
-    Scopes = new List<string> { "okta.users.read", "okta.apps.read" }, // Add all the scopes you need
+    Scopes = new HashSet<string> { "okta.users.read", "okta.apps.read" }, // Add all the scopes you need
     PrivateKey = privateKey
 };
 
