@@ -1,6 +1,10 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 9.0.4
+### Fixed
+- Handling of Multiple Scopes in Okta .NET SDK v9 (#753)
+
 ## 9.0.0
 ### Fixed
 
