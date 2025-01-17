@@ -61,8 +61,7 @@ Task("Test")
 .IsDependentOn("Build")
 .Does(() =>
 {
-    var testProjects = new[] { "Okta.Sdk.UnitTest" };
-    // For now, we won't run integration tests in CI
+    var testProjects = new[] { "Okta.Sdk.UnitTest", "Okta.Sdk.IntegrationTest" };
 
     foreach (var name in testProjects)
     {
