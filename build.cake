@@ -62,8 +62,7 @@ Task("Test")
 .Does(() =>
 {
     var testProjects = new[] { "Okta.Sdk.UnitTest" };
-    // For now, we won't run integration tests in CI
-
+    //Run Integration tests on internal repo
     foreach (var name in testProjects)
     {
         DotNetCoreTest(string.Format("./src/{0}/{0}.csproj", name));
