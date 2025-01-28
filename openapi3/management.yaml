@@ -18127,7 +18127,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserGetSingleton'
+                $ref: '#/components/schemas/User'
         '403':
           description: Forbidden
           content:
@@ -46767,20 +46767,6 @@ components:
           description: ID for the Factor credential
           example: dade.murphy@example.com
           type: string
-    UserGetSingleton:
-      allOf:
-        - $ref: '#/components/schemas/User'
-        - type: object
-          properties:
-            _embedded:
-              type: object
-              description: The embedded resources related to the object if the `expand` query parameter is specified
-              properties:
-                blocks:
-                  type: array
-                  description: A list of access block details for the user account
-                  items:
-                    $ref: '#/components/schemas/UserBlock'
     UserIdentifierConditionEvaluatorPattern:
       description: Used in the User Identifier Condition object. Specifies the details of the patterns to match against.
       type: object

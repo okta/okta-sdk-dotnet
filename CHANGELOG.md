@@ -1,9 +1,25 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 9.1.0
+## Fixed
+- GetUser method now returns `User` instead of `UserGetSingleton`.  
+
+> While this is technically a breaking change, the existence and use of `UserGetSingleton` was an obvious mistake rendering the method unusable, hence the minor version increment instead of major version increment.
+
 ## 9.0.4
 ### Fixed
-- Handling of Multiple Scopes in Okta .NET SDK v9 (#753)
+- Handling multiple scopes no longer causes exception.
+
+## 9.0.3
+### Fixed
+- CreateFederatedUser creates federated user instead of user in pending activation state
+- Change Office365ApplicationSettings.App to dictionary
+
+## 9.0.1
+### Fixed
+- AuthorizationServerPolicy model definition
+- AppLink model definition
 
 ## 9.0.0
 ### Fixed
