@@ -1117,7 +1117,7 @@ Name | Type | Description  | Notes
 
 <a name="getuser"></a>
 # **GetUser**
-> UserGetSingleton GetUser (string userId, string expand = null)
+> User GetUser (string userId, string expand = null)
 
 Retrieve a User
 
@@ -1151,7 +1151,7 @@ namespace Example
             try
             {
                 // Retrieve a User
-                UserGetSingleton result = apiInstance.GetUser(userId, expand);
+                User result = apiInstance.GetUser(userId, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1174,7 +1174,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserGetSingleton**](UserGetSingleton.md)
+[**User**](User.md)
 
 ### Authorization
 

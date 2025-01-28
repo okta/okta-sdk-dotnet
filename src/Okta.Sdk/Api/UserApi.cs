@@ -366,8 +366,8 @@ namespace Okta.Sdk.Api
         /// <param name="userId">ID of an existing Okta user</param>
         /// <param name="expand">An optional parameter to include metadata in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;blocks&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of UserGetSingleton</returns>
-        System.Threading.Tasks.Task<UserGetSingleton> GetUserAsync(  string userId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of User</returns>
+        System.Threading.Tasks.Task<User> GetUserAsync(  string userId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a User
         /// </summary>
@@ -378,8 +378,8 @@ namespace Okta.Sdk.Api
         /// <param name="userId">ID of an existing Okta user</param>
         /// <param name="expand">An optional parameter to include metadata in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;blocks&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UserGetSingleton)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserGetSingleton>> GetUserWithHttpInfoAsync(  string userId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (User)</returns>
+        System.Threading.Tasks.Task<ApiResponse<User>> GetUserWithHttpInfoAsync(  string userId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a User Grant
         /// </summary>
@@ -2351,10 +2351,10 @@ namespace Okta.Sdk.Api
         /// <param name="userId">ID of an existing Okta user</param>
         /// <param name="expand">An optional parameter to include metadata in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;blocks&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of UserGetSingleton</returns>
-        public async System.Threading.Tasks.Task<UserGetSingleton> GetUserAsync(  string userId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of User</returns>
+        public async System.Threading.Tasks.Task<User> GetUserAsync(  string userId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<UserGetSingleton> localVarResponse = await GetUserWithHttpInfoAsync(userId, expand, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<User> localVarResponse = await GetUserWithHttpInfoAsync(userId, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
@@ -2364,8 +2364,8 @@ namespace Okta.Sdk.Api
         /// <param name="userId">ID of an existing Okta user</param>
         /// <param name="expand">An optional parameter to include metadata in the &#x60;_embedded&#x60; attribute. Valid value: &#x60;blocks&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UserGetSingleton)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserGetSingleton>> GetUserWithHttpInfoAsync(  string userId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (User)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<User>> GetUserWithHttpInfoAsync(  string userId ,   string expand = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2420,7 +2420,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<UserGetSingleton>("/api/v1/users/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<User>("/api/v1/users/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
