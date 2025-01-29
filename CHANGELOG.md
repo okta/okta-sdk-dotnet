@@ -9,7 +9,7 @@ Running changelog of releases since `3.1.1`
 
 ## 9.0.4
 ### Fixed
-- Handling multiple scopes no longer causes exception.
+- Handling of Multiple Scopes in Okta .NET SDK v9 (#753)
 
 ## 9.0.3
 ### Fixed
