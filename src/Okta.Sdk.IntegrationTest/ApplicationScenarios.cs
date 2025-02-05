@@ -83,7 +83,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 var retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id) as BookmarkApplication;
-                retrievedApp.Name.Should().Be("bookmark");
+                retrievedApp.Name.Value.Should().Be("bookmark");
                 retrievedApp.Label.Should().Be($"dotnet-sdk: AddBookmarkApp {guid}");
                 retrievedApp.SignOnMode.Value.Should().Be("BOOKMARK");
                 retrievedApp.Settings.App.RequestIntegration.Should().Be(false);
@@ -162,7 +162,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as BasicAuthApplication;
-                retrieved.Name.Should().Be("template_basic_auth");
+                retrieved.Name.Value.Should().Be("template_basic_auth");
                 retrieved.Label.Should().Be($"dotnet-sdk: AddBasicAuthenticationApp {guid}");
                 retrieved.SignOnMode.Value.Should().Be("BASIC_AUTH");
 
