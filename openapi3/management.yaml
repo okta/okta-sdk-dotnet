@@ -39734,6 +39734,13 @@ components:
           format: date-time
           description: Timestamp when the object was created
           readOnly: true
+        gateways:
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkZoneAddress'
+          description: |-
+            IP network zone property: the IP addresses (range or CIDR form) of this zone.
+            The maximum array length is 150 entries for admin-created IP zones, 1000 entries for IP blocklist zones, and 5000 entries for the default system IP Zone.  
         id:
           type: string
           description: Unique identifier for the Network Zone

@@ -80,6 +80,13 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
+        /// IP network zone property: the IP addresses (range or CIDR form) of this zone. The maximum array length is 150 entries for admin-created IP zones, 1000 entries for IP blocklist zones, and 5000 entries for the default system IP Zone.  
+        /// </summary>
+        /// <value>IP network zone property: the IP addresses (range or CIDR form) of this zone. The maximum array length is 150 entries for admin-created IP zones, 1000 entries for IP blocklist zones, and 5000 entries for the default system IP Zone.  </value>
+        [DataMember(Name = "gateways", EmitDefaultValue = true)]
+        public List<NetworkZoneAddress> Gateways { get; set; }
+
+        /// <summary>
         /// Unique identifier for the Network Zone
         /// </summary>
         /// <value>Unique identifier for the Network Zone</value>
@@ -146,6 +153,7 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class NetworkZone {\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  Gateways: ").Append(Gateways).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -193,6 +201,12 @@ namespace Okta.Sdk.Model
                     this.Created == input.Created ||
                     (this.Created != null &&
                     this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.Gateways == input.Gateways ||
+                    this.Gateways != null &&
+                    input.Gateways != null &&
+                    this.Gateways.SequenceEqual(input.Gateways)
                 ) && 
                 (
                     this.Id == input.Id ||
@@ -245,6 +259,10 @@ namespace Okta.Sdk.Model
                 if (this.Created != null)
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();
+                }
+                if (this.Gateways != null)
+                {
+                    hashCode = (hashCode * 59) + this.Gateways.GetHashCode();
                 }
                 if (this.Id != null)
                 {
