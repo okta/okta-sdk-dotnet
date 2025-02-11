@@ -52,8 +52,9 @@ This library uses semantic versioning and follows Okta's [library version policy
 
 | Version | Status                    |
 | ------- | ------------------------- |
-| 7.x | :heavy_check_mark: Stable ([migration guide](MIGRATING.md))|
-| 6.x | :warning: Retiring on May 9th 2024 |
+| 9.x | :heavy_check_mark: Stable ([migration guide](MIGRATING.md))|
+| 8.x | :warning: Retiring on April 3rd 2025 |
+| 7.x | :stop_sign: Retired on December 11th 2024 |
  
 The latest release can always be found on the [releases page][github-releases]. For more information about our SDKs' lifecycle, check out [our docs](https://developer.okta.com/code/library-versions/).
 
