@@ -47,13 +47,13 @@ You can learn more on the [Okta + .NET][lang-landing] page in our documentation.
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/).
 
-:heavy_check_mark: The current stable major version series is: 6.x
-:heavy_check_mark: The 5.x series is retiring on June 8th 2023. Until then, we will only fix high-risk security vulnerabilities and other issues will be reviewed on a case-by-case basis. New APIs will be added only on series 6.x, but you can still use the 5.x series to call any new endpoint. The SDK will be still available on Nuget, and the source-code is located in the `legacy-5.x-series` [branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy-5.x-series). Please, reach out to the Okta Customer Support Team at developers@okta.com if you have any questions or issues.
+:heavy_check_mark: The current stable major version series is: 9.x
+:heavy_check_mark: The 8.x series is retiring on April 3rd 2025. Until then, we will only fix high-risk security vulnerabilities and other issues will be reviewed on a case-by-case basis. New APIs will be added only on series 9.x. Please, reach out to the Okta Customer Support Team at developers@okta.com if you have any questions or issues.
 
 | Version | Status                    |
 | ------- | ------------------------- |
-| 7.x | :heavy_check_mark: Stable ([migration guide](MIGRATING.md))|
-| 6.x | :warning: Retiring on May 9th 2024 |
+| 9.x | :heavy_check_mark: Stable ([migration guide](MIGRATING.md))|
+| 8.x | :warning: Retiring on April 3rd 2025 |
  
 The latest release can always be found on the [releases page][github-releases]. For more information about our SDKs' lifecycle, check out [our docs](https://developer.okta.com/code/library-versions/).
 
