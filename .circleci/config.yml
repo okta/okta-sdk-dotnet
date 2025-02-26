@@ -33,7 +33,8 @@ jobs:
             - .git
       - when:
           condition:
-            - equal: [ "<<pipeline.git.branch>>", "master" ]
+            or:
+              - equal: [ "<<pipeline.git.branch>>", "master" ]
           steps:
             - general-platform-helpers/step-artifacts-prepare-and-upload-windows:
                 files-to-upload: "artifacts"
@@ -46,13 +47,13 @@ jobs:
     steps:
       - checkout
       - run: 
-        name: "Install wget"
-        command: |
-            choco install wget -y
+          name: "Install wget"
+          command: |
+              choco install wget -y
       - run:
           name: "Download node msi package"
           command: |
-            wget https://nodejs.org/dist/v16.17.0/node-v16.17.0-x86.msi -P C:\Users\circleci\Downloads\
+             wget https://nodejs.org/dist/v16.17.0/node-v16.17.0-x86.msi -P C:\Users\circleci\Downloads\
           shell: cmd.exe
       - run: 
           name: "Install node msi package"
