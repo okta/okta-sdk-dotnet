@@ -111,6 +111,10 @@ workflows:
           requires:
             - build
   "Transform Regenerate Test":
+    when:
+    condition:
+      or:
+        - equal: [ "<<pipeline.git.branch>>", "test" ]
     jobs:
       - transform-regenerate
   "Semgrep":
