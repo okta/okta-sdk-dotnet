@@ -110,7 +110,7 @@ workflows:
             - static-analysis
           requires:
             - build
-  "Transform Regenerate Test":
+  "Transform -> Regenerate -> Test":
     jobs:
       - transform-regenerate
   "Semgrep":
