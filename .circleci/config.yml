@@ -110,9 +110,13 @@ workflows:
             - static-analysis
           requires:
             - build
-  "Transform Regenerate Test":
+  "Transform -> Regenerate -> Test":
     jobs:
-      - transform-regenerate
+      - transform-regenerate:
+          filters:
+            branches:
+              only:
+                - test
   "Semgrep":
     jobs:
       - platform-helpers/job-semgrep-scan:
