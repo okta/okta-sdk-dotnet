@@ -44,11 +44,11 @@ jobs:
     executor:
       name: windows/default
     steps:
-    - when:
+      - checkout
+      - when:
         condition:
           - equal: [ "<<pipeline.git.branch>>", "test" ]
         steps:
-          - checkout
           - run: 
               name: "Install wget"
               command: |
