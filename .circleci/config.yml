@@ -45,47 +45,43 @@ jobs:
       name: windows/default
     steps:
       - checkout
-      - when:
-          condition:
-            - equal: [ "<<pipeline.git.branch>>", "test" ]
-          steps:
-            - run: 
-                name: "Install wget"
-                command: |
-                    choco install wget -y
-            - run:
-                name: "Download node msi package"
-                command: |
-                  wget https://nodejs.org/dist/v16.17.0/node-v16.17.0-x86.msi -P C:\Users\circleci\Downloads\
-                shell: cmd.exe
-            - run: 
-                name: "Install node msi package"
-                command: |
-                    MsiExec.exe /i C:\Users\circleci\Downloads\node-v16.17.0-x86.msi /qn
-            - run: 
-                name: "Use nvm to install and use node"
-                command: |
-                    Start-Process powershell -verb runAs -Args "-start GeneralProfile"
-                    nvm install 16.17.0
-                    nvm use 16.17.0
-            - run:
-                name: "Install openapi-generator-cli"
-                command: |
-                    npm install @openapitools/openapi-generator-cli -g
-            - run:
-                name: "Transform spec"
-                command: |
-                    ./.okta/transform-spec.sh
-                shell: bash.exe
-            - run:
-                name: "Regenerate SDK"
-                command: |
-                    ./.okta/regenerate.sh
-                shell: bash.exe
-            - run:
-                name: "Build and Test"
-                command: |
-                    ./build.ps1;
+      - run: 
+        name: "Install wget"
+        command: |
+            choco install wget -y
+    - run:
+        name: "Download node msi package"
+        command: |
+          wget https://nodejs.org/dist/v16.17.0/node-v16.17.0-x86.msi -P C:\Users\circleci\Downloads\
+        shell: cmd.exe
+    - run: 
+        name: "Install node msi package"
+        command: |
+            MsiExec.exe /i C:\Users\circleci\Downloads\node-v16.17.0-x86.msi /qn
+    - run: 
+        name: "Use nvm to install and use node"
+        command: |
+            Start-Process powershell -verb runAs -Args "-start GeneralProfile"
+            nvm install 16.17.0
+            nvm use 16.17.0
+    - run:
+        name: "Install openapi-generator-cli"
+        command: |
+            npm install @openapitools/openapi-generator-cli -g
+    - run:
+        name: "Transform spec"
+        command: |
+            ./.okta/transform-spec.sh
+        shell: bash.exe
+    - run:
+        name: "Regenerate SDK"
+        command: |
+            ./.okta/regenerate.sh
+        shell: bash.exe
+    - run:
+        name: "Build and Test"
+        command: |
+            ./build.ps1;
 
   snyk-scan:
     docker:
