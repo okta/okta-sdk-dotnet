@@ -112,7 +112,11 @@ workflows:
             - build
   "Transform -> Regenerate -> Test":
     jobs:
-      - transform-regenerate
+      - transform-regenerate:
+          filters:
+            branches:
+              only:
+                - test
   "Semgrep":
     jobs:
       - platform-helpers/job-semgrep-scan:
