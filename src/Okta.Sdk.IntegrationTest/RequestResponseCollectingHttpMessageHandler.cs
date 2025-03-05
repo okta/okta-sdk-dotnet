@@ -6,9 +6,9 @@ using Okta.Sdk.Abstractions;
 
 namespace Okta.Sdk.Integration.Tests;
 
-public class RequestCollectingHttpMessageHandler : HttpClientHandler
+public class RequestResponseCollectingHttpMessageHandler : HttpClientHandler
 {
-    public RequestCollectingHttpMessageHandler()
+    public RequestResponseCollectingHttpMessageHandler()
     {
         this.RequestMessages = new HashSet<HttpRequestMessage>();
         this.ResponseMessages = new HashSet<HttpResponseMessage>();

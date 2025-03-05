@@ -74,13 +74,13 @@ namespace Okta.Sdk.IntegrationTest
         public async Task UseHttpMessageHandlerAndInterceptors()
         {
             // This test shows that the HttpRequestMessages and HttpResponseMessages handled by an Interceptor
-            // are the same requests and responses handled by an HttpMessageHandler.  
+            // are the same requests and responses handled by a custom HttpMessageHandler.  
             // A consumer has the option to use Interceptors or a custom HttpMessageHandler to 
             // further customize behavior as appropriate for their application.
             
             Interceptor substituteInterceptor = Substitute.For<Interceptor>();
             
-            RequestCollectingHttpMessageHandler testHttpMessageHandler = new RequestCollectingHttpMessageHandler();
+            RequestResponseCollectingHttpMessageHandler testHttpMessageHandler = new RequestResponseCollectingHttpMessageHandler();
             RequestResponseCollectingInterceptor testInterceptor = new RequestResponseCollectingInterceptor();
         
             UserApi userApi = OktaApiClientOptions
