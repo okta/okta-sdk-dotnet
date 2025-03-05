@@ -1,6 +1,6 @@
 using Xunit.Abstractions;
 
-namespace Okta.Sdk.UnitTest.Interceptors;
+namespace Okta.Sdk.Extensions;
 
 public class XUnitTestOutput : IOutput
 {

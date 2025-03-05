@@ -3,8 +3,11 @@ using System.Text;
 using RestSharp;
 using RestSharp.Interceptors;
 
-namespace Okta.Sdk.UnitTest.Interceptors;
+namespace Okta.Sdk.Extensions;
 
+/// <summary>
+/// An interceptor that writes request and response details to a given output.
+/// </summary>
 public class OutputInterceptor : Interceptor
 {
     public OutputInterceptor(IOutput output)
@@ -12,14 +15,14 @@ public class OutputInterceptor : Interceptor
         this.Output = output;
     }
 
-    protected IOutput Output { get; set; }
-    
-    protected async ValueTask WriteAsync(string message)
+    private IOutput Output { get; set; }
+
+    private async ValueTask WriteAsync(string message)
     {
         await Output.WriteAsync(message);
     }
     
-    protected virtual async Task<string> GetStringAsync(RestRequest request, object state = null, CancellationToken cancellationToken = default)
+    protected virtual async Task<string> GetRestRequestStringAsync(RestRequest request, object state = null)
     {
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -35,7 +38,7 @@ public class OutputInterceptor : Interceptor
         if (request.CookieContainer != null)
         {
             stringBuilder.AppendLine("**Cookies**");
-            foreach (Cookie cookie in request.CookieContainer.GetAllCookies())
+            foreach (Cookie cookie in request.CookieContainer.GetCookies(new Uri(request.Resource)))
             {
                 stringBuilder.AppendLine($"{cookie.Name}: {cookie.Value}");
             }
@@ -44,7 +47,7 @@ public class OutputInterceptor : Interceptor
         return stringBuilder.ToString();
     }
 
-    protected virtual async Task<string> GetStringAsync(RestResponse response, object state = null, CancellationToken cancellationToken = default)
+    protected virtual async Task<string> GetRestResponseStringAsync(RestResponse response, object state = null, CancellationToken cancellationToken = default)
     {
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -68,7 +71,7 @@ public class OutputInterceptor : Interceptor
         return stringBuilder.ToString();
     }
 
-    protected virtual async Task<string> GetStringAsync(HttpRequestMessage requestMessage, object state = null, CancellationToken cancellationToken = default)
+    protected virtual async Task<string> GetHttpRequestStringAsync(HttpRequestMessage requestMessage, object state = null, CancellationToken cancellationToken = default)
     {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.AppendLine($"***{state.GetProperty<string>("Info")}***");
@@ -82,12 +85,12 @@ public class OutputInterceptor : Interceptor
         if (requestMessage.Content != null)
         {
             stringBuilder.AppendLine();
-            stringBuilder.AppendLine(await requestMessage.Content.ReadAsStringAsync(cancellationToken));
+            stringBuilder.AppendLine(await requestMessage.Content.ReadAsStringAsync());
         }
         return stringBuilder.ToString();
     }
     
-    protected virtual async Task<string> GetStringAsync(HttpResponseMessage responseMessage, object state = null,
+    protected virtual async Task<string> GetHttpResponseStringAsync(HttpResponseMessage responseMessage, object state = null,
         CancellationToken cancellationToken = default)
     {
         StringBuilder stringBuilder = new StringBuilder();
@@ -98,57 +101,57 @@ public class OutputInterceptor : Interceptor
             stringBuilder.AppendLine($"{header.Key}: {string.Join(",", header.Value)}");
         }
 
-        stringBuilder.AppendLine(await responseMessage.Content.ReadAsStringAsync(cancellationToken));
+        stringBuilder.AppendLine(await responseMessage.Content.ReadAsStringAsync());
         return stringBuilder.ToString();
     }
 
-    protected virtual async ValueTask WriteAsync(RestRequest request, dynamic state = null, CancellationToken cancellationToken = default)
+    protected virtual async ValueTask WriteRestRequestAsync(RestRequest request, dynamic state = null, CancellationToken cancellationToken = default)
     {
-        string output = await GetStringAsync(request, state, cancellationToken);
+        string output = await GetRestRequestStringAsync(request, state);
         await WriteAsync(output);
     }
 
-    protected virtual async ValueTask WriteAsync(RestResponse response, dynamic state = null, CancellationToken cancellationToken = default)
+    protected virtual async ValueTask WriteRestResponseAsync(RestResponse response, dynamic state = null, CancellationToken cancellationToken = default)
     {
-        string output = await GetStringAsync(response, state, cancellationToken);
+        string output = await GetRestResponseStringAsync(response, state, cancellationToken);
         await WriteAsync(output);
     }
 
-    protected virtual async ValueTask WriteAsync(HttpRequestMessage requestMessage, dynamic state = null, CancellationToken cancellationToken = default)
+    protected virtual async ValueTask WriteHttpRequestAsync(HttpRequestMessage requestMessage, dynamic state = null, CancellationToken cancellationToken = default)
     {
-        string output = await GetStringAsync(requestMessage, state, cancellationToken);
+        string output = await GetHttpRequestStringAsync(requestMessage, state, cancellationToken);
         await WriteAsync(output);
     }
 
-    protected virtual async ValueTask WriteAsync(HttpResponseMessage responseMessage, dynamic state = null,
+    protected virtual async ValueTask WriteHttpResponseAsync(HttpResponseMessage responseMessage, dynamic state = null,
         CancellationToken cancellationToken = default)
     {
-        string output = await GetStringAsync(responseMessage, state, cancellationToken);
+        string output = await GetHttpResponseStringAsync(responseMessage, state, cancellationToken);
         await WriteAsync(output);
     }
     
     public override async ValueTask BeforeRequest(RestRequest request, CancellationToken cancellationToken)
     {
-        await WriteAsync(request, new { Info = nameof(BeforeRequest) }, cancellationToken);
+        await WriteRestRequestAsync(request, new { Info = nameof(BeforeRequest) }, cancellationToken);
     }
 
     public override async ValueTask AfterRequest(RestResponse response, CancellationToken cancellationToken)
     {
-        await WriteAsync(response, new { Info = nameof(AfterRequest) }, cancellationToken);
+        await WriteRestResponseAsync(response, new { Info = nameof(AfterRequest) }, cancellationToken);
     }
 
     public override async ValueTask BeforeDeserialization(RestResponse response, CancellationToken cancellationToken)
     {
-        await WriteAsync(response, new { Info = nameof(BeforeDeserialization) }, cancellationToken);
+        await WriteRestResponseAsync(response, new { Info = nameof(BeforeDeserialization) }, cancellationToken);
     }
     
     public override async ValueTask BeforeHttpRequest(HttpRequestMessage requestMessage, CancellationToken cancellationToken)
     {
-        await WriteAsync(requestMessage, new { Info = nameof(BeforeHttpRequest) }, cancellationToken);
+        await WriteHttpRequestAsync(requestMessage, new { Info = nameof(BeforeHttpRequest) }, cancellationToken);
     }
 
     public override async ValueTask AfterHttpRequest(HttpResponseMessage responseMessage, CancellationToken cancellationToken)
     {
-        await WriteAsync(responseMessage, new { Info = nameof(AfterHttpRequest) }, cancellationToken);
+        await WriteHttpResponseAsync(responseMessage, new { Info = nameof(AfterHttpRequest) }, cancellationToken);
     }
 }

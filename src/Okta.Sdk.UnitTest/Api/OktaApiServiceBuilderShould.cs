@@ -64,6 +64,20 @@ public class OktaApiServiceBuilderShould
     }
 
     [Fact]
+    public async Task UseInterceptors()
+    {
+        OktaApiClientOptions options = OktaApiServiceBuilder
+            .UseApiClientOptions(new OktaApiClientOptions(Configuration.GetConfigurationOrDefault()))
+            .For<SubDependency>().Use<SubDependency>()
+            .For<IMockDependency>().Use<MockDependency>()
+            .UseInterceptor<MockInterceptor>()
+            .UseInterceptors(Substitute.For<Interceptor>(), Substitute.For<Interceptor>())
+            .GetOktaApiClientOptions();
+
+        options.Interceptors.Count.Should().Be(3);
+    }
+
+    [Fact]
     public async Task UseWebProxy()
     {
         WebProxy webProxy = new WebProxy(new Uri("https://my.webproxy.fake"));
@@ -87,20 +101,6 @@ public class OktaApiServiceBuilderShould
             .GetOktaApiClientOptions();
 
         options.OAuthTokenProvider.Should().Be(tokenProvider);
-    }
-    
-    [Fact]
-    public async Task UseInterceptors()
-    {
-        OktaApiClientOptions options = OktaApiServiceBuilder
-            .UseApiClientOptions(new OktaApiClientOptions(Configuration.GetConfigurationOrDefault()))
-            .For<SubDependency>().Use<SubDependency>()
-            .For<IMockDependency>().Use<MockDependency>()
-            .UseInterceptor<MockInterceptor>()
-            .UseInterceptors(Substitute.For<Interceptor>(), Substitute.For<Interceptor>())
-            .GetOktaApiClientOptions();
-
-        options.Interceptors.Count.Should().Be(3);
     }
 
     [Fact]

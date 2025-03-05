@@ -1,7 +1,7 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Okta.Sdk.UnitTest.Interceptors;
+namespace Okta.Sdk.Extensions;
 
 public class FileOutput : IOutput
 {

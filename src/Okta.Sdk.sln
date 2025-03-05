@@ -6,7 +6,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk", "Okta.Sdk\Okta.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk.UnitTest", "Okta.Sdk.UnitTest\Okta.Sdk.UnitTest.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Sdk.Support", "Okta.Sdk.Support\Okta.Sdk.Support.csproj", "{6CFDB742-9C70-46DB-9AB3-5F461443ADBB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Sdk.Extensions", "Okta.Sdk.Extensions\Okta.Sdk.Extensions.csproj", "{6CFDB742-9C70-46DB-9AB3-5F461443ADBB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Sdk.IntegrationTest", "Okta.Sdk.IntegrationTest\Okta.Sdk.IntegrationTest.csproj", "{E0F46A03-1D97-47B7-8F16-DE6ACEA0DC65}"
 EndProject

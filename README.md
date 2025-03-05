@@ -87,7 +87,7 @@ You'll also need:
 
 * An Okta account, called an _organization_ (sign up for a free [developer organization](https://developer.okta.com/signup) if you need one)
 * An [API token](https://developer.okta.com/docs/api/getting_started/getting_a_token)
- 
+
 ### Initialize an API client 
 
 Construct a client instance by passing it your Okta domain name and API token:
@@ -145,6 +145,12 @@ webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
 
 var appsApi = new ApplicationApi(webProxy : webProxy);
 ```
+
+### OktaApiClientOptions
+
+
+### OktaApiServiceBuilder
+
 
 ### OAuth 2.0
 
