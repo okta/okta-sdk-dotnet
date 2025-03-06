@@ -238,7 +238,7 @@ namespace Example
 }
 ```
 
-## Interceptors & Custom HttpMessageHandlers
+## Interceptors
 Beginning with Okta.Sdk version 9.2.0, using `OktaApiServiceBuilder` by way of `OktaApiClientOptions`, you can specify custom `Interceptors` to be used during API client operations.  Further, if your custom implementation has constructor dependencies, those dependencies should be specified using the `For` and `Use` methods defined on `OktaApiServiceBuilder`.
 
 ```csharp
@@ -285,6 +285,51 @@ namespace Example
 
 See also: 
 - [Implementing an interceptor](https://restsharp.dev/docs/advanced/interceptors/#implementing-an-interceptor)
+
+## Custom HttpMessageHandler
+Beginning with Okta.Sdk version 9.2.0, using `OktaApiServiceBuilder` by way of `OktaApiClientOptions`, you can specify custom `HttpMessageHandler` to be used during API client operations.  Further, if your custom implementation has constructor dependencies, those dependencies should be specified using the `For` and `Use` methods defined on `OktaApiServiceBuilder`.
+
+
+```csharp
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Extensions;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class Example
+    {
+        public static async Task Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://your-subdomain.okta.com";
+            config.Token = "YOUR_API_KEY";
+
+            var userApi = OktaApiClientOptions
+                .UseConfiguration(config)
+                .UseHttpMessageHandler(new HttpClientHandler()) // create a class that extends HttpClientHandler to customize behavior
+                .BuildApi<UserApi>();
+
+            try
+            {
+                // Get a list of users
+                Console.WriteLine("User Ids");
+                User[] users = await userApi.ListUsers().ToArrayAsync();
+                foreach (User user in users)
+                {
+                    Console.WriteLine(user.Id);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An exception occurred: " + e.Message);
+            }
+
+        }
+    }
+}
+```
 
 ### OAuth 2.0
 
