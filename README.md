@@ -142,7 +142,7 @@ var appsApi = new ApplicationApi(webProxy : webProxy);
 ```
 
 
-## OktaApiClientOptions & OktaApiServiceBuilder
+### Using OktaApiClientOptions & OktaApiServiceBuilder
 Beginning with Okta.Sdk version 9.2.0 you can use the `OktaApiClientOptions` class to instantiate API clients using a fluent builder syntax.  The static methods defined on `OktaApiClientOptions` return an instance of `OktaApiServiceBuilder` which provides a mechanism to specify more complex configuration options.
 
 ```csharp
