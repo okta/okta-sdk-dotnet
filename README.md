@@ -332,7 +332,7 @@ namespace Example
 }
 ```
 
-### OAuth 2.0
+## OAuth 2.0
 
 Okta allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
