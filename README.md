@@ -308,7 +308,8 @@ namespace Example
 
             var userApi = OktaApiClientOptions
                 .UseConfiguration(config)
-                .UseHttpMessageHandler(new HttpClientHandler()) // create a class that extends HttpClientHandler to customize behavior
+            // create a class that extends HttpClientHandler to customize behavior
+                .UseHttpMessageHandler(new HttpClientHandler()) 
                 .BuildApi<UserApi>();
 
             try
