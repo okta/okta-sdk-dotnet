@@ -263,6 +263,11 @@ namespace Okta.Sdk.Api
         private Okta.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
         private IOAuthTokenProvider _oAuthTokenProvider;
         
+        public ApplicationCredentialsApi(Okta.Sdk.Client.OktaApiClientOptions options) : this(options.Configuration, options.OAuthTokenProvider, options.WebProxy)
+        {
+            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(options);
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationCredentialsApi"/> class
         /// using Configuration object

@@ -12,16 +12,18 @@ using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;
 using WireMock.Server;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Okta.Sdk.UnitTest.Api
 {
     public class UsersApiTests
     {
         private readonly WireMockServer _server;
+        private ITestOutputHelper _output;
 
-
-        public UsersApiTests()
+        public UsersApiTests(ITestOutputHelper output)
         {
+            _output = output;
             _server = WireMockServer.Start();
         }
 
@@ -113,7 +115,8 @@ _server.Given(
             exception.Should().NotBeNull();
             exception.ErrorCode.Should().Be(429);
         }
-
+        
+        
         [Fact]
         public async Task PartialUpdateUserAsyncThrowOnRateLimitErrorAfterMaxRetriesWithOAuthToken()
         {

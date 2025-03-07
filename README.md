@@ -43,7 +43,7 @@ We also publish these other libraries for .NET:
  
 You can learn more on the [Okta + .NET][lang-landing] page in our documentation.
 
-## Release status
+# Release status
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/).
 
@@ -57,7 +57,7 @@ This library uses semantic versioning and follows Okta's [library version policy
  
 The latest release can always be found on the [releases page][github-releases]. For more information about our SDKs' lifecycle, check out [our docs](https://developer.okta.com/code/library-versions/).
 
-## Need help?
+# Need help?
  
 If you run into problems using the SDK, you can
  
@@ -65,7 +65,7 @@ If you run into problems using the SDK, you can
 * Post [issues][github-issues] here on GitHub (for code errors)
 
 
-## Getting Started
+# Getting Started
 
 The SDK is compatible with:
 
@@ -76,25 +76,24 @@ The SDK is compatible with:
 
 Visual Studio 2017 or newer is required as previous versions are not compatible with the above frameworks.
 
-### Install using Nuget Package Manager
+## Install using Nuget Package Manager
  1. Right-click on your project in the Solution Explorer and choose **Manage Nuget Packages...**
  2. Search for Okta. Install the `Okta.Sdk` package.
 
-### Install using The Package Manager Console
+## Install using The Package Manager Console
 Simply run `install-package Okta.Sdk`. Done!
 
 You'll also need:
 
 * An Okta account, called an _organization_ (sign up for a free [developer organization](https://developer.okta.com/signup) if you need one)
 * An [API token](https://developer.okta.com/docs/api/getting_started/getting_a_token)
- 
-### Initialize an API client 
 
-Construct a client instance by passing it your Okta domain name and API token:
+## Initialize an API client 
+
+### Using API class constructor
+Construct a client instance by creating a Configuration object, setting your Okta domain name and API token and passing the Configuration object to the API client class constructor:
 
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
@@ -103,36 +102,32 @@ namespace Example
 {
     public class Example
     {
-        public static void Main()
+        public static async Task Main()
         {
-
             Configuration config = new Configuration();
             config.OktaDomain = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API_Token
-            config.Token.Add("Authorization", "YOUR_API_KEY");
+            config.Token = "YOUR_API_KEY";
             
-            var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
-            var updateId = "updateId_example";  // string | Id of the update
+            var userApi = new UserApi(config);
 
             try
             {
-                // Activate an Agent Pool update
-                AgentPoolUpdate result = apiInstance.ActivateAgentPoolsUpdate(poolId, updateId);
-                Debug.WriteLine(result);
+                // Get a list of users
+                User[] users = await userApi.ListUsers().ToArrayAsync();
+                foreach (User user in users)
+                {
+                    Console.WriteLine(user.Id);
+                }
             }
-            catch (ApiException e)
+            catch (Exception e)
             {
-                Debug.Print("Exception when calling AgentPoolsApi.ActivateAgentPoolsUpdate: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("An exception occurred: " + e.Message);
             }
 
         }
     }
 }
 ```
-
 
 > Hard-coding the Okta domain and API token works for quick tests, but for real projects you should use a more secure way of storing these values (such as environment variables). This library supports a few different configuration sources, covered in the [configuration reference](#configuration-reference) section.
 
@@ -146,7 +141,198 @@ webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
 var appsApi = new ApplicationApi(webProxy : webProxy);
 ```
 
-### OAuth 2.0
+
+### Using OktaApiClientOptions & OktaApiServiceBuilder
+Beginning with Okta.Sdk version 9.2.0 you can use the `OktaApiClientOptions` class to instantiate API clients using a fluent builder syntax.  The static methods defined on `OktaApiClientOptions` return an instance of `OktaApiServiceBuilder` which provides a mechanism to specify more complex configuration options.
+
+```csharp
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class Example
+    {
+        public static async Task Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://your-subdomain.okta.com";
+            config.Token = "YOUR_API_KEY";
+
+            var userApi = OktaApiClientOptions
+                .UseConfiguration(config)
+                .BuildApi<UserApi>();
+
+            try
+            {
+                // Get a list of users
+                User[] users = await userApi.ListUsers().ToArrayAsync();
+                foreach (User user in users)
+                {
+                    Console.WriteLine(user.Id);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An exception occurred: " + e.Message);
+            }
+
+        }
+    }
+}
+```
+
+Using `OktaApiClientOptions` and the resulting `OktaApiServiceBuilder` you can instantiate multiple API clients that have the same configuration:
+
+```csharp
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class Example
+    {
+        public static async Task Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://your-subdomain.okta.com";
+            config.Token = "YOUR_API_KEY";
+
+            var (userApi, groupApi, applicationApi) = OktaApiClientOptions
+                .UseConfiguration(config)
+                .BuildApis<UserApi, GroupApi, ApplicationApi>();
+
+            try
+            {
+                // Get a list of users
+                Console.WriteLine("User Ids");
+                User[] users = await userApi.ListUsers().ToArrayAsync();
+                foreach (User user in users)
+                {
+                    Console.WriteLine(user.Id);
+                }
+
+                Console.WriteLine("Group Ids");
+                Group[] groups = await groupApi.ListGroups().ToArrayAsync();
+                foreach (Group group in groups)
+                {
+                    Console.WriteLine(group.Id);
+                }
+                
+                Console.WriteLine("Application Ids");
+                Application[] applications = await applicationApi.ListApplications().ToArrayAsync();
+                foreach (Application application in applications)
+                {
+                    Console.WriteLine(application.Id);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An exception occurred: " + e.Message);
+            }
+
+        }
+    }
+}
+```
+
+## Interceptors
+Beginning with Okta.Sdk version 9.2.0, using `OktaApiServiceBuilder` by way of `OktaApiClientOptions`, you can specify custom `Interceptors` to be used during API client operations.  Further, if your custom implementation has constructor dependencies, those dependencies should be specified using the `For` and `Use` methods defined on `OktaApiServiceBuilder`.
+
+```csharp
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Extensions;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class Example
+    {
+        public static async Task Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://your-subdomain.okta.com";
+            config.Token = "YOUR_API_KEY";
+
+            var userApi = OktaApiClientOptions
+                .UseConfiguration(config)
+                .For<IOutput>().Use<ConsoleOutput>()
+                .UseInterceptor<OutputInterceptor>()
+                .BuildApi<UserApi>();
+
+            try
+            {
+                // Get a list of users
+                Console.WriteLine("User Ids");
+                User[] users = await userApi.ListUsers().ToArrayAsync();
+                foreach (User user in users)
+                {
+                    Console.WriteLine(user.Id);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An exception occurred: " + e.Message);
+            }
+
+        }
+    }
+}
+```
+
+See also: 
+- [Implementing an interceptor](https://restsharp.dev/docs/advanced/interceptors/#implementing-an-interceptor)
+
+## Custom HttpMessageHandler
+Beginning with Okta.Sdk version 9.2.0, using `OktaApiServiceBuilder` by way of `OktaApiClientOptions`, you can specify custom `HttpMessageHandler` to be used during API client operations.  Further, if your custom implementation has constructor dependencies, those dependencies should be specified using the `For` and `Use` methods defined on `OktaApiServiceBuilder`.
+
+
+```csharp
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Extensions;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class Example
+    {
+        public static async Task Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://your-subdomain.okta.com";
+            config.Token = "YOUR_API_KEY";
+
+            var userApi = OktaApiClientOptions
+                .UseConfiguration(config)
+            // create a class that extends HttpClientHandler to customize behavior
+                .UseHttpMessageHandler(new HttpClientHandler()) 
+                .BuildApi<UserApi>();
+
+            try
+            {
+                // Get a list of users
+                Console.WriteLine("User Ids");
+                User[] users = await userApi.ListUsers().ToArrayAsync();
+                foreach (User user in users)
+                {
+                    Console.WriteLine(user.Id);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An exception occurred: " + e.Message);
+            }
+
+        }
+    }
+}
+```
+
+## OAuth 2.0
 
 Okta allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 

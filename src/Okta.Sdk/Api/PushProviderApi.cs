@@ -159,6 +159,11 @@ namespace Okta.Sdk.Api
         private Okta.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
         private IOAuthTokenProvider _oAuthTokenProvider;
         
+        public PushProviderApi(Okta.Sdk.Client.OktaApiClientOptions options) : this(options.Configuration, options.OAuthTokenProvider, options.WebProxy)
+        {
+            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(options);
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PushProviderApi"/> class
         /// using Configuration object
