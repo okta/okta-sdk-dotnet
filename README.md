@@ -91,7 +91,7 @@ You'll also need:
 ## Initialize an API client 
 
 ### Using API class constructor
-Construct a client instance by creating a Configuration object, passing it your Okta domain name and API token and passing the Configuration object to the API client class constructor:
+Construct a client instance by creating a Configuration object, setting your Okta domain name and API token and passing the Configuration object to the API client class constructor:
 
 ```csharp
 using Okta.Sdk.Api;
