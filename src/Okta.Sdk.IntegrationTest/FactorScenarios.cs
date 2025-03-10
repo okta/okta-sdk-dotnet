@@ -65,7 +65,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 createdUserFactor.Should().NotBeNull();
                 createdUserFactor.FactorType.Should().Be(UserFactorType.Question);
-                ((UserFactorSecurityQuestion)createdUserFactor).Profile.Question.Should().Be("disliked_food");
+                ((UserFactorSecurityQuestion)createdUserFactor).Profile.Question.Value.Should().Be("disliked_food");
                 ((UserFactorSecurityQuestion)createdUserFactor).Profile.QuestionText.Should().Be("What is the food you least liked as a child?");
             }
             finally
@@ -184,8 +184,8 @@ namespace Okta.Sdk.IntegrationTest
         public static IEnumerable<object[]> FactorTypes =>
          new List<object[]>
          {
-            new object[] {UserFactorType.Tokensoftwaretotp },
-            new object[] {UserFactorType.Push },
+            new object[] { UserFactorType.Tokensoftwaretotp },
+            new object[] { UserFactorType.Push }
          };
 
         [Theory]
