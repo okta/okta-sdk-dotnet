@@ -360,5 +360,93 @@ namespace Okta.Sdk.IntegrationTest
                 }
             }
         }
+        
+        [Fact]
+        public async Task ListAllEnrolledFactors()
+        {
+            User createdUser = null;
+
+            var createUserRequest = new CreateUserRequest
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "ListFactors",
+                    LastName = "TestUser",
+                    Login = $"{Guid.NewGuid()}@login.com",
+                    Email = $"{Guid.NewGuid()}@email.com"
+                }
+            };
+
+            try
+            {
+                // Create user
+                createdUser = await _userApi.CreateUserAsync(createUserRequest);
+
+                // Enroll Security Question factor
+                var securityQuestionFactor = await _userFactorApi.EnrollFactorAsync(
+                    createdUser.Id,
+                    new UserFactorSecurityQuestion
+                    {
+                        FactorType = UserFactorType.Question,
+                        Profile = new UserFactorSecurityQuestionProfile
+                        {
+                            Question = "disliked_food",
+                            Answer = "mayonnaise"
+                        }
+                    });
+
+                // Enroll SMS factor
+                var smsFactor = await _userFactorApi.EnrollFactorAsync(
+                    createdUser.Id,
+                    new UserFactorSMS
+                    {
+                        FactorType = UserFactorType.Sms,
+                        Profile = new UserFactorSMSProfile
+                        {
+                            PhoneNumber = "+16284001133"
+                        }
+                    });
+
+                // Enroll Call factor
+                var callFactor = await _userFactorApi.EnrollFactorAsync(
+                    createdUser.Id,
+                    new UserFactorCall
+                    {
+                        FactorType = UserFactorType.Call,
+                        Profile = new UserFactorCallProfile
+                        {
+                            PhoneNumber = "+16284001133",
+                            PhoneExtension = "1234"
+                        }
+                    });
+
+                // Retrieve all factors
+                var factors = await _userFactorApi.ListFactors(createdUser.Id).ToListAsync();
+
+                // Verify all factors are present
+                factors.Should().NotBeNull();
+                factors.Should().HaveCount(4, "because we enrolled three factors");
+
+                factors.Should().ContainSingle(f =>
+                    f.FactorType == UserFactorType.Question &&
+                    f is UserFactorSecurityQuestion);
+
+                factors.Should().ContainSingle(f =>
+                    f.FactorType == UserFactorType.Sms &&
+                    f is UserFactorSMS);
+
+                factors.Should().ContainSingle(f =>
+                    f.FactorType == UserFactorType.Call &&
+                    f is UserFactorCall); 
+            }
+            finally
+            {
+                if (createdUser != null)
+                {
+                    await _userApi.DeactivateUserAsync(createdUser.Id);
+                    await _userApi.DeleteUserAsync(createdUser.Id);
+                }
+            }
+        }
     }
 }
