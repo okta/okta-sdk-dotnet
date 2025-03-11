@@ -46324,8 +46324,6 @@ components:
               readOnly: true
             factorResult:
               $ref: '#/components/schemas/UserFactorResultType'
-            factorType:
-              example: push
             profile:
               $ref: '#/components/schemas/UserFactorPushProfile'
             provider:
@@ -46447,8 +46445,6 @@ components:
         - $ref: '#/components/schemas/UserFactor'
         - type: object
           properties:
-            factorType:
-              example: sms
             profile:
               $ref: '#/components/schemas/UserFactorSMSProfile'
             provider:
@@ -46469,8 +46465,6 @@ components:
         - $ref: '#/components/schemas/UserFactor'
         - type: object
           properties:
-            factorType:
-              example: question
             profile:
               $ref: '#/components/schemas/UserFactorSecurityQuestionProfile'
             provider:
@@ -46566,8 +46560,6 @@ components:
         - $ref: '#/components/schemas/UserFactor'
         - type: object
           properties:
-            factorType:
-              example: token:software:totp
             profile:
               $ref: '#/components/schemas/UserFactorTOTPProfile'
             provider:
