@@ -108,11 +108,6 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
-        /// <summary>
-        /// Gets or Sets FactorType
-        /// </summary>
-        [DataMember(Name = "factorType", EmitDefaultValue = true)]
-        public Object FactorType { get; set; }
 
         /// <summary>
         /// Gets or Sets Profile
