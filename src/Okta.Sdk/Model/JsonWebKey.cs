@@ -61,7 +61,7 @@ namespace Okta.Sdk.Model
         /// </summary>
         /// <value>RSA key value (public exponent) for Key binding</value>
         [DataMember(Name = "e", EmitDefaultValue = true)]
-        public string E { get; private set; }
+        public string E { get; set; }
 
         /// <summary>
         /// Returns false as E should not be serialized given that it's read-only.
@@ -98,7 +98,7 @@ namespace Okta.Sdk.Model
         /// </summary>
         /// <value>Unique identifier for the certificate</value>
         [DataMember(Name = "kid", EmitDefaultValue = true)]
-        public string Kid { get; private set; }
+        public string Kid { get; set; }
 
         /// <summary>
         /// Returns false as Kid should not be serialized given that it's read-only.
@@ -113,7 +113,7 @@ namespace Okta.Sdk.Model
         /// </summary>
         /// <value>Cryptographic algorithm family for the certificate&#39;s keypair. Valid value: &#x60;RSA&#x60;</value>
         [DataMember(Name = "kty", EmitDefaultValue = true)]
-        public string Kty { get; private set; }
+        public string Kty { get; set; }
 
         /// <summary>
         /// Returns false as Kty should not be serialized given that it's read-only.

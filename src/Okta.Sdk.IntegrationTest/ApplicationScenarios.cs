@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
@@ -2324,5 +2325,160 @@ namespace Okta.Sdk.IntegrationTest
                 await _applicationApi.DeleteApplicationAsync(newApp.Id);
             }
         }
+
+        [Fact]
+        public async Task GetAccessTokenUsingPrivateKeyWithDPoP()
+        {
+            //Create an OAuth 2.0 Service App with Private Key JWT authentication
+            var guid = Guid.NewGuid();
+            var testClientId = $"{nameof(GetAccessTokenUsingPrivateKeyWithDPoP)}_TestClientId";
+
+            var jwk = new JsonWebKey()
+            {
+                Kty = "RSA",
+                E = "AQAB",
+                N = "i_FQrwnt4phLQtO0XAJAwqEcuOr_bCQE4TzhhEQnornk-8VIQWPYpXELUIjRBSSr2TFz8u-dGML6u4g_NctJ0XprSjWMSuVrXWGinVYpay6gJ_rozCnBsubCitPTnrTlJticH3AISqJGZH2q83meHM5AaYltNx4-EFjXmO__5AU9uhePMMUUs7G4QJ9-WLDc0CI1seHM8ibMab-m62gnw8pM-Ylpjd2dOZzCrMCtkfkU7LYjAiwNC8izliN3ssGpeHWzr3oPfJ9EMtZLxJM462JGa-_7y-8Scmwome6owVFbOy11Bg00GeuzdIMAGwJCkbKhhEz7Qx2AysSdq5gfdw",
+                Kid = "7x5EXowOpzsdG3MjrWJFgPYYfUDC-KplgJjOzhJkkys"
+            };
+
+            var keys = new List<JsonWebKey>() { jwk };
+            var app = new OpenIdConnectApplication
+            {
+                Name = "oidc_client",
+                SignOnMode = "OPENID_CONNECT",
+                Label = $"dotnet-sdk: DPoP Test {guid}",
+                Credentials = new OAuthApplicationCredentials()
+                {
+                    OauthClient = new ApplicationCredentialsOAuthClient()
+                    {
+                        ClientId = testClientId,
+                        TokenEndpointAuthMethod = "private_key_jwt",
+                        AutoKeyRotation = true
+                    }
+                },
+                Settings = new OpenIdConnectApplicationSettings()
+                {
+                    OauthClient = new OpenIdConnectApplicationSettingsClient()
+                    {
+                        DpopBoundAccessTokens = true,
+                        ClientUri = "https://example.com/client",
+                        LogoUri = "https://example.com/assets/images/logo-new.png",
+                        ResponseTypes = new List<OAuthResponseType>
+                        {
+                            "token",
+                            "code"
+                        },
+                        GrantTypes = new List<OAuthGrantType>()
+                        {
+                            OAuthGrantType.AuthorizationCode,
+                            OAuthGrantType.ClientCredentials,
+                        },
+                        RedirectUris = new List<string>
+                        {
+                            "https://example.com/oauth2/callback",
+                            "myapp://callback",
+                        },
+                        PostLogoutRedirectUris = new List<string>
+                        {
+                            "https://example.com/postlogout",
+                            "myapp://postlogoutcallback",
+                        },
+                        ApplicationType = "service",
+                        TosUri = "https://example.com/client/tos",
+                        PolicyUri = "https://example.com/client/policy",
+                    }
+                }
+            };
+            app.Settings.OauthClient.Jwks = new OpenIdConnectApplicationSettingsClientKeys()
+            {
+                Keys = keys,
+            };
+
+            var createdApp = await _applicationApi.CreateApplicationAsync(app);
+            var clientId = createdApp.Id;
+            try
+            {
+                var oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;
+
+                // Remove '/' at the end since endpoint fails otherwise
+                if (oktaDomain.EndsWith($"/"))
+                {
+                    oktaDomain = oktaDomain.Remove(oktaDomain.Length - 1);
+                }
+
+                var apiClient = new ApiClient(oktaDomain);
+                var grantPayload = $@"{{
+                                        ""scopeId"" : ""okta.users.read"",
+                                        ""issuer"" : ""{oktaDomain}""
+                                    }}";
+                ;
+                var requestOptions = GetBasicRequestOptions();
+                requestOptions.Data = JObject.Parse(grantPayload);
+                var apiCLient = await apiClient.PostAsync<JObject>($"/api/v1/apps/{clientId}/grants", requestOptions);
+                //Private key used for the authentication
+                var jsonPrivateKey = @"{
+                                    ""p"":""wcXl0oxzwZRvpOBSiy-myHqqMKQMYdZtpwVpiu25BPYGt5YqGvyAkvhuJRAcpulsog60lLKAsygV_nQGLpypsyE6UJeXy9UbVvWuFegVjAhMNenIs6VM-MjvrlUMVArflLYcpKZf1YyNJbmhdTQTCkgkwA6nb0twsYZAJTBMROs"",
+                                    ""kty"":""RSA"",
+                                    ""q"":""uOIDsF5FbynrxJl7cGN-wBBWhcPu7nwqAvtJ4sLK76h0EADWcRtfm_6WloHXRk16wxnMNDRFqa_bmhwNdu96kD9pm22EOlz4Vct4KhDi0YSPinISzKL83MlUDVo6KEFJAMt8FJtf3Q_mC2lSUGNhPZYFdYAEmJvVObGnq_cyHKU"",
+                                    ""d"":""IhAK45A3JwCK0SlWrU6fFMDCjQAmS9w4k9qNyfQM8b7tzZqni8MR6LMrXd7vgaD7c1JmNqu8QVq0TRFM0Xs57JMvqlB-ZXySNZieTE28pyoiMZkRMSC41SL2F3SX_flqDZqL5dsPKZt2Jt-vzLO9mKVbaFTbEJ97297EG6XPU2DXCoXK1wHt6rmnUx2MBylyyaDtqr8_dlcQuSEQjRUeneZNQT6vKRkWzX7Tu-I6r_AOKGQUGrcVvIiPO1p-fIezYfjd8MoS2OJBapq_RD_dRZTY7PEPX2vI9Ybhe_yTVbEm75UUXyO-cRv0HIYQaBUXALwkCxWyJpjC_4xe-4iIgQ"",
+                                    ""e"":""AQAB"",
+                                    ""kid"": ""7x5EXowOpzsdG3MjrWJFgPYYfUDC-KplgJjOzhJkkys"",
+                                    ""qi"":""d5b5XZsMHrH8eeCUus6kixpTo0kYDhubpHsNCPky_QptE9o1X9UTxtaGLZhbymV6YUm2-Pr5-ippFj6DIBUVvw0YczSBe-OhWOHh7CXuzZA3mUNwAN0uRZv-2zjgHDgwjiE9pXTTQ3YsD4Fs53YngcprL1Jupiiu52xhqb1EyA"",""dp"":""b9D87-Swn5JCYog32a2jtqhiMTNZGdQc7naHEu5fB-fYtHPo1C3FHApTtPt5LTAhydpmhjADaF7HYlAdiSRKIN4ZwovXwn21Cxc2X9nPJUFciPfhIxlOM3nwJU9aj9y-bBgyqyh-wMIcaRqXewSTwCklW9aY8_Y6j5aCyXL3cAU"",""dq"":""Es-MKImu7tyJDHvBP3IgF1KSOxHwYXtomt0Oa2_-TdwJ0wcCyodKdwi0MaQMTy7a6rbZPAaFf_pQkaGBDTTYd4y8JgBCj92dtrz5AO6u5TpjkGaC2ydKKvyg_KrNeAMMdnQ9r6sPWeKgOVEB-wPhhO6ap5Xa4dwZGcGlma2Q_7E"",""n"":""i_FQrwnt4phLQtO0XAJAwqEcuOr_bCQE4TzhhEQnornk-8VIQWPYpXELUIjRBSSr2TFz8u-dGML6u4g_NctJ0XprSjWMSuVrXWGinVYpay6gJ_rozCnBsubCitPTnrTlJticH3AISqJGZH2q83meHM5AaYltNx4-EFjXmO__5AU9uhePMMUUs7G4QJ9-WLDc0CI1seHM8ibMab-m62gnw8pM-Ylpjd2dOZzCrMCtkfkU7LYjAiwNC8izliN3ssGpeHWzr3oPfJ9EMtZLxJM462JGa-_7y-8Scmwome6owVFbOy11Bg00GeuzdIMAGwJCkbKhhEz7Qx2AysSdq5gfdw""
+                                 }";
+                var configuration = new Configuration
+                {
+                    Scopes = new HashSet<string> { "okta.users.read" },
+                    ClientId = testClientId,
+                    PrivateKey = new JsonWebKeyConfiguration(jsonPrivateKey),
+                    AuthorizationMode = AuthorizationMode.PrivateKey,
+                    OktaDomain = oktaDomain
+                };
+
+                var oauthApi = new OAuthApi(configuration);
+                var tokenResponse = await oauthApi.GetBearerTokenAsync();
+
+                tokenResponse.Should().NotBeNull();
+                tokenResponse.AccessToken.Should().NotBeNullOrEmpty();
+            }
+            finally
+            {
+                await _applicationApi.DeactivateApplicationAsync(createdApp.Id);
+                await _applicationApi.DeleteApplicationAsync(createdApp.Id);   
+            }
+        }
+
+        private RequestOptions GetBasicRequestOptions()
+            {
+                string[] _contentTypes = new string[] {
+                    "application/json"
+                };
+
+                // to determine the Accept header
+                string[] _accepts = new string[] {
+                    "application/json"
+                };
+
+                var requestOptions = new RequestOptions();
+
+                var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+                if (localVarContentType != null)
+                {
+                    requestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+                }
+
+                var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+                if (localVarAccept != null)
+                {
+                    requestOptions.HeaderParameters.Add("Accept", localVarAccept);
+                }
+
+                // authentication (API_Token) required
+                if (!string.IsNullOrEmpty(Configuration.GetConfigurationOrDefault().GetApiKeyWithPrefix("Authorization")))
+                {
+                    requestOptions.HeaderParameters.Add("Authorization", Configuration.GetConfigurationOrDefault().GetApiKeyWithPrefix("Authorization"));
+                }
+                return requestOptions;
+            }
+        
     }
 }
