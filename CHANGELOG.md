@@ -1,6 +1,11 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 9.1.2
+### Fixed
+- Fixed deserialization issue in `ListFactors` where Security Question and SMS factors were missing or incorrectly mapped.
+- Ensured `FactorType` is correctly inherited from the base `UserFactor` class. (#771)
+
 ## 9.1.0
 ## Fixed
 - GetUser method now returns `User` instead of `UserGetSingleton`.  

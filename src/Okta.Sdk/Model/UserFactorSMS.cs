@@ -85,12 +85,6 @@ namespace Okta.Sdk.Model
         [DataMember(Name = "provider", EmitDefaultValue = true)]
         
         public ProviderEnum Provider { get; set; }
-        
-        /// <summary>
-        /// Gets or Sets FactorType
-        /// </summary>
-        [DataMember(Name = "factorType", EmitDefaultValue = true)]
-        public Object FactorType { get; set; }
 
         /// <summary>
         /// Gets or Sets Profile
