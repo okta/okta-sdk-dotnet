@@ -8,11 +8,23 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Dynamic;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.JavaScript;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using NSubstitute;
 using Okta.Sdk.Client;
+using Okta.Sdk.Extensions;
+using Okta.Sdk.Integration.Tests;
+using Okta.Sdk.UnitTest.Internal;
+using RestSharp;
+using RestSharp.Interceptors;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Okta.Sdk.IntegrationTest
 {
@@ -25,10 +37,18 @@ namespace Okta.Sdk.IntegrationTest
         private RoleAssignmentApi _roleAssignmentApi;
         private RoleTargetApi _roleTargetApi;
         private UserTypeApi _userTypeApi;
+        private ITestOutputHelper _output;
 
-        public UserScenarios()
+        public UserScenarios(ITestOutputHelper output)
         {
-            _userApi = new UserApi();
+            _output = output;
+            _userApi = OktaApiClientOptions
+                .UseDefaultConfiguration()
+                .For<ITestOutputHelper>().Use(output)
+                .For<IOutput>().Use<XUnitTestOutput>()
+                .UseInterceptor<OutputInterceptor>()
+                .BuildApi<UserApi>();
+            
             _groupApi = new GroupApi();
             _linkedObjectApi = new LinkedObjectApi();
             _roleAssignmentApi = new RoleAssignmentApi();
@@ -50,6 +70,75 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
+        [Fact]
+        public async Task UseHttpMessageHandlerAndInterceptors()
+        {
+            // This test shows that the HttpRequestMessages and HttpResponseMessages handled by an Interceptor
+            // are the same requests and responses handled by a custom HttpMessageHandler.  
+            // A consumer has the option to use Interceptors or a custom HttpMessageHandler to 
+            // further customize behavior as appropriate for their application.
+            
+            Interceptor substituteInterceptor = Substitute.For<Interceptor>();
+            
+            RequestResponseCollectingHttpMessageHandler testHttpMessageHandler = new RequestResponseCollectingHttpMessageHandler();
+            RequestResponseCollectingInterceptor testInterceptor = new RequestResponseCollectingInterceptor();
+        
+            UserApi userApi = OktaApiClientOptions
+                .UseDefaultConfiguration()
+                .UseHttpMessageHandler(testHttpMessageHandler)
+                .UseInterceptors(substituteInterceptor, testInterceptor)
+                .BuildApi<UserApi>();
+            
+            var createUserRequest = new CreateUserRequest
+            {
+
+                Profile = new UserProfile
+                {
+                    FirstName = "FirstName",
+                    LastName = "LastName",
+                    Login = $"{Guid.NewGuid()}@login.com",
+                    Email = $"{Guid.NewGuid()}@email.com",
+                    PrimaryPhone = "123-321-4444",
+                    MobilePhone = "321-123-5555",
+                    Locale = "en_US",
+                    SecondEmail = $"{Guid.NewGuid()}@second.com",
+                    Timezone = "Japan",
+                }
+            };
+
+            var createdUser = await userApi.CreateUserAsync(createUserRequest);
+
+            try
+            {
+                await substituteInterceptor.Received().BeforeHttpRequest(Arg.Any<HttpRequestMessage>(), Arg.Any<CancellationToken>());
+                await substituteInterceptor.Received().AfterHttpRequest(Arg.Any<HttpResponseMessage>(), Arg.Any<CancellationToken>());
+                await substituteInterceptor.Received().BeforeRequest(Arg.Any<RestRequest>(), Arg.Any<CancellationToken>());
+                await substituteInterceptor.Received().AfterRequest(Arg.Any<RestResponse>(), Arg.Any<CancellationToken>());
+                await substituteInterceptor.Received().BeforeDeserialization(Arg.Any<RestResponse>(), Arg.Any<CancellationToken>());
+
+                testInterceptor.RequestMessages.Count.Should().BePositive();
+                testInterceptor.ResponseMessages.Count.Should().BePositive();
+
+                testHttpMessageHandler.RequestMessages.Count.Should().BePositive();
+                testHttpMessageHandler.ResponseMessages.Count.Should().BePositive();
+
+                foreach (HttpRequestMessage requestMessage in testInterceptor.RequestMessages)
+                {
+                    testHttpMessageHandler.RequestMessages.Contains(requestMessage).Should().BeTrue();
+                }
+
+                foreach (HttpResponseMessage responseMessage in testInterceptor.ResponseMessages)
+                {
+                    testHttpMessageHandler.ResponseMessages.Contains(responseMessage).Should().BeTrue();
+                }
+            }
+            finally
+            {
+                // Remove the user using the _userApi created in the constructor.
+                await _userApi.DeactivateUserAsync(createdUser.Id);
+                await _userApi.DeleteUserAsync(createdUser.Id);
+            }
+        }
 
         [Fact]
         public async Task PartialUpdateUser()
@@ -723,6 +812,16 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
+        [Fact]
+        public async Task UserApiFromServices()
+        {
+            UserApi api = OktaApiClientOptions
+                .UseDefaultConfiguration()
+                .BuildApi<UserApi>();
+            api.Should().NotBeNull();
+            api.Configuration.Should().NotBeNull();
+        }
+        
         [Fact]
         public async Task CreateUserWithProvider()
         {

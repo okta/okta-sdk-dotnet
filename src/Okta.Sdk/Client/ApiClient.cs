@@ -16,6 +16,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
@@ -34,6 +35,7 @@ using RestSharp.Serializers;
 using RestSharpMethod = RestSharp.Method;
 using ISerializer = RestSharp.Serializers.ISerializer;
 using Polly;
+using RestSharp.Interceptors;
 
 [assembly: InternalsVisibleTo("Okta.Sdk.UnitTest")]
 namespace Okta.Sdk.Client
@@ -189,6 +191,8 @@ namespace Okta.Sdk.Client
         private readonly string _baseUrl;
         private readonly IOAuthTokenProvider _authTokenProvider;
         private readonly WebProxy _proxy;
+        private readonly List<Interceptor> _interceptors;
+        private readonly HttpMessageHandler _httpMessageHandler;
         
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
@@ -220,6 +224,19 @@ namespace Okta.Sdk.Client
         /// <param name="request">The RestSharp request object</param>
         /// <param name="response">The RestSharp response object</param>
         partial void InterceptResponse(RestRequest request, RestResponse response);
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApiClient" />, using the specified options.
+        /// </summary>
+        /// <param name="options">The options.</param>
+        public ApiClient(OktaApiClientOptions options)
+        {
+            _baseUrl = options.Configuration.OktaDomain;
+            _authTokenProvider = options.OAuthTokenProvider;
+            _proxy = options.WebProxy;
+            _interceptors = options.Interceptors;
+            _httpMessageHandler = options.HttpMessageHandler;
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" />, defaulting to the global configurations' base url.
@@ -466,9 +483,15 @@ namespace Okta.Sdk.Client
         internal RestClient GetConfiguredClient(IReadableConfiguration configuration)
         {
             var clientOptions = new RestClientOptions(_baseUrl);
-            
-            var oktaUserAgent = new UserAgentBuilder("okta-sdk-dotnet",
-                typeof(ApiClient).GetTypeInfo().Assembly.GetName().Version).GetUserAgent();
+            if (_interceptors != null)
+            {
+                clientOptions.Interceptors = _interceptors;
+            }
+
+            if (_httpMessageHandler != null)
+            {
+                clientOptions.ConfigureMessageHandler = _ => _httpMessageHandler;
+            }
 
             clientOptions.MaxTimeout = configuration.ConnectionTimeout ?? Configuration.DefaultConnectionTimeout;
 
@@ -494,9 +517,9 @@ namespace Okta.Sdk.Client
                 clientOptions.ClientCertificates = configuration.ClientCertificates;
             }
 
-           RestClient client = new RestClient(clientOptions, configureSerialization: config => config.UseOnlySerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
+            RestClient client = new RestClient(clientOptions, configureSerialization: config => config.UseOnlySerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
             
-           return client;
+            return client;
         }
         
         private async Task<ApiResponse<T>> ExecAsync<T>(RestRequest req, IReadableConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))

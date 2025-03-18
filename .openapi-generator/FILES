@@ -1357,6 +1357,8 @@ src/Okta.Sdk/Client/Multimap.cs
 src/Okta.Sdk/Client/NullOAuthTokenProvider.cs
 src/Okta.Sdk/Client/OAuthApiResponse.cs
 src/Okta.Sdk/Client/OAuthTokenResponse.cs
+src/Okta.Sdk/Client/OktaApiClientOptions.cs
+src/Okta.Sdk/Client/OktaApiServiceBuilder.cs
 src/Okta.Sdk/Client/OktaCollectionAsyncEnumerator.cs
 src/Okta.Sdk/Client/OktaCollectionClient.cs
 src/Okta.Sdk/Client/OktaCollectionPage.cs
