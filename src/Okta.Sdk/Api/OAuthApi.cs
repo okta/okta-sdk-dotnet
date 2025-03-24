@@ -70,6 +70,11 @@ namespace Okta.Sdk.Api
         private readonly IClientAssertionJwtGenerator _clientAssertionJwtGenerator;
         private readonly IDpopProofJwtGenerator _dpopProofJwtGenerator;
 
+        public OAuthApi(Okta.Sdk.Client.OktaApiClientOptions options) : this(options.Configuration)
+        {
+            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(options);
+        }
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthApi"/> class
         /// using Configuration object
