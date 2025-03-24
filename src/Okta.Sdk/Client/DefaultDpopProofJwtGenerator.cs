@@ -17,6 +17,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Okta.Sdk.Client
 {
@@ -109,8 +110,25 @@ namespace Okta.Sdk.Client
                 var signingCredentials = new SigningCredentials(keys, SecurityAlgorithms.RsaSha256);
                 
                 var outboundAlgorithmMap = new Dictionary<string, string> { { "alg", SecurityAlgorithms.RsaSha256 } };
+/*
+ *       "kty": "RSA",
+   "e": "AQAB",
+   "use": "sig",
+   "kid": "XUl71vpgPXgxSTCYHbvbEHDrtj-adpVcxXH3TKjKe7w",
+   "alg": "RS256",
+   "n": "4LuWNeMa7.....zLvDWaJsF0"
+ */
+                var additionalHeaders = new Dictionary<string, object> { { "jwk", new
+                {
+                    kty = publicJsonWebKey.Kty,
+                    e = publicJsonWebKey.E,
+                    use = publicJsonWebKey.Use,
+                    kid = publicJsonWebKey.Kid,
+                    alg = publicJsonWebKey.Alg,
+                    n = publicJsonWebKey.N
+                } } };
 
-                var additionalHeaders = new Dictionary<string, object> { { "jwk", JsonConvert.SerializeObject(publicJsonWebKey) } };
+                //var additionalHeadersObject = ConvertAdditionalHeadersObject(additionalHeaders);
 
                 var securityToken =
                     new JwtSecurityToken(
@@ -123,6 +141,14 @@ namespace Okta.Sdk.Client
             {
                 throw new InvalidOperationException("Something went wrong when creating the signed JWT. Verify your private key.", e);
             }
+        }
+
+        private static IDictionary<string, object> ConvertAdditionalHeadersObject(Dictionary<string, object> additionalHeaders)
+        {
+            var json = JsonConvert.SerializeObject(additionalHeaders);
+            var additionalHeadersObject = (JObject)JsonConvert.DeserializeObject(json);
+            var result = additionalHeadersObject?.ToObject<Dictionary<string, object>>();
+            return result;
         }
 
         /// <summary>
