@@ -8,6 +8,7 @@ using FluentAssertions;
 using Newtonsoft.Json.Linq;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
+using Okta.Sdk.Extensions;
 using Okta.Sdk.Model;
 using Polly;
 using RestSharp;
@@ -1029,7 +1030,12 @@ namespace Okta.Sdk.IntegrationTest
                 configuration.OktaDomain = oktaDomain;
 
                 //Initialize the OAuth API client and retrieve the access token
-                var oauthApi = new OAuthApi(configuration);
+                var oauthApi = OktaApiClientOptions
+                    .UseConfiguration(configuration)
+                    .For<ITestOutputHelper>().Use(output)
+                    .For<IOutput>().Use<XUnitTestOutput>()
+                    .UseInterceptor<OutputInterceptor>()
+                    .BuildApi<OAuthApi>();//new OAuthApi(configuration);
                 var tokenResponse = await oauthApi.GetBearerTokenAsync();
 
                 tokenResponse.Should().NotBeNull();
