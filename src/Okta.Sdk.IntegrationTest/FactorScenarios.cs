@@ -129,6 +129,61 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
+        public async Task EnrollAndActivateWebAuthnFactor()
+        {
+            var guid = Guid.NewGuid();
+            User createdUser = null;
+
+            var createUserRequest = new CreateUserRequest
+            {
+
+                Profile = new UserProfile
+                {
+                    FirstName = "FirstName",
+                    LastName = "LastName",
+                    Login = $"{Guid.NewGuid()}@login.com",
+                    Email = $"{Guid.NewGuid()}@email.com",
+                    PrimaryPhone = "123-321-4444",
+                    MobilePhone = "321-123-5555",
+                    Locale = "en_US",
+                    SecondEmail = $"{Guid.NewGuid()}@second.com",
+                    Timezone = "Japan",
+                }
+            };
+
+            try
+            {
+                // Create user
+                createdUser = await _userApi.CreateUserAsync(createUserRequest);
+
+                // Enroll WebAuthn factor
+                var webAuthnFactor = await _userFactorApi.EnrollFactorAsync(
+                    createdUser.Id,
+                    new UserFactorWebAuthn
+                    {
+                        FactorType = UserFactorType.Webauthn,
+                        Provider = UserFactorWebAuthn.ProviderEnum.FIDO,
+                        Profile = new UserFactorWebAuthnProfile
+                        {
+                            AuthenticatorName = "MacBook Touch ID",
+                            CredentialId = "test-credential-id"
+                        }
+                    });
+                webAuthnFactor.Should().NotBeNull();
+                webAuthnFactor.FactorType.Should().Be(UserFactorType.Webauthn);
+                webAuthnFactor.Provider.Should().Be(UserFactorWebAuthn.ProviderEnum.FIDO);
+            }
+            finally
+            {
+                if (createdUser != null)
+                {
+                    await _userApi.DeactivateUserAsync(createdUser.Id);
+                    await _userApi.DeleteUserAsync(createdUser.Id);
+                }
+            }
+        }
+
+        [Fact]
         public async Task EnrollCallFactor()
         {
             var guid = Guid.NewGuid();
