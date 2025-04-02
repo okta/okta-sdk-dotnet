@@ -1040,7 +1040,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 tokenResponse.Should().NotBeNull();
                 tokenResponse.AccessToken.Should().NotBeNullOrEmpty();
-                //tokenResponse.IsDpopBound.Should().BeTrue();
+                tokenResponse.IsDpopBound.Should().BeTrue();
             }
             catch (Exception e)
             {
