@@ -172,7 +172,7 @@ namespace Okta.Sdk.Api
                 "application/json"
             };
 
-            _dpopProofJwtGenerator.RotateKeys();
+            //_dpopProofJwtGenerator.RotateKeys();
             var jwtSecurityToken = _clientAssertionJwtGenerator.GenerateJwt();
             var scopes = string.Join(" ", Configuration.Scopes);
             var accessTokenUri = "/oauth2/v1/token";
