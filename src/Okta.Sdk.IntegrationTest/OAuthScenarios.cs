@@ -54,8 +54,6 @@ namespace Okta.Sdk.IntegrationTest
                                 ""response_types"": [
                                   ""token""
                                 ],
-                                ""settings"":
-                                
                                 ""grant_types"": [
                                   ""client_credentials""
                                 ],
