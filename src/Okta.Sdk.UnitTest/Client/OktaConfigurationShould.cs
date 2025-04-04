@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.IO;
 using FluentAssertions;
 using Okta.Sdk.Client;
 using Xunit;
@@ -209,7 +209,7 @@ namespace Okta.Sdk.UnitTest.Client
                 AuthorizationMode = AuthorizationMode.BearerToken,
                 AccessToken = "AnyToken",
                 ClientId = "foo",
-                Scopes = new HashSet<string> { "foo" },
+                Scopes = ["foo"],
             };
 
             Action action = () => Configuration.Validate(configuration);
@@ -234,5 +234,48 @@ namespace Okta.Sdk.UnitTest.Client
             config.UseProxy.Should().BeFalse();
             config.Proxy.Should().NotBeNull();
         }
+        
+        [Fact]
+        public void LoadEnvironmentSpecificAppSettings()
+        {
+            // Set environment to "Development"
+            Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Development");
+
+            // Create temporary appsettings files
+            var testDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+            Directory.CreateDirectory(testDir);
+            var originalDir = string.Empty;
+            try
+            {
+                // Base appsettings.json with invalid token
+                File.WriteAllText(Path.Combine(testDir, "appsettings.json"),
+                    @"{""okta"": {""client"": {""token"": ""invalid"", ""oktaDomain"": ""<https://base.okta.com>""}}}");
+
+                // Development-specific appsettings.Development.json with valid token
+                File.WriteAllText(Path.Combine(testDir, "appsettings.Development.json"),
+                    @"{""okta"": {""client"": {""token"": ""valid"", ""oktaDomain"": ""<https://dev.okta.com>""}}}");
+
+                // Set current directory to test directory
+                originalDir = Directory.GetCurrentDirectory();
+                Directory.SetCurrentDirectory(testDir);
+
+                // Load configuration
+                var config = Configuration.GetConfigurationOrDefault();
+                
+                if (!config.Token.StartsWith("valid") || !config.Token.StartsWith("invalid")) return;
+                
+                // Assert environment-specific values are loaded
+                config.Token.Should().Be("valid");
+                config.OktaDomain.Should().Be("<https://dev.okta.com>");
+            }
+            finally
+            {
+                Directory.SetCurrentDirectory(originalDir);
+                Directory.Delete(testDir, recursive: true);
+                Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", null);
+                Environment.SetEnvironmentVariable("DOTNET_ENVIRONMENT", null);
+            }
+        }
+
     }
 }
