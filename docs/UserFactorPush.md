@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Created** | **DateTimeOffset** | Timestamp when the Factor was enrolled | [optional] [readonly] 
+**FactorType** | [**UserFactorType**](UserFactorType.md) |  | [optional] 
 **Id** | **string** | ID of the Factor | [optional] [readonly] 
 **LastUpdated** | **DateTimeOffset** | Timestamp when the Factor was last updated | [optional] [readonly] 
 **Status** | [**UserFactorStatus**](UserFactorStatus.md) |  | [optional] 
@@ -13,7 +14,6 @@ Name | Type | Description | Notes
 **Links** | **Object** |  | [optional] 
 **ExpiresAt** | **DateTimeOffset** | Timestamp when the Factor verification attempt expires | [optional] [readonly] 
 **FactorResult** | **UserFactorResultType** |  | [optional] 
-**FactorType** | **Object** |  | [optional] 
 **Profile** | [**UserFactorPushProfile**](UserFactorPushProfile.md) |  | [optional] 
 **Provider** | **string** |  | [optional] 
 
