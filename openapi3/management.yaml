@@ -46741,8 +46741,6 @@ components:
         - $ref: '#/components/schemas/UserFactor'
         - type: object
           properties:
-            factorType:
-              example: webauthn
             profile:
               $ref: '#/components/schemas/UserFactorWebAuthnProfile'
             provider:

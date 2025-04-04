@@ -91,7 +91,7 @@ namespace Okta.Sdk.Model
         [DataMember(Name = "provider", EmitDefaultValue = true)]
         
         public ProviderEnum Provider { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
@@ -107,7 +107,6 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class UserFactorTOTP {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  FactorType: ").Append(FactorType).Append("\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("}\n");
@@ -146,11 +145,6 @@ namespace Okta.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.FactorType == input.FactorType ||
-                    (this.FactorType != null &&
-                    this.FactorType.Equals(input.FactorType))
-                ) && base.Equals(input) && 
-                (
                     this.Profile == input.Profile ||
                     (this.Profile != null &&
                     this.Profile.Equals(input.Profile))
@@ -171,10 +165,6 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = base.GetHashCode();
                 
-                if (this.FactorType != null)
-                {
-                    hashCode = (hashCode * 59) + this.FactorType.GetHashCode();
-                }
                 if (this.Profile != null)
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();
