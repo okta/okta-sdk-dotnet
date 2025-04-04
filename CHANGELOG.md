@@ -1,6 +1,14 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 9.2.1
+- Fix environment-specific appsettings not being honored (#656)
+- Fix ListFactors API to return correct fields for webauthn factors (#779)
+- Updated System.Text.Json in Okta.Sdk.Extensions
+
+## 9.2.0
+Provide Interceptor Support
+
 ## 9.1.2
 ### Fixed
 - Fixed deserialization issue in `ListFactors` where Security Question and SMS factors were missing or incorrectly mapped.
