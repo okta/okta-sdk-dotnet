@@ -895,13 +895,15 @@ namespace {{packageName}}.Client
             string configurationFileRoot = Directory.GetCurrentDirectory();
 
             var homeOktaYamlLocation = HomePath.Resolve("~", ".okta", "okta.yaml");
-
+            var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT") ?? (string.Empty);
             var applicationAppSettingsLocation = Path.Combine(configurationFileRoot ?? string.Empty, "appsettings.json");
+            var environmentAppSettingsLocation = Path.Combine(configurationFileRoot ?? string.Empty, $"appsettings.{environmentName}.json");
             var applicationOktaYamlLocation = Path.Combine(configurationFileRoot ?? string.Empty, "okta.yaml");
 
             var configBuilder = new ConfigurationBuilder()
                 .AddYamlFile(homeOktaYamlLocation, optional: true)
                 .AddJsonFile(applicationAppSettingsLocation, optional: true)
+                .AddJsonFile(environmentAppSettingsLocation, optional: true)
                 .AddYamlFile(applicationOktaYamlLocation, optional: true)
                 .AddEnvironmentVariables("okta", "_", root: "okta")
                 .AddEnvironmentVariables("okta_testing", "_", root: "okta")
