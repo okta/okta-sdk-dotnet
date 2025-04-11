@@ -270,6 +270,8 @@ namespace Okta.Sdk.UnitTest.Client
             }
             finally
             {
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
                 Directory.SetCurrentDirectory(originalDir);
                 Directory.Delete(testDir, recursive: true);
                 Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", null);

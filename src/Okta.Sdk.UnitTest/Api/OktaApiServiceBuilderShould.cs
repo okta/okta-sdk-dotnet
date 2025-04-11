@@ -1,9 +1,9 @@
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Moq;
 using NSubstitute;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
@@ -17,42 +17,45 @@ namespace Okta.Sdk.UnitTest.Api;
 public class OktaApiServiceBuilderShould
 {
     [Fact]
-    public async Task UseApiClientOptions()
+    public Task UseApiClientOptions()
     {
-        string testDomain = "https://my.test.domain.com";
-        string testToken = "my.test.token";
+        const string testDomain = "https://my.test.domain.com";
+        const string testToken = "my.test.token";
 
-        Configuration testConfiguration = new Configuration()
+        var testConfiguration = new Configuration()
         {
             OktaDomain = testDomain,
-            Token = testToken
+            Token = testToken,
+            PrivateKey = GeneratePrivateKey()
         };
 
-        UserApi userApi = OktaApiServiceBuilder
+        var userApi = OktaApiServiceBuilder
             .UseApiClientOptions(new OktaApiClientOptions(testConfiguration, httpMessageHandler: new TestHttpMessageHandler(new HttpResponseMessage())))
             .BuildApi<UserApi>();
 
         userApi.Configuration.OktaDomain.Should().BeEquivalentTo(testConfiguration.OktaDomain);
         userApi.Configuration.Token.Should().BeEquivalentTo(testConfiguration.Token);
+        return Task.CompletedTask;
     }
     
     [Fact]
     public async Task UseHttpMessageHandler()
     {
-        string testDomain = "https://my.test.domain.com";
-        string testToken = "my.test.token";
+        const string testDomain = "https://my.test.domain.com";
+        const string testToken = "my.test.token";
 
-        Configuration testConfiguration = new Configuration()
+        var testConfiguration = new Configuration()
         {
             OktaDomain = testDomain,
-            Token = testToken
+            Token = testToken,
+            PrivateKey = GeneratePrivateKey()
         };
 
-        TestHttpMessageHandler testHttpMessageHandler = new TestHttpMessageHandler(new HttpResponseMessage());
+        var testHttpMessageHandler = new TestHttpMessageHandler(new HttpResponseMessage());
         testHttpMessageHandler.ReceivedCall.Should().BeFalse();
         testHttpMessageHandler.ReceivedRequestMessage.Should().BeNull();
         
-        UserApi userApi = OktaApiServiceBuilder
+        var userApi = OktaApiServiceBuilder
             .UseApiClientOptions(new OktaApiClientOptions(testConfiguration))
             .UseHttpMessageHandler(testHttpMessageHandler)
             .BuildApi<UserApi>();
@@ -64,9 +67,9 @@ public class OktaApiServiceBuilderShould
     }
 
     [Fact]
-    public async Task UseInterceptors()
+    public Task UseInterceptors()
     {
-        OktaApiClientOptions options = OktaApiServiceBuilder
+        var options = OktaApiServiceBuilder
             .UseApiClientOptions(new OktaApiClientOptions(Configuration.GetConfigurationOrDefault()))
             .For<SubDependency>().Use<SubDependency>()
             .For<IMockDependency>().Use<MockDependency>()
@@ -75,38 +78,41 @@ public class OktaApiServiceBuilderShould
             .GetOktaApiClientOptions();
 
         options.Interceptors.Count.Should().Be(3);
+        return Task.CompletedTask;
     }
 
     [Fact]
-    public async Task UseWebProxy()
+    public Task UseWebProxy()
     {
-        WebProxy webProxy = new WebProxy(new Uri("https://my.webproxy.fake"));
+        var webProxy = new WebProxy(new Uri("https://my.webproxy.fake"));
         
-        OktaApiClientOptions options = OktaApiServiceBuilder
+        var options = OktaApiServiceBuilder
             .UseApiClientOptions(new OktaApiClientOptions(Configuration.GetConfigurationOrDefault()))
             .UseWebProxy(webProxy)
             .GetOktaApiClientOptions();
 
         options.WebProxy.Should().Be(webProxy);
+        return Task.CompletedTask;
     }
     
     [Fact]
-    public async Task UseOAuthTokenProvider()
+    public Task UseOAuthTokenProvider()
     {
-        IOAuthTokenProvider tokenProvider = Substitute.For<IOAuthTokenProvider>();
+        var tokenProvider = Substitute.For<IOAuthTokenProvider>();
         
-        OktaApiClientOptions options = OktaApiServiceBuilder
+        var options = OktaApiServiceBuilder
             .UseApiClientOptions(new OktaApiClientOptions(Configuration.GetConfigurationOrDefault()))
             .UseOAuthTokenProvider(tokenProvider)
             .GetOktaApiClientOptions();
 
         options.OAuthTokenProvider.Should().Be(tokenProvider);
+        return Task.CompletedTask;
     }
 
     [Fact]
-    public async Task UseGenericDependency()
+    public Task UseGenericDependency()
     {
-        OktaApiClientOptions options = OktaApiServiceBuilder
+        var options = OktaApiServiceBuilder
             .UseApiClientOptions(new OktaApiClientOptions(Configuration.GetConfigurationOrDefault()))
             .For<SubDependency>().Use<SubDependency>()
             .For<IMockDependency>().Use<MockDependency>()
@@ -115,9 +121,29 @@ public class OktaApiServiceBuilderShould
 
         options.Interceptors.Count.Should().Be(1);
         options.Interceptors[0].Should().BeOfType(typeof(MockInterceptor));
-        MockInterceptor mockInterceptor = (MockInterceptor)options.Interceptors[0];
+        var mockInterceptor = (MockInterceptor)options.Interceptors[0];
         mockInterceptor.MockDependency.Should().BeOfType(typeof(MockDependency));
-        MockDependency mockDependency = (MockDependency)mockInterceptor.MockDependency;
+        var mockDependency = (MockDependency)mockInterceptor.MockDependency;
         mockDependency.SubDependency.Should().NotBeNull();
+        return Task.CompletedTask;
+    }
+
+    private static JsonWebKeyConfiguration GeneratePrivateKey()
+    {
+        using var rsa = new RSACryptoServiceProvider(2048);
+        var rsaParameters = rsa.ExportParameters(true);
+
+        return new JsonWebKeyConfiguration
+        {
+            Kty = "RSA",
+            N = Convert.ToBase64String(rsaParameters.Modulus), // RSA modulus
+            E = Convert.ToBase64String(rsaParameters.Exponent), // RSA public exponent
+            D = Convert.ToBase64String(rsaParameters.D), // RSA private exponent
+            P = Convert.ToBase64String(rsaParameters.P), // RSA secret prime P
+            Q = Convert.ToBase64String(rsaParameters.Q), // RSA secret prime Q
+            Dp = Convert.ToBase64String(rsaParameters.DP), // RSA exponent DP
+            Dq = Convert.ToBase64String(rsaParameters.DQ), // RSA exponent DQ
+            Qi = Convert.ToBase64String(rsaParameters.InverseQ) // RSA coefficient Q^-1
+        };
     }
 }
