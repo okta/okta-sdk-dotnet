@@ -1,6 +1,10 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 9.2.2
+- Fix DPoP Proof Generation (#758)
+- Fix: Resolve transient dependency conflict with Microsoft.IdentityModel.Protocols in JwtBearer authentication (#745)
+
 ## 9.2.1
 - Fix environment-specific appsettings not being honored (#656)
 - Fix ListFactors API to return correct fields for webauthn factors (#779)
