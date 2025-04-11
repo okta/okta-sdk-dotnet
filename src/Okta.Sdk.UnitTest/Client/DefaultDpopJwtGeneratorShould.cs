@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Net;
-using System.Threading;
-using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.IdentityModel.Tokens;
 using Okta.Sdk.Client;
-using Okta.Sdk.UnitTest.Internal;
-using RestSharp;
-using RichardSzalay.MockHttp;
 using Xunit;
-using Xunit.Abstractions;
 
 
 namespace Okta.Sdk.UnitTest.Client
@@ -20,11 +11,14 @@ namespace Okta.Sdk.UnitTest.Client
     public class DefaultDpopJwtGeneratorShould
     {
         [Fact]
+        [Obsolete("Obsolete")]
         public void GenerateDefaultDpopJwt()
         {
-            var configuration = new Configuration();
-            configuration.OktaDomain = "https://foo-admin.okta.com";
-            configuration.Token = "foo";
+            var configuration = new Configuration
+            {
+                OktaDomain = "https://foo-admin.okta.com",
+                Token = "foo"
+            };
 
             var jwtGenerator = new DefaultDpopProofJwtGenerator(configuration);
 
@@ -49,11 +43,14 @@ namespace Okta.Sdk.UnitTest.Client
         [InlineData("POST", "http://foo.com/resource", "foo")]
         [InlineData("PUT", "http://foo.com/resource/1", "bar")]
         [InlineData("DELETE", "http://foo.com", "baz")]
+        [Obsolete("Obsolete")]
         public void GenerateDpopJwtWithParams(string httpMethod, string uri, string accessToken)
         {
-            var configuration = new Configuration();
-            configuration.OktaDomain = "https://foo-admin.okta.com";
-            configuration.Token = "foo";
+            var configuration = new Configuration
+            {
+                OktaDomain = "https://foo-admin.okta.com",
+                Token = "foo"
+            };
 
             var jwtGenerator = new DefaultDpopProofJwtGenerator(configuration);
 

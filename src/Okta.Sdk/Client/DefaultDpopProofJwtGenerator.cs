@@ -50,23 +50,24 @@ namespace Okta.Sdk.Client
         public DefaultDpopProofJwtGenerator(IReadableConfiguration configuration)
         {
             _configuration = configuration ?? throw new ArgumentNullException($"The Okta Configuration cannot be null.");
-
-            // Get JWK from configured private key
-            var privateKey = configuration.PrivateKey ??
-                throw new ArgumentException("Private key configuration is required for DPoP");
-
             _rsa = RSA.Create();
-            _rsa.ImportParameters(new RSAParameters
+            if (configuration.PrivateKey != null)
             {
-                Modulus = Base64UrlEncoder.DecodeBytes(privateKey.N),
-                Exponent = Base64UrlEncoder.DecodeBytes(privateKey.E),
-                D = Base64UrlEncoder.DecodeBytes(privateKey.D),
-                P = Base64UrlEncoder.DecodeBytes(privateKey.P),
-                Q = Base64UrlEncoder.DecodeBytes(privateKey.Q),
-                DP = Base64UrlEncoder.DecodeBytes(privateKey.Dp),
-                DQ = Base64UrlEncoder.DecodeBytes(privateKey.Dq),
-                InverseQ = Base64UrlEncoder.DecodeBytes(privateKey.Qi)
-            });
+                // Get JWK from configured private key
+                var privateKey = configuration.PrivateKey ??
+                                 throw new ArgumentException("Private key configuration is required for DPoP");
+                _rsa.ImportParameters(new RSAParameters
+                {
+                    Modulus = Base64UrlEncoder.DecodeBytes(privateKey.N),
+                    Exponent = Base64UrlEncoder.DecodeBytes(privateKey.E),
+                    D = Base64UrlEncoder.DecodeBytes(privateKey.D),
+                    P = Base64UrlEncoder.DecodeBytes(privateKey.P),
+                    Q = Base64UrlEncoder.DecodeBytes(privateKey.Q),
+                    DP = Base64UrlEncoder.DecodeBytes(privateKey.Dp),
+                    DQ = Base64UrlEncoder.DecodeBytes(privateKey.Dq),
+                    InverseQ = Base64UrlEncoder.DecodeBytes(privateKey.Qi)
+                });
+            }
         }
 
         /// <summary>
