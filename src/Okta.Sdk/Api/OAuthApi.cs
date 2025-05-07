@@ -74,7 +74,7 @@ namespace Okta.Sdk.Api
         {
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(options);
         }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthApi"/> class
         /// using Configuration object
