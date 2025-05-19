@@ -10,11 +10,10 @@ namespace Okta.Sdk.UnitTest.Api;
 
 public class OktaApiClientOptionsShould
 {
-    [Fact(Skip = "TODO")]
+    [Fact]
     public Task UseDefaultConfiguration()
     {
         var forComparison = Configuration.GetConfigurationOrDefault();
-
         var (userApi, groupApi, applicationApi) = OktaApiClientOptions
             .UseDefaultConfiguration()
             .BuildApis<UserApi, GroupApi, ApplicationApi>();
@@ -39,14 +38,13 @@ public class OktaApiClientOptionsShould
         var testConfiguration = new Configuration()
         {
             OktaDomain = testDomain,
-            Token = testToken,
-            PrivateKey = GeneratePrivateKey()
+            Token = testToken
         };
 
         var (userApi, groupApi, applicationApi) = OktaApiClientOptions
             .UseConfiguration((_ => testConfiguration))
             .BuildApis<UserApi, GroupApi, ApplicationApi>();
-
+        
         userApi.Configuration.OktaDomain.Should().BeEquivalentTo(testDomain);
         userApi.Configuration.Token.Should().BeEquivalentTo(testToken);
         
@@ -67,8 +65,7 @@ public class OktaApiClientOptionsShould
         var testConfiguration = new Configuration
         {
             OktaDomain = testDomain,
-            Token = testToken,
-            PrivateKey = GeneratePrivateKey()
+            Token = testToken
         };
 
         var (userApi, groupApi, applicationApi) = OktaApiClientOptions
@@ -84,24 +81,5 @@ public class OktaApiClientOptionsShould
         applicationApi.Configuration.OktaDomain.Should().BeEquivalentTo(testDomain);
         applicationApi.Configuration.Token.Should().BeEquivalentTo(testToken);
         return Task.CompletedTask;
-    }
-
-    private static JsonWebKeyConfiguration GeneratePrivateKey()
-    {
-        using var rsa = new RSACryptoServiceProvider(2048);
-        var rsaParameters = rsa.ExportParameters(true);
-
-        return new JsonWebKeyConfiguration
-        {
-            Kty = "RSA",
-            N = Convert.ToBase64String(rsaParameters.Modulus), // RSA modulus
-            E = Convert.ToBase64String(rsaParameters.Exponent), // RSA public exponent
-            D = Convert.ToBase64String(rsaParameters.D), // RSA private exponent
-            P = Convert.ToBase64String(rsaParameters.P), // RSA secret prime P
-            Q = Convert.ToBase64String(rsaParameters.Q), // RSA secret prime Q
-            Dp = Convert.ToBase64String(rsaParameters.DP), // RSA exponent DP
-            Dq = Convert.ToBase64String(rsaParameters.DQ), // RSA exponent DQ
-            Qi = Convert.ToBase64String(rsaParameters.InverseQ) // RSA coefficient Q^-1
-        };
     }
 }

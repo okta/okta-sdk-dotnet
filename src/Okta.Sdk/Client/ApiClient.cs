@@ -232,7 +232,7 @@ namespace Okta.Sdk.Client
         public ApiClient(OktaApiClientOptions options)
         {
             _baseUrl = options.Configuration.OktaDomain;
-            _authTokenProvider = options.OAuthTokenProvider ?? new DefaultOAuthTokenProvider(options.Configuration);
+            _authTokenProvider = options.OAuthTokenProvider;
             _proxy = options.WebProxy;
             _interceptors = options.Interceptors;
             _httpMessageHandler = options.HttpMessageHandler;

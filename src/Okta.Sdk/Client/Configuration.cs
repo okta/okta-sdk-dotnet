@@ -39,7 +39,7 @@ namespace Okta.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "9.2.2";
+        public const string Version = "9.2.3";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format

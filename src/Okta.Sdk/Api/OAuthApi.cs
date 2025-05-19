@@ -70,11 +70,6 @@ namespace Okta.Sdk.Api
         private readonly IClientAssertionJwtGenerator _clientAssertionJwtGenerator;
         private readonly IDpopProofJwtGenerator _dpopProofJwtGenerator;
 
-        public OAuthApi(Okta.Sdk.Client.OktaApiClientOptions options) : this(options.Configuration)
-        {
-            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(options);
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthApi"/> class
         /// using Configuration object
@@ -172,7 +167,7 @@ namespace Okta.Sdk.Api
                 "application/json"
             };
 
-            //_dpopProofJwtGenerator.RotateKeys();
+            _dpopProofJwtGenerator.RotateKeys();
             var jwtSecurityToken = _clientAssertionJwtGenerator.GenerateJwt();
             var scopes = string.Join(" ", Configuration.Scopes);
             var accessTokenUri = "/oauth2/v1/token";

@@ -12,14 +12,22 @@
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 
 namespace Okta.Sdk.Client
 {
     public interface IDpopProofJwtGenerator
     {
+        /// <summary>
+        /// Dispose of the existing keys and create a new RSA key set.
+        /// </summary>
+        void RotateKeys();
+
+
         /// <summary>
         /// Generate a new DPoP Proof JWT
         /// </summary>
@@ -29,42 +37,35 @@ namespace Okta.Sdk.Client
         /// <param name="accessToken">The access token</param>
         /// <returns>A DPoP Proof JWT</returns>
         /// <exception cref="InvalidOperationException"></exception>
-        string GenerateJwt(string? nonce = null, string? httpMethod = null, string? uri = null, string? accessToken = null);
+        string GenerateJwt(String? nonce = null, String? httpMethod = null, String? uri = null, String? accessToken = null);
     }
-
-    /// <inheritdoc />
-    public class DefaultDpopProofJwtGenerator : IDpopProofJwtGenerator
+    public class DefaultDpopProofJwtGenerator : IDpopProofJwtGenerator 
     {
+        
         private readonly IReadableConfiguration _configuration;
-        private readonly RSA _rsa;
+        private RSA _rsa;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="configuration"></param>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="ArgumentException"></exception>
         public DefaultDpopProofJwtGenerator(IReadableConfiguration configuration)
         {
-            _configuration = configuration ?? throw new ArgumentNullException($"The Okta Configuration cannot be null.");
             _rsa = RSA.Create();
-            if (configuration.PrivateKey != null)
+
+            if (configuration == null)
             {
-                // Get JWK from configured private key
-                var privateKey = configuration.PrivateKey ??
-                                 throw new ArgumentException("Private key configuration is required for DPoP");
-                _rsa.ImportParameters(new RSAParameters
-                {
-                    Modulus = Base64UrlEncoder.DecodeBytes(privateKey.N),
-                    Exponent = Base64UrlEncoder.DecodeBytes(privateKey.E),
-                    D = Base64UrlEncoder.DecodeBytes(privateKey.D),
-                    P = Base64UrlEncoder.DecodeBytes(privateKey.P),
-                    Q = Base64UrlEncoder.DecodeBytes(privateKey.Q),
-                    DP = Base64UrlEncoder.DecodeBytes(privateKey.Dp),
-                    DQ = Base64UrlEncoder.DecodeBytes(privateKey.Dq),
-                    InverseQ = Base64UrlEncoder.DecodeBytes(privateKey.Qi)
-                });
+                throw new ArgumentNullException("The Okta configuration cannot be null.");
             }
+
+            _configuration = configuration;
+        }
+
+        /// <summary>
+        /// Dispose of the existing keys and create a new RSA key set.
+        /// </summary>
+        public void RotateKeys()
+        {
+            _rsa.Clear();
+            _rsa.Dispose();
+
+            _rsa = RSA.Create();
         }
 
         /// <summary>
@@ -76,55 +77,51 @@ namespace Okta.Sdk.Client
         /// <param name="accessToken">The access token</param>
         /// <returns>A DPoP Proof JWT</returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public string GenerateJwt(string? nonce = null, string? httpMethod = null,
-            string? uri = null, string? accessToken = null)
+        public string GenerateJwt(String? nonce = null, String? httpMethod = null, String? uri = null, String? accessToken = null)
         {
             try
             {
+                TimeSpan timeSpanIat = DateTime.UtcNow - new DateTime(1970, 1, 1);
+
                 var payload = new JwtPayload
                 {
                     { "htm", httpMethod ?? "POST" },
                     { "htu", uri ?? $"{ClientUtils.EnsureTrailingSlash(_configuration.OktaDomain)}oauth2/v1/token" },
-                    { "iat", DateTimeOffset.UtcNow.ToUnixTimeSeconds() },
-                    { "jti", Guid.NewGuid().ToString() }
+                    { "iat", (int)timeSpanIat.TotalSeconds },
+                    { "jti", Guid.NewGuid().ToString()}
                 };
 
                 if (!string.IsNullOrEmpty(nonce))
-                    payload.Add("nonce", nonce);
+                {
+                    payload.AddClaim(new Claim("nonce", nonce));
+                }
 
                 if (!string.IsNullOrEmpty(accessToken))
-                    if (accessToken != null)
-                        payload.Add("ath", HashAccessToken(accessToken));
-
-                // Build minimal JWK
-                var publicParams = _rsa.ExportParameters(false);
-                var jwkDict = new Dictionary<string, object>
                 {
-                    { "kty", "RSA" },
-                    { "use", "sig" },
-                    { "alg", SecurityAlgorithms.RsaSha256 },
-                    { "e", Base64UrlEncoder.Encode(publicParams.Exponent) },
-                    { "n", Base64UrlEncoder.Encode(publicParams.Modulus) }
-                };
-
-                var signingCredentials = new SigningCredentials(
-                    new RsaSecurityKey(_rsa),
-                    SecurityAlgorithms.RsaSha256
-                );
-                var header = new JwtHeader(signingCredentials);
-                if (header.ContainsKey("typ"))
-                {
-                    header.Remove("typ");
+                    payload.AddClaim(new Claim("ath", HashAccessTokenForDpopProof(accessToken)));
                 }
-                header.Add("typ", "dpop+jwt");
-                header.Add("jwk", jwkDict);
 
-                var securityToken = new JwtSecurityToken(header, payload);
+                var publicKey = new RsaSecurityKey(_rsa.ExportParameters(false));
+                var publicJsonWebKey = JsonWebKeyConverter.ConvertFromRSASecurityKey(publicKey);
+
+                RsaSecurityKey keys = new RsaSecurityKey(_rsa.ExportParameters(true));
+
+                var signingCredentials = new SigningCredentials(keys, SecurityAlgorithms.RsaSha256);
+                
+                var outboundAlgorithmMap = new Dictionary<string, string> { { "alg", SecurityAlgorithms.RsaSha256 } };
+
+                var additionalHeaders = new Dictionary<string, object> { { "jwk", JsonConvert.SerializeObject(publicJsonWebKey) } };
+
+                var securityToken =
+                    new JwtSecurityToken(
+                        new JwtHeader(signingCredentials, outboundAlgorithmMap, "dpop+jwt", additionalHeaders),
+                        payload);
+
                 return new JwtSecurityTokenHandler().WriteToken(securityToken);
             }
             catch (Exception e)
             {
-                throw new InvalidOperationException("Failed to generate DPoP proof JWT", e);
+                throw new InvalidOperationException("Something went wrong when creating the signed JWT. Verify your private key.", e);
             }
         }
 
@@ -133,16 +130,19 @@ namespace Okta.Sdk.Client
         /// </summary>
         /// <param name="accessToken">The access token.</param>
         /// <returns>The hash of the access token.</returns>
-        private static string HashAccessToken(string accessToken)
+        private string HashAccessTokenForDpopProof(string accessToken)
         {
-            //Create an instance of SHA256 algorithm
-            using var sha256 = SHA256.Create();
+            var encodedAccessTokenBytes = Encoding.ASCII.GetBytes(accessToken);
+            
+            // Create an instance of SHA-256 algorithm
+            using SHA256 sha256 = SHA256.Create();
+            
+            // Compute the hash
+            var hashBytes = sha256.ComputeHash(encodedAccessTokenBytes);
 
-            //Compute the hash
-            var hash = sha256.ComputeHash(Encoding.ASCII.GetBytes(accessToken));
-
-            //Perform the base64url encoding on the hash
-            return Base64UrlEncoder.Encode(hash);
+            // Perform base64url encoding on the hash
+            return Base64UrlEncoder.Encode(hashBytes);
         }
+
     }
 }
