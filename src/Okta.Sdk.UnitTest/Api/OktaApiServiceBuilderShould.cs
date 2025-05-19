@@ -1,7 +1,6 @@
 using System;
 using System.Net;
 using System.Net.Http;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 using FluentAssertions;
 using NSubstitute;
@@ -11,6 +10,7 @@ using Okta.Sdk.Model;
 using Okta.Sdk.UnitTest.Internal;
 using RestSharp.Interceptors;
 using Xunit;
+using Moq;
 
 namespace Okta.Sdk.UnitTest.Api;
 
@@ -25,8 +25,7 @@ public class OktaApiServiceBuilderShould
         var testConfiguration = new Configuration()
         {
             OktaDomain = testDomain,
-            Token = testToken,
-            PrivateKey = GeneratePrivateKey()
+            Token = testToken
         };
 
         var userApi = OktaApiServiceBuilder
@@ -47,8 +46,7 @@ public class OktaApiServiceBuilderShould
         var testConfiguration = new Configuration()
         {
             OktaDomain = testDomain,
-            Token = testToken,
-            PrivateKey = GeneratePrivateKey()
+            Token = testToken
         };
 
         var testHttpMessageHandler = new TestHttpMessageHandler(new HttpResponseMessage());
@@ -126,24 +124,5 @@ public class OktaApiServiceBuilderShould
         var mockDependency = (MockDependency)mockInterceptor.MockDependency;
         mockDependency.SubDependency.Should().NotBeNull();
         return Task.CompletedTask;
-    }
-
-    private static JsonWebKeyConfiguration GeneratePrivateKey()
-    {
-        using var rsa = new RSACryptoServiceProvider(2048);
-        var rsaParameters = rsa.ExportParameters(true);
-
-        return new JsonWebKeyConfiguration
-        {
-            Kty = "RSA",
-            N = Convert.ToBase64String(rsaParameters.Modulus), // RSA modulus
-            E = Convert.ToBase64String(rsaParameters.Exponent), // RSA public exponent
-            D = Convert.ToBase64String(rsaParameters.D), // RSA private exponent
-            P = Convert.ToBase64String(rsaParameters.P), // RSA secret prime P
-            Q = Convert.ToBase64String(rsaParameters.Q), // RSA secret prime Q
-            Dp = Convert.ToBase64String(rsaParameters.DP), // RSA exponent DP
-            Dq = Convert.ToBase64String(rsaParameters.DQ), // RSA exponent DQ
-            Qi = Convert.ToBase64String(rsaParameters.InverseQ) // RSA coefficient Q^-1
-        };
     }
 }
