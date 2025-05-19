@@ -1,5 +1,8 @@
 # Changelog
 Running changelog of releases since `3.1.1`
+## 9.2.3
+- Fix runtime crash on .NET 8 by adding Microsoft.Bcl.AsyncInterfaces v8.0.0 as explicit dependency (#787)
+- fix: make private key optional again after DPoP changes mistakenly required it by default
 
 ## 9.2.2
 - Fix DPoP Proof Generation (#758)
