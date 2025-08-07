@@ -117,11 +117,5 @@ workflows:
             branches:
               only:
                 - test
-  "Semgrep":
-    jobs:
-      - platform-helpers/job-semgrep-scan:
-          context:
-            - static-analysis
-          name: "Scan with Semgrep"
 
 # VS Code Extension Version: 1.4.0
