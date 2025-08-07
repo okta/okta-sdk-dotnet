@@ -5,7 +5,7 @@ version: 2.1
 orbs:
   windows: circleci/windows@5.0
   general-platform-helpers: okta/general-platform-helpers@1.9
-  platform-helpers: okta/platform-helpers@1
+  platform-helpers: okta/platform-helpers@dev:alpha
   python: circleci/python@2.0.3
   aws-cli: circleci/aws-cli@5.1
 
