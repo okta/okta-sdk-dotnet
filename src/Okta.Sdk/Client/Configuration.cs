@@ -766,7 +766,7 @@ namespace Okta.Sdk.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2024.07.0\n";
-            report += "    SDK Package Version: 9.2.2\n";
+            report += "    SDK Package Version: 9.2.3\n";
 
             return report;
         }
