@@ -523,7 +523,7 @@ tags:
   - name: Policy
     x-displayName: Policies
     description: |-
-      The Okta Policy API enables an administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern many things: 
+      The Okta Policy API enables an administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern many things:
       - user session lifetime
       - whether multi-factor authentication is required when signing in
       - what MFA factors may be employed
@@ -731,7 +731,7 @@ tags:
 
       Okta uses the [Shared Signals Framework (SSF)](https://openid.net/specs/openid-sharedsignals-framework-1_0-ID3.html) to send security-related events and other data-subject signals to third-party security vendors. In this scenario, commonly used terms for third-party vendors that receive signals are "receivers", Okta is the "transmitter", and the connection between the two entities is referred to as a "stream."
 
-      The SSF Transmitter API allows you to manage SSF stream configurations between the receiver that receives signals transmitted by Okta. Okta sends signals in the form of [Security Event Tokens (SETs)](https://datatracker.ietf.org/doc/html/rfc8417) to a third-party SSF receiver. 
+      The SSF Transmitter API allows you to manage SSF stream configurations between the receiver that receives signals transmitted by Okta. Okta sends signals in the form of [Security Event Tokens (SETs)](https://datatracker.ietf.org/doc/html/rfc8417) to a third-party SSF receiver.
 
       Okta's SSF Transmitter currently supports two types of CAEP events: [Session Revoked](https://openid.net/specs/openid-caep-1_0-ID2.html#name-session-revoked) and [Credential Change](https://openid.net/specs/openid-caep-1_0-ID2.html#name-credential-change).
 
@@ -901,7 +901,7 @@ tags:
 
       You can also configure Trusted Origins to allow iFrame embedding of Okta resources, such as Okta sign-in pages and the Okta End-User Dashboard, within that origin.
 
-      > **Notes:**  
+      > **Notes:**
       > * This feature is supported for Okta domains only. It isn't currently supported for custom domains.
       > * Some of the curl code examples on this page include SSWS API token authentication. However, Okta recommends using scoped OAuth 2.0 and OIDC access tokens to authenticate with Okta management APIs. OAuth 2.0 and OIDC access tokens provide fine-grain control over the bearer's actions on specific endpoints. See [Okta API authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
   - name: UISchema
@@ -2475,7 +2475,7 @@ paths:
               type: string
               format: binary
               description: |-
-                X.509 certificate in `DER` format. 
+                X.509 certificate in `DER` format.
                 The client can either post in binary or Base64URL-encoded. If the post is Base64URL-encoded, set the `Content-Transfer-Encoding` header to `base64`.
               example: MIIFgjCCA2qgAwIBAgICEAcwDQYJKoZIhvcNAQELBQAwXjELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkNBMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ0wCwYDVQQKDARPa3RhMQwwCgYDVQQLDANFbmcxDTALBgNVBAMMBFJvb3QwHhcNMTcwMzI3MjEyMDQ3WhcNMTgwNDA2MjEyMDQ3WjB4MQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzETMBEGA1UECgwKT2t0YSwgSW5jLjEQMA4GA1UECwwHSmFua3lDbzEVMBMGA1UEAwwMSWRQIElzc3VlciA3MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmkC6yAJVvFwUlmM9gKjb2d+YK5qHFt+mXSsbjWKKs4EfNm+BoQeeovBZtSACyaqLc8IYFTPEURFcbDQ9DkAL04uUIRD2gaHYY7uK0jsluEaXGq2RAIsmzAwNTzkiDw4q9pDL/q7n0f/SDt1TsMaMQayB6bU5jWsmqcWJ8MCRJ1aJMjZ16un5UVx51IIeCbe4QRDxEXGAvYNczsBoZxspDt28esSpq5W0dBFxcyGVudyl54Er3FzAguhgfMVjH+bUec9j2Tl40qDTktrYgYfxz9pfjm01Hl4WYP1YQxeETpSL7cQ5Ihz4jGDtHUEOcZ4GfJrPzrGpUrak8Qp5xcwCqQIDAQABo4IBLjCCASowCQYDVR0TBAIwADARBglghkgBhvhCAQEEBAMCBkAwMwYJYIZIAYb4QgENBCYWJE9wZW5TU0wgR2VuZXJhdGVkIFNlcnZlciBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUVqJukDmyENw/2pTApbxc/HRKbngwgZAGA1UdIwSBiDCBhYAUFx245ZZXqWTTbARfMlFWN77L9EahYqRgMF4xCzAJBgNVBAYTAlVTMQswCQYDVQQIDAJDQTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEMMAoGA1UECwwDRW5nMQ0wCwYDVQQDDARSb290ggkAlIfpwZjO5o8wDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA0GCSqGSIb3DQEBCwUAA4ICAQCcoBSRtY+9cJY00hLvq6AloYZcdn/kUQupfmyz4n3lKE3wV2FB0swKnK0QDi8iNuQJFdag/19vDHC4/LhoSuv1Q+KXM61pPZVRXXPyC1+e7Y6hj93tEI5HcqLPcDRH1AIG2l8tE7LBn+MQB5Vh6oxjG2IdoWxg6abMfISU+MauPWql4vMDUWo9iNShAo44Z5fd+nuz+hlAinU9Xn9Jf2QsfKvcbMRq7iuqgkabgdmObmWb9KK0Vm7TDkxCH0pB0onPr6epVUP8Obg/pT1Oj/1hOLbfR8CHHWdAWzUBGGvp2TIy2A8LUaEoFnwkxZfdL7Bnd0RH/ClBtAjzLOxmUo7NbZmEnYCcD5pZz7BdZI0db/eBXFqfOlA88rEe+9Sv+NndIq0/WNIIsJi2RgjJnxsxvB5MjhhzmItpFIUl5yqoO3C9jcCp6HDBJxtCGbvAr5ALPn5RCJeBIr67WpAiTd7L3Ebu9SQZlXnoHX8kP04EA6ylR3W0EFbh7KUtq8M2H2vo0wjMj7ysl/3tT7cEZ97s1ygO5iJx3GfMDyrDhtLXSBJ20uSxTJeptRw8SDiwTqunIh1WyKlcQz1WGauSbW4eXdj/r9KYMJ3qMMkdP/9THQUtTcOYx51r8RV9pdzqF2HPnZZNziBa+wXJZHEWp70NyoakNthgYwtypqiDHs2f3Q==
               x-okta-operationId: publishBinaryDerCert
@@ -4126,7 +4126,7 @@ paths:
         - name: q
           in: query
           description: |-
-            Specifies a filter for a list of assigned groups returned based on their names. The value of `q` is matched against the group `name`. 
+            Specifies a filter for a list of assigned groups returned based on their names. The value of `q` is matched against the group `name`.
             This filter only supports the `startsWith` operation that matches the `q` string against the beginning of the [group name](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups!c=200&path=profile/name&t=response).
           schema:
             type: string
@@ -4204,7 +4204,7 @@ paths:
     put:
       summary: Assign an application group
       description: |-
-        Assigns a [Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) to an app, which in turn assigns the app to each [User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) that belongs to the group. 
+        Assigns a [Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) to an app, which in turn assigns the app to each [User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) that belongs to the group.
         The resulting application user [scope](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/listApplicationUsers!c=200&path=scope&t=response) is `GROUP` since the assignment was from the group membership.
       operationId: assignGroupToApplication
       x-codegen-request-body-name: applicationGroupAssignment
@@ -10532,7 +10532,7 @@ paths:
         Searches for devices based on the properties specified in the `search` parameter conforming SCIM filter specifications (case-insensitive). This data is eventually consistent. The API returns different results depending on specified queries in the request. Empty list is returned if no objects match `search` request.
         > **Note:** Listing devices with `search` should not be used as a part of any critical flow, such as authentication or updates, to prevent potential data loss. `search` results may not reflect the latest information, as this endpoint uses a search index which may not be up-to-date with recent updates to the object.
 
-        Don't use search results directly for record updates, as the data might be stale and therefore overwrite newer data, resulting in data loss. 
+        Don't use search results directly for record updates, as the data might be stale and therefore overwrite newer data, resulting in data loss.
 
         Use an `id` lookup for records that you update to ensure your results contain the latest data.
 
@@ -12122,7 +12122,7 @@ paths:
 
             You can also use the `sortBy` and `sortOrder` parameters.
 
-            Searches for groups can be filtered by the following operators: `sw`, `eq`, and `co`. You can only use `co` with these select profile attributes: `profile.name` and `profile.description`. See [Operators](https://developer.okta.com/docs/api/#operators).             
+            Searches for groups can be filtered by the following operators: `sw`, `eq`, and `co`. You can only use `co` with these select profile attributes: `profile.name` and `profile.description`. See [Operators](https://developer.okta.com/docs/api/#operators).
           schema:
             type: string
           examples:
@@ -13368,9 +13368,9 @@ paths:
 
         The total number of keys that you can create in an Okta org is limited to 50.
 
-         The response is a [Key object](https://developer.okta.com/docs/reference/api/hook-keys/#key-object) that represents the 
-         key that you create. The `id` property in the response serves as the unique ID for the key, which you can specify when 
-         invoking other CRUD operations. The `keyId` provided in the response is the alias of the public key that you can use to get 
+         The response is a [Key object](https://developer.okta.com/docs/reference/api/hook-keys/#key-object) that represents the
+         key that you create. The `id` property in the response serves as the unique ID for the key, which you can specify when
+         invoking other CRUD operations. The `keyId` provided in the response is the alias of the public key that you can use to get
          details of the public key data in a separate call.
 
         > **Note:** The keyId is the alias of the public key that you can use to retrieve the public key.
@@ -15287,7 +15287,7 @@ paths:
 
         #### SAML 2.0 IdP
 
-        You must first add the IdP's signature certificate to the IdP key store before you can add a SAML 2.0 IdP with a `kid` credential reference. 
+        You must first add the IdP's signature certificate to the IdP key store before you can add a SAML 2.0 IdP with a `kid` credential reference.
 
         Don't use `fromURI` to automatically redirect a user to a particular app after successfully authenticating with a third-party IdP. Instead, use SAML deep links. Using `fromURI` isn't tested or supported. For more information about using deep links when signing users in using an SP-initiated flow, see [Understanding SP-Initiated Login flow](https://developer.okta.com/docs/concepts/saml/#understanding-sp-initiated-login-flow).
 
@@ -15824,7 +15824,7 @@ paths:
               type: string
               format: binary
               description: |-
-                X.509 certificate in `DER` format. 
+                X.509 certificate in `DER` format.
                 The client can either post in binary or Base64URL-encoded. If the post is Base64URL-encoded, set the `Content-Transfer-Encoding` header to `base64`.
               example: MIIFgjCCA2qgAwIBAgICEAcwDQYJKoZIhvcNAQELBQAwXjELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkNBMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ0wCwYDVQQKDARPa3RhMQwwCgYDVQQLDANFbmcxDTALBgNVBAMMBFJvb3QwHhcNMTcwMzI3MjEyMDQ3WhcNMTgwNDA2MjEyMDQ3WjB4MQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzETMBEGA1UECgwKT2t0YSwgSW5jLjEQMA4GA1UECwwHSmFua3lDbzEVMBMGA1UEAwwMSWRQIElzc3VlciA3MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmkC6yAJVvFwUlmM9gKjb2d+YK5qHFt+mXSsbjWKKs4EfNm+BoQeeovBZtSACyaqLc8IYFTPEURFcbDQ9DkAL04uUIRD2gaHYY7uK0jsluEaXGq2RAIsmzAwNTzkiDw4q9pDL/q7n0f/SDt1TsMaMQayB6bU5jWsmqcWJ8MCRJ1aJMjZ16un5UVx51IIeCbe4QRDxEXGAvYNczsBoZxspDt28esSpq5W0dBFxcyGVudyl54Er3FzAguhgfMVjH+bUec9j2Tl40qDTktrYgYfxz9pfjm01Hl4WYP1YQxeETpSL7cQ5Ihz4jGDtHUEOcZ4GfJrPzrGpUrak8Qp5xcwCqQIDAQABo4IBLjCCASowCQYDVR0TBAIwADARBglghkgBhvhCAQEEBAMCBkAwMwYJYIZIAYb4QgENBCYWJE9wZW5TU0wgR2VuZXJhdGVkIFNlcnZlciBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUVqJukDmyENw/2pTApbxc/HRKbngwgZAGA1UdIwSBiDCBhYAUFx245ZZXqWTTbARfMlFWN77L9EahYqRgMF4xCzAJBgNVBAYTAlVTMQswCQYDVQQIDAJDQTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEMMAoGA1UECwwDRW5nMQ0wCwYDVQQDDARSb290ggkAlIfpwZjO5o8wDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA0GCSqGSIb3DQEBCwUAA4ICAQCcoBSRtY+9cJY00hLvq6AloYZcdn/kUQupfmyz4n3lKE3wV2FB0swKnK0QDi8iNuQJFdag/19vDHC4/LhoSuv1Q+KXM61pPZVRXXPyC1+e7Y6hj93tEI5HcqLPcDRH1AIG2l8tE7LBn+MQB5Vh6oxjG2IdoWxg6abMfISU+MauPWql4vMDUWo9iNShAo44Z5fd+nuz+hlAinU9Xn9Jf2QsfKvcbMRq7iuqgkabgdmObmWb9KK0Vm7TDkxCH0pB0onPr6epVUP8Obg/pT1Oj/1hOLbfR8CHHWdAWzUBGGvp2TIy2A8LUaEoFnwkxZfdL7Bnd0RH/ClBtAjzLOxmUo7NbZmEnYCcD5pZz7BdZI0db/eBXFqfOlA88rEe+9Sv+NndIq0/WNIIsJi2RgjJnxsxvB5MjhhzmItpFIUl5yqoO3C9jcCp6HDBJxtCGbvAr5ALPn5RCJeBIr67WpAiTd7L3Ebu9SQZlXnoHX8kP04EA6ylR3W0EFbh7KUtq8M2H2vo0wjMj7ysl/3tT7cEZ97s1ygO5iJx3GfMDyrDhtLXSBJ20uSxTJeptRw8SDiwTqunIh1WyKlcQz1WGauSbW4eXdj/r9KYMJ3qMMkdP/9THQUtTcOYx51r8RV9pdzqF2HPnZZNziBa+wXJZHEWp70NyoakNthgYwtypqiDHs2f3Q==
               x-okta-operationId: publishBinaryDerCertForIdentityProvider
@@ -16349,7 +16349,7 @@ paths:
       description: |-
         Creates an inline hook
 
-        This endpoint creates an inline hook for your org in an `ACTIVE` status. You need to pass an inline hooks object in the JSON payload of your request. 
+        This endpoint creates an inline hook for your org in an `ACTIVE` status. You need to pass an inline hooks object in the JSON payload of your request.
         That object represents the set of required information about the inline hook that you're registering, including:
 
         * The URI of your external service endpoint
@@ -16565,11 +16565,11 @@ paths:
     post:
       summary: Execute an inline hook
       description: |-
-        Executes the inline hook that matches the provided `inlineHookId` by using the request body as the input. This inline hook sends the provided 
-        data through the `channel` object and returns a response if it matches the correct data contract. Otherwise it returns an error. You need to 
+        Executes the inline hook that matches the provided `inlineHookId` by using the request body as the input. This inline hook sends the provided
+        data through the `channel` object and returns a response if it matches the correct data contract. Otherwise it returns an error. You need to
         construct a JSON payload that matches the payloads that Okta would send to your external service for this inline hook type.
 
-        A timeout of three seconds is enforced on all outbound requests, with one retry in the event of a timeout or an error response from the remote system. 
+        A timeout of three seconds is enforced on all outbound requests, with one retry in the event of a timeout or an error response from the remote system.
         If a successful response isn't received after the request, a 400 error is returned with more information about what failed.
 
         >**Note:** This execution endpoint isn't tied to any other functionality in Okta, and you should only use it for testing purposes.
@@ -22290,7 +22290,7 @@ paths:
     get:
       summary: Retrieve the current session
       description: |-
-        Retrieves Session information for the current user. Use this method in a browser-based application to determine if the user is signed in. 
+        Retrieves Session information for the current user. Use this method in a browser-based application to determine if the user is signed in.
 
         > **Note:** This operation requires a session cookie for the user. An API token isn't allowed for this operation.
       operationId: getCurrentSession
@@ -23347,13 +23347,13 @@ paths:
         - name: search
           in: query
           description: |-
-            Searches for users with a supported filtering expression for most properties. Okta recommends using this parameter for optimal search performance. 
+            Searches for users with a supported filtering expression for most properties. Okta recommends using this parameter for optimal search performance.
 
             > **Note:** Using an overly complex or long search query can result in an error.
 
             This operation supports [pagination](https://developer.okta.com/docs/api/#pagination). Use an ID lookup for records that you update to ensure your results contain the latest data. Returned users include those with the `DEPROVISIONED` status.
 
-            Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, and so on) and string values are case insensitive. Unlike with user logins, diacritical marks are significant in search string values: a search for `isaac.brock` finds `Isaac.Brock`, but doesn't find a property whose value is `isáàc.bröck`. 
+            Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, and so on) and string values are case insensitive. Unlike with user logins, diacritical marks are significant in search string values: a search for `isaac.brock` finds `Isaac.Brock`, but doesn't find a property whose value is `isáàc.bröck`.
 
             This operation requires [URL encoding](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding). For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`. If you use the special character `"` within a quoted string, it must also be escaped `\` and encoded. For example, `search=profile.lastName eq "bob"smith"` is encoded as `search=profile.lastName%20eq%20%22bob%5C%22smith%22`. See [Special Characters](https://developer.okta.com/docs/api/#special-characters).
 
@@ -23399,7 +23399,7 @@ paths:
         - name: filter
           in: query
           description: |-
-            Filters users with a supported expression for a subset of properties. 
+            Filters users with a supported expression for a subset of properties.
 
             > **Note:** Returned users include those with the `DEPROVISIONED` status.
 
@@ -25382,7 +25382,7 @@ paths:
       description: |-
         Enrolls a supported factor for the specified user
 
-        > **Notes:** 
+        > **Notes:**
         >   * All responses return the enrolled factor with a status of either `PENDING_ACTIVATION` or `ACTIVE`.
         >   * You can't use the Factors API to enroll Okta Fastpass (`signed_nonce`) for a user. See [Configure Okta Fastpass](https://help.okta.com/okta_help.htm?type=oie&id=ext-fp-configure).
 
@@ -25678,7 +25678,7 @@ paths:
 
         Okta enforces a rate limit of five activation attempts within five minutes. After a user exceeds the rate limit, Okta returns an error message.
 
-        > **Notes:** 
+        > **Notes:**
         > * If the user exceeds their SMS, call, or email factor activation rate limit, then an [OTP resend request](./#tag/UserFactor/operation/resendEnrollFactor) isn't allowed for the same factor.
         > * You can't use the Factors API to activate Okta Fastpass (`signed_nonce`) for a user. See [Configure Okta Fastpass](https://help.okta.com/okta_help.htm?type=oie&id=ext-fp-configure).
       operationId: activateFactor
@@ -25812,7 +25812,7 @@ paths:
         Retrieves the status of a `push` factor verification transaction
 
          > **Note:**
-         > The response body for a number matching push challenge to an Okta Verify `push` factor enrollment is different from the response body of a standard push challenge. 
+         > The response body for a number matching push challenge to an Okta Verify `push` factor enrollment is different from the response body of a standard push challenge.
          > The number matching push challenge [response body](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/getFactorTransactionStatus!c=200&path=1/_embedded&t=response) contains the correct answer for the challenge.
          > Use [Verify a factor](/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor) to configure which challenge is sent.
       operationId: getFactorTransactionStatus
@@ -25859,7 +25859,7 @@ paths:
         Verifies an OTP for a factor. Some factors (`call`, `email`, `push`, `sms`, `u2f`, and `webauthn`) must first issue a challenge before you can verify the factor. Do this by making a request without a body. After a challenge is issued, make another request to verify the factor.
 
         > **Notes:**
-        > - You can send standard push challenges or number matching push challenges to Okta Verify `push` factor enrollments. Use a [request body](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor!path=2/useNumberMatchingChallenge&t=request) for number matching push challenges. 
+        > - You can send standard push challenges or number matching push challenges to Okta Verify `push` factor enrollments. Use a [request body](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor!path=2/useNumberMatchingChallenge&t=request) for number matching push challenges.
         > - To verify a `push` factor, use the **poll** link returned when you issue the challenge. See [Retrieve a factor transaction status](/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/getFactorTransactionStatus).
       operationId: verifyFactor
       parameters:
@@ -28934,10 +28934,10 @@ x-webhooks:
 
         Note: Administrators can use the [Okta System Log](https://developer.okta.com/docs/reference/api/system-log/) to view errors. See the Troubleshooting section in the inline hooks topic for details on events captured by the Okta System Log.
 
-        | Issue                                                                               | Impact                                                                                          | Error Visibility                          | 
+        | Issue                                                                               | Impact                                                                                          | Error Visibility                          |
         |-------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|-------------------------------------------|
         |External service fails to communicate or times out                                   | Inline hook operation is skipped, OTP is sent to the Requester using an Okta telephony provider | Administrators only                       |
-        |External service responds with any HTTP status code besides `200`                    | Inline hook operation is skipped, OTP is sent to the Requester using an Okta telephony provider | Administrators only                       | 
+        |External service responds with any HTTP status code besides `200`                    | Inline hook operation is skipped, OTP is sent to the Requester using an Okta telephony provider | Administrators only                       |
         |External service returns an error object                                             | Inline hook operation fails, OTP is sent to the Requester using an Okta telephony provider      | Administrators, developers, and end users |
         |Hook response is malformed or can't be mapped to the expected API response           | Inline hook operation is skipped                                                                | Administrators only                       |
         |Request header doesn't include an `authScheme`                                       | Inline hook operation is skipped                                                                | Administrators only                       |
@@ -29021,7 +29021,7 @@ x-webhooks:
 
         ### Password removal from an existing user store
 
-        Because of the possibility of your org being in a special service mode, you shouldn't attempt to permanently delete user passwords from your existing user store until you can verify the success of the password import . An Okta System Log Event, `user.import.password`, is available for this purpose. An event of this type is created every time a password import inline hook is fired, with its `Event.Outcome` property providing a status of `FAILURE` or `SUCCESS` for the password import operation. 
+        Because of the possibility of your org being in a special service mode, you shouldn't attempt to permanently delete user passwords from your existing user store until you can verify the success of the password import . An Okta System Log Event, `user.import.password`, is available for this purpose. An event of this type is created every time a password import inline hook is fired, with its `Event.Outcome` property providing a status of `FAILURE` or `SUCCESS` for the password import operation.
         If the status is `SUCCESS`, Okta has successfully saved the end user's password, and it's safe to delete it from your previous user store.
 
         You can configure an [Event hook](https://developer.okta.com/docs/concepts/event-hooks/) to send this event type to you for use when triggering automated cleanup of end-user
@@ -29118,12 +29118,12 @@ x-webhooks:
     post:
       summary: Create a user import inline hook
       description: |-
-        Creates a user import inline hook request, one type of inline hook supported by Okta. This is an automated request from Okta to your third-party service endpoint. 
-        This reference provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include 
+        Creates a user import inline hook request, one type of inline hook supported by Okta. This is an automated request from Okta to your third-party service endpoint.
+        This reference provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include
         in your response. The objects that you return in the JSON payload of your response to this Okta request are an array of one or more objects, which specify the Okta commands to execute.
 
-        The user import inline hook enables you to add custom logic to the process of importing new users into Okta from an app. You can resolve conflicts in user name or other profile attributes, 
-        modify values of profile attributes, and control whether the imported user is treated as a match for an existing user or not. The hook is invoked for each user being imported, 
+        The user import inline hook enables you to add custom logic to the process of importing new users into Okta from an app. You can resolve conflicts in user name or other profile attributes,
+        modify values of profile attributes, and control whether the imported user is treated as a match for an existing user or not. The hook is invoked for each user being imported,
         at the point immediately after any applicable profile attribute mappings have been applied, and any potential matches with existing users have been found, but before the Okta user profile is created.
 
         >**Note:** If the external service times out after receiving an Okta request, the Okta process flow continues and the user is created.
@@ -54943,7 +54943,7 @@ components:
       name: expand
       in: query
       description: |-
-        An optional query parameter to return the corresponding assigned [group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) or 
+        An optional query parameter to return the corresponding assigned [group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) or
         the group assignment metadata details in the `_embedded` property.
       schema:
         type: string
@@ -54959,7 +54959,7 @@ components:
       name: expand
       in: query
       description: |-
-        An optional query parameter to return the corresponding assigned [group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) or 
+        An optional query parameter to return the corresponding assigned [group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) or
         the group assignment metadata details in the `_embedded` property.
       schema:
         type: string
@@ -56954,7 +56954,7 @@ components:
           type: object
           description: |-
             Embedded resource related to the Application Group using the [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) specification.
-            If the `expand=group` query parameter is specified, then the [group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) object is embedded. 
+            If the `expand=group` query parameter is specified, then the [group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) object is embedded.
             If the `expand=metadata` query parameter is specified, then the group assignment metadata is embedded.
           additionalProperties:
             type: object
@@ -59371,11 +59371,16 @@ components:
 
                 For example, `2025-01-01T18:30:45.000Z`
     ByDateTimeExpiry:
-      allOf:
-        - $ref: '#/components/schemas/DateTime'
+      type: object
+      properties:
+        expiresAt:
+          $ref: '#/components/schemas/DateTime'
+
     ByDurationExpiry:
-      allOf:
-        - $ref: '#/components/schemas/TimeDuration'
+      type: object
+      properties:
+        expiresAt:
+          $ref: '#/components/schemas/TimeDuration'
       description: |-
         A time duration specified as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         Must be between 1 and 180 days inclusive.
@@ -60114,6 +60119,8 @@ components:
           description: Unique label for the role
         permissions:
           type: array
+          items:
+            type: string
           description: Array of permissions that the role grants. See [Permissions](/openapi/okta-management/guides/permissions).
       required:
         - label
@@ -60127,29 +60134,26 @@ components:
           type: string
           format: date-time
           readOnly: true
-          default: Assigned
         description:
           description: Description of the policy
           type: string
-          default: null
+          nullable: true
         id:
           description: Identifier of the policy
           type: string
           readOnly: true
-          default: Assigned
         lastUpdated:
           description: Timestamp when the policy was last modified
           type: string
           format: date-time
           readOnly: true
-          default: Assigned
         name:
           description: Name of the policy
           type: string
         priority:
           description: Specifies the order in which this policy is evaluated in relation to the other policies
           type: integer
-          default: Last / Lowest Priority, for example `1`
+          default: 1
         status:
           allOf:
             - $ref: '#/components/schemas/LifecycleStatus'
@@ -60193,7 +60197,7 @@ components:
         priority:
           type: integer
           description: |-
-            The priority of the realm assignment. The lower the number, the higher the priority. This helps resolve conflicts between realm assignments. 
+            The priority of the realm assignment. The lower the number, the higher the priority. This helps resolve conflicts between realm assignments.
             > **Note:** When you create realm assignments in bulk, realm assignment priorities must be unique.
     CreateRealmRequest:
       type: object
@@ -61292,6 +61296,8 @@ components:
       properties:
         include:
           type: array
+          items:
+            type: object
           description: An array of key value pairs including Device Posture Check `variableNames`
           example:
             - variableName: macOSFirewall
@@ -61750,13 +61756,13 @@ components:
         body:
           type: string
           description: |
-            The HTML body of the email. May contain [variable references](https://velocity.apache.org/engine/1.7/user-guide.html#references). 
+            The HTML body of the email. May contain [variable references](https://velocity.apache.org/engine/1.7/user-guide.html#references).
 
             <x-lifecycle class="ea"></x-lifecycle> Not required if Custom languages for Okta Email Templates is enabled. A `null` body is replaced with a default value from one of the following in priority order:
 
             1. An existing default email customization, if one exists
             2. Okta-provided translated content for the specified language, if one exists
-            3. Okta-provided translated content for the brand locale, if it's set 
+            3. Okta-provided translated content for the brand locale, if it's set
             4. Okta-provided content in English
         subject:
           type: string
@@ -62379,6 +62385,8 @@ components:
           type: array
           description: Another request has already been received for the settings for this email template
           readOnly: true
+          items:
+             type: object
         errorCode:
           type: string
           description: E0000254
@@ -63082,7 +63090,7 @@ components:
                   $ref: '#/components/schemas/HrefObject'
     GroupAssignmentProfile:
       description: |-
-        Specifies the profile properties applied to [application users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/) that are assigned to the app through group membership. 
+        Specifies the profile properties applied to [application users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/) that are assigned to the app through group membership.
         Some reference properties are imported from the target app and can't be configured. See [profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=profile&t=response).
       additionalProperties: true
       type: object
@@ -63565,7 +63573,7 @@ components:
     HookKey:
       title: HookKeyInstance
       description: |-
-        The `id` property in the response as `id` serves as the unique ID for the key, which you can specify when invoking other CRUD operations. 
+        The `id` property in the response as `id` serves as the unique ID for the key, which you can specify when invoking other CRUD operations.
 
         The `keyId` provided in the response is the alias of the public key that you can use to get details of the public key data in a separate call.
       type: object
@@ -64180,7 +64188,7 @@ components:
         profile:
           type: object
           description: |-
-            IdP-specific profile for the user. 
+            IdP-specific profile for the user.
 
             IdP user profiles are IdP-specific but may be customized by the Profile Editor in the Admin Console.
 
@@ -64288,7 +64296,7 @@ components:
           type: string
           nullable: true
           description: |-
-            The [authentication assurance level](https://developers.login.gov/oidc/#aal-values) (AAL) value for the Login.gov IdP. 
+            The [authentication assurance level](https://developers.login.gov/oidc/#aal-values) (AAL) value for the Login.gov IdP.
             See [Add a Login.gov IdP](https://developer.okta.com/docs/guides/add-logingov-idp/). Applies to `LOGINGOV` and `LOGINGOV_SANDBOX` IdP types.
         additionalAmr:
           type: array
@@ -64310,7 +64318,7 @@ components:
           type: string
           nullable: true
           description: |-
-            The [type of identity verification](https://developers.login.gov/oidc/#ial-values) (IAL) value for the Login.gov IdP. 
+            The [type of identity verification](https://developers.login.gov/oidc/#ial-values) (IAL) value for the Login.gov IdP.
             See [Add a Login.gov IdP](https://developer.okta.com/docs/guides/add-logingov-idp/). Applies to `LOGINGOV` and `LOGINGOV_SANDBOX` IdP types.
         inquiryTemplateId:
           type: string
@@ -64320,9 +64328,9 @@ components:
         - inquiryTemplateId
     IdentityProviderType:
       description: |-
-        The IdP object's `type` property identifies the social or enterprise IdP used for authentication. 
-        Each IdP uses a specific protocol, therefore the `protocol` object must correspond with the IdP `type`. 
-        If the protocol is OAuth 2.0-based, the `protocol` object's `scopes` property must also correspond with the scopes supported by the IdP `type`. 
+        The IdP object's `type` property identifies the social or enterprise IdP used for authentication.
+        Each IdP uses a specific protocol, therefore the `protocol` object must correspond with the IdP `type`.
+        If the protocol is OAuth 2.0-based, the `protocol` object's `scopes` property must also correspond with the scopes supported by the IdP `type`.
         For policy actions supported by each IdP type, see [IdP type policy actions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=policy&t=request).
 
         | Type               | Description                                                                                                                                           | Corresponding protocol | Corresponding protocol scopes                                         |
@@ -65875,7 +65883,7 @@ components:
           description: |-
             The entity that an actor performs an action on. Targets can be anything, such as an app user, a sign-in token, or anything else.
 
-            > **Note:** When searching the target array, search for a given `type` rather than the array location. Target types, such as `User` and `AppInstance`, 
+            > **Note:** When searching the target array, search for a given `type` rather than the array location. Target types, such as `User` and `AppInstance`,
             for a given `eventType` are not always in the same array location.
           items:
             $ref: '#/components/schemas/LogTarget'
@@ -66317,7 +66325,7 @@ components:
           readOnly: true
     LogTransaction:
       description: |-
-        A `transaction` object comprises contextual information associated with its respective event. 
+        A `transaction` object comprises contextual information associated with its respective event.
         This information is useful for understanding sequences of correlated events.
         For example, a `transaction` object such as the following:
         ```
@@ -68785,7 +68793,7 @@ components:
         - rotation_type
     OpenIdConnectApplicationType:
       description: |-
-        The type of client app     
+        The type of client app
         Specific `grant_types` are valid for each `application_type`. See [Create a Client Application](/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient).
       type: string
       enum:
@@ -70062,6 +70070,8 @@ components:
         domains:
           type: array
           description: List of blocked email domains
+          items:
+            type: string
     PinRequest:
       description: Pin request
       type: object
@@ -70153,29 +70163,26 @@ components:
           type: string
           format: date-time
           readOnly: true
-          default: Assigned
         description:
           description: Description of the policy
           type: string
-          default: null
+          nullable: true
         id:
           description: Identifier of the policy
           type: string
           readOnly: true
-          default: Assigned
         lastUpdated:
           description: Timestamp when the policy was last modified
           type: string
           format: date-time
           readOnly: true
-          default: Assigned
         name:
           description: Name of the policy
           type: string
         priority:
           description: Specifies the order in which this policy is evaluated in relation to the other policies
           type: integer
-          default: Last / Lowest Priority, for example `1`
+          default: 1
         status:
           allOf:
             - $ref: '#/components/schemas/LifecycleStatus'
@@ -70186,12 +70193,6 @@ components:
           default: false
         type:
           $ref: '#/components/schemas/PolicyType'
-        _embedded:
-          type: object
-          additionalProperties:
-            type: object
-            properties: {}
-          readOnly: true
         _links:
           $ref: '#/components/schemas/PolicyLinks'
       required:
@@ -70274,29 +70275,26 @@ components:
           type: string
           format: date-time
           readOnly: true
-          default: Assigned
         description:
           description: Description of the Policy
           type: string
-          default: null
+          nullable: true
         id:
           description: Identifier of the Policy
           type: string
           readOnly: true
-          default: Assigned
         lastUpdated:
           description: Timestamp when the policy was last modified
           type: string
           format: date-time
           readOnly: true
-          default: Assigned
         name:
           description: Name of the policy
           type: string
         priority:
           description: Specifies the order in which this policy is evaluated in relation to the other policies
           type: integer
-          default: Last / Lowest Priority, for example `1`
+          default: 1
         status:
           allOf:
             - $ref: '#/components/schemas/LifecycleStatus'
@@ -71162,7 +71160,7 @@ components:
       description: |-
         Indicates whether to update target properties for user create and update or just for user create.
 
-        - Having a pushStatus of `PUSH` causes properties in the target to be updated on create and update. 
+        - Having a pushStatus of `PUSH` causes properties in the target to be updated on create and update.
         - Having a pushStatus of `DONT_PUSH` causes properties in the target to be updated only on create.
       type: string
       enum:
@@ -71632,9 +71630,8 @@ components:
     PublicAssetLinksWellKnownURI:
       description: The well-known URI content in a JSON array of objects format
       type: array
-      properties:
-        items:
-          type: object
+      items:
+        type: object
     PublicWebauthnSiteWellKnownURI:
       description: The well-known URI content in JSON object format
       type: object
@@ -71738,6 +71735,8 @@ components:
           readOnly: true
         domains:
           type: array
+          items:
+            type: string
           description: |-
             Array of allowed domains. No user in this realm can be created or updated unless they have a username and email from one of these domains.
 
@@ -71761,7 +71760,7 @@ components:
         priority:
           type: integer
           description: |-
-            The priority of the realm assignment. The lower the number, the higher the priority. This helps resolve conflicts between realm assignments. 
+            The priority of the realm assignment. The lower the number, the higher the priority. This helps resolve conflicts between realm assignments.
             > **Note:** When you create realm assignments in bulk, realm assignment priorities must be unique.
         status:
           $ref: '#/components/schemas/LifecycleStatus'
@@ -71776,6 +71775,8 @@ components:
             Array of allowed domains. No user in this realm can be created or updated unless they have a username and email from one of these domains.
 
             The following characters aren't allowed in the domain name: `!$%^&()=*+,:;<>'[]|/?\`
+          items:
+            type: string
         name:
           type: string
           description: Name of a realm
@@ -71904,6 +71905,8 @@ components:
       properties:
         commands:
           type: array
+          items:
+            type: object
     RegistrationInlineHookSSRData:
       allOf:
         - $ref: '#/components/schemas/InlineHookBasePayload'
@@ -73358,14 +73361,6 @@ components:
       anyOf:
         - $ref: '#/components/schemas/SamlAttributeStatementExpression'
         - $ref: '#/components/schemas/SamlAttributeStatementGroup'
-      type: object
-      properties:
-        type:
-          type: string
-          description: The type of attribute statements object
-          enum:
-            - EXPRESSION
-            - GROUP
       discriminator:
         propertyName: type
         mapping:
@@ -76570,7 +76565,7 @@ components:
           description: |-
             The status of the group push mapping.
 
-            If changing the group push mapping status to `ACTIVE`, Okta performs an initial push to the target group, and then begins pushing membership changes. 
+            If changing the group push mapping status to `ACTIVE`, Okta performs an initial push to the target group, and then begins pushing membership changes.
 
             If changing the group push mapping status to `INACTIVE`, Okta stops pushing membership changes to the target group.
           type: string
@@ -76601,7 +76596,7 @@ components:
         priority:
           type: integer
           description: |-
-            The priority of the realm assignment. The lower the number, the higher the priority. This helps resolve conflicts between realm assignments. 
+            The priority of the realm assignment. The lower the number, the higher the priority. This helps resolve conflicts between realm assignments.
             > **Note:** When you create realm assignments in bulk, realm assignment priorities must be unique.
     UpdateRealmRequest:
       type: object
@@ -77078,13 +77073,8 @@ components:
         - $ref: '#/components/schemas/UserFactor'
         - type: object
           properties:
-            factorType:
-              example: call
             profile:
               $ref: '#/components/schemas/UserFactorCallProfile'
-            provider:
-              enum:
-                - OKTA
     UserFactorCallProfile:
       type: object
       properties:
@@ -77106,13 +77096,8 @@ components:
         - $ref: '#/components/schemas/UserFactor'
         - type: object
           properties:
-            factorType:
-              example: email
             profile:
               $ref: '#/components/schemas/UserFactorEmailProfile'
-            provider:
-              enum:
-                - OKTA
     UserFactorEmailProfile:
       type: object
       properties:
@@ -77160,9 +77145,6 @@ components:
           properties:
             profile:
               $ref: '#/components/schemas/UserFactorPushProfile'
-            provider:
-              enum:
-                - OKTA
     UserFactorPushProfile:
       type: object
       properties:
@@ -77305,13 +77287,8 @@ components:
         - $ref: '#/components/schemas/UserFactor'
         - type: object
           properties:
-            factorType:
-              example: sms
             profile:
               $ref: '#/components/schemas/UserFactorSMSProfile'
-            provider:
-              enum:
-                - OKTA
     UserFactorSMSProfile:
       type: object
       properties:
@@ -77327,13 +77304,8 @@ components:
         - $ref: '#/components/schemas/UserFactor'
         - type: object
           properties:
-            factorType:
-              example: question
             profile:
               $ref: '#/components/schemas/UserFactorSecurityQuestionProfile'
-            provider:
-              enum:
-                - OKTA
     UserFactorSecurityQuestionProfile:
       type: object
       properties:
@@ -77424,14 +77396,8 @@ components:
         - $ref: '#/components/schemas/UserFactor'
         - type: object
           properties:
-            factorType:
-              example: token
             profile:
               $ref: '#/components/schemas/UserFactorTokenProfile'
-            provider:
-              enum:
-                - RSA
-                - SYMANTEC
             verify:
               oneOf:
                 - $ref: '#/components/schemas/UserFactorTokenVerifyRSA'
@@ -77456,13 +77422,8 @@ components:
             factorProfileId:
               description: ID of an existing Custom TOTP factor profile. To create this, see [Custom TOTP factor](https://help.okta.com/okta_help.htm?id=ext-mfa-totp).
               type: string
-            factorType:
-              example: token:hotp
             profile:
               $ref: '#/components/schemas/UserFactorTokenHOTPProfile'
-            provider:
-              enum:
-                - CUSTOM
     UserFactorTokenHOTPProfile:
       type: object
       properties:
@@ -77476,13 +77437,8 @@ components:
         - $ref: '#/components/schemas/UserFactor'
         - type: object
           properties:
-            factorType:
-              example: token:hardware
             profile:
               $ref: '#/components/schemas/UserFactorTokenProfile'
-            provider:
-              enum:
-                - YUBICO
             verify:
               type: object
               properties:
@@ -77503,14 +77459,8 @@ components:
         - $ref: '#/components/schemas/UserFactor'
         - type: object
           properties:
-            factorType:
-              example: token:software:totp
             profile:
               $ref: '#/components/schemas/UserFactorTokenProfile'
-            provider:
-              enum:
-                - OKTA
-                - GOOGLE
     UserFactorTokenVerifyRSA:
       title: RSA SecurID
       type: object
@@ -77554,13 +77504,8 @@ components:
         - $ref: '#/components/schemas/UserFactor'
         - type: object
           properties:
-            factorType:
-              example: u2f
             profile:
               $ref: '#/components/schemas/UserFactorU2FProfile'
-            provider:
-              enum:
-                - FIDO
     UserFactorU2FProfile:
       type: object
       properties:
@@ -77666,11 +77611,12 @@ components:
             properties: {}
           readOnly: true
         _embedded:
-          allOf:
-            - additionalProperties:
-                type: object
-                nullable: true
-                readOnly: true
+          description: Container for embedded resources.
+          type: object
+          nullable: true
+          additionalProperties:
+            type: object
+            nullable: true
         _links:
           $ref: '#/components/schemas/UserFactorLinks'
     UserFactorVerifyResponseWaiting:
@@ -77742,26 +77688,16 @@ components:
         - $ref: '#/components/schemas/UserFactor'
         - type: object
           properties:
-            factorType:
-              example: web
             profile:
               $ref: '#/components/schemas/UserFactorWebProfile'
-            provider:
-              enum:
-                - DUO
     UserFactorWebAuthn:
       title: webauthn
       allOf:
         - $ref: '#/components/schemas/UserFactor'
         - type: object
           properties:
-            factorType:
-              example: webauthn
             profile:
               $ref: '#/components/schemas/UserFactorWebAuthnProfile'
-            provider:
-              enum:
-                - FIDO
     UserFactorWebAuthnProfile:
       type: object
       properties:
@@ -77913,7 +77849,7 @@ components:
           properties:
             result:
               description: |-
-                The current default action that results when Okta imports a user. The two possible values are `CREATE_USER` and `LINK_USER`. You 
+                The current default action that results when Okta imports a user. The two possible values are `CREATE_USER` and `LINK_USER`. You
                 can change the action that is taken by means of the commands object you return.
               type: string
               enum:
@@ -77929,8 +77865,8 @@ components:
             profile:
               type: object
               description: |-
-                Provides the name-value pairs of the attributes contained in the app user profile of the user who is being imported. You can change 
-                the values of attributes in the user's app profile by means of the `commands` object you return. If you change attributes in the app 
+                Provides the name-value pairs of the attributes contained in the app user profile of the user who is being imported. You can change
+                the values of attributes in the user's app profile by means of the `commands` object you return. If you change attributes in the app
                 profile, they then flow through to the Okta user profile, based on matching and mapping rules.
               additionalProperties:
                 type: string
@@ -77987,7 +77923,7 @@ components:
         user:
           type: object
           description: |-
-            Provides information on the Okta user profile currently set to be used for the user who is being imported, based on the matching 
+            Provides information on the Okta user profile currently set to be used for the user who is being imported, based on the matching
             rules and attribute mappings that were applied.
           properties:
             profile:
@@ -78032,7 +77968,7 @@ components:
                   com.okta.user.update: Specify the existing Okta user that the imported user should be treated as a match of.
               value:
                 description: |-
-                  The `value` object is the parameter to pass to the command. In the case of the `com.okta.appUser.profile.update` and `com.okta.user.profile.update` commands, 
+                  The `value` object is the parameter to pass to the command. In the case of the `com.okta.appUser.profile.update` and `com.okta.user.profile.update` commands,
                   the parameter should be a list of one or more profile attributes and the values you wish to set them to. In the case of the `com.okta.action.update` command,
                   the parameter should be a `result` property set to either `CREATE_USER` or `LINK_USER`.
                 type: object
@@ -78040,7 +77976,7 @@ components:
                   type: string
         error:
           description: |-
-            An object to return an error. Returning an error causes Okta to record a failure event in the Okta System Log. 
+            An object to return an error. Returning an error causes Okta to record a failure event in the Okta System Log.
             The string supplied in the `errorSummary` property is recorded in the System Log event.
 
             >**Note:** If a response to an import inline hook request is not received from your external service within three seconds, a timeout occurs. In this scenario, the Okta import process continues and the user is created.
@@ -78388,6 +78324,7 @@ components:
             - type: boolean
             - type: integer
             - type: array
+              items: {}
             - type: object
             - type: number
           description: If specified, assigns the value as the default value for the custom attribute. This is a nullable property. If you don't specify a value for this custom attribute during user creation or update, the `default` is used instead of setting the value to `null` or empty.
@@ -78772,7 +78709,7 @@ components:
       description: |-
         All custom profile properties are defined in a profile subschema with the resolution scope `#custom`.
 
-        > **Notes:** 
+        > **Notes:**
         > * When you refer to custom profile attributes that differ only by case, name collisions occur. This includes naming custom profile attributes the same as base profile attributes, for example, `firstName` and `FirstName`.
         > * Certain attributes are reserved and can't be used for custom user profiles. See [Review reserved attributes](https://help.okta.com/okta_help.htm?type=oie&id=reserved-attributes).
       type: object
@@ -79012,9 +78949,9 @@ components:
         name:
           type: string
           description: |-
-            The [RP ID](https://www.w3.org/TR/webauthn/#relying-party-identifier) domain value to be used for all WebAuthn operations. 
+            The [RP ID](https://www.w3.org/TR/webauthn/#relying-party-identifier) domain value to be used for all WebAuthn operations.
 
-            If it isn't specified, the `domain` object isn't included in the request, and the domain value defaults to the domain of the current page (the domain of your org or a custom domain, for example). 
+            If it isn't specified, the `domain` object isn't included in the request, and the domain value defaults to the domain of the current page (the domain of your org or a custom domain, for example).
 
             > **Note:** If you don't use a custom RP ID (the default behavior), the domain value defaults to the end user's current page. The domain value defaults to the full domain name of the page that the end user is on when they're attempting the WebAuthn credential operation (enrollment or verification).
           example: mycustomdomain.com
@@ -79156,6 +79093,8 @@ components:
       properties:
         representation:
           type: array
+          items:
+            type: object
           description: The well-known URI content in a JSON array of objects format
         _links:
           allOf:

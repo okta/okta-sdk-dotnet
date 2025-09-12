@@ -1,0 +1,11 @@
+# Okta.Sdk.Model.OperationResponseAssignmentOperation
+Definition of the realm assignment operation
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**VarConfiguration** | [**OperationResponseAssignmentOperationConfiguration**](OperationResponseAssignmentOperationConfiguration.md) |  | [optional] 
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+
