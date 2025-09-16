@@ -493,7 +493,7 @@ Name | Type | Description  | Notes
 
 <a name="listinlinehooks"></a>
 # **ListInlineHooks**
-> List&lt;InlineHook&gt; ListInlineHooks (string type = null)
+> List&lt;InlineHook&gt; ListInlineHooks (InlineHookTypeEnum type = null)
 
 List all inline hooks
 
@@ -521,7 +521,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var type = "com.okta.import.transform";  // string | One of the supported inline hook types (optional) 
+            var type = (InlineHookTypeEnum) "com.okta.import.transform";  // InlineHookTypeEnum | One of the supported inline hook types (optional) 
 
             try
             {
@@ -544,7 +544,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **string**| One of the supported inline hook types | [optional] 
+ **type** | **InlineHookTypeEnum**| One of the supported inline hook types | [optional] 
 
 ### Return type
 

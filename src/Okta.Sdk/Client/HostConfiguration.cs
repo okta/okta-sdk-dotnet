@@ -165,6 +165,8 @@ namespace Okta.Sdk.Client
             _jsonOptions.Converters.Add(new AssignRoleToUserRequestJsonConverter());
             _jsonOptions.Converters.Add(new AssignUserToRealmJsonConverter());
             _jsonOptions.Converters.Add(new AssignedAppLinkJsonConverter());
+            _jsonOptions.Converters.Add(new AssignmentTypeEnumJsonConverter());
+            _jsonOptions.Converters.Add(new AssignmentTypeEnumNullableJsonConverter());
             _jsonOptions.Converters.Add(new AssociatedServerMediatedJsonConverter());
             _jsonOptions.Converters.Add(new AssuranceMethodJsonConverter());
             _jsonOptions.Converters.Add(new AssuranceMethodFactorModeJsonConverter());
@@ -462,6 +464,8 @@ namespace Okta.Sdk.Client
             _jsonOptions.Converters.Add(new DeviceAssuranceWindowsPlatformAllOfThirdPartySignalProvidersJsonConverter());
             _jsonOptions.Converters.Add(new DeviceContextProviderJsonConverter());
             _jsonOptions.Converters.Add(new DeviceDisplayNameJsonConverter());
+            _jsonOptions.Converters.Add(new DeviceExpandEnumJsonConverter());
+            _jsonOptions.Converters.Add(new DeviceExpandEnumNullableJsonConverter());
             _jsonOptions.Converters.Add(new DeviceIntegrationsJsonConverter());
             _jsonOptions.Converters.Add(new DeviceIntegrationsMetadataJsonConverter());
             _jsonOptions.Converters.Add(new DeviceIntegrationsMetadataOneOfJsonConverter());
@@ -836,6 +840,8 @@ namespace Okta.Sdk.Client
             _jsonOptions.Converters.Add(new InlineHookStatusNullableJsonConverter());
             _jsonOptions.Converters.Add(new InlineHookTypeJsonConverter());
             _jsonOptions.Converters.Add(new InlineHookTypeNullableJsonConverter());
+            _jsonOptions.Converters.Add(new InlineHookTypeEnumJsonConverter());
+            _jsonOptions.Converters.Add(new InlineHookTypeEnumNullableJsonConverter());
             _jsonOptions.Converters.Add(new InlineObjectJsonConverter());
             _jsonOptions.Converters.Add(new InlineObject1JsonConverter());
             _jsonOptions.Converters.Add(new InlineObject1ResultsInnerJsonConverter());
@@ -937,6 +943,8 @@ namespace Okta.Sdk.Client
             _jsonOptions.Converters.Add(new LogSecurityContextJsonConverter());
             _jsonOptions.Converters.Add(new LogSeverityJsonConverter());
             _jsonOptions.Converters.Add(new LogSeverityNullableJsonConverter());
+            _jsonOptions.Converters.Add(new LogSortOrderEnumJsonConverter());
+            _jsonOptions.Converters.Add(new LogSortOrderEnumNullableJsonConverter());
             _jsonOptions.Converters.Add(new LogStreamJsonConverter());
             _jsonOptions.Converters.Add(new LogStreamActivateLinkJsonConverter());
             _jsonOptions.Converters.Add(new LogStreamAwsJsonConverter());
@@ -1281,6 +1289,8 @@ namespace Okta.Sdk.Client
             _jsonOptions.Converters.Add(new PolicySubjectMatchTypeNullableJsonConverter());
             _jsonOptions.Converters.Add(new PolicyTypeJsonConverter());
             _jsonOptions.Converters.Add(new PolicyTypeNullableJsonConverter());
+            _jsonOptions.Converters.Add(new PolicyTypeEnumJsonConverter());
+            _jsonOptions.Converters.Add(new PolicyTypeEnumNullableJsonConverter());
             _jsonOptions.Converters.Add(new PolicyTypeSimulationJsonConverter());
             _jsonOptions.Converters.Add(new PolicyTypeSimulationNullableJsonConverter());
             _jsonOptions.Converters.Add(new PolicyUserNameTemplateJsonConverter());
@@ -1299,6 +1309,8 @@ namespace Okta.Sdk.Client
             _jsonOptions.Converters.Add(new PostAuthSessionPolicyRuleRunWorkflowJsonConverter());
             _jsonOptions.Converters.Add(new PostAuthSessionPolicyRuleTerminateSessionJsonConverter());
             _jsonOptions.Converters.Add(new PreRegistrationInlineHookJsonConverter());
+            _jsonOptions.Converters.Add(new PreferEnumJsonConverter());
+            _jsonOptions.Converters.Add(new PreferEnumNullableJsonConverter());
             _jsonOptions.Converters.Add(new PrincipalRateLimitEntityJsonConverter());
             _jsonOptions.Converters.Add(new PrincipalTypeJsonConverter());
             _jsonOptions.Converters.Add(new PrincipalTypeNullableJsonConverter());
@@ -1619,6 +1631,8 @@ namespace Okta.Sdk.Client
             _jsonOptions.Converters.Add(new SmsTemplateTypeJsonConverter());
             _jsonOptions.Converters.Add(new SmsTemplateTypeNullableJsonConverter());
             _jsonOptions.Converters.Add(new SocialAuthTokenJsonConverter());
+            _jsonOptions.Converters.Add(new SortOrderEnumJsonConverter());
+            _jsonOptions.Converters.Add(new SortOrderEnumNullableJsonConverter());
             _jsonOptions.Converters.Add(new SourceLinksJsonConverter());
             _jsonOptions.Converters.Add(new SplunkEditionJsonConverter());
             _jsonOptions.Converters.Add(new SplunkEditionNullableJsonConverter());
@@ -1898,11 +1912,17 @@ namespace Okta.Sdk.Client
             _jsonOptions.Converters.Add(new WellKnownURIsRootEmbeddedAppleAppSiteAssociationJsonConverter());
             _jsonOptions.Converters.Add(new WellKnownURIsRootEmbeddedAssetlinksJsonJsonConverter());
             _jsonOptions.Converters.Add(new WellKnownURIsRootLinksJsonConverter());
+            _jsonOptions.Converters.Add(new WellKnownUriPathEnumJsonConverter());
+            _jsonOptions.Converters.Add(new WellKnownUriPathEnumNullableJsonConverter());
             _jsonOptions.Converters.Add(new WidgetGenerationJsonConverter());
             _jsonOptions.Converters.Add(new WidgetGenerationNullableJsonConverter());
             _jsonOptions.Converters.Add(new WsFederationApplicationJsonConverter());
             _jsonOptions.Converters.Add(new WsFederationApplicationSettingsJsonConverter());
             _jsonOptions.Converters.Add(new WsFederationApplicationSettingsApplicationJsonConverter());
+            _jsonOptions.Converters.Add(new YubikeyFilterEnumJsonConverter());
+            _jsonOptions.Converters.Add(new YubikeyFilterEnumNullableJsonConverter());
+            _jsonOptions.Converters.Add(new YubikeySortByEnumJsonConverter());
+            _jsonOptions.Converters.Add(new YubikeySortByEnumNullableJsonConverter());
             _jsonOptions.Converters.Add(new ZoomUsApplicationJsonConverter());
             _jsonOptions.Converters.Add(new ZoomUsApplicationSettingsJsonConverter());
             _jsonOptions.Converters.Add(new ZoomUsApplicationSettingsApplicationJsonConverter());

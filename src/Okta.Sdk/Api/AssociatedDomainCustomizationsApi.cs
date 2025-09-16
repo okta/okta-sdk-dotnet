@@ -103,7 +103,7 @@ namespace Okta.Sdk.Api
         /// <param name="path">The path of the well-known URI</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WellKnownURIObjectResponse</returns>
-        System.Threading.Tasks.Task<WellKnownURIObjectResponse> GetBrandWellKnownURIAsync(  string brandId ,  path  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<WellKnownURIObjectResponse> GetBrandWellKnownURIAsync(  string brandId , WellKnownUriPathEnum path  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the customized content of the specified well-known URI
         /// </summary>
@@ -115,7 +115,7 @@ namespace Okta.Sdk.Api
         /// <param name="path">The path of the well-known URI</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WellKnownURIObjectResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WellKnownURIObjectResponse>> GetBrandWellKnownURIWithHttpInfoAsync(  string brandId ,  path  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<WellKnownURIObjectResponse>> GetBrandWellKnownURIWithHttpInfoAsync(  string brandId , WellKnownUriPathEnum path  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the well-known URI of a specific brand
         /// </summary>
@@ -128,7 +128,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">Specifies additional metadata to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WellKnownURIObjectResponse</returns>
-        System.Threading.Tasks.Task<WellKnownURIObjectResponse> GetRootBrandWellKnownURIAsync(  string brandId ,  path  , List<string> expand = default(List<string>) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<WellKnownURIObjectResponse> GetRootBrandWellKnownURIAsync(  string brandId , WellKnownUriPathEnum path  , List<string> expand = default(List<string>) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the well-known URI of a specific brand
         /// </summary>
@@ -141,7 +141,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">Specifies additional metadata to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WellKnownURIObjectResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WellKnownURIObjectResponse>> GetRootBrandWellKnownURIWithHttpInfoAsync(  string brandId ,  path  , List<string> expand = default(List<string>) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<WellKnownURIObjectResponse>> GetRootBrandWellKnownURIWithHttpInfoAsync(  string brandId , WellKnownUriPathEnum path  , List<string> expand = default(List<string>) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the customized webauthn URI content
         /// </summary>
@@ -174,7 +174,7 @@ namespace Okta.Sdk.Api
         /// <param name="wellKnownURIRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WellKnownURIObjectResponse</returns>
-        System.Threading.Tasks.Task<WellKnownURIObjectResponse> ReplaceBrandWellKnownURIAsync(  string brandId ,  path  ,   WellKnownURIRequest wellKnownURIRequest = default(WellKnownURIRequest) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<WellKnownURIObjectResponse> ReplaceBrandWellKnownURIAsync(  string brandId , WellKnownUriPathEnum path  ,   WellKnownURIRequest wellKnownURIRequest = default(WellKnownURIRequest) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace the customized well-known URI of the specific path
         /// </summary>
@@ -187,7 +187,7 @@ namespace Okta.Sdk.Api
         /// <param name="wellKnownURIRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WellKnownURIObjectResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WellKnownURIObjectResponse>> ReplaceBrandWellKnownURIWithHttpInfoAsync(  string brandId ,  path  ,   WellKnownURIRequest wellKnownURIRequest = default(WellKnownURIRequest) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<WellKnownURIObjectResponse>> ReplaceBrandWellKnownURIWithHttpInfoAsync(  string brandId , WellKnownUriPathEnum path  ,   WellKnownURIRequest wellKnownURIRequest = default(WellKnownURIRequest) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -539,7 +539,7 @@ namespace Okta.Sdk.Api
         /// <param name="path">The path of the well-known URI</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WellKnownURIObjectResponse</returns>
-        public async System.Threading.Tasks.Task<WellKnownURIObjectResponse> GetBrandWellKnownURIAsync(  string brandId ,  path  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<WellKnownURIObjectResponse> GetBrandWellKnownURIAsync(  string brandId , WellKnownUriPathEnum path  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<WellKnownURIObjectResponse> localVarResponse = await GetBrandWellKnownURIWithHttpInfoAsync(brandId, path, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -552,7 +552,7 @@ namespace Okta.Sdk.Api
         /// <param name="path">The path of the well-known URI</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WellKnownURIObjectResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<WellKnownURIObjectResponse>> GetBrandWellKnownURIWithHttpInfoAsync(  string brandId ,  path  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<WellKnownURIObjectResponse>> GetBrandWellKnownURIWithHttpInfoAsync(  string brandId , WellKnownUriPathEnum path  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)
@@ -633,7 +633,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">Specifies additional metadata to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WellKnownURIObjectResponse</returns>
-        public async System.Threading.Tasks.Task<WellKnownURIObjectResponse> GetRootBrandWellKnownURIAsync(  string brandId ,  path  , List<string> expand = default(List<string>) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<WellKnownURIObjectResponse> GetRootBrandWellKnownURIAsync(  string brandId , WellKnownUriPathEnum path  , List<string> expand = default(List<string>) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<WellKnownURIObjectResponse> localVarResponse = await GetRootBrandWellKnownURIWithHttpInfoAsync(brandId, path, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -647,7 +647,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">Specifies additional metadata to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WellKnownURIObjectResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<WellKnownURIObjectResponse>> GetRootBrandWellKnownURIWithHttpInfoAsync(  string brandId ,  path  , List<string> expand = default(List<string>) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<WellKnownURIObjectResponse>> GetRootBrandWellKnownURIWithHttpInfoAsync(  string brandId , WellKnownUriPathEnum path  , List<string> expand = default(List<string>) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)
@@ -791,7 +791,7 @@ namespace Okta.Sdk.Api
         /// <param name="wellKnownURIRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WellKnownURIObjectResponse</returns>
-        public async System.Threading.Tasks.Task<WellKnownURIObjectResponse> ReplaceBrandWellKnownURIAsync(  string brandId ,  path  ,   WellKnownURIRequest wellKnownURIRequest = default(WellKnownURIRequest) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<WellKnownURIObjectResponse> ReplaceBrandWellKnownURIAsync(  string brandId , WellKnownUriPathEnum path  ,   WellKnownURIRequest wellKnownURIRequest = default(WellKnownURIRequest) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<WellKnownURIObjectResponse> localVarResponse = await ReplaceBrandWellKnownURIWithHttpInfoAsync(brandId, path, wellKnownURIRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -805,7 +805,7 @@ namespace Okta.Sdk.Api
         /// <param name="wellKnownURIRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WellKnownURIObjectResponse)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<WellKnownURIObjectResponse>> ReplaceBrandWellKnownURIWithHttpInfoAsync(  string brandId ,  path  ,   WellKnownURIRequest wellKnownURIRequest = default(WellKnownURIRequest) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<WellKnownURIObjectResponse>> ReplaceBrandWellKnownURIWithHttpInfoAsync(  string brandId , WellKnownUriPathEnum path  ,   WellKnownURIRequest wellKnownURIRequest = default(WellKnownURIRequest) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)

@@ -32,9 +32,9 @@ namespace Okta.Sdk.Model
     public sealed class PolicyType : StringEnum
     {
         /// <summary>
-        /// StringEnum PolicyType for value: <x-lifecycle class=\"ea\"></x-lifecycle> DEVICE_SIGNAL_COLLECTION
+        /// StringEnum PolicyType for value: DEVICE_SIGNAL_COLLECTION
         /// </summary>
-        public static PolicyType XLifecycleClasseaXLifecycleDEVICESIGNALCOLLECTION = new PolicyType("&lt;x-lifecycle class&#x3D;\&quot;ea\&quot;&gt;&lt;/x-lifecycle&gt; DEVICE_SIGNAL_COLLECTION");
+        public static PolicyType DEVICESIGNALCOLLECTION = new PolicyType("DEVICE_SIGNAL_COLLECTION");
         /// <summary>
         /// StringEnum PolicyType for value: ACCESS_POLICY
         /// </summary>

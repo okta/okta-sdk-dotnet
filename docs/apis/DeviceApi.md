@@ -408,7 +408,7 @@ Name | Type | Description  | Notes
 
 <a name="listdevices"></a>
 # **ListDevices**
-> List&lt;DeviceList&gt; ListDevices (string after = null, int limit = null, string search = null, string expand = null)
+> List&lt;DeviceList&gt; ListDevices (string after = null, int limit = null, string search = null, DeviceExpandEnum expand = null)
 
 List all devices
 
@@ -439,7 +439,7 @@ namespace Example
             var after = 200u3des4afA47rYJu1d7;  // string |  (optional) 
             var limit = 20;  // int | A limit on the number of objects to return (recommend `20`) (optional)  (default to 200)
             var search = status%20eq%20%22ACTIVE%22;  // string | A SCIM filter expression that filters the results. Searches include all device `profile` properties and the device `id`, `status`, and `lastUpdated` properties.  Searches for devices can be filtered by the contains (`co`) operator. You can only use `co` with these select device profile attributes: `profile.displayName`, `profile.serialNumber`, `profile.imei`, `profile.meid`, `profile.udid`, and `profile.sid`. See [Operators](https://developer.okta.com/docs/api/#operators). (optional) 
-            var expand = user;  // string | Includes associated user details and management status for the device in the `_embedded` attribute (optional) 
+            var expand = user;  // DeviceExpandEnum | Includes associated user details and management status for the device in the `_embedded` attribute (optional) 
 
             try
             {
@@ -465,7 +465,7 @@ Name | Type | Description  | Notes
  **after** | **string**|  | [optional] 
  **limit** | **int**| A limit on the number of objects to return (recommend &#x60;20&#x60;) | [optional] [default to 200]
  **search** | **string**| A SCIM filter expression that filters the results. Searches include all device &#x60;profile&#x60; properties and the device &#x60;id&#x60;, &#x60;status&#x60;, and &#x60;lastUpdated&#x60; properties.  Searches for devices can be filtered by the contains (&#x60;co&#x60;) operator. You can only use &#x60;co&#x60; with these select device profile attributes: &#x60;profile.displayName&#x60;, &#x60;profile.serialNumber&#x60;, &#x60;profile.imei&#x60;, &#x60;profile.meid&#x60;, &#x60;profile.udid&#x60;, and &#x60;profile.sid&#x60;. See [Operators](https://developer.okta.com/docs/api/#operators). | [optional] 
- **expand** | **string**| Includes associated user details and management status for the device in the &#x60;_embedded&#x60; attribute | [optional] 
+ **expand** | **DeviceExpandEnum**| Includes associated user details and management status for the device in the &#x60;_embedded&#x60; attribute | [optional] 
 
 ### Return type
 

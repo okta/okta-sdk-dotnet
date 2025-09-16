@@ -151,7 +151,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">Includes associated user details and management status for the device in the &#x60;_embedded&#x60; attribute (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;DeviceList&gt;</returns>
-        IOktaCollectionClient<DeviceList> ListDevices(  string after = default(string) ,   int limit = default(int) ,   string search = default(string) ,  expand  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<DeviceList> ListDevices(  string after = default(string) ,   int limit = default(int) ,   string search = default(string) , DeviceExpandEnum expand  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all devices
         /// </summary>
@@ -165,7 +165,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">Includes associated user details and management status for the device in the &#x60;_embedded&#x60; attribute (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;DeviceList&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<DeviceList>>> ListDevicesWithHttpInfoAsync(  string after = default(string) ,   int limit = default(int) ,   string search = default(string) ,  expand  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<DeviceList>>> ListDevicesWithHttpInfoAsync(  string after = default(string) ,   int limit = default(int) ,   string search = default(string) , DeviceExpandEnum expand  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Suspend a Device
         /// </summary>
@@ -790,7 +790,7 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;DeviceList&gt;</returns>
         //a
-        public IOktaCollectionClient<DeviceList> ListDevices(  string after = default(string) ,   int limit = default(int) ,   string search = default(string) ,  expand  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<DeviceList> ListDevices(  string after = default(string) ,   int limit = default(int) ,   string search = default(string) , DeviceExpandEnum expand  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -858,7 +858,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">Includes associated user details and management status for the device in the &#x60;_embedded&#x60; attribute (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;DeviceList&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<DeviceList>>> ListDevicesWithHttpInfoAsync(  string after = default(string) ,   int limit = default(int) ,   string search = default(string) ,  expand  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<DeviceList>>> ListDevicesWithHttpInfoAsync(  string after = default(string) ,   int limit = default(int) ,   string search = default(string) , DeviceExpandEnum expand  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

@@ -68,7 +68,7 @@ namespace Okta.Sdk.Api
         /// <param name="prefer"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteUserAsync(  string id ,   bool sendEmail = default(bool) ,  prefer  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteUserAsync(  string id ,   bool sendEmail = default(bool) , PreferEnum prefer  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a user
         /// </summary>
@@ -81,7 +81,7 @@ namespace Okta.Sdk.Api
         /// <param name="prefer"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUserWithHttpInfoAsync(  string id ,   bool sendEmail = default(bool) ,  prefer  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUserWithHttpInfoAsync(  string id ,   bool sendEmail = default(bool) , PreferEnum prefer  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a user
         /// </summary>
@@ -446,7 +446,7 @@ namespace Okta.Sdk.Api
         /// <param name="prefer"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteUserAsync(  string id ,   bool sendEmail = default(bool) ,  prefer  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteUserAsync(  string id ,   bool sendEmail = default(bool) , PreferEnum prefer  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteUserWithHttpInfoAsync(id, sendEmail, prefer, cancellationToken).ConfigureAwait(false);
         }
@@ -459,7 +459,7 @@ namespace Okta.Sdk.Api
         /// <param name="prefer"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteUserWithHttpInfoAsync(  string id ,   bool sendEmail = default(bool) ,  prefer  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Object>> DeleteUserWithHttpInfoAsync(  string id ,   bool sendEmail = default(bool) , PreferEnum prefer  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)

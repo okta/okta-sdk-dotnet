@@ -675,7 +675,7 @@ Name | Type | Description  | Notes
 
 <a name="listyubikeyotptokens"></a>
 # **ListYubikeyOtpTokens**
-> List&lt;UserFactorYubikeyOtpToken&gt; ListYubikeyOtpTokens (string after = null, string expand = null, string filter = null, bool forDownload = null, int limit = null, string sortBy = null, string sortOrder = null)
+> List&lt;UserFactorYubikeyOtpToken&gt; ListYubikeyOtpTokens (string after = null, string expand = null, YubikeyFilterEnum filter = null, bool forDownload = null, int limit = null, YubikeySortByEnum sortBy = null, SortOrderEnum sortOrder = null)
 
 List all YubiKey OTP tokens
 
@@ -705,11 +705,11 @@ namespace Example
             var apiInstance = new UserFactorApi(config);
             var after = "after_example";  // string | Specifies the pagination cursor for the next page of tokens (optional) 
             var expand = "expand_example";  // string | Embeds the [user](/openapi/okta-management/management/tag/User/) resource if the YubiKey token is assigned to a user and `expand` is set to `user` (optional) 
-            var filter = "profile.email";  // string | The expression used to filter tokens (optional) 
+            var filter = (YubikeyFilterEnum) "profile.email";  // YubikeyFilterEnum | The expression used to filter tokens (optional) 
             var forDownload = false;  // bool | Returns tokens in a CSV to download instead of in the response. When you use this query parameter, the `limit` default changes to 1000. (optional)  (default to false)
             var limit = 20;  // int | Specifies the number of results per page (optional)  (default to 20)
-            var sortBy = "profile.email";  // string | The value of how the tokens are sorted (optional) 
-            var sortOrder = "ASC";  // string | Specifies the sort order, either `ASC` or `DESC` (optional) 
+            var sortBy = (YubikeySortByEnum) "profile.email";  // YubikeySortByEnum | The value of how the tokens are sorted (optional) 
+            var sortOrder = (SortOrderEnum) "ASC";  // SortOrderEnum | Specifies the sort order, either `ASC` or `DESC` (optional) 
 
             try
             {
@@ -734,11 +734,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **after** | **string**| Specifies the pagination cursor for the next page of tokens | [optional] 
  **expand** | **string**| Embeds the [user](/openapi/okta-management/management/tag/User/) resource if the YubiKey token is assigned to a user and &#x60;expand&#x60; is set to &#x60;user&#x60; | [optional] 
- **filter** | **string**| The expression used to filter tokens | [optional] 
+ **filter** | **YubikeyFilterEnum**| The expression used to filter tokens | [optional] 
  **forDownload** | **bool**| Returns tokens in a CSV to download instead of in the response. When you use this query parameter, the &#x60;limit&#x60; default changes to 1000. | [optional] [default to false]
  **limit** | **int**| Specifies the number of results per page | [optional] [default to 20]
- **sortBy** | **string**| The value of how the tokens are sorted | [optional] 
- **sortOrder** | **string**| Specifies the sort order, either &#x60;ASC&#x60; or &#x60;DESC&#x60; | [optional] 
+ **sortBy** | **YubikeySortByEnum**| The value of how the tokens are sorted | [optional] 
+ **sortOrder** | **SortOrderEnum**| Specifies the sort order, either &#x60;ASC&#x60; or &#x60;DESC&#x60; | [optional] 
 
 ### Return type
 
@@ -934,7 +934,7 @@ void (empty response body)
 
 <a name="uploadyubikeyotptokenseed"></a>
 # **UploadYubikeyOtpTokenSeed**
-> UserFactorYubikeyOtpToken UploadYubikeyOtpTokenSeed (UploadYubikeyOtpTokenSeedRequest uploadYubikeyOtpTokenSeedRequest, string after = null, string expand = null, string filter = null, bool forDownload = null, int limit = null, string sortBy = null, string sortOrder = null)
+> UserFactorYubikeyOtpToken UploadYubikeyOtpTokenSeed (UploadYubikeyOtpTokenSeedRequest uploadYubikeyOtpTokenSeedRequest, string after = null, string expand = null, YubikeyFilterEnum filter = null, bool forDownload = null, int limit = null, YubikeySortByEnum sortBy = null, SortOrderEnum sortOrder = null)
 
 Upload a YubiKey OTP seed
 
@@ -965,11 +965,11 @@ namespace Example
             var uploadYubikeyOtpTokenSeedRequest = new UploadYubikeyOtpTokenSeedRequest(); // UploadYubikeyOtpTokenSeedRequest | 
             var after = "after_example";  // string | Specifies the pagination cursor for the next page of tokens (optional) 
             var expand = "expand_example";  // string | Embeds the [user](/openapi/okta-management/management/tag/User/) resource if the YubiKey token is assigned to a user and `expand` is set to `user` (optional) 
-            var filter = "profile.email";  // string | The expression used to filter tokens (optional) 
+            var filter = (YubikeyFilterEnum) "profile.email";  // YubikeyFilterEnum | The expression used to filter tokens (optional) 
             var forDownload = false;  // bool | Returns tokens in a CSV to download instead of in the response. When you use this query parameter, the `limit` default changes to 1000. (optional)  (default to false)
             var limit = 20;  // int | Specifies the number of results per page (optional)  (default to 20)
-            var sortBy = "profile.email";  // string | The value of how the tokens are sorted (optional) 
-            var sortOrder = "ASC";  // string | Specifies the sort order, either `ASC` or `DESC` (optional) 
+            var sortBy = (YubikeySortByEnum) "profile.email";  // YubikeySortByEnum | The value of how the tokens are sorted (optional) 
+            var sortOrder = (SortOrderEnum) "ASC";  // SortOrderEnum | Specifies the sort order, either `ASC` or `DESC` (optional) 
 
             try
             {
@@ -995,11 +995,11 @@ Name | Type | Description  | Notes
  **uploadYubikeyOtpTokenSeedRequest** | [**UploadYubikeyOtpTokenSeedRequest**](UploadYubikeyOtpTokenSeedRequest.md)|  | 
  **after** | **string**| Specifies the pagination cursor for the next page of tokens | [optional] 
  **expand** | **string**| Embeds the [user](/openapi/okta-management/management/tag/User/) resource if the YubiKey token is assigned to a user and &#x60;expand&#x60; is set to &#x60;user&#x60; | [optional] 
- **filter** | **string**| The expression used to filter tokens | [optional] 
+ **filter** | **YubikeyFilterEnum**| The expression used to filter tokens | [optional] 
  **forDownload** | **bool**| Returns tokens in a CSV to download instead of in the response. When you use this query parameter, the &#x60;limit&#x60; default changes to 1000. | [optional] [default to false]
  **limit** | **int**| Specifies the number of results per page | [optional] [default to 20]
- **sortBy** | **string**| The value of how the tokens are sorted | [optional] 
- **sortOrder** | **string**| Specifies the sort order, either &#x60;ASC&#x60; or &#x60;DESC&#x60; | [optional] 
+ **sortBy** | **YubikeySortByEnum**| The value of how the tokens are sorted | [optional] 
+ **sortOrder** | **SortOrderEnum**| Specifies the sort order, either &#x60;ASC&#x60; or &#x60;DESC&#x60; | [optional] 
 
 ### Return type
 

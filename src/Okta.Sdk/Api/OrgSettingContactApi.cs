@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         /// <param name="contactType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgContactUser</returns>
-        System.Threading.Tasks.Task<OrgContactUser> GetOrgContactUserAsync( contactType  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OrgContactUser> GetOrgContactUserAsync(OrgContactType contactType  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the contact type user
         /// </summary>
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <param name="contactType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrgContactUser)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrgContactUser>> GetOrgContactUserWithHttpInfoAsync( contactType  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<OrgContactUser>> GetOrgContactUserWithHttpInfoAsync(OrgContactType contactType  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all org contact types
         /// </summary>
@@ -81,7 +81,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgContactUser"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgContactUser</returns>
-        System.Threading.Tasks.Task<OrgContactUser> ReplaceOrgContactUserAsync( contactType  ,   OrgContactUser orgContactUser , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OrgContactUser> ReplaceOrgContactUserAsync(OrgContactType contactType  ,   OrgContactUser orgContactUser , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace the contact type user
         /// </summary>
@@ -93,7 +93,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgContactUser"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrgContactUser)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrgContactUser>> ReplaceOrgContactUserWithHttpInfoAsync( contactType  ,   OrgContactUser orgContactUser , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<OrgContactUser>> ReplaceOrgContactUserWithHttpInfoAsync(OrgContactType contactType  ,   OrgContactUser orgContactUser , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -211,7 +211,7 @@ namespace Okta.Sdk.Api
         /// <param name="contactType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgContactUser</returns>
-        public async System.Threading.Tasks.Task<OrgContactUser> GetOrgContactUserAsync( contactType  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OrgContactUser> GetOrgContactUserAsync(OrgContactType contactType  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<OrgContactUser> localVarResponse = await GetOrgContactUserWithHttpInfoAsync(contactType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -223,7 +223,7 @@ namespace Okta.Sdk.Api
         /// <param name="contactType"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrgContactUser)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<OrgContactUser>> GetOrgContactUserWithHttpInfoAsync( contactType  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<OrgContactUser>> GetOrgContactUserWithHttpInfoAsync(OrgContactType contactType  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'contactType' is set
             if (contactType == null)
@@ -406,7 +406,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgContactUser"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrgContactUser</returns>
-        public async System.Threading.Tasks.Task<OrgContactUser> ReplaceOrgContactUserAsync( contactType  ,   OrgContactUser orgContactUser , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OrgContactUser> ReplaceOrgContactUserAsync(OrgContactType contactType  ,   OrgContactUser orgContactUser , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<OrgContactUser> localVarResponse = await ReplaceOrgContactUserWithHttpInfoAsync(contactType, orgContactUser, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -419,7 +419,7 @@ namespace Okta.Sdk.Api
         /// <param name="orgContactUser"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrgContactUser)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<OrgContactUser>> ReplaceOrgContactUserWithHttpInfoAsync( contactType  ,   OrgContactUser orgContactUser , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<OrgContactUser>> ReplaceOrgContactUserWithHttpInfoAsync(OrgContactType contactType  ,   OrgContactUser orgContactUser , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'contactType' is set
             if (contactType == null)

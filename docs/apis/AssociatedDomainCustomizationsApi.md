@@ -233,7 +233,7 @@ No authorization required
 
 <a name="getbrandwellknownuri"></a>
 # **GetBrandWellKnownURI**
-> WellKnownURIObjectResponse GetBrandWellKnownURI (string brandId, string path)
+> WellKnownURIObjectResponse GetBrandWellKnownURI (string brandId, WellKnownUriPathEnum path)
 
 Retrieve the customized content of the specified well-known URI
 
@@ -262,7 +262,7 @@ namespace Example
 
             var apiInstance = new AssociatedDomainCustomizationsApi(config);
             var brandId = "brandId_example";  // string | The ID of the brand
-            var path = "apple-app-site-association";  // string | The path of the well-known URI
+            var path = (WellKnownUriPathEnum) "apple-app-site-association";  // WellKnownUriPathEnum | The path of the well-known URI
 
             try
             {
@@ -286,7 +286,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **brandId** | **string**| The ID of the brand | 
- **path** | **string**| The path of the well-known URI | 
+ **path** | **WellKnownUriPathEnum**| The path of the well-known URI | 
 
 ### Return type
 
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 <a name="getrootbrandwellknownuri"></a>
 # **GetRootBrandWellKnownURI**
-> WellKnownURIObjectResponse GetRootBrandWellKnownURI (string brandId, string path, List<string> expand = null)
+> WellKnownURIObjectResponse GetRootBrandWellKnownURI (string brandId, WellKnownUriPathEnum path, List<string> expand = null)
 
 Retrieve the well-known URI of a specific brand
 
@@ -344,7 +344,7 @@ namespace Example
 
             var apiInstance = new AssociatedDomainCustomizationsApi(config);
             var brandId = "brandId_example";  // string | The ID of the brand
-            var path = "apple-app-site-association";  // string | The path of the well-known URI
+            var path = (WellKnownUriPathEnum) "apple-app-site-association";  // WellKnownUriPathEnum | The path of the well-known URI
             var expand = new List<string>(); // List<string> | Specifies additional metadata to include in the response (optional) 
 
             try
@@ -369,7 +369,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **brandId** | **string**| The ID of the brand | 
- **path** | **string**| The path of the well-known URI | 
+ **path** | **WellKnownUriPathEnum**| The path of the well-known URI | 
  **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to include in the response | [optional] 
 
 ### Return type
@@ -468,7 +468,7 @@ No authorization required
 
 <a name="replacebrandwellknownuri"></a>
 # **ReplaceBrandWellKnownURI**
-> WellKnownURIObjectResponse ReplaceBrandWellKnownURI (string brandId, string path, WellKnownURIRequest wellKnownURIRequest = null)
+> WellKnownURIObjectResponse ReplaceBrandWellKnownURI (string brandId, WellKnownUriPathEnum path, WellKnownURIRequest wellKnownURIRequest = null)
 
 Replace the customized well-known URI of the specific path
 
@@ -497,7 +497,7 @@ namespace Example
 
             var apiInstance = new AssociatedDomainCustomizationsApi(config);
             var brandId = "brandId_example";  // string | The ID of the brand
-            var path = "apple-app-site-association";  // string | The path of the well-known URI
+            var path = (WellKnownUriPathEnum) "apple-app-site-association";  // WellKnownUriPathEnum | The path of the well-known URI
             var wellKnownURIRequest = new WellKnownURIRequest(); // WellKnownURIRequest |  (optional) 
 
             try
@@ -522,7 +522,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **brandId** | **string**| The ID of the brand | 
- **path** | **string**| The path of the well-known URI | 
+ **path** | **WellKnownUriPathEnum**| The path of the well-known URI | 
  **wellKnownURIRequest** | [**WellKnownURIRequest**](WellKnownURIRequest.md)|  | [optional] 
 
 ### Return type

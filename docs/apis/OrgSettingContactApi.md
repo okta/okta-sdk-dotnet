@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getorgcontactuser"></a>
 # **GetOrgContactUser**
-> OrgContactUser GetOrgContactUser (string contactType)
+> OrgContactUser GetOrgContactUser (OrgContactType contactType)
 
 Retrieve the contact type user
 
@@ -39,7 +39,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingContactApi(config);
-            var contactType = BILLING;  // string | 
+            var contactType = BILLING;  // OrgContactType | 
 
             try
             {
@@ -62,7 +62,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactType** | **string**|  | 
+ **contactType** | **OrgContactType**|  | 
 
 ### Return type
 
@@ -164,7 +164,7 @@ This endpoint does not need any parameter.
 
 <a name="replaceorgcontactuser"></a>
 # **ReplaceOrgContactUser**
-> OrgContactUser ReplaceOrgContactUser (string contactType, OrgContactUser orgContactUser)
+> OrgContactUser ReplaceOrgContactUser (OrgContactType contactType, OrgContactUser orgContactUser)
 
 Replace the contact type user
 
@@ -192,7 +192,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingContactApi(config);
-            var contactType = BILLING;  // string | 
+            var contactType = BILLING;  // OrgContactType | 
             var orgContactUser = new OrgContactUser(); // OrgContactUser | 
 
             try
@@ -216,7 +216,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactType** | **string**|  | 
+ **contactType** | **OrgContactType**|  | 
  **orgContactUser** | [**OrgContactUser**](OrgContactUser.md)|  | 
 
 ### Return type

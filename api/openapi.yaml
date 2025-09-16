@@ -17772,11 +17772,7 @@ paths:
         name: path
         required: true
         schema:
-          enum:
-          - apple-app-site-association
-          - assetlinks.json
-          - webauthn
-          type: string
+          $ref: "#/components/schemas/WellKnownUriPathEnum"
         style: simple
       - description: Specifies additional metadata to include in the response
         explode: false
@@ -17868,11 +17864,7 @@ paths:
         name: path
         required: true
         schema:
-          enum:
-          - apple-app-site-association
-          - assetlinks.json
-          - webauthn
-          type: string
+          $ref: "#/components/schemas/WellKnownUriPathEnum"
         style: simple
       responses:
         "200":
@@ -17953,11 +17945,7 @@ paths:
         name: path
         required: true
         schema:
-          enum:
-          - apple-app-site-association
-          - assetlinks.json
-          - webauthn
-          type: string
+          $ref: "#/components/schemas/WellKnownUriPathEnum"
         style: simple
       requestBody:
         content:
@@ -19726,14 +19714,7 @@ paths:
         name: expand
         required: false
         schema:
-          enum:
-          - user
-          - userSummary
-          example: userSummary
-          type: string
-          x-enumDescriptions:
-            user: Lists full details for associated users
-            userSummary: Lists summaries for associated users
+          $ref: "#/components/schemas/DeviceExpandEnum"
         style: form
       responses:
         "200":
@@ -30550,14 +30531,7 @@ paths:
         name: type
         required: false
         schema:
-          enum:
-          - com.okta.import.transform
-          - com.okta.oauth2.tokens.transform
-          - com.okta.saml.tokens.transform
-          - com.okta.user.credential.password.import
-          - com.okta.user.pre-registration
-          - com.okta.telephony.provider
-          type: string
+          $ref: "#/components/schemas/InlineHookTypeEnum"
         style: form
       responses:
         "200":
@@ -31755,11 +31729,7 @@ paths:
         name: sortOrder
         required: false
         schema:
-          default: ASCENDING
-          enum:
-          - ASCENDING
-          - DESCENDING
-          type: string
+          $ref: "#/components/schemas/LogSortOrderEnum"
         style: form
       responses:
         "200":
@@ -33931,17 +33901,13 @@ paths:
         contact type
       operationId: getOrgContactUser
       parameters:
-      - explode: false
+      - example: BILLING
+        explode: false
         in: path
         name: contactType
         required: true
         schema:
-          description: Type of contact
-          enum:
-          - BILLING
-          - TECHNICAL
-          example: BILLING
-          type: string
+          $ref: "#/components/schemas/OrgContactType"
         style: simple
       responses:
         "200":
@@ -33994,17 +33960,13 @@ paths:
       description: Replaces the user associated with the specified contact type
       operationId: replaceOrgContactUser
       parameters:
-      - explode: false
+      - example: BILLING
+        explode: false
         in: path
         name: contactType
         required: true
         schema:
-          description: Type of contact
-          enum:
-          - BILLING
-          - TECHNICAL
-          example: BILLING
-          type: string
+          $ref: "#/components/schemas/OrgContactType"
         style: simple
       requestBody:
         content:
@@ -34181,15 +34143,7 @@ paths:
         name: filter
         required: false
         schema:
-          enum:
-          - profile.email
-          - profile.serial
-          - activated
-          - user.id
-          - created
-          - status
-          - lastVerified
-          type: string
+          $ref: "#/components/schemas/YubikeyFilterEnum"
         style: form
       - description: "Returns tokens in a CSV to download instead of in the response.\
           \ When you use this query parameter, the `limit` default changes to 1000."
@@ -34217,15 +34171,7 @@ paths:
         name: sortBy
         required: false
         schema:
-          enum:
-          - profile.email
-          - profile.serial
-          - activated
-          - user.id
-          - created
-          - status
-          - lastVerified
-          type: string
+          $ref: "#/components/schemas/YubikeySortByEnum"
         style: form
       - description: "Specifies the sort order, either `ASC` or `DESC`"
         explode: true
@@ -34233,10 +34179,7 @@ paths:
         name: sortOrder
         required: false
         schema:
-          enum:
-          - ASC
-          - DESC
-          type: string
+          $ref: "#/components/schemas/SortOrderEnum"
         style: form
       responses:
         "200":
@@ -34315,15 +34258,7 @@ paths:
         name: filter
         required: false
         schema:
-          enum:
-          - profile.email
-          - profile.serial
-          - activated
-          - user.id
-          - created
-          - status
-          - lastVerified
-          type: string
+          $ref: "#/components/schemas/YubikeyFilterEnum"
         style: form
       - description: "Returns tokens in a CSV to download instead of in the response.\
           \ When you use this query parameter, the `limit` default changes to 1000."
@@ -34351,15 +34286,7 @@ paths:
         name: sortBy
         required: false
         schema:
-          enum:
-          - profile.email
-          - profile.serial
-          - activated
-          - user.id
-          - created
-          - status
-          - lastVerified
-          type: string
+          $ref: "#/components/schemas/YubikeySortByEnum"
         style: form
       - description: "Specifies the sort order, either `ASC` or `DESC`"
         explode: true
@@ -34367,10 +34294,7 @@ paths:
         name: sortOrder
         required: false
         schema:
-          enum:
-          - ASC
-          - DESC
-          type: string
+          $ref: "#/components/schemas/SortOrderEnum"
         style: form
       requestBody:
         content:
@@ -35610,17 +35534,7 @@ paths:
         name: type
         required: true
         schema:
-          enum:
-          - OKTA_SIGN_ON
-          - PASSWORD
-          - MFA_ENROLL
-          - IDP_DISCOVERY
-          - ACCESS_POLICY
-          - DEVICE_SIGNAL_COLLECTION
-          - PROFILE_ENROLLMENT
-          - POST_AUTH_SESSION
-          - ENTITY_RISK
-          type: string
+          $ref: "#/components/schemas/PolicyTypeEnum"
         style: form
       - description: Refines the query by the `status` of the policy - `ACTIVE` or
           `INACTIVE`
@@ -42732,9 +42646,7 @@ paths:
         name: Prefer
         required: false
         schema:
-          enum:
-          - respond-async
-          type: string
+          $ref: "#/components/schemas/PreferEnum"
         style: simple
       responses:
         "204":
@@ -43482,9 +43394,7 @@ paths:
         name: Prefer
         required: false
         schema:
-          enum:
-          - respond-async
-          type: string
+          $ref: "#/components/schemas/PreferEnum"
         style: simple
       responses:
         "200":
@@ -48670,11 +48580,7 @@ paths:
         name: assignmentType
         required: false
         schema:
-          enum:
-          - USER
-          - GROUP
-          example: GROUP
-          type: string
+          $ref: "#/components/schemas/AssignmentTypeEnum"
         style: form
       - description: "The cursor to use for pagination. It is an opaque string that\
           \ specifies your current location in the list and is obtained from the `Link`\
@@ -77271,11 +77177,7 @@ components:
       name: assignmentType
       required: false
       schema:
-        enum:
-        - USER
-        - GROUP
-        example: GROUP
-        type: string
+        $ref: "#/components/schemas/AssignmentTypeEnum"
       style: form
     authenticatorEnrollmentId:
       description: ID for a WebAuthn preregistration factor in Okta
@@ -77350,14 +77252,7 @@ components:
       name: type
       required: false
       schema:
-        enum:
-        - com.okta.import.transform
-        - com.okta.oauth2.tokens.transform
-        - com.okta.saml.tokens.transform
-        - com.okta.user.credential.password.import
-        - com.okta.user.pre-registration
-        - com.okta.telephony.provider
-        type: string
+        $ref: "#/components/schemas/InlineHookTypeEnum"
       style: form
     limitParameter:
       description: "Defines the number of policy rules returned. See [Pagination](https://developer.okta.com/docs/api/#pagination)."
@@ -77541,17 +77436,13 @@ components:
         type: string
       style: simple
     pathContactType:
+      example: BILLING
       explode: false
       in: path
       name: contactType
       required: true
       schema:
-        description: Type of contact
-        enum:
-        - BILLING
-        - TECHNICAL
-        example: BILLING
-        type: string
+        $ref: "#/components/schemas/OrgContactType"
       style: simple
     pathCredentialKeyId:
       description: '`id` of the certificate key'
@@ -78378,11 +78269,7 @@ components:
       name: path
       required: true
       schema:
-        enum:
-        - apple-app-site-association
-        - assetlinks.json
-        - webauthn
-        type: string
+        $ref: "#/components/schemas/WellKnownUriPathEnum"
       style: simple
     pathZoneId:
       description: '`id` of the Network Zone'
@@ -79095,6 +78982,87 @@ components:
             \ (`true`) or if it's a separate, external authenticator"
           type: boolean
       type: object
+    PreferEnum:
+      description: Header value for Prefer. Only allowed value is 'respond-async'.
+      enum:
+      - respond-async
+      type: string
+    SortOrderEnum:
+      description: Specifies the sort order
+      enum:
+      - ASC
+      - DESC
+      type: string
+    LogSortOrderEnum:
+      description: Specifies the sort order for log events
+      enum:
+      - ASCENDING
+      - DESCENDING
+      type: string
+    YubikeyFilterEnum:
+      description: Filter for YubiKey tokens
+      enum:
+      - profile.email
+      - profile.serial
+      - activated
+      - user.id
+      - created
+      - status
+      - lastVerified
+      type: string
+    YubikeySortByEnum:
+      description: Sort by field for YubiKey tokens
+      enum:
+      - profile.email
+      - profile.serial
+      - activated
+      - user.id
+      - created
+      - status
+      - lastVerified
+      type: string
+    DeviceExpandEnum:
+      description: Expand parameter for device operations
+      enum:
+      - user
+      - userSummary
+      type: string
+    AssignmentTypeEnum:
+      description: Assignment type for role targets
+      enum:
+      - USER
+      - GROUP
+      type: string
+    WellKnownUriPathEnum:
+      description: Well-known URI path values
+      enum:
+      - apple-app-site-association
+      - assetlinks.json
+      - webauthn
+      type: string
+    PolicyTypeEnum:
+      description: Policy type values
+      enum:
+      - OKTA_SIGN_ON
+      - PASSWORD
+      - MFA_ENROLL
+      - IDP_DISCOVERY
+      - ACCESS_POLICY
+      - DEVICE_SIGNAL_COLLECTION
+      - PROFILE_ENROLLMENT
+      - POST_AUTH_SESSION
+      - ENTITY_RISK
+      type: string
+    InlineHookTypeEnum:
+      description: Inline hook type values
+      enum:
+      - com.okta.import.transform
+      - com.okta.oauth2.tokens.transform
+      - com.okta.saml.tokens.transform
+      - com.okta.user.credential.password.import
+      - com.okta.user.pre-registration
+      - com.okta.telephony.provider
+      type: string
     AAGUIDGroupObject:
       properties:
         aaguids:
@@ -85407,7 +85375,7 @@ components:
         description: description
         id: id
         priority: 0
-        type: <x-lifecycle class="ea"></x-lifecycle> DEVICE_SIGNAL_COLLECTION
+        type: DEVICE_SIGNAL_COLLECTION
         status: ""
       properties:
         created:
@@ -99404,7 +99372,7 @@ components:
         description: description
         id: id
         priority: 0
-        type: <x-lifecycle class="ea"></x-lifecycle> DEVICE_SIGNAL_COLLECTION
+        type: DEVICE_SIGNAL_COLLECTION
         status: ""
       properties:
         created:
@@ -100035,7 +100003,7 @@ components:
         Creating or replacing a policy with the `IDP_DISCOVERY` type, the `ENTITY_RISK` type, or the `POST_AUTH_SESSION` type isn't supported.
         The following policy types are available with Identity Engine: `ACCESS_POLICY`, `PROFILE_ENROLLMENT`, `POST_AUTH_SESSION`, <x-lifecycle class="ea"></x-lifecycle> `DEVICE_SIGNAL_COLLECTION`, and `ENTITY_RISK`.
       enum:
-      - <x-lifecycle class="ea"></x-lifecycle> DEVICE_SIGNAL_COLLECTION
+      - DEVICE_SIGNAL_COLLECTION
       - ACCESS_POLICY
       - ENTITY_RISK
       - IDP_DISCOVERY

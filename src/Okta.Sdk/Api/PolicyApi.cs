@@ -377,7 +377,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">End page cursor for pagination, see [Pagination](https://developer.okta.com/docs/api/#pagination) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Policy</returns>
-        System.Threading.Tasks.Task<Policy> ListPoliciesAsync( type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Policy> ListPoliciesAsync(PolicyTypeEnum type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all policies
         /// </summary>
@@ -395,7 +395,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">End page cursor for pagination, see [Pagination](https://developer.okta.com/docs/api/#pagination) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Policy)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Policy>> ListPoliciesWithHttpInfoAsync( type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Policy>> ListPoliciesWithHttpInfoAsync(PolicyTypeEnum type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all apps mapped to a policy
         /// </summary>
@@ -1976,7 +1976,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">End page cursor for pagination, see [Pagination](https://developer.okta.com/docs/api/#pagination) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Policy</returns>
-        public async System.Threading.Tasks.Task<Policy> ListPoliciesAsync( type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Policy> ListPoliciesAsync(PolicyTypeEnum type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<Policy> localVarResponse = await ListPoliciesWithHttpInfoAsync(type, status, q, expand, sortBy, limit, resourceId, after, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1995,7 +1995,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">End page cursor for pagination, see [Pagination](https://developer.okta.com/docs/api/#pagination) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Policy)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Policy>> ListPoliciesWithHttpInfoAsync( type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Policy>> ListPoliciesWithHttpInfoAsync(PolicyTypeEnum type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'type' is set
             if (type == null)

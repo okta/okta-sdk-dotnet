@@ -172,7 +172,7 @@ namespace Okta.Sdk.Api
         /// <param name="type">One of the supported inline hook types (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InlineHook&gt;</returns>
-        IOktaCollectionClient<InlineHook> ListInlineHooks( type  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<InlineHook> ListInlineHooks(InlineHookTypeEnum type  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all inline hooks
         /// </summary>
@@ -183,7 +183,7 @@ namespace Okta.Sdk.Api
         /// <param name="type">One of the supported inline hook types (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InlineHook&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineHook>>> ListInlineHooksWithHttpInfoAsync( type  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<InlineHook>>> ListInlineHooksWithHttpInfoAsync(InlineHookTypeEnum type  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace an inline hook
         /// </summary>
@@ -864,7 +864,7 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InlineHook&gt;</returns>
         //a
-        public IOktaCollectionClient<InlineHook> ListInlineHooks( type  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<InlineHook> ListInlineHooks(InlineHookTypeEnum type  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -917,7 +917,7 @@ namespace Okta.Sdk.Api
         /// <param name="type">One of the supported inline hook types (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InlineHook&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<InlineHook>>> ListInlineHooksWithHttpInfoAsync( type  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<InlineHook>>> ListInlineHooksWithHttpInfoAsync(InlineHookTypeEnum type  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

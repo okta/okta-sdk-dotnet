@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteuser"></a>
 # **DeleteUser**
-> void DeleteUser (string id, bool sendEmail = null, string prefer = null)
+> void DeleteUser (string id, bool sendEmail = null, PreferEnum prefer = null)
 
 Delete a user
 
@@ -130,7 +130,7 @@ namespace Example
             var apiInstance = new UserApi(config);
             var id = "id_example";  // string | An ID, login, or login shortname (as long as the shortname is unambiguous) of an existing Okta user
             var sendEmail = false;  // bool | Sends a deactivation email to the admin if `true` (optional)  (default to false)
-            var prefer = "respond-async";  // string |  (optional) 
+            var prefer = (PreferEnum) "respond-async";  // PreferEnum |  (optional) 
 
             try
             {
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| An ID, login, or login shortname (as long as the shortname is unambiguous) of an existing Okta user | 
  **sendEmail** | **bool**| Sends a deactivation email to the admin if &#x60;true&#x60; | [optional] [default to false]
- **prefer** | **string**|  | [optional] 
+ **prefer** | **PreferEnum**|  | [optional] 
 
 ### Return type
 

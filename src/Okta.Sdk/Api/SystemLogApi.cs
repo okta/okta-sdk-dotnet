@@ -41,10 +41,10 @@ namespace Okta.Sdk.Api
         /// <param name="filter">Filter expression that filters the results. All operators except [ ] are supported. See [Filter](https://developer.okta.com/docs/api/#filter) and [Operators](https://developer.okta.com/docs/api/#operators). (optional)</param>
         /// <param name="q">Filters log events results by one or more case insensitive keywords. (optional)</param>
         /// <param name="limit">Sets the number of results that are returned in the response (optional, default to 100)</param>
-        /// <param name="sortOrder">The order of the returned events that are sorted by the &#x60;published&#x60; property (optional, default to ASCENDING)</param>
+        /// <param name="sortOrder">The order of the returned events that are sorted by the &#x60;published&#x60; property (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LogEvent&gt;</returns>
-        IOktaCollectionClient<LogEvent> ListLogEvents(  string since = default(string) ,   string until = default(string) ,   string after = default(string) ,   string filter = default(string) ,   string q = default(string) ,   int limit = default(int) ,  sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<LogEvent> ListLogEvents(  string since = default(string) ,   string until = default(string) ,   string after = default(string) ,   string filter = default(string) ,   string q = default(string) ,   int limit = default(int) , LogSortOrderEnum sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all System Log events
         /// </summary>
@@ -58,10 +58,10 @@ namespace Okta.Sdk.Api
         /// <param name="filter">Filter expression that filters the results. All operators except [ ] are supported. See [Filter](https://developer.okta.com/docs/api/#filter) and [Operators](https://developer.okta.com/docs/api/#operators). (optional)</param>
         /// <param name="q">Filters log events results by one or more case insensitive keywords. (optional)</param>
         /// <param name="limit">Sets the number of results that are returned in the response (optional, default to 100)</param>
-        /// <param name="sortOrder">The order of the returned events that are sorted by the &#x60;published&#x60; property (optional, default to ASCENDING)</param>
+        /// <param name="sortOrder">The order of the returned events that are sorted by the &#x60;published&#x60; property (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LogEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LogEvent>>> ListLogEventsWithHttpInfoAsync(  string since = default(string) ,   string until = default(string) ,   string after = default(string) ,   string filter = default(string) ,   string q = default(string) ,   int limit = default(int) ,  sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<LogEvent>>> ListLogEventsWithHttpInfoAsync(  string since = default(string) ,   string until = default(string) ,   string after = default(string) ,   string filter = default(string) ,   string q = default(string) ,   int limit = default(int) , LogSortOrderEnum sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -182,11 +182,11 @@ namespace Okta.Sdk.Api
         /// <param name="filter">Filter expression that filters the results. All operators except [ ] are supported. See [Filter](https://developer.okta.com/docs/api/#filter) and [Operators](https://developer.okta.com/docs/api/#operators). (optional)</param>
         /// <param name="q">Filters log events results by one or more case insensitive keywords. (optional)</param>
         /// <param name="limit">Sets the number of results that are returned in the response (optional, default to 100)</param>
-        /// <param name="sortOrder">The order of the returned events that are sorted by the &#x60;published&#x60; property (optional, default to ASCENDING)</param>
+        /// <param name="sortOrder">The order of the returned events that are sorted by the &#x60;published&#x60; property (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LogEvent&gt;</returns>
         //a
-        public IOktaCollectionClient<LogEvent> ListLogEvents(  string since = default(string) ,   string until = default(string) ,   string after = default(string) ,   string filter = default(string) ,   string q = default(string) ,   int limit = default(int) ,  sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<LogEvent> ListLogEvents(  string since = default(string) ,   string until = default(string) ,   string after = default(string) ,   string filter = default(string) ,   string q = default(string) ,   int limit = default(int) , LogSortOrderEnum sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -266,10 +266,10 @@ namespace Okta.Sdk.Api
         /// <param name="filter">Filter expression that filters the results. All operators except [ ] are supported. See [Filter](https://developer.okta.com/docs/api/#filter) and [Operators](https://developer.okta.com/docs/api/#operators). (optional)</param>
         /// <param name="q">Filters log events results by one or more case insensitive keywords. (optional)</param>
         /// <param name="limit">Sets the number of results that are returned in the response (optional, default to 100)</param>
-        /// <param name="sortOrder">The order of the returned events that are sorted by the &#x60;published&#x60; property (optional, default to ASCENDING)</param>
+        /// <param name="sortOrder">The order of the returned events that are sorted by the &#x60;published&#x60; property (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LogEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<LogEvent>>> ListLogEventsWithHttpInfoAsync(  string since = default(string) ,   string until = default(string) ,   string after = default(string) ,   string filter = default(string) ,   string q = default(string) ,   int limit = default(int) ,  sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<LogEvent>>> ListLogEventsWithHttpInfoAsync(  string since = default(string) ,   string until = default(string) ,   string after = default(string) ,   string filter = default(string) ,   string q = default(string) ,   int limit = default(int) , LogSortOrderEnum sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

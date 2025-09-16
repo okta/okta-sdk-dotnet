@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 <a name="deactivateuser"></a>
 # **DeactivateUser**
-> void DeactivateUser (string id, bool sendEmail = null, string prefer = null)
+> void DeactivateUser (string id, bool sendEmail = null, PreferEnum prefer = null)
 
 Deactivate a user
 
@@ -126,7 +126,7 @@ namespace Example
             var apiInstance = new UserLifecycleApi(config);
             var id = "id_example";  // string | An ID, login, or login shortname (as long as the shortname is unambiguous) of an existing Okta user
             var sendEmail = false;  // bool | Sends a deactivation email to the admin if `true` (optional)  (default to false)
-            var prefer = "respond-async";  // string | Request asynchronous processing (optional) 
+            var prefer = (PreferEnum) "respond-async";  // PreferEnum | Request asynchronous processing (optional) 
 
             try
             {
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| An ID, login, or login shortname (as long as the shortname is unambiguous) of an existing Okta user | 
  **sendEmail** | **bool**| Sends a deactivation email to the admin if &#x60;true&#x60; | [optional] [default to false]
- **prefer** | **string**| Request asynchronous processing | [optional] 
+ **prefer** | **PreferEnum**| Request asynchronous processing | [optional] 
 
 ### Return type
 

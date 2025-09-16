@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="listlogevents"></a>
 # **ListLogEvents**
-> List&lt;LogEvent&gt; ListLogEvents (string since = null, string until = null, string after = null, string filter = null, string q = null, int limit = null, string sortOrder = null)
+> List&lt;LogEvent&gt; ListLogEvents (string since = null, string until = null, string after = null, string filter = null, string q = null, int limit = null, LogSortOrderEnum sortOrder = null)
 
 List all System Log events
 
@@ -43,7 +43,7 @@ namespace Example
             var filter = "filter_example";  // string | Filter expression that filters the results. All operators except [ ] are supported. See [Filter](https://developer.okta.com/docs/api/#filter) and [Operators](https://developer.okta.com/docs/api/#operators). (optional) 
             var q = "q_example";  // string | Filters log events results by one or more case insensitive keywords. (optional) 
             var limit = 100;  // int | Sets the number of results that are returned in the response (optional)  (default to 100)
-            var sortOrder = "ASCENDING";  // string | The order of the returned events that are sorted by the `published` property (optional)  (default to ASCENDING)
+            var sortOrder = (LogSortOrderEnum) "ASCENDING";  // LogSortOrderEnum | The order of the returned events that are sorted by the `published` property (optional) 
 
             try
             {
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
  **filter** | **string**| Filter expression that filters the results. All operators except [ ] are supported. See [Filter](https://developer.okta.com/docs/api/#filter) and [Operators](https://developer.okta.com/docs/api/#operators). | [optional] 
  **q** | **string**| Filters log events results by one or more case insensitive keywords. | [optional] 
  **limit** | **int**| Sets the number of results that are returned in the response | [optional] [default to 100]
- **sortOrder** | **string**| The order of the returned events that are sorted by the &#x60;published&#x60; property | [optional] [default to ASCENDING]
+ **sortOrder** | **LogSortOrderEnum**| The order of the returned events that are sorted by the &#x60;published&#x60; property | [optional] 
 
 ### Return type
 

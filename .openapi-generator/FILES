@@ -226,6 +226,7 @@ docs/models/AssignRoleToUser201Response.md
 docs/models/AssignRoleToUserRequest.md
 docs/models/AssignUserToRealm.md
 docs/models/AssignedAppLink.md
+docs/models/AssignmentTypeEnum.md
 docs/models/AssociatedServerMediated.md
 docs/models/AssuranceMethod.md
 docs/models/AssuranceMethodFactorMode.md
@@ -492,6 +493,7 @@ docs/models/DeviceAssuranceWindowsPlatform.md
 docs/models/DeviceAssuranceWindowsPlatformAllOfThirdPartySignalProviders.md
 docs/models/DeviceContextProvider.md
 docs/models/DeviceDisplayName.md
+docs/models/DeviceExpandEnum.md
 docs/models/DeviceIntegrations.md
 docs/models/DeviceIntegrationsMetadata.md
 docs/models/DeviceIntegrationsMetadataOneOf.md
@@ -809,6 +811,7 @@ docs/models/InlineHookResponseCommandValue.md
 docs/models/InlineHookResponseCommands.md
 docs/models/InlineHookStatus.md
 docs/models/InlineHookType.md
+docs/models/InlineHookTypeEnum.md
 docs/models/InlineObject.md
 docs/models/InlineObject1.md
 docs/models/InlineObject1ResultsInner.md
@@ -892,6 +895,7 @@ docs/models/LogRequest.md
 docs/models/LogScreenLockType.md
 docs/models/LogSecurityContext.md
 docs/models/LogSeverity.md
+docs/models/LogSortOrderEnum.md
 docs/models/LogStream.md
 docs/models/LogStreamActivateLink.md
 docs/models/LogStreamAws.md
@@ -1184,6 +1188,7 @@ docs/models/PolicyRuleVerificationMethodType.md
 docs/models/PolicySubject.md
 docs/models/PolicySubjectMatchType.md
 docs/models/PolicyType.md
+docs/models/PolicyTypeEnum.md
 docs/models/PolicyTypeSimulation.md
 docs/models/PolicyUserNameTemplate.md
 docs/models/PolicyUserStatus.md
@@ -1200,6 +1205,7 @@ docs/models/PostAuthSessionPolicyRuleAllOfConditions.md
 docs/models/PostAuthSessionPolicyRuleRunWorkflow.md
 docs/models/PostAuthSessionPolicyRuleTerminateSession.md
 docs/models/PreRegistrationInlineHook.md
+docs/models/PreferEnum.md
 docs/models/PrincipalRateLimitEntity.md
 docs/models/PrincipalType.md
 docs/models/PrivilegedResource.md
@@ -1472,6 +1478,7 @@ docs/models/Sms1.md
 docs/models/SmsTemplate.md
 docs/models/SmsTemplateType.md
 docs/models/SocialAuthToken.md
+docs/models/SortOrderEnum.md
 docs/models/SourceLinks.md
 docs/models/SplunkEdition.md
 docs/models/Sso.md
@@ -1724,10 +1731,13 @@ docs/models/WellKnownURIsRootEmbedded.md
 docs/models/WellKnownURIsRootEmbeddedAppleAppSiteAssociation.md
 docs/models/WellKnownURIsRootEmbeddedAssetlinksJson.md
 docs/models/WellKnownURIsRootLinks.md
+docs/models/WellKnownUriPathEnum.md
 docs/models/WidgetGeneration.md
 docs/models/WsFederationApplication.md
 docs/models/WsFederationApplicationSettings.md
 docs/models/WsFederationApplicationSettingsApplication.md
+docs/models/YubikeyFilterEnum.md
+docs/models/YubikeySortByEnum.md
 docs/models/ZoomUsApplication.md
 docs/models/ZoomUsApplicationSettings.md
 docs/models/ZoomUsApplicationSettingsApplication.md
@@ -2003,6 +2013,7 @@ src/Okta.Sdk/Model/AssignRoleToUser201Response.cs
 src/Okta.Sdk/Model/AssignRoleToUserRequest.cs
 src/Okta.Sdk/Model/AssignUserToRealm.cs
 src/Okta.Sdk/Model/AssignedAppLink.cs
+src/Okta.Sdk/Model/AssignmentTypeEnum.cs
 src/Okta.Sdk/Model/AssociatedServerMediated.cs
 src/Okta.Sdk/Model/AssuranceMethod.cs
 src/Okta.Sdk/Model/AssuranceMethodFactorMode.cs
@@ -2269,6 +2280,7 @@ src/Okta.Sdk/Model/DeviceAssuranceWindowsPlatform.cs
 src/Okta.Sdk/Model/DeviceAssuranceWindowsPlatformAllOfThirdPartySignalProviders.cs
 src/Okta.Sdk/Model/DeviceContextProvider.cs
 src/Okta.Sdk/Model/DeviceDisplayName.cs
+src/Okta.Sdk/Model/DeviceExpandEnum.cs
 src/Okta.Sdk/Model/DeviceIntegrations.cs
 src/Okta.Sdk/Model/DeviceIntegrationsMetadata.cs
 src/Okta.Sdk/Model/DeviceIntegrationsMetadataOneOf.cs
@@ -2586,6 +2598,7 @@ src/Okta.Sdk/Model/InlineHookResponseCommandValue.cs
 src/Okta.Sdk/Model/InlineHookResponseCommands.cs
 src/Okta.Sdk/Model/InlineHookStatus.cs
 src/Okta.Sdk/Model/InlineHookType.cs
+src/Okta.Sdk/Model/InlineHookTypeEnum.cs
 src/Okta.Sdk/Model/InlineObject.cs
 src/Okta.Sdk/Model/InlineObject1.cs
 src/Okta.Sdk/Model/InlineObject1ResultsInner.cs
@@ -2669,6 +2682,7 @@ src/Okta.Sdk/Model/LogRequest.cs
 src/Okta.Sdk/Model/LogScreenLockType.cs
 src/Okta.Sdk/Model/LogSecurityContext.cs
 src/Okta.Sdk/Model/LogSeverity.cs
+src/Okta.Sdk/Model/LogSortOrderEnum.cs
 src/Okta.Sdk/Model/LogStream.cs
 src/Okta.Sdk/Model/LogStreamActivateLink.cs
 src/Okta.Sdk/Model/LogStreamAws.cs
@@ -2961,6 +2975,7 @@ src/Okta.Sdk/Model/PolicyRuleVerificationMethodType.cs
 src/Okta.Sdk/Model/PolicySubject.cs
 src/Okta.Sdk/Model/PolicySubjectMatchType.cs
 src/Okta.Sdk/Model/PolicyType.cs
+src/Okta.Sdk/Model/PolicyTypeEnum.cs
 src/Okta.Sdk/Model/PolicyTypeSimulation.cs
 src/Okta.Sdk/Model/PolicyUserNameTemplate.cs
 src/Okta.Sdk/Model/PolicyUserStatus.cs
@@ -2977,6 +2992,7 @@ src/Okta.Sdk/Model/PostAuthSessionPolicyRuleAllOfConditions.cs
 src/Okta.Sdk/Model/PostAuthSessionPolicyRuleRunWorkflow.cs
 src/Okta.Sdk/Model/PostAuthSessionPolicyRuleTerminateSession.cs
 src/Okta.Sdk/Model/PreRegistrationInlineHook.cs
+src/Okta.Sdk/Model/PreferEnum.cs
 src/Okta.Sdk/Model/PrincipalRateLimitEntity.cs
 src/Okta.Sdk/Model/PrincipalType.cs
 src/Okta.Sdk/Model/PrivilegedResource.cs
@@ -3249,6 +3265,7 @@ src/Okta.Sdk/Model/Sms1.cs
 src/Okta.Sdk/Model/SmsTemplate.cs
 src/Okta.Sdk/Model/SmsTemplateType.cs
 src/Okta.Sdk/Model/SocialAuthToken.cs
+src/Okta.Sdk/Model/SortOrderEnum.cs
 src/Okta.Sdk/Model/SourceLinks.cs
 src/Okta.Sdk/Model/SplunkEdition.cs
 src/Okta.Sdk/Model/Sso.cs
@@ -3502,10 +3519,13 @@ src/Okta.Sdk/Model/WellKnownURIsRootEmbedded.cs
 src/Okta.Sdk/Model/WellKnownURIsRootEmbeddedAppleAppSiteAssociation.cs
 src/Okta.Sdk/Model/WellKnownURIsRootEmbeddedAssetlinksJson.cs
 src/Okta.Sdk/Model/WellKnownURIsRootLinks.cs
+src/Okta.Sdk/Model/WellKnownUriPathEnum.cs
 src/Okta.Sdk/Model/WidgetGeneration.cs
 src/Okta.Sdk/Model/WsFederationApplication.cs
 src/Okta.Sdk/Model/WsFederationApplicationSettings.cs
 src/Okta.Sdk/Model/WsFederationApplicationSettingsApplication.cs
+src/Okta.Sdk/Model/YubikeyFilterEnum.cs
+src/Okta.Sdk/Model/YubikeySortByEnum.cs
 src/Okta.Sdk/Model/ZoomUsApplication.cs
 src/Okta.Sdk/Model/ZoomUsApplicationSettings.cs
 src/Okta.Sdk/Model/ZoomUsApplicationSettingsApplication.cs

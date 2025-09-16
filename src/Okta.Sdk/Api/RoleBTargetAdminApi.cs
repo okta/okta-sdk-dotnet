@@ -146,7 +146,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">A limit on the number of objects to return (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;RoleTarget&gt;</returns>
-        IOktaCollectionClient<RoleTarget> GetRoleTargetsByUserIdAndRoleId(  string userId ,   string roleIdOrEncodedRoleId ,  assignmentType  = null  ,   string after = default(string) ,   int limit = default(int) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<RoleTarget> GetRoleTargetsByUserIdAndRoleId(  string userId ,   string roleIdOrEncodedRoleId , AssignmentTypeEnum assignmentType  = null  ,   string after = default(string) ,   int limit = default(int) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a role target by assignment type
         /// </summary>
@@ -161,7 +161,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">A limit on the number of objects to return (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;RoleTarget&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<RoleTarget>>> GetRoleTargetsByUserIdAndRoleIdWithHttpInfoAsync(  string userId ,   string roleIdOrEncodedRoleId ,  assignmentType  = null  ,   string after = default(string) ,   int limit = default(int) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<RoleTarget>>> GetRoleTargetsByUserIdAndRoleIdWithHttpInfoAsync(  string userId ,   string roleIdOrEncodedRoleId , AssignmentTypeEnum assignmentType  = null  ,   string after = default(string) ,   int limit = default(int) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all admin role app targets
         /// </summary>
@@ -824,7 +824,7 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;RoleTarget&gt;</returns>
         //a
-        public IOktaCollectionClient<RoleTarget> GetRoleTargetsByUserIdAndRoleId(  string userId ,   string roleIdOrEncodedRoleId ,  assignmentType  = null  ,   string after = default(string) ,   int limit = default(int) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<RoleTarget> GetRoleTargetsByUserIdAndRoleId(  string userId ,   string roleIdOrEncodedRoleId , AssignmentTypeEnum assignmentType  = null  ,   string after = default(string) ,   int limit = default(int) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -903,7 +903,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">A limit on the number of objects to return (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;RoleTarget&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<RoleTarget>>> GetRoleTargetsByUserIdAndRoleIdWithHttpInfoAsync(  string userId ,   string roleIdOrEncodedRoleId ,  assignmentType  = null  ,   string after = default(string) ,   int limit = default(int) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<RoleTarget>>> GetRoleTargetsByUserIdAndRoleIdWithHttpInfoAsync(  string userId ,   string roleIdOrEncodedRoleId , AssignmentTypeEnum assignmentType  = null  ,   string after = default(string) ,   int limit = default(int) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)

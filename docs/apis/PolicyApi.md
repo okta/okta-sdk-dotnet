@@ -1154,7 +1154,7 @@ Name | Type | Description  | Notes
 
 <a name="listpolicies"></a>
 # **ListPolicies**
-> Policy ListPolicies (string type, string status = null, string q = null, string expand = null, string sortBy = null, string limit = null, string resourceId = null, string after = null)
+> Policy ListPolicies (PolicyTypeEnum type, string status = null, string q = null, string expand = null, string sortBy = null, string limit = null, string resourceId = null, string after = null)
 
 List all policies
 
@@ -1182,7 +1182,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var type = "OKTA_SIGN_ON";  // string | Specifies the type of policy to return. The following policy types are available only with the Okta Identity Engine - `ACCESS_POLICY`, <x-lifecycle class=\"ea\"></x-lifecycle> `DEVICE_SIGNAL_COLLECTION`, `PROFILE_ENROLLMENT`, `POST_AUTH_SESSION`, and `ENTITY_RISK`.
+            var type = (PolicyTypeEnum) "OKTA_SIGN_ON";  // PolicyTypeEnum | Specifies the type of policy to return. The following policy types are available only with the Okta Identity Engine - `ACCESS_POLICY`, <x-lifecycle class=\"ea\"></x-lifecycle> `DEVICE_SIGNAL_COLLECTION`, `PROFILE_ENROLLMENT`, `POST_AUTH_SESSION`, and `ENTITY_RISK`.
             var status = "status_example";  // string | Refines the query by the `status` of the policy - `ACTIVE` or `INACTIVE` (optional) 
             var q = "q_example";  // string | Refines the query by policy name prefix (startWith method) passed in as `q=string` (optional) 
             var expand = "\"\"";  // string |  (optional)  (default to "")
@@ -1212,7 +1212,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **string**| Specifies the type of policy to return. The following policy types are available only with the Okta Identity Engine - &#x60;ACCESS_POLICY&#x60;, &lt;x-lifecycle class&#x3D;\&quot;ea\&quot;&gt;&lt;/x-lifecycle&gt; &#x60;DEVICE_SIGNAL_COLLECTION&#x60;, &#x60;PROFILE_ENROLLMENT&#x60;, &#x60;POST_AUTH_SESSION&#x60;, and &#x60;ENTITY_RISK&#x60;. | 
+ **type** | **PolicyTypeEnum**| Specifies the type of policy to return. The following policy types are available only with the Okta Identity Engine - &#x60;ACCESS_POLICY&#x60;, &lt;x-lifecycle class&#x3D;\&quot;ea\&quot;&gt;&lt;/x-lifecycle&gt; &#x60;DEVICE_SIGNAL_COLLECTION&#x60;, &#x60;PROFILE_ENROLLMENT&#x60;, &#x60;POST_AUTH_SESSION&#x60;, and &#x60;ENTITY_RISK&#x60;. | 
  **status** | **string**| Refines the query by the &#x60;status&#x60; of the policy - &#x60;ACTIVE&#x60; or &#x60;INACTIVE&#x60; | [optional] 
  **q** | **string**| Refines the query by policy name prefix (startWith method) passed in as &#x60;q&#x3D;string&#x60; | [optional] 
  **expand** | **string**|  | [optional] [default to &quot;&quot;]

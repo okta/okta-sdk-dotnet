@@ -346,7 +346,7 @@ void (empty response body)
 
 <a name="getroletargetsbyuseridandroleid"></a>
 # **GetRoleTargetsByUserIdAndRoleId**
-> List&lt;RoleTarget&gt; GetRoleTargetsByUserIdAndRoleId (string userId, string roleIdOrEncodedRoleId, string assignmentType = null, string after = null, int limit = null)
+> List&lt;RoleTarget&gt; GetRoleTargetsByUserIdAndRoleId (string userId, string roleIdOrEncodedRoleId, AssignmentTypeEnum assignmentType = null, string after = null, int limit = null)
 
 Retrieve a role target by assignment type
 
@@ -376,7 +376,7 @@ namespace Example
             var apiInstance = new RoleBTargetAdminApi(config);
             var userId = 00ub0oNGTSWTBKOLGLNR;  // string | ID of an existing Okta user
             var roleIdOrEncodedRoleId = JBCUYUC7IRCVGS27IFCE2SKO;  // string | The `id` of the role or Base32 encoded `id` of the role name
-            var assignmentType = GROUP;  // string | Specifies the assignment type of the user (optional) 
+            var assignmentType = (AssignmentTypeEnum) "USER";  // AssignmentTypeEnum | Specifies the assignment type of the user (optional) 
             var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
             var limit = 20;  // int | A limit on the number of objects to return (optional)  (default to 20)
 
@@ -403,7 +403,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**| ID of an existing Okta user | 
  **roleIdOrEncodedRoleId** | **string**| The &#x60;id&#x60; of the role or Base32 encoded &#x60;id&#x60; of the role name | 
- **assignmentType** | **string**| Specifies the assignment type of the user | [optional] 
+ **assignmentType** | **AssignmentTypeEnum**| Specifies the assignment type of the user | [optional] 
  **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
  **limit** | **int**| A limit on the number of objects to return | [optional] [default to 20]
 

@@ -242,7 +242,7 @@ namespace Okta.Sdk.Api
         /// <param name="sortOrder">Specifies the sort order, either &#x60;ASC&#x60; or &#x60;DESC&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserFactorYubikeyOtpToken&gt;</returns>
-        IOktaCollectionClient<UserFactorYubikeyOtpToken> ListYubikeyOtpTokens(  string after = default(string) ,   string expand = default(string) ,  filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) ,  sortBy  = null  ,  sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<UserFactorYubikeyOtpToken> ListYubikeyOtpTokens(  string after = default(string) ,   string expand = default(string) , YubikeyFilterEnum filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) , YubikeySortByEnum sortBy  = null  , SortOrderEnum sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all YubiKey OTP tokens
         /// </summary>
@@ -259,7 +259,7 @@ namespace Okta.Sdk.Api
         /// <param name="sortOrder">Specifies the sort order, either &#x60;ASC&#x60; or &#x60;DESC&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;UserFactorYubikeyOtpToken&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<UserFactorYubikeyOtpToken>>> ListYubikeyOtpTokensWithHttpInfoAsync(  string after = default(string) ,   string expand = default(string) ,  filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) ,  sortBy  = null  ,  sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<UserFactorYubikeyOtpToken>>> ListYubikeyOtpTokensWithHttpInfoAsync(  string after = default(string) ,   string expand = default(string) , YubikeyFilterEnum filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) , YubikeySortByEnum sortBy  = null  , SortOrderEnum sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Resend a factor enrollment
         /// </summary>
@@ -331,7 +331,7 @@ namespace Okta.Sdk.Api
         /// <param name="sortOrder">Specifies the sort order, either &#x60;ASC&#x60; or &#x60;DESC&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserFactorYubikeyOtpToken</returns>
-        System.Threading.Tasks.Task<UserFactorYubikeyOtpToken> UploadYubikeyOtpTokenSeedAsync(  UploadYubikeyOtpTokenSeedRequest uploadYubikeyOtpTokenSeedRequest ,   string after = default(string) ,   string expand = default(string) ,  filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) ,  sortBy  = null  ,  sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserFactorYubikeyOtpToken> UploadYubikeyOtpTokenSeedAsync(  UploadYubikeyOtpTokenSeedRequest uploadYubikeyOtpTokenSeedRequest ,   string after = default(string) ,   string expand = default(string) , YubikeyFilterEnum filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) , YubikeySortByEnum sortBy  = null  , SortOrderEnum sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Upload a YubiKey OTP seed
         /// </summary>
@@ -349,7 +349,7 @@ namespace Okta.Sdk.Api
         /// <param name="sortOrder">Specifies the sort order, either &#x60;ASC&#x60; or &#x60;DESC&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserFactorYubikeyOtpToken)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserFactorYubikeyOtpToken>> UploadYubikeyOtpTokenSeedWithHttpInfoAsync(  UploadYubikeyOtpTokenSeedRequest uploadYubikeyOtpTokenSeedRequest ,   string after = default(string) ,   string expand = default(string) ,  filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) ,  sortBy  = null  ,  sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UserFactorYubikeyOtpToken>> UploadYubikeyOtpTokenSeedWithHttpInfoAsync(  UploadYubikeyOtpTokenSeedRequest uploadYubikeyOtpTokenSeedRequest ,   string after = default(string) ,   string expand = default(string) , YubikeyFilterEnum filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) , YubikeySortByEnum sortBy  = null  , SortOrderEnum sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Verify a factor
         /// </summary>
@@ -1372,7 +1372,7 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserFactorYubikeyOtpToken&gt;</returns>
         //a
-        public IOktaCollectionClient<UserFactorYubikeyOtpToken> ListYubikeyOtpTokens(  string after = default(string) ,   string expand = default(string) ,  filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) ,  sortBy  = null  ,  sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<UserFactorYubikeyOtpToken> ListYubikeyOtpTokens(  string after = default(string) ,   string expand = default(string) , YubikeyFilterEnum filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) , YubikeySortByEnum sortBy  = null  , SortOrderEnum sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -1455,7 +1455,7 @@ namespace Okta.Sdk.Api
         /// <param name="sortOrder">Specifies the sort order, either &#x60;ASC&#x60; or &#x60;DESC&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;UserFactorYubikeyOtpToken&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<UserFactorYubikeyOtpToken>>> ListYubikeyOtpTokensWithHttpInfoAsync(  string after = default(string) ,   string expand = default(string) ,  filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) ,  sortBy  = null  ,  sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<UserFactorYubikeyOtpToken>>> ListYubikeyOtpTokensWithHttpInfoAsync(  string after = default(string) ,   string expand = default(string) , YubikeyFilterEnum filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) , YubikeySortByEnum sortBy  = null  , SortOrderEnum sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -1759,7 +1759,7 @@ namespace Okta.Sdk.Api
         /// <param name="sortOrder">Specifies the sort order, either &#x60;ASC&#x60; or &#x60;DESC&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserFactorYubikeyOtpToken</returns>
-        public async System.Threading.Tasks.Task<UserFactorYubikeyOtpToken> UploadYubikeyOtpTokenSeedAsync(  UploadYubikeyOtpTokenSeedRequest uploadYubikeyOtpTokenSeedRequest ,   string after = default(string) ,   string expand = default(string) ,  filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) ,  sortBy  = null  ,  sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UserFactorYubikeyOtpToken> UploadYubikeyOtpTokenSeedAsync(  UploadYubikeyOtpTokenSeedRequest uploadYubikeyOtpTokenSeedRequest ,   string after = default(string) ,   string expand = default(string) , YubikeyFilterEnum filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) , YubikeySortByEnum sortBy  = null  , SortOrderEnum sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<UserFactorYubikeyOtpToken> localVarResponse = await UploadYubikeyOtpTokenSeedWithHttpInfoAsync(uploadYubikeyOtpTokenSeedRequest, after, expand, filter, forDownload, limit, sortBy, sortOrder, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1778,7 +1778,7 @@ namespace Okta.Sdk.Api
         /// <param name="sortOrder">Specifies the sort order, either &#x60;ASC&#x60; or &#x60;DESC&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserFactorYubikeyOtpToken)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserFactorYubikeyOtpToken>> UploadYubikeyOtpTokenSeedWithHttpInfoAsync(  UploadYubikeyOtpTokenSeedRequest uploadYubikeyOtpTokenSeedRequest ,   string after = default(string) ,   string expand = default(string) ,  filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) ,  sortBy  = null  ,  sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<UserFactorYubikeyOtpToken>> UploadYubikeyOtpTokenSeedWithHttpInfoAsync(  UploadYubikeyOtpTokenSeedRequest uploadYubikeyOtpTokenSeedRequest ,   string after = default(string) ,   string expand = default(string) , YubikeyFilterEnum filter  = null  ,   bool forDownload = default(bool) ,   int limit = default(int) , YubikeySortByEnum sortBy  = null  , SortOrderEnum sortOrder  = null  , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'uploadYubikeyOtpTokenSeedRequest' is set
             if (uploadYubikeyOtpTokenSeedRequest == null)
