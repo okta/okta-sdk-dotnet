@@ -48,6 +48,10 @@ namespace Okta.Sdk.UnitTest.Client
         [InlineData("https://foo-admin.okta.com")]
         [InlineData("https://foo-admin.oktapreview.com")]
         [InlineData("https://https://foo-admin.okta-emea.com")]
+        [InlineData("https://foo-admin.okta-gov.com")]
+        [InlineData("https://foo-admin.okta.mil")]
+        [InlineData("https://foo-admin.okta-miltest.com")]
+        [InlineData("https://foo-admin.trex-govcloud.com")]
         public void FailIfOktaDomainContainsAdminKeyword(string oktaDomain)
         {
             var configuration = new Configuration();
@@ -121,6 +125,21 @@ namespace Okta.Sdk.UnitTest.Client
             configuration.OktaDomain = oktaDomain;
             configuration.Token = "foo";
             configuration.DisableHttpsCheck = true;
+
+            Action action = () => Configuration.Validate(configuration);
+            action.Should().NotThrow<ArgumentException>();
+        }
+
+        [Theory]
+        [InlineData("https://myOktaDomain.okta-gov.com")]
+        [InlineData("https://myOktaDomain.okta.mil")]
+        [InlineData("https://myOktaDomain.okta-miltest.com")]
+        [InlineData("https://myOktaDomain.trex-govcloud.com")]
+        public void NotFailForValidNewOktaDomains(string oktaDomain)
+        {
+            var configuration = new Configuration();
+            configuration.OktaDomain = oktaDomain;
+            configuration.Token = "foo";
 
             Action action = () => Configuration.Validate(configuration);
             action.Should().NotThrow<ArgumentException>();
