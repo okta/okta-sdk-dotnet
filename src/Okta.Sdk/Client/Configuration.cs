@@ -275,7 +275,11 @@ namespace Okta.Sdk.Client
                 if (configuration.OktaDomain.IndexOf("-admin.okta.com", StringComparison.OrdinalIgnoreCase) >= 0 ||
                     configuration.OktaDomain.IndexOf("-admin.oktapreview.com", StringComparison.OrdinalIgnoreCase) >=
                     0 ||
-                    configuration.OktaDomain.IndexOf("-admin.okta-emea.com", StringComparison.OrdinalIgnoreCase) >= 0)
+                    configuration.OktaDomain.IndexOf("-admin.okta-emea.com", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    configuration.OktaDomain.IndexOf("-admin.okta-gov.com", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    configuration.OktaDomain.IndexOf("-admin.okta.mil", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    configuration.OktaDomain.IndexOf("-admin.okta-miltest.com", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    configuration.OktaDomain.IndexOf("-admin.trex-govcloud.com", StringComparison.OrdinalIgnoreCase) >= 0)
                 {
                     throw new ArgumentNullException(nameof(configuration.OktaDomain),
                         $"Your Okta domain should not contain -admin. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
@@ -403,7 +407,7 @@ namespace Okta.Sdk.Client
                             "variables", new Dictionary<string, object> {
                                 {
                                     "yourOktaDomain", new Dictionary<string, object> {
-                                        {"description", "The domain of your organization. This can be a provided subdomain of an official okta domain (okta.com, oktapreview.com, etc) or one of your configured custom domains."},
+                                        {"description", "The domain of your organization. This can be a provided subdomain of an official okta domain (okta.com, oktapreview.com, okta-gov.com, okta.mil, okta-miltest.com, trex-govcloud.com, etc) or one of your configured custom domains."},
                                         {"default_value", "subdomain.okta.com"},
                                     }
                                 }
