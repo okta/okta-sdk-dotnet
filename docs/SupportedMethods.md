@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.SupportedMethods
-The supported methods of an Authenticator
+The supported methods of an authenticator
 
 ## Properties
 

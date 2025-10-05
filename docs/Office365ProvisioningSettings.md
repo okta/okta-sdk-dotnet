@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.Office365ProvisioningSettings
-Settings required for the Microsoft Office 365 Provisioning Connection
+Settings required for the Microsoft Office 365 provisioning connection
 
 ## Properties
 

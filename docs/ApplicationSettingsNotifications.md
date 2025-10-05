@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ApplicationSettingsNotifications
+Specifies notifications settings for the app
 
 ## Properties
 

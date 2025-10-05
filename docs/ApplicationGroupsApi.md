@@ -4,20 +4,20 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AssignGroupToApplication**](ApplicationGroupsApi.md#assigngrouptoapplication) | **PUT** /api/v1/apps/{appId}/groups/{groupId} | Assign an Application Group
-[**GetApplicationGroupAssignment**](ApplicationGroupsApi.md#getapplicationgroupassignment) | **GET** /api/v1/apps/{appId}/groups/{groupId} | Retrieve an Application Group
-[**ListApplicationGroupAssignments**](ApplicationGroupsApi.md#listapplicationgroupassignments) | **GET** /api/v1/apps/{appId}/groups | List all Application Groups
-[**UnassignApplicationFromGroup**](ApplicationGroupsApi.md#unassignapplicationfromgroup) | **DELETE** /api/v1/apps/{appId}/groups/{groupId} | Unassign an Application Group
-[**UpdateGroupAssignmentToApplication**](ApplicationGroupsApi.md#updategroupassignmenttoapplication) | **PATCH** /api/v1/apps/{appId}/groups/{groupId} | Update an Application Group
+[**AssignGroupToApplication**](ApplicationGroupsApi.md#assigngrouptoapplication) | **PUT** /api/v1/apps/{appId}/groups/{groupId} | Assign an application group
+[**GetApplicationGroupAssignment**](ApplicationGroupsApi.md#getapplicationgroupassignment) | **GET** /api/v1/apps/{appId}/groups/{groupId} | Retrieve an application group
+[**ListApplicationGroupAssignments**](ApplicationGroupsApi.md#listapplicationgroupassignments) | **GET** /api/v1/apps/{appId}/groups | List all application groups
+[**UnassignApplicationFromGroup**](ApplicationGroupsApi.md#unassignapplicationfromgroup) | **DELETE** /api/v1/apps/{appId}/groups/{groupId} | Unassign an application group
+[**UpdateGroupAssignmentToApplication**](ApplicationGroupsApi.md#updategroupassignmenttoapplication) | **PATCH** /api/v1/apps/{appId}/groups/{groupId} | Update an application group
 
 
 <a name="assigngrouptoapplication"></a>
 # **AssignGroupToApplication**
 > ApplicationGroupAssignment AssignGroupToApplication (string appId, string groupId, ApplicationGroupAssignment applicationGroupAssignment = null)
 
-Assign an Application Group
+Assign an application group
 
-Assigns a [Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) to an app, which in turn assigns the app to each [User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) that belongs to the group.  The resulting Application User [scope](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/listApplicationUsers!c=200&path=scope&t=response) is `GROUP` since the assignment was from the group membership.
+Assigns a [Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) to an app, which in turn assigns the app to each [User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) that belongs to the group.  The resulting application user [scope](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/listApplicationUsers!c=200&path=scope&t=response) is `GROUP` since the assignment was from the group membership.
 
 ### Example
 ```csharp
@@ -47,7 +47,7 @@ namespace Example
 
             try
             {
-                // Assign an Application Group
+                // Assign an application group
                 ApplicationGroupAssignment result = apiInstance.AssignGroupToApplication(appId, groupId, applicationGroupAssignment);
                 Debug.WriteLine(result);
             }
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 # **GetApplicationGroupAssignment**
 > ApplicationGroupAssignment GetApplicationGroupAssignment (string appId, string groupId, string expand = null)
 
-Retrieve an Application Group
+Retrieve an application group
 
 Retrieves an app group assignment
 
@@ -127,11 +127,11 @@ namespace Example
             var apiInstance = new ApplicationGroupsApi(config);
             var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
             var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
-            var expand = group;  // string | An optional query parameter to return the corresponding assigned [Group](/openapi/okta-management/management/tag/Group/) or  the group assignment metadata details in the `_embedded` property.  (optional) 
+            var expand = group;  // string | An optional query parameter to return the corresponding assigned [group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) or  the group assignment metadata details in the `_embedded` property. (optional) 
 
             try
             {
-                // Retrieve an Application Group
+                // Retrieve an application group
                 ApplicationGroupAssignment result = apiInstance.GetApplicationGroupAssignment(appId, groupId, expand);
                 Debug.WriteLine(result);
             }
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **string**| Application ID | 
  **groupId** | **string**| The &#x60;id&#x60; of the group | 
- **expand** | **string**| An optional query parameter to return the corresponding assigned [Group](/openapi/okta-management/management/tag/Group/) or  the group assignment metadata details in the &#x60;_embedded&#x60; property.  | [optional] 
+ **expand** | **string**| An optional query parameter to return the corresponding assigned [group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) or  the group assignment metadata details in the &#x60;_embedded&#x60; property. | [optional] 
 
 ### Return type
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 # **ListApplicationGroupAssignments**
 > List&lt;ApplicationGroupAssignment&gt; ListApplicationGroupAssignments (string appId, string q = null, string after = null, int? limit = null, string expand = null)
 
-List all Application Groups
+List all application groups
 
 Lists all app group assignments
 
@@ -209,14 +209,14 @@ namespace Example
 
             var apiInstance = new ApplicationGroupsApi(config);
             var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
-            var q = test;  // string | Specifies a filter for a list of assigned groups returned based on their names. The value of `q` is matched against the group `name`.  This filter only supports the `startsWith` operation that matches the `q` string against the beginning of the [Group name](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups!c=200&path=profile/name&t=response). (optional) 
+            var q = test;  // string | Specifies a filter for a list of assigned groups returned based on their names. The value of `q` is matched against the group `name`.  This filter only supports the `startsWith` operation that matches the `q` string against the beginning of the [group name](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups!c=200&path=profile/name&t=response). (optional) 
             var after = 16275000448691;  // string | Specifies the pagination cursor for the `next` page of results. Treat this as an opaque value obtained through the next link relationship. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
             var limit = 20;  // int? | Specifies the number of objects to return per page. If there are multiple pages of results, the Link header contains a `next` link that you need to use as an opaque value (follow it, don't parse it). See [Pagination](/#pagination). (optional)  (default to 20)
-            var expand = group;  // string | An optional query parameter to return the corresponding assigned [Group](/openapi/okta-management/management/tag/Group/) or  the group assignment metadata details in the `_embedded` property.  (optional) 
+            var expand = group;  // string | An optional query parameter to return the corresponding assigned [group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) or  the group assignment metadata details in the `_embedded` property. (optional) 
 
             try
             {
-                // List all Application Groups
+                // List all application groups
                 List<ApplicationGroupAssignment> result = apiInstance.ListApplicationGroupAssignments(appId, q, after, limit, expand).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -236,10 +236,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **string**| Application ID | 
- **q** | **string**| Specifies a filter for a list of assigned groups returned based on their names. The value of &#x60;q&#x60; is matched against the group &#x60;name&#x60;.  This filter only supports the &#x60;startsWith&#x60; operation that matches the &#x60;q&#x60; string against the beginning of the [Group name](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups!c&#x3D;200&amp;path&#x3D;profile/name&amp;t&#x3D;response). | [optional] 
+ **q** | **string**| Specifies a filter for a list of assigned groups returned based on their names. The value of &#x60;q&#x60; is matched against the group &#x60;name&#x60;.  This filter only supports the &#x60;startsWith&#x60; operation that matches the &#x60;q&#x60; string against the beginning of the [group name](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups!c&#x3D;200&amp;path&#x3D;profile/name&amp;t&#x3D;response). | [optional] 
  **after** | **string**| Specifies the pagination cursor for the &#x60;next&#x60; page of results. Treat this as an opaque value obtained through the next link relationship. See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
  **limit** | **int?**| Specifies the number of objects to return per page. If there are multiple pages of results, the Link header contains a &#x60;next&#x60; link that you need to use as an opaque value (follow it, don&#39;t parse it). See [Pagination](/#pagination). | [optional] [default to 20]
- **expand** | **string**| An optional query parameter to return the corresponding assigned [Group](/openapi/okta-management/management/tag/Group/) or  the group assignment metadata details in the &#x60;_embedded&#x60; property.  | [optional] 
+ **expand** | **string**| An optional query parameter to return the corresponding assigned [group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) or  the group assignment metadata details in the &#x60;_embedded&#x60; property. | [optional] 
 
 ### Return type
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 # **UnassignApplicationFromGroup**
 > void UnassignApplicationFromGroup (string appId, string groupId)
 
-Unassign an Application Group
+Unassign an application group
 
 Unassigns a Group from an app
 
@@ -300,7 +300,7 @@ namespace Example
 
             try
             {
-                // Unassign an Application Group
+                // Unassign an application group
                 apiInstance.UnassignApplicationFromGroup(appId, groupId);
             }
             catch (ApiException  e)
@@ -349,7 +349,7 @@ void (empty response body)
 # **UpdateGroupAssignmentToApplication**
 > ApplicationGroupAssignment UpdateGroupAssignmentToApplication (string appId, string groupId, List<JsonPatchOperation> jsonPatchOperation = null)
 
-Update an Application Group
+Update an application group
 
 Updates a group assignment to an app
 
@@ -381,7 +381,7 @@ namespace Example
 
             try
             {
-                // Update an Application Group
+                // Update an application group
                 ApplicationGroupAssignment result = apiInstance.UpdateGroupAssignmentToApplication(appId, groupId, jsonPatchOperation);
                 Debug.WriteLine(result);
             }

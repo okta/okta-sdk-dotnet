@@ -4,32 +4,32 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteCustomizedErrorPage**](CustomPagesApi.md#deletecustomizederrorpage) | **DELETE** /api/v1/brands/{brandId}/pages/error/customized | Delete the Customized Error Page
-[**DeleteCustomizedSignInPage**](CustomPagesApi.md#deletecustomizedsigninpage) | **DELETE** /api/v1/brands/{brandId}/pages/sign-in/customized | Delete the Customized Sign-in Page
-[**DeletePreviewErrorPage**](CustomPagesApi.md#deletepreviewerrorpage) | **DELETE** /api/v1/brands/{brandId}/pages/error/preview | Delete the Preview Error Page
-[**DeletePreviewSignInPage**](CustomPagesApi.md#deletepreviewsigninpage) | **DELETE** /api/v1/brands/{brandId}/pages/sign-in/preview | Delete the Preview Sign-in Page
-[**GetCustomizedErrorPage**](CustomPagesApi.md#getcustomizederrorpage) | **GET** /api/v1/brands/{brandId}/pages/error/customized | Retrieve the Customized Error Page
-[**GetCustomizedSignInPage**](CustomPagesApi.md#getcustomizedsigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in/customized | Retrieve the Customized Sign-in Page
-[**GetDefaultErrorPage**](CustomPagesApi.md#getdefaulterrorpage) | **GET** /api/v1/brands/{brandId}/pages/error/default | Retrieve the Default Error Page
-[**GetDefaultSignInPage**](CustomPagesApi.md#getdefaultsigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in/default | Retrieve the Default Sign-in Page
-[**GetErrorPage**](CustomPagesApi.md#geterrorpage) | **GET** /api/v1/brands/{brandId}/pages/error | Retrieve the Error Page Sub-Resources
-[**GetPreviewErrorPage**](CustomPagesApi.md#getpreviewerrorpage) | **GET** /api/v1/brands/{brandId}/pages/error/preview | Retrieve the Preview Error Page Preview
-[**GetPreviewSignInPage**](CustomPagesApi.md#getpreviewsigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in/preview | Retrieve the Preview Sign-in Page Preview
-[**GetSignInPage**](CustomPagesApi.md#getsigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in | Retrieve the Sign-in Page Sub-Resources
-[**GetSignOutPageSettings**](CustomPagesApi.md#getsignoutpagesettings) | **GET** /api/v1/brands/{brandId}/pages/sign-out/customized | Retrieve the Sign-out Page Settings
-[**ListAllSignInWidgetVersions**](CustomPagesApi.md#listallsigninwidgetversions) | **GET** /api/v1/brands/{brandId}/pages/sign-in/widget-versions | List all Sign-in Widget Versions
-[**ReplaceCustomizedErrorPage**](CustomPagesApi.md#replacecustomizederrorpage) | **PUT** /api/v1/brands/{brandId}/pages/error/customized | Replace the Customized Error Page
-[**ReplaceCustomizedSignInPage**](CustomPagesApi.md#replacecustomizedsigninpage) | **PUT** /api/v1/brands/{brandId}/pages/sign-in/customized | Replace the Customized Sign-in Page
-[**ReplacePreviewErrorPage**](CustomPagesApi.md#replacepreviewerrorpage) | **PUT** /api/v1/brands/{brandId}/pages/error/preview | Replace the Preview Error Page
-[**ReplacePreviewSignInPage**](CustomPagesApi.md#replacepreviewsigninpage) | **PUT** /api/v1/brands/{brandId}/pages/sign-in/preview | Replace the Preview Sign-in Page
-[**ReplaceSignOutPageSettings**](CustomPagesApi.md#replacesignoutpagesettings) | **PUT** /api/v1/brands/{brandId}/pages/sign-out/customized | Replace the Sign-out Page Settings
+[**DeleteCustomizedErrorPage**](CustomPagesApi.md#deletecustomizederrorpage) | **DELETE** /api/v1/brands/{brandId}/pages/error/customized | Delete the customized error page
+[**DeleteCustomizedSignInPage**](CustomPagesApi.md#deletecustomizedsigninpage) | **DELETE** /api/v1/brands/{brandId}/pages/sign-in/customized | Delete the customized sign-in page
+[**DeletePreviewErrorPage**](CustomPagesApi.md#deletepreviewerrorpage) | **DELETE** /api/v1/brands/{brandId}/pages/error/preview | Delete the preview error page
+[**DeletePreviewSignInPage**](CustomPagesApi.md#deletepreviewsigninpage) | **DELETE** /api/v1/brands/{brandId}/pages/sign-in/preview | Delete the preview sign-in page
+[**GetCustomizedErrorPage**](CustomPagesApi.md#getcustomizederrorpage) | **GET** /api/v1/brands/{brandId}/pages/error/customized | Retrieve the customized error page
+[**GetCustomizedSignInPage**](CustomPagesApi.md#getcustomizedsigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in/customized | Retrieve the customized sign-in page
+[**GetDefaultErrorPage**](CustomPagesApi.md#getdefaulterrorpage) | **GET** /api/v1/brands/{brandId}/pages/error/default | Retrieve the default error page
+[**GetDefaultSignInPage**](CustomPagesApi.md#getdefaultsigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in/default | Retrieve the default sign-in page
+[**GetErrorPage**](CustomPagesApi.md#geterrorpage) | **GET** /api/v1/brands/{brandId}/pages/error | Retrieve the error page sub-resources
+[**GetPreviewErrorPage**](CustomPagesApi.md#getpreviewerrorpage) | **GET** /api/v1/brands/{brandId}/pages/error/preview | Retrieve the preview error page preview
+[**GetPreviewSignInPage**](CustomPagesApi.md#getpreviewsigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in/preview | Retrieve the preview sign-in page preview
+[**GetSignInPage**](CustomPagesApi.md#getsigninpage) | **GET** /api/v1/brands/{brandId}/pages/sign-in | Retrieve the sign-in page sub-resources
+[**GetSignOutPageSettings**](CustomPagesApi.md#getsignoutpagesettings) | **GET** /api/v1/brands/{brandId}/pages/sign-out/customized | Retrieve the sign-out page settings
+[**ListAllSignInWidgetVersions**](CustomPagesApi.md#listallsigninwidgetversions) | **GET** /api/v1/brands/{brandId}/pages/sign-in/widget-versions | List all Sign-In Widget versions
+[**ReplaceCustomizedErrorPage**](CustomPagesApi.md#replacecustomizederrorpage) | **PUT** /api/v1/brands/{brandId}/pages/error/customized | Replace the customized error page
+[**ReplaceCustomizedSignInPage**](CustomPagesApi.md#replacecustomizedsigninpage) | **PUT** /api/v1/brands/{brandId}/pages/sign-in/customized | Replace the customized sign-in page
+[**ReplacePreviewErrorPage**](CustomPagesApi.md#replacepreviewerrorpage) | **PUT** /api/v1/brands/{brandId}/pages/error/preview | Replace the preview error page
+[**ReplacePreviewSignInPage**](CustomPagesApi.md#replacepreviewsigninpage) | **PUT** /api/v1/brands/{brandId}/pages/sign-in/preview | Replace the preview sign-in page
+[**ReplaceSignOutPageSettings**](CustomPagesApi.md#replacesignoutpagesettings) | **PUT** /api/v1/brands/{brandId}/pages/sign-out/customized | Replace the sign-out page settings
 
 
 <a name="deletecustomizederrorpage"></a>
 # **DeleteCustomizedErrorPage**
 > void DeleteCustomizedErrorPage (string brandId)
 
-Delete the Customized Error Page
+Delete the customized error page
 
 Deletes the customized error page. As a result, the default error page appears in your live environment.
 
@@ -59,7 +59,7 @@ namespace Example
 
             try
             {
-                // Delete the Customized Error Page
+                // Delete the customized error page
                 apiInstance.DeleteCustomizedErrorPage(brandId);
             }
             catch (ApiException  e)
@@ -107,7 +107,7 @@ void (empty response body)
 # **DeleteCustomizedSignInPage**
 > void DeleteCustomizedSignInPage (string brandId)
 
-Delete the Customized Sign-in Page
+Delete the customized sign-in page
 
 Deletes the customized sign-in page. As a result, the default sign-in page appears in your live environment.
 
@@ -137,7 +137,7 @@ namespace Example
 
             try
             {
-                // Delete the Customized Sign-in Page
+                // Delete the customized sign-in page
                 apiInstance.DeleteCustomizedSignInPage(brandId);
             }
             catch (ApiException  e)
@@ -185,7 +185,7 @@ void (empty response body)
 # **DeletePreviewErrorPage**
 > void DeletePreviewErrorPage (string brandId)
 
-Delete the Preview Error Page
+Delete the preview error page
 
 Deletes the preview error page. The preview error page contains unpublished changes and isn't shown in your live environment. Preview it at `${yourOktaDomain}/error/preview`.
 
@@ -215,7 +215,7 @@ namespace Example
 
             try
             {
-                // Delete the Preview Error Page
+                // Delete the preview error page
                 apiInstance.DeletePreviewErrorPage(brandId);
             }
             catch (ApiException  e)
@@ -263,7 +263,7 @@ void (empty response body)
 # **DeletePreviewSignInPage**
 > void DeletePreviewSignInPage (string brandId)
 
-Delete the Preview Sign-in Page
+Delete the preview sign-in page
 
 Deletes the preview sign-in page. The preview sign-in page contains unpublished changes and isn't shown in your live environment. Preview it at `${yourOktaDomain}/login/preview`.
 
@@ -293,7 +293,7 @@ namespace Example
 
             try
             {
-                // Delete the Preview Sign-in Page
+                // Delete the preview sign-in page
                 apiInstance.DeletePreviewSignInPage(brandId);
             }
             catch (ApiException  e)
@@ -341,7 +341,7 @@ void (empty response body)
 # **GetCustomizedErrorPage**
 > ErrorPage GetCustomizedErrorPage (string brandId)
 
-Retrieve the Customized Error Page
+Retrieve the customized error page
 
 Retrieves the customized error page. The customized error page appears in your live environment.
 
@@ -371,7 +371,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Customized Error Page
+                // Retrieve the customized error page
                 ErrorPage result = apiInstance.GetCustomizedErrorPage(brandId);
                 Debug.WriteLine(result);
             }
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 # **GetCustomizedSignInPage**
 > SignInPage GetCustomizedSignInPage (string brandId)
 
-Retrieve the Customized Sign-in Page
+Retrieve the customized sign-in page
 
 Retrieves the customized sign-in page. The customized sign-in page appears in your live environment.
 
@@ -450,7 +450,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Customized Sign-in Page
+                // Retrieve the customized sign-in page
                 SignInPage result = apiInstance.GetCustomizedSignInPage(brandId);
                 Debug.WriteLine(result);
             }
@@ -499,7 +499,7 @@ Name | Type | Description  | Notes
 # **GetDefaultErrorPage**
 > ErrorPage GetDefaultErrorPage (string brandId)
 
-Retrieve the Default Error Page
+Retrieve the default error page
 
 Retrieves the default error page. The default error page appears when no customized error page exists.
 
@@ -529,7 +529,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Default Error Page
+                // Retrieve the default error page
                 ErrorPage result = apiInstance.GetDefaultErrorPage(brandId);
                 Debug.WriteLine(result);
             }
@@ -578,7 +578,7 @@ Name | Type | Description  | Notes
 # **GetDefaultSignInPage**
 > SignInPage GetDefaultSignInPage (string brandId)
 
-Retrieve the Default Sign-in Page
+Retrieve the default sign-in page
 
 Retrieves the default sign-in page. The default sign-in page appears when no customized sign-in page exists.
 
@@ -608,7 +608,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Default Sign-in Page
+                // Retrieve the default sign-in page
                 SignInPage result = apiInstance.GetDefaultSignInPage(brandId);
                 Debug.WriteLine(result);
             }
@@ -657,7 +657,7 @@ Name | Type | Description  | Notes
 # **GetErrorPage**
 > PageRoot GetErrorPage (string brandId, List<string> expand = null)
 
-Retrieve the Error Page Sub-Resources
+Retrieve the error page sub-resources
 
 Retrieves the error page sub-resources. The `expand` query parameter specifies which sub-resources to include in the response.
 
@@ -688,7 +688,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Error Page Sub-Resources
+                // Retrieve the error page sub-resources
                 PageRoot result = apiInstance.GetErrorPage(brandId, expand);
                 Debug.WriteLine(result);
             }
@@ -738,7 +738,7 @@ Name | Type | Description  | Notes
 # **GetPreviewErrorPage**
 > ErrorPage GetPreviewErrorPage (string brandId)
 
-Retrieve the Preview Error Page Preview
+Retrieve the preview error page preview
 
 Retrieves the preview error page. The preview error page contains unpublished changes and isn't shown in your live environment. Preview it at `${yourOktaDomain}/error/preview`.
 
@@ -768,7 +768,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Preview Error Page Preview
+                // Retrieve the preview error page preview
                 ErrorPage result = apiInstance.GetPreviewErrorPage(brandId);
                 Debug.WriteLine(result);
             }
@@ -817,7 +817,7 @@ Name | Type | Description  | Notes
 # **GetPreviewSignInPage**
 > SignInPage GetPreviewSignInPage (string brandId)
 
-Retrieve the Preview Sign-in Page Preview
+Retrieve the preview sign-in page preview
 
 Retrieves the preview sign-in page. The preview sign-in page contains unpublished changes and isn't shown in your live environment. Preview it at `${yourOktaDomain}/login/preview`.
 
@@ -847,7 +847,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Preview Sign-in Page Preview
+                // Retrieve the preview sign-in page preview
                 SignInPage result = apiInstance.GetPreviewSignInPage(brandId);
                 Debug.WriteLine(result);
             }
@@ -896,7 +896,7 @@ Name | Type | Description  | Notes
 # **GetSignInPage**
 > PageRoot GetSignInPage (string brandId, List<string> expand = null)
 
-Retrieve the Sign-in Page Sub-Resources
+Retrieve the sign-in page sub-resources
 
 Retrieves the sign-in page sub-resources. The `expand` query parameter specifies which sub-resources to include in the response.
 
@@ -927,7 +927,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Sign-in Page Sub-Resources
+                // Retrieve the sign-in page sub-resources
                 PageRoot result = apiInstance.GetSignInPage(brandId, expand);
                 Debug.WriteLine(result);
             }
@@ -977,7 +977,7 @@ Name | Type | Description  | Notes
 # **GetSignOutPageSettings**
 > HostedPage GetSignOutPageSettings (string brandId)
 
-Retrieve the Sign-out Page Settings
+Retrieve the sign-out page settings
 
 Retrieves the sign-out page settings
 
@@ -1007,7 +1007,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Sign-out Page Settings
+                // Retrieve the sign-out page settings
                 HostedPage result = apiInstance.GetSignOutPageSettings(brandId);
                 Debug.WriteLine(result);
             }
@@ -1056,7 +1056,7 @@ Name | Type | Description  | Notes
 # **ListAllSignInWidgetVersions**
 > List&lt;string&gt; ListAllSignInWidgetVersions (string brandId)
 
-List all Sign-in Widget Versions
+List all Sign-In Widget versions
 
 Lists all sign-in widget versions supported by the current org
 
@@ -1086,7 +1086,7 @@ namespace Example
 
             try
             {
-                // List all Sign-in Widget Versions
+                // List all Sign-In Widget versions
                 List<string> result = apiInstance.ListAllSignInWidgetVersions(brandId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -1135,7 +1135,7 @@ Name | Type | Description  | Notes
 # **ReplaceCustomizedErrorPage**
 > ErrorPage ReplaceCustomizedErrorPage (string brandId, ErrorPage errorPage)
 
-Replace the Customized Error Page
+Replace the customized error page
 
 Replaces the customized error page. The customized error page appears in your live environment.
 
@@ -1166,7 +1166,7 @@ namespace Example
 
             try
             {
-                // Replace the Customized Error Page
+                // Replace the customized error page
                 ErrorPage result = apiInstance.ReplaceCustomizedErrorPage(brandId, errorPage);
                 Debug.WriteLine(result);
             }
@@ -1217,7 +1217,7 @@ Name | Type | Description  | Notes
 # **ReplaceCustomizedSignInPage**
 > SignInPage ReplaceCustomizedSignInPage (string brandId, SignInPage signInPage)
 
-Replace the Customized Sign-in Page
+Replace the customized sign-in page
 
 Replaces the customized sign-in page. The customized sign-in page appears in your live environment.
 
@@ -1248,7 +1248,7 @@ namespace Example
 
             try
             {
-                // Replace the Customized Sign-in Page
+                // Replace the customized sign-in page
                 SignInPage result = apiInstance.ReplaceCustomizedSignInPage(brandId, signInPage);
                 Debug.WriteLine(result);
             }
@@ -1299,7 +1299,7 @@ Name | Type | Description  | Notes
 # **ReplacePreviewErrorPage**
 > ErrorPage ReplacePreviewErrorPage (string brandId, ErrorPage errorPage)
 
-Replace the Preview Error Page
+Replace the preview error page
 
 Replaces the preview error page. The preview error page contains unpublished changes and isn't shown in your live environment. Preview it at `${yourOktaDomain}/error/preview`.
 
@@ -1330,7 +1330,7 @@ namespace Example
 
             try
             {
-                // Replace the Preview Error Page
+                // Replace the preview error page
                 ErrorPage result = apiInstance.ReplacePreviewErrorPage(brandId, errorPage);
                 Debug.WriteLine(result);
             }
@@ -1381,7 +1381,7 @@ Name | Type | Description  | Notes
 # **ReplacePreviewSignInPage**
 > SignInPage ReplacePreviewSignInPage (string brandId, SignInPage signInPage)
 
-Replace the Preview Sign-in Page
+Replace the preview sign-in page
 
 Replaces the preview sign-in page. The preview sign-in page contains unpublished changes and isn't shown in your live environment. Preview it at `${yourOktaDomain}/login/preview`.
 
@@ -1412,7 +1412,7 @@ namespace Example
 
             try
             {
-                // Replace the Preview Sign-in Page
+                // Replace the preview sign-in page
                 SignInPage result = apiInstance.ReplacePreviewSignInPage(brandId, signInPage);
                 Debug.WriteLine(result);
             }
@@ -1463,7 +1463,7 @@ Name | Type | Description  | Notes
 # **ReplaceSignOutPageSettings**
 > HostedPage ReplaceSignOutPageSettings (string brandId, HostedPage hostedPage)
 
-Replace the Sign-out Page Settings
+Replace the sign-out page settings
 
 Replaces the sign-out page settings
 
@@ -1494,7 +1494,7 @@ namespace Example
 
             try
             {
-                // Replace the Sign-out Page Settings
+                // Replace the sign-out page settings
                 HostedPage result = apiInstance.ReplaceSignOutPageSettings(brandId, hostedPage);
                 Debug.WriteLine(result);
             }

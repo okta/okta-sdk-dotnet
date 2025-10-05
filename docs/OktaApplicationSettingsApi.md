@@ -4,15 +4,15 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetFirstPartyAppSettings**](OktaApplicationSettingsApi.md#getfirstpartyappsettings) | **GET** /api/v1/first-party-app-settings/{appName} | Retrieve the Okta Application Settings
-[**ReplaceFirstPartyAppSettings**](OktaApplicationSettingsApi.md#replacefirstpartyappsettings) | **PUT** /api/v1/first-party-app-settings/{appName} | Replace the Okta Application Settings
+[**GetFirstPartyAppSettings**](OktaApplicationSettingsApi.md#getfirstpartyappsettings) | **GET** /api/v1/first-party-app-settings/{appName} | Retrieve the Okta application settings
+[**ReplaceFirstPartyAppSettings**](OktaApplicationSettingsApi.md#replacefirstpartyappsettings) | **PUT** /api/v1/first-party-app-settings/{appName} | Replace the Okta application settings
 
 
 <a name="getfirstpartyappsettings"></a>
 # **GetFirstPartyAppSettings**
 > AdminConsoleSettings GetFirstPartyAppSettings (string appName)
 
-Retrieve the Okta Application Settings
+Retrieve the Okta application settings
 
 Retrieves the settings for an Okta app (also known as an Okta first-party app)
 
@@ -42,7 +42,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Okta Application Settings
+                // Retrieve the Okta application settings
                 AdminConsoleSettings result = apiInstance.GetFirstPartyAppSettings(appName);
                 Debug.WriteLine(result);
             }
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 # **ReplaceFirstPartyAppSettings**
 > AdminConsoleSettings ReplaceFirstPartyAppSettings (string appName, AdminConsoleSettings adminConsoleSettings)
 
-Replace the Okta Application Settings
+Replace the Okta application settings
 
 Replaces the settings for an Okta app (also known as an Okta first-party app)
 
@@ -121,7 +121,7 @@ namespace Example
 
             try
             {
-                // Replace the Okta Application Settings
+                // Replace the Okta application settings
                 AdminConsoleSettings result = apiInstance.ReplaceFirstPartyAppSettings(appName, adminConsoleSettings);
                 Debug.WriteLine(result);
             }

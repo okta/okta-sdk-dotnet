@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.GroupRuleConditions
+Defines group rule conditions
 
 ## Properties
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Self** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
-**Next** | [**LinksNext**](LinksNext.md) |  | [optional] 
+**Self** | [**HrefObjectSelfLink**](HrefObjectSelfLink.md) |  | [optional] 
+**Next** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **Bundle** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **Entitlements** | [**HrefObject**](HrefObject.md) |  | [optional] 
 

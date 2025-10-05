@@ -5,14 +5,14 @@ All URIs are relative to *https://subdomain.okta.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateCaptchaInstance**](CAPTCHAApi.md#createcaptchainstance) | **POST** /api/v1/captchas | Create a CAPTCHA instance
-[**DeleteCaptchaInstance**](CAPTCHAApi.md#deletecaptchainstance) | **DELETE** /api/v1/captchas/{captchaId} | Delete a CAPTCHA Instance
-[**DeleteOrgCaptchaSettings**](CAPTCHAApi.md#deleteorgcaptchasettings) | **DELETE** /api/v1/org/captcha | Delete the Org-wide CAPTCHA Settings
-[**GetCaptchaInstance**](CAPTCHAApi.md#getcaptchainstance) | **GET** /api/v1/captchas/{captchaId} | Retrieve a CAPTCHA Instance
-[**GetOrgCaptchaSettings**](CAPTCHAApi.md#getorgcaptchasettings) | **GET** /api/v1/org/captcha | Retrieve the Org-wide CAPTCHA Settings
-[**ListCaptchaInstances**](CAPTCHAApi.md#listcaptchainstances) | **GET** /api/v1/captchas | List all CAPTCHA Instances
-[**ReplaceCaptchaInstance**](CAPTCHAApi.md#replacecaptchainstance) | **PUT** /api/v1/captchas/{captchaId} | Replace a CAPTCHA Instance
-[**ReplacesOrgCaptchaSettings**](CAPTCHAApi.md#replacesorgcaptchasettings) | **PUT** /api/v1/org/captcha | Replace the Org-wide CAPTCHA Settings
-[**UpdateCaptchaInstance**](CAPTCHAApi.md#updatecaptchainstance) | **POST** /api/v1/captchas/{captchaId} | Update a CAPTCHA Instance
+[**DeleteCaptchaInstance**](CAPTCHAApi.md#deletecaptchainstance) | **DELETE** /api/v1/captchas/{captchaId} | Delete a CAPTCHA instance
+[**DeleteOrgCaptchaSettings**](CAPTCHAApi.md#deleteorgcaptchasettings) | **DELETE** /api/v1/org/captcha | Delete the org-wide CAPTCHA settings
+[**GetCaptchaInstance**](CAPTCHAApi.md#getcaptchainstance) | **GET** /api/v1/captchas/{captchaId} | Retrieve a CAPTCHA instance
+[**GetOrgCaptchaSettings**](CAPTCHAApi.md#getorgcaptchasettings) | **GET** /api/v1/org/captcha | Retrieve the org-wide CAPTCHA settings
+[**ListCaptchaInstances**](CAPTCHAApi.md#listcaptchainstances) | **GET** /api/v1/captchas | List all CAPTCHA instances
+[**ReplaceCaptchaInstance**](CAPTCHAApi.md#replacecaptchainstance) | **PUT** /api/v1/captchas/{captchaId} | Replace a CAPTCHA instance
+[**ReplacesOrgCaptchaSettings**](CAPTCHAApi.md#replacesorgcaptchasettings) | **PUT** /api/v1/org/captcha | Replace the org-wide CAPTCHA settings
+[**UpdateCaptchaInstance**](CAPTCHAApi.md#updatecaptchainstance) | **POST** /api/v1/captchas/{captchaId} | Update a CAPTCHA instance
 
 
 <a name="createcaptchainstance"></a>
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 # **DeleteCaptchaInstance**
 > void DeleteCaptchaInstance (string captchaId)
 
-Delete a CAPTCHA Instance
+Delete a CAPTCHA instance
 
 Deletes a specified CAPTCHA instance > **Note:** If your CAPTCHA instance is still associated with your org, the request fails. You must first update your Org-wide CAPTCHA settings to remove the CAPTCHA instance.
 
@@ -128,7 +128,7 @@ namespace Example
 
             try
             {
-                // Delete a CAPTCHA Instance
+                // Delete a CAPTCHA instance
                 apiInstance.DeleteCaptchaInstance(captchaId);
             }
             catch (ApiException  e)
@@ -176,7 +176,7 @@ void (empty response body)
 # **DeleteOrgCaptchaSettings**
 > void DeleteOrgCaptchaSettings ()
 
-Delete the Org-wide CAPTCHA Settings
+Delete the org-wide CAPTCHA settings
 
 Deletes the CAPTCHA settings object for your organization
 
@@ -205,7 +205,7 @@ namespace Example
 
             try
             {
-                // Delete the Org-wide CAPTCHA Settings
+                // Delete the org-wide CAPTCHA settings
                 apiInstance.DeleteOrgCaptchaSettings();
             }
             catch (ApiException  e)
@@ -250,7 +250,7 @@ void (empty response body)
 # **GetCaptchaInstance**
 > CAPTCHAInstance GetCaptchaInstance (string captchaId)
 
-Retrieve a CAPTCHA Instance
+Retrieve a CAPTCHA instance
 
 Retrieves the properties of a specified CAPTCHA instance
 
@@ -280,7 +280,7 @@ namespace Example
 
             try
             {
-                // Retrieve a CAPTCHA Instance
+                // Retrieve a CAPTCHA instance
                 CAPTCHAInstance result = apiInstance.GetCaptchaInstance(captchaId);
                 Debug.WriteLine(result);
             }
@@ -329,9 +329,9 @@ Name | Type | Description  | Notes
 # **GetOrgCaptchaSettings**
 > OrgCAPTCHASettings GetOrgCaptchaSettings ()
 
-Retrieve the Org-wide CAPTCHA Settings
+Retrieve the org-wide CAPTCHA settings
 
-Retrieves the CAPTCHA settings object for your organization. > **Note**: If the current organization hasn't configured CAPTCHA Settings, the request returns an empty object.
+Retrieves the CAPTCHA settings object for your organization > **Note**: If the current organization hasn't configured CAPTCHA Settings, the request returns an empty object.
 
 ### Example
 ```csharp
@@ -358,7 +358,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Org-wide CAPTCHA Settings
+                // Retrieve the org-wide CAPTCHA settings
                 OrgCAPTCHASettings result = apiInstance.GetOrgCaptchaSettings();
                 Debug.WriteLine(result);
             }
@@ -403,7 +403,7 @@ This endpoint does not need any parameter.
 # **ListCaptchaInstances**
 > List&lt;CAPTCHAInstance&gt; ListCaptchaInstances ()
 
-List all CAPTCHA Instances
+List all CAPTCHA instances
 
 Lists all CAPTCHA instances with pagination support. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
 
@@ -432,7 +432,7 @@ namespace Example
 
             try
             {
-                // List all CAPTCHA Instances
+                // List all CAPTCHA instances
                 List<CAPTCHAInstance> result = apiInstance.ListCaptchaInstances().ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -477,7 +477,7 @@ This endpoint does not need any parameter.
 # **ReplaceCaptchaInstance**
 > CAPTCHAInstance ReplaceCaptchaInstance (string captchaId, CAPTCHAInstance instance)
 
-Replace a CAPTCHA Instance
+Replace a CAPTCHA instance
 
 Replaces the properties for a specified CAPTCHA instance
 
@@ -508,7 +508,7 @@ namespace Example
 
             try
             {
-                // Replace a CAPTCHA Instance
+                // Replace a CAPTCHA instance
                 CAPTCHAInstance result = apiInstance.ReplaceCaptchaInstance(captchaId, instance);
                 Debug.WriteLine(result);
             }
@@ -559,9 +559,9 @@ Name | Type | Description  | Notes
 # **ReplacesOrgCaptchaSettings**
 > OrgCAPTCHASettings ReplacesOrgCaptchaSettings (OrgCAPTCHASettings orgCAPTCHASettings)
 
-Replace the Org-wide CAPTCHA Settings
+Replace the org-wide CAPTCHA settings
 
-Replaces the CAPTCHA settings object for your organization. > **Note**: You can disable CAPTCHA for your organization by setting `captchaId` and `enabledPages` to `null`.
+Replaces the CAPTCHA settings object for your organization > **Note**: You can disable CAPTCHA for your organization by setting `captchaId` and `enabledPages` to `null`.
 
 ### Example
 ```csharp
@@ -589,7 +589,7 @@ namespace Example
 
             try
             {
-                // Replace the Org-wide CAPTCHA Settings
+                // Replace the org-wide CAPTCHA settings
                 OrgCAPTCHASettings result = apiInstance.ReplacesOrgCaptchaSettings(orgCAPTCHASettings);
                 Debug.WriteLine(result);
             }
@@ -638,7 +638,7 @@ Name | Type | Description  | Notes
 # **UpdateCaptchaInstance**
 > CAPTCHAInstance UpdateCaptchaInstance (string captchaId, CAPTCHAInstance instance)
 
-Update a CAPTCHA Instance
+Update a CAPTCHA instance
 
 Partially updates the properties of a specified CAPTCHA instance
 
@@ -669,7 +669,7 @@ namespace Example
 
             try
             {
-                // Update a CAPTCHA Instance
+                // Update a CAPTCHA instance
                 CAPTCHAInstance result = apiInstance.UpdateCaptchaInstance(captchaId, instance);
                 Debug.WriteLine(result);
             }

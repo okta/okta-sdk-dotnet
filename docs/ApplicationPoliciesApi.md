@@ -4,16 +4,16 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AssignApplicationPolicy**](ApplicationPoliciesApi.md#assignapplicationpolicy) | **PUT** /api/v1/apps/{appId}/policies/{policyId} | Assign an application to a Policy
+[**AssignApplicationPolicy**](ApplicationPoliciesApi.md#assignapplicationpolicy) | **PUT** /api/v1/apps/{appId}/policies/{policyId} | Assign an authentication policy
 
 
 <a name="assignapplicationpolicy"></a>
 # **AssignApplicationPolicy**
 > void AssignApplicationPolicy (string appId, string policyId)
 
-Assign an application to a Policy
+Assign an authentication policy
 
-Assigns an application to an [authentication policy](/openapi/okta-management/management/tag/Policy/), identified by `policyId`. If the application was previously assigned to another policy, this operation replaces that assignment with the updated policy identified by `policyId`.  > **Note:** When you [merge duplicate authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies), the policy and mapping CRUD operations may be unavailable during the consolidation. When the consolidation is complete, you receive an email.
+Assigns an app to an [authentication policy](/openapi/okta-management/management/tag/Policy/), identified by `policyId`. If the app was previously assigned to another policy, this operation replaces that assignment with the updated policy identified by `policyId`.  > **Note:** When you [merge duplicate authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies), the policy and mapping CRUD operations may be unavailable during the consolidation. When the consolidation is complete, you receive an email with merged results.
 
 ### Example
 ```csharp
@@ -42,7 +42,7 @@ namespace Example
 
             try
             {
-                // Assign an application to a Policy
+                // Assign an authentication policy
                 apiInstance.AssignApplicationPolicy(appId, policyId);
             }
             catch (ApiException  e)

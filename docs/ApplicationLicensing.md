@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ApplicationLicensing
+Licenses for the app
 
 ## Properties
 

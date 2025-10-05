@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ApplicationCredentialsSigningUse
+Specifies the intended use of the key
 
 ## Properties
 

@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.UserFactorVerifyResult
-Result of a Factor verification
+Result of a factor verification
 
 ## Properties
 

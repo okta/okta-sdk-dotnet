@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.PolicyRuleAuthContextType
+Specifies how the user is authenticated
 
 ## Properties
 

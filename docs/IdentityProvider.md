@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** | **DateTimeOffset?** |  | [optional] [readonly] 
-**Id** | **string** |  | [optional] [readonly] 
-**IssuerMode** | **IssuerMode** |  | [optional] 
-**LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
-**Name** | **string** |  | [optional] 
+**Created** | **DateTimeOffset** | Timestamp when the object was created | [optional] [readonly] 
+**Id** | **string** | Unique key for the IdP | [optional] [readonly] 
+**IssuerMode** | **IdentityProviderIssuerMode** |  | [optional] 
+**LastUpdated** | **DateTimeOffset** | Timestamp when the object was last updated | [optional] [readonly] 
+**Name** | **string** | Unique name for the IdP | [optional] 
 **Policy** | [**IdentityProviderPolicy**](IdentityProviderPolicy.md) |  | [optional] 
 **Properties** | [**IdentityProviderProperties**](IdentityProviderProperties.md) |  | [optional] 
-**Protocol** | [**Protocol**](Protocol.md) |  | [optional] 
+**Protocol** | [**IdentityProviderProtocol**](IdentityProviderProtocol.md) |  | [optional] 
 **Status** | **LifecycleStatus** |  | [optional] 
 **Type** | **IdentityProviderType** |  | [optional] 
 **Links** | [**IdentityProviderLinks**](IdentityProviderLinks.md) |  | [optional] 

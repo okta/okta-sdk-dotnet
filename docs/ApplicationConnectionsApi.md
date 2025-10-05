@@ -4,20 +4,21 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateDefaultProvisioningConnectionForApplication**](ApplicationConnectionsApi.md#activatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/activate | Activate the default Provisioning Connection
-[**DeactivateDefaultProvisioningConnectionForApplication**](ApplicationConnectionsApi.md#deactivatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/deactivate | Deactivate the default Provisioning Connection
-[**GetDefaultProvisioningConnectionForApplication**](ApplicationConnectionsApi.md#getdefaultprovisioningconnectionforapplication) | **GET** /api/v1/apps/{appId}/connections/default | Retrieve the default Provisioning Connection
-[**UpdateDefaultProvisioningConnectionForApplication**](ApplicationConnectionsApi.md#updatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default | Update the default Provisioning Connection
-[**VerifyProvisioningConnectionForApplication**](ApplicationConnectionsApi.md#verifyprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appName}/{appId}/oauth2/callback | Verify the Provisioning Connection
+[**ActivateDefaultProvisioningConnectionForApplication**](ApplicationConnectionsApi.md#activatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/activate | Activate the default provisioning connection
+[**DeactivateDefaultProvisioningConnectionForApplication**](ApplicationConnectionsApi.md#deactivatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/deactivate | Deactivate the default provisioning connection
+[**GetDefaultProvisioningConnectionForApplication**](ApplicationConnectionsApi.md#getdefaultprovisioningconnectionforapplication) | **GET** /api/v1/apps/{appId}/connections/default | Retrieve the default provisioning connection
+[**GetUserProvisioningConnectionJWKS**](ApplicationConnectionsApi.md#getuserprovisioningconnectionjwks) | **GET** /api/v1/apps/{appId}/connections/default/jwks | Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection
+[**UpdateDefaultProvisioningConnectionForApplication**](ApplicationConnectionsApi.md#updatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default | Update the default provisioning connection
+[**VerifyProvisioningConnectionForApplication**](ApplicationConnectionsApi.md#verifyprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appName}/{appId}/oauth2/callback | Verify the provisioning connection
 
 
 <a name="activatedefaultprovisioningconnectionforapplication"></a>
 # **ActivateDefaultProvisioningConnectionForApplication**
 > void ActivateDefaultProvisioningConnectionForApplication (string appId)
 
-Activate the default Provisioning Connection
+Activate the default provisioning connection
 
-Activates the default Provisioning Connection for an app
+Activates the default provisioning connection for an app
 
 ### Example
 ```csharp
@@ -45,7 +46,7 @@ namespace Example
 
             try
             {
-                // Activate the default Provisioning Connection
+                // Activate the default provisioning connection
                 apiInstance.ActivateDefaultProvisioningConnectionForApplication(appId);
             }
             catch (ApiException  e)
@@ -93,9 +94,9 @@ void (empty response body)
 # **DeactivateDefaultProvisioningConnectionForApplication**
 > void DeactivateDefaultProvisioningConnectionForApplication (string appId)
 
-Deactivate the default Provisioning Connection
+Deactivate the default provisioning connection
 
-Deactivates the default Provisioning Connection for an app
+Deactivates the default provisioning connection for an app
 
 ### Example
 ```csharp
@@ -123,7 +124,7 @@ namespace Example
 
             try
             {
-                // Deactivate the default Provisioning Connection
+                // Deactivate the default provisioning connection
                 apiInstance.DeactivateDefaultProvisioningConnectionForApplication(appId);
             }
             catch (ApiException  e)
@@ -171,9 +172,9 @@ void (empty response body)
 # **GetDefaultProvisioningConnectionForApplication**
 > ProvisioningConnectionResponse GetDefaultProvisioningConnectionForApplication (string appId)
 
-Retrieve the default Provisioning Connection
+Retrieve the default provisioning connection
 
-Retrieves the default Provisioning Connection for an app
+Retrieves the default provisioning connection for an app
 
 ### Example
 ```csharp
@@ -201,7 +202,7 @@ namespace Example
 
             try
             {
-                // Retrieve the default Provisioning Connection
+                // Retrieve the default provisioning connection
                 ProvisioningConnectionResponse result = apiInstance.GetDefaultProvisioningConnectionForApplication(appId);
                 Debug.WriteLine(result);
             }
@@ -246,13 +247,92 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getuserprovisioningconnectionjwks"></a>
+# **GetUserProvisioningConnectionJWKS**
+> AppConnectionUserProvisionJWKResponse GetUserProvisioningConnectionJWKS (string appId)
+
+Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection
+
+Retrieves a JWKS for the default provisioning connection.  This can be used by the OAuth 2.0 app's `jwk_uri` property in the target org.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class GetUserProvisioningConnectionJWKSExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.OktaDomain = "https://subdomain.okta.com";
+            // Configure API key authorization: apiToken
+            config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new ApplicationConnectionsApi(config);
+            var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
+
+            try
+            {
+                // Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection
+                AppConnectionUserProvisionJWKResponse result = apiInstance.GetUserProvisioningConnectionJWKS(appId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ApplicationConnectionsApi.GetUserProvisioningConnectionJWKS: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| Application ID | 
+
+### Return type
+
+[**AppConnectionUserProvisionJWKResponse**](AppConnectionUserProvisionJWKResponse.md)
+
+### Authorization
+
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="updatedefaultprovisioningconnectionforapplication"></a>
 # **UpdateDefaultProvisioningConnectionForApplication**
 > ProvisioningConnectionResponse UpdateDefaultProvisioningConnectionForApplication (string appId, UpdateDefaultProvisioningConnectionForApplicationRequest updateDefaultProvisioningConnectionForApplicationRequest, bool? activate = null)
 
-Update the default Provisioning Connection
+Update the default provisioning connection
 
-Updates the default Provisioning Connection for an app
+Updates the default provisioning connection for an app
 
 ### Example
 ```csharp
@@ -278,11 +358,11 @@ namespace Example
             var apiInstance = new ApplicationConnectionsApi(config);
             var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
             var updateDefaultProvisioningConnectionForApplicationRequest = new UpdateDefaultProvisioningConnectionForApplicationRequest(); // UpdateDefaultProvisioningConnectionForApplicationRequest | 
-            var activate = true;  // bool? | Activates the Provisioning Connection (optional) 
+            var activate = true;  // bool? | Activates the provisioning connection (optional) 
 
             try
             {
-                // Update the default Provisioning Connection
+                // Update the default provisioning connection
                 ProvisioningConnectionResponse result = apiInstance.UpdateDefaultProvisioningConnectionForApplication(appId, updateDefaultProvisioningConnectionForApplicationRequest, activate);
                 Debug.WriteLine(result);
             }
@@ -303,7 +383,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **string**| Application ID | 
  **updateDefaultProvisioningConnectionForApplicationRequest** | [**UpdateDefaultProvisioningConnectionForApplicationRequest**](UpdateDefaultProvisioningConnectionForApplicationRequest.md)|  | 
- **activate** | **bool?**| Activates the Provisioning Connection | [optional] 
+ **activate** | **bool?**| Activates the provisioning connection | [optional] 
 
 ### Return type
 
@@ -323,7 +403,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -335,7 +414,7 @@ Name | Type | Description  | Notes
 # **VerifyProvisioningConnectionForApplication**
 > void VerifyProvisioningConnectionForApplication (OAuthProvisioningEnabledApp appName, string appId, string code = null, string state = null)
 
-Verify the Provisioning Connection
+Verify the provisioning connection
 
 Verifies the OAuth 2.0-based connection as part of the OAuth 2.0 consent flow. The validation of the consent flow is the last step of the provisioning setup for an OAuth 2.0-based connection. Currently, this operation only supports `office365`,`google`, `zoomus`, and `slack` apps. 
 
@@ -368,7 +447,7 @@ namespace Example
 
             try
             {
-                // Verify the Provisioning Connection
+                // Verify the provisioning connection
                 apiInstance.VerifyProvisioningConnectionForApplication(appName, appId, code, state);
             }
             catch (ApiException  e)

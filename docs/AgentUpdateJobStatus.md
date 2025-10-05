@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.AgentUpdateJobStatus
-Overall state for the auto-update job from admin perspective
+Overall state for the auto-update job from the admin perspective
 
 ## Properties
 

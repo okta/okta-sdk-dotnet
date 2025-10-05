@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.UserSchemaProperties
+User Object Properties
 
 ## Properties
 

@@ -4,11 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** | **DateTimeOffset** | Timestamp when the role was created | [optional] [readonly] 
-**Description** | **string** | Description of the Resource Set | [optional] 
-**Id** | **string** | Unique key for the role | [optional] [readonly] 
-**LastUpdated** | **DateTimeOffset** | Timestamp when the role was last updated | [optional] [readonly] 
-**Links** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
+**Conditions** | [**ResourceConditions**](ResourceConditions.md) |  | [optional] 
+**Created** | **DateTimeOffset** | Timestamp when the resource set resource object was created | [optional] [readonly] 
+**Id** | **string** | Unique ID of the resource set resource object | [optional] [readonly] 
+**LastUpdated** | **DateTimeOffset** | Timestamp when this object was last updated | [optional] [readonly] 
+**Orn** | **string** | The Okta Resource Name (ORN) of the resource | [optional] 
+**Links** | [**ResourceSetResourceLinks**](ResourceSetResourceLinks.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,20 +4,20 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateRiskProvider**](RiskProviderApi.md#createriskprovider) | **POST** /api/v1/risk/providers | Create a Risk Provider
-[**DeleteRiskProvider**](RiskProviderApi.md#deleteriskprovider) | **DELETE** /api/v1/risk/providers/{riskProviderId} | Delete a Risk Provider
-[**GetRiskProvider**](RiskProviderApi.md#getriskprovider) | **GET** /api/v1/risk/providers/{riskProviderId} | Retrieve a Risk Provider
-[**ListRiskProviders**](RiskProviderApi.md#listriskproviders) | **GET** /api/v1/risk/providers | List all Risk Providers
-[**ReplaceRiskProvider**](RiskProviderApi.md#replaceriskprovider) | **PUT** /api/v1/risk/providers/{riskProviderId} | Replace a Risk Provider
+[**CreateRiskProvider**](RiskProviderApi.md#createriskprovider) | **POST** /api/v1/risk/providers | Create a risk provider
+[**DeleteRiskProvider**](RiskProviderApi.md#deleteriskprovider) | **DELETE** /api/v1/risk/providers/{riskProviderId} | Delete a risk provider
+[**GetRiskProvider**](RiskProviderApi.md#getriskprovider) | **GET** /api/v1/risk/providers/{riskProviderId} | Retrieve a risk provider
+[**ListRiskProviders**](RiskProviderApi.md#listriskproviders) | **GET** /api/v1/risk/providers | List all risk providers
+[**ReplaceRiskProvider**](RiskProviderApi.md#replaceriskprovider) | **PUT** /api/v1/risk/providers/{riskProviderId} | Replace a risk provider
 
 
 <a name="createriskprovider"></a>
 # **CreateRiskProvider**
 > RiskProvider CreateRiskProvider (RiskProvider instance)
 
-Create a Risk Provider
+Create a risk provider
 
-Creates a Risk Provider object. A maximum of three Risk Provider objects can be created.
+Creates a risk provider object. You can create a maximum of three risk provider objects.
 
 ### Example
 ```csharp
@@ -45,7 +45,7 @@ namespace Example
 
             try
             {
-                // Create a Risk Provider
+                // Create a risk provider
                 RiskProvider result = apiInstance.CreateRiskProvider(instance);
                 Debug.WriteLine(result);
             }
@@ -94,9 +94,9 @@ Name | Type | Description  | Notes
 # **DeleteRiskProvider**
 > void DeleteRiskProvider (string riskProviderId)
 
-Delete a Risk Provider
+Delete a risk provider
 
-Deletes a Risk Provider object by its ID
+Deletes a risk provider object by its ID
 
 ### Example
 ```csharp
@@ -120,11 +120,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RiskProviderApi(config);
-            var riskProviderId = 00rp12r4skkjkjgsn;  // string | `id` of the Risk Provider object
+            var riskProviderId = 00rp12r4skkjkjgsn;  // string | `id` of the risk provider object
 
             try
             {
-                // Delete a Risk Provider
+                // Delete a risk provider
                 apiInstance.DeleteRiskProvider(riskProviderId);
             }
             catch (ApiException  e)
@@ -142,7 +142,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **riskProviderId** | **string**| &#x60;id&#x60; of the Risk Provider object | 
+ **riskProviderId** | **string**| &#x60;id&#x60; of the risk provider object | 
 
 ### Return type
 
@@ -172,9 +172,9 @@ void (empty response body)
 # **GetRiskProvider**
 > RiskProvider GetRiskProvider (string riskProviderId)
 
-Retrieve a Risk Provider
+Retrieve a risk provider
 
-Retrieves a Risk Provider object by ID
+Retrieves a risk provider object by ID
 
 ### Example
 ```csharp
@@ -198,11 +198,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RiskProviderApi(config);
-            var riskProviderId = 00rp12r4skkjkjgsn;  // string | `id` of the Risk Provider object
+            var riskProviderId = 00rp12r4skkjkjgsn;  // string | `id` of the risk provider object
 
             try
             {
-                // Retrieve a Risk Provider
+                // Retrieve a risk provider
                 RiskProvider result = apiInstance.GetRiskProvider(riskProviderId);
                 Debug.WriteLine(result);
             }
@@ -221,7 +221,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **riskProviderId** | **string**| &#x60;id&#x60; of the Risk Provider object | 
+ **riskProviderId** | **string**| &#x60;id&#x60; of the risk provider object | 
 
 ### Return type
 
@@ -251,9 +251,9 @@ Name | Type | Description  | Notes
 # **ListRiskProviders**
 > List&lt;RiskProvider&gt; ListRiskProviders ()
 
-List all Risk Providers
+List all risk providers
 
-Lists all Risk Provider objects
+Lists all risk provider objects
 
 ### Example
 ```csharp
@@ -280,7 +280,7 @@ namespace Example
 
             try
             {
-                // List all Risk Providers
+                // List all risk providers
                 List<RiskProvider> result = apiInstance.ListRiskProviders().ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -325,9 +325,9 @@ This endpoint does not need any parameter.
 # **ReplaceRiskProvider**
 > RiskProvider ReplaceRiskProvider (string riskProviderId, RiskProvider instance)
 
-Replace a Risk Provider
+Replace a risk provider
 
-Replaces the properties for a given Risk Provider object ID
+Replaces the properties for a given risk provider object ID
 
 ### Example
 ```csharp
@@ -351,12 +351,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RiskProviderApi(config);
-            var riskProviderId = 00rp12r4skkjkjgsn;  // string | `id` of the Risk Provider object
+            var riskProviderId = 00rp12r4skkjkjgsn;  // string | `id` of the risk provider object
             var instance = new RiskProvider(); // RiskProvider | 
 
             try
             {
-                // Replace a Risk Provider
+                // Replace a risk provider
                 RiskProvider result = apiInstance.ReplaceRiskProvider(riskProviderId, instance);
                 Debug.WriteLine(result);
             }
@@ -375,7 +375,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **riskProviderId** | **string**| &#x60;id&#x60; of the Risk Provider object | 
+ **riskProviderId** | **string**| &#x60;id&#x60; of the risk provider object | 
  **instance** | [**RiskProvider**](RiskProvider.md)|  | 
 
 ### Return type

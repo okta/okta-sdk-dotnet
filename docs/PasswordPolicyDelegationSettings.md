@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.PasswordPolicyDelegationSettings
+Specifies how to handle password delegation
 
 ## Properties
 

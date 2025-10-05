@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.LogTargetChangeDetails
-Details on the target's changes. Not all event types support the `changeDetails` property, and not all target objects contain the `changeDetails` property.You must include a property within the object. When querying on this property, you can't search on the `to` or `from` objects alone. You must include a property within the object.
+Details on the target's changes. Not all event types support the `changeDetails` property, and not all `target` objects contain the `changeDetails` property.  > **Note:** You can't run queries on `changeDetails` or the object's `to` or `from` properties.
 
 ## Properties
 

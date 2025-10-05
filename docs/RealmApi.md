@@ -4,10 +4,10 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateRealm**](RealmApi.md#createrealm) | **POST** /api/v1/realms | Create a Realm
-[**DeleteRealm**](RealmApi.md#deleterealm) | **DELETE** /api/v1/realms/{realmId} | Delete a Realm
-[**GetRealm**](RealmApi.md#getrealm) | **GET** /api/v1/realms/{realmId} | Retrieve a Realm
-[**ListRealms**](RealmApi.md#listrealms) | **GET** /api/v1/realms | List all Realms
+[**CreateRealm**](RealmApi.md#createrealm) | **POST** /api/v1/realms | Create a realm
+[**DeleteRealm**](RealmApi.md#deleterealm) | **DELETE** /api/v1/realms/{realmId} | Delete a realm
+[**GetRealm**](RealmApi.md#getrealm) | **GET** /api/v1/realms/{realmId} | Retrieve a realm
+[**ListRealms**](RealmApi.md#listrealms) | **GET** /api/v1/realms | List all realms
 [**ReplaceRealm**](RealmApi.md#replacerealm) | **PUT** /api/v1/realms/{realmId} | Replace the realm profile
 
 
@@ -15,9 +15,9 @@ Method | HTTP request | Description
 # **CreateRealm**
 > Realm CreateRealm (CreateRealmRequest body)
 
-Create a Realm
+Create a realm
 
-Creates a new Realm
+Creates a new realm
 
 ### Example
 ```csharp
@@ -45,7 +45,7 @@ namespace Example
 
             try
             {
-                // Create a Realm
+                // Create a realm
                 Realm result = apiInstance.CreateRealm(body);
                 Debug.WriteLine(result);
             }
@@ -94,9 +94,9 @@ Name | Type | Description  | Notes
 # **DeleteRealm**
 > void DeleteRealm (string realmId)
 
-Delete a Realm
+Delete a realm
 
-Deletes a Realm permanently. This operation can only be performed after disassociating other entities like Users and Identity Providers from a Realm.
+Deletes a realm permanently. This operation can only be performed after disassociating other entities like users and identity providers from a realm.
 
 ### Example
 ```csharp
@@ -120,11 +120,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RealmApi(config);
-            var realmId = vvrcFogtKCrK9aYq3fgV;  // string | `id` of the Realm
+            var realmId = vvrcFogtKCrK9aYq3fgV;  // string | ID of the realm
 
             try
             {
-                // Delete a Realm
+                // Delete a realm
                 apiInstance.DeleteRealm(realmId);
             }
             catch (ApiException  e)
@@ -142,7 +142,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **realmId** | **string**| &#x60;id&#x60; of the Realm | 
+ **realmId** | **string**| ID of the realm | 
 
 ### Return type
 
@@ -173,9 +173,9 @@ void (empty response body)
 # **GetRealm**
 > Realm GetRealm (string realmId)
 
-Retrieve a Realm
+Retrieve a realm
 
-Retrieves a Realm
+Retrieves a realm
 
 ### Example
 ```csharp
@@ -199,11 +199,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RealmApi(config);
-            var realmId = vvrcFogtKCrK9aYq3fgV;  // string | `id` of the Realm
+            var realmId = vvrcFogtKCrK9aYq3fgV;  // string | ID of the realm
 
             try
             {
-                // Retrieve a Realm
+                // Retrieve a realm
                 Realm result = apiInstance.GetRealm(realmId);
                 Debug.WriteLine(result);
             }
@@ -222,7 +222,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **realmId** | **string**| &#x60;id&#x60; of the Realm | 
+ **realmId** | **string**| ID of the realm | 
 
 ### Return type
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 # **ListRealms**
 > List&lt;Realm&gt; ListRealms (int? limit = null, string after = null, string search = null, string sortBy = null, string sortOrder = null)
 
-List all Realms
+List all realms
 
 Lists all Realms
 
@@ -280,14 +280,14 @@ namespace Example
 
             var apiInstance = new RealmApi(config);
             var limit = 200;  // int? | Specifies the number of results returned. Defaults to 10 if `search` is provided. (optional)  (default to 200)
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
-            var search = "search_example";  // string | Searches for Realms with a supported filtering expression for most properties (optional) 
-            var sortBy = profile.name;  // string | Specifies field to sort by and can be any single property (for search queries only). (optional) 
-            var sortOrder = "\"asc\"";  // string | Specifies sort order `asc` or `desc` (for search queries only). This parameter is ignored if `sortBy` isn't present. (optional)  (default to "asc")
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
+            var search = "search_example";  // string | Searches for realms with a supported filtering expression for most properties.  Searches for realms can be filtered by the contains (`co`) operator. You can only use `co` with the `profile.name` property. See [Operators](https://developer.okta.com/docs/api/#operators). (optional) 
+            var sortBy = profile.name;  // string | Specifies the field to sort by and can be any single property (for search queries only) (optional) 
+            var sortOrder = "\"asc\"";  // string | Specifies the sort order: `asc` or `desc` (for search queries only). This parameter is ignored if `sortBy` isn't present. (optional)  (default to "asc")
 
             try
             {
-                // List all Realms
+                // List all realms
                 List<Realm> result = apiInstance.ListRealms(limit, after, search, sortBy, sortOrder).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -307,10 +307,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int?**| Specifies the number of results returned. Defaults to 10 if &#x60;search&#x60; is provided. | [optional] [default to 200]
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
- **search** | **string**| Searches for Realms with a supported filtering expression for most properties | [optional] 
- **sortBy** | **string**| Specifies field to sort by and can be any single property (for search queries only). | [optional] 
- **sortOrder** | **string**| Specifies sort order &#x60;asc&#x60; or &#x60;desc&#x60; (for search queries only). This parameter is ignored if &#x60;sortBy&#x60; isn&#39;t present. | [optional] [default to &quot;asc&quot;]
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
+ **search** | **string**| Searches for realms with a supported filtering expression for most properties.  Searches for realms can be filtered by the contains (&#x60;co&#x60;) operator. You can only use &#x60;co&#x60; with the &#x60;profile.name&#x60; property. See [Operators](https://developer.okta.com/docs/api/#operators). | [optional] 
+ **sortBy** | **string**| Specifies the field to sort by and can be any single property (for search queries only) | [optional] 
+ **sortOrder** | **string**| Specifies the sort order: &#x60;asc&#x60; or &#x60;desc&#x60; (for search queries only). This parameter is ignored if &#x60;sortBy&#x60; isn&#39;t present. | [optional] [default to &quot;asc&quot;]
 
 ### Return type
 
@@ -365,7 +365,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RealmApi(config);
-            var realmId = vvrcFogtKCrK9aYq3fgV;  // string | `id` of the Realm
+            var realmId = vvrcFogtKCrK9aYq3fgV;  // string | ID of the realm
             var body = new UpdateRealmRequest(); // UpdateRealmRequest | 
 
             try
@@ -389,7 +389,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **realmId** | **string**| &#x60;id&#x60; of the Realm | 
+ **realmId** | **string**| ID of the realm | 
  **body** | [**UpdateRealmRequest**](UpdateRealmRequest.md)|  | 
 
 ### Return type

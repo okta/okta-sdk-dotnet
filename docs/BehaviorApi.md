@@ -4,20 +4,20 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateBehaviorDetectionRule**](BehaviorApi.md#activatebehaviordetectionrule) | **POST** /api/v1/behaviors/{behaviorId}/lifecycle/activate | Activate a Behavior Detection Rule
-[**CreateBehaviorDetectionRule**](BehaviorApi.md#createbehaviordetectionrule) | **POST** /api/v1/behaviors | Create a Behavior Detection Rule
-[**DeactivateBehaviorDetectionRule**](BehaviorApi.md#deactivatebehaviordetectionrule) | **POST** /api/v1/behaviors/{behaviorId}/lifecycle/deactivate | Deactivate a Behavior Detection Rule
-[**DeleteBehaviorDetectionRule**](BehaviorApi.md#deletebehaviordetectionrule) | **DELETE** /api/v1/behaviors/{behaviorId} | Delete a Behavior Detection Rule
-[**GetBehaviorDetectionRule**](BehaviorApi.md#getbehaviordetectionrule) | **GET** /api/v1/behaviors/{behaviorId} | Retrieve a Behavior Detection Rule
-[**ListBehaviorDetectionRules**](BehaviorApi.md#listbehaviordetectionrules) | **GET** /api/v1/behaviors | List all Behavior Detection Rules
-[**ReplaceBehaviorDetectionRule**](BehaviorApi.md#replacebehaviordetectionrule) | **PUT** /api/v1/behaviors/{behaviorId} | Replace a Behavior Detection Rule
+[**ActivateBehaviorDetectionRule**](BehaviorApi.md#activatebehaviordetectionrule) | **POST** /api/v1/behaviors/{behaviorId}/lifecycle/activate | Activate a behavior detection rule
+[**CreateBehaviorDetectionRule**](BehaviorApi.md#createbehaviordetectionrule) | **POST** /api/v1/behaviors | Create a behavior detection rule
+[**DeactivateBehaviorDetectionRule**](BehaviorApi.md#deactivatebehaviordetectionrule) | **POST** /api/v1/behaviors/{behaviorId}/lifecycle/deactivate | Deactivate a behavior detection rule
+[**DeleteBehaviorDetectionRule**](BehaviorApi.md#deletebehaviordetectionrule) | **DELETE** /api/v1/behaviors/{behaviorId} | Delete a behavior detection rule
+[**GetBehaviorDetectionRule**](BehaviorApi.md#getbehaviordetectionrule) | **GET** /api/v1/behaviors/{behaviorId} | Retrieve a behavior detection rule
+[**ListBehaviorDetectionRules**](BehaviorApi.md#listbehaviordetectionrules) | **GET** /api/v1/behaviors | List all behavior detection rules
+[**ReplaceBehaviorDetectionRule**](BehaviorApi.md#replacebehaviordetectionrule) | **PUT** /api/v1/behaviors/{behaviorId} | Replace a behavior detection rule
 
 
 <a name="activatebehaviordetectionrule"></a>
 # **ActivateBehaviorDetectionRule**
 > BehaviorRule ActivateBehaviorDetectionRule (string behaviorId)
 
-Activate a Behavior Detection Rule
+Activate a behavior detection rule
 
 Activates a behavior detection rule
 
@@ -43,11 +43,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new BehaviorApi(config);
-            var behaviorId = abcd1234;  // string | id of the Behavior Detection Rule
+            var behaviorId = abcd1234;  // string | ID of the Behavior Detection Rule
 
             try
             {
-                // Activate a Behavior Detection Rule
+                // Activate a behavior detection rule
                 BehaviorRule result = apiInstance.ActivateBehaviorDetectionRule(behaviorId);
                 Debug.WriteLine(result);
             }
@@ -66,7 +66,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **behaviorId** | **string**| id of the Behavior Detection Rule | 
+ **behaviorId** | **string**| ID of the Behavior Detection Rule | 
 
 ### Return type
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 # **CreateBehaviorDetectionRule**
 > BehaviorRule CreateBehaviorDetectionRule (BehaviorRule rule)
 
-Create a Behavior Detection Rule
+Create a behavior detection rule
 
 Creates a new behavior detection rule
 
@@ -126,7 +126,7 @@ namespace Example
 
             try
             {
-                // Create a Behavior Detection Rule
+                // Create a behavior detection rule
                 BehaviorRule result = apiInstance.CreateBehaviorDetectionRule(rule);
                 Debug.WriteLine(result);
             }
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Created |  -  |
+| **200** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **429** | Too Many Requests |  -  |
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 # **DeactivateBehaviorDetectionRule**
 > BehaviorRule DeactivateBehaviorDetectionRule (string behaviorId)
 
-Deactivate a Behavior Detection Rule
+Deactivate a behavior detection rule
 
 Deactivates a behavior detection rule
 
@@ -201,11 +201,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new BehaviorApi(config);
-            var behaviorId = abcd1234;  // string | id of the Behavior Detection Rule
+            var behaviorId = abcd1234;  // string | ID of the Behavior Detection Rule
 
             try
             {
-                // Deactivate a Behavior Detection Rule
+                // Deactivate a behavior detection rule
                 BehaviorRule result = apiInstance.DeactivateBehaviorDetectionRule(behaviorId);
                 Debug.WriteLine(result);
             }
@@ -224,7 +224,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **behaviorId** | **string**| id of the Behavior Detection Rule | 
+ **behaviorId** | **string**| ID of the Behavior Detection Rule | 
 
 ### Return type
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 # **DeleteBehaviorDetectionRule**
 > void DeleteBehaviorDetectionRule (string behaviorId)
 
-Delete a Behavior Detection Rule
+Delete a behavior detection rule
 
 Deletes a Behavior Detection Rule by `behaviorId`
 
@@ -280,11 +280,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new BehaviorApi(config);
-            var behaviorId = abcd1234;  // string | id of the Behavior Detection Rule
+            var behaviorId = abcd1234;  // string | ID of the Behavior Detection Rule
 
             try
             {
-                // Delete a Behavior Detection Rule
+                // Delete a behavior detection rule
                 apiInstance.DeleteBehaviorDetectionRule(behaviorId);
             }
             catch (ApiException  e)
@@ -302,7 +302,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **behaviorId** | **string**| id of the Behavior Detection Rule | 
+ **behaviorId** | **string**| ID of the Behavior Detection Rule | 
 
 ### Return type
 
@@ -332,7 +332,7 @@ void (empty response body)
 # **GetBehaviorDetectionRule**
 > BehaviorRule GetBehaviorDetectionRule (string behaviorId)
 
-Retrieve a Behavior Detection Rule
+Retrieve a behavior detection rule
 
 Retrieves a Behavior Detection Rule by `behaviorId`
 
@@ -358,11 +358,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new BehaviorApi(config);
-            var behaviorId = abcd1234;  // string | id of the Behavior Detection Rule
+            var behaviorId = abcd1234;  // string | ID of the Behavior Detection Rule
 
             try
             {
-                // Retrieve a Behavior Detection Rule
+                // Retrieve a behavior detection rule
                 BehaviorRule result = apiInstance.GetBehaviorDetectionRule(behaviorId);
                 Debug.WriteLine(result);
             }
@@ -381,7 +381,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **behaviorId** | **string**| id of the Behavior Detection Rule | 
+ **behaviorId** | **string**| ID of the Behavior Detection Rule | 
 
 ### Return type
 
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 # **ListBehaviorDetectionRules**
 > List&lt;BehaviorRule&gt; ListBehaviorDetectionRules ()
 
-List all Behavior Detection Rules
+List all behavior detection rules
 
 Lists all behavior detection rules with pagination support
 
@@ -440,7 +440,7 @@ namespace Example
 
             try
             {
-                // List all Behavior Detection Rules
+                // List all behavior detection rules
                 List<BehaviorRule> result = apiInstance.ListBehaviorDetectionRules().ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -485,7 +485,7 @@ This endpoint does not need any parameter.
 # **ReplaceBehaviorDetectionRule**
 > BehaviorRule ReplaceBehaviorDetectionRule (string behaviorId, BehaviorRule rule)
 
-Replace a Behavior Detection Rule
+Replace a behavior detection rule
 
 Replaces a Behavior Detection Rule by `behaviorId`
 
@@ -511,12 +511,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new BehaviorApi(config);
-            var behaviorId = abcd1234;  // string | id of the Behavior Detection Rule
+            var behaviorId = abcd1234;  // string | ID of the Behavior Detection Rule
             var rule = new BehaviorRule(); // BehaviorRule | 
 
             try
             {
-                // Replace a Behavior Detection Rule
+                // Replace a behavior detection rule
                 BehaviorRule result = apiInstance.ReplaceBehaviorDetectionRule(behaviorId, rule);
                 Debug.WriteLine(result);
             }
@@ -535,7 +535,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **behaviorId** | **string**| id of the Behavior Detection Rule | 
+ **behaviorId** | **string**| ID of the Behavior Detection Rule | 
  **rule** | [**BehaviorRule**](BehaviorRule.md)|  | 
 
 ### Return type

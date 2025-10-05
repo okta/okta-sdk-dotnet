@@ -4,22 +4,22 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateApiServiceIntegrationInstanceSecret**](ApiServiceIntegrationsApi.md#activateapiserviceintegrationinstancesecret) | **POST** /integrations/api/v1/api-services/{apiServiceId}/credentials/secrets/{secretId}/lifecycle/activate | Activate an API Service Integration instance Secret
-[**CreateApiServiceIntegrationInstance**](ApiServiceIntegrationsApi.md#createapiserviceintegrationinstance) | **POST** /integrations/api/v1/api-services | Create an API Service Integration instance
-[**CreateApiServiceIntegrationInstanceSecret**](ApiServiceIntegrationsApi.md#createapiserviceintegrationinstancesecret) | **POST** /integrations/api/v1/api-services/{apiServiceId}/credentials/secrets | Create an API Service Integration instance Secret
-[**DeactivateApiServiceIntegrationInstanceSecret**](ApiServiceIntegrationsApi.md#deactivateapiserviceintegrationinstancesecret) | **POST** /integrations/api/v1/api-services/{apiServiceId}/credentials/secrets/{secretId}/lifecycle/deactivate | Deactivate an API Service Integration instance Secret
-[**DeleteApiServiceIntegrationInstance**](ApiServiceIntegrationsApi.md#deleteapiserviceintegrationinstance) | **DELETE** /integrations/api/v1/api-services/{apiServiceId} | Delete an API Service Integration instance
-[**DeleteApiServiceIntegrationInstanceSecret**](ApiServiceIntegrationsApi.md#deleteapiserviceintegrationinstancesecret) | **DELETE** /integrations/api/v1/api-services/{apiServiceId}/credentials/secrets/{secretId} | Delete an API Service Integration instance Secret
-[**GetApiServiceIntegrationInstance**](ApiServiceIntegrationsApi.md#getapiserviceintegrationinstance) | **GET** /integrations/api/v1/api-services/{apiServiceId} | Retrieve an API Service Integration instance
-[**ListApiServiceIntegrationInstanceSecrets**](ApiServiceIntegrationsApi.md#listapiserviceintegrationinstancesecrets) | **GET** /integrations/api/v1/api-services/{apiServiceId}/credentials/secrets | List all API Service Integration instance Secrets
-[**ListApiServiceIntegrationInstances**](ApiServiceIntegrationsApi.md#listapiserviceintegrationinstances) | **GET** /integrations/api/v1/api-services | List all API Service Integration instances
+[**ActivateApiServiceIntegrationInstanceSecret**](ApiServiceIntegrationsApi.md#activateapiserviceintegrationinstancesecret) | **POST** /integrations/api/v1/api-services/{apiServiceId}/credentials/secrets/{secretId}/lifecycle/activate | Activate an API service integration instance secret
+[**CreateApiServiceIntegrationInstance**](ApiServiceIntegrationsApi.md#createapiserviceintegrationinstance) | **POST** /integrations/api/v1/api-services | Create an API service integration instance
+[**CreateApiServiceIntegrationInstanceSecret**](ApiServiceIntegrationsApi.md#createapiserviceintegrationinstancesecret) | **POST** /integrations/api/v1/api-services/{apiServiceId}/credentials/secrets | Create an API service integration instance secret
+[**DeactivateApiServiceIntegrationInstanceSecret**](ApiServiceIntegrationsApi.md#deactivateapiserviceintegrationinstancesecret) | **POST** /integrations/api/v1/api-services/{apiServiceId}/credentials/secrets/{secretId}/lifecycle/deactivate | Deactivate an API service integration instance secret
+[**DeleteApiServiceIntegrationInstance**](ApiServiceIntegrationsApi.md#deleteapiserviceintegrationinstance) | **DELETE** /integrations/api/v1/api-services/{apiServiceId} | Delete an API service integration instance
+[**DeleteApiServiceIntegrationInstanceSecret**](ApiServiceIntegrationsApi.md#deleteapiserviceintegrationinstancesecret) | **DELETE** /integrations/api/v1/api-services/{apiServiceId}/credentials/secrets/{secretId} | Delete an API service integration instance secret
+[**GetApiServiceIntegrationInstance**](ApiServiceIntegrationsApi.md#getapiserviceintegrationinstance) | **GET** /integrations/api/v1/api-services/{apiServiceId} | Retrieve an API service integration instance
+[**ListApiServiceIntegrationInstanceSecrets**](ApiServiceIntegrationsApi.md#listapiserviceintegrationinstancesecrets) | **GET** /integrations/api/v1/api-services/{apiServiceId}/credentials/secrets | List all API service integration instance secrets
+[**ListApiServiceIntegrationInstances**](ApiServiceIntegrationsApi.md#listapiserviceintegrationinstances) | **GET** /integrations/api/v1/api-services | List all API service integration instances
 
 
 <a name="activateapiserviceintegrationinstancesecret"></a>
 # **ActivateApiServiceIntegrationInstanceSecret**
 > APIServiceIntegrationInstanceSecret ActivateApiServiceIntegrationInstanceSecret (string apiServiceId, string secretId)
 
-Activate an API Service Integration instance Secret
+Activate an API service integration instance secret
 
 Activates an API Service Integration instance Secret by `secretId`
 
@@ -50,7 +50,7 @@ namespace Example
 
             try
             {
-                // Activate an API Service Integration instance Secret
+                // Activate an API service integration instance secret
                 APIServiceIntegrationInstanceSecret result = apiInstance.ActivateApiServiceIntegrationInstanceSecret(apiServiceId, secretId);
                 Debug.WriteLine(result);
             }
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 # **CreateApiServiceIntegrationInstance**
 > PostAPIServiceIntegrationInstance CreateApiServiceIntegrationInstance (PostAPIServiceIntegrationInstanceRequest postAPIServiceIntegrationInstanceRequest)
 
-Create an API Service Integration instance
+Create an API service integration instance
 
 Creates and authorizes an API Service Integration instance
 
@@ -123,13 +123,15 @@ namespace Example
             config.OktaDomain = "https://subdomain.okta.com";
             // Configure API key authorization: apiToken
             config.Token ="YOUR_API_KEY";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApiServiceIntegrationsApi(config);
             var postAPIServiceIntegrationInstanceRequest = new PostAPIServiceIntegrationInstanceRequest(); // PostAPIServiceIntegrationInstanceRequest | 
 
             try
             {
-                // Create an API Service Integration instance
+                // Create an API service integration instance
                 PostAPIServiceIntegrationInstance result = apiInstance.CreateApiServiceIntegrationInstance(postAPIServiceIntegrationInstanceRequest);
                 Debug.WriteLine(result);
             }
@@ -156,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiToken](../README.md#apiToken)
+[apiToken](../README.md#apiToken), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -179,7 +181,7 @@ Name | Type | Description  | Notes
 # **CreateApiServiceIntegrationInstanceSecret**
 > APIServiceIntegrationInstanceSecret CreateApiServiceIntegrationInstanceSecret (string apiServiceId)
 
-Create an API Service Integration instance Secret
+Create an API service integration instance secret
 
 Creates an API Service Integration instance Secret object with a new active client secret. You can create up to two Secret objects. An error is returned if you attempt to create more than two Secret objects.
 
@@ -209,7 +211,7 @@ namespace Example
 
             try
             {
-                // Create an API Service Integration instance Secret
+                // Create an API service integration instance secret
                 APIServiceIntegrationInstanceSecret result = apiInstance.CreateApiServiceIntegrationInstanceSecret(apiServiceId);
                 Debug.WriteLine(result);
             }
@@ -259,7 +261,7 @@ Name | Type | Description  | Notes
 # **DeactivateApiServiceIntegrationInstanceSecret**
 > APIServiceIntegrationInstanceSecret DeactivateApiServiceIntegrationInstanceSecret (string apiServiceId, string secretId)
 
-Deactivate an API Service Integration instance Secret
+Deactivate an API service integration instance secret
 
 Deactivates an API Service Integration instance Secret by `secretId`
 
@@ -290,7 +292,7 @@ namespace Example
 
             try
             {
-                // Deactivate an API Service Integration instance Secret
+                // Deactivate an API service integration instance secret
                 APIServiceIntegrationInstanceSecret result = apiInstance.DeactivateApiServiceIntegrationInstanceSecret(apiServiceId, secretId);
                 Debug.WriteLine(result);
             }
@@ -341,7 +343,7 @@ Name | Type | Description  | Notes
 # **DeleteApiServiceIntegrationInstance**
 > void DeleteApiServiceIntegrationInstance (string apiServiceId)
 
-Delete an API Service Integration instance
+Delete an API service integration instance
 
 Deletes an API Service Integration instance by `id`. This operation also revokes access to scopes that were previously granted to this API Service Integration instance.
 
@@ -371,7 +373,7 @@ namespace Example
 
             try
             {
-                // Delete an API Service Integration instance
+                // Delete an API service integration instance
                 apiInstance.DeleteApiServiceIntegrationInstance(apiServiceId);
             }
             catch (ApiException  e)
@@ -420,7 +422,7 @@ void (empty response body)
 # **DeleteApiServiceIntegrationInstanceSecret**
 > void DeleteApiServiceIntegrationInstanceSecret (string apiServiceId, string secretId)
 
-Delete an API Service Integration instance Secret
+Delete an API service integration instance secret
 
 Deletes an API Service Integration instance Secret by `secretId`. You can only delete an inactive Secret.
 
@@ -451,7 +453,7 @@ namespace Example
 
             try
             {
-                // Delete an API Service Integration instance Secret
+                // Delete an API service integration instance secret
                 apiInstance.DeleteApiServiceIntegrationInstanceSecret(apiServiceId, secretId);
             }
             catch (ApiException  e)
@@ -501,7 +503,7 @@ void (empty response body)
 # **GetApiServiceIntegrationInstance**
 > APIServiceIntegrationInstance GetApiServiceIntegrationInstance (string apiServiceId)
 
-Retrieve an API Service Integration instance
+Retrieve an API service integration instance
 
 Retrieves an API Service Integration instance by `id`
 
@@ -531,7 +533,7 @@ namespace Example
 
             try
             {
-                // Retrieve an API Service Integration instance
+                // Retrieve an API service integration instance
                 APIServiceIntegrationInstance result = apiInstance.GetApiServiceIntegrationInstance(apiServiceId);
                 Debug.WriteLine(result);
             }
@@ -581,7 +583,7 @@ Name | Type | Description  | Notes
 # **ListApiServiceIntegrationInstanceSecrets**
 > List&lt;APIServiceIntegrationInstanceSecret&gt; ListApiServiceIntegrationInstanceSecrets (string apiServiceId)
 
-List all API Service Integration instance Secrets
+List all API service integration instance secrets
 
 Lists all client secrets for an API Service Integration instance by `apiServiceId`
 
@@ -611,7 +613,7 @@ namespace Example
 
             try
             {
-                // List all API Service Integration instance Secrets
+                // List all API service integration instance secrets
                 List<APIServiceIntegrationInstanceSecret> result = apiInstance.ListApiServiceIntegrationInstanceSecrets(apiServiceId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -661,7 +663,7 @@ Name | Type | Description  | Notes
 # **ListApiServiceIntegrationInstances**
 > List&lt;APIServiceIntegrationInstance&gt; ListApiServiceIntegrationInstances (string after = null)
 
-List all API Service Integration instances
+List all API service integration instances
 
 Lists all API Service Integration instances with a pagination option
 
@@ -687,11 +689,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApiServiceIntegrationsApi(config);
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
 
             try
             {
-                // List all API Service Integration instances
+                // List all API service integration instances
                 List<APIServiceIntegrationInstance> result = apiInstance.ListApiServiceIntegrationInstances(after).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -710,7 +712,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
 
 ### Return type
 

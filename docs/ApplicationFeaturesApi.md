@@ -4,18 +4,18 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetFeatureForApplication**](ApplicationFeaturesApi.md#getfeatureforapplication) | **GET** /api/v1/apps/{appId}/features/{featureName} | Retrieve a Feature
-[**ListFeaturesForApplication**](ApplicationFeaturesApi.md#listfeaturesforapplication) | **GET** /api/v1/apps/{appId}/features | List all Features
-[**UpdateFeatureForApplication**](ApplicationFeaturesApi.md#updatefeatureforapplication) | **PUT** /api/v1/apps/{appId}/features/{featureName} | Update a Feature
+[**GetFeatureForApplication**](ApplicationFeaturesApi.md#getfeatureforapplication) | **GET** /api/v1/apps/{appId}/features/{featureName} | Retrieve a feature
+[**ListFeaturesForApplication**](ApplicationFeaturesApi.md#listfeaturesforapplication) | **GET** /api/v1/apps/{appId}/features | List all features
+[**UpdateFeatureForApplication**](ApplicationFeaturesApi.md#updatefeatureforapplication) | **PUT** /api/v1/apps/{appId}/features/{featureName} | Update a feature
 
 
 <a name="getfeatureforapplication"></a>
 # **GetFeatureForApplication**
 > ApplicationFeature GetFeatureForApplication (string appId, ApplicationFeatureType featureName)
 
-Retrieve a Feature
+Retrieve a feature
 
-Retrieves a Feature object for an application
+Retrieves a Feature object for an app
 
 ### Example
 ```csharp
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Feature
+                // Retrieve a feature
                 ApplicationFeature result = apiInstance.GetFeatureForApplication(appId, featureName);
                 Debug.WriteLine(result);
             }
@@ -94,9 +94,9 @@ Name | Type | Description  | Notes
 # **ListFeaturesForApplication**
 > List&lt;ApplicationFeature&gt; ListFeaturesForApplication (string appId)
 
-List all Features
+List all features
 
-Lists all features for an application > **Note:** This request returns an error if provisioning isn't enabled for the application. > To set up provisioning, see [Update the default Provisioning Connection](/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication). 
+Lists all features for an app > **Note:** This request returns an error if provisioning isn't enabled for the app. > To set up provisioning, see [Update the default provisioning connection](/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication). 
 
 ### Example
 ```csharp
@@ -124,7 +124,7 @@ namespace Example
 
             try
             {
-                // List all Features
+                // List all features
                 List<ApplicationFeature> result = apiInstance.ListFeaturesForApplication(appId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -174,9 +174,9 @@ Name | Type | Description  | Notes
 # **UpdateFeatureForApplication**
 > ApplicationFeature UpdateFeatureForApplication (string appId, ApplicationFeatureType featureName, UpdateFeatureForApplicationRequest updateFeatureForApplicationRequest)
 
-Update a Feature
+Update a feature
 
-Updates a Feature object for an application > **Note:** This endpoint supports partial updates. 
+Updates a Feature object for an app > **Note:** This endpoint supports partial updates. 
 
 ### Example
 ```csharp
@@ -206,7 +206,7 @@ namespace Example
 
             try
             {
-                // Update a Feature
+                // Update a feature
                 ApplicationFeature result = apiInstance.UpdateFeatureForApplication(appId, featureName, updateFeatureForApplicationRequest);
                 Debug.WriteLine(result);
             }

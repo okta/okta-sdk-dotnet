@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.GroupRuleStatus
+Status of group rule
 
 ## Properties
 

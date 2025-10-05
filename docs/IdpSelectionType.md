@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.IdpSelectionType
+Determines whether the rule should use expression language or a specific IdP
 
 ## Properties
 

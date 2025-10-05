@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.ProvisioningSuspendedCondition
-Not supported with OIDC IdPs
+Behavior for a previously suspended IdP user during authentication. Not supported with OIDC IdPs.
 
 ## Properties
 

@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.UserType
-The user type that determines the schema for the user's profile. The `type` property is a map that identifies the [User Types](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType)). Currently it contains a single element, `id`. It can be specified when creating a new user, and may be updated by an administrator on a full replace of an existing user (but not a partial update).
+The user type that determines the schema for the user's profile. The `type` property is a map that identifies the [User Types](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType).  Currently it contains a single element, `id`. It can be specified when creating a new user, and ca be updated by an admin on a full replace of an existing user (but not a partial update).
 
 ## Properties
 

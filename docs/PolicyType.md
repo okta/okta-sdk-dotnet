@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.PolicyType
-All Okta orgs contain only one IdP Discovery Policy with an immutable default Rule routing to your org's sign-in page.  Creating or replacing a policy with `IDP_DISCOVERY` type isn't supported. The following policy types are available with the Okta Identity Engine: `ACCESS_POLICY`, `PROFILE_ENROLLMENT`, `CONTINUOUS_ACCESS`, and `ENTITY_RISK`. The `CONTINUOUS_ACCESS`, and `ENTITY_RISK`  policy types are in Early Access (EA). Contact your Okta account team to enable these features.
+All Okta orgs contain only one IdP discovery policy with an immutable default rule routing to your org's sign-in page, one entity risk policy, and one session protection policy. Creating or replacing a policy with the `IDP_DISCOVERY` type, the `ENTITY_RISK` type, or the `POST_AUTH_SESSION` type isn't supported. The following policy types are available with Identity Engine: `ACCESS_POLICY`, `PROFILE_ENROLLMENT`, `POST_AUTH_SESSION`, `DEVICE_SIGNAL_COLLECTION` (EA), and `ENTITY_RISK`.
 
 ## Properties
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Unique name for the Log Stream object | 
+**Name** | **string** | Unique name for the log stream object | 
 **Type** | [**LogStreamType**](LogStreamType.md) |  | 
 **Settings** | [**LogStreamSettingsAws**](LogStreamSettingsAws.md) |  | 
 

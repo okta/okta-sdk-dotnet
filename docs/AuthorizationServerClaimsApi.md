@@ -4,18 +4,18 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateOAuth2Claim**](AuthorizationServerClaimsApi.md#createoauth2claim) | **POST** /api/v1/authorizationServers/{authServerId}/claims | Create a custom token Claim
-[**DeleteOAuth2Claim**](AuthorizationServerClaimsApi.md#deleteoauth2claim) | **DELETE** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Delete a custom token Claim
-[**GetOAuth2Claim**](AuthorizationServerClaimsApi.md#getoauth2claim) | **GET** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Retrieve a custom token Claim
-[**ListOAuth2Claims**](AuthorizationServerClaimsApi.md#listoauth2claims) | **GET** /api/v1/authorizationServers/{authServerId}/claims | List all custom token Claims
-[**ReplaceOAuth2Claim**](AuthorizationServerClaimsApi.md#replaceoauth2claim) | **PUT** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Replace a custom token Claim
+[**CreateOAuth2Claim**](AuthorizationServerClaimsApi.md#createoauth2claim) | **POST** /api/v1/authorizationServers/{authServerId}/claims | Create a custom token claim
+[**DeleteOAuth2Claim**](AuthorizationServerClaimsApi.md#deleteoauth2claim) | **DELETE** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Delete a custom token claim
+[**GetOAuth2Claim**](AuthorizationServerClaimsApi.md#getoauth2claim) | **GET** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Retrieve a custom token claim
+[**ListOAuth2Claims**](AuthorizationServerClaimsApi.md#listoauth2claims) | **GET** /api/v1/authorizationServers/{authServerId}/claims | List all custom token claims
+[**ReplaceOAuth2Claim**](AuthorizationServerClaimsApi.md#replaceoauth2claim) | **PUT** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Replace a custom token claim
 
 
 <a name="createoauth2claim"></a>
 # **CreateOAuth2Claim**
 > OAuth2Claim CreateOAuth2Claim (string authServerId, OAuth2Claim oAuth2Claim)
 
-Create a custom token Claim
+Create a custom token claim
 
 Creates a custom token Claim for a custom authorization server
 
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Create a custom token Claim
+                // Create a custom token claim
                 OAuth2Claim result = apiInstance.CreateOAuth2Claim(authServerId, oAuth2Claim);
                 Debug.WriteLine(result);
             }
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 # **DeleteOAuth2Claim**
 > void DeleteOAuth2Claim (string authServerId, string claimId)
 
-Delete a custom token Claim
+Delete a custom token claim
 
 Deletes a custom token Claim specified by the `claimId`
 
@@ -128,7 +128,7 @@ namespace Example
 
             try
             {
-                // Delete a custom token Claim
+                // Delete a custom token claim
                 apiInstance.DeleteOAuth2Claim(authServerId, claimId);
             }
             catch (ApiException  e)
@@ -177,7 +177,7 @@ void (empty response body)
 # **GetOAuth2Claim**
 > OAuth2Claim GetOAuth2Claim (string authServerId, string claimId)
 
-Retrieve a custom token Claim
+Retrieve a custom token claim
 
 Retrieves a custom token Claim by the specified `claimId`
 
@@ -208,7 +208,7 @@ namespace Example
 
             try
             {
-                // Retrieve a custom token Claim
+                // Retrieve a custom token claim
                 OAuth2Claim result = apiInstance.GetOAuth2Claim(authServerId, claimId);
                 Debug.WriteLine(result);
             }
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 # **ListOAuth2Claims**
 > List&lt;OAuth2Claim&gt; ListOAuth2Claims (string authServerId)
 
-List all custom token Claims
+List all custom token claims
 
 Lists all custom token Claims defined for a specified custom authorization server
 
@@ -288,7 +288,7 @@ namespace Example
 
             try
             {
-                // List all custom token Claims
+                // List all custom token claims
                 List<OAuth2Claim> result = apiInstance.ListOAuth2Claims(authServerId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 # **ReplaceOAuth2Claim**
 > OAuth2Claim ReplaceOAuth2Claim (string authServerId, string claimId, OAuth2Claim oAuth2Claim)
 
-Replace a custom token Claim
+Replace a custom token claim
 
 Replaces a custom token Claim specified by the `claimId`
 
@@ -369,7 +369,7 @@ namespace Example
 
             try
             {
-                // Replace a custom token Claim
+                // Replace a custom token claim
                 OAuth2Claim result = apiInstance.ReplaceOAuth2Claim(authServerId, claimId, oAuth2Claim);
                 Debug.WriteLine(result);
             }

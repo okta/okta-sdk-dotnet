@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.Call
-Attempts to activate a `call` Factor with the specified passcode.
+Attempts to activate a `call` factor with the specified passcode
 
 ## Properties
 

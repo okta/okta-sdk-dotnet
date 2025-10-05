@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.GroupRulePeopleCondition
+Defines conditions for `people` in a group rule
 
 ## Properties
 

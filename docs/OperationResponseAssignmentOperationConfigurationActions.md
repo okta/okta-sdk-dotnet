@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.OperationResponseAssignmentOperationConfigurationActions
+Realm assignment action
 
 ## Properties
 

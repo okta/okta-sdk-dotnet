@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.CatalogApplicationStatus
+App status
 
 ## Properties
 

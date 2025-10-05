@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.OAuthEndpointAuthenticationMethod
+Requested authentication method for the token endpoint
 
 ## Properties
 

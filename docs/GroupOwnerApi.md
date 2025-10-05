@@ -4,16 +4,16 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AssignGroupOwner**](GroupOwnerApi.md#assigngroupowner) | **POST** /api/v1/groups/{groupId}/owners | Assign a Group Owner
-[**DeleteGroupOwner**](GroupOwnerApi.md#deletegroupowner) | **DELETE** /api/v1/groups/{groupId}/owners/{ownerId} | Delete a Group Owner
-[**ListGroupOwners**](GroupOwnerApi.md#listgroupowners) | **GET** /api/v1/groups/{groupId}/owners | List all Group Owners
+[**AssignGroupOwner**](GroupOwnerApi.md#assigngroupowner) | **POST** /api/v1/groups/{groupId}/owners | Assign a group owner
+[**DeleteGroupOwner**](GroupOwnerApi.md#deletegroupowner) | **DELETE** /api/v1/groups/{groupId}/owners/{ownerId} | Delete a group owner
+[**ListGroupOwners**](GroupOwnerApi.md#listgroupowners) | **GET** /api/v1/groups/{groupId}/owners | List all group owners
 
 
 <a name="assigngroupowner"></a>
 # **AssignGroupOwner**
 > GroupOwner AssignGroupOwner (string groupId, AssignGroupOwnerRequestBody assignGroupOwnerRequestBody)
 
-Assign a Group Owner
+Assign a group owner
 
 Assigns a group owner
 
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                // Assign a Group Owner
+                // Assign a group owner
                 GroupOwner result = apiInstance.AssignGroupOwner(groupId, assignGroupOwnerRequestBody);
                 Debug.WriteLine(result);
             }
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 # **DeleteGroupOwner**
 > void DeleteGroupOwner (string groupId, string ownerId)
 
-Delete a Group Owner
+Delete a group owner
 
 Deletes a group owner from a specific group
 
@@ -126,7 +126,7 @@ namespace Example
 
             try
             {
-                // Delete a Group Owner
+                // Delete a group owner
                 apiInstance.DeleteGroupOwner(groupId, ownerId);
             }
             catch (ApiException  e)
@@ -175,7 +175,7 @@ void (empty response body)
 # **ListGroupOwners**
 > List&lt;GroupOwner&gt; ListGroupOwners (string groupId, string search = null, string after = null, int? limit = null)
 
-List all Group Owners
+List all group owners
 
 Lists all owners for a specific group
 
@@ -202,13 +202,13 @@ namespace Example
 
             var apiInstance = new GroupOwnerApi(config);
             var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
-            var search = "search_example";  // string | SCIM Filter expression for group owners. Allows to filter owners by type. (optional) 
+            var search = "search_example";  // string | SCIM filter expression for group owners. Allows you to filter owners by type. (optional) 
             var after = "after_example";  // string | Specifies the pagination cursor for the next page of owners (optional) 
             var limit = 1000;  // int? | Specifies the number of owner results in a page (optional)  (default to 1000)
 
             try
             {
-                // List all Group Owners
+                // List all group owners
                 List<GroupOwner> result = apiInstance.ListGroupOwners(groupId, search, after, limit).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -228,7 +228,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupId** | **string**| The &#x60;id&#x60; of the group | 
- **search** | **string**| SCIM Filter expression for group owners. Allows to filter owners by type. | [optional] 
+ **search** | **string**| SCIM filter expression for group owners. Allows you to filter owners by type. | [optional] 
  **after** | **string**| Specifies the pagination cursor for the next page of owners | [optional] 
  **limit** | **int?**| Specifies the number of owner results in a page | [optional] [default to 1000]
 

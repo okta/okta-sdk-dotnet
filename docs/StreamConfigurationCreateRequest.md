@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Delivery** | [**StreamConfigurationDelivery**](.md) |  | 
+**Delivery** | [**StreamConfigurationDelivery**](StreamConfigurationDelivery.md) |  | 
 **EventsRequested** | **List&lt;string&gt;** | The events (mapped by the array of event type URIs) that the receiver wants to receive | 
 **Format** | **string** | The Subject Identifier format expected for any SET transmitted. | [optional] 
 

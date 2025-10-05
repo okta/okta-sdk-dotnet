@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.UserFactorStatus
-Status of the Factor
+Status of the factor
 
 ## Properties
 

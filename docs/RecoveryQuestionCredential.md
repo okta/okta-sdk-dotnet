@@ -5,7 +5,7 @@ Specifies a secret question and answer that's validated (case insensitive) when 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Answer** | **string** | The recovery question answer | [optional] 
+**Answer** | **string** | The answer to the recovery question | [optional] 
 **Question** | **string** | The recovery question | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

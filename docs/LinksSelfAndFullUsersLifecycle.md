@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Deactivate** | [**HrefObjectDeactivateLink**](HrefObjectDeactivateLink.md) |  | [optional] 
 **Suspend** | [**HrefObjectSuspendLink**](HrefObjectSuspendLink.md) |  | [optional] 
 **Unsuspend** | [**HrefObjectUnsuspendLink**](HrefObjectUnsuspendLink.md) |  | [optional] 
-**Users** | [**HrefObject**](HrefObject.md) | Link to Device users | [optional] 
+**Users** | [**HrefObject**](HrefObject.md) | Link to device users | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

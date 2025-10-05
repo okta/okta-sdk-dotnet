@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.PasswordImportResponse
+Password import inline hook response
 
 ## Properties
 

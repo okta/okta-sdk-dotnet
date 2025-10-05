@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.WidgetGeneration
+The generation of the Sign-in Widget
 
 ## Properties
 

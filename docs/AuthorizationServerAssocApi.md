@@ -4,16 +4,16 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAssociatedServers**](AuthorizationServerAssocApi.md#createassociatedservers) | **POST** /api/v1/authorizationServers/{authServerId}/associatedServers | Create an associated Authorization Server
-[**DeleteAssociatedServer**](AuthorizationServerAssocApi.md#deleteassociatedserver) | **DELETE** /api/v1/authorizationServers/{authServerId}/associatedServers/{associatedServerId} | Delete an associated Authorization Server
-[**ListAssociatedServersByTrustedType**](AuthorizationServerAssocApi.md#listassociatedserversbytrustedtype) | **GET** /api/v1/authorizationServers/{authServerId}/associatedServers | List all associated Authorization Servers
+[**CreateAssociatedServers**](AuthorizationServerAssocApi.md#createassociatedservers) | **POST** /api/v1/authorizationServers/{authServerId}/associatedServers | Create an associated authorization server
+[**DeleteAssociatedServer**](AuthorizationServerAssocApi.md#deleteassociatedserver) | **DELETE** /api/v1/authorizationServers/{authServerId}/associatedServers/{associatedServerId} | Delete an associated authorization server
+[**ListAssociatedServersByTrustedType**](AuthorizationServerAssocApi.md#listassociatedserversbytrustedtype) | **GET** /api/v1/authorizationServers/{authServerId}/associatedServers | List all associated authorization servers
 
 
 <a name="createassociatedservers"></a>
 # **CreateAssociatedServers**
 > List&lt;AuthorizationServer&gt; CreateAssociatedServers (string authServerId, AssociatedServerMediated associatedServerMediated)
 
-Create an associated Authorization Server
+Create an associated authorization server
 
 Creates trusted relationships between the given authorization server and other authorization servers
 
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                // Create an associated Authorization Server
+                // Create an associated authorization server
                 List<AuthorizationServer> result = apiInstance.CreateAssociatedServers(authServerId, associatedServerMediated).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 # **DeleteAssociatedServer**
 > void DeleteAssociatedServer (string authServerId, string associatedServerId)
 
-Delete an associated Authorization Server
+Delete an associated authorization server
 
 Deletes an associated Authorization Server
 
@@ -126,7 +126,7 @@ namespace Example
 
             try
             {
-                // Delete an associated Authorization Server
+                // Delete an associated authorization server
                 apiInstance.DeleteAssociatedServer(authServerId, associatedServerId);
             }
             catch (ApiException  e)
@@ -175,7 +175,7 @@ void (empty response body)
 # **ListAssociatedServersByTrustedType**
 > List&lt;AuthorizationServer&gt; ListAssociatedServersByTrustedType (string authServerId, bool? trusted = null, string q = null, int? limit = null, string after = null)
 
-List all associated Authorization Servers
+List all associated authorization servers
 
 Lists all associated Authorization Servers by trusted type for the given `authServerId`
 
@@ -209,7 +209,7 @@ namespace Example
 
             try
             {
-                // List all associated Authorization Servers
+                // List all associated authorization servers
                 List<AuthorizationServer> result = apiInstance.ListAssociatedServersByTrustedType(authServerId, trusted, q, limit, after).ToListAsync();
                 Debug.WriteLine(result);
             }

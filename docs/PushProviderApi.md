@@ -4,18 +4,18 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreatePushProvider**](PushProviderApi.md#createpushprovider) | **POST** /api/v1/push-providers | Create a Push Provider
-[**DeletePushProvider**](PushProviderApi.md#deletepushprovider) | **DELETE** /api/v1/push-providers/{pushProviderId} | Delete a Push Provider
-[**GetPushProvider**](PushProviderApi.md#getpushprovider) | **GET** /api/v1/push-providers/{pushProviderId} | Retrieve a Push Provider
-[**ListPushProviders**](PushProviderApi.md#listpushproviders) | **GET** /api/v1/push-providers | List all Push Providers
-[**ReplacePushProvider**](PushProviderApi.md#replacepushprovider) | **PUT** /api/v1/push-providers/{pushProviderId} | Replace a Push Provider
+[**CreatePushProvider**](PushProviderApi.md#createpushprovider) | **POST** /api/v1/push-providers | Create a push provider
+[**DeletePushProvider**](PushProviderApi.md#deletepushprovider) | **DELETE** /api/v1/push-providers/{pushProviderId} | Delete a push provider
+[**GetPushProvider**](PushProviderApi.md#getpushprovider) | **GET** /api/v1/push-providers/{pushProviderId} | Retrieve a push provider
+[**ListPushProviders**](PushProviderApi.md#listpushproviders) | **GET** /api/v1/push-providers | List all push providers
+[**ReplacePushProvider**](PushProviderApi.md#replacepushprovider) | **PUT** /api/v1/push-providers/{pushProviderId} | Replace a push provider
 
 
 <a name="createpushprovider"></a>
 # **CreatePushProvider**
 > PushProvider CreatePushProvider (PushProvider pushProvider)
 
-Create a Push Provider
+Create a push provider
 
 Creates a new push provider. Each Push Provider must have a unique `name`.
 
@@ -45,7 +45,7 @@ namespace Example
 
             try
             {
-                // Create a Push Provider
+                // Create a push provider
                 PushProvider result = apiInstance.CreatePushProvider(pushProvider);
                 Debug.WriteLine(result);
             }
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 # **DeletePushProvider**
 > void DeletePushProvider (string pushProviderId)
 
-Delete a Push Provider
+Delete a push provider
 
 Deletes a push provider by `pushProviderId`. If the push provider is currently being used in the org by a custom authenticator, the delete will not be allowed.
 
@@ -124,7 +124,7 @@ namespace Example
 
             try
             {
-                // Delete a Push Provider
+                // Delete a push provider
                 apiInstance.DeletePushProvider(pushProviderId);
             }
             catch (ApiException  e)
@@ -173,7 +173,7 @@ void (empty response body)
 # **GetPushProvider**
 > PushProvider GetPushProvider (string pushProviderId)
 
-Retrieve a Push Provider
+Retrieve a push provider
 
 Retrieves a push provider by `pushProviderId`
 
@@ -203,7 +203,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Push Provider
+                // Retrieve a push provider
                 PushProvider result = apiInstance.GetPushProvider(pushProviderId);
                 Debug.WriteLine(result);
             }
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 # **ListPushProviders**
 > List&lt;PushProvider&gt; ListPushProviders (ProviderType? type = null)
 
-List all Push Providers
+List all push providers
 
 Lists all push providers
 
@@ -282,7 +282,7 @@ namespace Example
 
             try
             {
-                // List all Push Providers
+                // List all push providers
                 List<PushProvider> result = apiInstance.ListPushProviders(type).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 # **ReplacePushProvider**
 > PushProvider ReplacePushProvider (string pushProviderId, PushProvider pushProvider)
 
-Replace a Push Provider
+Replace a push provider
 
 Replaces a push provider by `pushProviderId`
 
@@ -361,7 +361,7 @@ namespace Example
 
             try
             {
-                // Replace a Push Provider
+                // Replace a push provider
                 PushProvider result = apiInstance.ReplacePushProvider(pushProviderId, pushProvider);
                 Debug.WriteLine(result);
             }

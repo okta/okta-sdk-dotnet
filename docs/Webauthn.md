@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.Webauthn
-Activates a `webauthn` Factor with the specified attestation and registration information from the WebAuthn authenticator
+Activates a `webauthn` factor with the specified attestation and registration information from the WebAuthn authenticator
 
 ## Properties
 

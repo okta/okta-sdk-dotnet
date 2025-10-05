@@ -4,20 +4,20 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateAuthorizationServerPolicy**](AuthorizationServerPoliciesApi.md#activateauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/activate | Activate a Policy
-[**CreateAuthorizationServerPolicy**](AuthorizationServerPoliciesApi.md#createauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies | Create a Policy
-[**DeactivateAuthorizationServerPolicy**](AuthorizationServerPoliciesApi.md#deactivateauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/deactivate | Deactivate a Policy
-[**DeleteAuthorizationServerPolicy**](AuthorizationServerPoliciesApi.md#deleteauthorizationserverpolicy) | **DELETE** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Delete a Policy
-[**GetAuthorizationServerPolicy**](AuthorizationServerPoliciesApi.md#getauthorizationserverpolicy) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Retrieve a Policy
-[**ListAuthorizationServerPolicies**](AuthorizationServerPoliciesApi.md#listauthorizationserverpolicies) | **GET** /api/v1/authorizationServers/{authServerId}/policies | List all Policies
-[**ReplaceAuthorizationServerPolicy**](AuthorizationServerPoliciesApi.md#replaceauthorizationserverpolicy) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Replace a Policy
+[**ActivateAuthorizationServerPolicy**](AuthorizationServerPoliciesApi.md#activateauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/activate | Activate a policy
+[**CreateAuthorizationServerPolicy**](AuthorizationServerPoliciesApi.md#createauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies | Create a policy
+[**DeactivateAuthorizationServerPolicy**](AuthorizationServerPoliciesApi.md#deactivateauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/deactivate | Deactivate a policy
+[**DeleteAuthorizationServerPolicy**](AuthorizationServerPoliciesApi.md#deleteauthorizationserverpolicy) | **DELETE** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Delete a policy
+[**GetAuthorizationServerPolicy**](AuthorizationServerPoliciesApi.md#getauthorizationserverpolicy) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Retrieve a policy
+[**ListAuthorizationServerPolicies**](AuthorizationServerPoliciesApi.md#listauthorizationserverpolicies) | **GET** /api/v1/authorizationServers/{authServerId}/policies | List all policies
+[**ReplaceAuthorizationServerPolicy**](AuthorizationServerPoliciesApi.md#replaceauthorizationserverpolicy) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Replace a policy
 
 
 <a name="activateauthorizationserverpolicy"></a>
 # **ActivateAuthorizationServerPolicy**
 > void ActivateAuthorizationServerPolicy (string authServerId, string policyId)
 
-Activate a Policy
+Activate a policy
 
 Activates an authorization server policy
 
@@ -48,7 +48,7 @@ namespace Example
 
             try
             {
-                // Activate a Policy
+                // Activate a policy
                 apiInstance.ActivateAuthorizationServerPolicy(authServerId, policyId);
             }
             catch (ApiException  e)
@@ -97,7 +97,7 @@ void (empty response body)
 # **CreateAuthorizationServerPolicy**
 > AuthorizationServerPolicy CreateAuthorizationServerPolicy (string authServerId, AuthorizationServerPolicy policy)
 
-Create a Policy
+Create a policy
 
 Creates a policy
 
@@ -128,7 +128,7 @@ namespace Example
 
             try
             {
-                // Create a Policy
+                // Create a policy
                 AuthorizationServerPolicy result = apiInstance.CreateAuthorizationServerPolicy(authServerId, policy);
                 Debug.WriteLine(result);
             }
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 # **DeactivateAuthorizationServerPolicy**
 > void DeactivateAuthorizationServerPolicy (string authServerId, string policyId)
 
-Deactivate a Policy
+Deactivate a policy
 
 Deactivates an authorization server policy
 
@@ -210,7 +210,7 @@ namespace Example
 
             try
             {
-                // Deactivate a Policy
+                // Deactivate a policy
                 apiInstance.DeactivateAuthorizationServerPolicy(authServerId, policyId);
             }
             catch (ApiException  e)
@@ -259,7 +259,7 @@ void (empty response body)
 # **DeleteAuthorizationServerPolicy**
 > void DeleteAuthorizationServerPolicy (string authServerId, string policyId)
 
-Delete a Policy
+Delete a policy
 
 Deletes a policy
 
@@ -290,7 +290,7 @@ namespace Example
 
             try
             {
-                // Delete a Policy
+                // Delete a policy
                 apiInstance.DeleteAuthorizationServerPolicy(authServerId, policyId);
             }
             catch (ApiException  e)
@@ -339,7 +339,7 @@ void (empty response body)
 # **GetAuthorizationServerPolicy**
 > AuthorizationServerPolicy GetAuthorizationServerPolicy (string authServerId, string policyId)
 
-Retrieve a Policy
+Retrieve a policy
 
 Retrieves a policy
 
@@ -370,7 +370,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Policy
+                // Retrieve a policy
                 AuthorizationServerPolicy result = apiInstance.GetAuthorizationServerPolicy(authServerId, policyId);
                 Debug.WriteLine(result);
             }
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 # **ListAuthorizationServerPolicies**
 > List&lt;AuthorizationServerPolicy&gt; ListAuthorizationServerPolicies (string authServerId)
 
-List all Policies
+List all policies
 
 Lists all policies
 
@@ -450,7 +450,7 @@ namespace Example
 
             try
             {
-                // List all Policies
+                // List all policies
                 List<AuthorizationServerPolicy> result = apiInstance.ListAuthorizationServerPolicies(authServerId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -499,7 +499,7 @@ Name | Type | Description  | Notes
 # **ReplaceAuthorizationServerPolicy**
 > AuthorizationServerPolicy ReplaceAuthorizationServerPolicy (string authServerId, string policyId, AuthorizationServerPolicy policy)
 
-Replace a Policy
+Replace a policy
 
 Replaces a policy
 
@@ -531,7 +531,7 @@ namespace Example
 
             try
             {
-                // Replace a Policy
+                // Replace a policy
                 AuthorizationServerPolicy result = apiInstance.ReplaceAuthorizationServerPolicy(authServerId, policyId, policy);
                 Debug.WriteLine(result);
             }

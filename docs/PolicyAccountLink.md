@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.PolicyAccountLink
+Specifies the behavior for linking an IdP user to an existing Okta user
 
 ## Properties
 

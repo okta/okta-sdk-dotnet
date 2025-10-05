@@ -4,17 +4,17 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetScopeConsentGrant**](ApplicationGrantsApi.md#getscopeconsentgrant) | **GET** /api/v1/apps/{appId}/grants/{grantId} | Retrieve an app Grant
+[**GetScopeConsentGrant**](ApplicationGrantsApi.md#getscopeconsentgrant) | **GET** /api/v1/apps/{appId}/grants/{grantId} | Retrieve an app grant
 [**GrantConsentToScope**](ApplicationGrantsApi.md#grantconsenttoscope) | **POST** /api/v1/apps/{appId}/grants | Grant consent to scope
-[**ListScopeConsentGrants**](ApplicationGrantsApi.md#listscopeconsentgrants) | **GET** /api/v1/apps/{appId}/grants | List all app Grants
-[**RevokeScopeConsentGrant**](ApplicationGrantsApi.md#revokescopeconsentgrant) | **DELETE** /api/v1/apps/{appId}/grants/{grantId} | Revoke an app Grant
+[**ListScopeConsentGrants**](ApplicationGrantsApi.md#listscopeconsentgrants) | **GET** /api/v1/apps/{appId}/grants | List all app grants
+[**RevokeScopeConsentGrant**](ApplicationGrantsApi.md#revokescopeconsentgrant) | **DELETE** /api/v1/apps/{appId}/grants/{grantId} | Revoke an app grant
 
 
 <a name="getscopeconsentgrant"></a>
 # **GetScopeConsentGrant**
 > OAuth2ScopeConsentGrant GetScopeConsentGrant (string appId, string grantId, string expand = null)
 
-Retrieve an app Grant
+Retrieve an app grant
 
 Retrieves a single scope consent Grant object for the app
 
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Retrieve an app Grant
+                // Retrieve an app grant
                 OAuth2ScopeConsentGrant result = apiInstance.GetScopeConsentGrant(appId, grantId, expand);
                 Debug.WriteLine(result);
             }
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 # **ListScopeConsentGrants**
 > List&lt;OAuth2ScopeConsentGrant&gt; ListScopeConsentGrants (string appId, string expand = null)
 
-List all app Grants
+List all app grants
 
 Lists all scope consent Grants for the app
 
@@ -210,7 +210,7 @@ namespace Example
 
             try
             {
-                // List all app Grants
+                // List all app grants
                 List<OAuth2ScopeConsentGrant> result = apiInstance.ListScopeConsentGrants(appId, expand).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 # **RevokeScopeConsentGrant**
 > void RevokeScopeConsentGrant (string appId, string grantId)
 
-Revoke an app Grant
+Revoke an app grant
 
 Revokes permission for the app to grant the given scope
 
@@ -291,7 +291,7 @@ namespace Example
 
             try
             {
-                // Revoke an app Grant
+                // Revoke an app grant
                 apiInstance.RevokeScopeConsentGrant(appId, grantId);
             }
             catch (ApiException  e)

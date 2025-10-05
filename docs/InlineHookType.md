@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.InlineHookType
+One of the inline hook types
 
 ## Properties
 

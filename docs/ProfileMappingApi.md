@@ -4,18 +4,18 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetProfileMapping**](ProfileMappingApi.md#getprofilemapping) | **GET** /api/v1/mappings/{mappingId} | Retrieve a Profile Mapping
-[**ListProfileMappings**](ProfileMappingApi.md#listprofilemappings) | **GET** /api/v1/mappings | List all Profile Mappings
-[**UpdateProfileMapping**](ProfileMappingApi.md#updateprofilemapping) | **POST** /api/v1/mappings/{mappingId} | Update a Profile Mapping
+[**GetProfileMapping**](ProfileMappingApi.md#getprofilemapping) | **GET** /api/v1/mappings/{mappingId} | Retrieve a profile mapping
+[**ListProfileMappings**](ProfileMappingApi.md#listprofilemappings) | **GET** /api/v1/mappings | List all profile mappings
+[**UpdateProfileMapping**](ProfileMappingApi.md#updateprofilemapping) | **POST** /api/v1/mappings/{mappingId} | Update a profile mapping
 
 
 <a name="getprofilemapping"></a>
 # **GetProfileMapping**
 > ProfileMapping GetProfileMapping (string mappingId)
 
-Retrieve a Profile Mapping
+Retrieve a profile mapping
 
-Retrieves a single Profile Mapping referenced by its ID
+Retrieves a single profile mapping referenced by its ID
 
 ### Example
 ```csharp
@@ -43,7 +43,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Profile Mapping
+                // Retrieve a profile mapping
                 ProfileMapping result = apiInstance.GetProfileMapping(mappingId);
                 Debug.WriteLine(result);
             }
@@ -92,9 +92,9 @@ Name | Type | Description  | Notes
 # **ListProfileMappings**
 > List&lt;ListProfileMappings&gt; ListProfileMappings (string after = null, int? limit = null, string sourceId = null, string targetId = null)
 
-List all Profile Mappings
+List all profile mappings
 
-Lists all profile mappings in your organization with [pagination](https://developer.okta.com/docs/api/#pagination). You can return a subset of profile mappings that match a supported `sourceId` and/or `targetId`. The results are [paginated](/#pagination) according to the limit parameter. If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).  The response is a collection of profile mappings that include a subset of the profile mapping object's parameters. The profile mapping object describes the properties mapping between an Okta User and an App User Profile using [JSON Schema Draft 4](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04).
+Lists all profile mappings in your org with [pagination](https://developer.okta.com/docs/api/#pagination). You can return a subset of profile mappings that match a supported `sourceId` and/or `targetId`.  The results are [paginated](/#pagination) according to the `limit` parameter. If there are multiple pages of results, the Link header contains a `next` link that you should treat as an opaque value (follow it, don't parse it). See [Link Header](https://developer.okta.com/docs/api/#link-header).  The response is a collection of profile mappings that include a subset of the profile mapping object's parameters. The profile mapping object describes the properties mapping between an Okta user and an app user profile using [JSON Schema Draft 4](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04).
 
 ### Example
 ```csharp
@@ -119,13 +119,13 @@ namespace Example
 
             var apiInstance = new ProfileMappingApi(config);
             var after = "after_example";  // string | Mapping `id` that specifies the pagination cursor for the next page of mappings (optional) 
-            var limit = 20;  // int? | Specifies the number of results per page (maximum 200) (optional)  (default to 20)
-            var sourceId = "sourceId_example";  // string | The UserType or App Instance `id` that acts as the source of expressions in a mapping. If this parameter is included, all returned mappings have this as their `source.id`. (optional) 
-            var targetId = "targetId_example";  // string | The UserType or App Instance `id` that acts as the target of expressions in a mapping. If this parameter is included, all returned mappings have this as their `target.id`. (optional) 
+            var limit = 20;  // int? | Specifies the number of results per page (optional)  (default to 20)
+            var sourceId = "sourceId_example";  // string | The user type or app instance ID that acts as the source of expressions in a mapping. If this parameter is included, all returned mappings have this as their `source.id`. (optional) 
+            var targetId = "targetId_example";  // string | The user type or app instance ID that acts as the target of expressions in a mapping. If this parameter is included, all returned mappings have this as their `target.id`. (optional) 
 
             try
             {
-                // List all Profile Mappings
+                // List all profile mappings
                 List<ListProfileMappings> result = apiInstance.ListProfileMappings(after, limit, sourceId, targetId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -145,9 +145,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **after** | **string**| Mapping &#x60;id&#x60; that specifies the pagination cursor for the next page of mappings | [optional] 
- **limit** | **int?**| Specifies the number of results per page (maximum 200) | [optional] [default to 20]
- **sourceId** | **string**| The UserType or App Instance &#x60;id&#x60; that acts as the source of expressions in a mapping. If this parameter is included, all returned mappings have this as their &#x60;source.id&#x60;. | [optional] 
- **targetId** | **string**| The UserType or App Instance &#x60;id&#x60; that acts as the target of expressions in a mapping. If this parameter is included, all returned mappings have this as their &#x60;target.id&#x60;. | [optional] 
+ **limit** | **int?**| Specifies the number of results per page | [optional] [default to 20]
+ **sourceId** | **string**| The user type or app instance ID that acts as the source of expressions in a mapping. If this parameter is included, all returned mappings have this as their &#x60;source.id&#x60;. | [optional] 
+ **targetId** | **string**| The user type or app instance ID that acts as the target of expressions in a mapping. If this parameter is included, all returned mappings have this as their &#x60;target.id&#x60;. | [optional] 
 
 ### Return type
 
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 # **UpdateProfileMapping**
 > ProfileMapping UpdateProfileMapping (string mappingId, ProfileMappingRequest profileMapping)
 
-Update a Profile Mapping
+Update a profile mapping
 
 Updates an existing profile mapping by adding, updating, or removing one or many property mappings
 
@@ -207,7 +207,7 @@ namespace Example
 
             try
             {
-                // Update a Profile Mapping
+                // Update a profile mapping
                 ProfileMapping result = apiInstance.UpdateProfileMapping(mappingId, profileMapping);
                 Debug.WriteLine(result);
             }

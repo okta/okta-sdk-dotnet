@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.ProvisioningConditions
+Conditional behaviors for an IdP user during authentication
 
 ## Properties
 

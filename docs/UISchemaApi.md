@@ -4,18 +4,18 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateUISchema**](UISchemaApi.md#createuischema) | **POST** /api/v1/meta/uischemas | Create a UI Schema
-[**DeleteUISchemas**](UISchemaApi.md#deleteuischemas) | **DELETE** /api/v1/meta/uischemas/{id} | Delete a UI Schema
-[**GetUISchema**](UISchemaApi.md#getuischema) | **GET** /api/v1/meta/uischemas/{id} | Retrieve a UI Schema
-[**ListUISchemas**](UISchemaApi.md#listuischemas) | **GET** /api/v1/meta/uischemas | List all UI Schemas
-[**ReplaceUISchemas**](UISchemaApi.md#replaceuischemas) | **PUT** /api/v1/meta/uischemas/{id} | Replace a UI Schema
+[**CreateUISchema**](UISchemaApi.md#createuischema) | **POST** /api/v1/meta/uischemas | Create a UI schema
+[**DeleteUISchemas**](UISchemaApi.md#deleteuischemas) | **DELETE** /api/v1/meta/uischemas/{id} | Delete a UI schema
+[**GetUISchema**](UISchemaApi.md#getuischema) | **GET** /api/v1/meta/uischemas/{id} | Retrieve a UI schema
+[**ListUISchemas**](UISchemaApi.md#listuischemas) | **GET** /api/v1/meta/uischemas | List all UI schemas
+[**ReplaceUISchemas**](UISchemaApi.md#replaceuischemas) | **PUT** /api/v1/meta/uischemas/{id} | Replace a UI schema
 
 
 <a name="createuischema"></a>
 # **CreateUISchema**
 > UISchemasResponseObject CreateUISchema (CreateUISchema uischemabody)
 
-Create a UI Schema
+Create a UI schema
 
 Creates an input for an enrollment form
 
@@ -45,7 +45,7 @@ namespace Example
 
             try
             {
-                // Create a UI Schema
+                // Create a UI schema
                 UISchemasResponseObject result = apiInstance.CreateUISchema(uischemabody);
                 Debug.WriteLine(result);
             }
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 # **DeleteUISchemas**
 > void DeleteUISchemas (string id)
 
-Delete a UI Schema
+Delete a UI schema
 
 Deletes a UI Schema by `id`
 
@@ -124,7 +124,7 @@ namespace Example
 
             try
             {
-                // Delete a UI Schema
+                // Delete a UI schema
                 apiInstance.DeleteUISchemas(id);
             }
             catch (ApiException  e)
@@ -173,7 +173,7 @@ void (empty response body)
 # **GetUISchema**
 > UISchemasResponseObject GetUISchema (string id)
 
-Retrieve a UI Schema
+Retrieve a UI schema
 
 Retrieves a UI Schema by `id`
 
@@ -203,7 +203,7 @@ namespace Example
 
             try
             {
-                // Retrieve a UI Schema
+                // Retrieve a UI schema
                 UISchemasResponseObject result = apiInstance.GetUISchema(id);
                 Debug.WriteLine(result);
             }
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 # **ListUISchemas**
 > List&lt;UISchemasResponseObject&gt; ListUISchemas ()
 
-List all UI Schemas
+List all UI schemas
 
 Lists all UI Schemas in your org
 
@@ -281,7 +281,7 @@ namespace Example
 
             try
             {
-                // List all UI Schemas
+                // List all UI schemas
                 List<UISchemasResponseObject> result = apiInstance.ListUISchemas().ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -326,7 +326,7 @@ This endpoint does not need any parameter.
 # **ReplaceUISchemas**
 > UISchemasResponseObject ReplaceUISchemas (string id, UpdateUISchema updateUISchemaBody)
 
-Replace a UI Schema
+Replace a UI schema
 
 Replaces a UI Schema by `id`
 
@@ -357,7 +357,7 @@ namespace Example
 
             try
             {
-                // Replace a UI Schema
+                // Replace a UI schema
                 UISchemasResponseObject result = apiInstance.ReplaceUISchemas(id, updateUISchemaBody);
                 Debug.WriteLine(result);
             }

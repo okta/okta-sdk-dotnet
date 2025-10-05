@@ -1,11 +1,10 @@
 # Okta.Sdk.Model.ApplicationFeature
-The Feature object is used to configure application feature settings. 
+The Feature object is used to configure app feature settings. 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Capabilities** | [**CapabilitiesObject**](CapabilitiesObject.md) |  | [optional] 
 **Description** | **string** | Description of the feature | [optional] [readonly] 
 **Name** | **ApplicationFeatureType** |  | [optional] 
 **Status** | **EnabledStatus** |  | [optional] 

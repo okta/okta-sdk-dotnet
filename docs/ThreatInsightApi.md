@@ -4,15 +4,15 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCurrentConfiguration**](ThreatInsightApi.md#getcurrentconfiguration) | **GET** /api/v1/threats/configuration | Retrieve the ThreatInsight Configuration
-[**UpdateConfiguration**](ThreatInsightApi.md#updateconfiguration) | **POST** /api/v1/threats/configuration | Update the ThreatInsight Configuration
+[**GetCurrentConfiguration**](ThreatInsightApi.md#getcurrentconfiguration) | **GET** /api/v1/threats/configuration | Retrieve the ThreatInsight configuration
+[**UpdateConfiguration**](ThreatInsightApi.md#updateconfiguration) | **POST** /api/v1/threats/configuration | Update the ThreatInsight configuration
 
 
 <a name="getcurrentconfiguration"></a>
 # **GetCurrentConfiguration**
 > ThreatInsightConfiguration GetCurrentConfiguration ()
 
-Retrieve the ThreatInsight Configuration
+Retrieve the ThreatInsight configuration
 
 Retrieves the ThreatInsight configuration for the org
 
@@ -41,7 +41,7 @@ namespace Example
 
             try
             {
-                // Retrieve the ThreatInsight Configuration
+                // Retrieve the ThreatInsight configuration
                 ThreatInsightConfiguration result = apiInstance.GetCurrentConfiguration();
                 Debug.WriteLine(result);
             }
@@ -86,7 +86,7 @@ This endpoint does not need any parameter.
 # **UpdateConfiguration**
 > ThreatInsightConfiguration UpdateConfiguration (ThreatInsightConfiguration threatInsightConfiguration)
 
-Update the ThreatInsight Configuration
+Update the ThreatInsight configuration
 
 Updates the ThreatInsight configuration for the org
 
@@ -116,7 +116,7 @@ namespace Example
 
             try
             {
-                // Update the ThreatInsight Configuration
+                // Update the ThreatInsight configuration
                 ThreatInsightConfiguration result = apiInstance.UpdateConfiguration(threatInsightConfiguration);
                 Debug.WriteLine(result);
             }

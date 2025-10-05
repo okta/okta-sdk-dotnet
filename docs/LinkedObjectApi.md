@@ -4,17 +4,17 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateLinkedObjectDefinition**](LinkedObjectApi.md#createlinkedobjectdefinition) | **POST** /api/v1/meta/schemas/user/linkedObjects | Create a Linked Object Definition
-[**DeleteLinkedObjectDefinition**](LinkedObjectApi.md#deletelinkedobjectdefinition) | **DELETE** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Delete a Linked Object Definition
-[**GetLinkedObjectDefinition**](LinkedObjectApi.md#getlinkedobjectdefinition) | **GET** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Retrieve a Linked Object Definition
-[**ListLinkedObjectDefinitions**](LinkedObjectApi.md#listlinkedobjectdefinitions) | **GET** /api/v1/meta/schemas/user/linkedObjects | List all Linked Object Definitions
+[**CreateLinkedObjectDefinition**](LinkedObjectApi.md#createlinkedobjectdefinition) | **POST** /api/v1/meta/schemas/user/linkedObjects | Create a linked object definition
+[**DeleteLinkedObjectDefinition**](LinkedObjectApi.md#deletelinkedobjectdefinition) | **DELETE** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Delete a linked object definition
+[**GetLinkedObjectDefinition**](LinkedObjectApi.md#getlinkedobjectdefinition) | **GET** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Retrieve a linked object definition
+[**ListLinkedObjectDefinitions**](LinkedObjectApi.md#listlinkedobjectdefinitions) | **GET** /api/v1/meta/schemas/user/linkedObjects | List all linked object definitions
 
 
 <a name="createlinkedobjectdefinition"></a>
 # **CreateLinkedObjectDefinition**
 > LinkedObject CreateLinkedObjectDefinition (LinkedObject linkedObject)
 
-Create a Linked Object Definition
+Create a linked object definition
 
 Creates a Linked Object definition
 
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                // Create a Linked Object Definition
+                // Create a linked object definition
                 LinkedObject result = apiInstance.CreateLinkedObjectDefinition(linkedObject);
                 Debug.WriteLine(result);
             }
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 # **DeleteLinkedObjectDefinition**
 > void DeleteLinkedObjectDefinition (string linkedObjectName)
 
-Delete a Linked Object Definition
+Delete a linked object definition
 
 Deletes the Linked Object definition specified by either the `primary` or `associated` name. The entire definition is removed, regardless of which name that you specify.
 
@@ -124,7 +124,7 @@ namespace Example
 
             try
             {
-                // Delete a Linked Object Definition
+                // Delete a linked object definition
                 apiInstance.DeleteLinkedObjectDefinition(linkedObjectName);
             }
             catch (ApiException  e)
@@ -172,7 +172,7 @@ void (empty response body)
 # **GetLinkedObjectDefinition**
 > LinkedObject GetLinkedObjectDefinition (string linkedObjectName)
 
-Retrieve a Linked Object Definition
+Retrieve a linked object definition
 
 Retrieves a Linked Object definition
 
@@ -202,7 +202,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Linked Object Definition
+                // Retrieve a linked object definition
                 LinkedObject result = apiInstance.GetLinkedObjectDefinition(linkedObjectName);
                 Debug.WriteLine(result);
             }
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 # **ListLinkedObjectDefinitions**
 > List&lt;LinkedObject&gt; ListLinkedObjectDefinitions ()
 
-List all Linked Object Definitions
+List all linked object definitions
 
 Lists all Linked Object definitions
 
@@ -280,7 +280,7 @@ namespace Example
 
             try
             {
-                // List all Linked Object Definitions
+                // List all linked object definitions
                 List<LinkedObject> result = apiInstance.ListLinkedObjectDefinitions().ToListAsync();
                 Debug.WriteLine(result);
             }

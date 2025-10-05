@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.OrgContactType
+Type of contact
 
 ## Properties
 

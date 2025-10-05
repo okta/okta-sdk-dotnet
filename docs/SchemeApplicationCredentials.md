@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Password** | [**PasswordCredential**](PasswordCredential.md) |  | [optional] 
 **RevealPassword** | **bool** | Allow users to securely see their password | [optional] 
 **Scheme** | **ApplicationCredentialsScheme** |  | [optional] 
-**UserName** | **string** |  | [optional] 
+**UserName** | **string** | Shared username for the app | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

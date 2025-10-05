@@ -4,20 +4,20 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateLogStream**](LogStreamApi.md#activatelogstream) | **POST** /api/v1/logStreams/{logStreamId}/lifecycle/activate | Activate a Log Stream
-[**CreateLogStream**](LogStreamApi.md#createlogstream) | **POST** /api/v1/logStreams | Create a Log Stream
-[**DeactivateLogStream**](LogStreamApi.md#deactivatelogstream) | **POST** /api/v1/logStreams/{logStreamId}/lifecycle/deactivate | Deactivate a Log Stream
-[**DeleteLogStream**](LogStreamApi.md#deletelogstream) | **DELETE** /api/v1/logStreams/{logStreamId} | Delete a Log Stream
-[**GetLogStream**](LogStreamApi.md#getlogstream) | **GET** /api/v1/logStreams/{logStreamId} | Retrieve a Log Stream
-[**ListLogStreams**](LogStreamApi.md#listlogstreams) | **GET** /api/v1/logStreams | List all Log Streams
-[**ReplaceLogStream**](LogStreamApi.md#replacelogstream) | **PUT** /api/v1/logStreams/{logStreamId} | Replace a Log Stream
+[**ActivateLogStream**](LogStreamApi.md#activatelogstream) | **POST** /api/v1/logStreams/{logStreamId}/lifecycle/activate | Activate a log stream
+[**CreateLogStream**](LogStreamApi.md#createlogstream) | **POST** /api/v1/logStreams | Create a log stream
+[**DeactivateLogStream**](LogStreamApi.md#deactivatelogstream) | **POST** /api/v1/logStreams/{logStreamId}/lifecycle/deactivate | Deactivate a log stream
+[**DeleteLogStream**](LogStreamApi.md#deletelogstream) | **DELETE** /api/v1/logStreams/{logStreamId} | Delete a log stream
+[**GetLogStream**](LogStreamApi.md#getlogstream) | **GET** /api/v1/logStreams/{logStreamId} | Retrieve a log stream
+[**ListLogStreams**](LogStreamApi.md#listlogstreams) | **GET** /api/v1/logStreams | List all log streams
+[**ReplaceLogStream**](LogStreamApi.md#replacelogstream) | **PUT** /api/v1/logStreams/{logStreamId} | Replace a log stream
 
 
 <a name="activatelogstream"></a>
 # **ActivateLogStream**
 > LogStream ActivateLogStream (string logStreamId)
 
-Activate a Log Stream
+Activate a log stream
 
 Activates a log stream by `logStreamId`
 
@@ -43,11 +43,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LogStreamApi(config);
-            var logStreamId = 0oa1orzg0CHSgPcjZ0g4;  // string | Unique identifier for the Log Stream
+            var logStreamId = 0oa1orzg0CHSgPcjZ0g4;  // string | Unique identifier for the log stream
 
             try
             {
-                // Activate a Log Stream
+                // Activate a log stream
                 LogStream result = apiInstance.ActivateLogStream(logStreamId);
                 Debug.WriteLine(result);
             }
@@ -66,7 +66,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **logStreamId** | **string**| Unique identifier for the Log Stream | 
+ **logStreamId** | **string**| Unique identifier for the log stream | 
 
 ### Return type
 
@@ -96,9 +96,9 @@ Name | Type | Description  | Notes
 # **CreateLogStream**
 > LogStream CreateLogStream (LogStream instance)
 
-Create a Log Stream
+Create a log stream
 
-Creates a new Log Stream object
+Creates a new log stream object
 
 ### Example
 ```csharp
@@ -126,7 +126,7 @@ namespace Example
 
             try
             {
-                // Create a Log Stream
+                // Create a log stream
                 LogStream result = apiInstance.CreateLogStream(instance);
                 Debug.WriteLine(result);
             }
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 # **DeactivateLogStream**
 > LogStream DeactivateLogStream (string logStreamId)
 
-Deactivate a Log Stream
+Deactivate a log stream
 
 Deactivates a log stream by `logStreamId`
 
@@ -201,11 +201,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LogStreamApi(config);
-            var logStreamId = 0oa1orzg0CHSgPcjZ0g4;  // string | Unique identifier for the Log Stream
+            var logStreamId = 0oa1orzg0CHSgPcjZ0g4;  // string | Unique identifier for the log stream
 
             try
             {
-                // Deactivate a Log Stream
+                // Deactivate a log stream
                 LogStream result = apiInstance.DeactivateLogStream(logStreamId);
                 Debug.WriteLine(result);
             }
@@ -224,7 +224,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **logStreamId** | **string**| Unique identifier for the Log Stream | 
+ **logStreamId** | **string**| Unique identifier for the log stream | 
 
 ### Return type
 
@@ -254,9 +254,9 @@ Name | Type | Description  | Notes
 # **DeleteLogStream**
 > void DeleteLogStream (string logStreamId)
 
-Delete a Log Stream
+Delete a log stream
 
-Deletes a Log Stream object from your org by ID
+Deletes a log stream object from your org by ID
 
 ### Example
 ```csharp
@@ -280,11 +280,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LogStreamApi(config);
-            var logStreamId = 0oa1orzg0CHSgPcjZ0g4;  // string | Unique identifier for the Log Stream
+            var logStreamId = 0oa1orzg0CHSgPcjZ0g4;  // string | Unique identifier for the log stream
 
             try
             {
-                // Delete a Log Stream
+                // Delete a log stream
                 apiInstance.DeleteLogStream(logStreamId);
             }
             catch (ApiException  e)
@@ -302,7 +302,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **logStreamId** | **string**| Unique identifier for the Log Stream | 
+ **logStreamId** | **string**| Unique identifier for the log stream | 
 
 ### Return type
 
@@ -332,9 +332,9 @@ void (empty response body)
 # **GetLogStream**
 > LogStream GetLogStream (string logStreamId)
 
-Retrieve a Log Stream
+Retrieve a log stream
 
-Retrieves a Log Stream object by ID
+Retrieves a log stream object by ID
 
 ### Example
 ```csharp
@@ -358,11 +358,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LogStreamApi(config);
-            var logStreamId = 0oa1orzg0CHSgPcjZ0g4;  // string | Unique identifier for the Log Stream
+            var logStreamId = 0oa1orzg0CHSgPcjZ0g4;  // string | Unique identifier for the log stream
 
             try
             {
-                // Retrieve a Log Stream
+                // Retrieve a log stream
                 LogStream result = apiInstance.GetLogStream(logStreamId);
                 Debug.WriteLine(result);
             }
@@ -381,7 +381,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **logStreamId** | **string**| Unique identifier for the Log Stream | 
+ **logStreamId** | **string**| Unique identifier for the log stream | 
 
 ### Return type
 
@@ -411,9 +411,9 @@ Name | Type | Description  | Notes
 # **ListLogStreams**
 > List&lt;LogStream&gt; ListLogStreams (string after = null, int? limit = null, string filter = null)
 
-List all Log Streams
+List all log streams
 
-Lists all Log Stream objects in your org. You can request a paginated list or a subset of Log Streams that match a supported filter expression.
+Lists all log stream objects in your org. You can request a paginated list or a subset of log streams that match a supported filter expression.
 
 ### Example
 ```csharp
@@ -437,13 +437,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LogStreamApi(config);
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
             var limit = 20;  // int? | A limit on the number of objects to return (optional)  (default to 20)
             var filter = type eq "aws_eventbridge";  // string | An expression that [filters](/#filter) the returned objects. You can only use the `eq` operator on either the `status` or `type` properties in the filter expression. (optional) 
 
             try
             {
-                // List all Log Streams
+                // List all log streams
                 List<LogStream> result = apiInstance.ListLogStreams(after, limit, filter).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -462,7 +462,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
  **limit** | **int?**| A limit on the number of objects to return | [optional] [default to 20]
  **filter** | **string**| An expression that [filters](/#filter) the returned objects. You can only use the &#x60;eq&#x60; operator on either the &#x60;status&#x60; or &#x60;type&#x60; properties in the filter expression. | [optional] 
 
@@ -493,9 +493,9 @@ Name | Type | Description  | Notes
 # **ReplaceLogStream**
 > LogStream ReplaceLogStream (string logStreamId, LogStreamPutSchema instance)
 
-Replace a Log Stream
+Replace a log stream
 
-Replaces the Log Stream object properties for a given ID.  This operation is typically used to update the configuration of a Log Stream. Depending on the type of Log Stream you want to update, certain properties can't be modified after the Log Stream is initially created. Use the [Retrieve the Log Stream Schema for the schema type](/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getLogStreamSchema) request to determine which properties you can update for the specific Log Stream type. Log Stream properties with the `\"writeOnce\" : true` attribute can't be updated after creation. You must still specify these `writeOnce` properties in the request body with the original values in the PUT request.  > **Note:** You don't have to specify properties that have both the `\"writeOnce\": true` and the `\"writeOnly\": true` attributes in the PUT request body. These property values are ignored even if you add them in the PUT request body.
+Replaces the log stream object properties for a given ID.  This operation is typically used to update the configuration of a log stream. Depending on the type of log stream you want to update, certain properties can't be modified after the log stream is initially created. Use the [Retrieve the log stream schema for the schema type](/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getLogStreamSchema) request to determine which properties you can update for the specific log stream type. Log stream properties with the `\"writeOnce\" : true` attribute can't be updated after creation. You must still specify these `writeOnce` properties in the request body with the original values in the PUT request.  > **Note:** You don't have to specify properties that have both the `\"writeOnce\": true` and the `\"writeOnly\": true` attributes in the PUT request body. These property values are ignored even if you add them in the PUT request body.
 
 ### Example
 ```csharp
@@ -519,12 +519,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LogStreamApi(config);
-            var logStreamId = 0oa1orzg0CHSgPcjZ0g4;  // string | Unique identifier for the Log Stream
+            var logStreamId = 0oa1orzg0CHSgPcjZ0g4;  // string | Unique identifier for the log stream
             var instance = new LogStreamPutSchema(); // LogStreamPutSchema | 
 
             try
             {
-                // Replace a Log Stream
+                // Replace a log stream
                 LogStream result = apiInstance.ReplaceLogStream(logStreamId, instance);
                 Debug.WriteLine(result);
             }
@@ -543,7 +543,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **logStreamId** | **string**| Unique identifier for the Log Stream | 
+ **logStreamId** | **string**| Unique identifier for the log stream | 
  **instance** | [**LogStreamPutSchema**](LogStreamPutSchema.md)|  | 
 
 ### Return type

@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.LogSeverity
+Indicates how severe the event is
 
 ## Properties
 

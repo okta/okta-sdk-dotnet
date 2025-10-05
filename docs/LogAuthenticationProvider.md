@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.LogAuthenticationProvider
+The system that proves the identity of an actor using the credentials provided to it
 
 ## Properties
 

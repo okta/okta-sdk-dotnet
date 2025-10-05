@@ -4,14 +4,14 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PublishSecurityEventTokens**](SSFSecurityEventTokenApi.md#publishsecurityeventtokens) | **POST** /security/api/v1/security-events | Publish a Security Event Token
+[**PublishSecurityEventTokens**](SSFSecurityEventTokenApi.md#publishsecurityeventtokens) | **POST** /security/api/v1/security-events | Publish a security event token
 
 
 <a name="publishsecurityeventtokens"></a>
 # **PublishSecurityEventTokens**
 > void PublishSecurityEventTokens (string securityEventToken)
 
-Publish a Security Event Token
+Publish a security event token
 
 Publishes a Security Event Token (SET) sent by a Security Events Provider. After the token is verified, Okta ingests the event and performs any appropriate action.
 
@@ -36,7 +36,7 @@ namespace Example
 
             try
             {
-                // Publish a Security Event Token
+                // Publish a security event token
                 apiInstance.PublishSecurityEventTokens(securityEventToken);
             }
             catch (ApiException  e)

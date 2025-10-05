@@ -1,5 +1,4 @@
 # Okta.Sdk.Model.LogTarget
-The entity that an actor performs an action on. Targets can be anything, such as an app user, a sign-in token, or anything else.
 
 ## Properties
 

@@ -1,11 +1,12 @@
 # Okta.Sdk.Model.WellKnownOrgMetadataLinks
+Specifies link relations (see [Web Linking](https://www.rfc-editor.org/rfc/rfc8288)) available for this object using the [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) specification
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Alternate** | [**HrefObject**](HrefObject.md) |  | [optional] 
-**Organization** | [**HrefObject**](HrefObject.md) |  | [optional] 
+**Alternate** | [**WellKnownOrgMetadataLinksAlternate**](WellKnownOrgMetadataLinksAlternate.md) |  | [optional] 
+**Organization** | [**WellKnownOrgMetadataLinksOrganization**](WellKnownOrgMetadataLinksOrganization.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

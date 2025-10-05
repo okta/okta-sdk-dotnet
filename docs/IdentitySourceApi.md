@@ -4,20 +4,20 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateIdentitySourceSession**](IdentitySourceApi.md#createidentitysourcesession) | **POST** /api/v1/identity-sources/{identitySourceId}/sessions | Create an Identity Source Session
-[**DeleteIdentitySourceSession**](IdentitySourceApi.md#deleteidentitysourcesession) | **DELETE** /api/v1/identity-sources/{identitySourceId}/sessions/{sessionId} | Delete an Identity Source Session
-[**GetIdentitySourceSession**](IdentitySourceApi.md#getidentitysourcesession) | **GET** /api/v1/identity-sources/{identitySourceId}/sessions/{sessionId} | Retrieve an Identity Source Session
-[**ListIdentitySourceSessions**](IdentitySourceApi.md#listidentitysourcesessions) | **GET** /api/v1/identity-sources/{identitySourceId}/sessions | List all Identity Source Sessions
-[**StartImportFromIdentitySource**](IdentitySourceApi.md#startimportfromidentitysource) | **POST** /api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/start-import | Start the import from the Identity Source
+[**CreateIdentitySourceSession**](IdentitySourceApi.md#createidentitysourcesession) | **POST** /api/v1/identity-sources/{identitySourceId}/sessions | Create an identity source session
+[**DeleteIdentitySourceSession**](IdentitySourceApi.md#deleteidentitysourcesession) | **DELETE** /api/v1/identity-sources/{identitySourceId}/sessions/{sessionId} | Delete an identity source session
+[**GetIdentitySourceSession**](IdentitySourceApi.md#getidentitysourcesession) | **GET** /api/v1/identity-sources/{identitySourceId}/sessions/{sessionId} | Retrieve an identity source session
+[**ListIdentitySourceSessions**](IdentitySourceApi.md#listidentitysourcesessions) | **GET** /api/v1/identity-sources/{identitySourceId}/sessions | List all identity source sessions
+[**StartImportFromIdentitySource**](IdentitySourceApi.md#startimportfromidentitysource) | **POST** /api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/start-import | Start the import from the identity source
 [**UploadIdentitySourceDataForDelete**](IdentitySourceApi.md#uploadidentitysourcedatafordelete) | **POST** /api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/bulk-delete | Upload the data to be deleted in Okta
 [**UploadIdentitySourceDataForUpsert**](IdentitySourceApi.md#uploadidentitysourcedataforupsert) | **POST** /api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/bulk-upsert | Upload the data to be upserted in Okta
 
 
 <a name="createidentitysourcesession"></a>
 # **CreateIdentitySourceSession**
-> List&lt;IdentitySourceSession&gt; CreateIdentitySourceSession (string identitySourceId)
+> IdentitySourceSession CreateIdentitySourceSession (string identitySourceId)
 
-Create an Identity Source Session
+Create an identity source session
 
 Creates an identity source session for the given identity source instance
 
@@ -43,12 +43,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentitySourceApi(config);
-            var identitySourceId = "identitySourceId_example";  // string | 
+            var identitySourceId = 0oa3l6l6WK6h0R0QW0g4;  // string | The ID of the identity source for which the session is created
 
             try
             {
-                // Create an Identity Source Session
-                List<IdentitySourceSession> result = apiInstance.CreateIdentitySourceSession(identitySourceId).ToListAsync();
+                // Create an identity source session
+                IdentitySourceSession result = apiInstance.CreateIdentitySourceSession(identitySourceId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -66,11 +66,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identitySourceId** | **string**|  | 
+ **identitySourceId** | **string**| The ID of the identity source for which the session is created | 
 
 ### Return type
 
-[**List&lt;IdentitySourceSession&gt;**](IdentitySourceSession.md)
+[**IdentitySourceSession**](IdentitySourceSession.md)
 
 ### Authorization
 
@@ -96,9 +96,9 @@ Name | Type | Description  | Notes
 # **DeleteIdentitySourceSession**
 > void DeleteIdentitySourceSession (string identitySourceId, string sessionId)
 
-Delete an Identity Source Session
+Delete an identity source session
 
-Deletes an identity source session for a given `identitySourceId` and `sessionId`
+Deletes an identity source session for a given identity source ID and session Id
 
 ### Example
 ```csharp
@@ -122,12 +122,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentitySourceApi(config);
-            var identitySourceId = "identitySourceId_example";  // string | 
-            var sessionId = "sessionId_example";  // string | 
+            var identitySourceId = 0oa3l6l6WK6h0R0QW0g4;  // string | The ID of the identity source for which the session is created
+            var sessionId = aps1qqonvr2SZv6o70h8;  // string | The ID of the identity source session
 
             try
             {
-                // Delete an Identity Source Session
+                // Delete an identity source session
                 apiInstance.DeleteIdentitySourceSession(identitySourceId, sessionId);
             }
             catch (ApiException  e)
@@ -145,8 +145,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identitySourceId** | **string**|  | 
- **sessionId** | **string**|  | 
+ **identitySourceId** | **string**| The ID of the identity source for which the session is created | 
+ **sessionId** | **string**| The ID of the identity source session | 
 
 ### Return type
 
@@ -176,9 +176,9 @@ void (empty response body)
 # **GetIdentitySourceSession**
 > IdentitySourceSession GetIdentitySourceSession (string identitySourceId, string sessionId)
 
-Retrieve an Identity Source Session
+Retrieve an identity source session
 
-Retrieves an identity source session for a given identity source id and session id
+Retrieves an identity source session for a given identity source ID and session ID
 
 ### Example
 ```csharp
@@ -202,12 +202,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentitySourceApi(config);
-            var identitySourceId = "identitySourceId_example";  // string | 
-            var sessionId = "sessionId_example";  // string | 
+            var identitySourceId = 0oa3l6l6WK6h0R0QW0g4;  // string | The ID of the identity source for which the session is created
+            var sessionId = aps1qqonvr2SZv6o70h8;  // string | The ID of the identity source session
 
             try
             {
-                // Retrieve an Identity Source Session
+                // Retrieve an identity source session
                 IdentitySourceSession result = apiInstance.GetIdentitySourceSession(identitySourceId, sessionId);
                 Debug.WriteLine(result);
             }
@@ -226,8 +226,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identitySourceId** | **string**|  | 
- **sessionId** | **string**|  | 
+ **identitySourceId** | **string**| The ID of the identity source for which the session is created | 
+ **sessionId** | **string**| The ID of the identity source session | 
 
 ### Return type
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 # **ListIdentitySourceSessions**
 > List&lt;IdentitySourceSession&gt; ListIdentitySourceSessions (string identitySourceId)
 
-List all Identity Source Sessions
+List all identity source sessions
 
 Lists all identity source sessions for the given identity source instance
 
@@ -283,11 +283,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentitySourceApi(config);
-            var identitySourceId = "identitySourceId_example";  // string | 
+            var identitySourceId = 0oa3l6l6WK6h0R0QW0g4;  // string | The ID of the identity source for which the session is created
 
             try
             {
-                // List all Identity Source Sessions
+                // List all identity source sessions
                 List<IdentitySourceSession> result = apiInstance.ListIdentitySourceSessions(identitySourceId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -306,7 +306,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identitySourceId** | **string**|  | 
+ **identitySourceId** | **string**| The ID of the identity source for which the session is created | 
 
 ### Return type
 
@@ -334,9 +334,9 @@ Name | Type | Description  | Notes
 
 <a name="startimportfromidentitysource"></a>
 # **StartImportFromIdentitySource**
-> List&lt;IdentitySourceSession&gt; StartImportFromIdentitySource (string identitySourceId, string sessionId)
+> IdentitySourceSession StartImportFromIdentitySource (string identitySourceId, string sessionId)
 
-Start the import from the Identity Source
+Start the import from the identity source
 
 Starts the import from the identity source described by the uploaded bulk operations
 
@@ -362,13 +362,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentitySourceApi(config);
-            var identitySourceId = "identitySourceId_example";  // string | 
-            var sessionId = "sessionId_example";  // string | 
+            var identitySourceId = 0oa3l6l6WK6h0R0QW0g4;  // string | The ID of the identity source for which the session is created
+            var sessionId = aps1qqonvr2SZv6o70h8;  // string | The ID of the identity source session
 
             try
             {
-                // Start the import from the Identity Source
-                List<IdentitySourceSession> result = apiInstance.StartImportFromIdentitySource(identitySourceId, sessionId).ToListAsync();
+                // Start the import from the identity source
+                IdentitySourceSession result = apiInstance.StartImportFromIdentitySource(identitySourceId, sessionId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -386,12 +386,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identitySourceId** | **string**|  | 
- **sessionId** | **string**|  | 
+ **identitySourceId** | **string**| The ID of the identity source for which the session is created | 
+ **sessionId** | **string**| The ID of the identity source session | 
 
 ### Return type
 
-[**List&lt;IdentitySourceSession&gt;**](IdentitySourceSession.md)
+[**IdentitySourceSession**](IdentitySourceSession.md)
 
 ### Authorization
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 
 Upload the data to be deleted in Okta
 
-Uploads entities that need to be deleted in Okta from the identity source for the given session
+Uploads external IDs of entities that need to be deleted in Okta from the identity source for the given session
 
 ### Example
 ```csharp
@@ -443,8 +443,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentitySourceApi(config);
-            var identitySourceId = "identitySourceId_example";  // string | 
-            var sessionId = "sessionId_example";  // string | 
+            var identitySourceId = 0oa3l6l6WK6h0R0QW0g4;  // string | The ID of the identity source for which the session is created
+            var sessionId = aps1qqonvr2SZv6o70h8;  // string | The ID of the identity source session
             var bulkDeleteRequestBody = new BulkDeleteRequestBody(); // BulkDeleteRequestBody |  (optional) 
 
             try
@@ -467,8 +467,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identitySourceId** | **string**|  | 
- **sessionId** | **string**|  | 
+ **identitySourceId** | **string**| The ID of the identity source for which the session is created | 
+ **sessionId** | **string**| The ID of the identity source session | 
  **bulkDeleteRequestBody** | [**BulkDeleteRequestBody**](BulkDeleteRequestBody.md)|  | [optional] 
 
 ### Return type
@@ -502,7 +502,7 @@ void (empty response body)
 
 Upload the data to be upserted in Okta
 
-Uploads entities that need to be upserted in Okta from the identity source for the given session
+Uploads entities that need to be inserted or updated in Okta from the identity source for the given session
 
 ### Example
 ```csharp
@@ -526,8 +526,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentitySourceApi(config);
-            var identitySourceId = "identitySourceId_example";  // string | 
-            var sessionId = "sessionId_example";  // string | 
+            var identitySourceId = 0oa3l6l6WK6h0R0QW0g4;  // string | The ID of the identity source for which the session is created
+            var sessionId = aps1qqonvr2SZv6o70h8;  // string | The ID of the identity source session
             var bulkUpsertRequestBody = new BulkUpsertRequestBody(); // BulkUpsertRequestBody |  (optional) 
 
             try
@@ -550,8 +550,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identitySourceId** | **string**|  | 
- **sessionId** | **string**|  | 
+ **identitySourceId** | **string**| The ID of the identity source for which the session is created | 
+ **sessionId** | **string**| The ID of the identity source session | 
  **bulkUpsertRequestBody** | [**BulkUpsertRequestBody**](BulkUpsertRequestBody.md)|  | [optional] 
 
 ### Return type

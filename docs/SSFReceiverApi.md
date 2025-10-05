@@ -4,20 +4,20 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateSecurityEventsProviderInstance**](SSFReceiverApi.md#activatesecurityeventsproviderinstance) | **POST** /api/v1/security-events-providers/{securityEventProviderId}/lifecycle/activate | Activate a Security Events Provider
-[**CreateSecurityEventsProviderInstance**](SSFReceiverApi.md#createsecurityeventsproviderinstance) | **POST** /api/v1/security-events-providers | Create a Security Events Provider
-[**DeactivateSecurityEventsProviderInstance**](SSFReceiverApi.md#deactivatesecurityeventsproviderinstance) | **POST** /api/v1/security-events-providers/{securityEventProviderId}/lifecycle/deactivate | Deactivate a Security Events Provider
-[**DeleteSecurityEventsProviderInstance**](SSFReceiverApi.md#deletesecurityeventsproviderinstance) | **DELETE** /api/v1/security-events-providers/{securityEventProviderId} | Delete a Security Events Provider
-[**GetSecurityEventsProviderInstance**](SSFReceiverApi.md#getsecurityeventsproviderinstance) | **GET** /api/v1/security-events-providers/{securityEventProviderId} | Retrieve the Security Events Provider
-[**ListSecurityEventsProviderInstances**](SSFReceiverApi.md#listsecurityeventsproviderinstances) | **GET** /api/v1/security-events-providers | List all Security Events Providers
-[**ReplaceSecurityEventsProviderInstance**](SSFReceiverApi.md#replacesecurityeventsproviderinstance) | **PUT** /api/v1/security-events-providers/{securityEventProviderId} | Replace a Security Events Provider
+[**ActivateSecurityEventsProviderInstance**](SSFReceiverApi.md#activatesecurityeventsproviderinstance) | **POST** /api/v1/security-events-providers/{securityEventProviderId}/lifecycle/activate | Activate a security events provider
+[**CreateSecurityEventsProviderInstance**](SSFReceiverApi.md#createsecurityeventsproviderinstance) | **POST** /api/v1/security-events-providers | Create a security events provider
+[**DeactivateSecurityEventsProviderInstance**](SSFReceiverApi.md#deactivatesecurityeventsproviderinstance) | **POST** /api/v1/security-events-providers/{securityEventProviderId}/lifecycle/deactivate | Deactivate a security events provider
+[**DeleteSecurityEventsProviderInstance**](SSFReceiverApi.md#deletesecurityeventsproviderinstance) | **DELETE** /api/v1/security-events-providers/{securityEventProviderId} | Delete a security events provider
+[**GetSecurityEventsProviderInstance**](SSFReceiverApi.md#getsecurityeventsproviderinstance) | **GET** /api/v1/security-events-providers/{securityEventProviderId} | Retrieve the security events provider
+[**ListSecurityEventsProviderInstances**](SSFReceiverApi.md#listsecurityeventsproviderinstances) | **GET** /api/v1/security-events-providers | List all security events providers
+[**ReplaceSecurityEventsProviderInstance**](SSFReceiverApi.md#replacesecurityeventsproviderinstance) | **PUT** /api/v1/security-events-providers/{securityEventProviderId} | Replace a security events provider
 
 
 <a name="activatesecurityeventsproviderinstance"></a>
 # **ActivateSecurityEventsProviderInstance**
 > SecurityEventsProviderResponse ActivateSecurityEventsProviderInstance (string securityEventProviderId)
 
-Activate a Security Events Provider
+Activate a security events provider
 
 Activates a Security Events Provider instance by setting its status to `ACTIVE`. This operation resumes the flow of events from the Security Events Provider to Okta.
 
@@ -47,7 +47,7 @@ namespace Example
 
             try
             {
-                // Activate a Security Events Provider
+                // Activate a security events provider
                 SecurityEventsProviderResponse result = apiInstance.ActivateSecurityEventsProviderInstance(securityEventProviderId);
                 Debug.WriteLine(result);
             }
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 # **CreateSecurityEventsProviderInstance**
 > SecurityEventsProviderResponse CreateSecurityEventsProviderInstance (SecurityEventsProviderRequest instance)
 
-Create a Security Events Provider
+Create a security events provider
 
 Creates a Security Events Provider instance
 
@@ -127,7 +127,7 @@ namespace Example
 
             try
             {
-                // Create a Security Events Provider
+                // Create a security events provider
                 SecurityEventsProviderResponse result = apiInstance.CreateSecurityEventsProviderInstance(instance);
                 Debug.WriteLine(result);
             }
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 # **DeactivateSecurityEventsProviderInstance**
 > SecurityEventsProviderResponse DeactivateSecurityEventsProviderInstance (string securityEventProviderId)
 
-Deactivate a Security Events Provider
+Deactivate a security events provider
 
 Deactivates a Security Events Provider instance by setting its status to `INACTIVE`. This operation stops the flow of events from the Security Events Provider to Okta.
 
@@ -207,7 +207,7 @@ namespace Example
 
             try
             {
-                // Deactivate a Security Events Provider
+                // Deactivate a security events provider
                 SecurityEventsProviderResponse result = apiInstance.DeactivateSecurityEventsProviderInstance(securityEventProviderId);
                 Debug.WriteLine(result);
             }
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 # **DeleteSecurityEventsProviderInstance**
 > void DeleteSecurityEventsProviderInstance (string securityEventProviderId)
 
-Delete a Security Events Provider
+Delete a security events provider
 
 Deletes a Security Events Provider instance specified by `id`
 
@@ -287,7 +287,7 @@ namespace Example
 
             try
             {
-                // Delete a Security Events Provider
+                // Delete a security events provider
                 apiInstance.DeleteSecurityEventsProviderInstance(securityEventProviderId);
             }
             catch (ApiException  e)
@@ -336,7 +336,7 @@ void (empty response body)
 # **GetSecurityEventsProviderInstance**
 > SecurityEventsProviderResponse GetSecurityEventsProviderInstance (string securityEventProviderId)
 
-Retrieve the Security Events Provider
+Retrieve the security events provider
 
 Retrieves the Security Events Provider instance specified by `id`
 
@@ -366,7 +366,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Security Events Provider
+                // Retrieve the security events provider
                 SecurityEventsProviderResponse result = apiInstance.GetSecurityEventsProviderInstance(securityEventProviderId);
                 Debug.WriteLine(result);
             }
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 # **ListSecurityEventsProviderInstances**
 > List&lt;SecurityEventsProviderResponse&gt; ListSecurityEventsProviderInstances ()
 
-List all Security Events Providers
+List all security events providers
 
 Lists all Security Events Provider instances
 
@@ -445,7 +445,7 @@ namespace Example
 
             try
             {
-                // List all Security Events Providers
+                // List all security events providers
                 List<SecurityEventsProviderResponse> result = apiInstance.ListSecurityEventsProviderInstances().ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -491,7 +491,7 @@ This endpoint does not need any parameter.
 # **ReplaceSecurityEventsProviderInstance**
 > SecurityEventsProviderResponse ReplaceSecurityEventsProviderInstance (string securityEventProviderId, SecurityEventsProviderRequest instance)
 
-Replace a Security Events Provider
+Replace a security events provider
 
 Replaces a Security Events Provider instance specified by `id`
 
@@ -522,7 +522,7 @@ namespace Example
 
             try
             {
-                // Replace a Security Events Provider
+                // Replace a security events provider
                 SecurityEventsProviderResponse result = apiInstance.ReplaceSecurityEventsProviderInstance(securityEventProviderId, instance);
                 Debug.WriteLine(result);
             }

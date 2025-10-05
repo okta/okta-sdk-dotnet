@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.OrgOktaSupportSetting
+Status of Okta Support Settings
 
 ## Properties
 

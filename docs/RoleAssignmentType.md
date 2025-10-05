@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.RoleAssignmentType
+Role assignment type
 
 ## Properties
 

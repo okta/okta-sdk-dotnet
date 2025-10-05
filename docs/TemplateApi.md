@@ -4,19 +4,19 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateSmsTemplate**](TemplateApi.md#createsmstemplate) | **POST** /api/v1/templates/sms | Create an SMS Template
-[**DeleteSmsTemplate**](TemplateApi.md#deletesmstemplate) | **DELETE** /api/v1/templates/sms/{templateId} | Delete an SMS Template
-[**GetSmsTemplate**](TemplateApi.md#getsmstemplate) | **GET** /api/v1/templates/sms/{templateId} | Retrieve an SMS Template
-[**ListSmsTemplates**](TemplateApi.md#listsmstemplates) | **GET** /api/v1/templates/sms | List all SMS Templates
-[**ReplaceSmsTemplate**](TemplateApi.md#replacesmstemplate) | **PUT** /api/v1/templates/sms/{templateId} | Replace an SMS Template
-[**UpdateSmsTemplate**](TemplateApi.md#updatesmstemplate) | **POST** /api/v1/templates/sms/{templateId} | Update an SMS Template
+[**CreateSmsTemplate**](TemplateApi.md#createsmstemplate) | **POST** /api/v1/templates/sms | Create an SMS template
+[**DeleteSmsTemplate**](TemplateApi.md#deletesmstemplate) | **DELETE** /api/v1/templates/sms/{templateId} | Delete an SMS template
+[**GetSmsTemplate**](TemplateApi.md#getsmstemplate) | **GET** /api/v1/templates/sms/{templateId} | Retrieve an SMS template
+[**ListSmsTemplates**](TemplateApi.md#listsmstemplates) | **GET** /api/v1/templates/sms | List all SMS templates
+[**ReplaceSmsTemplate**](TemplateApi.md#replacesmstemplate) | **PUT** /api/v1/templates/sms/{templateId} | Replace an SMS template
+[**UpdateSmsTemplate**](TemplateApi.md#updatesmstemplate) | **POST** /api/v1/templates/sms/{templateId} | Update an SMS template
 
 
 <a name="createsmstemplate"></a>
 # **CreateSmsTemplate**
 > SmsTemplate CreateSmsTemplate (SmsTemplate smsTemplate)
 
-Create an SMS Template
+Create an SMS template
 
 Creates a new custom SMS template
 
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Create an SMS Template
+                // Create an SMS template
                 SmsTemplate result = apiInstance.CreateSmsTemplate(smsTemplate);
                 Debug.WriteLine(result);
             }
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 # **DeleteSmsTemplate**
 > void DeleteSmsTemplate (string templateId)
 
-Delete an SMS Template
+Delete an SMS template
 
 Deletes an SMS template
 
@@ -125,7 +125,7 @@ namespace Example
 
             try
             {
-                // Delete an SMS Template
+                // Delete an SMS template
                 apiInstance.DeleteSmsTemplate(templateId);
             }
             catch (ApiException  e)
@@ -173,7 +173,7 @@ void (empty response body)
 # **GetSmsTemplate**
 > SmsTemplate GetSmsTemplate (string templateId)
 
-Retrieve an SMS Template
+Retrieve an SMS template
 
 Retrieves a specific template by `id`
 
@@ -203,7 +203,7 @@ namespace Example
 
             try
             {
-                // Retrieve an SMS Template
+                // Retrieve an SMS template
                 SmsTemplate result = apiInstance.GetSmsTemplate(templateId);
                 Debug.WriteLine(result);
             }
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 # **ListSmsTemplates**
 > List&lt;SmsTemplate&gt; ListSmsTemplates (SmsTemplateType? templateType = null)
 
-List all SMS Templates
+List all SMS templates
 
 Lists all custom SMS templates. A subset of templates can be returned that match a template type.
 
@@ -282,7 +282,7 @@ namespace Example
 
             try
             {
-                // List all SMS Templates
+                // List all SMS templates
                 List<SmsTemplate> result = apiInstance.ListSmsTemplates(templateType).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 # **ReplaceSmsTemplate**
 > SmsTemplate ReplaceSmsTemplate (string templateId, SmsTemplate smsTemplate)
 
-Replace an SMS Template
+Replace an SMS template
 
 Replaces the SMS Template > **Notes:** You can't update the default SMS Template. 
 
@@ -361,7 +361,7 @@ namespace Example
 
             try
             {
-                // Replace an SMS Template
+                // Replace an SMS template
                 SmsTemplate result = apiInstance.ReplaceSmsTemplate(templateId, smsTemplate);
                 Debug.WriteLine(result);
             }
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 # **UpdateSmsTemplate**
 > SmsTemplate UpdateSmsTemplate (string templateId, SmsTemplate smsTemplate)
 
-Update an SMS Template
+Update an SMS template
 
 Updates only some of the SMS Template properties:   * All properties within the custom SMS Template that have values are updated.   * Any translation that doesn't exist is added.   * Any translation with a null or empty value is removed.   * Any translation with non-empty/null value is updated. 
 
@@ -443,7 +443,7 @@ namespace Example
 
             try
             {
-                // Update an SMS Template
+                // Update an SMS template
                 SmsTemplate result = apiInstance.UpdateSmsTemplate(templateId, smsTemplate);
                 Debug.WriteLine(result);
             }

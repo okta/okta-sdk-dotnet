@@ -4,14 +4,14 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SendRiskEvents**](RiskEventApi.md#sendriskevents) | **POST** /api/v1/risk/events/ip | Send multiple Risk Events
+[**SendRiskEvents**](RiskEventApi.md#sendriskevents) | **POST** /api/v1/risk/events/ip | Send multiple risk events
 
 
 <a name="sendriskevents"></a>
 # **SendRiskEvents**
 > void SendRiskEvents (List<RiskEvent> instance)
 
-Send multiple Risk Events
+Send multiple risk events
 
 Sends multiple IP risk events to Okta. This request is used by a third-party risk provider to send IP risk events to Okta. The third-party risk provider needs to be registered with Okta before they can send events to Okta. See [Risk Providers](/openapi/okta-management/management/tag/RiskProvider/). This API has a rate limit of 30 requests per minute. You can include multiple risk events (up to a maximum of 20 events) in a single payload to reduce the number of API calls. Prioritize sending high risk signals if you have a burst of signals to send that would exceed the maximum request limits.
 
@@ -41,7 +41,7 @@ namespace Example
 
             try
             {
-                // Send multiple Risk Events
+                // Send multiple risk events
                 apiInstance.SendRiskEvents(instance);
             }
             catch (ApiException  e)
