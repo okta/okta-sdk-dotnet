@@ -13,6 +13,7 @@
       <PackageReference Include="RestSharp" Version="112.0.0" />
       <PackageReference Include="xunit.abstractions" Version="2.0.2" />
     8.0.5" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
     </ItemGroup>
 
 </Project>
