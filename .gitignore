@@ -368,3 +368,9 @@ FodyWeavers.xsd
 
 # Rider
 .idea/
+# Okta Configuration Files
+okta.yaml
+.okta/
+*.oktaconfig
+appsettings.Development.json
+appsettings.Local.json
