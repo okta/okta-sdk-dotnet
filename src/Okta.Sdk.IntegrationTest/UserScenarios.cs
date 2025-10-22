@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 namespace Okta.Sdk.IntegrationTest
 {
 
-    [Collection(name: nameof(ApplicationScenarios))]
+    [Collection(name: nameof(UserScenarios))]
     public class UserScenarios
     {
         private readonly UserApi _userApi;
