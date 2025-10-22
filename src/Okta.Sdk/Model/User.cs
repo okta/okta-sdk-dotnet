@@ -236,7 +236,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = true)]
-        public UserType Type { get; set; }
+        public UserTypeReference Type { get; set; }
 
         /// <summary>
         /// Embedded resources related to the user using the [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) specification

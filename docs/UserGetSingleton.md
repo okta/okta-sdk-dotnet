@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **Status** | **UserStatus** |  | [optional] 
 **StatusChanged** | **DateTimeOffset?** | The timestamp when the status of the user last changed | [optional] [readonly] 
 **TransitioningToStatus** | **string** | The target status of an in-progress asynchronous status transition. This property is only returned if the user&#39;s state is transitioning. | [optional] [readonly] 
-**Type** | [**UserType**](UserType.md) |  | [optional] 
+**Type** | [**UserTypeReference**](UserTypeReference.md) |  | [optional] 
 **Embedded** | [**UserGetSingletonAllOfEmbedded**](UserGetSingletonAllOfEmbedded.md) |  | [optional] 
 **Links** | [**UserLinks**](UserLinks.md) |  | [optional] 
 

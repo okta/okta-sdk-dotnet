@@ -1811,6 +1811,7 @@ docs/UserTypeCondition.md
 docs/UserTypeLinks.md
 docs/UserTypePostRequest.md
 docs/UserTypePutRequest.md
+docs/UserTypeReference.md
 docs/UserVerificationEnum.md
 docs/UsersLink.md
 docs/VerificationMethod.md
@@ -3702,6 +3703,7 @@ src/Okta.Sdk/Model/UserTypeCondition.cs
 src/Okta.Sdk/Model/UserTypeLinks.cs
 src/Okta.Sdk/Model/UserTypePostRequest.cs
 src/Okta.Sdk/Model/UserTypePutRequest.cs
+src/Okta.Sdk/Model/UserTypeReference.cs
 src/Okta.Sdk/Model/UserVerificationEnum.cs
 src/Okta.Sdk/Model/UsersLink.cs
 src/Okta.Sdk/Model/VerificationMethod.cs

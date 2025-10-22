@@ -236,7 +236,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = true)]
-        public UserType Type { get; set; }
+        public UserTypeReference Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Embedded

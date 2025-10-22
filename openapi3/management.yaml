@@ -76768,15 +76768,7 @@ components:
             - DEPROVISIONED
             - PROVISIONED
         type:
-          type: object
-          description: |-
-            The user type that determines the schema for the user's profile. The `type` property is a map that identifies the [User Types](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType).
-
-            Currently it contains a single element, `id`. It can be specified when creating a new user, and ca be updated by an admin on a full replace of an existing user (but not a partial update).
-          properties:
-            id:
-              type: string
-              description: The ID of the user type
+          $ref: '#/components/schemas/UserTypeReference'
         _embedded:
           type: object
           description: Embedded resources related to the user using the [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) specification
@@ -78896,6 +78888,16 @@ components:
       required:
         - name
         - displayName
+    UserTypeReference:
+      type: object
+      description: |-
+        A reference to a user type. The `type` property in the User object is a map that identifies the [User Types](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType).
+        
+        Currently it contains a single element, `id`. It can be specified when creating a new user, and can be updated by an admin on a full replace of an existing user (but not a partial update).
+      properties:
+        id:
+          type: string
+          description: The ID of the user type
     UserTypeCondition:
       description: <x-lifecycle class="oie"></x-lifecycle> Specifies which user types to include and/or exclude
       properties:

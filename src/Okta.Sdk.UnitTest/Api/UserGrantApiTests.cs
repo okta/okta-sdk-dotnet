@@ -165,6 +165,50 @@ namespace Okta.Sdk.UnitTest.Api
             mockClient.ReceivedPathParams["grantId"].Should().Contain(grantId);
         }
 
+        [Fact]
+        public async Task GetUserGrant_WithHttpInfo_ReturnsCorrectResponse()
+        {
+            // Arrange
+            var userId = "user-httpinfo-123";
+            var grantId = "grant-httpinfo-456";
+
+            var responseJson = @"{
+                ""id"": """ + grantId + @""",
+                ""status"": ""ACTIVE"",
+                ""created"": ""2025-10-05T12:00:00.000Z"",
+                ""lastUpdated"": ""2025-10-05T12:00:00.000Z"",
+                ""issuer"": ""https://test.okta.com/oauth2/default"",
+                ""clientId"": ""client-789"",
+                ""userId"": """ + userId + @""",
+                ""scopeId"": ""openid"",
+                ""source"": ""END_USER"",
+                ""_links"": {
+                    ""self"": {
+                        ""href"": ""https://test.okta.com/api/v1/users/" + userId + @"/grants/" + grantId + @"""
+                    }
+                }
+            }";
+
+            var mockClient = new MockAsyncClient(responseJson);
+            var userGrantApi = new UserGrantApi(mockClient, new Configuration { BasePath = "https://test.okta.com" });
+
+            // Act
+            var response = await userGrantApi.GetUserGrantWithHttpInfoAsync(userId, grantId);
+
+            // Assert
+            response.Should().NotBeNull();
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+            response.Data.Should().NotBeNull();
+            response.Data.Id.Should().Be(grantId);
+            response.Data.Status.Should().Be(GrantOrTokenStatus.ACTIVE);
+
+            mockClient.ReceivedPath.Should().StartWith("/api/v1/users/{userId}/grants/{grantId}");
+            mockClient.ReceivedPathParams.Should().ContainKey("userId");
+            mockClient.ReceivedPathParams["userId"].Should().Contain(userId);
+            mockClient.ReceivedPathParams.Should().ContainKey("grantId");
+            mockClient.ReceivedPathParams["grantId"].Should().Contain(grantId);
+        }
+
         #endregion
 
         #region ListUserGrants Tests

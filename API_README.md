@@ -2627,6 +2627,7 @@ Class | Method | HTTP request | Description
  - [Model.UserTypeLinks](docs/UserTypeLinks.md)
  - [Model.UserTypePostRequest](docs/UserTypePostRequest.md)
  - [Model.UserTypePutRequest](docs/UserTypePutRequest.md)
+ - [Model.UserTypeReference](docs/UserTypeReference.md)
  - [Model.UserVerificationEnum](docs/UserVerificationEnum.md)
  - [Model.UsersLink](docs/UsersLink.md)
  - [Model.VerificationMethod](docs/VerificationMethod.md)
