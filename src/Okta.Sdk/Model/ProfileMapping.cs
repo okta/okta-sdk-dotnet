@@ -53,7 +53,7 @@ namespace Okta.Sdk.Model
         /// Gets or Sets Properties
         /// </summary>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
-        public ProfileMappingProperty Properties { get; set; }
+        public Dictionary<string, ProfileMappingProperty> Properties { get; set; }
 
         /// <summary>
         /// Gets or Sets Source
@@ -128,8 +128,9 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.Properties == input.Properties ||
-                    (this.Properties != null &&
-                    this.Properties.Equals(input.Properties))
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (
                     this.Source == input.Source ||

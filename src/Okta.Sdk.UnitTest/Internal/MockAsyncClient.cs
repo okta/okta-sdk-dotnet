@@ -102,7 +102,7 @@ namespace Okta.Sdk.UnitTest.Internal
 
         public Task<ApiResponse<T>> PatchAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return ExecuteAsync<T>(path, options);
         }
 
         public Task<ApiResponse<T>> PostAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, CancellationToken cancellationToken = default)

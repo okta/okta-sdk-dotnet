@@ -6,7 +6,7 @@ The profile mapping object describes a mapping between an Okta user's and an app
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique identifier for a profile mapping | [optional] [readonly] 
-**Properties** | [**ProfileMappingProperty**](.md) |  | [optional] 
+**Properties** | [**Dictionary&lt;string, ProfileMappingProperty&gt;**](ProfileMappingProperty.md) |  | [optional] 
 **Source** | [**ProfileMappingSource**](ProfileMappingSource.md) |  | [optional] 
 **Target** | [**ProfileMappingTarget**](ProfileMappingTarget.md) |  | [optional] 
 **Links** | [**LinksSelf**](LinksSelf.md) |  | [optional] 

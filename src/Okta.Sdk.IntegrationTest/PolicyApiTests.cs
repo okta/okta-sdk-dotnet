@@ -652,6 +652,9 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     try
                     {
+                        await Task.Delay(500); // Brief wait before cleanup
+                        await _applicationApi.DeactivateApplicationAsync(testApp.Id);
+                        await Task.Delay(1000);
                         await _applicationApi.DeleteApplicationAsync(testApp.Id);
                     }
                     catch (ApiException) { }
@@ -743,6 +746,7 @@ namespace Okta.Sdk.IntegrationTest
         {
             var guid = Guid.NewGuid();
             Policy testPolicy = null;
+            bool isPolicyActive = true; // Track the policy state for proper cleanup
 
             try
             {
@@ -811,7 +815,8 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     try
                     {
-                        await _policyApi.DeactivatePolicyAsync(testPolicy.Id);
+                        if (isPolicyActive)
+                            await _policyApi.DeactivatePolicyAsync(testPolicy.Id);
                         await _policyApi.DeletePolicyAsync(testPolicy.Id);
                     }
                     catch (ApiException) { }
@@ -1550,25 +1555,49 @@ namespace Okta.Sdk.IntegrationTest
             }
             finally
             {
-                // Cleanup
+                // Cleanup - ensure resources are deleted even if test fails
                 if (testApp != null)
                 {
                     try
                     {
-                        await _applicationApi.DeactivateApplicationAsync(testApp.Id);
+                        await Task.Delay(1000); // Wait before cleanup
+                        // Deactivate first, then delete
+                        try
+                        {
+                            await _applicationApi.DeactivateApplicationAsync(testApp.Id);
+                            await Task.Delay(1000); // Wait for deactivation
+                        }
+                        catch (ApiException) { /* Already deactivated or doesn't require deactivation */ }
+                        
                         await _applicationApi.DeleteApplicationAsync(testApp.Id);
                     }
-                    catch (ApiException) { }
+                    catch (ApiException ex)
+                    {
+                        // Log but don't fail - best effort cleanup
+                        System.Diagnostics.Debug.WriteLine($"Failed to cleanup application {testApp.Id}: {ex.Message}");
+                    }
                 }
 
                 if (testPolicy != null)
                 {
                     try
                     {
-                        await _policyApi.DeactivatePolicyAsync(testPolicy.Id);
+                        await Task.Delay(1000); // Wait before cleanup
+                        // Deactivate first, then delete
+                        try
+                        {
+                            await _policyApi.DeactivatePolicyAsync(testPolicy.Id);
+                            await Task.Delay(1000); // Wait for deactivation
+                        }
+                        catch (ApiException) { /* Already deactivated */ }
+                        
                         await _policyApi.DeletePolicyAsync(testPolicy.Id);
                     }
-                    catch (ApiException) { }
+                    catch (ApiException ex)
+                    {
+                        // Log but don't fail - best effort cleanup
+                        System.Diagnostics.Debug.WriteLine($"Failed to cleanup policy {testPolicy.Id}: {ex.Message}");
+                    }
                 }
             }
         }

@@ -71181,7 +71181,8 @@ components:
           readOnly: true
         properties:
           type: object
-          $ref: '#/components/schemas/ProfileMappingProperty'
+          additionalProperties:
+            $ref: '#/components/schemas/ProfileMappingProperty'
           readOnly: false
         source:
           $ref: '#/components/schemas/ProfileMappingSource'
@@ -71214,11 +71215,10 @@ components:
       properties:
         properties:
           type: object
-          $ref: '#/components/schemas/ProfileMappingProperty'
+          additionalProperties:
+            $ref: '#/components/schemas/ProfileMappingProperty'
       required:
         - properties
-        - expression
-        - pushStatus
     ProfileMappingSource:
       description: |-
         The parameter is the source of a profile mapping and is a valid [JSON Schema Draft 4](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04) document with the following properties. The data type can be an app instance or an Okta object.
