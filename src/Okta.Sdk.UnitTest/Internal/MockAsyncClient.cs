@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Okta.Sdk.Client;
-using RestSharp;
 
 namespace Okta.Sdk.UnitTest.Internal
 {
@@ -54,7 +52,18 @@ namespace Okta.Sdk.UnitTest.Internal
 
         private ApiResponse<T> ToApiResponse<T>(string returnThis, HttpStatusCode statusCode, Multimap<string, string> returnHeaders)
         {
-            T result = JsonConvert.DeserializeObject<T>(returnThis);
+            T result;
+            
+            // Handle string type specially - don't try to JSON deserialize it
+            if (typeof(T) == typeof(string))
+            {
+                result = (T)(object)returnThis;
+            }
+            else
+            {
+                result = JsonConvert.DeserializeObject<T>(returnThis);
+            }
+            
             var transformed = new ApiResponse<T>(statusCode, returnHeaders, result, returnThis)
             {
                 Cookies = new List<Cookie>(),

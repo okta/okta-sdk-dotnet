@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
-using System.Text;
 using System.Threading;
 using Moq;
-using Newtonsoft.Json;
 using RestSharp;
 
 namespace Okta.Sdk.UnitTest.Internal
