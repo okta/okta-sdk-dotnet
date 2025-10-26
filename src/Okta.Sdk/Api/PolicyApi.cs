@@ -106,8 +106,8 @@ namespace Okta.Sdk.Api
         /// <param name="policy"></param>
         /// <param name="activate">This query parameter is only valid for Classic Engine orgs. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CreateOrUpdatePolicy</returns>
-        System.Threading.Tasks.Task<CreateOrUpdatePolicy> CreatePolicyAsync(  CreateOrUpdatePolicy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of Policy</returns>
+        System.Threading.Tasks.Task<Policy> CreatePolicyAsync(  CreateOrUpdatePolicy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a policy
         /// </summary>
@@ -118,8 +118,8 @@ namespace Okta.Sdk.Api
         /// <param name="policy"></param>
         /// <param name="activate">This query parameter is only valid for Classic Engine orgs. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CreateOrUpdatePolicy)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateOrUpdatePolicy>> CreatePolicyWithHttpInfoAsync(  CreateOrUpdatePolicy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (Policy)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Policy>> CreatePolicyWithHttpInfoAsync(  CreateOrUpdatePolicy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a policy rule
         /// </summary>
@@ -376,8 +376,8 @@ namespace Okta.Sdk.Api
         /// <param name="resourceId">Reference to the associated authorization server (optional)</param>
         /// <param name="after">End page cursor for pagination, see [Pagination](https://developer.okta.com/docs/api/#pagination) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Policy</returns>
-        System.Threading.Tasks.Task<Policy> ListPoliciesAsync(PolicyTypeParameter type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;Policy&gt;</returns>
+        IOktaCollectionClient<Policy> ListPolicies(PolicyTypeParameter type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all policies
         /// </summary>
@@ -394,8 +394,8 @@ namespace Okta.Sdk.Api
         /// <param name="resourceId">Reference to the associated authorization server (optional)</param>
         /// <param name="after">End page cursor for pagination, see [Pagination](https://developer.okta.com/docs/api/#pagination) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Policy)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Policy>> ListPoliciesWithHttpInfoAsync(PolicyTypeParameter type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;Policy&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Policy>>> ListPoliciesWithHttpInfoAsync(PolicyTypeParameter type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all apps mapped to a policy
         /// </summary>
@@ -916,10 +916,10 @@ namespace Okta.Sdk.Api
         /// <param name="policy"></param>
         /// <param name="activate">This query parameter is only valid for Classic Engine orgs. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CreateOrUpdatePolicy</returns>
-        public async System.Threading.Tasks.Task<CreateOrUpdatePolicy> CreatePolicyAsync(  CreateOrUpdatePolicy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of Policy</returns>
+        public async System.Threading.Tasks.Task<Policy> CreatePolicyAsync(  CreateOrUpdatePolicy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<CreateOrUpdatePolicy> localVarResponse = await CreatePolicyWithHttpInfoAsync(policy, activate, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<Policy> localVarResponse = await CreatePolicyWithHttpInfoAsync(policy, activate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
@@ -929,8 +929,8 @@ namespace Okta.Sdk.Api
         /// <param name="policy"></param>
         /// <param name="activate">This query parameter is only valid for Classic Engine orgs. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CreateOrUpdatePolicy)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<CreateOrUpdatePolicy>> CreatePolicyWithHttpInfoAsync(  CreateOrUpdatePolicy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (Policy)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Policy>> CreatePolicyWithHttpInfoAsync(  CreateOrUpdatePolicy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'policy' is set
             if (policy == null)
@@ -986,7 +986,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<CreateOrUpdatePolicy>("/api/v1/policies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Policy>("/api/v1/policies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1975,27 +1975,9 @@ namespace Okta.Sdk.Api
         /// <param name="resourceId">Reference to the associated authorization server (optional)</param>
         /// <param name="after">End page cursor for pagination, see [Pagination](https://developer.okta.com/docs/api/#pagination) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Policy</returns>
-        public async System.Threading.Tasks.Task<Policy> ListPoliciesAsync(PolicyTypeParameter type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Okta.Sdk.Client.ApiResponse<Policy> localVarResponse = await ListPoliciesWithHttpInfoAsync(type, status, q, expand, sortBy, limit, resourceId, after, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-        /// <summary>
-        /// List all policies Lists all policies with the specified type
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Specifies the type of policy to return. The following policy types are available only with the Okta Identity Engine - &#x60;ACCESS_POLICY&#x60;, &lt;x-lifecycle class&#x3D;\&quot;ea\&quot;&gt;&lt;/x-lifecycle&gt; &#x60;DEVICE_SIGNAL_COLLECTION&#x60;, &#x60;PROFILE_ENROLLMENT&#x60;, &#x60;POST_AUTH_SESSION&#x60;, and &#x60;ENTITY_RISK&#x60;.</param>
-        /// <param name="status">Refines the query by the &#x60;status&#x60; of the policy - &#x60;ACTIVE&#x60; or &#x60;INACTIVE&#x60; (optional)</param>
-        /// <param name="q">Refines the query by policy name prefix (startWith method) passed in as &#x60;q&#x3D;string&#x60; (optional)</param>
-        /// <param name="expand"> (optional, default to &quot;&quot;)</param>
-        /// <param name="sortBy">Refines the query by sorting on the policy &#x60;name&#x60; in ascending order (optional)</param>
-        /// <param name="limit">Defines the number of policies returned, see [Pagination](https://developer.okta.com/docs/api/#pagination) (optional)</param>
-        /// <param name="resourceId">Reference to the associated authorization server (optional)</param>
-        /// <param name="after">End page cursor for pagination, see [Pagination](https://developer.okta.com/docs/api/#pagination) (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Policy)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Policy>> ListPoliciesWithHttpInfoAsync(PolicyTypeParameter type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;Policy&gt;</returns>
+        //a
+        public IOktaCollectionClient<Policy> ListPolicies(PolicyTypeParameter type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -2062,13 +2044,95 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
             
-            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
+            
+            return new OktaCollectionClient<Policy>(localVarRequestOptions, "/api/v1/policies", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
+        }
+        /// <summary>
+        /// List all policies Lists all policies with the specified type
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">Specifies the type of policy to return. The following policy types are available only with the Okta Identity Engine - &#x60;ACCESS_POLICY&#x60;, &lt;x-lifecycle class&#x3D;\&quot;ea\&quot;&gt;&lt;/x-lifecycle&gt; &#x60;DEVICE_SIGNAL_COLLECTION&#x60;, &#x60;PROFILE_ENROLLMENT&#x60;, &#x60;POST_AUTH_SESSION&#x60;, and &#x60;ENTITY_RISK&#x60;.</param>
+        /// <param name="status">Refines the query by the &#x60;status&#x60; of the policy - &#x60;ACTIVE&#x60; or &#x60;INACTIVE&#x60; (optional)</param>
+        /// <param name="q">Refines the query by policy name prefix (startWith method) passed in as &#x60;q&#x3D;string&#x60; (optional)</param>
+        /// <param name="expand"> (optional, default to &quot;&quot;)</param>
+        /// <param name="sortBy">Refines the query by sorting on the policy &#x60;name&#x60; in ascending order (optional)</param>
+        /// <param name="limit">Defines the number of policies returned, see [Pagination](https://developer.okta.com/docs/api/#pagination) (optional)</param>
+        /// <param name="resourceId">Reference to the associated authorization server (optional)</param>
+        /// <param name="after">End page cursor for pagination, see [Pagination](https://developer.okta.com/docs/api/#pagination) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Policy&gt;)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Policy>>> ListPoliciesWithHttpInfoAsync(PolicyTypeParameter type  ,   string status = default(string) ,   string q = default(string) ,   string expand = default(string) ,   string sortBy = default(string) ,   string limit = default(string) ,   string resourceId = default(string) ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
             {
-                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/api/v1/policies", "GET", cancellationToken = default);
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+            }
+            if (q != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "q", q));
+            }
+            if (expand != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (resourceId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "resourceId", resourceId));
+            }
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+
+            // authentication (apiToken) required
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (oauth2) required
+            // oauth required
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
+
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Policy>("/api/v1/policies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Policy>>("/api/v1/policies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

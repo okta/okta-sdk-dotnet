@@ -19469,7 +19469,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Policy'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Policy'
               examples:
                 password:
                   $ref: '#/components/examples/password-policy-response'
@@ -19528,7 +19530,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateOrUpdatePolicy'
+                $ref: '#/components/schemas/Policy'
               examples:
                 password:
                   $ref: '#/components/examples/password-policy-response'

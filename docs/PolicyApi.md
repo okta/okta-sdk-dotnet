@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 <a name="createpolicy"></a>
 # **CreatePolicy**
-> CreateOrUpdatePolicy CreatePolicy (CreateOrUpdatePolicy policy, bool? activate = null)
+> Policy CreatePolicy (CreateOrUpdatePolicy policy, bool? activate = null)
 
 Create a policy
 
@@ -301,7 +301,7 @@ namespace Example
             try
             {
                 // Create a policy
-                CreateOrUpdatePolicy result = apiInstance.CreatePolicy(policy, activate);
+                Policy result = apiInstance.CreatePolicy(policy, activate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateOrUpdatePolicy**](CreateOrUpdatePolicy.md)
+[**Policy**](Policy.md)
 
 ### Authorization
 
@@ -1154,7 +1154,7 @@ Name | Type | Description  | Notes
 
 <a name="listpolicies"></a>
 # **ListPolicies**
-> Policy ListPolicies (PolicyTypeParameter type, string status = null, string q = null, string expand = null, string sortBy = null, string limit = null, string resourceId = null, string after = null)
+> List&lt;Policy&gt; ListPolicies (PolicyTypeParameter type, string status = null, string q = null, string expand = null, string sortBy = null, string limit = null, string resourceId = null, string after = null)
 
 List all policies
 
@@ -1194,7 +1194,7 @@ namespace Example
             try
             {
                 // List all policies
-                Policy result = apiInstance.ListPolicies(type, status, q, expand, sortBy, limit, resourceId, after);
+                List<Policy> result = apiInstance.ListPolicies(type, status, q, expand, sortBy, limit, resourceId, after).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1223,7 +1223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Policy**](Policy.md)
+[**List&lt;Policy&gt;**](Policy.md)
 
 ### Authorization
 
