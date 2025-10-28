@@ -105,7 +105,7 @@ namespace Okta.Sdk.IntegrationTest
         [Fact(Skip = "Requires manual Admin Console configuration - EA feature. See CROSS_APP_ACCESS_INVESTIGATION.md for details. " +
                      "Service apps need explicit cross-app access enablement in Okta Admin Console beyond SDK configuration. " +
                      "Error: E0000013 'Invalid client app id' despite correct Service app setup with client_credentials grant.")]
-        public async Task ComprehensiveCrossAppAccessConnectionsApiTest_CoversAllEndpointsAndMethods()
+        public async Task GivenCrossAppAccessConnections_WhenPerformingAllOperations_ThenAllEndpointsAndMethodsWork()
         {
             // Arrange: Create two test applications - requesting app and resource app
             var requestingApp = await CreateTestOidcApplication($"SDK Test Requesting App {Guid.NewGuid()}");
@@ -345,7 +345,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task CreateCrossAppAccessConnection_WithInvalidParameters_ThrowsException()
+        public async Task GivenInvalidParameters_WhenCreatingConnection_ThenExceptionIsThrown()
         {
             // Arrange
             var requestingApp = await CreateTestOidcApplication($"SDK Test Invalid Connection App {Guid.NewGuid()}");
@@ -385,7 +385,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task GetCrossAppAccessConnection_WithNonExistentId_ThrowsException()
+        public async Task GivenNonExistentId_WhenGettingConnection_ThenExceptionIsThrown()
         {
             // Arrange
             var app = await CreateTestOidcApplication($"SDK Test Get Connection App {Guid.NewGuid()}");
@@ -401,7 +401,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UpdateCrossAppAccessConnection_WithNonExistentId_ThrowsException()
+        public async Task GivenNonExistentId_WhenUpdatingConnection_ThenExceptionIsThrown()
         {
             // Arrange
             var app = await CreateTestOidcApplication($"SDK Test Update Connection App {Guid.NewGuid()}");
@@ -421,7 +421,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task DeleteCrossAppAccessConnection_WithNonExistentId_DoesNotThrowException()
+        public async Task GivenNonExistentId_WhenDeletingConnection_ThenNoExceptionIsThrown()
         {
             // Arrange
             var app = await CreateTestOidcApplication($"SDK Test Delete Connection App {Guid.NewGuid()}");
@@ -439,7 +439,7 @@ namespace Okta.Sdk.IntegrationTest
         [Fact(Skip = "Requires manual Admin Console configuration - EA feature. See CROSS_APP_ACCESS_INVESTIGATION.md for details. " +
                      "Service apps need explicit cross-app access enablement in Okta Admin Console beyond SDK configuration. " +
                      "Error: E0000013 'Invalid client app id' despite correct Service app setup with client_credentials grant.")]
-        public async Task CrossAppAccessConnections_PaginationTest()
+        public async Task GivenMultipleConnections_WhenPaginating_ThenPaginationWorks()
         {
             // Arrange: Create requesting and resource apps, then create multiple connections
             var requestingApp = await CreateTestOidcApplication($"SDK Test Pagination Requesting App {Guid.NewGuid()}");

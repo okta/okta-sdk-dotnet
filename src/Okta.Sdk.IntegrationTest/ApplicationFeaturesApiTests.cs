@@ -91,7 +91,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Pattern: Create app with provisioning -> List features -> Get features -> Update features -> Verify updates
         /// </summary>
         [Fact]
-        public async Task ComprehensiveApplicationFeaturesApiTest_CoversAllEndpointsAndMethods()
+        public async Task GivenApplicationFeatures_WhenPerformingAllOperations_ThenAllEndpointsAndMethodsWork()
         {
             var guid = Guid.NewGuid();
 
@@ -744,7 +744,7 @@ namespace Okta.Sdk.IntegrationTest
         /// on an app that doesn't have provisioning configured.
         /// </summary>
         [Fact]
-        public async Task ApplicationFeaturesApi_WithoutProvisioning_ReturnsAppropriateErrors()
+        public async Task GivenAppWithoutProvisioning_WhenCallingApi_ThenAppropriateErrorsAreReturned()
         {
             var guid = Guid.NewGuid();
 

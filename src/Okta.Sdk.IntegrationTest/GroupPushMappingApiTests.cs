@@ -191,7 +191,7 @@ namespace Okta.Sdk.IntegrationTest
         /// - DELETE /api/v1/apps/{appId}/group-push/mappings/{mappingId} (Delete)
         /// </summary>
         [Fact]
-        public async Task ComprehensiveGroupPushMappingApiTest_CoversAllEndpointsAndMethods()
+        public async Task GivenGroupPushMappings_WhenPerformingAllOperations_ThenAllEndpointsAndMethodsWork()
         {
             var guid = Guid.NewGuid();
 
@@ -609,7 +609,7 @@ namespace Okta.Sdk.IntegrationTest
         /// for invalid operations.
         /// </summary>
         [Fact]
-        public async Task GroupPushMappingApi_ShouldReturnCorrectErrorCodes()
+        public async Task GivenInvalidOperations_WhenCallingApi_ThenCorrectErrorCodesAreReturned()
         {
             var guid = Guid.NewGuid();
             var nonExistentAppId = "0oa" + guid.ToString("N").Substring(0, 17);
@@ -852,7 +852,7 @@ namespace Okta.Sdk.IntegrationTest
         /// when in INACTIVE state.
         /// </summary>
         [Fact]
-        public async Task GroupPushMappingApi_ShouldEnforceProperLifecycle()
+        public async Task GivenLifecycleOperations_WhenPerforming_ThenProperLifecycleIsEnforced()
         {
             var guid = Guid.NewGuid();
 

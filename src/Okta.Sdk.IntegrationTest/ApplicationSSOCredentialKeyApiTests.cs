@@ -106,7 +106,7 @@ namespace Okta.Sdk.IntegrationTest
         #region Comprehensive API Coverage Tests
 
         [Fact]
-        public async Task ComprehensiveApplicationSSOCredentialKeyApiTest_CoversAllEndpointsAndMethods()
+        public async Task GivenApplicationSSOCredentialKey_WhenPerformingAllOperations_ThenAllEndpointsAndMethodsWork()
         {
             // Test 1: Generate Application Key
             var validityYears = 2;
@@ -247,7 +247,7 @@ namespace Okta.Sdk.IntegrationTest
         #region Error Handling Tests
 
         [Fact]
-        public async Task ApplicationSSOCredentialKeyApi_ErrorScenarios_HandleCorrectly()
+        public async Task GivenErrorScenarios_WhenCallingApi_ThenErrorsAreHandledCorrectly()
         {
             // Test invalid app ID
             await Assert.ThrowsAsync<ApiException>(() =>
@@ -276,7 +276,7 @@ namespace Okta.Sdk.IntegrationTest
         #region Key Generation Tests
 
         [Fact]
-        public async Task GenerateApplicationKey_WithDifferentValidityPeriods_GeneratesCorrectly()
+        public async Task GivenDifferentValidityPeriods_WhenGeneratingKey_ThenKeyIsGeneratedCorrectly()
         {
             // Test 2-year validity (minimum allowed)
             var key2Year = await _credentialKeyApi.GenerateApplicationKeyAsync(_testAppId, 2);
@@ -302,7 +302,7 @@ namespace Okta.Sdk.IntegrationTest
         #region CSR Lifecycle Tests
 
         [Fact]
-        public async Task CsrLifecycle_CreateListRetrievePublishRevoke_WorksCorrectly()
+        public async Task GivenCsrLifecycle_WhenPerformingCreateListRetrievePublishRevoke_ThenOperationsWorkCorrectly()
         {
             // Step 1: Create CSR with comprehensive metadata
             var csrMetadata = new CsrMetadata
@@ -357,7 +357,7 @@ namespace Okta.Sdk.IntegrationTest
         #region Key Cloning Tests
 
         [Fact]
-        public async Task CloneApplicationKey_BetweenApplications_WorksCorrectly()
+        public async Task GivenApplicationKey_WhenCloningBetweenApplications_ThenCloningWorksCorrectly()
         {
             // Generate a key in the source application
             var sourceKey = await _credentialKeyApi.GenerateApplicationKeyAsync(_testAppId, 2);
@@ -390,7 +390,7 @@ namespace Okta.Sdk.IntegrationTest
         #region CSR Metadata Variations Tests
 
         [Fact]
-        public async Task GenerateCsr_WithVariousMetadata_CreatesCorrectCsrs()
+        public async Task GivenVariousMetadata_WhenGeneratingCsr_ThenCorrectCsrsAreCreated()
         {
             // Test 1: Minimal metadata
             var minimalMetadata = new CsrMetadata

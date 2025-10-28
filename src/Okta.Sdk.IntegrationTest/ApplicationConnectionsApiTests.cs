@@ -89,7 +89,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Covers all 6 endpoints and 12 methods (standard + WithHttpInfo variants)
         /// </summary>
         [Fact]
-        public async Task ComprehensiveApplicationConnectionsApiTest_CoversAllEndpointsAndMethods()
+        public async Task GivenApplicationConnections_WhenPerformingAllOperations_ThenAllEndpointsAndMethodsWork()
         {
             var guid = Guid.NewGuid();
             string org2OrgAppId = null;
@@ -444,7 +444,7 @@ namespace Okta.Sdk.IntegrationTest
         /// but we verify the method signature and comprehensive error handling
         /// </summary>
         [Fact]
-        public async Task VerifyProvisioningConnection_WithInvalidParameters_ThrowsException()
+        public async Task GivenInvalidParameters_WhenVerifyingConnection_ThenExceptionIsThrown()
         {
             // ==================== VERIFY PROVISIONING CONNECTION (OAuth 2.0 flow) ====================
             // VerifyProvisioningConnectionForApplicationAsync
@@ -521,7 +521,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Some apps may not support provisioning connections
         /// </summary>
         [Fact]
-        public async Task ConnectionOperations_WithNonProvisioningApp_HandlesGracefully()
+        public async Task GivenNonProvisioningApp_WhenPerformingConnectionOperations_ThenOperationsAreHandledGracefully()
         {
             var guid = Guid.NewGuid();
             string bookmarkAppId = null;
@@ -601,7 +601,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Tests edge cases and boundary conditions for connection operations
         /// </summary>
         [Fact]
-        public async Task ApplicationConnectionsApi_EdgeCases_HandledCorrectly()
+        public async Task GivenEdgeCases_WhenCallingApi_ThenEdgeCasesAreHandledCorrectly()
         {
             var guid = Guid.NewGuid();
             string appId = null;

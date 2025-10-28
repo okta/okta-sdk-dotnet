@@ -125,7 +125,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Test pattern: Create SAML App → Get Key Credentials → Preview SAML Metadata → Validate → Cleanup
         /// </summary>
         [Fact]
-        public async Task ComprehensiveApplicationSSOApiTest_CoversAllEndpointsAndMethods()
+        public async Task GivenApplicationSSO_WhenPerformingAllOperations_ThenAllEndpointsAndMethodsWork()
         {
             string appId = null;
             string kid = null;
@@ -380,7 +380,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Validates that different SAML settings produce appropriate metadata variations.
         /// </summary>
         [Fact]
-        public async Task PreviewSAMLMetadata_WithDifferentConfigurations_ProducesCorrectMetadata()
+        public async Task GivenDifferentConfigurations_WhenPreviewingSAMLMetadata_ThenCorrectMetadataIsProduced()
         {
             // Create SAML app with specific configuration
             var guid = Guid.NewGuid();
@@ -464,7 +464,7 @@ namespace Okta.Sdk.IntegrationTest
         /// metadata is correctly populated and accessible.
         /// </summary>
         [Fact]
-        public async Task PreviewSAMLMetadataWithHttpInfo_ReturnsCompleteHttpResponse()
+        public async Task GivenSAMLMetadata_WhenPreviewingWithHttpInfo_ThenCompleteHttpResponseIsReturned()
         {
             // Arrange
             var appId = await CreateTestSamlApplication();

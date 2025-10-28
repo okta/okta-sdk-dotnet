@@ -89,7 +89,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Follow the pattern: Create → Read → Update → List/Search → Lifecycle → Delete
         /// </summary>
         [Fact]
-        public async Task ComprehensiveApplicationApiTest_CoversAllEndpointsAndMethods()
+        public async Task GivenApplicationApi_WhenPerformingAllOperations_ThenAllEndpointsAndMethodsWork()
         {
             var guid = Guid.NewGuid();
             string bookmarkAppId = null;
@@ -681,7 +681,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Tests collection enumeration behavior with async iterators
         /// </summary>
         [Fact]
-        public async Task ListApplications_EnumerateCollectionManually_WorksCorrectly()
+        public async Task GivenMultipleApplications_WhenEnumeratingManually_ThenEnumerationWorksCorrectly()
         {
             var guid = Guid.NewGuid();
             var createdApps = new List<string>();
@@ -757,7 +757,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Tests edge cases and boundary conditions
         /// </summary>
         [Fact]
-        public async Task ApplicationApi_EdgeCases_HandledCorrectly()
+        public async Task GivenEdgeCases_WhenCallingApi_ThenEdgeCasesAreHandledCorrectly()
         {
             var guid = Guid.NewGuid();
             string appId = null;

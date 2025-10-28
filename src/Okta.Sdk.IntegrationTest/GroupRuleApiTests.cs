@@ -176,7 +176,7 @@ namespace Okta.Sdk.IntegrationTest
         #region Comprehensive CRUD + Lifecycle Test
 
         [Fact]
-        public async Task GroupRuleApi_CompleteCrudLifecycle_ShouldCoverAllMethodsAndEndpoints()
+        public async Task GivenGroupRules_WhenPerformingCrudOperations_ThenAllMethodsAndEndpointsWork()
         {
             // CREATE
             var createRequest1 = new CreateGroupRuleRequest
@@ -365,7 +365,7 @@ namespace Okta.Sdk.IntegrationTest
         #region Additional Edge Cases and Validation Tests
 
         [Fact]
-        public async Task GroupRuleApi_EdgeCasesAndValidation_ShouldHandleCorrectly()
+        public async Task GivenEdgeCasesAndValidation_WhenCallingApi_ThenCasesAreHandledCorrectly()
         {
             // Create a rule with multiple target groups
             var multiGroupRule = new CreateGroupRuleRequest
@@ -446,7 +446,7 @@ namespace Okta.Sdk.IntegrationTest
         #region Error Handling Tests
 
         [Fact]
-        public async Task GroupRuleApi_ErrorHandling_ShouldThrowAppropriateExceptions()
+        public async Task GivenInvalidOperations_WhenCallingApi_ThenAppropriateExceptionsAreThrown()
         {
             var nonExistentRuleId = "0pr9999999999999999";
 
@@ -527,7 +527,7 @@ namespace Okta.Sdk.IntegrationTest
         /// - Expression validation
         /// </summary>
         [Fact]
-        public async Task GroupRuleApi_ComplexExpressions_ShouldCreateAndManageCorrectly()
+        public async Task GivenComplexExpressions_WhenCreatingRules_ThenRulesAreCreatedAndManagedCorrectly()
         {
             // Create rule with complex AND expression
             var complexAndRule = new CreateGroupRuleRequest

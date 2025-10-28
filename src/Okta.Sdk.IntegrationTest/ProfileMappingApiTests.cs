@@ -82,7 +82,7 @@ namespace Okta.Sdk.IntegrationTest
         }
         
         [Fact]
-        public async Task ComprehensiveProfileMappingApiTest()
+        public async Task GivenProfileMappings_WhenPerformingAllOperations_ThenAllEndpointsWork()
         {
             // This test covers all ProfileMapping API methods and endpoints
             
@@ -285,7 +285,7 @@ namespace Okta.Sdk.IntegrationTest
         }
         
         [Fact]
-        public async Task ProfileMappingApi_ErrorScenarios_ShouldHandleCorrectly()
+        public async Task GivenErrorScenarios_WhenCallingApi_ThenErrorsAreHandledCorrectly()
         {
             // Get non-existent profile mapping (should return 404)
             var nonExistentId = "prm" + Guid.NewGuid().ToString().Replace("-", "").Substring(0, 20);
@@ -322,7 +322,7 @@ namespace Okta.Sdk.IntegrationTest
         }
         
         [Fact]
-        public async Task ProfileMappingApi_PaginationWithAfter_ShouldWorkCorrectly()
+        public async Task GivenMultiplePages_WhenPaginatingWithAfter_ThenPaginationWorksCorrectly()
         {
             // Get first page
             var firstPage = await _profileMappingApi.ListProfileMappings(limit: 2).ToListAsync();
@@ -346,7 +346,7 @@ namespace Okta.Sdk.IntegrationTest
         }
         
         [Fact]
-        public async Task ProfileMappingApi_ComplexExpressions_ShouldWorkCorrectly()
+        public async Task GivenComplexExpressions_WhenCreatingMappings_ThenExpressionsWorkCorrectly()
         {
             _testMappingId.Should().NotBeNullOrEmpty();
             
@@ -369,7 +369,7 @@ namespace Okta.Sdk.IntegrationTest
         }
         
         [Fact]
-        public async Task ProfileMappingApi_SourceAndTargetFiltering_ShouldWorkCorrectly()
+        public async Task GivenSourceAndTargetFilters_WhenListingMappings_ThenFilteringWorksCorrectly()
         {
             // Test filtering by targetId
             // Endpoint: GET /api/v1/mappings?targetId={id}
@@ -443,7 +443,7 @@ namespace Okta.Sdk.IntegrationTest
         }
         
         [Fact]
-        public async Task ProfileMappingApi_ResponseStructure_ShouldBeValid()
+        public async Task GivenApiResponses_WhenValidatingStructure_ThenResponseStructureIsValid()
         {
             _testMappingId.Should().NotBeNullOrEmpty();
             
@@ -495,7 +495,7 @@ namespace Okta.Sdk.IntegrationTest
         }
         
         [Fact]
-        public async Task ProfileMappingApi_EdgeCases_ShouldHandleCorrectly()
+        public async Task GivenEdgeCases_WhenCallingApi_ThenEdgeCasesAreHandledCorrectly()
         {
             // List with very high limit (edge case, API max is 200)
             var highLimitMappings = await _profileMappingApi.ListProfileMappings(limit: 200).ToListAsync();

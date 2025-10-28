@@ -17,7 +17,7 @@ namespace Okta.Sdk.IntegrationTest
         private readonly ApplicationApi _applicationApi = new();
 
         [Fact]
-        public async Task ComprehensiveSchemaApiTest_CoversAllEndpointsAndMethods()
+        public async Task GivenSchemaApi_WhenPerformingAllOperations_ThenAllEndpointsAndMethodsWork()
         {
             // This comprehensive test covers all Schema API endpoints and methods with CRUD operations where applicable
             // Endpoints covered:

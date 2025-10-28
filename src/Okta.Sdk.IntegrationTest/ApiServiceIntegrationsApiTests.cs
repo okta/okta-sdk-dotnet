@@ -156,7 +156,7 @@ namespace Okta.Sdk.IntegrationTest
         /// METHODS TESTED (18): All base + WithHttpInfo variants
         /// </summary>
         [Fact]
-        public async Task ApiServiceIntegrationsApi_AllEndpointsAndMethods_ShouldWorkCorrectly()
+        public async Task GivenApiServiceIntegrations_WhenPerformingAllOperations_ThenAllEndpointsAndMethodsWork()
         {
             string instanceId1 = null;
             string instanceId2;

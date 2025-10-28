@@ -78,7 +78,7 @@ namespace Okta.Sdk.IntegrationTest
         private string GenerateFakeClaimId() => "ofc" + Guid.NewGuid().ToString().Replace("-", "");
 
         [Fact]
-        public async Task ApplicationSSOFederatedClaimsApi_CreateGetReplaceDelete_WorksCorrectly()
+        public async Task GivenSAMLApplication_WhenManagingFederatedClaims_ThenCreateGetReplaceDeleteSucceed()
         {
             // Arrange
             var appId = await CreateTestOidcApp();
@@ -208,7 +208,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApplicationSSOFederatedClaimsApi_ErrorHandling_ValidatesAllScenarios()
+        public async Task GivenInvalidScenarios_WhenPerformingOperations_ThenAppropriateErrorsAreReturned()
         {
             // ==================== SETUP ====================
             var validAppId = await CreateTestOidcApp();
@@ -349,7 +349,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApplicationSSOFederatedClaimsApi_ListOperations_WorkCorrectly()
+        public async Task GivenMultipleClaims_WhenListingClaims_ThenAllClaimsAreReturned()
         {
             // Arrange
             var appId = await CreateTestOidcApp();
@@ -423,7 +423,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApplicationSSOFederatedClaimsApi_WithDifferentExpressions_WorksCorrectly()
+        public async Task GivenDifferentExpressions_WhenCreatingClaims_ThenClaimsAreCreatedSuccessfully()
         {
             // Arrange
             var appId = await CreateTestOidcApp();
@@ -475,7 +475,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApplicationSSOFederatedClaimsApi_WithInvalidData_ThrowsBadRequest()
+        public async Task GivenInvalidData_WhenCreatingClaim_ThenBadRequestIsThrown()
         {
             // Arrange
             var appId = await CreateTestOidcApp();
@@ -533,7 +533,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApplicationSSOFederatedClaimsApi_ReplaceOperation_ValidatesTimestamps()
+        public async Task GivenClaim_WhenReplacingClaim_ThenTimestampsAreValidated()
         {
             // Arrange
             var appId = await CreateTestOidcApp();
@@ -576,7 +576,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApplicationSSOFederatedClaimsApi_HttpInfoResponses_ValidateHeaders()
+        public async Task GivenHttpInfoMethods_WhenCallingApi_ThenHeadersAreValidated()
         {
             // Arrange
             var appId = await CreateTestOidcApp();

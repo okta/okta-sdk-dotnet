@@ -39,7 +39,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserTypeApi_CompleteCrudLifecycle_ShouldCoverAllEndpointsAndMethods()
+        public async Task GivenUserTypes_WhenPerformingCrudOperations_ThenAllEndpointsAndMethodsWork()
         {
             var guid = Guid.NewGuid();
             var userTypeName = $"test_type_{guid.ToString().Replace("-", "").Substring(0, 15)}";
@@ -142,7 +142,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserTypeApi_WithHttpInfo_ShouldReturnHttpMetadata()
+        public async Task GivenHttpInfoMethods_WhenCallingApi_ThenHttpMetadataIsReturned()
         {
             var guid = Guid.NewGuid();
             var userTypeName = $"test_type_{guid.ToString().Replace("-", "").Substring(0, 15)}";
@@ -240,7 +240,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserTypeApi_ErrorScenarios_ShouldThrowApiException()
+        public async Task GivenErrorScenarios_WhenCallingApi_ThenApiExceptionIsThrown()
         {
             const string invalidTypeId = "invalid_type_id_12345";
 

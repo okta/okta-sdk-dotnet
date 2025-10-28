@@ -103,7 +103,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ComprehensiveApplicationUsersApiTest_CoversAllEndpointsAndMethods()
+        public async Task GivenApplicationUsers_WhenPerformingAllOperations_ThenAllEndpointsAndMethodsWork()
         {
             var testApp = await CreateTestApplicationAsync();
             var testUser = await CreateTestUserAsync();
@@ -277,7 +277,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UpdateApplicationUser_WithCredentials_WorksCorrectly()
+        public async Task GivenCredentials_WhenUpdatingApplicationUser_ThenUpdateWorksCorrectly()
         {
             var testApp = await CreateTestApplicationAsync();
             var testUser = await CreateTestUserAsync();
@@ -311,7 +311,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ErrorHandling_CoversAllInvalidScenarios()
+        public async Task GivenInvalidScenarios_WhenCallingApi_ThenAllInvalidScenariosAreCovered()
         {
             var testApp = await CreateTestApplicationAsync();
             var testUser = await CreateTestUserAsync();
@@ -461,7 +461,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ListApplicationUsers_WithPagination_WorksCorrectly()
+        public async Task GivenMultipleUsers_WhenListingWithPagination_ThenPaginationWorksCorrectly()
         {
             var testApp = await CreateTestApplicationAsync();
             var users = new List<User>();
@@ -498,7 +498,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task AssignAndUpdateUser_WithDifferentScenarios_WorksCorrectly()
+        public async Task GivenDifferentScenarios_WhenAssigningAndUpdatingUser_ThenOperationsWorkCorrectly()
         {
             var testApp = await CreateTestApplicationAsync();
             var testUser = await CreateTestUserAsync();
@@ -537,7 +537,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task DuplicateAssignment_ThrowsError()
+        public async Task GivenExistingAssignment_WhenAttemptingDuplicateAssignment_ThenErrorIsThrown()
         {
             var testApp = await CreateTestApplicationAsync();
             var testUser = await CreateTestUserAsync();

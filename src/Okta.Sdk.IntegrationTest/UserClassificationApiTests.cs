@@ -40,7 +40,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserClassificationApi_CompleteCrudLifecycle_ShouldCoverAllEndpointsAndMethods()
+        public async Task GivenUserClassifications_WhenPerformingCrudOperations_ThenAllEndpointsAndMethodsWork()
         {
             var guid = Guid.NewGuid();
 
@@ -166,7 +166,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserClassificationApi_WithHttpInfo_ShouldReturnHttpMetadata()
+        public async Task GivenHttpInfoMethods_WhenCallingApi_ThenHttpMetadataIsReturned()
         {
             var guid = Guid.NewGuid();
 
@@ -273,7 +273,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Returns 401 if feature not enabled, 404 if user not found.
         /// </summary>
         [Fact]
-        public async Task UserClassificationApi_ErrorScenarios_ShouldThrowApiException()
+        public async Task GivenErrorScenarios_WhenCallingApi_ThenApiExceptionIsThrown()
         {
             const string invalidUserId = "invalid_user_id_12345";
 

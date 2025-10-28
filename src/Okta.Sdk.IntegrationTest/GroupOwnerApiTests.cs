@@ -316,7 +316,7 @@ namespace Okta.Sdk.IntegrationTest
         /// This single test covers 3 of the 6 methods and validates all 3 REST API endpoints.
         /// </summary>
         [Fact]
-        public async Task GroupOwnerCrudLifecycle_AssignListDelete_ShouldCompleteAllOperations()
+        public async Task GivenGroupOwners_WhenPerformingAssignListDeleteOperations_ThenAllOperationsComplete()
         {
             // ARRANGE
             var groupId = TargetGroupId;
@@ -403,7 +403,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Validates proper HTTP status codes and response structures.
         /// </summary>
         [Fact]
-        public async Task GroupOwnerWithHttpInfo_AllMethods_ShouldReturnProperApiResponses()
+        public async Task GivenHttpInfoMethods_WhenCallingAllMethods_ThenProperApiResponsesAreReturned()
         {
             // ARRANGE
             var groupId = TargetGroupId;
@@ -457,7 +457,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Uses the shared group with pre-assigned owners to test read-only scenarios.
         /// </summary>
         [Fact]
-        public async Task ListGroupOwners_WithPaginationAndFiltering_ShouldHandleParameters()
+        public async Task GivenPaginationAndFiltering_WhenListingGroupOwners_ThenParametersAreHandled()
         {
             // ARRANGE - Use a shared group with existing owners
             var groupId = SharedGroupWithOwnersId;
@@ -508,7 +508,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Validates proper HTTP 404 error codes for invalid operations.
         /// </summary>
         [Fact]
-        public async Task GroupOwnerApi_WithInvalidOperations_ShouldThrowApiExceptions()
+        public async Task GivenInvalidOperations_WhenCallingApi_ThenApiExceptionsAreThrown()
         {
             // TEST 1: POST endpoint - Assign with invalid group ID
             var validUserRequest = new AssignGroupOwnerRequestBody

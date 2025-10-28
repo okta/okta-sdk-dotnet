@@ -86,7 +86,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserResourcesApi_CompleteCrudLifecycle_ShouldCoverAllEndpointsAndMethods()
+        public async Task GivenUserResources_WhenPerformingCrudOperations_ThenAllEndpointsAndMethodsWork()
         {
             var guid = Guid.NewGuid();
 
@@ -165,7 +165,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserResourcesApi_WithHttpInfo_ShouldReturnHttpMetadata()
+        public async Task GivenHttpInfoMethods_WhenCallingApi_ThenHttpMetadataIsReturned()
         {
             var guid = Guid.NewGuid();
 
@@ -253,7 +253,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserResourcesApi_ErrorScenarios_ShouldThrowApiException()
+        public async Task GivenErrorScenarios_WhenCallingApi_ThenApiExceptionIsThrown()
         {
             const string invalidUserId = "invalid_user_id_12345";
 

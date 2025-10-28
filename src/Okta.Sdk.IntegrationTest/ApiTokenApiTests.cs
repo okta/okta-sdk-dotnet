@@ -16,7 +16,7 @@ namespace Okta.Sdk.IntegrationTest
         private readonly ApiTokenApi _apiTokenApi = new();
 
         [Fact]
-        public async Task ApiTokenApi_ComprehensiveCrudLifecycle_ShouldCoverAllEndpointsAndMethods()
+        public async Task GivenApiTokens_WhenPerformingCrudOperations_ThenAllEndpointsAndMethodsWork()
         {
             // NOTE: API Tokens cannot be created via API - they must be created through the Okta Admin Console
 
@@ -195,7 +195,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApiTokenApi_GetApiToken_WithInvalidId_ShouldThrowApiException()
+        public async Task GivenInvalidId_WhenGettingApiToken_ThenApiExceptionIsThrown()
         {
             const string invalidTokenId = "00Tin-valid_id_xyz";
 
@@ -211,7 +211,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApiTokenApi_GetApiTokenWithHttpInfo_WithInvalidId_ShouldThrowApiException()
+        public async Task GivenInvalidId_WhenGettingApiTokenWithHttpInfo_ThenApiExceptionIsThrown()
         {
             const string invalidTokenId = "00Tin-valid_id_abc";
 
@@ -226,7 +226,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApiTokenApi_UpsertApiToken_WithInvalidId_ShouldThrowApiException()
+        public async Task GivenInvalidId_WhenUpsertingApiToken_ThenApiExceptionIsThrown()
         {
             const string invalidTokenId = "00Tin-valid_id_def";
 
@@ -248,7 +248,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApiTokenApi_UpsertApiTokenWithHttpInfo_WithInvalidId_ShouldThrowApiException()
+        public async Task GivenInvalidId_WhenUpsertingApiTokenWithHttpInfo_ThenApiExceptionIsThrown()
         {
             const string invalidTokenId = "00Tin-valid_id_ghi";
 
@@ -270,7 +270,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApiTokenApi_ListOperations_ShouldReturnConsistentResults()
+        public async Task GivenListOperations_WhenCalling_ThenConsistentResultsAreReturned()
         {
             var tokensFromStandard = await _apiTokenApi.ListApiTokens().ToListAsync();
             await Task.Delay(500);
@@ -292,7 +292,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApiTokenApi_GetOperations_ShouldReturnConsistentResults()
+        public async Task GivenGetOperations_WhenCalling_ThenConsistentResultsAreReturned()
         {
             var allTokens = await _apiTokenApi.ListApiTokens().ToListAsync();
             allTokens.Should().NotBeNullOrEmpty("Should have at least one token to test Get operations");
@@ -319,7 +319,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApiTokenApi_UpsertOperations_WithInvalidId_ShouldThrowApiException()
+        public async Task GivenInvalidId_WhenUpsertingToken_ThenApiExceptionIsThrown()
         {
             const string invalidTokenId = "00Tin-valid_id_jkl";
 

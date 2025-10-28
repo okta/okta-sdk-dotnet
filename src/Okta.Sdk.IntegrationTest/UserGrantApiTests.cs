@@ -60,7 +60,7 @@ namespace Okta.Sdk.IntegrationTest
         #region Complete User Grant API CRUD Lifecycle Test
 
         [Fact]
-        public async Task UserGrantApi_CompleteCrudLifecycle_ShouldCoverAllEndpointsAndMethods()
+        public async Task GivenUserAndClient_WhenPerformingCrudOperations_ThenAllEndpointsAndMethodsWork()
         {
             var guid = Guid.NewGuid();
             var oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;
@@ -308,7 +308,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserGrantApi_WithHttpInfo_ShouldReturnHttpMetadata()
+        public async Task GivenHttpInfoMethods_WhenCallingApi_ThenHttpMetadataIsReturned()
         {
             var guid = Guid.NewGuid();
             
@@ -478,7 +478,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Tests error scenarios with invalid inputs for all methods.
         /// </summary>
         [Fact]
-        public async Task UserGrantApi_ErrorScenarios_ShouldThrowApiException()
+        public async Task GivenInvalidScenarios_WhenCallingApi_ThenApiExceptionIsThrown()
         {
             const string invalidUserId = "invalid_user_id_12345";
             const string invalidGrantId = "invalid_grant_id_12345";

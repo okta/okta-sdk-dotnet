@@ -105,7 +105,7 @@ namespace Okta.Sdk.IntegrationTest
         private string GenerateFakeTokenId() => "oar" + Guid.NewGuid().ToString().Replace("-", "");
 
         [Fact]
-        public async Task ApplicationTokensApi_AllOperations_WorkCorrectly()
+        public async Task GivenApplicationTokens_WhenPerformingAllOperations_ThenOperationsWorkCorrectly()
         {
             // Note: This API manages OAuth 2.0 REFRESH tokens (from authorization_code flow), not access tokens
             // Refresh tokens require browser-based user authentication/consent, cannot be automated in tests
@@ -178,7 +178,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApplicationTokensApi_WithInvalidAppId_ThrowsNotFoundForAllOperations()
+        public async Task GivenInvalidAppId_WhenPerformingOperations_ThenNotFoundIsThrown()
         {
             // Tests all 8 API methods with non-existent app ID
             var fakeAppId = "0oa" + Guid.NewGuid().ToString().Replace("-", "");
@@ -226,7 +226,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ApplicationTokensApi_WithNullParameters_ThrowsApiException()
+        public async Task GivenNullParameters_WhenCallingApi_ThenApiExceptionIsThrown()
         {
             // Validates null parameter handling for all token-specific methods
             var appId = await CreateTestOAuthApp();
@@ -251,7 +251,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ListOAuth2TokensForApplication_WithDifferentParameters_ReturnsEmptyList()
+        public async Task GivenApplicationWithNoTokens_WhenListingTokens_ThenEmptyListIsReturned()
         {
             // Tests parameter combinations: expand (scope), after (pagination), limit (1-200, default 20)
             var appId = await CreateTestOAuthApp();

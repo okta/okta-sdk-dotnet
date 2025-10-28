@@ -91,7 +91,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_AssignGroupToApplication_And_RetrieveAssignment()
+        public async Task GivenGroupAndApplication_WhenAssigningAndRetrieving_ThenAssignmentIsSuccessful()
         {
             // Arrange
             var groupAssignment = new ApplicationGroupAssignment
@@ -123,7 +123,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_ListApplicationGroupAssignments()
+        public async Task GivenApplicationGroupAssignments_WhenListing_ThenAssignmentsAreReturned()
         {
             // Arrange - Assign a group to application
             var groupAssignment = new ApplicationGroupAssignment
@@ -153,7 +153,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_ListApplicationGroupAssignments_WithQueryParameter()
+        public async Task GivenQueryParameter_WhenListingAssignments_ThenFilteredAssignmentsAreReturned()
         {
             // Arrange - Get the group name for a query
             var group = await _groupApi.GetGroupAsync(_testGroupId);
@@ -196,7 +196,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_ListApplicationGroupAssignments_WithPagination()
+        public async Task GivenMultipleAssignments_WhenListingWithPagination_ThenPaginationWorks()
         {
             // Arrange - Assign a group
             var groupAssignment = new ApplicationGroupAssignment
@@ -220,7 +220,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_ListApplicationGroupAssignments_WithExpandParameter()
+        public async Task GivenExpandParameter_WhenListingAssignments_ThenExpandedDataIsReturned()
         {
             // Arrange - Assign a group
             var groupAssignment = new ApplicationGroupAssignment
@@ -244,7 +244,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_GetApplicationGroupAssignment_WithExpandParameter()
+        public async Task GivenExpandParameter_WhenGettingAssignment_ThenExpandedDataIsReturned()
         {
             // Arrange - Assign a group
             var groupAssignment = new ApplicationGroupAssignment
@@ -268,7 +268,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_UpdateGroupAssignmentToApplication()
+        public async Task GivenGroupAssignment_WhenUpdating_ThenAssignmentIsUpdated()
         {
             // Arrange - Assign a group with priority 0
             var initialAssignment = new ApplicationGroupAssignment
@@ -311,7 +311,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_UnassignApplicationFromGroup()
+        public async Task GivenGroupAssignment_WhenUnassigning_ThenAssignmentIsRemoved()
         {
             // Arrange - Assign a group to application
             var groupAssignment = new ApplicationGroupAssignment
@@ -333,7 +333,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_AssignGroupToApplication_WithHttpInfo()
+        public async Task GivenGroupAndApplication_WhenAssigningWithHttpInfo_ThenHttpResponseIsReturned()
         {
             // Arrange
             var groupAssignment = new ApplicationGroupAssignment
@@ -352,7 +352,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_GetApplicationGroupAssignment_WithHttpInfo()
+        public async Task GivenAssignment_WhenGettingWithHttpInfo_ThenHttpResponseIsReturned()
         {
             // Arrange - Assign a group
             var groupAssignment = new ApplicationGroupAssignment
@@ -374,7 +374,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_UpdateGroupAssignmentToApplication_WithHttpInfo()
+        public async Task GivenAssignment_WhenUpdatingWithHttpInfo_ThenHttpResponseIsReturned()
         {
             // Arrange - Assign a group
             var groupAssignment = new ApplicationGroupAssignment
@@ -410,7 +410,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_UnassignApplicationFromGroup_WithHttpInfo()
+        public async Task GivenAssignment_WhenUnassigningWithHttpInfo_ThenHttpResponseIsReturned()
         {
             // Arrange - Assign a group
             var groupAssignment = new ApplicationGroupAssignment

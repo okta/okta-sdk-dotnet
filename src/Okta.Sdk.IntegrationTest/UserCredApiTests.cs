@@ -73,7 +73,7 @@ namespace Okta.Sdk.IntegrationTest
         #region Complete User Credentials API CRUD Lifecycle Test
 
         [Fact]
-        public async Task UserCredApi_CompleteCrudLifecycle_ShouldCoverAllEndpointsAndMethods()
+        public async Task GivenUserCredentials_WhenPerformingCrudOperations_ThenAllEndpointsAndMethodsWork()
         {
             var guid = Guid.NewGuid();
             var initialPassword = "MyP@ssw0rd111";
@@ -189,7 +189,7 @@ namespace Okta.Sdk.IntegrationTest
         #region Individual Method Validation Tests
 
         [Fact]
-        public async Task ChangePasswordAsync_WithValidCredentials_ShouldUpdatePassword()
+        public async Task GivenValidCredentials_WhenChangingPassword_ThenPasswordIsUpdated()
         {
             var guid = Guid.NewGuid();
             var oldPassword = "MyP@ssw0rd111";
@@ -214,7 +214,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ChangePasswordAsync_WithInvalidOldPassword_ShouldThrowApiException()
+        public async Task GivenInvalidOldPassword_WhenChangingPassword_ThenApiExceptionIsThrown()
         {
             var guid = Guid.NewGuid();
             var oldPassword = "MyP@ssw0rd111";
@@ -240,7 +240,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ExpirePasswordAsync_WithActiveUser_ShouldTransitionToPasswordExpired()
+        public async Task GivenActiveUser_WhenExpiringPassword_ThenUserTransitionsToPasswordExpired()
         {
             var guid = Guid.NewGuid();
             var user = await CreateTestUserWithCredentials(guid.ToString());
@@ -254,7 +254,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ForgotPasswordAsync_WithActiveUser_ShouldReturnResetUrl()
+        public async Task GivenActiveUser_WhenRequestingForgotPassword_ThenResetUrlIsReturned()
         {
             var guid = Guid.NewGuid();
             var user = await CreateTestUserWithCredentials(guid.ToString());
@@ -267,7 +267,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ResetPasswordAsync_WithValidUser_ShouldReturnResetToken()
+        public async Task GivenValidUser_WhenResettingPassword_ThenResetTokenIsReturned()
         {
             var guid = Guid.NewGuid();
             var user = await CreateTestUserWithCredentials(guid.ToString());
@@ -283,7 +283,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ChangeRecoveryQuestionAsync_WithValidCredentials_ShouldUpdateQuestion()
+        public async Task GivenValidCredentials_WhenChangingRecoveryQuestion_ThenQuestionIsUpdated()
         {
             var guid = Guid.NewGuid();
             var password = "MyP@ssw0rd123";
@@ -307,7 +307,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ExpirePasswordWithTempPasswordAsync_WithActiveUser_ShouldExpireAndReturnTempPassword()
+        public async Task GivenActiveUser_WhenExpiringPasswordWithTempPassword_ThenPasswordIsExpiredAndTempPasswordReturned()
         {
             var guid = Guid.NewGuid();
             var user = await CreateTestUserWithCredentials(guid.ToString());
@@ -319,7 +319,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ForgotPasswordSetNewPasswordAsync_WithCorrectAnswer_ShouldResetPassword()
+        public async Task GivenCorrectAnswer_WhenSettingNewPasswordAfterForgot_ThenPasswordIsReset()
         {
             var guid = Guid.NewGuid();
             var recoveryQuestion = "What is your favorite food?";
@@ -347,7 +347,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task HttpInfoMethods_ShouldReturnValidHttpMetadata()
+        public async Task GivenHttpInfoMethods_WhenCalling_ThenValidHttpMetadataIsReturned()
         {
             var guid = Guid.NewGuid();
             var password = "MyP@ssw0rd123";

@@ -72,7 +72,7 @@ namespace Okta.Sdk.IntegrationTest
         }
         
         [Fact]
-        public async Task UserFactorApi_CompleteCrudLifecycle_ShouldCoverAllEndpointsAndMethods()
+        public async Task GivenUserFactors_WhenPerformingCrudOperations_ThenAllEndpointsAndMethodsWork()
         {
             // SETUP: Create test user
             var testUser = await CreateTestUserAsync();
@@ -181,7 +181,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserFactorApi_VerifyFactorWithHttpInfo_ShouldReturnApiResponse()
+        public async Task GivenFactor_WhenVerifyingFactorWithHttpInfo_ThenApiResponseIsReturned()
         {
             User testUser = null;
             UserFactor totpFactor = null;
@@ -251,7 +251,7 @@ namespace Okta.Sdk.IntegrationTest
 
         /// Tests enrolling multiple TOTP factors for the same user
         [Fact]
-        public async Task UserFactorApi_EnrollMultipleFactorTypes_ShouldSucceed()
+        public async Task GivenMultipleFactorTypes_WhenEnrolling_ThenAllEnrollmentsSucceed()
         {
             var enrolledFactors = new List<UserFactor>();
 
@@ -310,7 +310,7 @@ namespace Okta.Sdk.IntegrationTest
 
         /// Tests GetFactorWithHttpInfoAsync method to ensure ApiResponse is returned.
         [Fact]
-        public async Task UserFactorApi_GetFactorWithHttpInfo_ShouldReturnApiResponse()
+        public async Task GivenFactor_WhenGettingFactorWithHttpInfo_ThenApiResponseIsReturned()
         {
             User testUser = null;
             UserFactor factor = null;
@@ -360,7 +360,7 @@ namespace Okta.Sdk.IntegrationTest
 
         /// Tests ListSupportedFactorsWithHttpInfoAsync method to ensure ApiResponse is returned
         [Fact]
-        public async Task UserFactorApi_ListSupportedFactorsWithHttpInfo_ShouldReturnApiResponse()
+        public async Task GivenSupportedFactors_WhenListingWithHttpInfo_ThenApiResponseIsReturned()
         {
             var testUser = await CreateTestUserAsync();
             await Task.Delay(1000);
@@ -375,7 +375,7 @@ namespace Okta.Sdk.IntegrationTest
 
         /// Tests EnrollFactorAsync with optional parameters like tokenLifetimeSeconds and acceptLanguage.
         [Fact]
-        public async Task UserFactorApi_EnrollFactorWithTokenLifetime_ShouldSucceed()
+        public async Task GivenTokenLifetime_WhenEnrollingFactor_ThenEnrollmentSucceeds()
         {
             User testUser = null;
             UserFactor totpFactor = null;

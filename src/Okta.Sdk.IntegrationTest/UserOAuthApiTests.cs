@@ -51,7 +51,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_CompleteCrudLifecycle_ShouldCoverAllEndpointsAndMethods()
+        public async Task GivenUserOAuth_WhenPerformingCrudOperations_ThenAllEndpointsAndMethodsWork()
         {
             var guid = Guid.NewGuid();
 
@@ -88,7 +88,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_ListRefreshTokens_ShouldHandleEmptyResults()
+        public async Task GivenNoTokens_WhenListingRefreshTokens_ThenEmptyResultsAreHandled()
         {
             var guid = Guid.NewGuid();
 
@@ -101,7 +101,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_ListRefreshTokensWithParameters_ShouldApplyFilters()
+        public async Task GivenFilters_WhenListingRefreshTokens_ThenFiltersAreApplied()
         {
             var guid = Guid.NewGuid();
 
@@ -118,7 +118,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_GetRefreshToken_ShouldReturn404ForNonExistent()
+        public async Task GivenNonExistentToken_WhenGettingRefreshToken_Then404IsReturned()
         {
             var guid = Guid.NewGuid();
 
@@ -134,7 +134,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_GetRefreshTokenWithExpand_ShouldReturn404ForNonExistent()
+        public async Task GivenNonExistentToken_WhenGettingRefreshTokenWithExpand_Then404IsReturned()
         {
             var guid = Guid.NewGuid();
 
@@ -149,7 +149,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_RevokeToken_ShouldReturn404ForNonExistent()
+        public async Task GivenNonExistentToken_WhenRevokingToken_Then404IsReturned()
         {
             var guid = Guid.NewGuid();
 
@@ -164,7 +164,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_RevokeAllTokens_ShouldSucceed()
+        public async Task GivenUser_WhenRevokingAllTokens_ThenOperationSucceeds()
         {
             var guid = Guid.NewGuid();
 
@@ -175,7 +175,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_ListRefreshTokensWithHttpInfo_ShouldReturnMetadata()
+        public async Task GivenHttpInfoMethod_WhenListingRefreshTokens_ThenMetadataIsReturned()
         {
             var guid = Guid.NewGuid();
 
@@ -192,7 +192,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_GetRefreshTokenWithHttpInfo_ShouldReturn404()
+        public async Task GivenNonExistentToken_WhenGettingRefreshTokenWithHttpInfo_Then404IsReturned()
         {
             var guid = Guid.NewGuid();
 
@@ -207,7 +207,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_GetRefreshTokenWithHttpInfoAndExpand_ShouldReturn404()
+        public async Task GivenNonExistentToken_WhenGettingRefreshTokenWithHttpInfoAndExpand_Then404IsReturned()
         {
             var guid = Guid.NewGuid();
 
@@ -223,7 +223,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_RevokeTokenWithHttpInfo_ShouldReturn404()
+        public async Task GivenNonExistentToken_WhenRevokingTokenWithHttpInfo_Then404IsReturned()
         {
             var guid = Guid.NewGuid();
 
@@ -238,7 +238,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_RevokeAllTokensWithHttpInfo_ShouldSucceed()
+        public async Task GivenUser_WhenRevokingAllTokensWithHttpInfo_ThenOperationSucceeds()
         {
             var guid = Guid.NewGuid();
 
@@ -253,7 +253,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_InvalidUserId_ShouldReturn404()
+        public async Task GivenInvalidUserId_WhenCallingApi_Then404IsReturned()
         {
             var invalidUserId = GenerateFakeUserId();
             var invalidClientId = GenerateFakeClientId();
@@ -265,7 +265,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_InvalidClientId_ShouldReturn404()
+        public async Task GivenInvalidClientId_WhenCallingApi_Then404IsReturned()
         {
             var guid = Guid.NewGuid();
             var user = await CreateTestUser(guid);
@@ -278,7 +278,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_InvalidTokenId_ShouldReturn404()
+        public async Task GivenInvalidTokenId_WhenCallingApi_Then404IsReturned()
         {
             var guid = Guid.NewGuid();
             var user = await CreateTestUser(guid);
@@ -292,7 +292,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserOAuthApi_MultipleOperations_ShouldWorkInSequence()
+        public async Task GivenMultipleOperations_WhenExecutingInSequence_ThenAllOperationsWork()
         {
             var guid = Guid.NewGuid();
 

@@ -51,7 +51,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserLinkedObjectApi_CompleteCrudLifecycle_ShouldCoverAllEndpointsAndMethods()
+        public async Task GivenLinkedObjects_WhenPerformingCrudOperations_ThenAllEndpointsAndMethodsWork()
         {
             var guid = Guid.NewGuid();
             
@@ -240,7 +240,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserLinkedObjectApi_WithHttpInfo_ShouldReturnHttpMetadata()
+        public async Task GivenHttpInfoMethods_WhenCallingApi_ThenHttpMetadataIsReturned()
         {
             var guid = Guid.NewGuid();
 
@@ -440,7 +440,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserLinkedObjectApi_ErrorScenarios_ShouldThrowApiException()
+        public async Task GivenErrorScenarios_WhenCallingApi_ThenApiExceptionIsThrown()
         {
             var guid = Guid.NewGuid();
 

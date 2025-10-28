@@ -80,7 +80,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_GrantConsentToScope_And_RetrieveGrant()
+        public async Task GivenScopeConsent_WhenGrantingAndRetrieving_ThenGrantIsSuccessfullyCreatedAndRetrieved()
         {
             // Arrange & Act
             var oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;
@@ -122,7 +122,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_ListScopeConsentGrants()
+        public async Task GivenGrantedScopes_WhenListingGrants_ThenGrantsAreReturned()
         {
             // Arrange - Create a grant
             var oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;
@@ -157,7 +157,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_ListScopeConsentGrants_WithExpandParameter()
+        public async Task GivenExpandParameter_WhenListingGrants_ThenExpandedDataIsReturned()
         {
             // Arrange - Create a grant
             var oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;
@@ -185,7 +185,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_GetScopeConsentGrant_WithExpandParameter()
+        public async Task GivenExpandParameter_WhenGettingGrant_ThenExpandedDataIsReturned()
         {
             // Arrange - Create a grant
             var oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;
@@ -213,7 +213,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_RevokeScopeConsentGrant()
+        public async Task GivenExistingGrant_WhenRevokingGrant_ThenGrantIsSuccessfullyRevoked()
         {
             // Arrange - Create a grant
             var oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;
@@ -243,7 +243,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_GrantConsentToScope_WithHttpInfo()
+        public async Task GivenScopeConsent_WhenGrantingWithHttpInfo_ThenHttpResponseIsReturned()
         {
             // Arrange
             var oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;
@@ -270,7 +270,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_GetScopeConsentGrant_WithHttpInfo()
+        public async Task GivenExistingGrant_WhenGettingGrantWithHttpInfo_ThenHttpResponseIsReturned()
         {
             // Arrange - Create a grant
             var oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;
@@ -299,7 +299,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_RevokeScopeConsentGrant_WithHttpInfo()
+        public async Task GivenExistingGrant_WhenRevokingGrantWithHttpInfo_ThenHttpResponseIsReturned()
         {
             // Arrange - Create a grant
             var oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;

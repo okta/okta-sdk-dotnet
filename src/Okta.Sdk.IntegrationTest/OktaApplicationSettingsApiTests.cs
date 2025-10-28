@@ -35,7 +35,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ComprehensiveOktaApplicationSettingsApiTest_CoversAllEndpointsAndMethods()
+        public async Task GivenOktaApplicationSettings_WhenPerformingAllOperations_ThenAllEndpointsAndMethodsWork()
         {
             const string appName = "admin-console";
 
@@ -165,7 +165,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ErrorHandling_CoversAllInvalidScenarios()
+        public async Task GivenInvalidScenarios_WhenCallingApi_ThenAllInvalidScenariosAreCovered()
         {
             const string appName = "admin-console";
 
@@ -295,7 +295,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ReplaceFirstPartyAppSettings_WithDefaultValues_UpdatesSuccessfully()
+        public async Task GivenDefaultValues_WhenReplacingSettings_ThenSettingsAreUpdatedSuccessfully()
         {
             const string appName = "admin-console";
             

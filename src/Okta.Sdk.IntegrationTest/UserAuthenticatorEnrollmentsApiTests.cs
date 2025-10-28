@@ -49,7 +49,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserAuthenticatorEnrollmentsApi_CompleteCrudLifecycle_ShouldCoverAllEndpointsAndMethods()
+        public async Task GivenUserAuthenticatorEnrollments_WhenPerformingCrudOperations_ThenAllEndpointsAndMethodsWork()
         {
             var guid = Guid.NewGuid();
             string phoneAuthenticatorId = null;
@@ -222,7 +222,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserAuthenticatorEnrollmentsApi_WithHttpInfo_ShouldReturnHttpMetadata()
+        public async Task GivenHttpInfoMethods_WhenCallingApi_ThenHttpMetadataIsReturned()
         {
             var guid = Guid.NewGuid();
             string phoneAuthenticatorId = null;
@@ -398,7 +398,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Tests error scenarios with invalid inputs for all methods.
         /// </summary>
         [Fact]
-        public async Task UserAuthenticatorEnrollmentsApi_ErrorScenarios_ShouldThrowApiException()
+        public async Task GivenErrorScenarios_WhenCallingApi_ThenApiExceptionIsThrown()
         {
             const string invalidUserId = "invalid_user_id_12345";
             const string invalidEnrollmentId = "invalid_enrollment_id_12345";

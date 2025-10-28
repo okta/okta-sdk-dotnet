@@ -107,7 +107,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_AssignApplicationPolicy()
+        public async Task GivenApplicationAndPolicy_WhenAssigningPolicy_ThenPolicyIsAssigned()
         {
             // Act
             await _applicationPoliciesApi.AssignApplicationPolicyAsync(_testAppId, _testPolicyId);
@@ -127,7 +127,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_AssignApplicationPolicy_WithHttpInfo()
+        public async Task GivenApplicationAndPolicy_WhenAssigningWithHttpInfo_ThenHttpResponseIsReturned()
         {
             // Act
             var response = await _applicationPoliciesApi.AssignApplicationPolicyWithHttpInfoAsync(_testAppId, _testPolicyId);
@@ -138,7 +138,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_ReplaceExistingPolicy_WhenAssigningNewPolicy()
+        public async Task GivenExistingPolicy_WhenAssigningNewPolicy_ThenExistingPolicyIsReplaced()
         {
             // Arrange - Create second policy
             var secondPolicy = new CreateOrUpdatePolicy
@@ -193,7 +193,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_ThrowException_ForNonExistentApp()
+        public async Task GivenNonExistentApp_WhenAssigningPolicy_ThenExceptionIsThrown()
         {
             // Arrange
             var nonExistentAppId = "nonexistent123";
@@ -206,7 +206,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_ThrowException_ForNonExistentPolicy()
+        public async Task GivenNonExistentPolicy_WhenAssigningToApp_ThenExceptionIsThrown()
         {
             // Arrange
             var nonExistentPolicyId = "nonexistent456";
@@ -219,7 +219,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_HandleMultiplePolicyAssignments()
+        public async Task GivenMultipleApplications_WhenAssigningPolicies_ThenMultipleAssignmentsSucceed()
         {
             // Act - Assign policy multiple times (should be idempotent)
             await _applicationPoliciesApi.AssignApplicationPolicyAsync(_testAppId, _testPolicyId);
@@ -242,7 +242,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_AssignPolicy_ToDifferentApplicationTypes()
+        public async Task GivenDifferentApplicationTypes_WhenAssigningPolicy_ThenPolicyIsAssignedSuccessfully()
         {
             // Arrange - Create a SAML application
             var samlApp = new SamlApplication
@@ -315,7 +315,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_AssignPolicy_ToMultipleApplications()
+        public async Task GivenPolicy_WhenAssigningToMultipleApplications_ThenAllAssignmentsSucceed()
         {
             // Arrange - Create second application
             var guid = Guid.NewGuid();

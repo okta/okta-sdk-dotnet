@@ -135,7 +135,7 @@ namespace Okta.Sdk.IntegrationTest
         #region Complete CRUD Lifecycle Tests
 
         [Fact]
-        public async Task SessionCrudLifecycle_ShouldCompleteAllOperations()
+        public async Task GivenSession_WhenPerformingCrudOperations_ThenAllOperationsComplete()
         {
             // CREATE
             var sessionToken = await _fixture.GetSessionTokenAsync();
@@ -178,7 +178,7 @@ namespace Okta.Sdk.IntegrationTest
         #region CREATE Operation Tests
 
         [Fact]
-        public async Task CreateSession_WithValidSessionToken_ShouldSucceed()
+        public async Task GivenValidSessionToken_WhenCreatingSession_ThenSessionIsCreated()
         {
             var sessionToken = await _fixture.GetSessionTokenAsync();
             var createSessionRequest = new CreateSessionRequest { SessionToken = sessionToken };
@@ -199,7 +199,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task CreateSessionWithHttpInfo_ShouldReturnHttpResponse()
+        public async Task GivenValidSessionToken_WhenCreatingSessionWithHttpInfo_ThenHttpResponseIsReturned()
         {
             var sessionToken = await _fixture.GetSessionTokenAsync();
             var createSessionRequest = new CreateSessionRequest { SessionToken = sessionToken };
@@ -223,7 +223,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task CreateSession_WithInvalidSessionToken_ShouldFail()
+        public async Task GivenInvalidSessionToken_WhenCreatingSession_ThenOperationFails()
         {
             var createSessionRequest = new CreateSessionRequest { SessionToken = "invalid_token_12345" };
 
@@ -234,7 +234,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task CreateSession_WithNullSessionToken_ShouldFail()
+        public async Task GivenNullSessionToken_WhenCreatingSession_ThenOperationFails()
         {
             var createSessionRequest = new CreateSessionRequest { SessionToken = null };
 
@@ -249,7 +249,7 @@ namespace Okta.Sdk.IntegrationTest
         #region READ Operation Tests
 
         [Fact]
-        public async Task GetSession_WithValidId_ShouldSucceed()
+        public async Task GivenValidId_WhenGettingSession_ThenSessionIsReturned()
         {
             var sessionToken = await _fixture.GetSessionTokenAsync();
             var createSessionRequest = new CreateSessionRequest { SessionToken = sessionToken };
@@ -269,7 +269,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task GetSessionWithHttpInfo_ShouldReturnHttpResponse()
+        public async Task GivenValidId_WhenGettingSessionWithHttpInfo_ThenHttpResponseIsReturned()
         {
             var sessionToken = await _fixture.GetSessionTokenAsync();
             var createSessionRequest = new CreateSessionRequest { SessionToken = sessionToken };
@@ -291,7 +291,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task GetSession_WithInvalidId_ShouldFail()
+        public async Task GivenInvalidId_WhenGettingSession_ThenOperationFails()
         {
             var invalidSessionId = "invalid_session_id_12345";
 
@@ -307,7 +307,7 @@ namespace Okta.Sdk.IntegrationTest
         #region UPDATE Operation Tests
 
         [Fact]
-        public async Task RefreshSession_WithValidId_ShouldSucceed()
+        public async Task GivenValidId_WhenRefreshingSession_ThenSessionIsRefreshed()
         {
             var sessionToken = await _fixture.GetSessionTokenAsync();
             var createSessionRequest = new CreateSessionRequest { SessionToken = sessionToken };
@@ -326,7 +326,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task RefreshSessionWithHttpInfo_ShouldReturnHttpResponse()
+        public async Task GivenValidId_WhenRefreshingSessionWithHttpInfo_ThenHttpResponseIsReturned()
         {
             var sessionToken = await _fixture.GetSessionTokenAsync();
             var createSessionRequest = new CreateSessionRequest { SessionToken = sessionToken };
@@ -348,7 +348,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task RefreshSession_WithInvalidId_ShouldFail()
+        public async Task GivenInvalidId_WhenRefreshingSession_ThenOperationFails()
         {
             var invalidSessionId = "invalid_session_id_12345";
 
@@ -364,7 +364,7 @@ namespace Okta.Sdk.IntegrationTest
         #region DELETE Operation Tests
 
         [Fact]
-        public async Task RevokeSession_WithValidId_ShouldSucceed()
+        public async Task GivenValidId_WhenRevokingSession_ThenSessionIsRevoked()
         {
             var sessionToken = await _fixture.GetSessionTokenAsync();
             var createSessionRequest = new CreateSessionRequest { SessionToken = sessionToken };
@@ -378,7 +378,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task RevokeSession_WithInvalidId_ShouldFail()
+        public async Task GivenInvalidId_WhenRevokingSession_ThenOperationFails()
         {
             var invalidSessionId = "invalid_session_id_12345";
 
@@ -390,7 +390,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task RevokeSession_AlreadyRevoked_ShouldFail()
+        public async Task GivenRevokedSession_WhenRevokingAgain_ThenOperationFails()
         {
             var sessionToken = await _fixture.GetSessionTokenAsync();
             var createSessionRequest = new CreateSessionRequest { SessionToken = sessionToken };
@@ -406,7 +406,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task RevokeSessionWithHttpInfo_ShouldReturnHttpResponse()
+        public async Task GivenValidId_WhenRevokingSessionWithHttpInfo_ThenHttpResponseIsReturned()
         {
             var sessionToken = await _fixture.GetSessionTokenAsync();
             var createSessionRequest = new CreateSessionRequest { SessionToken = sessionToken };
@@ -428,7 +428,7 @@ namespace Okta.Sdk.IntegrationTest
         #region Edge Case Tests
 
         [Fact]
-        public async Task MultipleSessionsForSameUser_ShouldWorkIndependently()
+        public async Task GivenSameUser_WhenCreatingMultipleSessions_ThenSessionsWorkIndependently()
         {
             var sessionToken1 = await _fixture.GetSessionTokenAsync();
             var createSessionRequest1 = new CreateSessionRequest { SessionToken = sessionToken1 };
@@ -457,7 +457,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task RefreshSession_AfterMultipleRefreshes_ShouldSucceed()
+        public async Task GivenSession_WhenRefreshingMultipleTimes_ThenAllRefreshesSucceed()
         {
             var sessionToken = await _fixture.GetSessionTokenAsync();
             var createSessionRequest = new CreateSessionRequest { SessionToken = sessionToken };

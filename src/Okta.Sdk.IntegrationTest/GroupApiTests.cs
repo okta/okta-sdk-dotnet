@@ -193,7 +193,7 @@ namespace Okta.Sdk.IntegrationTest
         /// pagination, filtering, sorting, error handling, and edge cases.
         /// </summary>
         [Fact]
-        public async Task ComprehensiveGroupApiTest_CoversAllEndpointsAndMethods()
+        public async Task GivenGroupApi_WhenPerformingAllOperations_ThenAllEndpointsAndMethodsWork()
         {
             var guid = Guid.NewGuid();
             var testGroupName = $"ComprehensiveTest-{guid}";
@@ -649,7 +649,7 @@ namespace Okta.Sdk.IntegrationTest
         /// Ensures proper error codes and meaningful error messages.
         /// </summary>
         [Fact]
-        public async Task GroupApi_ShouldReturnCorrectErrorCodes()
+        public async Task GivenInvalidOperations_WhenCallingApi_ThenCorrectErrorCodesAreReturned()
         {
             var guid = Guid.NewGuid();
 

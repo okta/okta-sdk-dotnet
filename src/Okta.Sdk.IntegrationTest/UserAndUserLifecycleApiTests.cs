@@ -46,7 +46,7 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
         [Fact]
-        public async Task UserAndUserLifecycleApi_CompleteCrudOperations_AllStandardMethods()
+        public async Task GivenUsers_WhenPerformingCrudOperations_ThenAllStandardMethodsWork()
         {
             var testGuid = Guid.NewGuid().ToString().Substring(0, 8);
 
@@ -651,7 +651,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserAndUserLifecycleApi_AllWithHttpInfoMethods_ShouldReturnFullResponseDetails()
+        public async Task GivenHttpInfoMethods_WhenCallingApi_ThenFullResponseDetailsAreReturned()
         {
             var testGuid = Guid.NewGuid().ToString().Substring(0, 8);
 
@@ -855,7 +855,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task UserAndUserLifecycleApi_AdditionalScenarios_PaginationAndExpand()
+        public async Task GivenPaginationAndExpand_WhenListingUsers_ThenAdditionalScenariosWork()
         {
             var testGuid = Guid.NewGuid().ToString().Substring(0, 8);
 

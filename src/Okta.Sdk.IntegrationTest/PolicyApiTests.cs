@@ -19,7 +19,7 @@ namespace Okta.Sdk.IntegrationTest
         private readonly ApplicationPoliciesApi _applicationPoliciesApi = new();
 
         [Fact]
-        public async Task ComprehensivePolicyApiTest_CoversAllEndpointsAndMethods()
+        public async Task GivenPolicyApi_WhenPerformingAllOperations_ThenAllEndpointsAndMethodsWork()
         {
             var guid = Guid.NewGuid();
             Policy createdPolicy = null;
@@ -699,7 +699,7 @@ namespace Okta.Sdk.IntegrationTest
         }
         
         [Fact]
-        public async Task ListPolicies_ShouldReturnAllSupportedPolicyTypes()
+        public async Task GivenSupportedPolicyTypes_WhenListingPolicies_ThenAllTypesAreReturned()
         {
             // Test listing all supported policy types
             var policyTypes = new[]
@@ -742,7 +742,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ListPolicies_WithQueryParameters_ShouldFilterCorrectly()
+        public async Task GivenQueryParameters_WhenListingPolicies_ThenFilteringWorksCorrectly()
         {
             var guid = Guid.NewGuid();
             Policy testPolicy = null;
@@ -825,7 +825,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task PasswordPolicy_WithRules_ShouldHandleAllScenarios()
+        public async Task GivenPasswordPolicyWithRules_WhenManagingPolicy_ThenAllScenariosWork()
         {
             var guid = Guid.NewGuid();
             Policy passwordPolicy = null;
@@ -992,7 +992,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task PolicyRules_ShouldMaintainPriorityOrder()
+        public async Task GivenPolicyRules_WhenManaging_ThenPriorityOrderIsMaintained()
         {
             var guid = Guid.NewGuid();
             Policy testPolicy = null;
@@ -1106,7 +1106,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task PolicyRule_WithNetworkConditions_ShouldConfigureCorrectly()
+        public async Task GivenNetworkConditions_WhenConfiguringPolicyRule_ThenRuleIsConfiguredCorrectly()
         {
             var guid = Guid.NewGuid();
             Policy testPolicy = null;
@@ -1191,7 +1191,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task SignOnPolicyRule_WithSessionSettings_ShouldConfigureCorrectly()
+        public async Task GivenSessionSettings_WhenConfiguringSignOnPolicyRule_ThenRuleIsConfiguredCorrectly()
         {
             var guid = Guid.NewGuid();
             Policy testPolicy = null;
@@ -1306,7 +1306,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task PolicyApi_ShouldReturnCorrectErrorCodes()
+        public async Task GivenInvalidOperations_WhenCallingApi_ThenCorrectErrorCodesAreReturned()
         {
             var guid = Guid.NewGuid();
             var invalidPolicyId = "invalid_policy_id_12345";
@@ -1385,7 +1385,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task CreatePolicy_WithBoundaryNameLength_ShouldHandleCorrectly()
+        public async Task GivenBoundaryNameLength_WhenCreatingPolicy_ThenPolicyIsHandledCorrectly()
         {
             Policy policy49Chars = null;
             Policy policy50Chars = null;
@@ -1469,7 +1469,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task CreatePolicySimulation_WithValidScenario_ShouldReturnResults()
+        public async Task GivenValidScenario_WhenCreatingPolicySimulation_ThenResultsAreReturned()
         {
             var guid = Guid.NewGuid();
             Policy testPolicy = null;
@@ -1603,7 +1603,7 @@ namespace Okta.Sdk.IntegrationTest
         }
         
         [Fact]
-        public async Task PolicyApi_WithHttpInfoMethods_ShouldReturnApiResponseWithDetails()
+        public async Task GivenHttpInfoMethods_WhenCallingApi_ThenApiResponseWithDetailsIsReturned()
         {
             var guid = Guid.NewGuid();
             Policy createdPolicy = null;

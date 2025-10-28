@@ -103,7 +103,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_UploadApplicationLogo_WithPngFile()
+        public async Task GivenApplication_WhenUploadingPngLogo_ThenLogoIsSuccessfullyUploaded()
         {
             // Arrange
             await using var logoStream = CreateTestPngImage();
@@ -125,7 +125,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_UploadApplicationLogo_WithSvgFile()
+        public async Task GivenApplication_WhenUploadingSvgLogo_ThenLogoIsSuccessfullyUploaded()
         {
             // Arrange
             await using var logoStream = CreateTestSvgImage();
@@ -144,7 +144,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_ReplaceExistingLogo_WhenUploadingNewLogo()
+        public async Task GivenExistingLogo_WhenUploadingNewLogo_ThenExistingLogoIsReplaced()
         {
             // Arrange - Upload first logo
             await using (var firstLogo = CreateTestPngImage())
@@ -177,7 +177,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_UploadApplicationLogo_WithHttpInfo()
+        public async Task GivenApplication_WhenUploadingLogoWithHttpInfo_ThenHttpResponseIsReturned()
         {
             // Arrange
             await using var logoStream = CreateTestPngImage();
@@ -191,7 +191,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_ThrowException_ForNonExistentApp()
+        public async Task GivenNonExistentApp_WhenUploadingLogo_ThenExceptionIsThrown()
         {
             // Arrange
             var nonExistentAppId = "nonexistent123";
@@ -205,7 +205,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_HandleMultipleSequentialUploads()
+        public async Task GivenApplication_WhenUploadingLogosSequentially_ThenAllUploadsSucceed()
         {
             // Act - Upload multiple logos in sequence
             for (var i = 0; i < 3; i++)
@@ -222,7 +222,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task Should_UploadLogo_ForDifferentApplicationTypes()
+        public async Task GivenDifferentApplicationTypes_WhenUploadingLogos_ThenLogosAreSuccessfullyUploaded()
         {
             // Arrange - Create a different type of app (SAML)
             var samlApp = new SamlApplication

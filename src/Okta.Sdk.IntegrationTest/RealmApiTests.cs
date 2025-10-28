@@ -82,7 +82,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task RealmCrudLifecycle()
+        public async Task GivenRealm_WhenPerformingCrudOperations_ThenAllOperationsSucceed()
         {
             // Step 1: Create Realm
             var realmName = GenerateUniqueRealmName();
@@ -181,7 +181,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task CreateRealm_WithValidData_ShouldSucceed()
+        public async Task GivenValidData_WhenCreatingRealm_ThenRealmIsCreatedSuccessfully()
         {
             var realmName = GenerateUniqueRealmName();
             var createRealmRequest = new CreateRealmRequest
@@ -212,7 +212,7 @@ namespace Okta.Sdk.IntegrationTest
         /// API: POST /api/v1/realms - Returns ApiResponse with status code and headers
         /// </summary>
         [Fact]
-        public async Task CreateRealmWithHttpInfo_ShouldReturnHttpResponse()
+        public async Task GivenValidData_WhenCreatingRealmWithHttpInfo_ThenHttpResponseIsReturned()
         {
             var realmName = GenerateUniqueRealmName();
             var createRealmRequest = new CreateRealmRequest
@@ -242,7 +242,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task CreateRealm_WithInvalidProfile_ShouldFail()
+        public async Task GivenInvalidProfile_WhenCreatingRealm_ThenOperationFails()
         {
             // Realm without a name should fail
             var createRealmRequest = new CreateRealmRequest
@@ -261,7 +261,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task GetRealm_WithValidId_ShouldReturnRealm()
+        public async Task GivenValidId_WhenGettingRealm_ThenRealmIsReturned()
         {
             // First, create a realm
             var realmName = GenerateUniqueRealmName();
@@ -292,7 +292,7 @@ namespace Okta.Sdk.IntegrationTest
         /// API: GET /api/v1/realms/{id} - Returns ApiResponse with status code and headers
         /// </summary>
         [Fact]
-        public async Task GetRealmWithHttpInfo_ShouldReturnHttpResponse()
+        public async Task GivenValidId_WhenGettingRealmWithHttpInfo_ThenHttpResponseIsReturned()
         {
             // First, create a realm to get
             var realmName = GenerateUniqueRealmName();
@@ -323,7 +323,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task GetRealm_WithInvalidId_ShouldFail()
+        public async Task GivenInvalidId_WhenGettingRealm_ThenOperationFails()
         {
             var invalidRealmId = "invalid_realm_id_12345";
 
@@ -336,7 +336,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ListRealms_ShouldReturnRealms()
+        public async Task GivenRealmsExist_WhenListingRealms_ThenRealmsAreReturned()
         {
             var realms = await _realmApi.ListRealms().ToListAsync();
 
@@ -348,7 +348,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ListRealms_WithLimit_ShouldRespectLimit()
+        public async Task GivenLimitParameter_WhenListingRealms_ThenLimitIsRespected()
         {
             var limit = 5;
             
@@ -380,7 +380,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ListRealms_WithSearch_ShouldFilterResults()
+        public async Task GivenSearchParameter_WhenListingRealms_ThenResultsAreFiltered()
         {
             // Create a realm with a unique name
             var uniquePrefix = $"UniqueSearch{Guid.NewGuid().ToString("N").Substring(0, 6)}";
@@ -414,7 +414,7 @@ namespace Okta.Sdk.IntegrationTest
         /// API: GET /api/v1/realms?sortBy=profile.name - Should sort results by name
         /// </summary>
         [Fact]
-        public async Task ListRealms_WithSortBy_ShouldSortResults()
+        public async Task GivenSortByParameter_WhenListingRealms_ThenResultsAreSorted()
         {
             var realms = await _realmApi.ListRealms(sortBy: "profile.name", sortOrder: "asc", limit: 10).ToListAsync();
 
@@ -440,7 +440,7 @@ namespace Okta.Sdk.IntegrationTest
         /// API: GET /api/v1/realms?sortBy=created & sortOrder=desc - Should sort by creation date descending
         /// </summary>
         [Fact]
-        public async Task ListRealms_WithSortOrder_ShouldOrderResults()
+        public async Task GivenSortOrderParameter_WhenListingRealms_ThenResultsAreOrdered()
         {
             var realms = await _realmApi.ListRealms(sortBy: "created", sortOrder: "desc", limit: 10).ToListAsync();
 
@@ -463,7 +463,7 @@ namespace Okta.Sdk.IntegrationTest
         /// API: GET /api/v1/realms - Returns ApiResponse with status code and headers
         /// </summary>
         [Fact]
-        public async Task ListRealmsWithHttpInfo_ShouldReturnHttpResponse()
+        public async Task GivenHttpInfoMethod_WhenListingRealms_ThenHttpResponseIsReturned()
         {
             var response = await _realmApi.ListRealmsWithHttpInfoAsync(limit: 10);
 
@@ -482,7 +482,7 @@ namespace Okta.Sdk.IntegrationTest
         /// API: GET /api/v1/realms - Verifies system realm
         /// </summary>
         [Fact]
-        public async Task DefaultRealm_ShouldAlwaysExist()
+        public async Task GivenOktaOrg_WhenCheckingForDefaultRealm_ThenDefaultRealmExists()
         {
             var realms = await _realmApi.ListRealms().ToListAsync();
 
@@ -496,7 +496,7 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         [Fact]
-        public async Task ReplaceRealm_WithUpdatedName_ShouldUpdateRealm()
+        public async Task GivenUpdatedName_WhenReplacingRealm_ThenRealmIsUpdated()
         {
             // Create a realm
             var originalName = GenerateUniqueRealmName();
@@ -538,7 +538,7 @@ namespace Okta.Sdk.IntegrationTest
         /// API: PUT /api/v1/realms/{id} - Returns ApiResponse with status code and headers
         /// </summary>
         [Fact]
-        public async Task ReplaceRealmWithHttpInfo_ShouldReturnHttpResponse()
+        public async Task GivenUpdatedName_WhenReplacingRealmWithHttpInfo_ThenHttpResponseIsReturned()
         {
             // Create a realm
             var originalName = GenerateUniqueRealmName();
@@ -584,7 +584,7 @@ namespace Okta.Sdk.IntegrationTest
         /// API: DELETE /api/v1/realms/{id} - Returns void on success
         /// </summary>
         [Fact]
-        public async Task DeleteRealm_WithValidId_ShouldRemoveRealm()
+        public async Task GivenValidId_WhenDeletingRealm_ThenRealmIsRemoved()
         {
             // Create a realm
             var realmName = GenerateUniqueRealmName();
@@ -613,7 +613,7 @@ namespace Okta.Sdk.IntegrationTest
         /// API: DELETE /api/v1/realms/{id} - Returns ApiResponse with HTTP 204 No Content
         /// </summary>
         [Fact]
-        public async Task DeleteRealmWithHttpInfo_ShouldReturnNoContent()
+        public async Task GivenValidId_WhenDeletingRealmWithHttpInfo_ThenNoContentIsReturned()
         {
             // Create a realm to delete
             var realmName = GenerateUniqueRealmName();
