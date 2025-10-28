@@ -101,6 +101,12 @@ namespace Okta.Sdk.Model
         public string ExternalNamespace { get; set; }
 
         /// <summary>
+        /// Gets or Sets Items
+        /// </summary>
+        [DataMember(Name = "items", EmitDefaultValue = true)]
+        public UserSchemaAttributeItems Items { get; set; }
+
+        /// <summary>
         /// Gets or Sets Master
         /// </summary>
         [DataMember(Name = "master", EmitDefaultValue = true)]
@@ -176,6 +182,7 @@ namespace Okta.Sdk.Model
             sb.Append("  ExternalName: ").Append(ExternalName).Append("\n");
             sb.Append("  ExternalNamespace: ").Append(ExternalNamespace).Append("\n");
             sb.Append("  Format: ").Append(Format).Append("\n");
+            sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  Master: ").Append(Master).Append("\n");
             sb.Append("  MaxLength: ").Append(MaxLength).Append("\n");
             sb.Append("  MinLength: ").Append(MinLength).Append("\n");
@@ -252,6 +259,11 @@ namespace Okta.Sdk.Model
                 (
                     this.Format == input.Format ||
                     this.Format.Equals(input.Format)
+                ) && 
+                (
+                    this.Items == input.Items ||
+                    (this.Items != null &&
+                    this.Items.Equals(input.Items))
                 ) && 
                 (
                     this.Master == input.Master ||
@@ -347,6 +359,10 @@ namespace Okta.Sdk.Model
                 if (this.Format != null)
                 {
                     hashCode = (hashCode * 59) + this.Format.GetHashCode();
+                }
+                if (this.Items != null)
+                {
+                    hashCode = (hashCode * 59) + this.Items.GetHashCode();
                 }
                 if (this.Master != null)
                 {

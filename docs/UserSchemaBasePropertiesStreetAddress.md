@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ExternalName** | **string** | Name of the property as it exists in an external application  **NOTE**: When you add a custom property, only Identity Provider app user schemas require &#x60;externalName&#x60; to be included in the request body. If an existing custom Identity Provider app user schema property has an empty &#x60;externalName&#x60;, requests aren&#39;t allowed to update other properties until the &#x60;externalName&#x60; is defined. | [optional] 
 **ExternalNamespace** | **string** | Namespace from the external application | [optional] 
 **Format** | **UserSchemaAttributeFormat** | Identifies the type of data represented by the string | [optional] 
+**Items** | [**UserSchemaAttributeItems**](UserSchemaAttributeItems.md) |  | [optional] 
 **Master** | [**GroupSchemaAttributeMaster**](GroupSchemaAttributeMaster.md) |  | [optional] 
 **MaxLength** | **int?** | Maximum character length of a string property | [optional] 
 **MinLength** | **int?** | Minimum character length of a string property | [optional] 
