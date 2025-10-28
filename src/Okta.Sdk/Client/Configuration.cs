@@ -39,7 +39,7 @@ namespace Okta.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "9.2.3";
+        public const string Version = "10.0.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -770,7 +770,7 @@ namespace Okta.Sdk.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 5.1.0\n";
-            report += "    SDK Package Version: 9.2.3\n";
+            report += "    SDK Package Version: 10.0.0\n";
 
             return report;
         }
