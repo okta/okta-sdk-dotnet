@@ -100,7 +100,7 @@ namespace Okta.Sdk.IntegrationTest
             var highRiskResponse = await _userRiskApi.UpsertUserRiskAsync(createdUser.Id, highRiskRequest);
 
             highRiskResponse.Should().NotBeNull();
-            highRiskResponse.RiskLevel.Should().Be("HIGH");
+            highRiskResponse.RiskLevel.Should().Be(UserRiskLevelPut.HIGH);
             highRiskResponse.Reason.Should().NotBeNullOrEmpty();
             highRiskResponse.Links.Should().NotBeNull();
             highRiskResponse.Links.Self.Should().NotBeNull();
@@ -112,7 +112,7 @@ namespace Okta.Sdk.IntegrationTest
             var verifyHighRisk = await _userRiskApi.GetUserRiskAsync(createdUser.Id);
 
             verifyHighRisk.Should().NotBeNull();
-            verifyHighRisk.RiskLevel.Should().Be("HIGH");
+            verifyHighRisk.RiskLevel.Should().Be(UserRiskLevelAll.HIGH);
 
             // UpsertUserRiskAsync - Update risk to LOW
             var lowRiskRequest = new UserRiskRequest
@@ -123,7 +123,7 @@ namespace Okta.Sdk.IntegrationTest
             var lowRiskResponse = await _userRiskApi.UpsertUserRiskAsync(createdUser.Id, lowRiskRequest);
 
             lowRiskResponse.Should().NotBeNull();
-            lowRiskResponse.RiskLevel.Should().Be("LOW");
+            lowRiskResponse.RiskLevel.Should().Be(UserRiskLevelPut.LOW);
 
             await Task.Delay(1000);
 
@@ -131,7 +131,7 @@ namespace Okta.Sdk.IntegrationTest
             var verifyLowRisk = await _userRiskApi.GetUserRiskAsync(createdUser.Id);
 
             verifyLowRisk.Should().NotBeNull();
-            verifyLowRisk.RiskLevel.Should().Be("LOW");
+            verifyLowRisk.RiskLevel.Should().Be(UserRiskLevelAll.LOW);
         }
 
         [Fact]
@@ -182,7 +182,7 @@ namespace Okta.Sdk.IntegrationTest
             createResponse.Should().NotBeNull();
             createResponse.StatusCode.Should().BeOneOf(HttpStatusCode.OK, HttpStatusCode.Created);
             createResponse.Data.Should().NotBeNull();
-            createResponse.Data.RiskLevel.Should().Be("HIGH");
+            createResponse.Data.RiskLevel.Should().Be(UserRiskLevelPut.HIGH);
             createResponse.Headers.Should().NotBeNull();
 
             await Task.Delay(1000);
@@ -193,7 +193,7 @@ namespace Okta.Sdk.IntegrationTest
             getResponse.Should().NotBeNull();
             getResponse.StatusCode.Should().Be(HttpStatusCode.OK);
             getResponse.Data.Should().NotBeNull();
-            getResponse.Data.RiskLevel.Should().Be("HIGH");
+            getResponse.Data.RiskLevel.Should().Be(UserRiskLevelAll.HIGH);
             getResponse.Headers.Should().NotBeNull();
 
             // TEST 3: UpsertUserRiskWithHttpInfoAsync - Update risk with HTTP metadata
@@ -207,7 +207,7 @@ namespace Okta.Sdk.IntegrationTest
             updateResponse.Should().NotBeNull();
             updateResponse.StatusCode.Should().Be(HttpStatusCode.OK);
             updateResponse.Data.Should().NotBeNull();
-            updateResponse.Data.RiskLevel.Should().Be("LOW");
+            updateResponse.Data.RiskLevel.Should().Be(UserRiskLevelPut.LOW);
             updateResponse.Headers.Should().NotBeNull();
 
             await Task.Delay(1000);
@@ -218,7 +218,7 @@ namespace Okta.Sdk.IntegrationTest
             verifyResponse.Should().NotBeNull();
             verifyResponse.StatusCode.Should().Be(HttpStatusCode.OK);
             verifyResponse.Data.Should().NotBeNull();
-            verifyResponse.Data.RiskLevel.Should().Be("LOW");
+            verifyResponse.Data.RiskLevel.Should().Be(UserRiskLevelAll.LOW);
             verifyResponse.Headers.Should().NotBeNull();
         }
 
