@@ -1,0 +1,5 @@
+# This file defines the code owners for this repository
+# These owners will be automatically requested for review when someone opens a pull request
+
+# Global owners for all files in the repository
+* @aniket-okta @dhiwakar-okta
