@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.PolicyRuleAuthContextCondition
+Specifies an authentication entry point
 
 ## Properties
 

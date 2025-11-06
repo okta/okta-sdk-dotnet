@@ -5,11 +5,11 @@ All URIs are relative to *https://subdomain.okta.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateEmailServer**](EmailServerApi.md#createemailserver) | **POST** /api/v1/email-servers | Create a custom SMTP server
-[**DeleteEmailServer**](EmailServerApi.md#deleteemailserver) | **DELETE** /api/v1/email-servers/{emailServerId} | Delete an SMTP Server configuration
-[**GetEmailServer**](EmailServerApi.md#getemailserver) | **GET** /api/v1/email-servers/{emailServerId} | Retrieve an SMTP Server configuration
+[**DeleteEmailServer**](EmailServerApi.md#deleteemailserver) | **DELETE** /api/v1/email-servers/{emailServerId} | Delete an SMTP server configuration
+[**GetEmailServer**](EmailServerApi.md#getemailserver) | **GET** /api/v1/email-servers/{emailServerId} | Retrieve an SMTP server configuration
 [**ListEmailServers**](EmailServerApi.md#listemailservers) | **GET** /api/v1/email-servers | List all enrolled SMTP servers
-[**TestEmailServer**](EmailServerApi.md#testemailserver) | **POST** /api/v1/email-servers/{emailServerId}/test | Test an SMTP Server configuration
-[**UpdateEmailServer**](EmailServerApi.md#updateemailserver) | **PATCH** /api/v1/email-servers/{emailServerId} | Update an SMTP Server configuration
+[**TestEmailServer**](EmailServerApi.md#testemailserver) | **POST** /api/v1/email-servers/{emailServerId}/test | Test an SMTP server configuration
+[**UpdateEmailServer**](EmailServerApi.md#updateemailserver) | **PATCH** /api/v1/email-servers/{emailServerId} | Update an SMTP server configuration
 
 
 <a name="createemailserver"></a>
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 # **DeleteEmailServer**
 > void DeleteEmailServer (string emailServerId)
 
-Delete an SMTP Server configuration
+Delete an SMTP server configuration
 
 Deletes the specified custom SMTP server configuration
 
@@ -125,7 +125,7 @@ namespace Example
 
             try
             {
-                // Delete an SMTP Server configuration
+                // Delete an SMTP server configuration
                 apiInstance.DeleteEmailServer(emailServerId);
             }
             catch (ApiException  e)
@@ -173,7 +173,7 @@ void (empty response body)
 # **GetEmailServer**
 > EmailServerListResponse GetEmailServer (string emailServerId)
 
-Retrieve an SMTP Server configuration
+Retrieve an SMTP server configuration
 
 Retrieves the specified custom SMTP server configuration
 
@@ -203,7 +203,7 @@ namespace Example
 
             try
             {
-                // Retrieve an SMTP Server configuration
+                // Retrieve an SMTP server configuration
                 EmailServerListResponse result = apiInstance.GetEmailServer(emailServerId);
                 Debug.WriteLine(result);
             }
@@ -326,7 +326,7 @@ This endpoint does not need any parameter.
 # **TestEmailServer**
 > void TestEmailServer (string emailServerId, EmailTestAddresses emailTestAddresses = null)
 
-Test an SMTP Server configuration
+Test an SMTP server configuration
 
 Tests the specified custom SMTP Server configuration
 
@@ -357,7 +357,7 @@ namespace Example
 
             try
             {
-                // Test an SMTP Server configuration
+                // Test an SMTP server configuration
                 apiInstance.TestEmailServer(emailServerId, emailTestAddresses);
             }
             catch (ApiException  e)
@@ -407,7 +407,7 @@ void (empty response body)
 # **UpdateEmailServer**
 > EmailServerResponse UpdateEmailServer (string emailServerId, EmailServerRequest emailServerRequest = null)
 
-Update an SMTP Server configuration
+Update an SMTP server configuration
 
 Updates the specified custom SMTP server configuration
 
@@ -438,7 +438,7 @@ namespace Example
 
             try
             {
-                // Update an SMTP Server configuration
+                // Update an SMTP server configuration
                 EmailServerResponse result = apiInstance.UpdateEmailServer(emailServerId, emailServerRequest);
                 Debug.WriteLine(result);
             }

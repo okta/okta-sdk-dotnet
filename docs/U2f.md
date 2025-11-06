@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.U2f
-Activates a `u2f` Factor with the specified client and registration information from the U2F token
+Activates a `u2f` factor with the specified client and registration information from the U2F token
 
 ## Properties
 

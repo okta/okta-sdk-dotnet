@@ -4,24 +4,24 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateRealmAssignment**](RealmAssignmentApi.md#activaterealmassignment) | **POST** /api/v1/realm-assignments/{assignmentId}/lifecycle/activate | Activate a Realm Assignment
-[**CreateRealmAssignment**](RealmAssignmentApi.md#createrealmassignment) | **POST** /api/v1/realm-assignments | Create a Realm Assignment
-[**DeactivateRealmAssignment**](RealmAssignmentApi.md#deactivaterealmassignment) | **POST** /api/v1/realm-assignments/{assignmentId}/lifecycle/deactivate | Deactivate a Realm Assignment
-[**DeleteRealmAssignment**](RealmAssignmentApi.md#deleterealmassignment) | **DELETE** /api/v1/realm-assignments/{assignmentId} | Delete a Realm Assignment
-[**ExecuteRealmAssignment**](RealmAssignmentApi.md#executerealmassignment) | **POST** /api/v1/realm-assignments/operations | Execute a Realm Assignment
-[**GetRealmAssignment**](RealmAssignmentApi.md#getrealmassignment) | **GET** /api/v1/realm-assignments/{assignmentId} | Retrieve a Realm Assignment
-[**ListRealmAssignmentOperations**](RealmAssignmentApi.md#listrealmassignmentoperations) | **GET** /api/v1/realm-assignments/operations | List all Realm Assignment operations
-[**ListRealmAssignments**](RealmAssignmentApi.md#listrealmassignments) | **GET** /api/v1/realm-assignments | List all Realm Assignments
-[**ReplaceRealmAssignment**](RealmAssignmentApi.md#replacerealmassignment) | **PUT** /api/v1/realm-assignments/{assignmentId} | Replace a Realm Assignment
+[**ActivateRealmAssignment**](RealmAssignmentApi.md#activaterealmassignment) | **POST** /api/v1/realm-assignments/{assignmentId}/lifecycle/activate | Activate a realm assignment
+[**CreateRealmAssignment**](RealmAssignmentApi.md#createrealmassignment) | **POST** /api/v1/realm-assignments | Create a realm assignment
+[**DeactivateRealmAssignment**](RealmAssignmentApi.md#deactivaterealmassignment) | **POST** /api/v1/realm-assignments/{assignmentId}/lifecycle/deactivate | Deactivate a realm assignment
+[**DeleteRealmAssignment**](RealmAssignmentApi.md#deleterealmassignment) | **DELETE** /api/v1/realm-assignments/{assignmentId} | Delete a realm assignment
+[**ExecuteRealmAssignment**](RealmAssignmentApi.md#executerealmassignment) | **POST** /api/v1/realm-assignments/operations | Execute a realm assignment
+[**GetRealmAssignment**](RealmAssignmentApi.md#getrealmassignment) | **GET** /api/v1/realm-assignments/{assignmentId} | Retrieve a realm assignment
+[**ListRealmAssignmentOperations**](RealmAssignmentApi.md#listrealmassignmentoperations) | **GET** /api/v1/realm-assignments/operations | List all realm assignment operations
+[**ListRealmAssignments**](RealmAssignmentApi.md#listrealmassignments) | **GET** /api/v1/realm-assignments | List all realm assignments
+[**ReplaceRealmAssignment**](RealmAssignmentApi.md#replacerealmassignment) | **PUT** /api/v1/realm-assignments/{assignmentId} | Replace a realm assignment
 
 
 <a name="activaterealmassignment"></a>
 # **ActivateRealmAssignment**
 > void ActivateRealmAssignment (string assignmentId)
 
-Activate a Realm Assignment
+Activate a realm assignment
 
-Activates a Realm Assignment
+Activates a realm assignment
 
 ### Example
 ```csharp
@@ -45,11 +45,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RealmAssignmentApi(config);
-            var assignmentId = rul2jy7jLUlnO3ng00g4;  // string | `id` of the Realm Assignment
+            var assignmentId = rul2jy7jLUlnO3ng00g4;  // string | ID of the realm assignment
 
             try
             {
-                // Activate a Realm Assignment
+                // Activate a realm assignment
                 apiInstance.ActivateRealmAssignment(assignmentId);
             }
             catch (ApiException  e)
@@ -67,7 +67,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assignmentId** | **string**| &#x60;id&#x60; of the Realm Assignment | 
+ **assignmentId** | **string**| ID of the realm assignment | 
 
 ### Return type
 
@@ -98,9 +98,9 @@ void (empty response body)
 # **CreateRealmAssignment**
 > RealmAssignment CreateRealmAssignment (CreateRealmAssignmentRequest body)
 
-Create a Realm Assignment
+Create a realm assignment
 
-Creates a new Realm Assignment
+Creates a new realm assignment
 
 ### Example
 ```csharp
@@ -128,7 +128,7 @@ namespace Example
 
             try
             {
-                // Create a Realm Assignment
+                // Create a realm assignment
                 RealmAssignment result = apiInstance.CreateRealmAssignment(body);
                 Debug.WriteLine(result);
             }
@@ -177,9 +177,9 @@ Name | Type | Description  | Notes
 # **DeactivateRealmAssignment**
 > void DeactivateRealmAssignment (string assignmentId)
 
-Deactivate a Realm Assignment
+Deactivate a realm assignment
 
-Deactivates a Realm Assignment
+Deactivates a realm assignment
 
 ### Example
 ```csharp
@@ -203,11 +203,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RealmAssignmentApi(config);
-            var assignmentId = rul2jy7jLUlnO3ng00g4;  // string | `id` of the Realm Assignment
+            var assignmentId = rul2jy7jLUlnO3ng00g4;  // string | ID of the realm assignment
 
             try
             {
-                // Deactivate a Realm Assignment
+                // Deactivate a realm assignment
                 apiInstance.DeactivateRealmAssignment(assignmentId);
             }
             catch (ApiException  e)
@@ -225,7 +225,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assignmentId** | **string**| &#x60;id&#x60; of the Realm Assignment | 
+ **assignmentId** | **string**| ID of the realm assignment | 
 
 ### Return type
 
@@ -256,9 +256,9 @@ void (empty response body)
 # **DeleteRealmAssignment**
 > void DeleteRealmAssignment (string assignmentId)
 
-Delete a Realm Assignment
+Delete a realm assignment
 
-Deletes a Realm Assignment
+Deletes a realm assignment
 
 ### Example
 ```csharp
@@ -282,11 +282,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RealmAssignmentApi(config);
-            var assignmentId = rul2jy7jLUlnO3ng00g4;  // string | `id` of the Realm Assignment
+            var assignmentId = rul2jy7jLUlnO3ng00g4;  // string | ID of the realm assignment
 
             try
             {
-                // Delete a Realm Assignment
+                // Delete a realm assignment
                 apiInstance.DeleteRealmAssignment(assignmentId);
             }
             catch (ApiException  e)
@@ -304,7 +304,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assignmentId** | **string**| &#x60;id&#x60; of the Realm Assignment | 
+ **assignmentId** | **string**| ID of the realm assignment | 
 
 ### Return type
 
@@ -335,9 +335,9 @@ void (empty response body)
 # **ExecuteRealmAssignment**
 > OperationResponse ExecuteRealmAssignment (OperationRequest body)
 
-Execute a Realm Assignment
+Execute a realm assignment
 
-Executes a Realm Assignment
+Executes a realm assignment
 
 ### Example
 ```csharp
@@ -365,7 +365,7 @@ namespace Example
 
             try
             {
-                // Execute a Realm Assignment
+                // Execute a realm assignment
                 OperationResponse result = apiInstance.ExecuteRealmAssignment(body);
                 Debug.WriteLine(result);
             }
@@ -414,9 +414,9 @@ Name | Type | Description  | Notes
 # **GetRealmAssignment**
 > RealmAssignment GetRealmAssignment (string assignmentId)
 
-Retrieve a Realm Assignment
+Retrieve a realm assignment
 
-Retrieves a Realm Assignment
+Retrieves a realm assignment
 
 ### Example
 ```csharp
@@ -440,11 +440,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RealmAssignmentApi(config);
-            var assignmentId = rul2jy7jLUlnO3ng00g4;  // string | `id` of the Realm Assignment
+            var assignmentId = rul2jy7jLUlnO3ng00g4;  // string | ID of the realm assignment
 
             try
             {
-                // Retrieve a Realm Assignment
+                // Retrieve a realm assignment
                 RealmAssignment result = apiInstance.GetRealmAssignment(assignmentId);
                 Debug.WriteLine(result);
             }
@@ -463,7 +463,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assignmentId** | **string**| &#x60;id&#x60; of the Realm Assignment | 
+ **assignmentId** | **string**| ID of the realm assignment | 
 
 ### Return type
 
@@ -494,9 +494,9 @@ Name | Type | Description  | Notes
 # **ListRealmAssignmentOperations**
 > List&lt;OperationResponse&gt; ListRealmAssignmentOperations (int? limit = null, string after = null)
 
-List all Realm Assignment operations
+List all realm assignment operations
 
-Lists all Realm Assignment operations. The upper limit is 200 and operations are sorted in descending order from most recent to oldest by id
+Lists all realm assignment operations. The upper limit is 200 and operations are sorted in descending order from most recent to oldest by ID.
 
 ### Example
 ```csharp
@@ -521,11 +521,11 @@ namespace Example
 
             var apiInstance = new RealmAssignmentApi(config);
             var limit = 20;  // int? | A limit on the number of objects to return (optional)  (default to 20)
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
 
             try
             {
-                // List all Realm Assignment operations
+                // List all realm assignment operations
                 List<OperationResponse> result = apiInstance.ListRealmAssignmentOperations(limit, after).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -545,7 +545,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int?**| A limit on the number of objects to return | [optional] [default to 20]
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
 
 ### Return type
 
@@ -574,9 +574,9 @@ Name | Type | Description  | Notes
 # **ListRealmAssignments**
 > List&lt;RealmAssignment&gt; ListRealmAssignments (int? limit = null, string after = null)
 
-List all Realm Assignments
+List all realm assignments
 
-Lists all Realm Assignments
+Lists all realm assignments
 
 ### Example
 ```csharp
@@ -601,11 +601,11 @@ namespace Example
 
             var apiInstance = new RealmAssignmentApi(config);
             var limit = 20;  // int? | A limit on the number of objects to return (optional)  (default to 20)
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
+            var after = "after_example";  // string | The cursor used for pagination. It represents the priority of the last realm assignment returned in the previous fetch operation. (optional) 
 
             try
             {
-                // List all Realm Assignments
+                // List all realm assignments
                 List<RealmAssignment> result = apiInstance.ListRealmAssignments(limit, after).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -625,7 +625,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int?**| A limit on the number of objects to return | [optional] [default to 20]
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
+ **after** | **string**| The cursor used for pagination. It represents the priority of the last realm assignment returned in the previous fetch operation. | [optional] 
 
 ### Return type
 
@@ -654,9 +654,9 @@ Name | Type | Description  | Notes
 # **ReplaceRealmAssignment**
 > RealmAssignment ReplaceRealmAssignment (string assignmentId, UpdateRealmAssignmentRequest body)
 
-Replace a Realm Assignment
+Replace a realm assignment
 
-Replaces a Realm Assignment
+Replaces a realm assignment
 
 ### Example
 ```csharp
@@ -680,12 +680,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RealmAssignmentApi(config);
-            var assignmentId = rul2jy7jLUlnO3ng00g4;  // string | `id` of the Realm Assignment
+            var assignmentId = rul2jy7jLUlnO3ng00g4;  // string | ID of the realm assignment
             var body = new UpdateRealmAssignmentRequest(); // UpdateRealmAssignmentRequest | 
 
             try
             {
-                // Replace a Realm Assignment
+                // Replace a realm assignment
                 RealmAssignment result = apiInstance.ReplaceRealmAssignment(assignmentId, body);
                 Debug.WriteLine(result);
             }
@@ -704,7 +704,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assignmentId** | **string**| &#x60;id&#x60; of the Realm Assignment | 
+ **assignmentId** | **string**| ID of the realm assignment | 
  **body** | [**UpdateRealmAssignmentRequest**](UpdateRealmAssignmentRequest.md)|  | 
 
 ### Return type

@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.PasswordSettingObject
-Determines whether Okta creates and pushes a password in the application for each assigned user
+Determines whether Okta creates and pushes a password in the app for each assigned user
 
 ## Properties
 

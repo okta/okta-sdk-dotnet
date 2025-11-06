@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AuthorizationEndpoint** | **string** | URL of the authorization server&#39;s authorization endpoint. | [optional] 
-**BackchannelAuthenticationRequestSigningAlgValuesSupported** | [**List&lt;SigningAlgorithm&gt;**](SigningAlgorithm.md) | &lt;div class&#x3D;\&quot;x-lifecycle-container\&quot;&gt;&lt;x-lifecycle class&#x3D;\&quot;lea\&quot;&gt;&lt;/x-lifecycle&gt; &lt;x-lifecycle class&#x3D;\&quot;oie\&quot;&gt;&lt;/x-lifecycle&gt;&lt;/div&gt;A list of signing algorithms that this authorization server supports for signed requests. | [optional] 
-**BackchannelTokenDeliveryModesSupported** | [**List&lt;TokenDeliveryMode&gt;**](TokenDeliveryMode.md) | &lt;div class&#x3D;\&quot;x-lifecycle-container\&quot;&gt;&lt;x-lifecycle class&#x3D;\&quot;lea\&quot;&gt;&lt;/x-lifecycle&gt; &lt;x-lifecycle class&#x3D;\&quot;oie\&quot;&gt;&lt;/x-lifecycle&gt;&lt;/div&gt;The delivery modes that this authorization server supports for Client-Initiated Backchannel Authentication. | [optional] 
+**BackchannelAuthenticationRequestSigningAlgValuesSupported** | [**List&lt;SigningAlgorithm&gt;**](SigningAlgorithm.md) | &lt;x-lifecycle-container&gt;&lt;x-lifecycle class&#x3D;\&quot;oie\&quot;&gt;&lt;/x-lifecycle&gt;&lt;/x-lifecycle-container&gt;A list of signing algorithms that this authorization server supports for signed requests. | [optional] 
+**BackchannelTokenDeliveryModesSupported** | [**List&lt;TokenDeliveryMode&gt;**](TokenDeliveryMode.md) | &lt;x-lifecycle-container&gt;&lt;x-lifecycle class&#x3D;\&quot;oie\&quot;&gt;&lt;/x-lifecycle&gt;&lt;/x-lifecycle-container&gt;The delivery modes that this authorization server supports for Client-Initiated Backchannel Authentication. | [optional] 
 **ClaimsSupported** | **List&lt;string&gt;** | A list of the claims supported by this authorization server. | [optional] 
 **CodeChallengeMethodsSupported** | [**List&lt;CodeChallengeMethod&gt;**](CodeChallengeMethod.md) | A list of PKCE code challenge methods supported by this authorization server. | [optional] 
 **DeviceAuthorizationEndpoint** | **string** |  | [optional] 

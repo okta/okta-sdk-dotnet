@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | The unique identifier of this instance | [optional] [readonly] 
 **Name** | **string** | The name of the Security Events Provider instance | [optional] 
-**Settings** | [**SecurityEventsProviderSettingsResponse**](.md) |  | [optional] 
+**Settings** | [**SecurityEventsProviderSettingsResponse**](SecurityEventsProviderSettingsResponse.md) |  | [optional] 
 **Status** | **string** | Indicates whether the Security Events Provider is active or not | [optional] [readonly] 
 **Type** | **string** | The application type of the Security Events Provider | [optional] 
 **Links** | [**LinksSelfAndLifecycle**](LinksSelfAndLifecycle.md) |  | [optional] 

@@ -4,24 +4,24 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteBrandThemeBackgroundImage**](ThemesApi.md#deletebrandthemebackgroundimage) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/background-image | Delete the Background Image
-[**DeleteBrandThemeFavicon**](ThemesApi.md#deletebrandthemefavicon) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Delete the Favicon
-[**DeleteBrandThemeLogo**](ThemesApi.md#deletebrandthemelogo) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/logo | Delete the Logo
-[**GetBrandTheme**](ThemesApi.md#getbrandtheme) | **GET** /api/v1/brands/{brandId}/themes/{themeId} | Retrieve a Theme
-[**ListBrandThemes**](ThemesApi.md#listbrandthemes) | **GET** /api/v1/brands/{brandId}/themes | List all Themes
-[**ReplaceBrandTheme**](ThemesApi.md#replacebrandtheme) | **PUT** /api/v1/brands/{brandId}/themes/{themeId} | Replace a Theme
-[**UploadBrandThemeBackgroundImage**](ThemesApi.md#uploadbrandthemebackgroundimage) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/background-image | Upload the Background Image
-[**UploadBrandThemeFavicon**](ThemesApi.md#uploadbrandthemefavicon) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Upload the Favicon
-[**UploadBrandThemeLogo**](ThemesApi.md#uploadbrandthemelogo) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/logo | Upload the Logo
+[**DeleteBrandThemeBackgroundImage**](ThemesApi.md#deletebrandthemebackgroundimage) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/background-image | Delete the background image
+[**DeleteBrandThemeFavicon**](ThemesApi.md#deletebrandthemefavicon) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Delete the favicon
+[**DeleteBrandThemeLogo**](ThemesApi.md#deletebrandthemelogo) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/logo | Delete the logo
+[**GetBrandTheme**](ThemesApi.md#getbrandtheme) | **GET** /api/v1/brands/{brandId}/themes/{themeId} | Retrieve a theme
+[**ListBrandThemes**](ThemesApi.md#listbrandthemes) | **GET** /api/v1/brands/{brandId}/themes | List all themes
+[**ReplaceBrandTheme**](ThemesApi.md#replacebrandtheme) | **PUT** /api/v1/brands/{brandId}/themes/{themeId} | Replace a theme
+[**UploadBrandThemeBackgroundImage**](ThemesApi.md#uploadbrandthemebackgroundimage) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/background-image | Upload the background image
+[**UploadBrandThemeFavicon**](ThemesApi.md#uploadbrandthemefavicon) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Upload the favicon
+[**UploadBrandThemeLogo**](ThemesApi.md#uploadbrandthemelogo) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/logo | Upload the logo
 
 
 <a name="deletebrandthemebackgroundimage"></a>
 # **DeleteBrandThemeBackgroundImage**
 > void DeleteBrandThemeBackgroundImage (string brandId, string themeId)
 
-Delete the Background Image
+Delete the background image
 
-Deletes a Theme background image
+Deletes a theme background image
 
 ### Example
 ```csharp
@@ -50,7 +50,7 @@ namespace Example
 
             try
             {
-                // Delete the Background Image
+                // Delete the background image
                 apiInstance.DeleteBrandThemeBackgroundImage(brandId, themeId);
             }
             catch (ApiException  e)
@@ -99,9 +99,9 @@ void (empty response body)
 # **DeleteBrandThemeFavicon**
 > void DeleteBrandThemeFavicon (string brandId, string themeId)
 
-Delete the Favicon
+Delete the favicon
 
-Deletes a Theme favicon. The theme will use the default Okta favicon.
+Deletes a theme favicon. The theme will use the default Okta favicon.
 
 ### Example
 ```csharp
@@ -130,7 +130,7 @@ namespace Example
 
             try
             {
-                // Delete the Favicon
+                // Delete the favicon
                 apiInstance.DeleteBrandThemeFavicon(brandId, themeId);
             }
             catch (ApiException  e)
@@ -179,7 +179,7 @@ void (empty response body)
 # **DeleteBrandThemeLogo**
 > void DeleteBrandThemeLogo (string brandId, string themeId)
 
-Delete the Logo
+Delete the logo
 
 Deletes a Theme logo. The theme will use the default Okta logo.
 
@@ -210,7 +210,7 @@ namespace Example
 
             try
             {
-                // Delete the Logo
+                // Delete the logo
                 apiInstance.DeleteBrandThemeLogo(brandId, themeId);
             }
             catch (ApiException  e)
@@ -259,7 +259,7 @@ void (empty response body)
 # **GetBrandTheme**
 > ThemeResponse GetBrandTheme (string brandId, string themeId)
 
-Retrieve a Theme
+Retrieve a theme
 
 Retrieves a theme for a brand
 
@@ -290,7 +290,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Theme
+                // Retrieve a theme
                 ThemeResponse result = apiInstance.GetBrandTheme(brandId, themeId);
                 Debug.WriteLine(result);
             }
@@ -340,9 +340,9 @@ Name | Type | Description  | Notes
 # **ListBrandThemes**
 > List&lt;ThemeResponse&gt; ListBrandThemes (string brandId)
 
-List all Themes
+List all themes
 
-Lists all the themes in your brand.  > **Important:** Currently each org supports only one Theme, therefore this contains a single object only.
+Lists all the themes in your brand.  > **Important:** Currently each org supports only one theme, therefore this contains a single object only.
 
 ### Example
 ```csharp
@@ -370,7 +370,7 @@ namespace Example
 
             try
             {
-                // List all Themes
+                // List all themes
                 List<ThemeResponse> result = apiInstance.ListBrandThemes(brandId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 # **ReplaceBrandTheme**
 > ThemeResponse ReplaceBrandTheme (string brandId, string themeId, UpdateThemeRequest theme)
 
-Replace a Theme
+Replace a theme
 
 Replaces a theme for a brand
 
@@ -451,7 +451,7 @@ namespace Example
 
             try
             {
-                // Replace a Theme
+                // Replace a theme
                 ThemeResponse result = apiInstance.ReplaceBrandTheme(brandId, themeId, theme);
                 Debug.WriteLine(result);
             }
@@ -503,7 +503,7 @@ Name | Type | Description  | Notes
 # **UploadBrandThemeBackgroundImage**
 > ImageUploadResponse UploadBrandThemeBackgroundImage (string brandId, string themeId, System.IO.Stream file)
 
-Upload the Background Image
+Upload the background image
 
 Uploads and replaces the background image for the theme. The file must be in PNG, JPG, or GIF format and less than 2 MB in size.
 
@@ -535,7 +535,7 @@ namespace Example
 
             try
             {
-                // Upload the Background Image
+                // Upload the background image
                 ImageUploadResponse result = apiInstance.UploadBrandThemeBackgroundImage(brandId, themeId, file);
                 Debug.WriteLine(result);
             }
@@ -587,7 +587,7 @@ Name | Type | Description  | Notes
 # **UploadBrandThemeFavicon**
 > ImageUploadResponse UploadBrandThemeFavicon (string brandId, string themeId, System.IO.Stream file)
 
-Upload the Favicon
+Upload the favicon
 
 Uploads and replaces the favicon for the theme
 
@@ -619,7 +619,7 @@ namespace Example
 
             try
             {
-                // Upload the Favicon
+                // Upload the favicon
                 ImageUploadResponse result = apiInstance.UploadBrandThemeFavicon(brandId, themeId, file);
                 Debug.WriteLine(result);
             }
@@ -671,7 +671,7 @@ Name | Type | Description  | Notes
 # **UploadBrandThemeLogo**
 > ImageUploadResponse UploadBrandThemeLogo (string brandId, string themeId, System.IO.Stream file)
 
-Upload the Logo
+Upload the logo
 
 Uploads and replaces the logo for the theme. The file must be in PNG, JPG, or GIF format and less than 100kB in size. For best results use landscape orientation, a transparent background, and a minimum size of 300px by 50px to prevent upscaling.
 
@@ -703,7 +703,7 @@ namespace Example
 
             try
             {
-                // Upload the Logo
+                // Upload the logo
                 ImageUploadResponse result = apiInstance.UploadBrandThemeLogo(brandId, themeId, file);
                 Debug.WriteLine(result);
             }

@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.UserFactorResultType
-Result of a Factor verification attempt
+Result of a factor verification attempt
 
 ## Properties
 

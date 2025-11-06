@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Context** | [**TelephonyRequestDataContext**](TelephonyRequestDataContext.md) |  | [optional] 
+**Context** | [**RegistrationInlineHookSSRDataAllOfDataContext**](RegistrationInlineHookSSRDataAllOfDataContext.md) |  | [optional] 
 **MessageProfile** | [**TelephonyRequestDataMessageProfile**](TelephonyRequestDataMessageProfile.md) |  | [optional] 
 **UserProfile** | [**TelephonyRequestDataUserProfile**](TelephonyRequestDataUserProfile.md) |  | [optional] 
 

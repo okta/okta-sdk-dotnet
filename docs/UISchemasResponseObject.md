@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** | **DateTimeOffset** | Timestamp when the UI Schema was created (ISO-86001) | [readonly] 
+**Created** | **DateTimeOffset** | Timestamp when the UI Schema was created (ISO 86001) | [readonly] 
 **Id** | **string** | Unique identifier for the UI Schema | [readonly] 
-**LastUpdated** | **DateTimeOffset** | Timestamp when the UI Schema was last modified (ISO-86001) | [readonly] 
+**LastUpdated** | **DateTimeOffset** | Timestamp when the UI Schema was last modified (ISO 86001) | [readonly] 
 **UiSchema** | [**UISchemaObject**](UISchemaObject.md) |  | 
 **Links** | [**LinksSelf**](LinksSelf.md) |  | 
 

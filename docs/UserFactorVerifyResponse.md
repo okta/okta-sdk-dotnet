@@ -5,8 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ExpiresAt** | **DateTimeOffset** | Timestamp when the verification expires | [optional] [readonly] 
-**FactorMessage** | **string** | Optional display message for Factor verification | [optional] [readonly] 
+**FactorMessage** | **string** | Optional display message for factor verification | [optional] [readonly] 
 **FactorResult** | **UserFactorVerifyResult** |  | [optional] 
+**Profile** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Links** | [**UserFactorLinks**](UserFactorLinks.md) |  | [optional] 
 

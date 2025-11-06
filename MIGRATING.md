@@ -2,6 +2,360 @@
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/). In short, we don't make breaking changes unless the major version changes!
 
+## Migrating from 9.x to 10.x
+
+Version 10.0.0 represents a significant architectural refactoring of the Okta .NET SDK. The primary change involves splitting several monolithic API clients into more focused, specialized clients to improve maintainability and align with REST API best practices.
+
+### Key Architectural Changes
+
+#### API Client Reorganization
+
+Several large API clients have been split into multiple specialized clients:
+
+1. **UserApi Split** - The UserApi has been significantly refactored. Core CRUD operations remain in UserApi, but specialized operations have been moved to dedicated clients:
+   - `UserLifecycleApi` - User activation, deactivation, suspension, and unlock operations
+   - `UserCredApi` - Password and credential management
+   - `UserGrantApi` - User grant management
+   - `UserOAuthApi` - OAuth token operations
+   - `UserLinkedObjectApi` - Linked object operations
+   - `UserResourcesApi` - User resource and app link operations
+   - `UserSessionsApi` - User session management
+   - `UserAuthenticatorEnrollmentsApi` - Authenticator enrollment operations
+   - `UserClassificationApi` - User classification operations
+   - `UserRiskApi` - User risk operations
+
+2. **OrgSettingApi Split** - Organization settings have been divided into focused clients:
+   - `OrgSettingAdminApi` - Admin settings
+   - `OrgSettingCommunicationApi` - Communication preferences
+   - `OrgSettingContactApi` - Contact information
+   - `OrgSettingCustomizationApi` - Customization settings
+   - `OrgSettingGeneralApi` - General organization settings
+   - `OrgSettingMetadataApi` - Organization metadata
+   - `OrgSettingSupportApi` - Support settings
+
+3. **RoleApi and RoleAssignmentApi Split** - Role management has been reorganized:
+   - `RoleAssignmentAUserApi` - User role assignments
+   - `RoleAssignmentBGroupApi` - Group role assignments
+   - `RoleAssignmentClientApi` - Client role assignments
+   - `RoleBTargetAdminApi` - Admin role targets
+   - `RoleBTargetBGroupApi` - Group role targets
+   - `RoleBTargetClientApi` - Client role targets
+   - `RoleECustomApi` - Custom role management
+   - `RoleECustomPermissionApi` - Custom role permissions
+
+4. **ResourceSetApi Split** - Resource set operations have been moved to role-based clients:
+   - `RoleCResourceSetApi` - Resource set management
+   - `RoleCResourceSetResourceApi` - Resource set resource operations
+   - `RoleDResourceSetBindingApi` - Resource set binding operations
+   - `RoleDResourceSetBindingMemberApi` - Resource set binding member operations
+
+### Migration Examples
+
+#### UserApi Changes
+
+_Before (v9.x):_
+
+```csharp
+var userApi = new UserApi();
+
+// All operations were on UserApi
+await userApi.ActivateUserAsync(userId);
+await userApi.DeactivateUserAsync(userId);
+await userApi.ChangePasswordAsync(userId, changePasswordRequest);
+await userApi.ExpirePasswordAsync(userId);
+var grants = await userApi.ListGrantsForUserAndClient(userId, clientId).ToListAsync();
+await userApi.ClearUserSessions(userId);
+var appLinks = await userApi.ListAppLinks(userId).ToListAsync();
+```
+
+_Now (v10.0.0):_
+
+```csharp
+// Core user operations remain in UserApi
+var userApi = new UserApi();
+var user = await userApi.GetUserAsync(userId);
+await userApi.CreateUserAsync(createUserRequest);
+await userApi.DeleteUserAsync(userId);
+
+// Lifecycle operations moved to UserLifecycleApi
+var lifecycleApi = new UserLifecycleApi();
+await lifecycleApi.ActivateUserAsync(userId);
+await lifecycleApi.DeactivateUserAsync(userId);
+await lifecycleApi.SuspendUserAsync(userId);
+await lifecycleApi.UnsuspendUserAsync(userId);
+
+// Credential operations moved to UserCredApi
+var credApi = new UserCredApi();
+await credApi.ChangePasswordAsync(userId, changePasswordRequest);
+await credApi.ExpirePasswordAsync(userId);
+await credApi.ForgotPasswordAsync(userId, sendEmail);
+
+// OAuth operations moved to UserOAuthApi
+var oauthApi = new UserOAuthApi();
+var grants = await oauthApi.ListGrantsForUserAndClient(userId, clientId).ToListAsync();
+await oauthApi.RevokeGrantsForUserAndClientAsync(userId, clientId);
+
+// Session operations moved to UserSessionsApi
+var sessionsApi = new UserSessionsApi();
+await sessionsApi.ClearUserSessions(userId);
+var sessions = await sessionsApi.ListUserSessions(userId).ToListAsync();
+
+// Resource operations moved to UserResourcesApi
+var resourcesApi = new UserResourcesApi();
+var appLinks = await resourcesApi.ListAppLinks(userId).ToListAsync();
+```
+
+#### OrgSettingApi Changes
+
+_Before (v9.x):_
+
+```csharp
+var orgSettingApi = new OrgSettingApi();
+
+// All org settings operations were on OrgSettingApi
+await orgSettingApi.GetOrgSettingsAsync();
+await orgSettingApi.GrantOktaSupportAsync();
+await orgSettingApi.GetOrgContactUserAsync(contactType);
+```
+
+_Now (v10.0.0):_
+
+```csharp
+// General settings
+var generalApi = new OrgSettingGeneralApi();
+await generalApi.GetOrgSettingsAsync();
+await generalApi.UpdateOrgSettingsAsync(orgSettings);
+
+// Support settings
+var supportApi = new OrgSettingSupportApi();
+await supportApi.GrantOktaSupportAsync();
+await supportApi.GetOktaSupportSettingsAsync();
+
+// Contact settings
+var contactApi = new OrgSettingContactApi();
+await contactApi.GetOrgContactUserAsync(contactType);
+await contactApi.UpdateOrgContactUserAsync(contactType, orgContactUser);
+
+// Communication settings
+var commApi = new OrgSettingCommunicationApi();
+await commApi.GetOrgCommunicationSettingsAsync();
+```
+
+#### RoleApi Changes
+
+_Before (v9.x):_
+
+```csharp
+var roleApi = new RoleApi();
+var roleAssignmentApi = new RoleAssignmentApi();
+
+// Role assignments
+await roleAssignmentApi.AssignRoleToUserAsync(userId, assignRoleRequest);
+await roleAssignmentApi.AssignRoleToGroupAsync(groupId, assignRoleRequest);
+
+// Role targets
+await roleApi.AddGroupTargetToGroupAdministratorRoleForGroupAsync(groupId, roleId, targetGroupId);
+```
+
+_Now (v10.0.0):_
+
+```csharp
+// User role assignments
+var userRoleApi = new RoleAssignmentAUserApi();
+await userRoleApi.AssignRoleToUserAsync(userId, assignRoleRequest);
+var userRoles = await userRoleApi.ListUserRoles(userId).ToListAsync();
+await userRoleApi.UnassignRoleFromUserAsync(userId, roleId);
+
+// Group role assignments
+var groupRoleApi = new RoleAssignmentBGroupApi();
+await groupRoleApi.AssignRoleToGroupAsync(groupId, assignRoleRequest);
+var groupRoles = await groupRoleApi.ListGroupRoles(groupId).ToListAsync();
+
+// Group role targets
+var groupTargetApi = new RoleBTargetBGroupApi();
+await groupTargetApi.AddGroupTargetToGroupRoleAsync(groupId, roleId, targetGroupId);
+var targets = await groupTargetApi.ListGroupTargetsForGroupRoleAsync(groupId, roleId).ToListAsync();
+
+// Custom roles
+var customRoleApi = new RoleECustomApi();
+await customRoleApi.CreateCustomRoleAsync(customRole);
+var customRoles = await customRoleApi.ListCustomRoles().ToListAsync();
+```
+
+### New API Clients
+
+Version 10.0.0 introduces 29 new API clients for new features and improved organization:
+
+#### Application-Related APIs
+- `ApplicationCrossAppAccessConnectionsApi` - Manage cross-app access connections
+- `ApplicationSSOCredentialKeyApi` - Manage SSO credential keys
+- `ApplicationSSOFederatedClaimsApi` - Manage SSO federated claims
+- `ApplicationSSOPublicKeysApi` - Manage SSO public keys
+
+#### Device Management APIs
+- `DeviceAccessApi` - Manage device access policies
+- `DeviceIntegrationsApi` - Manage device integrations
+- `DevicePostureCheckApi` - Manage device posture checks
+
+#### Identity Provider APIs
+- `IdentityProviderKeysApi` - Manage identity provider keys
+- `IdentityProviderSigningKeysApi` - Manage identity provider signing keys
+- `IdentityProviderUsersApi` - Manage identity provider users
+
+#### Other New APIs
+- `AssociatedDomainCustomizationsApi` - Manage associated domain customizations
+- `EmailCustomizationApi` - Manage email customizations
+- `GovernanceBundleApi` - Manage governance bundles
+- `GroupPushMappingApi` - Manage group push mappings
+- `GroupRuleApi` - Manage group rules
+- `OAuth2ResourceServerCredentialsKeysApi` - Manage OAuth2 resource server credential keys
+- `OktaPersonalSettingsApi` - Manage Okta personal settings
+- `OrgCreatorApi` - Manage organization creators
+- `ServiceAccountApi` - Manage service accounts
+- `WebAuthnPreregistrationApi` - Manage WebAuthn preregistrations
+
+### Removed APIs
+
+- `ApplicationCredentialsApi` - This API has been removed. Credential-related operations may be available through `ApplicationSSOApi` and related SSO APIs.
+
+### Changed
+
+#### ApplicationApi
+- `ListApplications()` - Added optional `useOptimization` parameter to improve performance
+
+#### UserApi
+- `GetUserAsync()` - Added optional `contentType` parameter
+- `ListUsers()` - Added optional `contentType` parameter
+
+### Parameter Changes
+
+Some methods have gained new optional parameters for enhanced functionality. Existing code will continue to work as these parameters have default values:
+
+```csharp
+// These calls work in both v9.x and v10.0.0
+var apps = await applicationApi.ListApplications().ToListAsync();
+var users = await userApi.ListUsers().ToListAsync();
+
+// v10.0.0 adds new optional parameters
+var appsOptimized = await applicationApi.ListApplications(useOptimization: true).ToListAsync();
+var usersWithContent = await userApi.ListUsers(contentType: "application/json").ToListAsync();
+```
+
+### APIs with No Changes
+
+The majority of API clients remain unchanged. The following APIs have identical method signatures and behavior:
+
+- `AgentPoolsApi`
+- `ApiServiceIntegrationsApi`
+- `ApiTokenApi`
+- `ApplicationFeaturesApi`
+- `ApplicationGrantsApi`
+- `ApplicationGroupsApi`
+- `ApplicationLogosApi`
+- `ApplicationPoliciesApi`
+- `ApplicationSSOApi`
+- `ApplicationTokensApi`
+- `ApplicationUsersApi`
+- `AttackProtectionApi`
+- `AuthenticatorApi`
+- `AuthorizationServerApi`
+- `AuthorizationServerAssocApi`
+- `AuthorizationServerClaimsApi`
+- `AuthorizationServerClientsApi`
+- `AuthorizationServerKeysApi`
+- `AuthorizationServerPoliciesApi`
+- `AuthorizationServerRulesApi`
+- `AuthorizationServerScopesApi`
+- `BehaviorApi`
+- `BrandsApi`
+- `CAPTCHAApi`
+- `CustomDomainApi`
+- `CustomPagesApi`
+- `CustomTemplatesApi`
+- `DeviceApi`
+- `DeviceAssuranceApi`
+- `DirectoriesIntegrationApi`
+- `EmailDomainApi`
+- `EmailServerApi`
+- `EventHookApi`
+- `FeatureApi`
+- `GroupApi`
+- `GroupOwnerApi`
+- `HookKeyApi`
+- `IdentityProviderApi`
+- `IdentitySourceApi`
+- `InlineHookApi`
+- `LinkedObjectApi`
+- `LogStreamApi`
+- `NetworkZoneApi`
+- `OAuthApi`
+- `OktaApplicationSettingsApi`
+- `PolicyApi`
+- `PrincipalRateLimitApi`
+- `ProfileMappingApi`
+- `PushProviderApi`
+- `RateLimitSettingsApi`
+- `RealmApi`
+- `RealmAssignmentApi`
+- `RiskEventApi`
+- `RiskProviderApi`
+- `SchemaApi`
+- `SessionApi`
+- `SSFReceiverApi`
+- `SSFSecurityEventTokenApi`
+- `SSFTransmitterApi`
+- `SubscriptionApi`
+- `SystemLogApi`
+- `TemplateApi`
+- `ThemesApi`
+- `ThreatInsightApi`
+- `TrustedOriginApi`
+- `UISchemaApi`
+- `UserFactorApi`
+- `UserTypeApi`
+
+### Migration Strategy
+
+1. **Identify affected code**: Search your codebase for uses of `UserApi`, `OrgSettingApi`, `RoleApi`, `RoleAssignmentApi`, `RoleTargetApi`, and `ResourceSetApi`.
+
+2. **Update API instantiations**: Create instances of the new specialized API clients as needed.
+
+3. **Update method calls**: Change method calls to use the appropriate specialized client.
+
+4. **Test thoroughly**: The reorganization may affect dependency injection configurations and mocking in tests.
+
+5. **Update dependency injection**: If using DI, register the new API clients:
+
+```csharp
+// v9.x
+builder.Services.AddScoped<IUserApi, UserApi>();
+
+// v10.0.0 - Register all needed specialized clients
+builder.Services.AddScoped<IUserApi, UserApi>();
+builder.Services.AddScoped<IUserLifecycleApi, UserLifecycleApi>();
+builder.Services.AddScoped<IUserCredApi, UserCredApi>();
+builder.Services.AddScoped<IUserOAuthApi, UserOAuthApi>();
+builder.Services.AddScoped<IUserSessionsApi, UserSessionsApi>();
+// ... register other specialized clients as needed
+```
+
+### Benefits of This Change
+
+- **Improved organization**: Related operations are now grouped together logically
+- **Better separation of concerns**: Each API client has a focused responsibility
+- **Easier testing**: Smaller, focused clients are easier to mock and test
+- **Better discoverability**: API names now clearly indicate their purpose
+- **Reduced complexity**: Smaller API clients are easier to understand and maintain
+
+### Need Help?
+
+For a complete mapping of all methods from v9.x to v10.0.0, see the [detailed migration guide](MIGRATION_GUIDE_v10.0.0.md) included in this repository.
+
+If you have questions about this migration:
+- Check the [detailed migration guide](MIGRATION_GUIDE_v10.0.0.md) for method-by-method mappings
+- Post on our [Developer Forum](https://devforum.okta.com)
+- [Open an issue](https://github.com/okta/okta-sdk-dotnet/issues) on GitHub
+
 ## Migrating from 8.x to 9.x
 There are a number of changes to be aware of when migrating from version 8 to version 9.  
 

@@ -4,20 +4,20 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateDeviceAssurancePolicy**](DeviceAssuranceApi.md#createdeviceassurancepolicy) | **POST** /api/v1/device-assurances | Create a Device Assurance Policy
-[**DeleteDeviceAssurancePolicy**](DeviceAssuranceApi.md#deletedeviceassurancepolicy) | **DELETE** /api/v1/device-assurances/{deviceAssuranceId} | Delete a Device Assurance Policy
-[**GetDeviceAssurancePolicy**](DeviceAssuranceApi.md#getdeviceassurancepolicy) | **GET** /api/v1/device-assurances/{deviceAssuranceId} | Retrieve a Device Assurance Policy
-[**ListDeviceAssurancePolicies**](DeviceAssuranceApi.md#listdeviceassurancepolicies) | **GET** /api/v1/device-assurances | List all Device Assurance Policies
-[**ReplaceDeviceAssurancePolicy**](DeviceAssuranceApi.md#replacedeviceassurancepolicy) | **PUT** /api/v1/device-assurances/{deviceAssuranceId} | Replace a Device Assurance Policy
+[**CreateDeviceAssurancePolicy**](DeviceAssuranceApi.md#createdeviceassurancepolicy) | **POST** /api/v1/device-assurances | Create a device assurance policy
+[**DeleteDeviceAssurancePolicy**](DeviceAssuranceApi.md#deletedeviceassurancepolicy) | **DELETE** /api/v1/device-assurances/{deviceAssuranceId} | Delete a device assurance policy
+[**GetDeviceAssurancePolicy**](DeviceAssuranceApi.md#getdeviceassurancepolicy) | **GET** /api/v1/device-assurances/{deviceAssuranceId} | Retrieve a device assurance policy
+[**ListDeviceAssurancePolicies**](DeviceAssuranceApi.md#listdeviceassurancepolicies) | **GET** /api/v1/device-assurances | List all device assurance policies
+[**ReplaceDeviceAssurancePolicy**](DeviceAssuranceApi.md#replacedeviceassurancepolicy) | **PUT** /api/v1/device-assurances/{deviceAssuranceId} | Replace a device assurance policy
 
 
 <a name="createdeviceassurancepolicy"></a>
 # **CreateDeviceAssurancePolicy**
 > DeviceAssurance CreateDeviceAssurancePolicy (DeviceAssurance deviceAssurance)
 
-Create a Device Assurance Policy
+Create a device assurance policy
 
-Creates a new Device Assurance Policy
+Creates a new device assurance policy
 
 ### Example
 ```csharp
@@ -45,7 +45,7 @@ namespace Example
 
             try
             {
-                // Create a Device Assurance Policy
+                // Create a device assurance policy
                 DeviceAssurance result = apiInstance.CreateDeviceAssurancePolicy(deviceAssurance);
                 Debug.WriteLine(result);
             }
@@ -94,9 +94,9 @@ Name | Type | Description  | Notes
 # **DeleteDeviceAssurancePolicy**
 > void DeleteDeviceAssurancePolicy (string deviceAssuranceId)
 
-Delete a Device Assurance Policy
+Delete a device assurance policy
 
-Deletes a Device Assurance Policy by `deviceAssuranceId`. If the Device Assurance Policy is currently being used in the org Authentication Policies, the delete will not be allowed.
+Deletes a device assurance policy by `deviceAssuranceId`. If the device assurance policy is currently being used in the org Authentication Policies, the delete will not be allowed.
 
 ### Example
 ```csharp
@@ -120,11 +120,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DeviceAssuranceApi(config);
-            var deviceAssuranceId = "deviceAssuranceId_example";  // string | Id of the Device Assurance Policy
+            var deviceAssuranceId = "deviceAssuranceId_example";  // string | Id of the device assurance policy
 
             try
             {
-                // Delete a Device Assurance Policy
+                // Delete a device assurance policy
                 apiInstance.DeleteDeviceAssurancePolicy(deviceAssuranceId);
             }
             catch (ApiException  e)
@@ -142,7 +142,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceAssuranceId** | **string**| Id of the Device Assurance Policy | 
+ **deviceAssuranceId** | **string**| Id of the device assurance policy | 
 
 ### Return type
 
@@ -173,9 +173,9 @@ void (empty response body)
 # **GetDeviceAssurancePolicy**
 > DeviceAssurance GetDeviceAssurancePolicy (string deviceAssuranceId)
 
-Retrieve a Device Assurance Policy
+Retrieve a device assurance policy
 
-Retrieves a Device Assurance Policy by `deviceAssuranceId`
+Retrieves a device assurance policy by `deviceAssuranceId`
 
 ### Example
 ```csharp
@@ -199,11 +199,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DeviceAssuranceApi(config);
-            var deviceAssuranceId = "deviceAssuranceId_example";  // string | Id of the Device Assurance Policy
+            var deviceAssuranceId = "deviceAssuranceId_example";  // string | Id of the device assurance policy
 
             try
             {
-                // Retrieve a Device Assurance Policy
+                // Retrieve a device assurance policy
                 DeviceAssurance result = apiInstance.GetDeviceAssurancePolicy(deviceAssuranceId);
                 Debug.WriteLine(result);
             }
@@ -222,7 +222,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceAssuranceId** | **string**| Id of the Device Assurance Policy | 
+ **deviceAssuranceId** | **string**| Id of the device assurance policy | 
 
 ### Return type
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 # **ListDeviceAssurancePolicies**
 > List&lt;DeviceAssurance&gt; ListDeviceAssurancePolicies ()
 
-List all Device Assurance Policies
+List all device assurance policies
 
 Lists all device assurance policies
 
@@ -281,7 +281,7 @@ namespace Example
 
             try
             {
-                // List all Device Assurance Policies
+                // List all device assurance policies
                 List<DeviceAssurance> result = apiInstance.ListDeviceAssurancePolicies().ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -326,9 +326,9 @@ This endpoint does not need any parameter.
 # **ReplaceDeviceAssurancePolicy**
 > DeviceAssurance ReplaceDeviceAssurancePolicy (string deviceAssuranceId, DeviceAssurance deviceAssurance)
 
-Replace a Device Assurance Policy
+Replace a device assurance policy
 
-Replaces a Device Assurance Policy by `deviceAssuranceId`
+Replaces a device assurance policy by `deviceAssuranceId`
 
 ### Example
 ```csharp
@@ -352,12 +352,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DeviceAssuranceApi(config);
-            var deviceAssuranceId = "deviceAssuranceId_example";  // string | Id of the Device Assurance Policy
+            var deviceAssuranceId = "deviceAssuranceId_example";  // string | Id of the device assurance policy
             var deviceAssurance = new DeviceAssurance(); // DeviceAssurance | 
 
             try
             {
-                // Replace a Device Assurance Policy
+                // Replace a device assurance policy
                 DeviceAssurance result = apiInstance.ReplaceDeviceAssurancePolicy(deviceAssuranceId, deviceAssurance);
                 Debug.WriteLine(result);
             }
@@ -376,7 +376,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceAssuranceId** | **string**| Id of the Device Assurance Policy | 
+ **deviceAssuranceId** | **string**| Id of the device assurance policy | 
  **deviceAssurance** | [**DeviceAssurance**](DeviceAssurance.md)|  | 
 
 ### Return type

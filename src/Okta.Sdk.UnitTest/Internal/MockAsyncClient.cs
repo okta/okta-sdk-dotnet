@@ -1,12 +1,15 @@
+// <copyright file="MockAsyncClient.cs" company="Okta, Inc">
+// Copyright (c) 2014-present Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Okta.Sdk.Client;
-using RestSharp;
 
 namespace Okta.Sdk.UnitTest.Internal
 {
@@ -54,7 +57,18 @@ namespace Okta.Sdk.UnitTest.Internal
 
         private ApiResponse<T> ToApiResponse<T>(string returnThis, HttpStatusCode statusCode, Multimap<string, string> returnHeaders)
         {
-            T result = JsonConvert.DeserializeObject<T>(returnThis);
+            T result;
+            
+            // Handle string type specially - don't try to JSON deserialize it
+            if (typeof(T) == typeof(string))
+            {
+                result = (T)(object)returnThis;
+            }
+            else
+            {
+                result = JsonConvert.DeserializeObject<T>(returnThis);
+            }
+            
             var transformed = new ApiResponse<T>(statusCode, returnHeaders, result, returnThis)
             {
                 Cookies = new List<Cookie>(),
@@ -102,7 +116,7 @@ namespace Okta.Sdk.UnitTest.Internal
 
         public Task<ApiResponse<T>> PatchAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return ExecuteAsync<T>(path, options);
         }
 
         public Task<ApiResponse<T>> PostAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, CancellationToken cancellationToken = default)

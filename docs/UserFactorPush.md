@@ -4,16 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** | **DateTimeOffset** | Timestamp when the Factor was enrolled | [optional] [readonly] 
+**Created** | **DateTimeOffset** | Timestamp when the factor was enrolled | [optional] [readonly] 
 **FactorType** | [**UserFactorType**](UserFactorType.md) |  | [optional] 
-**Id** | **string** | ID of the Factor | [optional] [readonly] 
-**LastUpdated** | **DateTimeOffset** | Timestamp when the Factor was last updated | [optional] [readonly] 
+**Id** | **string** | ID of the factor | [optional] [readonly] 
+**LastUpdated** | **DateTimeOffset** | Timestamp when the factor was last updated | [optional] [readonly] 
 **Status** | [**UserFactorStatus**](UserFactorStatus.md) |  | [optional] 
-**VendorName** | **string** | Name of the Factor vendor. This is usually the same as the provider except for On-Prem MFA where it depends on administrator settings. | [optional] [readonly] 
+**VendorName** | **string** | Name of the factor vendor. This is usually the same as the provider except for On-Prem MFA, which depends on admin settings. | [optional] [readonly] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
-**Links** | **Object** |  | [optional] 
-**ExpiresAt** | **DateTimeOffset** | Timestamp when the Factor verification attempt expires | [optional] [readonly] 
-**FactorResult** | **UserFactorResultType** |  | [optional] 
+**Links** | [**UserFactorLinks**](UserFactorLinks.md) |  | [optional] 
 **Profile** | [**UserFactorPushProfile**](UserFactorPushProfile.md) |  | [optional] 
 **Provider** | **string** |  | [optional] 
 

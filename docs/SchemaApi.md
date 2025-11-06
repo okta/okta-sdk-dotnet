@@ -4,23 +4,23 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetApplicationUserSchema**](SchemaApi.md#getapplicationuserschema) | **GET** /api/v1/meta/schemas/apps/{appId}/default | Retrieve the default Application User Schema for an Application
-[**GetGroupSchema**](SchemaApi.md#getgroupschema) | **GET** /api/v1/meta/schemas/group/default | Retrieve the default Group Schema
-[**GetLogStreamSchema**](SchemaApi.md#getlogstreamschema) | **GET** /api/v1/meta/schemas/logStream/{logStreamType} | Retrieve the Log Stream Schema for the schema type
-[**GetUserSchema**](SchemaApi.md#getuserschema) | **GET** /api/v1/meta/schemas/user/{schemaId} | Retrieve a User Schema
-[**ListLogStreamSchemas**](SchemaApi.md#listlogstreamschemas) | **GET** /api/v1/meta/schemas/logStream | List the Log Stream Schemas
-[**UpdateApplicationUserProfile**](SchemaApi.md#updateapplicationuserprofile) | **POST** /api/v1/meta/schemas/apps/{appId}/default | Update the default Application User Schema for an Application
-[**UpdateGroupSchema**](SchemaApi.md#updategroupschema) | **POST** /api/v1/meta/schemas/group/default | Update the default Group Schema
-[**UpdateUserProfile**](SchemaApi.md#updateuserprofile) | **POST** /api/v1/meta/schemas/user/{schemaId} | Update a User Schema
+[**GetApplicationUserSchema**](SchemaApi.md#getapplicationuserschema) | **GET** /api/v1/meta/schemas/apps/{appId}/default | Retrieve the default app user schema for an app
+[**GetGroupSchema**](SchemaApi.md#getgroupschema) | **GET** /api/v1/meta/schemas/group/default | Retrieve the default group schema
+[**GetLogStreamSchema**](SchemaApi.md#getlogstreamschema) | **GET** /api/v1/meta/schemas/logStream/{logStreamType} | Retrieve the log stream schema for the schema type
+[**GetUserSchema**](SchemaApi.md#getuserschema) | **GET** /api/v1/meta/schemas/user/{schemaId} | Retrieve a user schema
+[**ListLogStreamSchemas**](SchemaApi.md#listlogstreamschemas) | **GET** /api/v1/meta/schemas/logStream | List the log stream schemas
+[**UpdateApplicationUserProfile**](SchemaApi.md#updateapplicationuserprofile) | **POST** /api/v1/meta/schemas/apps/{appId}/default | Update the app user profile schema for an app
+[**UpdateGroupSchema**](SchemaApi.md#updategroupschema) | **POST** /api/v1/meta/schemas/group/default | Update the group profile schema
+[**UpdateUserProfile**](SchemaApi.md#updateuserprofile) | **POST** /api/v1/meta/schemas/user/{schemaId} | Update a user schema
 
 
 <a name="getapplicationuserschema"></a>
 # **GetApplicationUserSchema**
 > UserSchema GetApplicationUserSchema (string appId)
 
-Retrieve the default Application User Schema for an Application
+Retrieve the default app user schema for an app
 
-Retrieves the Schema for an App User
+Retrieves the default schema for an app user.  The [User Types](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) feature does not extend to apps. All users assigned to a given app use the same app user schema. Therefore, unlike the user schema operations, the app user schema operations all specify `default` and don't accept a schema ID.
 
 ### Example
 ```csharp
@@ -48,7 +48,7 @@ namespace Example
 
             try
             {
-                // Retrieve the default Application User Schema for an Application
+                // Retrieve the default app user schema for an app
                 UserSchema result = apiInstance.GetApplicationUserSchema(appId);
                 Debug.WriteLine(result);
             }
@@ -97,9 +97,9 @@ Name | Type | Description  | Notes
 # **GetGroupSchema**
 > GroupSchema GetGroupSchema ()
 
-Retrieve the default Group Schema
+Retrieve the default group schema
 
-Retrieves the group schema
+Retrieves the group schema  The [User Types](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) feature does not extend to groups. All groups use the same group schema. Unlike user schema operations, group schema operations all specify `default` and don't accept a schema ID.
 
 ### Example
 ```csharp
@@ -126,7 +126,7 @@ namespace Example
 
             try
             {
-                // Retrieve the default Group Schema
+                // Retrieve the default group schema
                 GroupSchema result = apiInstance.GetGroupSchema();
                 Debug.WriteLine(result);
             }
@@ -171,9 +171,9 @@ This endpoint does not need any parameter.
 # **GetLogStreamSchema**
 > LogStreamSchema GetLogStreamSchema (LogStreamType logStreamType)
 
-Retrieve the Log Stream Schema for the schema type
+Retrieve the log stream schema for the schema type
 
-Retrieves the schema for a Log Stream type. The `logStreamType` element in the URL specifies the Log Stream type, which is either `aws_eventbridge` or `splunk_cloud_logstreaming`. Use the `aws_eventbridge` literal to retrieve the AWS EventBridge type schema, and use the `splunk_cloud_logstreaming` literal retrieve the Splunk Cloud type schema.
+Retrieves the schema for a log stream type. The `logStreamType` element in the URL specifies the log stream type, which is either `aws_eventbridge` or `splunk_cloud_logstreaming`. Use the `aws_eventbridge` literal to retrieve the AWS EventBridge type schema, and use the `splunk_cloud_logstreaming` literal retrieve the Splunk Cloud type schema.
 
 ### Example
 ```csharp
@@ -201,7 +201,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Log Stream Schema for the schema type
+                // Retrieve the log stream schema for the schema type
                 LogStreamSchema result = apiInstance.GetLogStreamSchema(logStreamType);
                 Debug.WriteLine(result);
             }
@@ -250,9 +250,9 @@ Name | Type | Description  | Notes
 # **GetUserSchema**
 > UserSchema GetUserSchema (string schemaId)
 
-Retrieve a User Schema
+Retrieve a user schema
 
-Retrieves the schema for a Schema Id
+Retrieves the schema for a user type
 
 ### Example
 ```csharp
@@ -276,11 +276,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SchemaApi(config);
-            var schemaId = "schemaId_example";  // string | 
+            var schemaId = "schemaId_example";  // string | Schema ID. You can also use `default` to refer to the default user type schema.
 
             try
             {
-                // Retrieve a User Schema
+                // Retrieve a user schema
                 UserSchema result = apiInstance.GetUserSchema(schemaId);
                 Debug.WriteLine(result);
             }
@@ -299,7 +299,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **schemaId** | **string**|  | 
+ **schemaId** | **string**| Schema ID. You can also use &#x60;default&#x60; to refer to the default user type schema. | 
 
 ### Return type
 
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 # **ListLogStreamSchemas**
 > List&lt;LogStreamSchema&gt; ListLogStreamSchemas ()
 
-List the Log Stream Schemas
+List the log stream schemas
 
 Lists the schema for all log stream types visible for this org
 
@@ -358,7 +358,7 @@ namespace Example
 
             try
             {
-                // List the Log Stream Schemas
+                // List the log stream schemas
                 List<LogStreamSchema> result = apiInstance.ListLogStreamSchemas().ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -403,9 +403,9 @@ This endpoint does not need any parameter.
 # **UpdateApplicationUserProfile**
 > UserSchema UpdateApplicationUserProfile (string appId, UserSchema body = null)
 
-Update the default Application User Schema for an Application
+Update the app user profile schema for an app
 
-Partially updates on the User Profile properties of the Application User Schema
+Updates the app user schema. This updates, adds, or removes one or more custom profile properties or the nullability of a base property in the app user schema for an app. Changing a base property's nullability (for example, the value of its `required` field) is allowed only if it is nullable in the default predefined schema for the app.  > **Note:** You must set properties explicitly to `null` to remove them from the schema; otherwise, `POST` is interpreted as a partial update.  The [User Types](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) feature does not extend to apps. All users assigned to a given app use the same app user schema. Therefore, unlike the user schema operations, the app user schema operations all specify `default` and don't accept a schema ID.
 
 ### Example
 ```csharp
@@ -434,7 +434,7 @@ namespace Example
 
             try
             {
-                // Update the default Application User Schema for an Application
+                // Update the app user profile schema for an app
                 UserSchema result = apiInstance.UpdateApplicationUserProfile(appId, body);
                 Debug.WriteLine(result);
             }
@@ -485,9 +485,9 @@ Name | Type | Description  | Notes
 # **UpdateGroupSchema**
 > GroupSchema UpdateGroupSchema (GroupSchema groupSchema = null)
 
-Update the default Group Schema
+Update the group profile schema
 
-Updates the default group schema. This updates, adds, or removes one or more custom Group Profile properties in the schema.
+Updates the group profile schema. This updates, adds, or removes one or more custom profile properties in a group schema. Currently Okta does not support changing base group profile properties.  > **Note:** You must set properties explicitly to `null` to remove them from the schema; otherwise, `POST` is interpreted as a partial update.  The [User Types](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) feature does not extend to groups. All groups use the same group schema. Unlike user schema operations, group schema operations all specify `default` and don't accept a schema ID.
 
 ### Example
 ```csharp
@@ -515,7 +515,7 @@ namespace Example
 
             try
             {
-                // Update the default Group Schema
+                // Update the group profile schema
                 GroupSchema result = apiInstance.UpdateGroupSchema(groupSchema);
                 Debug.WriteLine(result);
             }
@@ -564,9 +564,9 @@ Name | Type | Description  | Notes
 # **UpdateUserProfile**
 > UserSchema UpdateUserProfile (string schemaId, UserSchema userSchema)
 
-Update a User Schema
+Update a user schema
 
-Partially updates on the User Profile properties of the user schema
+Updates a user schema. Use this request to update, add, or remove one or more profile properties in a user schema. If you specify `default` for the `schemaId`, updates will apply to the default user type.  Unlike custom user profile properties, limited changes are allowed to base user profile properties (permissions, nullability of the `firstName` and `lastName` properties, or pattern for `login`). You can't remove a property from the default schema if it's being referenced as a [`matchAttribute`](/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=policy/subject/matchAttribute&t=request) in `SAML2` IdPs. Currently, all validation of SAML assertions are only performed against the default user type.  > **Note:** You must set properties explicitly to `null` to remove them from the schema; otherwise, `POST` is interpreted as a partial update.
 
 ### Example
 ```csharp
@@ -590,12 +590,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SchemaApi(config);
-            var schemaId = "schemaId_example";  // string | 
+            var schemaId = "schemaId_example";  // string | Schema ID. You can also use `default` to refer to the default user type schema.
             var userSchema = new UserSchema(); // UserSchema | 
 
             try
             {
-                // Update a User Schema
+                // Update a user schema
                 UserSchema result = apiInstance.UpdateUserProfile(schemaId, userSchema);
                 Debug.WriteLine(result);
             }
@@ -614,7 +614,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **schemaId** | **string**|  | 
+ **schemaId** | **string**| Schema ID. You can also use &#x60;default&#x60; to refer to the default user type schema. | 
  **userSchema** | [**UserSchema**](UserSchema.md)|  | 
 
 ### Return type

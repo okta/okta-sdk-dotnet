@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.LogCredentialType
+The underlying technology/scheme used in the credential
 
 ## Properties
 

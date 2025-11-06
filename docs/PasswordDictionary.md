@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.PasswordDictionary
+Weak password dictionary lookup settings
 
 ## Properties
 

@@ -4,18 +4,18 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AssignUserToApplication**](ApplicationUsersApi.md#assignusertoapplication) | **POST** /api/v1/apps/{appId}/users | Assign an Application User
-[**GetApplicationUser**](ApplicationUsersApi.md#getapplicationuser) | **GET** /api/v1/apps/{appId}/users/{userId} | Retrieve an Application User
-[**ListApplicationUsers**](ApplicationUsersApi.md#listapplicationusers) | **GET** /api/v1/apps/{appId}/users | List all Application Users
-[**UnassignUserFromApplication**](ApplicationUsersApi.md#unassignuserfromapplication) | **DELETE** /api/v1/apps/{appId}/users/{userId} | Unassign an Application User
-[**UpdateApplicationUser**](ApplicationUsersApi.md#updateapplicationuser) | **POST** /api/v1/apps/{appId}/users/{userId} | Update an Application User
+[**AssignUserToApplication**](ApplicationUsersApi.md#assignusertoapplication) | **POST** /api/v1/apps/{appId}/users | Assign an application user
+[**GetApplicationUser**](ApplicationUsersApi.md#getapplicationuser) | **GET** /api/v1/apps/{appId}/users/{userId} | Retrieve an application user
+[**ListApplicationUsers**](ApplicationUsersApi.md#listapplicationusers) | **GET** /api/v1/apps/{appId}/users | List all application users
+[**UnassignUserFromApplication**](ApplicationUsersApi.md#unassignuserfromapplication) | **DELETE** /api/v1/apps/{appId}/users/{userId} | Unassign an application user
+[**UpdateApplicationUser**](ApplicationUsersApi.md#updateapplicationuser) | **POST** /api/v1/apps/{appId}/users/{userId} | Update an application user
 
 
 <a name="assignusertoapplication"></a>
 # **AssignUserToApplication**
 > AppUser AssignUserToApplication (string appId, AppUserAssignRequest appUser)
 
-Assign an Application User
+Assign an application user
 
 Assigns a user to an app for:    * SSO only<br>     Assignments to SSO apps typically don't include a user profile.     However, if your SSO app requires a profile but doesn't have provisioning enabled, you can add profile attributes in the request body.    * SSO and provisioning<br>     Assignments to SSO and provisioning apps typically include credentials and an app-specific profile.     Profile mappings defined for the app are applied first before applying any profile properties that are specified in the request body.     > **Notes:**     > * When Universal Directory is enabled, you can only specify profile properties that aren't defined in profile mappings.     > * Omit mapped properties during assignment to minimize assignment errors.
 
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Assign an Application User
+                // Assign an application user
                 AppUser result = apiInstance.AssignUserToApplication(appId, appUser);
                 Debug.WriteLine(result);
             }
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 # **GetApplicationUser**
 > AppUser GetApplicationUser (string appId, string userId, string expand = null)
 
-Retrieve an Application User
+Retrieve an application user
 
 Retrieves a specific user assignment for a specific app
 
@@ -129,7 +129,7 @@ namespace Example
 
             try
             {
-                // Retrieve an Application User
+                // Retrieve an application user
                 AppUser result = apiInstance.GetApplicationUser(appId, userId, expand);
                 Debug.WriteLine(result);
             }
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 # **ListApplicationUsers**
 > List&lt;AppUser&gt; ListApplicationUsers (string appId, string after = null, int? limit = null, string q = null, string expand = null)
 
-List all Application Users
+List all application users
 
 Lists all assigned users for an app
 
@@ -209,12 +209,12 @@ namespace Example
             var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
             var after = 16275000448691;  // string | Specifies the pagination cursor for the next page of results. Treat this as an opaque value obtained through the next link relationship. See [Pagination](/#pagination). (optional) 
             var limit = 50;  // int? | Specifies the number of objects to return per page. If there are multiple pages of results, the Link header contains a `next` link that you need to use as an opaque value (follow it, don't parse it). See [Pagination](/#pagination).  (optional)  (default to 50)
-            var q = sam;  // string | Specifies a filter for the list of Application Users returned based on their profile attributes. The value of `q` is matched against the beginning of the following profile attributes: `userName`, `firstName`, `lastName`, and `email`. This filter only supports the `startsWith` operation that matches the `q` string against the beginning of the attribute values. > **Note:** For OIDC apps, user profiles don't contain the `firstName` or `lastName` attributes. Therefore, the query only matches against the `userName` or `email` attributes.  (optional) 
+            var q = sam;  // string | Specifies a filter for the list of application users returned based on their profile attributes. The value of `q` is matched against the beginning of the following profile attributes: `userName`, `firstName`, `lastName`, and `email`. This filter only supports the `startsWith` operation that matches the `q` string against the beginning of the attribute values. > **Note:** For OIDC apps, user profiles don't contain the `firstName` or `lastName` attributes. Therefore, the query only matches against the `userName` or `email` attributes.  (optional) 
             var expand = user;  // string | An optional query parameter to return the corresponding [User](/openapi/okta-management/management/tag/User/) object in the `_embedded` property. Valid value: `user` (optional) 
 
             try
             {
-                // List all Application Users
+                // List all application users
                 List<AppUser> result = apiInstance.ListApplicationUsers(appId, after, limit, q, expand).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
  **appId** | **string**| Application ID | 
  **after** | **string**| Specifies the pagination cursor for the next page of results. Treat this as an opaque value obtained through the next link relationship. See [Pagination](/#pagination). | [optional] 
  **limit** | **int?**| Specifies the number of objects to return per page. If there are multiple pages of results, the Link header contains a &#x60;next&#x60; link that you need to use as an opaque value (follow it, don&#39;t parse it). See [Pagination](/#pagination).  | [optional] [default to 50]
- **q** | **string**| Specifies a filter for the list of Application Users returned based on their profile attributes. The value of &#x60;q&#x60; is matched against the beginning of the following profile attributes: &#x60;userName&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, and &#x60;email&#x60;. This filter only supports the &#x60;startsWith&#x60; operation that matches the &#x60;q&#x60; string against the beginning of the attribute values. &gt; **Note:** For OIDC apps, user profiles don&#39;t contain the &#x60;firstName&#x60; or &#x60;lastName&#x60; attributes. Therefore, the query only matches against the &#x60;userName&#x60; or &#x60;email&#x60; attributes.  | [optional] 
+ **q** | **string**| Specifies a filter for the list of application users returned based on their profile attributes. The value of &#x60;q&#x60; is matched against the beginning of the following profile attributes: &#x60;userName&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, and &#x60;email&#x60;. This filter only supports the &#x60;startsWith&#x60; operation that matches the &#x60;q&#x60; string against the beginning of the attribute values. &gt; **Note:** For OIDC apps, user profiles don&#39;t contain the &#x60;firstName&#x60; or &#x60;lastName&#x60; attributes. Therefore, the query only matches against the &#x60;userName&#x60; or &#x60;email&#x60; attributes.  | [optional] 
  **expand** | **string**| An optional query parameter to return the corresponding [User](/openapi/okta-management/management/tag/User/) object in the &#x60;_embedded&#x60; property. Valid value: &#x60;user&#x60; | [optional] 
 
 ### Return type
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 # **UnassignUserFromApplication**
 > void UnassignUserFromApplication (string appId, string userId, bool? sendEmail = null)
 
-Unassign an Application User
+Unassign an application user
 
 Unassigns a user from an app  For directories like Active Directory and LDAP, they act as the owner of the user's credential with Okta delegating authentication (DelAuth) to that directory. If this request is successful for a user when DelAuth is enabled, then the user is in a state with no password. You can then reset the user's password.  > **Important:** This is a destructive operation. You can't recover the user's app profile. If the app is enabled for provisioning and configured to deactivate users, the user is also deactivated in the target app.
 
@@ -299,7 +299,7 @@ namespace Example
 
             try
             {
-                // Unassign an Application User
+                // Unassign an application user
                 apiInstance.UnassignUserFromApplication(appId, userId, sendEmail);
             }
             catch (ApiException  e)
@@ -349,7 +349,7 @@ void (empty response body)
 # **UpdateApplicationUser**
 > AppUser UpdateApplicationUser (string appId, string userId, AppUserUpdateRequest appUser)
 
-Update an Application User
+Update an application user
 
 Updates the profile or credentials of a user assigned to an app
 
@@ -381,7 +381,7 @@ namespace Example
 
             try
             {
-                // Update an Application User
+                // Update an application user
                 AppUser result = apiInstance.UpdateApplicationUser(appId, userId, appUser);
                 Debug.WriteLine(result);
             }

@@ -4,21 +4,21 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateUserType**](UserTypeApi.md#createusertype) | **POST** /api/v1/meta/types/user | Create a User Type
-[**DeleteUserType**](UserTypeApi.md#deleteusertype) | **DELETE** /api/v1/meta/types/user/{typeId} | Delete a User Type
-[**GetUserType**](UserTypeApi.md#getusertype) | **GET** /api/v1/meta/types/user/{typeId} | Retrieve a User Type
-[**ListUserTypes**](UserTypeApi.md#listusertypes) | **GET** /api/v1/meta/types/user | List all User Types
-[**ReplaceUserType**](UserTypeApi.md#replaceusertype) | **PUT** /api/v1/meta/types/user/{typeId} | Replace a User Type
-[**UpdateUserType**](UserTypeApi.md#updateusertype) | **POST** /api/v1/meta/types/user/{typeId} | Update a User Type
+[**CreateUserType**](UserTypeApi.md#createusertype) | **POST** /api/v1/meta/types/user | Create a user type
+[**DeleteUserType**](UserTypeApi.md#deleteusertype) | **DELETE** /api/v1/meta/types/user/{typeId} | Delete a user type
+[**GetUserType**](UserTypeApi.md#getusertype) | **GET** /api/v1/meta/types/user/{typeId} | Retrieve a user type
+[**ListUserTypes**](UserTypeApi.md#listusertypes) | **GET** /api/v1/meta/types/user | List all user types
+[**ReplaceUserType**](UserTypeApi.md#replaceusertype) | **PUT** /api/v1/meta/types/user/{typeId} | Replace a user type
+[**UpdateUserType**](UserTypeApi.md#updateusertype) | **POST** /api/v1/meta/types/user/{typeId} | Update a user type
 
 
 <a name="createusertype"></a>
 # **CreateUserType**
 > UserType CreateUserType (UserType userType)
 
-Create a User Type
+Create a user type
 
-Creates a new User Type. Okta automatically creates a `default` User Type for your org. You may add up to nine additional User Types. > **Note**: New User Types are based on the current default schema template. Modifications to this schema do not automatically propagate to previously created User Types.
+Creates a new user type. Okta automatically creates a `default` user type for your org. You may add up to nine additional user types. > **Note**: New user types are based on the current default schema template. Modifications to this schema do not automatically propagate to previously created user types.
 
 ### Example
 ```csharp
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Create a User Type
+                // Create a user type
                 UserType result = apiInstance.CreateUserType(userType);
                 Debug.WriteLine(result);
             }
@@ -95,9 +95,9 @@ Name | Type | Description  | Notes
 # **DeleteUserType**
 > void DeleteUserType (string typeId)
 
-Delete a User Type
+Delete a user type
 
-Deletes a User Type permanently. > **Note**: You can't delete the default User Type or a User Type that is currently assigned to users.
+Deletes a user type permanently. > **Note**: You can't delete the default user type or a user type that is currently assigned to users.
 
 ### Example
 ```csharp
@@ -125,7 +125,7 @@ namespace Example
 
             try
             {
-                // Delete a User Type
+                // Delete a user type
                 apiInstance.DeleteUserType(typeId);
             }
             catch (ApiException  e)
@@ -173,9 +173,9 @@ void (empty response body)
 # **GetUserType**
 > UserType GetUserType (string typeId)
 
-Retrieve a User Type
+Retrieve a user type
 
-Retrieves a User Type by ID. Use `default` to fetch the default User Type.
+Retrieves a user type by ID. Use `default` to fetch the default user type.
 
 ### Example
 ```csharp
@@ -203,7 +203,7 @@ namespace Example
 
             try
             {
-                // Retrieve a User Type
+                // Retrieve a user type
                 UserType result = apiInstance.GetUserType(typeId);
                 Debug.WriteLine(result);
             }
@@ -252,9 +252,9 @@ Name | Type | Description  | Notes
 # **ListUserTypes**
 > List&lt;UserType&gt; ListUserTypes ()
 
-List all User Types
+List all user types
 
-Lists all User Types in your org
+Lists all user types in your org
 
 ### Example
 ```csharp
@@ -281,7 +281,7 @@ namespace Example
 
             try
             {
-                // List all User Types
+                // List all user types
                 List<UserType> result = apiInstance.ListUserTypes().ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -326,9 +326,9 @@ This endpoint does not need any parameter.
 # **ReplaceUserType**
 > UserType ReplaceUserType (string typeId, UserTypePutRequest userType = null)
 
-Replace a User Type
+Replace a user type
 
-Replaces an existing User Type. This operation is a full update. > **Note**: The `name` of an existing User Type can't be changed, but must be part of the request body. You can only replace the `displayName` and `description` elements.
+Replaces an existing user type. This operation is a full update. > **Note**: The `name` of an existing user type can't be changed, but must be part of the request body. You can only replace the `displayName` and `description` elements.
 
 ### Example
 ```csharp
@@ -357,7 +357,7 @@ namespace Example
 
             try
             {
-                // Replace a User Type
+                // Replace a user type
                 UserType result = apiInstance.ReplaceUserType(typeId, userType);
                 Debug.WriteLine(result);
             }
@@ -408,9 +408,9 @@ Name | Type | Description  | Notes
 # **UpdateUserType**
 > UserType UpdateUserType (string typeId, UserTypePostRequest userType)
 
-Update a User Type
+Update a user type
 
-Updates an existing User Type. This operation is a partial update. > **Note**: You can only update the `displayName` and `description` elements. The `name` of an existing User Type can't be changed.
+Updates an existing user type. This operation is a partial update. > **Note**: You can only update the `displayName` and `description` elements. The `name` of an existing user type can't be changed.
 
 ### Example
 ```csharp
@@ -439,7 +439,7 @@ namespace Example
 
             try
             {
-                // Update a User Type
+                // Update a user type
                 UserType result = apiInstance.UpdateUserType(typeId, userType);
                 Debug.WriteLine(result);
             }

@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.OSVersionDynamicVersionRequirement
-<div class=\"x-lifecycle-container\"><x-lifecycle class=\"ea\"></x-lifecycle></div>Contains the necessary properties for a dynamic version requirement
+<x-lifecycle-container><x-lifecycle class=\"ea\"></x-lifecycle></x-lifecycle-container>Contains the necessary properties for a dynamic version requirement
 
 ## Properties
 

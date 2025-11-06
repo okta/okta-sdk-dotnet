@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.JwkUseType
+Purpose of the certificate. The only supported value is `sig`.
 
 ## Properties
 

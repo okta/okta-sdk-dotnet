@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Created** | **DateTimeOffset** | Timestamp when the role was created | [optional] [readonly] 
-**Description** | **string** | Description of the Resource Set | [optional] 
-**Id** | **string** | Unique key for the role | [optional] [readonly] 
-**Label** | **string** | Unique label for the Resource Set | [optional] 
+**Description** | **string** | Description of the resource set | [optional] 
+**Id** | **string** | Unique ID for the resource set object | [optional] [readonly] 
+**Label** | **string** | Unique label for the resource set | [optional] 
 **LastUpdated** | **DateTimeOffset** | Timestamp when the role was last updated | [optional] [readonly] 
 **Links** | [**ResourceSetLinks**](ResourceSetLinks.md) |  | [optional] 
 

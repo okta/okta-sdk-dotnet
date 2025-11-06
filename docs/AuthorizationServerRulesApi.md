@@ -4,20 +4,20 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateAuthorizationServerPolicyRule**](AuthorizationServerRulesApi.md#activateauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/activate | Activate a Policy Rule
-[**CreateAuthorizationServerPolicyRule**](AuthorizationServerRulesApi.md#createauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules | Create a Policy Rule
-[**DeactivateAuthorizationServerPolicyRule**](AuthorizationServerRulesApi.md#deactivateauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate | Deactivate a Policy Rule
-[**DeleteAuthorizationServerPolicyRule**](AuthorizationServerRulesApi.md#deleteauthorizationserverpolicyrule) | **DELETE** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Delete a Policy Rule
-[**GetAuthorizationServerPolicyRule**](AuthorizationServerRulesApi.md#getauthorizationserverpolicyrule) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Retrieve a Policy Rule
-[**ListAuthorizationServerPolicyRules**](AuthorizationServerRulesApi.md#listauthorizationserverpolicyrules) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules | List all Policy Rules
-[**ReplaceAuthorizationServerPolicyRule**](AuthorizationServerRulesApi.md#replaceauthorizationserverpolicyrule) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Replace a Policy Rule
+[**ActivateAuthorizationServerPolicyRule**](AuthorizationServerRulesApi.md#activateauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/activate | Activate a policy rule
+[**CreateAuthorizationServerPolicyRule**](AuthorizationServerRulesApi.md#createauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules | Create a policy rule
+[**DeactivateAuthorizationServerPolicyRule**](AuthorizationServerRulesApi.md#deactivateauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate | Deactivate a policy rule
+[**DeleteAuthorizationServerPolicyRule**](AuthorizationServerRulesApi.md#deleteauthorizationserverpolicyrule) | **DELETE** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Delete a policy rule
+[**GetAuthorizationServerPolicyRule**](AuthorizationServerRulesApi.md#getauthorizationserverpolicyrule) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Retrieve a policy rule
+[**ListAuthorizationServerPolicyRules**](AuthorizationServerRulesApi.md#listauthorizationserverpolicyrules) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules | List all policy rules
+[**ReplaceAuthorizationServerPolicyRule**](AuthorizationServerRulesApi.md#replaceauthorizationserverpolicyrule) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Replace a policy rule
 
 
 <a name="activateauthorizationserverpolicyrule"></a>
 # **ActivateAuthorizationServerPolicyRule**
 > void ActivateAuthorizationServerPolicyRule (string authServerId, string policyId, string ruleId)
 
-Activate a Policy Rule
+Activate a policy rule
 
 Activates an authorization server policy rule
 
@@ -45,11 +45,11 @@ namespace Example
             var apiInstance = new AuthorizationServerRulesApi(config);
             var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
             var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
-            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the policy rule
 
             try
             {
-                // Activate a Policy Rule
+                // Activate a policy rule
                 apiInstance.ActivateAuthorizationServerPolicyRule(authServerId, policyId, ruleId);
             }
             catch (ApiException  e)
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
  **policyId** | **string**| &#x60;id&#x60; of the Policy | 
- **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
+ **ruleId** | **string**| &#x60;id&#x60; of the policy rule | 
 
 ### Return type
 
@@ -97,9 +97,9 @@ void (empty response body)
 
 <a name="createauthorizationserverpolicyrule"></a>
 # **CreateAuthorizationServerPolicyRule**
-> AuthorizationServerPolicyRule CreateAuthorizationServerPolicyRule (string authServerId, string policyId, AuthorizationServerPolicyRule policyRule)
+> AuthorizationServerPolicyRule CreateAuthorizationServerPolicyRule (string authServerId, string policyId, AuthorizationServerPolicyRuleRequest policyRule)
 
-Create a Policy Rule
+Create a policy rule
 
 Creates a policy rule for the specified Custom Authorization Server and Policy
 
@@ -127,11 +127,11 @@ namespace Example
             var apiInstance = new AuthorizationServerRulesApi(config);
             var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
             var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
-            var policyRule = new AuthorizationServerPolicyRule(); // AuthorizationServerPolicyRule | 
+            var policyRule = new AuthorizationServerPolicyRuleRequest(); // AuthorizationServerPolicyRuleRequest | 
 
             try
             {
-                // Create a Policy Rule
+                // Create a policy rule
                 AuthorizationServerPolicyRule result = apiInstance.CreateAuthorizationServerPolicyRule(authServerId, policyId, policyRule);
                 Debug.WriteLine(result);
             }
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
  **policyId** | **string**| &#x60;id&#x60; of the Policy | 
- **policyRule** | [**AuthorizationServerPolicyRule**](AuthorizationServerPolicyRule.md)|  | 
+ **policyRule** | [**AuthorizationServerPolicyRuleRequest**](AuthorizationServerPolicyRuleRequest.md)|  | 
 
 ### Return type
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 # **DeactivateAuthorizationServerPolicyRule**
 > void DeactivateAuthorizationServerPolicyRule (string authServerId, string policyId, string ruleId)
 
-Deactivate a Policy Rule
+Deactivate a policy rule
 
 Deactivates an authorization server policy rule
 
@@ -211,11 +211,11 @@ namespace Example
             var apiInstance = new AuthorizationServerRulesApi(config);
             var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
             var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
-            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the policy rule
 
             try
             {
-                // Deactivate a Policy Rule
+                // Deactivate a policy rule
                 apiInstance.DeactivateAuthorizationServerPolicyRule(authServerId, policyId, ruleId);
             }
             catch (ApiException  e)
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
  **policyId** | **string**| &#x60;id&#x60; of the Policy | 
- **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
+ **ruleId** | **string**| &#x60;id&#x60; of the policy rule | 
 
 ### Return type
 
@@ -265,7 +265,7 @@ void (empty response body)
 # **DeleteAuthorizationServerPolicyRule**
 > void DeleteAuthorizationServerPolicyRule (string authServerId, string policyId, string ruleId)
 
-Delete a Policy Rule
+Delete a policy rule
 
 Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy
 
@@ -293,11 +293,11 @@ namespace Example
             var apiInstance = new AuthorizationServerRulesApi(config);
             var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
             var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
-            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the policy rule
 
             try
             {
-                // Delete a Policy Rule
+                // Delete a policy rule
                 apiInstance.DeleteAuthorizationServerPolicyRule(authServerId, policyId, ruleId);
             }
             catch (ApiException  e)
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
  **policyId** | **string**| &#x60;id&#x60; of the Policy | 
- **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
+ **ruleId** | **string**| &#x60;id&#x60; of the policy rule | 
 
 ### Return type
 
@@ -347,7 +347,7 @@ void (empty response body)
 # **GetAuthorizationServerPolicyRule**
 > AuthorizationServerPolicyRule GetAuthorizationServerPolicyRule (string authServerId, string policyId, string ruleId)
 
-Retrieve a Policy Rule
+Retrieve a policy rule
 
 Retrieves a policy rule by `ruleId`
 
@@ -375,11 +375,11 @@ namespace Example
             var apiInstance = new AuthorizationServerRulesApi(config);
             var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
             var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
-            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the policy rule
 
             try
             {
-                // Retrieve a Policy Rule
+                // Retrieve a policy rule
                 AuthorizationServerPolicyRule result = apiInstance.GetAuthorizationServerPolicyRule(authServerId, policyId, ruleId);
                 Debug.WriteLine(result);
             }
@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
  **policyId** | **string**| &#x60;id&#x60; of the Policy | 
- **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
+ **ruleId** | **string**| &#x60;id&#x60; of the policy rule | 
 
 ### Return type
 
@@ -430,7 +430,7 @@ Name | Type | Description  | Notes
 # **ListAuthorizationServerPolicyRules**
 > List&lt;AuthorizationServerPolicyRule&gt; ListAuthorizationServerPolicyRules (string authServerId, string policyId)
 
-List all Policy Rules
+List all policy rules
 
 Lists all policy rules for the specified Custom Authorization Server and Policy
 
@@ -461,7 +461,7 @@ namespace Example
 
             try
             {
-                // List all Policy Rules
+                // List all policy rules
                 List<AuthorizationServerPolicyRule> result = apiInstance.ListAuthorizationServerPolicyRules(authServerId, policyId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -509,9 +509,9 @@ Name | Type | Description  | Notes
 
 <a name="replaceauthorizationserverpolicyrule"></a>
 # **ReplaceAuthorizationServerPolicyRule**
-> AuthorizationServerPolicyRule ReplaceAuthorizationServerPolicyRule (string authServerId, string policyId, string ruleId, AuthorizationServerPolicyRule policyRule)
+> AuthorizationServerPolicyRule ReplaceAuthorizationServerPolicyRule (string authServerId, string policyId, string ruleId, AuthorizationServerPolicyRuleRequest policyRule)
 
-Replace a Policy Rule
+Replace a policy rule
 
 Replaces the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy
 
@@ -539,12 +539,12 @@ namespace Example
             var apiInstance = new AuthorizationServerRulesApi(config);
             var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
             var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
-            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the Policy Rule
-            var policyRule = new AuthorizationServerPolicyRule(); // AuthorizationServerPolicyRule | 
+            var ruleId = ruld3hJ7jZh4fn0st0g3;  // string | `id` of the policy rule
+            var policyRule = new AuthorizationServerPolicyRuleRequest(); // AuthorizationServerPolicyRuleRequest | 
 
             try
             {
-                // Replace a Policy Rule
+                // Replace a policy rule
                 AuthorizationServerPolicyRule result = apiInstance.ReplaceAuthorizationServerPolicyRule(authServerId, policyId, ruleId, policyRule);
                 Debug.WriteLine(result);
             }
@@ -565,8 +565,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
  **policyId** | **string**| &#x60;id&#x60; of the Policy | 
- **ruleId** | **string**| &#x60;id&#x60; of the Policy Rule | 
- **policyRule** | [**AuthorizationServerPolicyRule**](AuthorizationServerPolicyRule.md)|  | 
+ **ruleId** | **string**| &#x60;id&#x60; of the policy rule | 
+ **policyRule** | [**AuthorizationServerPolicyRuleRequest**](AuthorizationServerPolicyRuleRequest.md)|  | 
 
 ### Return type
 

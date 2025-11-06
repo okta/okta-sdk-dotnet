@@ -4,21 +4,21 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetSubscriptionsNotificationTypeRole**](SubscriptionApi.md#getsubscriptionsnotificationtyperole) | **GET** /api/v1/roles/{roleRef}/subscriptions/{notificationType} | Retrieve a Subscription for a Role
-[**GetSubscriptionsNotificationTypeUser**](SubscriptionApi.md#getsubscriptionsnotificationtypeuser) | **GET** /api/v1/users/{userId}/subscriptions/{notificationType} | Retrieve a Subscription for a User
-[**ListSubscriptionsRole**](SubscriptionApi.md#listsubscriptionsrole) | **GET** /api/v1/roles/{roleRef}/subscriptions | List all Subscriptions for a Role
-[**ListSubscriptionsUser**](SubscriptionApi.md#listsubscriptionsuser) | **GET** /api/v1/users/{userId}/subscriptions | List all Subscriptions for a User
-[**SubscribeByNotificationTypeRole**](SubscriptionApi.md#subscribebynotificationtyperole) | **POST** /api/v1/roles/{roleRef}/subscriptions/{notificationType}/subscribe | Subscribe a Role to a Specific Notification Type
-[**SubscribeByNotificationTypeUser**](SubscriptionApi.md#subscribebynotificationtypeuser) | **POST** /api/v1/users/{userId}/subscriptions/{notificationType}/subscribe | Subscribe a User to a Specific Notification Type
-[**UnsubscribeByNotificationTypeRole**](SubscriptionApi.md#unsubscribebynotificationtyperole) | **POST** /api/v1/roles/{roleRef}/subscriptions/{notificationType}/unsubscribe | Unsubscribe a Role from a Specific Notification Type
-[**UnsubscribeByNotificationTypeUser**](SubscriptionApi.md#unsubscribebynotificationtypeuser) | **POST** /api/v1/users/{userId}/subscriptions/{notificationType}/unsubscribe | Unsubscribe a User from a Specific Notification Type
+[**GetSubscriptionsNotificationTypeRole**](SubscriptionApi.md#getsubscriptionsnotificationtyperole) | **GET** /api/v1/roles/{roleRef}/subscriptions/{notificationType} | Retrieve a subscription for a role
+[**GetSubscriptionsNotificationTypeUser**](SubscriptionApi.md#getsubscriptionsnotificationtypeuser) | **GET** /api/v1/users/{userId}/subscriptions/{notificationType} | Retrieve a subscription for a user
+[**ListSubscriptionsRole**](SubscriptionApi.md#listsubscriptionsrole) | **GET** /api/v1/roles/{roleRef}/subscriptions | List all subscriptions for a role
+[**ListSubscriptionsUser**](SubscriptionApi.md#listsubscriptionsuser) | **GET** /api/v1/users/{userId}/subscriptions | List all subscriptions for a user
+[**SubscribeByNotificationTypeRole**](SubscriptionApi.md#subscribebynotificationtyperole) | **POST** /api/v1/roles/{roleRef}/subscriptions/{notificationType}/subscribe | Subscribe a role to a specific notification type
+[**SubscribeByNotificationTypeUser**](SubscriptionApi.md#subscribebynotificationtypeuser) | **POST** /api/v1/users/{userId}/subscriptions/{notificationType}/subscribe | Subscribe a user to a specific notification type
+[**UnsubscribeByNotificationTypeRole**](SubscriptionApi.md#unsubscribebynotificationtyperole) | **POST** /api/v1/roles/{roleRef}/subscriptions/{notificationType}/unsubscribe | Unsubscribe a role from a specific notification type
+[**UnsubscribeByNotificationTypeUser**](SubscriptionApi.md#unsubscribebynotificationtypeuser) | **POST** /api/v1/users/{userId}/subscriptions/{notificationType}/unsubscribe | Unsubscribe a user from a specific notification type
 
 
 <a name="getsubscriptionsnotificationtyperole"></a>
 # **GetSubscriptionsNotificationTypeRole**
 > Subscription GetSubscriptionsNotificationTypeRole (ListSubscriptionsRoleRoleRefParameter roleRef, NotificationType notificationType)
 
-Retrieve a Subscription for a Role
+Retrieve a subscription for a role
 
 Retrieves a subscription by `notificationType` for a specified Role
 
@@ -49,7 +49,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Subscription for a Role
+                // Retrieve a subscription for a role
                 Subscription result = apiInstance.GetSubscriptionsNotificationTypeRole(roleRef, notificationType);
                 Debug.WriteLine(result);
             }
@@ -99,9 +99,9 @@ Name | Type | Description  | Notes
 # **GetSubscriptionsNotificationTypeUser**
 > Subscription GetSubscriptionsNotificationTypeUser (NotificationType notificationType, string userId)
 
-Retrieve a Subscription for a User
+Retrieve a subscription for a user
 
-Retrieves a subscription by `notificationType` for a specified User. Returns an `AccessDeniedException` message if requests are made for another user.
+Retrieves a subscription by `notificationType` for a specified user. Returns an `AccessDeniedException` message if requests are made for another user.
 
 ### Example
 ```csharp
@@ -126,11 +126,11 @@ namespace Example
 
             var apiInstance = new SubscriptionApi(config);
             var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
-            var userId = "userId_example";  // string | ID of an existing Okta user
+            var userId = 00ub0oNGTSWTBKOLGLNR;  // string | ID of an existing Okta user
 
             try
             {
-                // Retrieve a Subscription for a User
+                // Retrieve a subscription for a user
                 Subscription result = apiInstance.GetSubscriptionsNotificationTypeUser(notificationType, userId);
                 Debug.WriteLine(result);
             }
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 # **ListSubscriptionsRole**
 > List&lt;Subscription&gt; ListSubscriptionsRole (ListSubscriptionsRoleRoleRefParameter roleRef)
 
-List all Subscriptions for a Role
+List all subscriptions for a role
 
 Lists all subscriptions available to a specified Role
 
@@ -210,7 +210,7 @@ namespace Example
 
             try
             {
-                // List all Subscriptions for a Role
+                // List all subscriptions for a role
                 List<Subscription> result = apiInstance.ListSubscriptionsRole(roleRef).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -259,9 +259,9 @@ Name | Type | Description  | Notes
 # **ListSubscriptionsUser**
 > List&lt;Subscription&gt; ListSubscriptionsUser (string userId)
 
-List all Subscriptions for a User
+List all subscriptions for a user
 
-Lists all subscriptions available to a specified User. Returns an `AccessDeniedException` message if requests are made for another user.
+Lists all subscriptions available to a specified user. Returns an `AccessDeniedException` message if requests are made for another user.
 
 ### Example
 ```csharp
@@ -285,11 +285,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
-            var userId = "userId_example";  // string | ID of an existing Okta user
+            var userId = 00ub0oNGTSWTBKOLGLNR;  // string | ID of an existing Okta user
 
             try
             {
-                // List all Subscriptions for a User
+                // List all subscriptions for a user
                 List<Subscription> result = apiInstance.ListSubscriptionsUser(userId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 # **SubscribeByNotificationTypeRole**
 > void SubscribeByNotificationTypeRole (ListSubscriptionsRoleRoleRefParameter roleRef, NotificationType notificationType)
 
-Subscribe a Role to a Specific Notification Type
+Subscribe a role to a specific notification type
 
 Subscribes a Role to a specified notification type. Changes to Role subscriptions override the subscription status of any individual users with the Role.
 
@@ -369,7 +369,7 @@ namespace Example
 
             try
             {
-                // Subscribe a Role to a Specific Notification Type
+                // Subscribe a role to a specific notification type
                 apiInstance.SubscribeByNotificationTypeRole(roleRef, notificationType);
             }
             catch (ApiException  e)
@@ -418,7 +418,7 @@ void (empty response body)
 # **SubscribeByNotificationTypeUser**
 > void SubscribeByNotificationTypeUser (NotificationType notificationType, string userId)
 
-Subscribe a User to a Specific Notification Type
+Subscribe a user to a specific notification type
 
 Subscribes the current user to a specified notification type. Returns an `AccessDeniedException` message if requests are made for another user.
 
@@ -445,11 +445,11 @@ namespace Example
 
             var apiInstance = new SubscriptionApi(config);
             var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
-            var userId = "userId_example";  // string | ID of an existing Okta user
+            var userId = 00ub0oNGTSWTBKOLGLNR;  // string | ID of an existing Okta user
 
             try
             {
-                // Subscribe a User to a Specific Notification Type
+                // Subscribe a user to a specific notification type
                 apiInstance.SubscribeByNotificationTypeUser(notificationType, userId);
             }
             catch (ApiException  e)
@@ -498,7 +498,7 @@ void (empty response body)
 # **UnsubscribeByNotificationTypeRole**
 > void UnsubscribeByNotificationTypeRole (ListSubscriptionsRoleRoleRefParameter roleRef, NotificationType notificationType)
 
-Unsubscribe a Role from a Specific Notification Type
+Unsubscribe a role from a specific notification type
 
 Unsubscribes a Role from a specified notification type. Changes to Role subscriptions override the subscription status of any individual users with the Role.
 
@@ -529,7 +529,7 @@ namespace Example
 
             try
             {
-                // Unsubscribe a Role from a Specific Notification Type
+                // Unsubscribe a role from a specific notification type
                 apiInstance.UnsubscribeByNotificationTypeRole(roleRef, notificationType);
             }
             catch (ApiException  e)
@@ -578,7 +578,7 @@ void (empty response body)
 # **UnsubscribeByNotificationTypeUser**
 > void UnsubscribeByNotificationTypeUser (NotificationType notificationType, string userId)
 
-Unsubscribe a User from a Specific Notification Type
+Unsubscribe a user from a specific notification type
 
 Unsubscribes the current user from a specified notification type. Returns an `AccessDeniedException` message if requests are made for another user.
 
@@ -605,11 +605,11 @@ namespace Example
 
             var apiInstance = new SubscriptionApi(config);
             var notificationType = (NotificationType) "AD_AGENT";  // NotificationType | 
-            var userId = "userId_example";  // string | ID of an existing Okta user
+            var userId = 00ub0oNGTSWTBKOLGLNR;  // string | ID of an existing Okta user
 
             try
             {
-                // Unsubscribe a User from a Specific Notification Type
+                // Unsubscribe a user from a specific notification type
                 apiInstance.UnsubscribeByNotificationTypeUser(notificationType, userId);
             }
             catch (ApiException  e)

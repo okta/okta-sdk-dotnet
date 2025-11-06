@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.SimulatePolicyBody
-The request body required for a simulate policy operation.
+The request body required for a simulate policy operation
 
 ## Properties
 

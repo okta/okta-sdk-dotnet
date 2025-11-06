@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.AppUserStatus
-Status of an Application User
+Status of an application user
 
 ## Properties
 

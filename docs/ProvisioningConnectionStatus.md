@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.ProvisioningConnectionStatus
-Provisioning Connection status
+Provisioning connection status
 
 ## Properties
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Aud** | [**StreamConfigurationAud**](StreamConfigurationAud.md) |  | [optional] 
-**Delivery** | [**StreamConfigurationDelivery**](.md) |  | 
+**Delivery** | [**StreamConfigurationDelivery**](StreamConfigurationDelivery.md) |  | 
 **EventsDelivered** | **List&lt;string&gt;** | The events (mapped by the array of event type URIs) that the transmitter actually delivers to the SSF Stream.  A read-only parameter that is set by the transmitter. If this parameter is included in the request, the value must match the expected value from the transmitter. | [optional] 
 **EventsRequested** | **List&lt;string&gt;** | The events (mapped by the array of event type URIs) that the receiver wants to receive | 
 **EventsSupported** | **List&lt;string&gt;** | An array of event type URIs that the transmitter supports.  A read-only parameter that is set by the transmitter. If this parameter is included in the request, the value must match the expected value from the transmitter. | [optional] 

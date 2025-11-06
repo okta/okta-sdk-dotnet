@@ -4,19 +4,19 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetRateLimitSettingsAdminNotifications**](RateLimitSettingsApi.md#getratelimitsettingsadminnotifications) | **GET** /api/v1/rate-limit-settings/admin-notifications | Retrieve the Rate Limit Admin Notification Settings
-[**GetRateLimitSettingsPerClient**](RateLimitSettingsApi.md#getratelimitsettingsperclient) | **GET** /api/v1/rate-limit-settings/per-client | Retrieve the Per-Client Rate Limit Settings
-[**GetRateLimitSettingsWarningThreshold**](RateLimitSettingsApi.md#getratelimitsettingswarningthreshold) | **GET** /api/v1/rate-limit-settings/warning-threshold | Retrieve the Rate Limit Warning Threshold Percentage
-[**ReplaceRateLimitSettingsAdminNotifications**](RateLimitSettingsApi.md#replaceratelimitsettingsadminnotifications) | **PUT** /api/v1/rate-limit-settings/admin-notifications | Replace the Rate Limit Admin Notification Settings
-[**ReplaceRateLimitSettingsPerClient**](RateLimitSettingsApi.md#replaceratelimitsettingsperclient) | **PUT** /api/v1/rate-limit-settings/per-client | Replace the Per-Client Rate Limit Settings
-[**ReplaceRateLimitSettingsWarningThreshold**](RateLimitSettingsApi.md#replaceratelimitsettingswarningthreshold) | **PUT** /api/v1/rate-limit-settings/warning-threshold | Replace the Rate Limit Warning Threshold Percentage
+[**GetRateLimitSettingsAdminNotifications**](RateLimitSettingsApi.md#getratelimitsettingsadminnotifications) | **GET** /api/v1/rate-limit-settings/admin-notifications | Retrieve the rate limit admin notification settings
+[**GetRateLimitSettingsPerClient**](RateLimitSettingsApi.md#getratelimitsettingsperclient) | **GET** /api/v1/rate-limit-settings/per-client | Retrieve the per-client rate limit settings
+[**GetRateLimitSettingsWarningThreshold**](RateLimitSettingsApi.md#getratelimitsettingswarningthreshold) | **GET** /api/v1/rate-limit-settings/warning-threshold | Retrieve the rate limit warning threshold percentage
+[**ReplaceRateLimitSettingsAdminNotifications**](RateLimitSettingsApi.md#replaceratelimitsettingsadminnotifications) | **PUT** /api/v1/rate-limit-settings/admin-notifications | Replace the rate limit admin notification settings
+[**ReplaceRateLimitSettingsPerClient**](RateLimitSettingsApi.md#replaceratelimitsettingsperclient) | **PUT** /api/v1/rate-limit-settings/per-client | Replace the per-client rate limit settings
+[**ReplaceRateLimitSettingsWarningThreshold**](RateLimitSettingsApi.md#replaceratelimitsettingswarningthreshold) | **PUT** /api/v1/rate-limit-settings/warning-threshold | Replace the rate limit warning threshold percentage
 
 
 <a name="getratelimitsettingsadminnotifications"></a>
 # **GetRateLimitSettingsAdminNotifications**
 > RateLimitAdminNotifications GetRateLimitSettingsAdminNotifications ()
 
-Retrieve the Rate Limit Admin Notification Settings
+Retrieve the rate limit admin notification settings
 
 Retrieves the currently configured Rate Limit Admin Notification Settings
 
@@ -45,7 +45,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Rate Limit Admin Notification Settings
+                // Retrieve the rate limit admin notification settings
                 RateLimitAdminNotifications result = apiInstance.GetRateLimitSettingsAdminNotifications();
                 Debug.WriteLine(result);
             }
@@ -90,7 +90,7 @@ This endpoint does not need any parameter.
 # **GetRateLimitSettingsPerClient**
 > PerClientRateLimitSettings GetRateLimitSettingsPerClient ()
 
-Retrieve the Per-Client Rate Limit Settings
+Retrieve the per-client rate limit settings
 
 Retrieves the currently configured Per-Client Rate Limit Settings
 
@@ -119,7 +119,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Per-Client Rate Limit Settings
+                // Retrieve the per-client rate limit settings
                 PerClientRateLimitSettings result = apiInstance.GetRateLimitSettingsPerClient();
                 Debug.WriteLine(result);
             }
@@ -164,7 +164,7 @@ This endpoint does not need any parameter.
 # **GetRateLimitSettingsWarningThreshold**
 > RateLimitWarningThresholdResponse GetRateLimitSettingsWarningThreshold ()
 
-Retrieve the Rate Limit Warning Threshold Percentage
+Retrieve the rate limit warning threshold percentage
 
 Retrieves the currently configured threshold for warning notifications when the API's rate limit is exceeded
 
@@ -193,7 +193,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Rate Limit Warning Threshold Percentage
+                // Retrieve the rate limit warning threshold percentage
                 RateLimitWarningThresholdResponse result = apiInstance.GetRateLimitSettingsWarningThreshold();
                 Debug.WriteLine(result);
             }
@@ -238,7 +238,7 @@ This endpoint does not need any parameter.
 # **ReplaceRateLimitSettingsAdminNotifications**
 > RateLimitAdminNotifications ReplaceRateLimitSettingsAdminNotifications (RateLimitAdminNotifications rateLimitAdminNotifications)
 
-Replace the Rate Limit Admin Notification Settings
+Replace the rate limit admin notification settings
 
 Replaces the Rate Limit Admin Notification Settings and returns the configured properties
 
@@ -268,7 +268,7 @@ namespace Example
 
             try
             {
-                // Replace the Rate Limit Admin Notification Settings
+                // Replace the rate limit admin notification settings
                 RateLimitAdminNotifications result = apiInstance.ReplaceRateLimitSettingsAdminNotifications(rateLimitAdminNotifications);
                 Debug.WriteLine(result);
             }
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 # **ReplaceRateLimitSettingsPerClient**
 > PerClientRateLimitSettings ReplaceRateLimitSettingsPerClient (PerClientRateLimitSettings perClientRateLimitSettings)
 
-Replace the Per-Client Rate Limit Settings
+Replace the per-client rate limit settings
 
 Replaces the Per-Client Rate Limit Settings and returns the configured properties
 
@@ -347,7 +347,7 @@ namespace Example
 
             try
             {
-                // Replace the Per-Client Rate Limit Settings
+                // Replace the per-client rate limit settings
                 PerClientRateLimitSettings result = apiInstance.ReplaceRateLimitSettingsPerClient(perClientRateLimitSettings);
                 Debug.WriteLine(result);
             }
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 # **ReplaceRateLimitSettingsWarningThreshold**
 > RateLimitWarningThresholdResponse ReplaceRateLimitSettingsWarningThreshold (RateLimitWarningThresholdRequest rateLimitWarningThreshold = null)
 
-Replace the Rate Limit Warning Threshold Percentage
+Replace the rate limit warning threshold percentage
 
 Replaces the Rate Limit Warning Threshold Percentage and returns the configured property
 
@@ -426,7 +426,7 @@ namespace Example
 
             try
             {
-                // Replace the Rate Limit Warning Threshold Percentage
+                // Replace the rate limit warning threshold percentage
                 RateLimitWarningThresholdResponse result = apiInstance.ReplaceRateLimitSettingsWarningThreshold(rateLimitWarningThreshold);
                 Debug.WriteLine(result);
             }

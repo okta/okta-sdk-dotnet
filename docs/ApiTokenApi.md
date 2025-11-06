@@ -4,18 +4,18 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetApiToken**](ApiTokenApi.md#getapitoken) | **GET** /api/v1/api-tokens/{apiTokenId} | Retrieve an API Token&#39;s Metadata
-[**ListApiTokens**](ApiTokenApi.md#listapitokens) | **GET** /api/v1/api-tokens | List all API Token Metadata
-[**RevokeApiToken**](ApiTokenApi.md#revokeapitoken) | **DELETE** /api/v1/api-tokens/{apiTokenId} | Revoke an API Token
-[**RevokeCurrentApiToken**](ApiTokenApi.md#revokecurrentapitoken) | **DELETE** /api/v1/api-tokens/current | Revoke the Current API Token
-[**UpsertApiToken**](ApiTokenApi.md#upsertapitoken) | **PUT** /api/v1/api-tokens/{apiTokenId} | Upsert an API Token Network Condition
+[**GetApiToken**](ApiTokenApi.md#getapitoken) | **GET** /api/v1/api-tokens/{apiTokenId} | Retrieve an API token&#39;s metadata
+[**ListApiTokens**](ApiTokenApi.md#listapitokens) | **GET** /api/v1/api-tokens | List all API token metadata
+[**RevokeApiToken**](ApiTokenApi.md#revokeapitoken) | **DELETE** /api/v1/api-tokens/{apiTokenId} | Revoke an API token
+[**RevokeCurrentApiToken**](ApiTokenApi.md#revokecurrentapitoken) | **DELETE** /api/v1/api-tokens/current | Revoke the current API token
+[**UpsertApiToken**](ApiTokenApi.md#upsertapitoken) | **PUT** /api/v1/api-tokens/{apiTokenId} | Upsert an API token network condition
 
 
 <a name="getapitoken"></a>
 # **GetApiToken**
 > ApiToken GetApiToken (string apiTokenId)
 
-Retrieve an API Token's Metadata
+Retrieve an API token's metadata
 
 Retrieves the metadata for an active API token by `apiTokenId`
 
@@ -45,7 +45,7 @@ namespace Example
 
             try
             {
-                // Retrieve an API Token's Metadata
+                // Retrieve an API token's metadata
                 ApiToken result = apiInstance.GetApiToken(apiTokenId);
                 Debug.WriteLine(result);
             }
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 # **ListApiTokens**
 > List&lt;ApiToken&gt; ListApiTokens ()
 
-List all API Token Metadata
+List all API token metadata
 
 Lists all the metadata of the active API tokens
 
@@ -123,7 +123,7 @@ namespace Example
 
             try
             {
-                // List all API Token Metadata
+                // List all API token metadata
                 List<ApiToken> result = apiInstance.ListApiTokens().ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -168,7 +168,7 @@ This endpoint does not need any parameter.
 # **RevokeApiToken**
 > void RevokeApiToken (string apiTokenId)
 
-Revoke an API Token
+Revoke an API token
 
 Revokes an API token by `apiTokenId`
 
@@ -198,7 +198,7 @@ namespace Example
 
             try
             {
-                // Revoke an API Token
+                // Revoke an API token
                 apiInstance.RevokeApiToken(apiTokenId);
             }
             catch (ApiException  e)
@@ -246,7 +246,7 @@ void (empty response body)
 # **RevokeCurrentApiToken**
 > void RevokeCurrentApiToken ()
 
-Revoke the Current API Token
+Revoke the current API token
 
 Revokes the API token provided in the Authorization header
 
@@ -273,7 +273,7 @@ namespace Example
 
             try
             {
-                // Revoke the Current API Token
+                // Revoke the current API token
                 apiInstance.RevokeCurrentApiToken();
             }
             catch (ApiException  e)
@@ -317,7 +317,7 @@ void (empty response body)
 # **UpsertApiToken**
 > ApiToken UpsertApiToken (string apiTokenId, ApiTokenUpdate apiTokenUpdate)
 
-Upsert an API Token Network Condition
+Upsert an API token network condition
 
 Upserts an API Token Network Condition by `apiTokenId`
 
@@ -348,7 +348,7 @@ namespace Example
 
             try
             {
-                // Upsert an API Token Network Condition
+                // Upsert an API token network condition
                 ApiToken result = apiInstance.UpsertApiToken(apiTokenId, apiTokenUpdate);
                 Debug.WriteLine(result);
             }

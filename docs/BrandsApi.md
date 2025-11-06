@@ -4,19 +4,19 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateBrand**](BrandsApi.md#createbrand) | **POST** /api/v1/brands | Create a Brand
+[**CreateBrand**](BrandsApi.md#createbrand) | **POST** /api/v1/brands | Create a brand
 [**DeleteBrand**](BrandsApi.md#deletebrand) | **DELETE** /api/v1/brands/{brandId} | Delete a brand
-[**GetBrand**](BrandsApi.md#getbrand) | **GET** /api/v1/brands/{brandId} | Retrieve a Brand
-[**ListBrandDomains**](BrandsApi.md#listbranddomains) | **GET** /api/v1/brands/{brandId}/domains | List all Domains associated with a Brand
-[**ListBrands**](BrandsApi.md#listbrands) | **GET** /api/v1/brands | List all Brands
-[**ReplaceBrand**](BrandsApi.md#replacebrand) | **PUT** /api/v1/brands/{brandId} | Replace a Brand
+[**GetBrand**](BrandsApi.md#getbrand) | **GET** /api/v1/brands/{brandId} | Retrieve a brand
+[**ListBrandDomains**](BrandsApi.md#listbranddomains) | **GET** /api/v1/brands/{brandId}/domains | List all domains associated with a brand
+[**ListBrands**](BrandsApi.md#listbrands) | **GET** /api/v1/brands | List all brands
+[**ReplaceBrand**](BrandsApi.md#replacebrand) | **PUT** /api/v1/brands/{brandId} | Replace a brand
 
 
 <a name="createbrand"></a>
 # **CreateBrand**
 > Brand CreateBrand (CreateBrandRequest createBrandRequest = null)
 
-Create a Brand
+Create a brand
 
 Creates a new brand in your org
 
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Create a Brand
+                // Create a brand
                 Brand result = apiInstance.CreateBrand(createBrandRequest);
                 Debug.WriteLine(result);
             }
@@ -175,7 +175,7 @@ void (empty response body)
 # **GetBrand**
 > BrandWithEmbedded GetBrand (string brandId, List<string> expand = null)
 
-Retrieve a Brand
+Retrieve a brand
 
 Retrieves a brand by `brandId`
 
@@ -206,7 +206,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Brand
+                // Retrieve a brand
                 BrandWithEmbedded result = apiInstance.GetBrand(brandId, expand);
                 Debug.WriteLine(result);
             }
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 # **ListBrandDomains**
 > List&lt;DomainResponse&gt; ListBrandDomains (string brandId)
 
-List all Domains associated with a Brand
+List all domains associated with a brand
 
 Lists all domains associated with a brand by `brandId`
 
@@ -286,7 +286,7 @@ namespace Example
 
             try
             {
-                // List all Domains associated with a Brand
+                // List all domains associated with a brand
                 List<DomainResponse> result = apiInstance.ListBrandDomains(brandId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 # **ListBrands**
 > List&lt;BrandWithEmbedded&gt; ListBrands (List<string> expand = null, string after = null, int? limit = null, string q = null)
 
-List all Brands
+List all brands
 
 Lists all the brands in your org
 
@@ -362,13 +362,13 @@ namespace Example
 
             var apiInstance = new BrandsApi(config);
             var expand = new List<string>(); // List<string> | Specifies additional metadata to be included in the response (optional) 
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
             var limit = 20;  // int? | A limit on the number of objects to return (optional)  (default to 20)
             var q = "q_example";  // string | Searches the records for matching value (optional) 
 
             try
             {
-                // List all Brands
+                // List all brands
                 List<BrandWithEmbedded> result = apiInstance.ListBrands(expand, after, limit, q).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -388,7 +388,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to be included in the response | [optional] 
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
  **limit** | **int?**| A limit on the number of objects to return | [optional] [default to 20]
  **q** | **string**| Searches the records for matching value | [optional] 
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 # **ReplaceBrand**
 > Brand ReplaceBrand (string brandId, BrandRequest brand)
 
-Replace a Brand
+Replace a brand
 
 Replaces a brand by `brandId`  Passing an invalid `brandId` returns a `404 Not Found` status code with the error code `E0000007`.  Not providing `agreeToCustomPrivacyPolicy` with `customPrivacyPolicyUrl` returns a `400 Bad Request` status code with the error code `E0000001`.  
 
@@ -450,7 +450,7 @@ namespace Example
 
             try
             {
-                // Replace a Brand
+                // Replace a brand
                 Brand result = apiInstance.ReplaceBrand(brandId, brand);
                 Debug.WriteLine(result);
             }

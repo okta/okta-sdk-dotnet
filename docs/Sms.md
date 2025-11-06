@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.Sms
-Attempts to activate a `sms` Factor with the specified passcode.
+Attempts to activate an `sms` factor with the specified passcode
 
 ## Properties
 

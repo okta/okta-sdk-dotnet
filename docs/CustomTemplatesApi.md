@@ -4,27 +4,27 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateEmailCustomization**](CustomTemplatesApi.md#createemailcustomization) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | Create an Email Customization
-[**DeleteAllCustomizations**](CustomTemplatesApi.md#deleteallcustomizations) | **DELETE** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | Delete all Email Customizations
-[**DeleteEmailCustomization**](CustomTemplatesApi.md#deleteemailcustomization) | **DELETE** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Delete an Email Customization
-[**GetCustomizationPreview**](CustomTemplatesApi.md#getcustomizationpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId}/preview | Retrieve a Preview of an Email Customization
-[**GetEmailCustomization**](CustomTemplatesApi.md#getemailcustomization) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Retrieve an Email Customization
-[**GetEmailDefaultContent**](CustomTemplatesApi.md#getemaildefaultcontent) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content | Retrieve an Email Template Default Content
-[**GetEmailDefaultPreview**](CustomTemplatesApi.md#getemaildefaultpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content/preview | Retrieve a Preview of the Email Template default content
-[**GetEmailSettings**](CustomTemplatesApi.md#getemailsettings) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Retrieve the Email Template Settings
-[**GetEmailTemplate**](CustomTemplatesApi.md#getemailtemplate) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName} | Retrieve an Email Template
-[**ListEmailCustomizations**](CustomTemplatesApi.md#listemailcustomizations) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | List all Email Customizations
-[**ListEmailTemplates**](CustomTemplatesApi.md#listemailtemplates) | **GET** /api/v1/brands/{brandId}/templates/email | List all Email Templates
-[**ReplaceEmailCustomization**](CustomTemplatesApi.md#replaceemailcustomization) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Replace an Email Customization
-[**ReplaceEmailSettings**](CustomTemplatesApi.md#replaceemailsettings) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Replace the Email Template Settings
-[**SendTestEmail**](CustomTemplatesApi.md#sendtestemail) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/test | Send a Test Email
+[**CreateEmailCustomization**](CustomTemplatesApi.md#createemailcustomization) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | Create an email customization
+[**DeleteAllCustomizations**](CustomTemplatesApi.md#deleteallcustomizations) | **DELETE** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | Delete all email customizations
+[**DeleteEmailCustomization**](CustomTemplatesApi.md#deleteemailcustomization) | **DELETE** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Delete an email customization
+[**GetCustomizationPreview**](CustomTemplatesApi.md#getcustomizationpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId}/preview | Retrieve a preview of an email customization
+[**GetEmailCustomization**](CustomTemplatesApi.md#getemailcustomization) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Retrieve an email customization
+[**GetEmailDefaultContent**](CustomTemplatesApi.md#getemaildefaultcontent) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content | Retrieve an email template default content
+[**GetEmailDefaultPreview**](CustomTemplatesApi.md#getemaildefaultpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content/preview | Retrieve a preview of the email template default content
+[**GetEmailSettings**](CustomTemplatesApi.md#getemailsettings) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Retrieve the email template settings
+[**GetEmailTemplate**](CustomTemplatesApi.md#getemailtemplate) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName} | Retrieve an email template
+[**ListEmailCustomizations**](CustomTemplatesApi.md#listemailcustomizations) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | List all email customizations
+[**ListEmailTemplates**](CustomTemplatesApi.md#listemailtemplates) | **GET** /api/v1/brands/{brandId}/templates/email | List all email templates
+[**ReplaceEmailCustomization**](CustomTemplatesApi.md#replaceemailcustomization) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Replace an email customization
+[**ReplaceEmailSettings**](CustomTemplatesApi.md#replaceemailsettings) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Replace the email template settings
+[**SendTestEmail**](CustomTemplatesApi.md#sendtestemail) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/test | Send a test email
 
 
 <a name="createemailcustomization"></a>
 # **CreateEmailCustomization**
 > EmailCustomization CreateEmailCustomization (string brandId, string templateName, EmailCustomization instance = null)
 
-Create an Email Customization
+Create an email customization
 
 Creates a new Email Customization  <x-lifecycle class=\"ea\"></x-lifecycle> If Custom languages for Okta Email Templates is enabled, you can create a customization for any BCP47 language in addition to the Okta-supported languages. 
 
@@ -56,7 +56,7 @@ namespace Example
 
             try
             {
-                // Create an Email Customization
+                // Create an email customization
                 EmailCustomization result = apiInstance.CreateEmailCustomization(brandId, templateName, instance);
                 Debug.WriteLine(result);
             }
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 # **DeleteAllCustomizations**
 > void DeleteAllCustomizations (string brandId, string templateName)
 
-Delete all Email Customizations
+Delete all email customizations
 
 Deletes all customizations for an email template  <x-lifecycle class=\"ea\"></x-lifecycle> If Custom languages for Okta Email Templates is enabled, all customizations are deleted, including customizations for additional languages. If disabled, only customizations in Okta-supported languages are deleted. 
 
@@ -140,7 +140,7 @@ namespace Example
 
             try
             {
-                // Delete all Email Customizations
+                // Delete all email customizations
                 apiInstance.DeleteAllCustomizations(brandId, templateName);
             }
             catch (ApiException  e)
@@ -189,7 +189,7 @@ void (empty response body)
 # **DeleteEmailCustomization**
 > void DeleteEmailCustomization (string brandId, string templateName, string customizationId)
 
-Delete an Email Customization
+Delete an email customization
 
 Deletes an Email Customization by its unique identifier  <x-lifecycle class=\"ea\"></x-lifecycle> If Custom languages for Okta Email Templates is disabled, deletion of an existing additional language customization by ID doesn't register. 
 
@@ -221,7 +221,7 @@ namespace Example
 
             try
             {
-                // Delete an Email Customization
+                // Delete an email customization
                 apiInstance.DeleteEmailCustomization(brandId, templateName, customizationId);
             }
             catch (ApiException  e)
@@ -272,7 +272,7 @@ void (empty response body)
 # **GetCustomizationPreview**
 > EmailPreview GetCustomizationPreview (string brandId, string templateName, string customizationId)
 
-Retrieve a Preview of an Email Customization
+Retrieve a preview of an email customization
 
 Retrieves a Preview of an Email Customization. All variable references are populated from the current user's context. For example, `${user.profile.firstName}`.  <x-lifecycle class=\"ea\"></x-lifecycle> If Custom languages for Okta Email Templates is disabled, requests for the preview of an additional language customization by ID return a `404 Not Found` error response. 
 
@@ -304,7 +304,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Preview of an Email Customization
+                // Retrieve a preview of an email customization
                 EmailPreview result = apiInstance.GetCustomizationPreview(brandId, templateName, customizationId);
                 Debug.WriteLine(result);
             }
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 # **GetEmailCustomization**
 > EmailCustomization GetEmailCustomization (string brandId, string templateName, string customizationId)
 
-Retrieve an Email Customization
+Retrieve an email customization
 
 Retrieves an email customization by its unique identifier  <x-lifecycle class=\"ea\"></x-lifecycle> If Custom languages for Okta Email Templates is disabled, requests to retrieve an additional language customization by ID result in a `404 Not Found` error response. 
 
@@ -387,7 +387,7 @@ namespace Example
 
             try
             {
-                // Retrieve an Email Customization
+                // Retrieve an email customization
                 EmailCustomization result = apiInstance.GetEmailCustomization(brandId, templateName, customizationId);
                 Debug.WriteLine(result);
             }
@@ -438,9 +438,9 @@ Name | Type | Description  | Notes
 # **GetEmailDefaultContent**
 > EmailDefaultContent GetEmailDefaultContent (string brandId, string templateName, string language = null)
 
-Retrieve an Email Template Default Content
+Retrieve an email template default content
 
-Retrieves an email template's default content  <x-lifecycle class=\"ea\"></x-lifecycle> Defaults to the current user's language given the following:  - Custom languages for Okta Email Templates is enabled - An additional language is specified for the `language` parameter 
+Retrieves an email template's default content  <x-lifecycle class=\"ea\"></x-lifecycle> Defaults to the current user's language given the following: - Custom languages for Okta Email Templates is enabled - An additional language is specified for the `language` parameter 
 
 ### Example
 ```csharp
@@ -470,7 +470,7 @@ namespace Example
 
             try
             {
-                // Retrieve an Email Template Default Content
+                // Retrieve an email template default content
                 EmailDefaultContent result = apiInstance.GetEmailDefaultContent(brandId, templateName, language);
                 Debug.WriteLine(result);
             }
@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 # **GetEmailDefaultPreview**
 > EmailPreview GetEmailDefaultPreview (string brandId, string templateName, string language = null)
 
-Retrieve a Preview of the Email Template default content
+Retrieve a preview of the email template default content
 
 Retrieves a preview of an Email Template's default content. All variable references are populated using the current user's context. For example, `${user.profile.firstName}`.  <x-lifecycle class=\"ea\"></x-lifecycle> Defaults to the current user's language given the following: - Custom languages for Okta Email Templates is enabled - An additional language is specified for the `language` parameter 
 
@@ -553,7 +553,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Preview of the Email Template default content
+                // Retrieve a preview of the email template default content
                 EmailPreview result = apiInstance.GetEmailDefaultPreview(brandId, templateName, language);
                 Debug.WriteLine(result);
             }
@@ -604,7 +604,7 @@ Name | Type | Description  | Notes
 # **GetEmailSettings**
 > EmailSettingsResponse GetEmailSettings (string brandId, string templateName)
 
-Retrieve the Email Template Settings
+Retrieve the email template settings
 
 Retrieves an email template's settings
 
@@ -635,7 +635,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Email Template Settings
+                // Retrieve the email template settings
                 EmailSettingsResponse result = apiInstance.GetEmailSettings(brandId, templateName);
                 Debug.WriteLine(result);
             }
@@ -685,7 +685,7 @@ Name | Type | Description  | Notes
 # **GetEmailTemplate**
 > EmailTemplateResponse GetEmailTemplate (string brandId, string templateName, List<string> expand = null)
 
-Retrieve an Email Template
+Retrieve an email template
 
 Retrieves the details of an email template by name
 
@@ -717,7 +717,7 @@ namespace Example
 
             try
             {
-                // Retrieve an Email Template
+                // Retrieve an email template
                 EmailTemplateResponse result = apiInstance.GetEmailTemplate(brandId, templateName, expand);
                 Debug.WriteLine(result);
             }
@@ -768,7 +768,7 @@ Name | Type | Description  | Notes
 # **ListEmailCustomizations**
 > List&lt;EmailCustomization&gt; ListEmailCustomizations (string brandId, string templateName, string after = null, int? limit = null)
 
-List all Email Customizations
+List all email customizations
 
 Lists all customizations of an email template  <x-lifecycle class=\"ea\"></x-lifecycle> If Custom languages for Okta Email Templates is enabled, all existing customizations are retrieved, including customizations for additional languages. If disabled, only customizations for Okta-supported languages are returned. 
 
@@ -796,12 +796,12 @@ namespace Example
             var apiInstance = new CustomTemplatesApi(config);
             var brandId = "brandId_example";  // string | The ID of the brand
             var templateName = "templateName_example";  // string | The name of the email template
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
             var limit = 20;  // int? | A limit on the number of objects to return (optional)  (default to 20)
 
             try
             {
-                // List all Email Customizations
+                // List all email customizations
                 List<EmailCustomization> result = apiInstance.ListEmailCustomizations(brandId, templateName, after, limit).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -822,7 +822,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **brandId** | **string**| The ID of the brand | 
  **templateName** | **string**| The name of the email template | 
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
  **limit** | **int?**| A limit on the number of objects to return | [optional] [default to 20]
 
 ### Return type
@@ -853,7 +853,7 @@ Name | Type | Description  | Notes
 # **ListEmailTemplates**
 > List&lt;EmailTemplateResponse&gt; ListEmailTemplates (string brandId, string after = null, int? limit = null, List<string> expand = null)
 
-List all Email Templates
+List all email templates
 
 Lists all supported email templates
 
@@ -880,13 +880,13 @@ namespace Example
 
             var apiInstance = new CustomTemplatesApi(config);
             var brandId = "brandId_example";  // string | The ID of the brand
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
             var limit = 20;  // int? | A limit on the number of objects to return (optional)  (default to 20)
             var expand = new List<string>(); // List<string> | Specifies additional metadata to be included in the response (optional) 
 
             try
             {
-                // List all Email Templates
+                // List all email templates
                 List<EmailTemplateResponse> result = apiInstance.ListEmailTemplates(brandId, after, limit, expand).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -906,7 +906,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **brandId** | **string**| The ID of the brand | 
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
  **limit** | **int?**| A limit on the number of objects to return | [optional] [default to 20]
  **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to be included in the response | [optional] 
 
@@ -938,7 +938,7 @@ Name | Type | Description  | Notes
 # **ReplaceEmailCustomization**
 > EmailCustomization ReplaceEmailCustomization (string brandId, string templateName, string customizationId, EmailCustomization instance = null)
 
-Replace an Email Customization
+Replace an email customization
 
 Replaces an email customization using property values  <x-lifecycle class=\"ea\"></x-lifecycle> If Custom languages for Okta Email Templates is disabled, requests to update a customization for an additional language return a `404 Not Found` error response. 
 
@@ -971,7 +971,7 @@ namespace Example
 
             try
             {
-                // Replace an Email Customization
+                // Replace an email customization
                 EmailCustomization result = apiInstance.ReplaceEmailCustomization(brandId, templateName, customizationId, instance);
                 Debug.WriteLine(result);
             }
@@ -1025,7 +1025,7 @@ Name | Type | Description  | Notes
 # **ReplaceEmailSettings**
 > EmailSettings ReplaceEmailSettings (string brandId, string templateName, EmailSettings emailSettings = null)
 
-Replace the Email Template Settings
+Replace the email template settings
 
 Replaces an email template's settings
 
@@ -1057,7 +1057,7 @@ namespace Example
 
             try
             {
-                // Replace the Email Template Settings
+                // Replace the email template settings
                 EmailSettings result = apiInstance.ReplaceEmailSettings(brandId, templateName, emailSettings);
                 Debug.WriteLine(result);
             }
@@ -1101,6 +1101,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
 | **422** | Could not update the email template&#39;s settings due to an invalid setting value. |  -  |
 | **429** | Too Many Requests |  -  |
 
@@ -1110,9 +1111,9 @@ Name | Type | Description  | Notes
 # **SendTestEmail**
 > void SendTestEmail (string brandId, string templateName, string language = null)
 
-Send a Test Email
+Send a test email
 
-Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the `language` query parameter. <x-lifecycle class=\"ea\"></x-lifecycle> If Custom languages for Okta Email Templates is enabled and the `language` parameter is an additional language, the test email uses the customization corresponding to the language. 2. The email template's default customization. 3. The email template’s default content, translated to the current user's language.
+Sends a test email to the current user's primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the `language` query parameter <x-lifecycle class=\"ea\"></x-lifecycle> If Custom languages for Okta Email Templates is enabled and the `language` parameter is an additional language, the test email uses the customization corresponding to the language. 2. The email template's default customization 3. The email template's default content, translated to the current user's language  > **Note:** Super admins can view customized email templates with the **Send a test email** request. However, when custom email templates are sent to super admins as part of actual email notification flows, the customizations aren't applied. Instead, the default email template is used. This only applies to super admins.
 
 ### Example
 ```csharp
@@ -1142,7 +1143,7 @@ namespace Example
 
             try
             {
-                // Send a Test Email
+                // Send a test email
                 apiInstance.SendTestEmail(brandId, templateName, language);
             }
             catch (ApiException  e)

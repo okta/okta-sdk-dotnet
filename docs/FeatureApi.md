@@ -4,18 +4,18 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetFeature**](FeatureApi.md#getfeature) | **GET** /api/v1/features/{featureId} | Retrieve a Feature
+[**GetFeature**](FeatureApi.md#getfeature) | **GET** /api/v1/features/{featureId} | Retrieve a feature
 [**ListFeatureDependencies**](FeatureApi.md#listfeaturedependencies) | **GET** /api/v1/features/{featureId}/dependencies | List all dependencies
 [**ListFeatureDependents**](FeatureApi.md#listfeaturedependents) | **GET** /api/v1/features/{featureId}/dependents | List all dependents
-[**ListFeatures**](FeatureApi.md#listfeatures) | **GET** /api/v1/features | List all Features
-[**UpdateFeatureLifecycle**](FeatureApi.md#updatefeaturelifecycle) | **POST** /api/v1/features/{featureId}/{lifecycle} | Update a Feature lifecycle
+[**ListFeatures**](FeatureApi.md#listfeatures) | **GET** /api/v1/features | List all features
+[**UpdateFeatureLifecycle**](FeatureApi.md#updatefeaturelifecycle) | **POST** /api/v1/features/{featureId}/{lifecycle} | Update a feature lifecycle
 
 
 <a name="getfeature"></a>
 # **GetFeature**
 > Feature GetFeature (string featureId)
 
-Retrieve a Feature
+Retrieve a feature
 
 Retrieves a feature by ID
 
@@ -45,7 +45,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Feature
+                // Retrieve a feature
                 Feature result = apiInstance.GetFeature(featureId);
                 Debug.WriteLine(result);
             }
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 # **ListFeatures**
 > List&lt;Feature&gt; ListFeatures ()
 
-List all Features
+List all features
 
 Lists all self-service features for your org
 
@@ -281,7 +281,7 @@ namespace Example
 
             try
             {
-                // List all Features
+                // List all features
                 List<Feature> result = apiInstance.ListFeatures().ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -326,7 +326,7 @@ This endpoint does not need any parameter.
 # **UpdateFeatureLifecycle**
 > Feature UpdateFeatureLifecycle (string featureId, FeatureLifecycle lifecycle, string mode = null)
 
-Update a Feature lifecycle
+Update a feature lifecycle
 
 Updates a feature's lifecycle status. Use this endpoint to enable or disable a feature for your org.  Use the `mode=force` parameter to override dependency restrictions for a particular feature. Normally, you can't enable a feature if it has one or more dependencies that aren't enabled.  When you use the `mode=force` parameter while enabling a feature, Okta first tries to enable any disabled features that this feature may have as dependencies. If you don't pass the `mode=force` parameter and the feature has dependencies that need to be enabled before the feature is enabled, a 400 error is returned.  When you use the `mode=force` parameter while disabling a feature, Okta first tries to disable any enabled features that this feature may have as dependents. If you don't pass the `mode=force` parameter and the feature has dependents that need to be disabled before the feature is disabled, a 400 error is returned.  The following chart shows the different state transitions for a feature.  ![State transitions of a feature](../../../../../images/features/update-ssfeat-flowchart.png '#width=500px;')
 
@@ -358,7 +358,7 @@ namespace Example
 
             try
             {
-                // Update a Feature lifecycle
+                // Update a feature lifecycle
                 Feature result = apiInstance.UpdateFeatureLifecycle(featureId, lifecycle, mode);
                 Debug.WriteLine(result);
             }

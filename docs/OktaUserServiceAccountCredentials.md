@@ -1,0 +1,11 @@
+# Okta.Sdk.Model.OktaUserServiceAccountCredentials
+Credentials for an Okta user
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Username** | **string** | The username associated with the service account | [optional] [readonly] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
 **Name** | **string** |  | 
 **Network** | [**ApiTokenNetwork**](ApiTokenNetwork.md) |  | [optional] 
-**TokenWindow** | **string** | A time duration specified as an [ISO-8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). | [optional] 
+**TokenWindow** | **string** | A time duration specified as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). | [optional] 
 **UserId** | **string** |  | [optional] 
 **Link** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
 

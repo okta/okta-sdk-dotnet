@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.CapabilitiesUpdateObject
-Determines whether updates to a user's profile are pushed to the application
+Determines whether updates to a user's profile are pushed to the app
 
 ## Properties
 

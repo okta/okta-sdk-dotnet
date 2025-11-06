@@ -1,19 +1,19 @@
 # Okta.Sdk.Model.InlineHook
+An inline hook object that specifies the details of the inline hook
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Channel** | [**InlineHookChannel**](InlineHookChannel.md) |  | [optional] 
-**Created** | **DateTimeOffset** |  | [optional] [readonly] 
-**Id** | **string** |  | [optional] [readonly] 
-**LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
-**Metadata** | **Dictionary&lt;string, string&gt;** | Specific properties for the inline hook configuration, for example, &#x60;optOutServiceProtectionRateLimit&#x60; to opt-out of Telephony Service Protection Rate Limits when using the Telephony inline hook. | [optional] 
-**Name** | **string** |  | [optional] 
+**Created** | **DateTimeOffset** | Date of the inline hook creation | [optional] [readonly] 
+**Id** | **string** | The unique identifier for the inline hook | [optional] [readonly] 
+**LastUpdated** | **DateTimeOffset** | Date of the last inline hook update | [optional] [readonly] 
+**Name** | **string** | The display name of the inline hook | [optional] 
 **Status** | **InlineHookStatus** |  | [optional] 
 **Type** | **InlineHookType** |  | [optional] 
-**_Version** | **string** |  | [optional] 
-**Links** | [**LinksSelf**](LinksSelf.md) |  | [optional] 
+**_Version** | **string** | Version of the inline hook type. The currently supported version is &#x60;1.0.0&#x60;. | [optional] [readonly] 
+**Links** | [**InlineHookLinks**](InlineHookLinks.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

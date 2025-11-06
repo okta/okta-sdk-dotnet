@@ -4,16 +4,16 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UpdateADGroupMembership**](DirectoriesIntegrationApi.md#updateadgroupmembership) | **POST** /api/v1/directories/{appInstanceId}/groups/modify | Update an AD Group membership
+[**UpdateADGroupMembership**](DirectoriesIntegrationApi.md#updateadgroupmembership) | **POST** /api/v1/directories/{appInstanceId}/groups/modify | Update an Active Directory group membership
 
 
 <a name="updateadgroupmembership"></a>
 # **UpdateADGroupMembership**
 > void UpdateADGroupMembership (string appInstanceId, AgentAction agentAction)
 
-Update an AD Group membership
+Update an Active Directory group membership
 
-Updates an AD Group membership directly in AD
+Updates an Active Directory group membership directly in Active Directory  > **Note:** See **Before you begin: Active Directory integration with the following setup** in the [Use Okta Access Certifications to manage AD group membership](https://help.okta.com/okta_help.htm?type=oie&id=ad-bidirectional-group-mgt-configure) product documentation.
 
 ### Example
 ```csharp
@@ -35,12 +35,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DirectoriesIntegrationApi(config);
-            var appInstanceId = "appInstanceId_example";  // string | ID of the AD AppInstance in Okta
+            var appInstanceId = "appInstanceId_example";  // string | ID of the Active Directory app instance in Okta
             var agentAction = new AgentAction(); // AgentAction | 
 
             try
             {
-                // Update an AD Group membership
+                // Update an Active Directory group membership
                 apiInstance.UpdateADGroupMembership(appInstanceId, agentAction);
             }
             catch (ApiException  e)
@@ -58,7 +58,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appInstanceId** | **string**| ID of the AD AppInstance in Okta | 
+ **appInstanceId** | **string**| ID of the Active Directory app instance in Okta | 
  **agentAction** | [**AgentAction**](AgentAction.md)|  | 
 
 ### Return type
@@ -83,7 +83,7 @@ void (empty response body)
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **502** | There are no connected agents. |  -  |
-| **504** | Timed out waiting for agent. |  -  |
+| **504** | Timed out waiting for agent |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

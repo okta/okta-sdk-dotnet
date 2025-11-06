@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.UserFactorType
-Type of Factor
+Type of factor
 
 ## Properties
 

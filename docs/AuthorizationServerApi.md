@@ -4,20 +4,20 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateAuthorizationServer**](AuthorizationServerApi.md#activateauthorizationserver) | **POST** /api/v1/authorizationServers/{authServerId}/lifecycle/activate | Activate an Authorization Server
-[**CreateAuthorizationServer**](AuthorizationServerApi.md#createauthorizationserver) | **POST** /api/v1/authorizationServers | Create an Authorization Server
-[**DeactivateAuthorizationServer**](AuthorizationServerApi.md#deactivateauthorizationserver) | **POST** /api/v1/authorizationServers/{authServerId}/lifecycle/deactivate | Deactivate an Authorization Server
-[**DeleteAuthorizationServer**](AuthorizationServerApi.md#deleteauthorizationserver) | **DELETE** /api/v1/authorizationServers/{authServerId} | Delete an Authorization Server
-[**GetAuthorizationServer**](AuthorizationServerApi.md#getauthorizationserver) | **GET** /api/v1/authorizationServers/{authServerId} | Retrieve an Authorization Server
-[**ListAuthorizationServers**](AuthorizationServerApi.md#listauthorizationservers) | **GET** /api/v1/authorizationServers | List all Authorization Servers
-[**ReplaceAuthorizationServer**](AuthorizationServerApi.md#replaceauthorizationserver) | **PUT** /api/v1/authorizationServers/{authServerId} | Replace an Authorization Server
+[**ActivateAuthorizationServer**](AuthorizationServerApi.md#activateauthorizationserver) | **POST** /api/v1/authorizationServers/{authServerId}/lifecycle/activate | Activate an authorization server
+[**CreateAuthorizationServer**](AuthorizationServerApi.md#createauthorizationserver) | **POST** /api/v1/authorizationServers | Create an authorization server
+[**DeactivateAuthorizationServer**](AuthorizationServerApi.md#deactivateauthorizationserver) | **POST** /api/v1/authorizationServers/{authServerId}/lifecycle/deactivate | Deactivate an authorization server
+[**DeleteAuthorizationServer**](AuthorizationServerApi.md#deleteauthorizationserver) | **DELETE** /api/v1/authorizationServers/{authServerId} | Delete an authorization server
+[**GetAuthorizationServer**](AuthorizationServerApi.md#getauthorizationserver) | **GET** /api/v1/authorizationServers/{authServerId} | Retrieve an authorization server
+[**ListAuthorizationServers**](AuthorizationServerApi.md#listauthorizationservers) | **GET** /api/v1/authorizationServers | List all authorization servers
+[**ReplaceAuthorizationServer**](AuthorizationServerApi.md#replaceauthorizationserver) | **PUT** /api/v1/authorizationServers/{authServerId} | Replace an authorization server
 
 
 <a name="activateauthorizationserver"></a>
 # **ActivateAuthorizationServer**
 > void ActivateAuthorizationServer (string authServerId)
 
-Activate an Authorization Server
+Activate an authorization server
 
 Activates an authorization server
 
@@ -47,7 +47,7 @@ namespace Example
 
             try
             {
-                // Activate an Authorization Server
+                // Activate an authorization server
                 apiInstance.ActivateAuthorizationServer(authServerId);
             }
             catch (ApiException  e)
@@ -95,7 +95,7 @@ void (empty response body)
 # **CreateAuthorizationServer**
 > AuthorizationServer CreateAuthorizationServer (AuthorizationServer authorizationServer)
 
-Create an Authorization Server
+Create an authorization server
 
 Creates an authorization server
 
@@ -125,7 +125,7 @@ namespace Example
 
             try
             {
-                // Create an Authorization Server
+                // Create an authorization server
                 AuthorizationServer result = apiInstance.CreateAuthorizationServer(authorizationServer);
                 Debug.WriteLine(result);
             }
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 # **DeactivateAuthorizationServer**
 > void DeactivateAuthorizationServer (string authServerId)
 
-Deactivate an Authorization Server
+Deactivate an authorization server
 
 Deactivates an authorization server
 
@@ -204,7 +204,7 @@ namespace Example
 
             try
             {
-                // Deactivate an Authorization Server
+                // Deactivate an authorization server
                 apiInstance.DeactivateAuthorizationServer(authServerId);
             }
             catch (ApiException  e)
@@ -252,7 +252,7 @@ void (empty response body)
 # **DeleteAuthorizationServer**
 > void DeleteAuthorizationServer (string authServerId)
 
-Delete an Authorization Server
+Delete an authorization server
 
 Deletes an authorization server
 
@@ -282,7 +282,7 @@ namespace Example
 
             try
             {
-                // Delete an Authorization Server
+                // Delete an authorization server
                 apiInstance.DeleteAuthorizationServer(authServerId);
             }
             catch (ApiException  e)
@@ -330,7 +330,7 @@ void (empty response body)
 # **GetAuthorizationServer**
 > AuthorizationServer GetAuthorizationServer (string authServerId)
 
-Retrieve an Authorization Server
+Retrieve an authorization server
 
 Retrieves an authorization server
 
@@ -360,7 +360,7 @@ namespace Example
 
             try
             {
-                // Retrieve an Authorization Server
+                // Retrieve an authorization server
                 AuthorizationServer result = apiInstance.GetAuthorizationServer(authServerId);
                 Debug.WriteLine(result);
             }
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 # **ListAuthorizationServers**
 > List&lt;AuthorizationServer&gt; ListAuthorizationServers (string q = null, int? limit = null, string after = null)
 
-List all Authorization Servers
+List all authorization servers
 
 Lists all custom authorization servers in the org
 
@@ -441,7 +441,7 @@ namespace Example
 
             try
             {
-                // List all Authorization Servers
+                // List all authorization servers
                 List<AuthorizationServer> result = apiInstance.ListAuthorizationServers(q, limit, after).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -491,7 +491,7 @@ Name | Type | Description  | Notes
 # **ReplaceAuthorizationServer**
 > AuthorizationServer ReplaceAuthorizationServer (string authServerId, AuthorizationServer authorizationServer)
 
-Replace an Authorization Server
+Replace an authorization server
 
 Replaces an authorization server
 
@@ -522,7 +522,7 @@ namespace Example
 
             try
             {
-                // Replace an Authorization Server
+                // Replace an authorization server
                 AuthorizationServer result = apiInstance.ReplaceAuthorizationServer(authServerId, authorizationServer);
                 Debug.WriteLine(result);
             }

@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.GroupPolicyRuleCondition
-Specifies a set of Groups whose Users are to be included or excluded
+Specifies a set of groups whose users are to be included or excluded
 
 ## Properties
 

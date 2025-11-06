@@ -4,17 +4,17 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetOAuth2TokenForApplication**](ApplicationTokensApi.md#getoauth2tokenforapplication) | **GET** /api/v1/apps/{appId}/tokens/{tokenId} | Retrieve an application Token
-[**ListOAuth2TokensForApplication**](ApplicationTokensApi.md#listoauth2tokensforapplication) | **GET** /api/v1/apps/{appId}/tokens | List all application refresh Tokens
-[**RevokeOAuth2TokenForApplication**](ApplicationTokensApi.md#revokeoauth2tokenforapplication) | **DELETE** /api/v1/apps/{appId}/tokens/{tokenId} | Revoke an application Token
-[**RevokeOAuth2TokensForApplication**](ApplicationTokensApi.md#revokeoauth2tokensforapplication) | **DELETE** /api/v1/apps/{appId}/tokens | Revoke all application Tokens
+[**GetOAuth2TokenForApplication**](ApplicationTokensApi.md#getoauth2tokenforapplication) | **GET** /api/v1/apps/{appId}/tokens/{tokenId} | Retrieve an application token
+[**ListOAuth2TokensForApplication**](ApplicationTokensApi.md#listoauth2tokensforapplication) | **GET** /api/v1/apps/{appId}/tokens | List all application refresh tokens
+[**RevokeOAuth2TokenForApplication**](ApplicationTokensApi.md#revokeoauth2tokenforapplication) | **DELETE** /api/v1/apps/{appId}/tokens/{tokenId} | Revoke an application token
+[**RevokeOAuth2TokensForApplication**](ApplicationTokensApi.md#revokeoauth2tokensforapplication) | **DELETE** /api/v1/apps/{appId}/tokens | Revoke all application tokens
 
 
 <a name="getoauth2tokenforapplication"></a>
 # **GetOAuth2TokenForApplication**
 > OAuth2RefreshToken GetOAuth2TokenForApplication (string appId, string tokenId, string expand = null)
 
-Retrieve an application Token
+Retrieve an application token
 
 Retrieves a refresh token for the specified app
 
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Retrieve an application Token
+                // Retrieve an application token
                 OAuth2RefreshToken result = apiInstance.GetOAuth2TokenForApplication(appId, tokenId, expand);
                 Debug.WriteLine(result);
             }
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 # **ListOAuth2TokensForApplication**
 > List&lt;OAuth2RefreshToken&gt; ListOAuth2TokensForApplication (string appId, string expand = null, string after = null, int? limit = null)
 
-List all application refresh Tokens
+List all application refresh tokens
 
 Lists all refresh tokens for an app  > **Note:** The results are [paginated](/#pagination) according to the `limit` parameter. > If there are multiple pages of results, the Link header contains a `next` link that you need to use as an opaque value (follow it, don't parse it). 
 
@@ -130,7 +130,7 @@ namespace Example
 
             try
             {
-                // List all application refresh Tokens
+                // List all application refresh tokens
                 List<OAuth2RefreshToken> result = apiInstance.ListOAuth2TokensForApplication(appId, expand, after, limit).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 # **RevokeOAuth2TokenForApplication**
 > void RevokeOAuth2TokenForApplication (string appId, string tokenId)
 
-Revoke an application Token
+Revoke an application token
 
 Revokes the specified token for the specified app
 
@@ -213,7 +213,7 @@ namespace Example
 
             try
             {
-                // Revoke an application Token
+                // Revoke an application token
                 apiInstance.RevokeOAuth2TokenForApplication(appId, tokenId);
             }
             catch (ApiException  e)
@@ -262,7 +262,7 @@ void (empty response body)
 # **RevokeOAuth2TokensForApplication**
 > void RevokeOAuth2TokensForApplication (string appId)
 
-Revoke all application Tokens
+Revoke all application tokens
 
 Revokes all OAuth 2.0 refresh tokens for the specified app. Any access tokens issued with these refresh tokens are also revoked, but access tokens issued without a refresh token aren't affected.
 
@@ -292,7 +292,7 @@ namespace Example
 
             try
             {
-                // Revoke all application Tokens
+                // Revoke all application tokens
                 apiInstance.RevokeOAuth2TokensForApplication(appId);
             }
             catch (ApiException  e)

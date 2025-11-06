@@ -1,12 +1,12 @@
 # Okta.Sdk.Model.EnrollmentInitializationRequest
-Enrollment Initialization Request
+Enrollment initialization request
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EnrollmentRpIds** | **List&lt;string&gt;** | List of Relying Party hostnames to register on the YubiKey. | [optional] 
-**FulfillmentProvider** | **string** | Name of the fulfillment provider for the WebAuthn Preregistration Factor | [optional] 
+**EnrollmentRpIds** | **List&lt;string&gt;** | List of relying party hostnames to register on the YubiKey | [optional] 
+**FulfillmentProvider** | **string** | Name of the fulfillment provider for the WebAuthn preregistration factor | [optional] 
 **UserId** | **string** | ID of an existing Okta user | [optional] 
 **YubicoTransportKeyJWK** | [**ECKeyJWK**](ECKeyJWK.md) |  | [optional] 
 

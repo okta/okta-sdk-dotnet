@@ -5,12 +5,12 @@ All URIs are relative to *https://subdomain.okta.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateCustomDomain**](CustomDomainApi.md#createcustomdomain) | **POST** /api/v1/domains | Create a Custom Domain
-[**DeleteCustomDomain**](CustomDomainApi.md#deletecustomdomain) | **DELETE** /api/v1/domains/{domainId} | Delete a Custom Domain
-[**GetCustomDomain**](CustomDomainApi.md#getcustomdomain) | **GET** /api/v1/domains/{domainId} | Retrieve a Custom Domain
+[**DeleteCustomDomain**](CustomDomainApi.md#deletecustomdomain) | **DELETE** /api/v1/domains/{domainId} | Delete a custom domain
+[**GetCustomDomain**](CustomDomainApi.md#getcustomdomain) | **GET** /api/v1/domains/{domainId} | Retrieve a custom domain
 [**ListCustomDomains**](CustomDomainApi.md#listcustomdomains) | **GET** /api/v1/domains | List all Custom Domains
-[**ReplaceCustomDomain**](CustomDomainApi.md#replacecustomdomain) | **PUT** /api/v1/domains/{domainId} | Replace a Custom Domain&#39;s Brand
-[**UpsertCertificate**](CustomDomainApi.md#upsertcertificate) | **PUT** /api/v1/domains/{domainId}/certificate | Upsert the Custom Domain&#39;s Certificate
-[**VerifyDomain**](CustomDomainApi.md#verifydomain) | **POST** /api/v1/domains/{domainId}/verify | Verify a Custom Domain
+[**ReplaceCustomDomain**](CustomDomainApi.md#replacecustomdomain) | **PUT** /api/v1/domains/{domainId} | Replace a custom domain&#39;s brand
+[**UpsertCertificate**](CustomDomainApi.md#upsertcertificate) | **PUT** /api/v1/domains/{domainId}/certificate | Upsert the custom domain&#39;s certificate
+[**VerifyDomain**](CustomDomainApi.md#verifydomain) | **POST** /api/v1/domains/{domainId}/verify | Verify a custom domain
 
 
 <a name="createcustomdomain"></a>
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 # **DeleteCustomDomain**
 > void DeleteCustomDomain (string domainId)
 
-Delete a Custom Domain
+Delete a custom domain
 
 Deletes a custom domain by `domainId`
 
@@ -126,7 +126,7 @@ namespace Example
 
             try
             {
-                // Delete a Custom Domain
+                // Delete a custom domain
                 apiInstance.DeleteCustomDomain(domainId);
             }
             catch (ApiException  e)
@@ -174,7 +174,7 @@ void (empty response body)
 # **GetCustomDomain**
 > DomainResponse GetCustomDomain (string domainId)
 
-Retrieve a Custom Domain
+Retrieve a custom domain
 
 Retrieves a custom domain by `domainId`
 
@@ -204,7 +204,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Custom Domain
+                // Retrieve a custom domain
                 DomainResponse result = apiInstance.GetCustomDomain(domainId);
                 Debug.WriteLine(result);
             }
@@ -327,7 +327,7 @@ This endpoint does not need any parameter.
 # **ReplaceCustomDomain**
 > DomainResponse ReplaceCustomDomain (string domainId, UpdateDomain updateDomain)
 
-Replace a Custom Domain's Brand
+Replace a custom domain's brand
 
 Replaces a custom domain's brand
 
@@ -358,7 +358,7 @@ namespace Example
 
             try
             {
-                // Replace a Custom Domain's Brand
+                // Replace a custom domain's brand
                 DomainResponse result = apiInstance.ReplaceCustomDomain(domainId, updateDomain);
                 Debug.WriteLine(result);
             }
@@ -409,9 +409,9 @@ Name | Type | Description  | Notes
 # **UpsertCertificate**
 > void UpsertCertificate (string domainId, DomainCertificate certificate)
 
-Upsert the Custom Domain's Certificate
+Upsert the custom domain's certificate
 
-Upserts (creates or renews) the `MANUAL` certificate for the custom domain. If the `certificateSourceType` in the domain is `OKTA_MANAGED`, it becomes `MANUAL` and Okta no longer manages and renews certificates for this domain since a user-managed certificate has been provided.
+Upserts (creates or renews) the `MANUAL` certificate for the custom domain  > **Notes:** > * If the existing `certificateSourceType` is `OKTA_MANAGED`, this operation changes the source type to `MANUAL`. Okta no longer manages and renews certificates for this domain after you provide a user-managed certificate. > * Okta supports TLS certificates and private keys that are PEM-encoded and 2048, 3072, or 4096 bits. See the [Custom domain guide](https://developer.okta.com/docs/guides/custom-url-domain/main/) for more details.
 
 ### Example
 ```csharp
@@ -440,7 +440,7 @@ namespace Example
 
             try
             {
-                // Upsert the Custom Domain's Certificate
+                // Upsert the custom domain's certificate
                 apiInstance.UpsertCertificate(domainId, certificate);
             }
             catch (ApiException  e)
@@ -490,7 +490,7 @@ void (empty response body)
 # **VerifyDomain**
 > DomainResponse VerifyDomain (string domainId)
 
-Verify a Custom Domain
+Verify a custom domain
 
 Verifies the custom domain and validity of DNS records by `domainId`. Furthermore, if the `certificateSourceType` in the domain is `OKTA_MANAGED`, then an attempt is made to obtain and install a certificate. After a certificate is obtained and installed by Okta, Okta manages the certificate including certificate renewal.
 
@@ -520,7 +520,7 @@ namespace Example
 
             try
             {
-                // Verify a Custom Domain
+                // Verify a custom domain
                 DomainResponse result = apiInstance.VerifyDomain(domainId);
                 Debug.WriteLine(result);
             }

@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.PasswordPolicyRuleAction
+Indicates if a password can be changed
 
 ## Properties
 

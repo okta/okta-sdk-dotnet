@@ -4,21 +4,21 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateEventHook**](EventHookApi.md#activateeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/activate | Activate an Event Hook
-[**CreateEventHook**](EventHookApi.md#createeventhook) | **POST** /api/v1/eventHooks | Create an Event Hook
-[**DeactivateEventHook**](EventHookApi.md#deactivateeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/deactivate | Deactivate an Event Hook
-[**DeleteEventHook**](EventHookApi.md#deleteeventhook) | **DELETE** /api/v1/eventHooks/{eventHookId} | Delete an Event Hook
-[**GetEventHook**](EventHookApi.md#geteventhook) | **GET** /api/v1/eventHooks/{eventHookId} | Retrieve an Event Hook
-[**ListEventHooks**](EventHookApi.md#listeventhooks) | **GET** /api/v1/eventHooks | List all Event Hooks
-[**ReplaceEventHook**](EventHookApi.md#replaceeventhook) | **PUT** /api/v1/eventHooks/{eventHookId} | Replace an Event Hook
-[**VerifyEventHook**](EventHookApi.md#verifyeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/verify | Verify an Event Hook
+[**ActivateEventHook**](EventHookApi.md#activateeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/activate | Activate an event hook
+[**CreateEventHook**](EventHookApi.md#createeventhook) | **POST** /api/v1/eventHooks | Create an event hook
+[**DeactivateEventHook**](EventHookApi.md#deactivateeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/deactivate | Deactivate an event hook
+[**DeleteEventHook**](EventHookApi.md#deleteeventhook) | **DELETE** /api/v1/eventHooks/{eventHookId} | Delete an event hook
+[**GetEventHook**](EventHookApi.md#geteventhook) | **GET** /api/v1/eventHooks/{eventHookId} | Retrieve an event hook
+[**ListEventHooks**](EventHookApi.md#listeventhooks) | **GET** /api/v1/eventHooks | List all event hooks
+[**ReplaceEventHook**](EventHookApi.md#replaceeventhook) | **PUT** /api/v1/eventHooks/{eventHookId} | Replace an event hook
+[**VerifyEventHook**](EventHookApi.md#verifyeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/verify | Verify an event hook
 
 
 <a name="activateeventhook"></a>
 # **ActivateEventHook**
 > EventHook ActivateEventHook (string eventHookId)
 
-Activate an Event Hook
+Activate an event hook
 
 Activates the event hook that matches the provided `id`
 
@@ -48,7 +48,7 @@ namespace Example
 
             try
             {
-                // Activate an Event Hook
+                // Activate an event hook
                 EventHook result = apiInstance.ActivateEventHook(eventHookId);
                 Debug.WriteLine(result);
             }
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 # **CreateEventHook**
 > EventHook CreateEventHook (EventHook eventHook)
 
-Create an Event Hook
+Create an event hook
 
 Creates a new event hook for your organization in `ACTIVE` status. You pass an event hook object in the JSON payload of your request. That object represents the set of required information about the event hook you're registering, including:   * The URI of your external service   * The [events](https://developer.okta.com/docs/reference/api/event-types/) in Okta you want to subscribe to   * An optional event hook filter that can reduce the number of event hook calls. This is a self-service Early Access (EA) feature.     See [Create an event hook filter](https://developer.okta.com/docs/concepts/event-hooks/#create-an-event-hook-filter).      Additionally, you can specify a secret API key for Okta to pass to your external service endpoint for security verification. Note that the API key you set here is unrelated to the Okta API token you must supply when making calls to Okta APIs. Optionally, you can specify extra headers that Okta passes to your external service with each call. Your external service must use a valid HTTPS endpoint.
 
@@ -127,7 +127,7 @@ namespace Example
 
             try
             {
-                // Create an Event Hook
+                // Create an event hook
                 EventHook result = apiInstance.CreateEventHook(eventHook);
                 Debug.WriteLine(result);
             }
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 # **DeactivateEventHook**
 > EventHook DeactivateEventHook (string eventHookId)
 
-Deactivate an Event Hook
+Deactivate an event hook
 
 Deactivates the event hook that matches the provided `id`
 
@@ -206,7 +206,7 @@ namespace Example
 
             try
             {
-                // Deactivate an Event Hook
+                // Deactivate an event hook
                 EventHook result = apiInstance.DeactivateEventHook(eventHookId);
                 Debug.WriteLine(result);
             }
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 # **DeleteEventHook**
 > void DeleteEventHook (string eventHookId)
 
-Delete an Event Hook
+Delete an event hook
 
 Deletes the event hook that matches the provided `id`. After deletion, the event hook is unrecoverable. As a safety precaution, you can only delete event hooks with a status of `INACTIVE`.
 
@@ -285,7 +285,7 @@ namespace Example
 
             try
             {
-                // Delete an Event Hook
+                // Delete an event hook
                 apiInstance.DeleteEventHook(eventHookId);
             }
             catch (ApiException  e)
@@ -333,7 +333,7 @@ void (empty response body)
 # **GetEventHook**
 > EventHook GetEventHook (string eventHookId)
 
-Retrieve an Event Hook
+Retrieve an event hook
 
 Retrieves an event hook
 
@@ -363,7 +363,7 @@ namespace Example
 
             try
             {
-                // Retrieve an Event Hook
+                // Retrieve an event hook
                 EventHook result = apiInstance.GetEventHook(eventHookId);
                 Debug.WriteLine(result);
             }
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 # **ListEventHooks**
 > List&lt;EventHook&gt; ListEventHooks ()
 
-List all Event Hooks
+List all event hooks
 
 Lists all event hooks
 
@@ -441,7 +441,7 @@ namespace Example
 
             try
             {
-                // List all Event Hooks
+                // List all event hooks
                 List<EventHook> result = apiInstance.ListEventHooks().ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -486,7 +486,7 @@ This endpoint does not need any parameter.
 # **ReplaceEventHook**
 > EventHook ReplaceEventHook (string eventHookId, EventHook eventHook)
 
-Replace an Event Hook
+Replace an event hook
 
 Replaces an event hook. Okta validates the new properties before replacing the existing values. Some event hook properties are immutable and can't be updated. Refer to the parameter description in the request body schema.  >**Note:** Updating the `channel` property requires you to verify the hook again.
 
@@ -517,7 +517,7 @@ namespace Example
 
             try
             {
-                // Replace an Event Hook
+                // Replace an event hook
                 EventHook result = apiInstance.ReplaceEventHook(eventHookId, eventHook);
                 Debug.WriteLine(result);
             }
@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
 # **VerifyEventHook**
 > EventHook VerifyEventHook (string eventHookId)
 
-Verify an Event Hook
+Verify an event hook
 
 Verifies that the event hook matches the provided `eventHookId`. To verify ownership, your endpoint must send information back to Okta in JSON format. See [Event hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request).  Only `ACTIVE` and `VERIFIED` event hooks can receive events from Okta.  If a response is not received within 3 seconds, the outbound request times out. One retry is attempted after a timeout or error response. If a successful response still isn't received, this operation returns a 400 error with more information about the failure.
 
@@ -598,7 +598,7 @@ namespace Example
 
             try
             {
-                // Verify an Event Hook
+                // Verify an event hook
                 EventHook result = apiInstance.VerifyEventHook(eventHookId);
                 Debug.WriteLine(result);
             }

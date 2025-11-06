@@ -4,22 +4,22 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateInlineHook**](InlineHookApi.md#activateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/lifecycle/activate | Activate an Inline Hook
-[**CreateInlineHook**](InlineHookApi.md#createinlinehook) | **POST** /api/v1/inlineHooks | Create an Inline Hook
-[**DeactivateInlineHook**](InlineHookApi.md#deactivateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/lifecycle/deactivate | Deactivate an Inline Hook
-[**DeleteInlineHook**](InlineHookApi.md#deleteinlinehook) | **DELETE** /api/v1/inlineHooks/{inlineHookId} | Delete an Inline Hook
-[**ExecuteInlineHook**](InlineHookApi.md#executeinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/execute | Execute an Inline Hook
-[**GetInlineHook**](InlineHookApi.md#getinlinehook) | **GET** /api/v1/inlineHooks/{inlineHookId} | Retrieve an Inline Hook
-[**ListInlineHooks**](InlineHookApi.md#listinlinehooks) | **GET** /api/v1/inlineHooks | List all Inline Hooks
-[**ReplaceInlineHook**](InlineHookApi.md#replaceinlinehook) | **PUT** /api/v1/inlineHooks/{inlineHookId} | Replace an Inline Hook
-[**UpdateInlineHook**](InlineHookApi.md#updateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId} | Update an Inline Hook
+[**ActivateInlineHook**](InlineHookApi.md#activateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/lifecycle/activate | Activate an inline hook
+[**CreateInlineHook**](InlineHookApi.md#createinlinehook) | **POST** /api/v1/inlineHooks | Create an inline hook
+[**DeactivateInlineHook**](InlineHookApi.md#deactivateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/lifecycle/deactivate | Deactivate an inline hook
+[**DeleteInlineHook**](InlineHookApi.md#deleteinlinehook) | **DELETE** /api/v1/inlineHooks/{inlineHookId} | Delete an inline hook
+[**ExecuteInlineHook**](InlineHookApi.md#executeinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/execute | Execute an inline hook
+[**GetInlineHook**](InlineHookApi.md#getinlinehook) | **GET** /api/v1/inlineHooks/{inlineHookId} | Retrieve an inline hook
+[**ListInlineHooks**](InlineHookApi.md#listinlinehooks) | **GET** /api/v1/inlineHooks | List all inline hooks
+[**ReplaceInlineHook**](InlineHookApi.md#replaceinlinehook) | **PUT** /api/v1/inlineHooks/{inlineHookId} | Replace an inline hook
+[**UpdateInlineHook**](InlineHookApi.md#updateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId} | Update an inline hook
 
 
 <a name="activateinlinehook"></a>
 # **ActivateInlineHook**
 > InlineHook ActivateInlineHook (string inlineHookId)
 
-Activate an Inline Hook
+Activate an inline hook
 
 Activates the inline hook by `inlineHookId`
 
@@ -45,11 +45,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the Inline Hook
+            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the inline hook
 
             try
             {
-                // Activate an Inline Hook
+                // Activate an inline hook
                 InlineHook result = apiInstance.ActivateInlineHook(inlineHookId);
                 Debug.WriteLine(result);
             }
@@ -68,7 +68,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineHookId** | **string**| &#x60;id&#x60; of the Inline Hook | 
+ **inlineHookId** | **string**| &#x60;id&#x60; of the inline hook | 
 
 ### Return type
 
@@ -96,11 +96,11 @@ Name | Type | Description  | Notes
 
 <a name="createinlinehook"></a>
 # **CreateInlineHook**
-> InlineHook CreateInlineHook (InlineHook inlineHook)
+> InlineHookCreateResponse CreateInlineHook (InlineHookCreate inlineHookCreate)
 
-Create an Inline Hook
+Create an inline hook
 
-Creates an inline hook
+Creates an inline hook  This endpoint creates an inline hook for your org in an `ACTIVE` status. You need to pass an inline hooks object in the JSON payload of your request.  That object represents the set of required information about the inline hook that you're registering, including:  * The URI of your external service endpoint * The type of inline hook you're registering * The type of authentication you're registering  There are two authentication options that you can configure for your inline hook: HTTP headers and OAuth 2.0 tokens.  HTTP headers let you specify a secret API key that you want Okta to pass to your external service endpoint (so that your external service can check for its presence as a security measure).  >**Note:** The API key that you set here is unrelated to the Okta API token you must supply when making calls to Okta APIs.  You can also optionally specify extra headers that you want Okta to pass to your external service with each call.  To configure HTTP header authentication, see parameters for the `config` object.  OAuth 2.0 tokens provide enhanced security between Okta and your external service. You can configure these tokens for the following types&mdash;client secret and private key.  >**Note:** Your external service's endpoint needs to be a valid HTTPS endpoint. The URI you specify should always begin with `https://`.  The total number of inline hooks that you can create in an Okta org is limited to 50, which is a combined total for any combination of inline hook types.
 
 ### Example
 ```csharp
@@ -124,12 +124,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var inlineHook = new InlineHook(); // InlineHook | 
+            var inlineHookCreate = new InlineHookCreate(); // InlineHookCreate | 
 
             try
             {
-                // Create an Inline Hook
-                InlineHook result = apiInstance.CreateInlineHook(inlineHook);
+                // Create an inline hook
+                InlineHookCreateResponse result = apiInstance.CreateInlineHook(inlineHookCreate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -147,11 +147,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineHook** | [**InlineHook**](InlineHook.md)|  | 
+ **inlineHookCreate** | [**InlineHookCreate**](InlineHookCreate.md)|  | 
 
 ### Return type
 
-[**InlineHook**](InlineHook.md)
+[**InlineHookCreateResponse**](InlineHookCreateResponse.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 # **DeactivateInlineHook**
 > InlineHook DeactivateInlineHook (string inlineHookId)
 
-Deactivate an Inline Hook
+Deactivate an inline hook
 
 Deactivates the inline hook by `inlineHookId`
 
@@ -203,11 +203,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the Inline Hook
+            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the inline hook
 
             try
             {
-                // Deactivate an Inline Hook
+                // Deactivate an inline hook
                 InlineHook result = apiInstance.DeactivateInlineHook(inlineHookId);
                 Debug.WriteLine(result);
             }
@@ -226,7 +226,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineHookId** | **string**| &#x60;id&#x60; of the Inline Hook | 
+ **inlineHookId** | **string**| &#x60;id&#x60; of the inline hook | 
 
 ### Return type
 
@@ -256,9 +256,9 @@ Name | Type | Description  | Notes
 # **DeleteInlineHook**
 > void DeleteInlineHook (string inlineHookId)
 
-Delete an Inline Hook
+Delete an inline hook
 
-Deletes an inline hook by `inlineHookId`. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
+Deletes an inline hook by `inlineHookId`. After it's deleted, the inline hook is unrecoverable. As a safety precaution, only inline hooks with a status of `INACTIVE` are eligible for deletion.
 
 ### Example
 ```csharp
@@ -282,11 +282,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the Inline Hook
+            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the inline hook
 
             try
             {
-                // Delete an Inline Hook
+                // Delete an inline hook
                 apiInstance.DeleteInlineHook(inlineHookId);
             }
             catch (ApiException  e)
@@ -304,7 +304,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineHookId** | **string**| &#x60;id&#x60; of the Inline Hook | 
+ **inlineHookId** | **string**| &#x60;id&#x60; of the inline hook | 
 
 ### Return type
 
@@ -332,11 +332,11 @@ void (empty response body)
 
 <a name="executeinlinehook"></a>
 # **ExecuteInlineHook**
-> InlineHookResponse ExecuteInlineHook (string inlineHookId, Object payloadData)
+> ExecuteInlineHook200Response ExecuteInlineHook (string inlineHookId, ExecuteInlineHookRequest payloadData)
 
-Execute an Inline Hook
+Execute an inline hook
 
-Executes the inline hook by `inlineHookId` using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
+Executes the inline hook that matches the provided `inlineHookId` by using the request body as the input. This inline hook sends the provided  data through the `channel` object and returns a response if it matches the correct data contract. Otherwise it returns an error. You need to  construct a JSON payload that matches the payloads that Okta would send to your external service for this inline hook type.  A timeout of three seconds is enforced on all outbound requests, with one retry in the event of a timeout or an error response from the remote system.  If a successful response isn't received after the request, a 400 error is returned with more information about what failed.  >**Note:** This execution endpoint isn't tied to any other functionality in Okta, and you should only use it for testing purposes.
 
 ### Example
 ```csharp
@@ -360,13 +360,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the Inline Hook
-            var payloadData = null;  // Object | 
+            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the inline hook
+            var payloadData = new ExecuteInlineHookRequest(); // ExecuteInlineHookRequest | 
 
             try
             {
-                // Execute an Inline Hook
-                InlineHookResponse result = apiInstance.ExecuteInlineHook(inlineHookId, payloadData);
+                // Execute an inline hook
+                ExecuteInlineHook200Response result = apiInstance.ExecuteInlineHook(inlineHookId, payloadData);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -384,12 +384,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineHookId** | **string**| &#x60;id&#x60; of the Inline Hook | 
- **payloadData** | **Object**|  | 
+ **inlineHookId** | **string**| &#x60;id&#x60; of the inline hook | 
+ **payloadData** | [**ExecuteInlineHookRequest**](ExecuteInlineHookRequest.md)|  | 
 
 ### Return type
 
-[**InlineHookResponse**](InlineHookResponse.md)
+[**ExecuteInlineHook200Response**](ExecuteInlineHook200Response.md)
 
 ### Authorization
 
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 # **GetInlineHook**
 > InlineHook GetInlineHook (string inlineHookId)
 
-Retrieve an Inline Hook
+Retrieve an inline hook
 
 Retrieves an inline hook by `inlineHookId`
 
@@ -442,11 +442,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the Inline Hook
+            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the inline hook
 
             try
             {
-                // Retrieve an Inline Hook
+                // Retrieve an inline hook
                 InlineHook result = apiInstance.GetInlineHook(inlineHookId);
                 Debug.WriteLine(result);
             }
@@ -465,7 +465,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineHookId** | **string**| &#x60;id&#x60; of the Inline Hook | 
+ **inlineHookId** | **string**| &#x60;id&#x60; of the inline hook | 
 
 ### Return type
 
@@ -493,11 +493,11 @@ Name | Type | Description  | Notes
 
 <a name="listinlinehooks"></a>
 # **ListInlineHooks**
-> List&lt;InlineHook&gt; ListInlineHooks (string type = null)
+> List&lt;InlineHook&gt; ListInlineHooks (InlineHookTypeParameter? type = null)
 
-List all Inline Hooks
+List all inline hooks
 
-Lists all inline hooks
+Lists all inline hooks or all inline hooks of a specific type.  When listing a specific inline hook, you need to specify its type. The following types are currently supported:   | Type Value                         | Name                                                           |   |- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -|   | `com.okta.import.transform`        | [User import inline hook](/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook)       |   | `com.okta.oauth2.tokens.transform` | [Token inline hook](/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook)               |   | `com.okta.saml.tokens.transform`   | [SAML assertion inline hook](/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook)       |   | `com.okta.telephony.provider`      | [Telephony inline hook](/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) |   | `com.okta.user.credential.password.import` | [Password import inline hook](/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook)|   | `com.okta.user.pre-registration`   | [Registration inline hook](/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook) |
 
 ### Example
 ```csharp
@@ -521,11 +521,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var type = "type_example";  // string |  (optional) 
+            var type = (InlineHookTypeParameter) "com.okta.import.transform";  // InlineHookTypeParameter? | One of the supported inline hook types (optional) 
 
             try
             {
-                // List all Inline Hooks
+                // List all inline hooks
                 List<InlineHook> result = apiInstance.ListInlineHooks(type).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -544,7 +544,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **string**|  | [optional] 
+ **type** | **InlineHookTypeParameter?**| One of the supported inline hook types | [optional] 
 
 ### Return type
 
@@ -571,11 +571,11 @@ Name | Type | Description  | Notes
 
 <a name="replaceinlinehook"></a>
 # **ReplaceInlineHook**
-> InlineHook ReplaceInlineHook (string inlineHookId, InlineHook inlineHook)
+> InlineHook ReplaceInlineHook (string inlineHookId, InlineHookReplace inlineHook)
 
-Replace an Inline Hook
+Replace an inline hook
 
-Replaces an inline hook by `inlineHookId`
+Replaces an inline hook by `inlineHookId`. The submitted inline hook properties replace the existing properties after passing validation.  >**Note:** Some properties are immutable and can't be updated.
 
 ### Example
 ```csharp
@@ -599,12 +599,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the Inline Hook
-            var inlineHook = new InlineHook(); // InlineHook | 
+            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the inline hook
+            var inlineHook = new InlineHookReplace(); // InlineHookReplace | 
 
             try
             {
-                // Replace an Inline Hook
+                // Replace an inline hook
                 InlineHook result = apiInstance.ReplaceInlineHook(inlineHookId, inlineHook);
                 Debug.WriteLine(result);
             }
@@ -623,8 +623,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineHookId** | **string**| &#x60;id&#x60; of the Inline Hook | 
- **inlineHook** | [**InlineHook**](InlineHook.md)|  | 
+ **inlineHookId** | **string**| &#x60;id&#x60; of the inline hook | 
+ **inlineHook** | [**InlineHookReplace**](InlineHookReplace.md)|  | 
 
 ### Return type
 
@@ -653,9 +653,9 @@ Name | Type | Description  | Notes
 
 <a name="updateinlinehook"></a>
 # **UpdateInlineHook**
-> InlineHook UpdateInlineHook (string inlineHookId, InlineHook inlineHook)
+> InlineHook UpdateInlineHook (string inlineHookId, InlineHookReplace inlineHook)
 
-Update an Inline Hook
+Update an inline hook
 
 Updates an inline hook by `inlineHookId`
 
@@ -681,12 +681,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
-            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the Inline Hook
-            var inlineHook = new InlineHook(); // InlineHook | 
+            var inlineHookId = Y7Rzrd4g4xj6WdKzrBHH;  // string | `id` of the inline hook
+            var inlineHook = new InlineHookReplace(); // InlineHookReplace | 
 
             try
             {
-                // Update an Inline Hook
+                // Update an inline hook
                 InlineHook result = apiInstance.UpdateInlineHook(inlineHookId, inlineHook);
                 Debug.WriteLine(result);
             }
@@ -705,8 +705,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineHookId** | **string**| &#x60;id&#x60; of the Inline Hook | 
- **inlineHook** | [**InlineHook**](InlineHook.md)|  | 
+ **inlineHookId** | **string**| &#x60;id&#x60; of the inline hook | 
+ **inlineHook** | [**InlineHookReplace**](InlineHookReplace.md)|  | 
 
 ### Return type
 

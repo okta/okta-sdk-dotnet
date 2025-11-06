@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.Email
-Attempts to activate a `email` Factor with the specified passcode.
+Attempts to activate an `email` factor with the specified passcode
 
 ## Properties
 

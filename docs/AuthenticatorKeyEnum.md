@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.AuthenticatorKeyEnum
-A human-readable string that identifies the Authenticator
+A human-readable string that identifies the authenticator
 
 ## Properties
 

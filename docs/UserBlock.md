@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.UserBlock
-The description of the access block
+Describes how the account is blocked from access. If `appliesTo` is `ANY_DEVICES`, then the account is blocked for all devices. If `appliesTo` is `UNKNOWN_DEVICES`, then the account is only blocked for unknown devices.
 
 ## Properties
 

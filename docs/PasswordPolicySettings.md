@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.PasswordPolicySettings
+Specifies the policy level settings
 
 ## Properties
 

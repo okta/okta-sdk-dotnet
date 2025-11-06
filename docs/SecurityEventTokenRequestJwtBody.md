@@ -6,7 +6,7 @@ JSON Web Token body payload for a Security Event Token
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Aud** | **string** | Audience | 
-**Events** | [**SecurityEventTokenRequestJwtEvents**](.md) |  | 
+**Events** | [**SecurityEventTokenRequestJwtEvents**](SecurityEventTokenRequestJwtEvents.md) |  | 
 **Iat** | **long** | Token issue time (UNIX timestamp) | 
 **Iss** | **string** | Token issuer | 
 **Jti** | **string** | Token ID | 

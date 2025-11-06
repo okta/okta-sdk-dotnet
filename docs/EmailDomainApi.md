@@ -4,19 +4,19 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateEmailDomain**](EmailDomainApi.md#createemaildomain) | **POST** /api/v1/email-domains | Create an Email Domain
-[**DeleteEmailDomain**](EmailDomainApi.md#deleteemaildomain) | **DELETE** /api/v1/email-domains/{emailDomainId} | Delete an Email Domain
-[**GetEmailDomain**](EmailDomainApi.md#getemaildomain) | **GET** /api/v1/email-domains/{emailDomainId} | Retrieve an Email Domain
-[**ListEmailDomains**](EmailDomainApi.md#listemaildomains) | **GET** /api/v1/email-domains | List all Email Domains
-[**ReplaceEmailDomain**](EmailDomainApi.md#replaceemaildomain) | **PUT** /api/v1/email-domains/{emailDomainId} | Replace an Email Domain
-[**VerifyEmailDomain**](EmailDomainApi.md#verifyemaildomain) | **POST** /api/v1/email-domains/{emailDomainId}/verify | Verify an Email Domain
+[**CreateEmailDomain**](EmailDomainApi.md#createemaildomain) | **POST** /api/v1/email-domains | Create an email domain
+[**DeleteEmailDomain**](EmailDomainApi.md#deleteemaildomain) | **DELETE** /api/v1/email-domains/{emailDomainId} | Delete an email domain
+[**GetEmailDomain**](EmailDomainApi.md#getemaildomain) | **GET** /api/v1/email-domains/{emailDomainId} | Retrieve an email domain
+[**ListEmailDomains**](EmailDomainApi.md#listemaildomains) | **GET** /api/v1/email-domains | List all email domains
+[**ReplaceEmailDomain**](EmailDomainApi.md#replaceemaildomain) | **PUT** /api/v1/email-domains/{emailDomainId} | Replace an email domain
+[**VerifyEmailDomain**](EmailDomainApi.md#verifyemaildomain) | **POST** /api/v1/email-domains/{emailDomainId}/verify | Verify an email domain
 
 
 <a name="createemaildomain"></a>
 # **CreateEmailDomain**
 > EmailDomainResponse CreateEmailDomain (EmailDomain emailDomain, List<string> expand = null)
 
-Create an Email Domain
+Create an email domain
 
 Creates an Email Domain in your org
 
@@ -47,7 +47,7 @@ namespace Example
 
             try
             {
-                // Create an Email Domain
+                // Create an email domain
                 EmailDomainResponse result = apiInstance.CreateEmailDomain(emailDomain, expand);
                 Debug.WriteLine(result);
             }
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 # **DeleteEmailDomain**
 > void DeleteEmailDomain (string emailDomainId, List<string> expand = null)
 
-Delete an Email Domain
+Delete an email domain
 
 Deletes an Email Domain by `emailDomainId`
 
@@ -130,7 +130,7 @@ namespace Example
 
             try
             {
-                // Delete an Email Domain
+                // Delete an email domain
                 apiInstance.DeleteEmailDomain(emailDomainId, expand);
             }
             catch (ApiException  e)
@@ -180,7 +180,7 @@ void (empty response body)
 # **GetEmailDomain**
 > EmailDomainResponseWithEmbedded GetEmailDomain (string emailDomainId, List<string> expand = null)
 
-Retrieve an Email Domain
+Retrieve an email domain
 
 Retrieves an Email Domain by `emailDomainId`
 
@@ -211,7 +211,7 @@ namespace Example
 
             try
             {
-                // Retrieve an Email Domain
+                // Retrieve an email domain
                 EmailDomainResponseWithEmbedded result = apiInstance.GetEmailDomain(emailDomainId, expand);
                 Debug.WriteLine(result);
             }
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 # **ListEmailDomains**
 > List&lt;EmailDomainResponseWithEmbedded&gt; ListEmailDomains (List<string> expand = null)
 
-List all Email Domains
+List all email domains
 
 Lists all the Email Domains in your org
 
@@ -291,7 +291,7 @@ namespace Example
 
             try
             {
-                // List all Email Domains
+                // List all email domains
                 List<EmailDomainResponseWithEmbedded> result = apiInstance.ListEmailDomains(expand).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 # **ReplaceEmailDomain**
 > EmailDomainResponse ReplaceEmailDomain (string emailDomainId, UpdateEmailDomain updateEmailDomain, List<string> expand = null)
 
-Replace an Email Domain
+Replace an email domain
 
 Replaces associated username and sender display name by `emailDomainId`
 
@@ -371,7 +371,7 @@ namespace Example
 
             try
             {
-                // Replace an Email Domain
+                // Replace an email domain
                 EmailDomainResponse result = apiInstance.ReplaceEmailDomain(emailDomainId, updateEmailDomain, expand);
                 Debug.WriteLine(result);
             }
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 # **VerifyEmailDomain**
 > EmailDomainResponse VerifyEmailDomain (string emailDomainId)
 
-Verify an Email Domain
+Verify an email domain
 
 Verifies an Email Domain by `emailDomainId`
 
@@ -453,7 +453,7 @@ namespace Example
 
             try
             {
-                // Verify an Email Domain
+                // Verify an email domain
                 EmailDomainResponse result = apiInstance.VerifyEmailDomain(emailDomainId);
                 Debug.WriteLine(result);
             }

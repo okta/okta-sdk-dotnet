@@ -4,17 +4,17 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAuthenticatorSettings**](AttackProtectionApi.md#getauthenticatorsettings) | **GET** /attack-protection/api/v1/authenticator-settings | Retrieve the Authenticator Settings
-[**GetUserLockoutSettings**](AttackProtectionApi.md#getuserlockoutsettings) | **GET** /attack-protection/api/v1/user-lockout-settings | Retrieve the User Lockout Settings
-[**ReplaceAuthenticatorSettings**](AttackProtectionApi.md#replaceauthenticatorsettings) | **PUT** /attack-protection/api/v1/authenticator-settings | Replace the Authenticator Settings
-[**ReplaceUserLockoutSettings**](AttackProtectionApi.md#replaceuserlockoutsettings) | **PUT** /attack-protection/api/v1/user-lockout-settings | Replace the User Lockout Settings
+[**GetAuthenticatorSettings**](AttackProtectionApi.md#getauthenticatorsettings) | **GET** /attack-protection/api/v1/authenticator-settings | Retrieve the authenticator settings
+[**GetUserLockoutSettings**](AttackProtectionApi.md#getuserlockoutsettings) | **GET** /attack-protection/api/v1/user-lockout-settings | Retrieve the user lockout settings
+[**ReplaceAuthenticatorSettings**](AttackProtectionApi.md#replaceauthenticatorsettings) | **PUT** /attack-protection/api/v1/authenticator-settings | Replace the authenticator settings
+[**ReplaceUserLockoutSettings**](AttackProtectionApi.md#replaceuserlockoutsettings) | **PUT** /attack-protection/api/v1/user-lockout-settings | Replace the user lockout settings
 
 
 <a name="getauthenticatorsettings"></a>
 # **GetAuthenticatorSettings**
 > List&lt;AttackProtectionAuthenticatorSettings&gt; GetAuthenticatorSettings ()
 
-Retrieve the Authenticator Settings
+Retrieve the authenticator settings
 
 Retrieves the Authenticator Settings for an org
 
@@ -43,7 +43,7 @@ namespace Example
 
             try
             {
-                // Retrieve the Authenticator Settings
+                // Retrieve the authenticator settings
                 List<AttackProtectionAuthenticatorSettings> result = apiInstance.GetAuthenticatorSettings().ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -88,7 +88,7 @@ This endpoint does not need any parameter.
 # **GetUserLockoutSettings**
 > List&lt;UserLockoutSettings&gt; GetUserLockoutSettings ()
 
-Retrieve the User Lockout Settings
+Retrieve the user lockout settings
 
 Retrieves the User Lockout Settings for an org
 
@@ -117,7 +117,7 @@ namespace Example
 
             try
             {
-                // Retrieve the User Lockout Settings
+                // Retrieve the user lockout settings
                 List<UserLockoutSettings> result = apiInstance.GetUserLockoutSettings().ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -162,7 +162,7 @@ This endpoint does not need any parameter.
 # **ReplaceAuthenticatorSettings**
 > AttackProtectionAuthenticatorSettings ReplaceAuthenticatorSettings (AttackProtectionAuthenticatorSettings authenticatorSettings)
 
-Replace the Authenticator Settings
+Replace the authenticator settings
 
 Replaces the Authenticator Settings for an org
 
@@ -192,7 +192,7 @@ namespace Example
 
             try
             {
-                // Replace the Authenticator Settings
+                // Replace the authenticator settings
                 AttackProtectionAuthenticatorSettings result = apiInstance.ReplaceAuthenticatorSettings(authenticatorSettings);
                 Debug.WriteLine(result);
             }
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 # **ReplaceUserLockoutSettings**
 > UserLockoutSettings ReplaceUserLockoutSettings (UserLockoutSettings lockoutSettings)
 
-Replace the User Lockout Settings
+Replace the user lockout settings
 
 Replaces the User Lockout Settings for an org
 
@@ -271,7 +271,7 @@ namespace Example
 
             try
             {
-                // Replace the User Lockout Settings
+                // Replace the user lockout settings
                 UserLockoutSettings result = apiInstance.ReplaceUserLockoutSettings(lockoutSettings);
                 Debug.WriteLine(result);
             }

@@ -1,5 +1,121 @@
 # Changelog
 Running changelog of releases since `3.1.1`
+
+## 10.0.0
+
+### Breaking Changes
+
+This is a major release with significant architectural improvements. Several large API clients have been split into specialized, focused clients for better maintainability and discoverability.
+
+> **Migration Guide**: Please refer to [MIGRATION_GUIDE_v10.0.0.md](MIGRATION_GUIDE_v10.0.0.md) for comprehensive method-level mappings and [MIGRATING.md](MIGRATING.md) for migration examples.
+
+### API Reorganization
+
+#### UserApi Split (Major Change)
+The monolithic `UserApi` has been refactored into specialized clients:
+- **UserApi** - Core CRUD operations (CreateUser, GetUser, UpdateUser, DeleteUser, ListUsers)
+- **UserLifecycleApi** - User lifecycle operations (Activate, Deactivate, Suspend, Unsuspend, Unlock, Reactivate)
+- **UserCredApi** - Credential management (ChangePassword, ExpirePassword, ForgotPassword, ResetPassword, SetPassword)
+- **UserGrantApi** - User grant operations (GetUserGrant, ListUserGrants, RevokeUserGrant)
+- **UserOAuthApi** - OAuth token operations (ListGrantsForUserAndClient, RevokeGrantsForUserAndClient, Refresh tokens)
+- **UserSessionsApi** - Session management (ClearUserSessions, ListUserSessions, GetUserSession, RevokeUserSession)
+- **UserLinkedObjectApi** - Linked object operations (SetLinkedObject, DeleteLinkedObject, ListLinkedObjects)
+- **UserResourcesApi** - User resources (ListAppLinks, ListAssignedApplications, ListAppTargets)
+- **UserAuthenticatorEnrollmentsApi** - Authenticator enrollments (ListEnrollments, GetEnrollment, ResetEnrollment)
+- **UserClassificationApi** - User classification (GetClassification, UpdateClassification)
+- **UserRiskApi** - User risk operations (GetUserRisk, UpdateUserRisk)
+
+#### OrgSettingApi Split
+Organization settings divided into focused clients:
+- **OrgSettingGeneralApi** - General org settings
+- **OrgSettingAdminApi** - Admin settings
+- **OrgSettingCommunicationApi** - Communication preferences
+- **OrgSettingContactApi** - Contact information
+- **OrgSettingCustomizationApi** - Customization settings
+- **OrgSettingMetadataApi** - Organization metadata
+- **OrgSettingSupportApi** - Support settings (GrantOktaSupport, RevokeOktaSupport, ExtendOktaSupport)
+
+#### RoleApi Split
+Role management reorganized into specialized clients:
+- **RoleAssignmentAUserApi** - User role assignments (AssignRoleToUser, ListUserRoles, UnassignRoleFromUser)
+- **RoleAssignmentBGroupApi** - Group role assignments (AssignRoleToGroup, ListGroupRoles, UnassignRoleFromGroup)
+- **RoleAssignmentClientApi** - Client role assignments (AssignRoleToClient, ListClientRoles, UnassignRoleFromClient)
+- **RoleBTargetAdminApi** - Admin role targets
+- **RoleBTargetBGroupApi** - Group role targets
+- **RoleBTargetClientApi** - Client role targets
+- **RoleECustomApi** - Custom role management (CreateCustomRole, ListCustomRoles, DeleteCustomRole)
+- **RoleECustomPermissionApi** - Custom role permissions
+
+#### ResourceSetApi Split
+Resource set operations moved to role-based clients:
+- **RoleCResourceSetApi** - Resource set CRUD operations
+- **RoleCResourceSetResourceApi** - Resource set resource operations
+- **RoleDResourceSetBindingApi** - Resource set binding operations
+- **RoleDResourceSetBindingMemberApi** - Resource set binding member operations
+
+### New API Clients (29 Total)
+
+#### Application APIs
+- **ApplicationCrossAppAccessConnectionsApi** - Manage cross-app access connections
+- **ApplicationSSOCredentialKeyApi** - Manage SSO credential keys
+- **ApplicationSSOFederatedClaimsApi** - Manage SSO federated claims
+- **ApplicationSSOPublicKeysApi** - Manage SSO public keys
+
+#### Device Management APIs
+- **DeviceAccessApi** - Device access policies
+- **DeviceIntegrationsApi** - Device integrations
+- **DevicePostureCheckApi** - Device posture checks
+
+#### Identity Provider APIs
+- **IdentityProviderKeysApi** - Identity provider keys
+- **IdentityProviderSigningKeysApi** - Identity provider signing keys
+- **IdentityProviderUsersApi** - Identity provider users
+
+#### Other New APIs
+- **AssociatedDomainCustomizationsApi** - Associated domain customizations
+- **EmailCustomizationApi** - Email customizations
+- **GovernanceBundleApi** - Governance bundles
+- **GroupPushMappingApi** - Group push mappings
+- **GroupRuleApi** - Group rules
+- **OAuth2ResourceServerCredentialsKeysApi** - OAuth2 resource server credential keys
+- **OktaPersonalSettingsApi** - Okta personal settings
+- **OrgCreatorApi** - Organization creators
+- **ServiceAccountApi** - Service account management
+- **WebAuthnPreregistrationApi** - WebAuthn preregistration
+
+### Changed
+
+#### ApplicationApi
+- `ListApplications()` - Added optional `useOptimization` parameter for improved performance
+
+#### UserApi
+- `GetUserAsync()` - Added optional `contentType` parameter
+- `ListUsers()` - Added optional `contentType` parameter
+
+### Removed
+
+#### ApplicationCredentialsApi
+- **Entire API removed** - Credential-related operations may be available through `ApplicationSSOApi` and related SSO APIs
+
+### Fixed
+
+- Improved API organization for better discoverability
+- Enhanced separation of concerns with focused API clients
+- Reduced complexity with smaller, maintainable API surfaces
+
+### Benefits
+
+- **Better Organization**: Related operations grouped logically
+- **Improved Maintainability**: Smaller, focused API clients
+- **Enhanced Discoverability**: Clear API naming indicates purpose
+- **Easier Testing**: Focused clients are simpler to mock and test
+- **Reduced Complexity**: Smaller surface area per client
+
+### Unchanged APIs (60+)
+
+The majority of API clients remain unchanged with identical method signatures:
+`AgentPoolsApi`, `ApiServiceIntegrationsApi`, `ApiTokenApi`, `ApplicationConnectionsApi`, `ApplicationFeaturesApi`, `ApplicationGrantsApi`, `ApplicationGroupsApi`, `ApplicationLogosApi`, `ApplicationPoliciesApi`, `ApplicationSSOApi`, `ApplicationTokensApi`, `ApplicationUsersApi`, `AttackProtectionApi`, `AuthenticatorApi`, `AuthorizationServerApi`, `AuthorizationServerAssocApi`, `AuthorizationServerClaimsApi`, `AuthorizationServerClientsApi`, `AuthorizationServerKeysApi`, `AuthorizationServerPoliciesApi`, `AuthorizationServerRulesApi`, `AuthorizationServerScopesApi`, `BehaviorApi`, `BrandsApi`, `CAPTCHAApi`, `CustomDomainApi`, `CustomPagesApi`, `CustomTemplatesApi`, `DeviceApi`, `DeviceAssuranceApi`, `DirectoriesIntegrationApi`, `EmailDomainApi`, `EmailServerApi`, `EventHookApi`, `FeatureApi`, `GroupApi`, `GroupOwnerApi`, `HookKeyApi`, `IdentityProviderApi`, `IdentitySourceApi`, `InlineHookApi`, `LinkedObjectApi`, `LogStreamApi`, `NetworkZoneApi`, `OAuthApi`, `OktaApplicationSettingsApi`, `PolicyApi`, `PrincipalRateLimitApi`, `ProfileMappingApi`, `PushProviderApi`, `RateLimitSettingsApi`, `RealmApi`, `RealmAssignmentApi`, `RiskEventApi`, `RiskProviderApi`, `SchemaApi`, `SessionApi`, `SSFReceiverApi`, `SSFSecurityEventTokenApi`, `SSFTransmitterApi`, `SubscriptionApi`, `SystemLogApi`, `TemplateApi`, `ThemesApi`, `ThreatInsightApi`, `TrustedOriginApi`, `UISchemaApi`, `UserFactorApi`, `UserTypeApi`
+
 ## 9.2.3
 - Fix runtime crash on .NET 8 by adding Microsoft.Bcl.AsyncInterfaces v8.0.0 as explicit dependency (#787)
 - fix: make private key optional again after DPoP changes mistakenly required it by default

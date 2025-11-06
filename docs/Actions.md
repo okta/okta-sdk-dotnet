@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.Actions
+Action to apply to a user
 
 ## Properties
 

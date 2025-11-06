@@ -4,18 +4,18 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateOAuth2Scope**](AuthorizationServerScopesApi.md#createoauth2scope) | **POST** /api/v1/authorizationServers/{authServerId}/scopes | Create a Custom Token Scope
-[**DeleteOAuth2Scope**](AuthorizationServerScopesApi.md#deleteoauth2scope) | **DELETE** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Delete a Custom Token Scope
-[**GetOAuth2Scope**](AuthorizationServerScopesApi.md#getoauth2scope) | **GET** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Retrieve a Custom Token Scope
-[**ListOAuth2Scopes**](AuthorizationServerScopesApi.md#listoauth2scopes) | **GET** /api/v1/authorizationServers/{authServerId}/scopes | List all Custom Token Scopes
-[**ReplaceOAuth2Scope**](AuthorizationServerScopesApi.md#replaceoauth2scope) | **PUT** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Replace a Custom Token Scope
+[**CreateOAuth2Scope**](AuthorizationServerScopesApi.md#createoauth2scope) | **POST** /api/v1/authorizationServers/{authServerId}/scopes | Create a custom token scope
+[**DeleteOAuth2Scope**](AuthorizationServerScopesApi.md#deleteoauth2scope) | **DELETE** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Delete a custom token scope
+[**GetOAuth2Scope**](AuthorizationServerScopesApi.md#getoauth2scope) | **GET** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Retrieve a custom token scope
+[**ListOAuth2Scopes**](AuthorizationServerScopesApi.md#listoauth2scopes) | **GET** /api/v1/authorizationServers/{authServerId}/scopes | List all custom token scopes
+[**ReplaceOAuth2Scope**](AuthorizationServerScopesApi.md#replaceoauth2scope) | **PUT** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Replace a custom token scope
 
 
 <a name="createoauth2scope"></a>
 # **CreateOAuth2Scope**
 > OAuth2Scope CreateOAuth2Scope (string authServerId, OAuth2Scope oAuth2Scope)
 
-Create a Custom Token Scope
+Create a custom token scope
 
 Creates a custom token scope
 
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Create a Custom Token Scope
+                // Create a custom token scope
                 OAuth2Scope result = apiInstance.CreateOAuth2Scope(authServerId, oAuth2Scope);
                 Debug.WriteLine(result);
             }
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 # **DeleteOAuth2Scope**
 > void DeleteOAuth2Scope (string authServerId, string scopeId)
 
-Delete a Custom Token Scope
+Delete a custom token scope
 
 Deletes a custom token scope
 
@@ -128,7 +128,7 @@ namespace Example
 
             try
             {
-                // Delete a Custom Token Scope
+                // Delete a custom token scope
                 apiInstance.DeleteOAuth2Scope(authServerId, scopeId);
             }
             catch (ApiException  e)
@@ -177,7 +177,7 @@ void (empty response body)
 # **GetOAuth2Scope**
 > OAuth2Scope GetOAuth2Scope (string authServerId, string scopeId)
 
-Retrieve a Custom Token Scope
+Retrieve a custom token scope
 
 Retrieves a custom token scope
 
@@ -208,7 +208,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Custom Token Scope
+                // Retrieve a custom token scope
                 OAuth2Scope result = apiInstance.GetOAuth2Scope(authServerId, scopeId);
                 Debug.WriteLine(result);
             }
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 # **ListOAuth2Scopes**
 > List&lt;OAuth2Scope&gt; ListOAuth2Scopes (string authServerId, string q = null, string filter = null, string after = null, int? limit = null)
 
-List all Custom Token Scopes
+List all custom token scopes
 
 Lists all custom token scopes
 
@@ -285,14 +285,14 @@ namespace Example
 
             var apiInstance = new AuthorizationServerScopesApi(config);
             var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
-            var q = "q_example";  // string |  (optional) 
-            var filter = "filter_example";  // string |  (optional) 
-            var after = "after_example";  // string |  (optional) 
-            var limit = -1;  // int? |  (optional)  (default to -1)
+            var q = "q_example";  // string | Searches the `name` of Custom Token Scopes for matching values (optional) 
+            var filter = "filter_example";  // string | Filter expression for Custom Token Scopes (optional) 
+            var after = "after_example";  // string | Specifies the pagination cursor for the next page of scopes. Treat the after cursor as an opaque value and obtain it through the next link relationship. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
+            var limit = 56;  // int? | Specifies the number of objects to return per page. If there are multiple pages of results, the Link header contains a `next` link that you need to use as an opaque value (follow it, don't parse it). See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
 
             try
             {
-                // List all Custom Token Scopes
+                // List all custom token scopes
                 List<OAuth2Scope> result = apiInstance.ListOAuth2Scopes(authServerId, q, filter, after, limit).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -312,10 +312,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
- **q** | **string**|  | [optional] 
- **filter** | **string**|  | [optional] 
- **after** | **string**|  | [optional] 
- **limit** | **int?**|  | [optional] [default to -1]
+ **q** | **string**| Searches the &#x60;name&#x60; of Custom Token Scopes for matching values | [optional] 
+ **filter** | **string**| Filter expression for Custom Token Scopes | [optional] 
+ **after** | **string**| Specifies the pagination cursor for the next page of scopes. Treat the after cursor as an opaque value and obtain it through the next link relationship. See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
+ **limit** | **int?**| Specifies the number of objects to return per page. If there are multiple pages of results, the Link header contains a &#x60;next&#x60; link that you need to use as an opaque value (follow it, don&#39;t parse it). See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
 
 ### Return type
 
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 # **ReplaceOAuth2Scope**
 > OAuth2Scope ReplaceOAuth2Scope (string authServerId, string scopeId, OAuth2Scope oAuth2Scope)
 
-Replace a Custom Token Scope
+Replace a custom token scope
 
 Replaces a custom token scope
 
@@ -377,7 +377,7 @@ namespace Example
 
             try
             {
-                // Replace a Custom Token Scope
+                // Replace a custom token scope
                 OAuth2Scope result = apiInstance.ReplaceOAuth2Scope(authServerId, scopeId, oAuth2Scope);
                 Debug.WriteLine(result);
             }

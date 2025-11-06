@@ -4,22 +4,22 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateTrustedOrigin**](TrustedOriginApi.md#activatetrustedorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/activate | Activate a Trusted Origin
-[**CreateTrustedOrigin**](TrustedOriginApi.md#createtrustedorigin) | **POST** /api/v1/trustedOrigins | Create a Trusted Origin
-[**DeactivateTrustedOrigin**](TrustedOriginApi.md#deactivatetrustedorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/deactivate | Deactivate a Trusted Origin
-[**DeleteTrustedOrigin**](TrustedOriginApi.md#deletetrustedorigin) | **DELETE** /api/v1/trustedOrigins/{trustedOriginId} | Delete a Trusted Origin
-[**GetTrustedOrigin**](TrustedOriginApi.md#gettrustedorigin) | **GET** /api/v1/trustedOrigins/{trustedOriginId} | Retrieve a Trusted Origin
-[**ListTrustedOrigins**](TrustedOriginApi.md#listtrustedorigins) | **GET** /api/v1/trustedOrigins | List all Trusted Origins
-[**ReplaceTrustedOrigin**](TrustedOriginApi.md#replacetrustedorigin) | **PUT** /api/v1/trustedOrigins/{trustedOriginId} | Replace a Trusted Origin
+[**ActivateTrustedOrigin**](TrustedOriginApi.md#activatetrustedorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/activate | Activate a trusted origin
+[**CreateTrustedOrigin**](TrustedOriginApi.md#createtrustedorigin) | **POST** /api/v1/trustedOrigins | Create a trusted origin
+[**DeactivateTrustedOrigin**](TrustedOriginApi.md#deactivatetrustedorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/deactivate | Deactivate a trusted origin
+[**DeleteTrustedOrigin**](TrustedOriginApi.md#deletetrustedorigin) | **DELETE** /api/v1/trustedOrigins/{trustedOriginId} | Delete a trusted origin
+[**GetTrustedOrigin**](TrustedOriginApi.md#gettrustedorigin) | **GET** /api/v1/trustedOrigins/{trustedOriginId} | Retrieve a trusted origin
+[**ListTrustedOrigins**](TrustedOriginApi.md#listtrustedorigins) | **GET** /api/v1/trustedOrigins | List all trusted origins
+[**ReplaceTrustedOrigin**](TrustedOriginApi.md#replacetrustedorigin) | **PUT** /api/v1/trustedOrigins/{trustedOriginId} | Replace a trusted origin
 
 
 <a name="activatetrustedorigin"></a>
 # **ActivateTrustedOrigin**
 > TrustedOrigin ActivateTrustedOrigin (string trustedOriginId)
 
-Activate a Trusted Origin
+Activate a trusted origin
 
-Activates a Trusted Origin. Sets the `status` to `ACTIVE`.
+Activates a trusted origin. Sets the `status` to `ACTIVE`.
 
 ### Example
 ```csharp
@@ -43,11 +43,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
-            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the Trusted Origin
+            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the trusted origin
 
             try
             {
-                // Activate a Trusted Origin
+                // Activate a trusted origin
                 TrustedOrigin result = apiInstance.ActivateTrustedOrigin(trustedOriginId);
                 Debug.WriteLine(result);
             }
@@ -66,7 +66,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trustedOriginId** | **string**| &#x60;id&#x60; of the Trusted Origin | 
+ **trustedOriginId** | **string**| &#x60;id&#x60; of the trusted origin | 
 
 ### Return type
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 # **CreateTrustedOrigin**
 > TrustedOrigin CreateTrustedOrigin (TrustedOriginWrite trustedOrigin)
 
-Create a Trusted Origin
+Create a trusted origin
 
 Creates a trusted origin
 
@@ -126,7 +126,7 @@ namespace Example
 
             try
             {
-                // Create a Trusted Origin
+                // Create a trusted origin
                 TrustedOrigin result = apiInstance.CreateTrustedOrigin(trustedOrigin);
                 Debug.WriteLine(result);
             }
@@ -175,9 +175,9 @@ Name | Type | Description  | Notes
 # **DeactivateTrustedOrigin**
 > TrustedOrigin DeactivateTrustedOrigin (string trustedOriginId)
 
-Deactivate a Trusted Origin
+Deactivate a trusted origin
 
-Deactivates a Trusted Origin. Sets the `status` to `INACTIVE`.
+Deactivates a trusted origin. Sets the `status` to `INACTIVE`.
 
 ### Example
 ```csharp
@@ -201,11 +201,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
-            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the Trusted Origin
+            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the trusted origin
 
             try
             {
-                // Deactivate a Trusted Origin
+                // Deactivate a trusted origin
                 TrustedOrigin result = apiInstance.DeactivateTrustedOrigin(trustedOriginId);
                 Debug.WriteLine(result);
             }
@@ -224,7 +224,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trustedOriginId** | **string**| &#x60;id&#x60; of the Trusted Origin | 
+ **trustedOriginId** | **string**| &#x60;id&#x60; of the trusted origin | 
 
 ### Return type
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 # **DeleteTrustedOrigin**
 > void DeleteTrustedOrigin (string trustedOriginId)
 
-Delete a Trusted Origin
+Delete a trusted origin
 
 Deletes a trusted origin
 
@@ -280,11 +280,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
-            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the Trusted Origin
+            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the trusted origin
 
             try
             {
-                // Delete a Trusted Origin
+                // Delete a trusted origin
                 apiInstance.DeleteTrustedOrigin(trustedOriginId);
             }
             catch (ApiException  e)
@@ -302,7 +302,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trustedOriginId** | **string**| &#x60;id&#x60; of the Trusted Origin | 
+ **trustedOriginId** | **string**| &#x60;id&#x60; of the trusted origin | 
 
 ### Return type
 
@@ -332,7 +332,7 @@ void (empty response body)
 # **GetTrustedOrigin**
 > TrustedOrigin GetTrustedOrigin (string trustedOriginId)
 
-Retrieve a Trusted Origin
+Retrieve a trusted origin
 
 Retrieves a trusted origin
 
@@ -358,11 +358,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
-            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the Trusted Origin
+            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the trusted origin
 
             try
             {
-                // Retrieve a Trusted Origin
+                // Retrieve a trusted origin
                 TrustedOrigin result = apiInstance.GetTrustedOrigin(trustedOriginId);
                 Debug.WriteLine(result);
             }
@@ -381,7 +381,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trustedOriginId** | **string**| &#x60;id&#x60; of the Trusted Origin | 
+ **trustedOriginId** | **string**| &#x60;id&#x60; of the trusted origin | 
 
 ### Return type
 
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 # **ListTrustedOrigins**
 > List&lt;TrustedOrigin&gt; ListTrustedOrigins (string q = null, string filter = null, string after = null, int? limit = null)
 
-List all Trusted Origins
+List all trusted origins
 
 Lists all trusted origins
 
@@ -437,14 +437,14 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
-            var q = "q_example";  // string | A search string that will prefix match against the `name` and `origin` (optional) 
-            var filter = name eq "Example Trusted Origin";  // string | [Filter](/#filter) Trusted Origins with a supported expression for a subset of properties. You can filter on the following properties: `name`, `origin`, `status`, and `type` (type of scopes).  (optional) 
-            var after = "after_example";  // string | The after cursor provided by a prior request. (optional) 
-            var limit = 20;  // int? | Specifies the number of results. (optional)  (default to 20)
+            var q = "q_example";  // string | A search string that prefix matches against the `name` and `origin` (optional) 
+            var filter = name eq "Example trusted origin";  // string | [Filter](https://developer.okta.com/docs/api/#filter) trusted origins with a supported expression for a subset of properties. You can filter on the following properties: `name`, `origin`, `status`, and `type` (type of scopes).  (optional) 
+            var after = "after_example";  // string | After cursor provided by a prior request (optional) 
+            var limit = 20;  // int? | Specifies the number of results (optional)  (default to 20)
 
             try
             {
-                // List all Trusted Origins
+                // List all trusted origins
                 List<TrustedOrigin> result = apiInstance.ListTrustedOrigins(q, filter, after, limit).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -463,10 +463,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **q** | **string**| A search string that will prefix match against the &#x60;name&#x60; and &#x60;origin&#x60; | [optional] 
- **filter** | **string**| [Filter](/#filter) Trusted Origins with a supported expression for a subset of properties. You can filter on the following properties: &#x60;name&#x60;, &#x60;origin&#x60;, &#x60;status&#x60;, and &#x60;type&#x60; (type of scopes).  | [optional] 
- **after** | **string**| The after cursor provided by a prior request. | [optional] 
- **limit** | **int?**| Specifies the number of results. | [optional] [default to 20]
+ **q** | **string**| A search string that prefix matches against the &#x60;name&#x60; and &#x60;origin&#x60; | [optional] 
+ **filter** | **string**| [Filter](https://developer.okta.com/docs/api/#filter) trusted origins with a supported expression for a subset of properties. You can filter on the following properties: &#x60;name&#x60;, &#x60;origin&#x60;, &#x60;status&#x60;, and &#x60;type&#x60; (type of scopes).  | [optional] 
+ **after** | **string**| After cursor provided by a prior request | [optional] 
+ **limit** | **int?**| Specifies the number of results | [optional] [default to 20]
 
 ### Return type
 
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 # **ReplaceTrustedOrigin**
 > TrustedOrigin ReplaceTrustedOrigin (string trustedOriginId, TrustedOrigin trustedOrigin)
 
-Replace a Trusted Origin
+Replace a trusted origin
 
 Replaces a trusted origin
 
@@ -521,12 +521,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
-            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the Trusted Origin
+            var trustedOriginId = 7j2PkU1nyNIDe26ZNufR;  // string | `id` of the trusted origin
             var trustedOrigin = new TrustedOrigin(); // TrustedOrigin | 
 
             try
             {
-                // Replace a Trusted Origin
+                // Replace a trusted origin
                 TrustedOrigin result = apiInstance.ReplaceTrustedOrigin(trustedOriginId, trustedOrigin);
                 Debug.WriteLine(result);
             }
@@ -545,7 +545,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trustedOriginId** | **string**| &#x60;id&#x60; of the Trusted Origin | 
+ **trustedOriginId** | **string**| &#x60;id&#x60; of the trusted origin | 
  **trustedOrigin** | [**TrustedOrigin**](TrustedOrigin.md)|  | 
 
 ### Return type

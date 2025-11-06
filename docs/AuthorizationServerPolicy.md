@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Conditions** | [**AuthorizationServerPolicyConditions**](AuthorizationServerPolicyConditions.md) |  | [optional] 
 **Description** | **string** | Description of the Policy | [optional] 
 **Priority** | **int** | Specifies the order in which this Policy is evaluated in relation to the other Policies in a custom authorization server | [optional] 
-**Status** | **AuthorizationServerPolicyStatus** |  | [optional] 
+**Status** | **string** | Specifies whether requests have access to this Policy | [optional] 
 **System** | **bool** | Specifies whether Okta created this Policy | [optional] 
 **Created** | **DateTimeOffset** | Timestamp when the Policy was created | [optional] [readonly] 
 **LastUpdated** | **DateTimeOffset** | Timestamp when the Policy was last updated | [optional] [readonly] 

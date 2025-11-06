@@ -4,18 +4,18 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetRefreshTokenForAuthorizationServerAndClient**](AuthorizationServerClientsApi.md#getrefreshtokenforauthorizationserverandclient) | **GET** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId} | Retrieve a refresh token for a Client
-[**ListOAuth2ClientsForAuthorizationServer**](AuthorizationServerClientsApi.md#listoauth2clientsforauthorizationserver) | **GET** /api/v1/authorizationServers/{authServerId}/clients | List all Client resources for an authorization server
-[**ListRefreshTokensForAuthorizationServerAndClient**](AuthorizationServerClientsApi.md#listrefreshtokensforauthorizationserverandclient) | **GET** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens | List all refresh tokens for a Client
-[**RevokeRefreshTokenForAuthorizationServerAndClient**](AuthorizationServerClientsApi.md#revokerefreshtokenforauthorizationserverandclient) | **DELETE** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId} | Revoke a refresh token for a Client
-[**RevokeRefreshTokensForAuthorizationServerAndClient**](AuthorizationServerClientsApi.md#revokerefreshtokensforauthorizationserverandclient) | **DELETE** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens | Revoke all refresh tokens for a Client
+[**GetRefreshTokenForAuthorizationServerAndClient**](AuthorizationServerClientsApi.md#getrefreshtokenforauthorizationserverandclient) | **GET** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId} | Retrieve a refresh token for a client
+[**ListOAuth2ClientsForAuthorizationServer**](AuthorizationServerClientsApi.md#listoauth2clientsforauthorizationserver) | **GET** /api/v1/authorizationServers/{authServerId}/clients | List all client resources for an authorization server
+[**ListRefreshTokensForAuthorizationServerAndClient**](AuthorizationServerClientsApi.md#listrefreshtokensforauthorizationserverandclient) | **GET** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens | List all refresh tokens for a client
+[**RevokeRefreshTokenForAuthorizationServerAndClient**](AuthorizationServerClientsApi.md#revokerefreshtokenforauthorizationserverandclient) | **DELETE** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId} | Revoke a refresh token for a client
+[**RevokeRefreshTokensForAuthorizationServerAndClient**](AuthorizationServerClientsApi.md#revokerefreshtokensforauthorizationserverandclient) | **DELETE** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens | Revoke all refresh tokens for a client
 
 
 <a name="getrefreshtokenforauthorizationserverandclient"></a>
 # **GetRefreshTokenForAuthorizationServerAndClient**
 > OAuth2RefreshToken GetRefreshTokenForAuthorizationServerAndClient (string authServerId, string clientId, string tokenId, string expand = null)
 
-Retrieve a refresh token for a Client
+Retrieve a refresh token for a client
 
 Retrieves a refresh token for a Client
 
@@ -42,13 +42,13 @@ namespace Example
 
             var apiInstance = new AuthorizationServerClientsApi(config);
             var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
-            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
+            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | Client app ID
             var tokenId = sHHSth53yJAyNSTQKDJZ;  // string | `id` of Token
             var expand = "expand_example";  // string | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute. (optional) 
 
             try
             {
-                // Retrieve a refresh token for a Client
+                // Retrieve a refresh token for a client
                 OAuth2RefreshToken result = apiInstance.GetRefreshTokenForAuthorizationServerAndClient(authServerId, clientId, tokenId, expand);
                 Debug.WriteLine(result);
             }
@@ -68,7 +68,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
- **clientId** | **string**| &#x60;client_id&#x60; of the app | 
+ **clientId** | **string**| Client app ID | 
  **tokenId** | **string**| &#x60;id&#x60; of Token | 
  **expand** | **string**| Valid value: &#x60;scope&#x60;. If specified, scope details are included in the &#x60;_embedded&#x60; attribute. | [optional] 
 
@@ -100,9 +100,9 @@ Name | Type | Description  | Notes
 # **ListOAuth2ClientsForAuthorizationServer**
 > List&lt;OAuth2Client&gt; ListOAuth2ClientsForAuthorizationServer (string authServerId)
 
-List all Client resources for an authorization server
+List all client resources for an authorization server
 
-Lists all Client resources for which the specified authorization server has tokens
+Lists all client resources for which the specified authorization server has tokens.  > **Note:** To list a specific user's client resources for which they have tokens or grants, use the [List all clients endpoint in the User Resources API](/openapi/okta-management/management/tag/UserResources/#tag/UserResources/operation/listUserClients).
 
 ### Example
 ```csharp
@@ -130,7 +130,7 @@ namespace Example
 
             try
             {
-                // List all Client resources for an authorization server
+                // List all client resources for an authorization server
                 List<OAuth2Client> result = apiInstance.ListOAuth2ClientsForAuthorizationServer(authServerId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 # **ListRefreshTokensForAuthorizationServerAndClient**
 > List&lt;OAuth2RefreshToken&gt; ListRefreshTokensForAuthorizationServerAndClient (string authServerId, string clientId, string expand = null, string after = null, int? limit = null)
 
-List all refresh tokens for a Client
+List all refresh tokens for a client
 
 Lists all refresh tokens issued by an authorization server for a specific Client
 
@@ -206,14 +206,14 @@ namespace Example
 
             var apiInstance = new AuthorizationServerClientsApi(config);
             var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
-            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
+            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | Client app ID
             var expand = "expand_example";  // string | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute. (optional) 
             var after = "after_example";  // string | Specifies the pagination cursor for the next page of tokens (optional) 
             var limit = -1;  // int? | The maximum number of tokens to return (maximum 200) (optional)  (default to -1)
 
             try
             {
-                // List all refresh tokens for a Client
+                // List all refresh tokens for a client
                 List<OAuth2RefreshToken> result = apiInstance.ListRefreshTokensForAuthorizationServerAndClient(authServerId, clientId, expand, after, limit).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -233,7 +233,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
- **clientId** | **string**| &#x60;client_id&#x60; of the app | 
+ **clientId** | **string**| Client app ID | 
  **expand** | **string**| Valid value: &#x60;scope&#x60;. If specified, scope details are included in the &#x60;_embedded&#x60; attribute. | [optional] 
  **after** | **string**| Specifies the pagination cursor for the next page of tokens | [optional] 
  **limit** | **int?**| The maximum number of tokens to return (maximum 200) | [optional] [default to -1]
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 # **RevokeRefreshTokenForAuthorizationServerAndClient**
 > void RevokeRefreshTokenForAuthorizationServerAndClient (string authServerId, string clientId, string tokenId)
 
-Revoke a refresh token for a Client
+Revoke a refresh token for a client
 
 Revokes a refresh token for a Client
 
@@ -293,12 +293,12 @@ namespace Example
 
             var apiInstance = new AuthorizationServerClientsApi(config);
             var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
-            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
+            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | Client app ID
             var tokenId = sHHSth53yJAyNSTQKDJZ;  // string | `id` of Token
 
             try
             {
-                // Revoke a refresh token for a Client
+                // Revoke a refresh token for a client
                 apiInstance.RevokeRefreshTokenForAuthorizationServerAndClient(authServerId, clientId, tokenId);
             }
             catch (ApiException  e)
@@ -317,7 +317,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
- **clientId** | **string**| &#x60;client_id&#x60; of the app | 
+ **clientId** | **string**| Client app ID | 
  **tokenId** | **string**| &#x60;id&#x60; of Token | 
 
 ### Return type
@@ -348,7 +348,7 @@ void (empty response body)
 # **RevokeRefreshTokensForAuthorizationServerAndClient**
 > void RevokeRefreshTokensForAuthorizationServerAndClient (string authServerId, string clientId)
 
-Revoke all refresh tokens for a Client
+Revoke all refresh tokens for a client
 
 Revokes all refresh tokens for a Client
 
@@ -375,11 +375,11 @@ namespace Example
 
             var apiInstance = new AuthorizationServerClientsApi(config);
             var authServerId = GeGRTEr7f3yu2n7grw22;  // string | `id` of the Authorization Server
-            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | `client_id` of the app
+            var clientId = 52Uy4BUWVBOjFItcg2jWsmnd83Ad8dD;  // string | Client app ID
 
             try
             {
-                // Revoke all refresh tokens for a Client
+                // Revoke all refresh tokens for a client
                 apiInstance.RevokeRefreshTokensForAuthorizationServerAndClient(authServerId, clientId);
             }
             catch (ApiException  e)
@@ -398,7 +398,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authServerId** | **string**| &#x60;id&#x60; of the Authorization Server | 
- **clientId** | **string**| &#x60;client_id&#x60; of the app | 
+ **clientId** | **string**| Client app ID | 
 
 ### Return type
 

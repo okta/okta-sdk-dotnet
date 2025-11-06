@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.PolicyMappingResourceType
+Specifies the type of resource to map. You can either map an app onto a policy, or map a device signal collection policy onto an authentication policy.
 
 ## Properties
 

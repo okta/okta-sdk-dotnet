@@ -1,5 +1,5 @@
 # Okta.Sdk.Model.TokenSoftwareTotp
-Attempts to activate a `token:software:totp` Factor with the specified passcode.
+Attempts to activate a `token:software:totp` factor with the specified passcode
 
 ## Properties
 

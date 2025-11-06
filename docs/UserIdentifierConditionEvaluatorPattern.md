@@ -1,12 +1,12 @@
 # Okta.Sdk.Model.UserIdentifierConditionEvaluatorPattern
-Used in the User Identifier Condition object. Specifies the details of the patterns to match against.
+Specifies the details of the patterns to match against
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MatchType** | **UserIdentifierMatchType** |  | [optional] 
-**Value** | **string** | The regex expression of a simple match string | [optional] 
+**MatchType** | **UserIdentifierMatchType** |  | 
+**Value** | **string** | The regular expression or simple match string | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

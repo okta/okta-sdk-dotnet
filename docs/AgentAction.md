@@ -1,12 +1,12 @@
 # Okta.Sdk.Model.AgentAction
-Details about the AD Group membership update
+Details about the Active Directory group membership update
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | ID of the AD group to update | [optional] 
-**Parameters** | [**Parameters**](.md) |  | [optional] 
+**Id** | **string** | ID of the Active Directory group to update | [optional] 
+**Parameters** | [**Parameters**](Parameters.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

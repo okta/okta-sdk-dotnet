@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="previewsamlmetadataforapplication"></a>
 # **PreviewSAMLmetadataForApplication**
-> string PreviewSAMLmetadataForApplication (string appId)
+> string PreviewSAMLmetadataForApplication (string appId, string kid)
 
 Preview the application SAML metadata
 
@@ -38,11 +38,12 @@ namespace Example
 
             var apiInstance = new ApplicationSSOApi(config);
             var appId = 0oafxqCAJWWGELFTYASJ;  // string | Application ID
+            var kid = mXtzOtml09Dg1ZCeKxTRBo3KrQuBWFkJ5oxhVagjTzo;  // string | 
 
             try
             {
                 // Preview the application SAML metadata
-                string result = apiInstance.PreviewSAMLmetadataForApplication(appId);
+                string result = apiInstance.PreviewSAMLmetadataForApplication(appId, kid);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -61,6 +62,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **string**| Application ID | 
+ **kid** | **string**|  | 
 
 ### Return type
 

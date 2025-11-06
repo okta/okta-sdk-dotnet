@@ -4,29 +4,29 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateAgentPoolsUpdate**](AgentPoolsApi.md#activateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/activate | Activate an Agent Pool update
-[**CreateAgentPoolsUpdate**](AgentPoolsApi.md#createagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates | Create an Agent Pool update
-[**DeactivateAgentPoolsUpdate**](AgentPoolsApi.md#deactivateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/deactivate | Deactivate an Agent Pool update
-[**DeleteAgentPoolsUpdate**](AgentPoolsApi.md#deleteagentpoolsupdate) | **DELETE** /api/v1/agentPools/{poolId}/updates/{updateId} | Delete an Agent Pool update
-[**GetAgentPoolsUpdateInstance**](AgentPoolsApi.md#getagentpoolsupdateinstance) | **GET** /api/v1/agentPools/{poolId}/updates/{updateId} | Retrieve an Agent Pool update by id
-[**GetAgentPoolsUpdateSettings**](AgentPoolsApi.md#getagentpoolsupdatesettings) | **GET** /api/v1/agentPools/{poolId}/updates/settings | Retrieve an Agent Pool update&#39;s settings
-[**ListAgentPools**](AgentPoolsApi.md#listagentpools) | **GET** /api/v1/agentPools | List all Agent Pools
-[**ListAgentPoolsUpdates**](AgentPoolsApi.md#listagentpoolsupdates) | **GET** /api/v1/agentPools/{poolId}/updates | List all Agent Pool updates
-[**PauseAgentPoolsUpdate**](AgentPoolsApi.md#pauseagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/pause | Pause an Agent Pool update
-[**ResumeAgentPoolsUpdate**](AgentPoolsApi.md#resumeagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/resume | Resume an Agent Pool update
-[**RetryAgentPoolsUpdate**](AgentPoolsApi.md#retryagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/retry | Retry an Agent Pool update
-[**StopAgentPoolsUpdate**](AgentPoolsApi.md#stopagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/stop | Stop an Agent Pool update
-[**UpdateAgentPoolsUpdate**](AgentPoolsApi.md#updateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId} | Update an Agent Pool update by id
-[**UpdateAgentPoolsUpdateSettings**](AgentPoolsApi.md#updateagentpoolsupdatesettings) | **POST** /api/v1/agentPools/{poolId}/updates/settings | Update an Agent Pool update settings
+[**ActivateAgentPoolsUpdate**](AgentPoolsApi.md#activateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/activate | Activate an agent pool update
+[**CreateAgentPoolsUpdate**](AgentPoolsApi.md#createagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates | Create an agent pool update
+[**DeactivateAgentPoolsUpdate**](AgentPoolsApi.md#deactivateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/deactivate | Deactivate an agent pool update
+[**DeleteAgentPoolsUpdate**](AgentPoolsApi.md#deleteagentpoolsupdate) | **DELETE** /api/v1/agentPools/{poolId}/updates/{updateId} | Delete an agent pool update
+[**GetAgentPoolsUpdateInstance**](AgentPoolsApi.md#getagentpoolsupdateinstance) | **GET** /api/v1/agentPools/{poolId}/updates/{updateId} | Retrieve an agent pool update by ID
+[**GetAgentPoolsUpdateSettings**](AgentPoolsApi.md#getagentpoolsupdatesettings) | **GET** /api/v1/agentPools/{poolId}/updates/settings | Retrieve an agent pool update&#39;s settings
+[**ListAgentPools**](AgentPoolsApi.md#listagentpools) | **GET** /api/v1/agentPools | List all agent pools
+[**ListAgentPoolsUpdates**](AgentPoolsApi.md#listagentpoolsupdates) | **GET** /api/v1/agentPools/{poolId}/updates | List all agent pool updates
+[**PauseAgentPoolsUpdate**](AgentPoolsApi.md#pauseagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/pause | Pause an agent pool update
+[**ResumeAgentPoolsUpdate**](AgentPoolsApi.md#resumeagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/resume | Resume an agent pool update
+[**RetryAgentPoolsUpdate**](AgentPoolsApi.md#retryagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/retry | Retry an agent pool update
+[**StopAgentPoolsUpdate**](AgentPoolsApi.md#stopagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/stop | Stop an agent pool update
+[**UpdateAgentPoolsUpdate**](AgentPoolsApi.md#updateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId} | Update an agent pool update by ID
+[**UpdateAgentPoolsUpdateSettings**](AgentPoolsApi.md#updateagentpoolsupdatesettings) | **POST** /api/v1/agentPools/{poolId}/updates/settings | Update an agent pool update settings
 
 
 <a name="activateagentpoolsupdate"></a>
 # **ActivateAgentPoolsUpdate**
 > AgentPoolUpdate ActivateAgentPoolsUpdate (string poolId, string updateId)
 
-Activate an Agent Pool update
+Activate an agent pool update
 
-Activates scheduled Agent pool update
+Activates a scheduled agent pool update
 
 ### Example
 ```csharp
@@ -50,12 +50,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
-            var updateId = "updateId_example";  // string | Id of the update
+            var poolId = "poolId_example";  // string | ID of the agent pool for which the settings apply to
+            var updateId = "updateId_example";  // string | ID of the update
 
             try
             {
-                // Activate an Agent Pool update
+                // Activate an agent pool update
                 AgentPoolUpdate result = apiInstance.ActivateAgentPoolsUpdate(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -74,8 +74,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | **string**| Id of the agent pool for which the settings will apply | 
- **updateId** | **string**| Id of the update | 
+ **poolId** | **string**| ID of the agent pool for which the settings apply to | 
+ **updateId** | **string**| ID of the update | 
 
 ### Return type
 
@@ -105,9 +105,9 @@ Name | Type | Description  | Notes
 # **CreateAgentPoolsUpdate**
 > AgentPoolUpdate CreateAgentPoolsUpdate (string poolId, AgentPoolUpdate agentPoolUpdate)
 
-Create an Agent Pool update
+Create an agent pool update
 
-Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
+Creates an agent pool update
 
 ### Example
 ```csharp
@@ -131,12 +131,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
+            var poolId = "poolId_example";  // string | ID of the agent pool for which the settings apply to
             var agentPoolUpdate = new AgentPoolUpdate(); // AgentPoolUpdate | 
 
             try
             {
-                // Create an Agent Pool update
+                // Create an agent pool update
                 AgentPoolUpdate result = apiInstance.CreateAgentPoolsUpdate(poolId, agentPoolUpdate);
                 Debug.WriteLine(result);
             }
@@ -155,7 +155,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | **string**| Id of the agent pool for which the settings will apply | 
+ **poolId** | **string**| ID of the agent pool for which the settings apply to | 
  **agentPoolUpdate** | [**AgentPoolUpdate**](AgentPoolUpdate.md)|  | 
 
 ### Return type
@@ -187,9 +187,9 @@ Name | Type | Description  | Notes
 # **DeactivateAgentPoolsUpdate**
 > AgentPoolUpdate DeactivateAgentPoolsUpdate (string poolId, string updateId)
 
-Deactivate an Agent Pool update
+Deactivate an agent pool update
 
-Deactivates scheduled Agent pool update
+Deactivates scheduled agent pool update
 
 ### Example
 ```csharp
@@ -213,12 +213,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
-            var updateId = "updateId_example";  // string | Id of the update
+            var poolId = "poolId_example";  // string | ID of the agent pool for which the settings apply to
+            var updateId = "updateId_example";  // string | ID of the update
 
             try
             {
-                // Deactivate an Agent Pool update
+                // Deactivate an agent pool update
                 AgentPoolUpdate result = apiInstance.DeactivateAgentPoolsUpdate(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -237,8 +237,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | **string**| Id of the agent pool for which the settings will apply | 
- **updateId** | **string**| Id of the update | 
+ **poolId** | **string**| ID of the agent pool for which the settings apply to | 
+ **updateId** | **string**| ID of the update | 
 
 ### Return type
 
@@ -268,9 +268,9 @@ Name | Type | Description  | Notes
 # **DeleteAgentPoolsUpdate**
 > void DeleteAgentPoolsUpdate (string poolId, string updateId)
 
-Delete an Agent Pool update
+Delete an agent pool update
 
-Deletes Agent pool update
+Deletes agent pool update
 
 ### Example
 ```csharp
@@ -294,12 +294,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
-            var updateId = "updateId_example";  // string | Id of the update
+            var poolId = "poolId_example";  // string | ID of the agent pool for which the settings apply to
+            var updateId = "updateId_example";  // string | ID of the update
 
             try
             {
-                // Delete an Agent Pool update
+                // Delete an agent pool update
                 apiInstance.DeleteAgentPoolsUpdate(poolId, updateId);
             }
             catch (ApiException  e)
@@ -317,8 +317,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | **string**| Id of the agent pool for which the settings will apply | 
- **updateId** | **string**| Id of the update | 
+ **poolId** | **string**| ID of the agent pool for which the settings apply to | 
+ **updateId** | **string**| ID of the update | 
 
 ### Return type
 
@@ -348,9 +348,9 @@ void (empty response body)
 # **GetAgentPoolsUpdateInstance**
 > AgentPoolUpdate GetAgentPoolsUpdateInstance (string poolId, string updateId)
 
-Retrieve an Agent Pool update by id
+Retrieve an agent pool update by ID
 
-Retrieves Agent pool update from updateId
+Retrieves an agent pool update by its `updateId`
 
 ### Example
 ```csharp
@@ -374,12 +374,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
-            var updateId = "updateId_example";  // string | Id of the update
+            var poolId = "poolId_example";  // string | ID of the agent pool for which the settings apply to
+            var updateId = "updateId_example";  // string | ID of the update
 
             try
             {
-                // Retrieve an Agent Pool update by id
+                // Retrieve an agent pool update by ID
                 AgentPoolUpdate result = apiInstance.GetAgentPoolsUpdateInstance(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -398,8 +398,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | **string**| Id of the agent pool for which the settings will apply | 
- **updateId** | **string**| Id of the update | 
+ **poolId** | **string**| ID of the agent pool for which the settings apply to | 
+ **updateId** | **string**| ID of the update | 
 
 ### Return type
 
@@ -429,7 +429,7 @@ Name | Type | Description  | Notes
 # **GetAgentPoolsUpdateSettings**
 > AgentPoolUpdateSetting GetAgentPoolsUpdateSettings (string poolId)
 
-Retrieve an Agent Pool update's settings
+Retrieve an agent pool update's settings
 
 Retrieves the current state of the agent pool update instance settings
 
@@ -455,11 +455,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
+            var poolId = "poolId_example";  // string | ID of the agent pool for which the settings apply to
 
             try
             {
-                // Retrieve an Agent Pool update's settings
+                // Retrieve an agent pool update's settings
                 AgentPoolUpdateSetting result = apiInstance.GetAgentPoolsUpdateSettings(poolId);
                 Debug.WriteLine(result);
             }
@@ -478,7 +478,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | **string**| Id of the agent pool for which the settings will apply | 
+ **poolId** | **string**| ID of the agent pool for which the settings apply to | 
 
 ### Return type
 
@@ -508,7 +508,7 @@ Name | Type | Description  | Notes
 # **ListAgentPools**
 > List&lt;AgentPool&gt; ListAgentPools (int? limitPerPoolType = null, AgentType? poolType = null, string after = null)
 
-List all Agent Pools
+List all agent pools
 
 Lists all agent pools with pagination support
 
@@ -534,13 +534,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
-            var limitPerPoolType = 5;  // int? | Maximum number of AgentPools being returned (optional)  (default to 5)
+            var limitPerPoolType = 5;  // int? | Maximum number of agent pools returned (optional)  (default to 5)
             var poolType = (AgentType) "AD";  // AgentType? | Agent type to search for (optional) 
-            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](/#pagination). (optional) 
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
 
             try
             {
-                // List all Agent Pools
+                // List all agent pools
                 List<AgentPool> result = apiInstance.ListAgentPools(limitPerPoolType, poolType, after).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -559,9 +559,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limitPerPoolType** | **int?**| Maximum number of AgentPools being returned | [optional] [default to 5]
+ **limitPerPoolType** | **int?**| Maximum number of agent pools returned | [optional] [default to 5]
  **poolType** | **AgentType?**| Agent type to search for | [optional] 
- **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](/#pagination). | [optional] 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
 
 ### Return type
 
@@ -590,7 +590,7 @@ Name | Type | Description  | Notes
 # **ListAgentPoolsUpdates**
 > List&lt;AgentPoolUpdate&gt; ListAgentPoolsUpdates (string poolId, bool? scheduled = null)
 
-List all Agent Pool updates
+List all agent pool updates
 
 Lists all agent pool updates
 
@@ -616,12 +616,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
-            var scheduled = true;  // bool? | Scope the list only to scheduled or ad-hoc updates. If the parameter is not provided we will return the whole list of updates. (optional) 
+            var poolId = "poolId_example";  // string | ID of the agent pool for which the settings apply to
+            var scheduled = true;  // bool? | Return only scheduled or ad-hoc updates. If this parameter isn't provided, Okta returns the entire list of updates. (optional) 
 
             try
             {
-                // List all Agent Pool updates
+                // List all agent pool updates
                 List<AgentPoolUpdate> result = apiInstance.ListAgentPoolsUpdates(poolId, scheduled).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -640,8 +640,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | **string**| Id of the agent pool for which the settings will apply | 
- **scheduled** | **bool?**| Scope the list only to scheduled or ad-hoc updates. If the parameter is not provided we will return the whole list of updates. | [optional] 
+ **poolId** | **string**| ID of the agent pool for which the settings apply to | 
+ **scheduled** | **bool?**| Return only scheduled or ad-hoc updates. If this parameter isn&#39;t provided, Okta returns the entire list of updates. | [optional] 
 
 ### Return type
 
@@ -671,9 +671,9 @@ Name | Type | Description  | Notes
 # **PauseAgentPoolsUpdate**
 > AgentPoolUpdate PauseAgentPoolsUpdate (string poolId, string updateId)
 
-Pause an Agent Pool update
+Pause an agent pool update
 
-Pauses running or queued Agent pool update
+Pauses a running or queued agent pool update
 
 ### Example
 ```csharp
@@ -697,12 +697,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
-            var updateId = "updateId_example";  // string | Id of the update
+            var poolId = "poolId_example";  // string | ID of the agent pool for which the settings apply to
+            var updateId = "updateId_example";  // string | ID of the update
 
             try
             {
-                // Pause an Agent Pool update
+                // Pause an agent pool update
                 AgentPoolUpdate result = apiInstance.PauseAgentPoolsUpdate(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -721,8 +721,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | **string**| Id of the agent pool for which the settings will apply | 
- **updateId** | **string**| Id of the update | 
+ **poolId** | **string**| ID of the agent pool for which the settings apply to | 
+ **updateId** | **string**| ID of the update | 
 
 ### Return type
 
@@ -752,9 +752,9 @@ Name | Type | Description  | Notes
 # **ResumeAgentPoolsUpdate**
 > AgentPoolUpdate ResumeAgentPoolsUpdate (string poolId, string updateId)
 
-Resume an Agent Pool update
+Resume an agent pool update
 
-Resumes running or queued Agent pool update
+Resumes a running or queued agent pool update
 
 ### Example
 ```csharp
@@ -778,12 +778,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
-            var updateId = "updateId_example";  // string | Id of the update
+            var poolId = "poolId_example";  // string | ID of the agent pool for which the settings apply to
+            var updateId = "updateId_example";  // string | ID of the update
 
             try
             {
-                // Resume an Agent Pool update
+                // Resume an agent pool update
                 AgentPoolUpdate result = apiInstance.ResumeAgentPoolsUpdate(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -802,8 +802,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | **string**| Id of the agent pool for which the settings will apply | 
- **updateId** | **string**| Id of the update | 
+ **poolId** | **string**| ID of the agent pool for which the settings apply to | 
+ **updateId** | **string**| ID of the update | 
 
 ### Return type
 
@@ -833,9 +833,9 @@ Name | Type | Description  | Notes
 # **RetryAgentPoolsUpdate**
 > AgentPoolUpdate RetryAgentPoolsUpdate (string poolId, string updateId)
 
-Retry an Agent Pool update
+Retry an agent pool update
 
-Retries Agent pool update
+Retries an agent pool update if the update is unsuccessful or communication with Okta was interrupted during an agent auto-update
 
 ### Example
 ```csharp
@@ -859,12 +859,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
-            var updateId = "updateId_example";  // string | Id of the update
+            var poolId = "poolId_example";  // string | ID of the agent pool for which the settings apply to
+            var updateId = "updateId_example";  // string | ID of the update
 
             try
             {
-                // Retry an Agent Pool update
+                // Retry an agent pool update
                 AgentPoolUpdate result = apiInstance.RetryAgentPoolsUpdate(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -883,8 +883,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | **string**| Id of the agent pool for which the settings will apply | 
- **updateId** | **string**| Id of the update | 
+ **poolId** | **string**| ID of the agent pool for which the settings apply to | 
+ **updateId** | **string**| ID of the update | 
 
 ### Return type
 
@@ -914,9 +914,9 @@ Name | Type | Description  | Notes
 # **StopAgentPoolsUpdate**
 > AgentPoolUpdate StopAgentPoolsUpdate (string poolId, string updateId)
 
-Stop an Agent Pool update
+Stop an agent pool update
 
-Stops Agent pool update
+Stops an agent pool update
 
 ### Example
 ```csharp
@@ -940,12 +940,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
-            var updateId = "updateId_example";  // string | Id of the update
+            var poolId = "poolId_example";  // string | ID of the agent pool for which the settings apply to
+            var updateId = "updateId_example";  // string | ID of the update
 
             try
             {
-                // Stop an Agent Pool update
+                // Stop an agent pool update
                 AgentPoolUpdate result = apiInstance.StopAgentPoolsUpdate(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -964,8 +964,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | **string**| Id of the agent pool for which the settings will apply | 
- **updateId** | **string**| Id of the update | 
+ **poolId** | **string**| ID of the agent pool for which the settings apply to | 
+ **updateId** | **string**| ID of the update | 
 
 ### Return type
 
@@ -995,9 +995,9 @@ Name | Type | Description  | Notes
 # **UpdateAgentPoolsUpdate**
 > AgentPoolUpdate UpdateAgentPoolsUpdate (string poolId, string updateId, AgentPoolUpdate agentPoolUpdate)
 
-Update an Agent Pool update by id
+Update an agent pool update by ID
 
-Updates Agent pool update and return latest agent pool update
+Updates an agent pool update instance and returns the latest agent pool update
 
 ### Example
 ```csharp
@@ -1021,13 +1021,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
-            var updateId = "updateId_example";  // string | Id of the update
+            var poolId = "poolId_example";  // string | ID of the agent pool for which the settings apply to
+            var updateId = "updateId_example";  // string | ID of the update
             var agentPoolUpdate = new AgentPoolUpdate(); // AgentPoolUpdate | 
 
             try
             {
-                // Update an Agent Pool update by id
+                // Update an agent pool update by ID
                 AgentPoolUpdate result = apiInstance.UpdateAgentPoolsUpdate(poolId, updateId, agentPoolUpdate);
                 Debug.WriteLine(result);
             }
@@ -1046,8 +1046,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | **string**| Id of the agent pool for which the settings will apply | 
- **updateId** | **string**| Id of the update | 
+ **poolId** | **string**| ID of the agent pool for which the settings apply to | 
+ **updateId** | **string**| ID of the update | 
  **agentPoolUpdate** | [**AgentPoolUpdate**](AgentPoolUpdate.md)|  | 
 
 ### Return type
@@ -1079,9 +1079,9 @@ Name | Type | Description  | Notes
 # **UpdateAgentPoolsUpdateSettings**
 > AgentPoolUpdateSetting UpdateAgentPoolsUpdateSettings (string poolId, AgentPoolUpdateSetting agentPoolUpdateSetting)
 
-Update an Agent Pool update settings
+Update an agent pool update settings
 
-Updates an agent pool update settings
+Updates an agent pool update instance settings
 
 ### Example
 ```csharp
@@ -1105,12 +1105,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
-            var poolId = "poolId_example";  // string | Id of the agent pool for which the settings will apply
+            var poolId = "poolId_example";  // string | ID of the agent pool for which the settings apply to
             var agentPoolUpdateSetting = new AgentPoolUpdateSetting(); // AgentPoolUpdateSetting | 
 
             try
             {
-                // Update an Agent Pool update settings
+                // Update an agent pool update settings
                 AgentPoolUpdateSetting result = apiInstance.UpdateAgentPoolsUpdateSettings(poolId, agentPoolUpdateSetting);
                 Debug.WriteLine(result);
             }
@@ -1129,7 +1129,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | **string**| Id of the agent pool for which the settings will apply | 
+ **poolId** | **string**| ID of the agent pool for which the settings apply to | 
  **agentPoolUpdateSetting** | [**AgentPoolUpdateSetting**](AgentPoolUpdateSetting.md)|  | 
 
 ### Return type

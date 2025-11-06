@@ -1,4 +1,5 @@
 # Okta.Sdk.Model.PolicySubjectMatchType
+Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username
 
 ## Properties
 

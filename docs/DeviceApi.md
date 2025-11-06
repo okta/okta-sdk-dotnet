@@ -4,12 +4,12 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateDevice**](DeviceApi.md#activatedevice) | **POST** /api/v1/devices/{deviceId}/lifecycle/activate | Activate a Device
-[**DeactivateDevice**](DeviceApi.md#deactivatedevice) | **POST** /api/v1/devices/{deviceId}/lifecycle/deactivate | Deactivate a Device
-[**DeleteDevice**](DeviceApi.md#deletedevice) | **DELETE** /api/v1/devices/{deviceId} | Delete a Device
-[**GetDevice**](DeviceApi.md#getdevice) | **GET** /api/v1/devices/{deviceId} | Retrieve a Device
-[**ListDeviceUsers**](DeviceApi.md#listdeviceusers) | **GET** /api/v1/devices/{deviceId}/users | List all Users for a Device
-[**ListDevices**](DeviceApi.md#listdevices) | **GET** /api/v1/devices | List all Devices
+[**ActivateDevice**](DeviceApi.md#activatedevice) | **POST** /api/v1/devices/{deviceId}/lifecycle/activate | Activate a device
+[**DeactivateDevice**](DeviceApi.md#deactivatedevice) | **POST** /api/v1/devices/{deviceId}/lifecycle/deactivate | Deactivate a device
+[**DeleteDevice**](DeviceApi.md#deletedevice) | **DELETE** /api/v1/devices/{deviceId} | Delete a device
+[**GetDevice**](DeviceApi.md#getdevice) | **GET** /api/v1/devices/{deviceId} | Retrieve a device
+[**ListDeviceUsers**](DeviceApi.md#listdeviceusers) | **GET** /api/v1/devices/{deviceId}/users | List all users for a device
+[**ListDevices**](DeviceApi.md#listdevices) | **GET** /api/v1/devices | List all devices
 [**SuspendDevice**](DeviceApi.md#suspenddevice) | **POST** /api/v1/devices/{deviceId}/lifecycle/suspend | Suspend a Device
 [**UnsuspendDevice**](DeviceApi.md#unsuspenddevice) | **POST** /api/v1/devices/{deviceId}/lifecycle/unsuspend | Unsuspend a Device
 
@@ -18,9 +18,9 @@ Method | HTTP request | Description
 # **ActivateDevice**
 > void ActivateDevice (string deviceId)
 
-Activate a Device
+Activate a device
 
-Activates a Device by setting its status to ACTIVE by `deviceId`. Activated devices are used to create and delete Device user links.
+Activates a device by setting its status to `ACTIVE` by `deviceId`. Activated devices are used to create and delete device user links.
 
 ### Example
 ```csharp
@@ -48,7 +48,7 @@ namespace Example
 
             try
             {
-                // Activate a Device
+                // Activate a device
                 apiInstance.ActivateDevice(deviceId);
             }
             catch (ApiException  e)
@@ -96,9 +96,9 @@ void (empty response body)
 # **DeactivateDevice**
 > void DeactivateDevice (string deviceId)
 
-Deactivate a Device
+Deactivate a device
 
-Deactivates a Device by setting its status to DEACTIVATED by `deviceId`. Deactivation causes a Device to lose all device user links. Set the Device status to DEACTIVATED before deleting it. > **Note:** When deactivating a Device, keep in mind the following:   - Device deactivation is a destructive operation for device factors and client certificates. Device reenrollment using Okta Verify allows end users to set up new factors on the device.   - Device deletion removes the device record from Okta. Reenrollment creates a new device record.
+Deactivates a device by setting its status to `DEACTIVATED` by `deviceId`. Deactivation causes a device to lose all device user links. Set the device status to `DEACTIVATED` before deleting it. > **Note:** When deactivating a Device, keep in mind the following:   - Device deactivation is a destructive operation for device factors and client certificates. Device reenrollment using Okta Verify allows end users to set up new factors on the device.   - Device deletion removes the device record from Okta. Reenrollment creates a new device record.
 
 ### Example
 ```csharp
@@ -126,7 +126,7 @@ namespace Example
 
             try
             {
-                // Deactivate a Device
+                // Deactivate a device
                 apiInstance.DeactivateDevice(deviceId);
             }
             catch (ApiException  e)
@@ -174,7 +174,7 @@ void (empty response body)
 # **DeleteDevice**
 > void DeleteDevice (string deviceId)
 
-Delete a Device
+Delete a device
 
 Deletes (permanently) a device by `deviceId` if it has a status of `DEACTIVATED`. You can transition the device to `DEACTIVATED` status using the [Deactivate a Device](/openapi/okta-management/management/tag/Device/#tag/Device/operation/deactivateDevice) endpoint. This request is destructive and deletes all of the profile data related to the device. Once deleted, device data can't be recovered. However, reenrollment creates a new device record. > **Note:** Attempts to delete a device that isn't in a `DEACTIVATED` state raise an error.
 
@@ -204,7 +204,7 @@ namespace Example
 
             try
             {
-                // Delete a Device
+                // Delete a device
                 apiInstance.DeleteDevice(deviceId);
             }
             catch (ApiException  e)
@@ -252,7 +252,7 @@ void (empty response body)
 # **GetDevice**
 > Device GetDevice (string deviceId)
 
-Retrieve a Device
+Retrieve a device
 
 Retrieves a device by `deviceId`
 
@@ -282,7 +282,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Device
+                // Retrieve a device
                 Device result = apiInstance.GetDevice(deviceId);
                 Debug.WriteLine(result);
             }
@@ -331,9 +331,9 @@ Name | Type | Description  | Notes
 # **ListDeviceUsers**
 > List&lt;DeviceUser&gt; ListDeviceUsers (string deviceId)
 
-List all Users for a Device
+List all users for a device
 
-Lists all Users for a Device by `deviceId`
+Lists all Users for a device by `deviceId`
 
 ### Example
 ```csharp
@@ -361,7 +361,7 @@ namespace Example
 
             try
             {
-                // List all Users for a Device
+                // List all users for a device
                 List<DeviceUser> result = apiInstance.ListDeviceUsers(deviceId).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -408,11 +408,11 @@ Name | Type | Description  | Notes
 
 <a name="listdevices"></a>
 # **ListDevices**
-> List&lt;DeviceList&gt; ListDevices (string after = null, int? limit = null, string search = null, ListDeviceExpandSummaryType? expand = null)
+> List&lt;DeviceList&gt; ListDevices (string after = null, int? limit = null, string search = null, DeviceExpandParameter? expand = null)
 
-List all Devices
+List all devices
 
-Lists all devices with pagination support. You can return a subset of Devices that match a supported search criteria using the `search` query parameter. Searches for devices based on the properties specified in the `search` parameter conforming SCIM filter specifications (case-insensitive). This data is eventually consistent. The API returns different results depending on specified queries in the request. Empty list is returned if no objects match `search` request. > **Note:** Listing devices with `search` should not be used as a part of any critical flows—such as authentication or updates—to prevent potential data loss. `search` results may not reflect the latest information, as this endpoint uses a search index which may not be up-to-date with recent updates to the object. <br> Don't use search results directly for record updates, as the data might be stale and therefore overwrite newer data, resulting in data loss. <br> Use an `id` lookup for records that you update to ensure your results contain the latest data. This operation requires [URL encoding](https://www.w3.org/TR/html4/interact/forms.html#h-17.13.4.1). For example, `search=profile.displayName eq \"Bob\"` is encoded as `search=profile.displayName%20eq%20%22Bob%22`.
+Lists all devices with pagination support.  >**Note:** To list all devices enrolled by a user, use the [List all devices endpoint in the User Resources API](/openapi/okta-management/management/tag/UserResources/#tag/UserResources/operation/listUserDevices).  You can return a subset of devices that match a supported search criteria using the `search` query parameter. Searches for devices based on the properties specified in the `search` parameter conforming SCIM filter specifications (case-insensitive). This data is eventually consistent. The API returns different results depending on specified queries in the request. Empty list is returned if no objects match `search` request. > **Note:** Listing devices with `search` should not be used as a part of any critical flow, such as authentication or updates, to prevent potential data loss. `search` results may not reflect the latest information, as this endpoint uses a search index which may not be up-to-date with recent updates to the object.  Don't use search results directly for record updates, as the data might be stale and therefore overwrite newer data, resulting in data loss.   Use an `id` lookup for records that you update to ensure your results contain the latest data.  This operation requires [URL encoding](https://www.w3.org/TR/html4/interact/forms.html#h-17.13.4.1). For example, `search=profile.displayName eq \"Bob\"` is encoded as `search=profile.displayName%20eq%20%22Bob%22`.
 
 ### Example
 ```csharp
@@ -438,12 +438,12 @@ namespace Example
             var apiInstance = new DeviceApi(config);
             var after = 200u3des4afA47rYJu1d7;  // string |  (optional) 
             var limit = 20;  // int? | A limit on the number of objects to return (recommend `20`) (optional)  (default to 200)
-            var search = status eq "ACTIVE";  // string | A SCIM filter expression that filters the results. Searches include all Device `profile` properties and the Device `id`, `status`, and `lastUpdated` properties. (optional) 
-            var expand = user;  // ListDeviceExpandSummaryType? | Includes associated user details and management status for the device in the `_embedded` attribute (optional) 
+            var search = status%20eq%20%22ACTIVE%22;  // string | A SCIM filter expression that filters the results. Searches include all device `profile` properties and the device `id`, `status`, and `lastUpdated` properties.  Searches for devices can be filtered by the contains (`co`) operator. You can only use `co` with these select device profile attributes: `profile.displayName`, `profile.serialNumber`, `profile.imei`, `profile.meid`, `profile.udid`, and `profile.sid`. See [Operators](https://developer.okta.com/docs/api/#operators). (optional) 
+            var expand = user;  // DeviceExpandParameter? | Includes associated user details and management status for the device in the `_embedded` attribute (optional) 
 
             try
             {
-                // List all Devices
+                // List all devices
                 List<DeviceList> result = apiInstance.ListDevices(after, limit, search, expand).ToListAsync();
                 Debug.WriteLine(result);
             }
@@ -464,8 +464,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **after** | **string**|  | [optional] 
  **limit** | **int?**| A limit on the number of objects to return (recommend &#x60;20&#x60;) | [optional] [default to 200]
- **search** | **string**| A SCIM filter expression that filters the results. Searches include all Device &#x60;profile&#x60; properties and the Device &#x60;id&#x60;, &#x60;status&#x60;, and &#x60;lastUpdated&#x60; properties. | [optional] 
- **expand** | **ListDeviceExpandSummaryType?**| Includes associated user details and management status for the device in the &#x60;_embedded&#x60; attribute | [optional] 
+ **search** | **string**| A SCIM filter expression that filters the results. Searches include all device &#x60;profile&#x60; properties and the device &#x60;id&#x60;, &#x60;status&#x60;, and &#x60;lastUpdated&#x60; properties.  Searches for devices can be filtered by the contains (&#x60;co&#x60;) operator. You can only use &#x60;co&#x60; with these select device profile attributes: &#x60;profile.displayName&#x60;, &#x60;profile.serialNumber&#x60;, &#x60;profile.imei&#x60;, &#x60;profile.meid&#x60;, &#x60;profile.udid&#x60;, and &#x60;profile.sid&#x60;. See [Operators](https://developer.okta.com/docs/api/#operators). | [optional] 
+ **expand** | **DeviceExpandParameter?**| Includes associated user details and management status for the device in the &#x60;_embedded&#x60; attribute | [optional] 
 
 ### Return type
 
@@ -496,7 +496,7 @@ Name | Type | Description  | Notes
 
 Suspend a Device
 
-Suspends a Device by setting its status to SUSPENDED. Use suspended devices to create and delete device user links. You can only unsuspend or deactivate suspended devices. > **Note:** SUSPENDED status is meant to be temporary, so it isn't destructive.
+Suspends a device by setting its status to `SUSPENDED`. Use suspended devices to create and delete device user links. You can only unsuspend or deactivate suspended devices. > **Note:** `SUSPENDED` status is meant to be temporary, so it isn't destructive.
 
 ### Example
 ```csharp
@@ -574,7 +574,7 @@ void (empty response body)
 
 Unsuspend a Device
 
-Unsuspends a Device by returning its `status` to ACTIVE. >**Note:** Only devices with a SUSPENDED status can be unsuspended.
+Unsuspends a device by returning its `status` to `ACTIVE`. >**Note:** Only devices with a `SUSPENDED` status can be unsuspended.
 
 ### Example
 ```csharp

@@ -75,7 +75,7 @@ Task("IntegrationTest")
 .Does(() =>
 {
     var testProjects = new[] { "Okta.Sdk.IntegrationTest" };
-    // Run integration tests in nightly travis cron job
+    // Run integration tests in nightly CI cron job
 
     foreach (var name in testProjects)
     {

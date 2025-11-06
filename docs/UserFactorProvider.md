@@ -1,5 +1,4 @@
 # Okta.Sdk.Model.UserFactorProvider
-Provider for the Factor
 
 ## Properties
 

@@ -4,20 +4,20 @@ All URIs are relative to *https://subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CloseCurrentSession**](SessionApi.md#closecurrentsession) | **DELETE** /api/v1/sessions/me | Close the current Session
-[**CreateSession**](SessionApi.md#createsession) | **POST** /api/v1/sessions | Create a Session with session token
-[**GetCurrentSession**](SessionApi.md#getcurrentsession) | **GET** /api/v1/sessions/me | Retrieve the current Session
-[**GetSession**](SessionApi.md#getsession) | **GET** /api/v1/sessions/{sessionId} | Retrieve a Session
-[**RefreshCurrentSession**](SessionApi.md#refreshcurrentsession) | **POST** /api/v1/sessions/me/lifecycle/refresh | Refresh the current Session
-[**RefreshSession**](SessionApi.md#refreshsession) | **POST** /api/v1/sessions/{sessionId}/lifecycle/refresh | Refresh a Session
-[**RevokeSession**](SessionApi.md#revokesession) | **DELETE** /api/v1/sessions/{sessionId} | Revoke a Session
+[**CloseCurrentSession**](SessionApi.md#closecurrentsession) | **DELETE** /api/v1/sessions/me | Close the current session
+[**CreateSession**](SessionApi.md#createsession) | **POST** /api/v1/sessions | Create a session with session token
+[**GetCurrentSession**](SessionApi.md#getcurrentsession) | **GET** /api/v1/sessions/me | Retrieve the current session
+[**GetSession**](SessionApi.md#getsession) | **GET** /api/v1/sessions/{sessionId} | Retrieve a session
+[**RefreshCurrentSession**](SessionApi.md#refreshcurrentsession) | **POST** /api/v1/sessions/me/lifecycle/refresh | Refresh the current session
+[**RefreshSession**](SessionApi.md#refreshsession) | **POST** /api/v1/sessions/{sessionId}/lifecycle/refresh | Refresh a session
+[**RevokeSession**](SessionApi.md#revokesession) | **DELETE** /api/v1/sessions/{sessionId} | Revoke a session
 
 
 <a name="closecurrentsession"></a>
 # **CloseCurrentSession**
 > void CloseCurrentSession (string cookie = null)
 
-Close the current Session
+Close the current session
 
 Closes the Session for the user who is currently signed in. Use this method in a browser-based application to sign out a user.  > **Note:** This operation requires a session cookie for the user. An API token isn't allowed for this operation.
 
@@ -42,7 +42,7 @@ namespace Example
 
             try
             {
-                // Close the current Session
+                // Close the current session
                 apiInstance.CloseCurrentSession(cookie);
             }
             catch (ApiException  e)
@@ -88,7 +88,7 @@ No authorization required
 # **CreateSession**
 > Session CreateSession (CreateSessionRequest createSessionRequest)
 
-Create a Session with session token
+Create a session with session token
 
 Creates a new Session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID to delete a session through the API instead of visiting the logout URL.
 
@@ -116,7 +116,7 @@ namespace Example
 
             try
             {
-                // Create a Session with session token
+                // Create a session with session token
                 Session result = apiInstance.CreateSession(createSessionRequest);
                 Debug.WriteLine(result);
             }
@@ -165,9 +165,9 @@ Name | Type | Description  | Notes
 # **GetCurrentSession**
 > Session GetCurrentSession (string cookie = null)
 
-Retrieve the current Session
+Retrieve the current session
 
-Retrieves Session information for the current user. Use this method in a browser-based application to determine if the user is signed in.   > **Note:** This operation requires a session cookie for the user. An API token isn't allowed for this operation. 
+Retrieves Session information for the current user. Use this method in a browser-based application to determine if the user is signed in.   > **Note:** This operation requires a session cookie for the user. An API token isn't allowed for this operation.
 
 ### Example
 ```csharp
@@ -190,7 +190,7 @@ namespace Example
 
             try
             {
-                // Retrieve the current Session
+                // Retrieve the current session
                 Session result = apiInstance.GetCurrentSession(cookie);
                 Debug.WriteLine(result);
             }
@@ -237,7 +237,7 @@ No authorization required
 # **GetSession**
 > Session GetSession (string sessionId)
 
-Retrieve a Session
+Retrieve a session
 
 Retrieves information about the Session specified by the given session ID
 
@@ -267,7 +267,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Session
+                // Retrieve a session
                 Session result = apiInstance.GetSession(sessionId);
                 Debug.WriteLine(result);
             }
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 # **RefreshCurrentSession**
 > Session RefreshCurrentSession (string cookie = null)
 
-Refresh the current Session
+Refresh the current session
 
 Refreshes the Session for the current user  > **Note:** This operation requires a session cookie for the user. An API token isn't allowed for this operation.
 
@@ -342,7 +342,7 @@ namespace Example
 
             try
             {
-                // Refresh the current Session
+                // Refresh the current session
                 Session result = apiInstance.RefreshCurrentSession(cookie);
                 Debug.WriteLine(result);
             }
@@ -389,7 +389,7 @@ No authorization required
 # **RefreshSession**
 > Session RefreshSession (string sessionId)
 
-Refresh a Session
+Refresh a session
 
 Refreshes an existing Session using the `id` for that Session. A successful response contains the refreshed Session with an updated `expiresAt` timestamp.
 
@@ -419,7 +419,7 @@ namespace Example
 
             try
             {
-                // Refresh a Session
+                // Refresh a session
                 Session result = apiInstance.RefreshSession(sessionId);
                 Debug.WriteLine(result);
             }
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 # **RevokeSession**
 > void RevokeSession (string sessionId)
 
-Revoke a Session
+Revoke a session
 
 Revokes the specified Session
 
@@ -498,7 +498,7 @@ namespace Example
 
             try
             {
-                // Revoke a Session
+                // Revoke a session
                 apiInstance.RevokeSession(sessionId);
             }
             catch (ApiException  e)

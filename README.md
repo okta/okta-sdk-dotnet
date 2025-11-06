@@ -47,11 +47,11 @@ You can learn more on the [Okta + .NET][lang-landing] page in our documentation.
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/).
 
-:heavy_check_mark: The current stable major version series is: 9.x
-:heavy_check_mark: The 8.x series is retiring on April 3rd 2025. Until then, we will only fix high-risk security vulnerabilities and other issues will be reviewed on a case-by-case basis. New APIs will be added only on series 9.x. Please, reach out to the Okta Customer Support Team at developers@okta.com if you have any questions or issues.
+:heavy_check_mark: The current stable major version series is: 10.x
 
 | Version | Status                    |
 | ------- | ------------------------- |
+| 10.x | :heavy_check_mark: Stable ([migration guide](MIGRATING.md) | [detailed migration guide](MIGRATION_GUIDE_v10.0.0.md))|
 | 9.x | :heavy_check_mark: Stable ([migration guide](MIGRATING.md))|
 | 8.x | :warning: Retiring on April 3rd 2025 |
  
@@ -441,7 +441,8 @@ var createdUser = await _userApi.CreateUserAsync(createUserRequest);
 
 ``` csharp
 // Activate the user
-await _userApi.ActivateUserAsync(createdUser.Id, false);
+var userLifecycleApi = new UserLifecycleApi();
+await userLifecycleApi.ActivateUserAsync(createdUser.Id, false);
 ```
 
 ### Update a User
@@ -476,7 +477,12 @@ var userHomeworld = updatedUser.Profile.AdditionalProperties["homeworld"];
 
 ### Remove a User
 ``` csharp
- await _userApi.DeactivateOrDeleteUserAsync(createdUser.Id);
+// Deactivate the user first
+var userLifecycleApi = new UserLifecycleApi();
+await userLifecycleApi.DeactivateUserAsync(createdUser.Id);
+
+// Then delete the user
+await _userApi.DeleteUserAsync(createdUser.Id);
 ```
 
 ### List all Applications
