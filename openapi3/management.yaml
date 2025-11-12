@@ -68130,10 +68130,22 @@ components:
           type: string
           example: VKzYZ1C+IkSZxIWlrW5ITg==
           description: Base-64 encoded GUID (`objectGUID`) of the Windows group
+        groupScope:
+          type: string
+          example: Global
+          description: The scope of the Windows group (DomainLocal, Global, or Universal)
+        groupType:
+          type: string
+          example: Security
+          description: The type of Windows group (Security or Distribution)
         name:
           type: string
           example: West Coast users
           description: Name of the Windows group
+        objectSid:
+          type: string
+          example: S-1-5-21-3623811015-3361044348-30300820-1013
+          description: The Windows security identifier (SID) of the group
         samAccountName:
           type: string
           example: West Coast users

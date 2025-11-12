@@ -768,5 +768,201 @@ namespace Okta.Sdk.IntegrationTest
             invalidListAppsEx.Should().NotBeNull();
             invalidListAppsEx.ErrorCode.Should().Be(404);
         }
+
+        /// <summary>
+        /// Test for GitHub Issue #812: Group enumeration broken in SDK 10.0.0
+        /// Verifies that ListGroups() works correctly with await foreach pattern
+        /// https://github.com/okta/okta-sdk-dotnet/issues/812
+        /// 
+        /// User Report: "GroupApi.ListGroups method does not return any groups after upgrading to SDK 10.0.0"
+        /// User's Code: await foreach (var group in groupApi.ListGroups().ConfigureAwait(false))
+        /// 
+        /// Test Results: PASSING - await foreach enumeration works correctly
+        /// - With ConfigureAwait(false): ✓ Works
+        /// - Without ConfigureAwait: ✓ Works  
+        /// - With query parameters: ✓ Works
+        /// - With pagination: ✓ Works
+        /// - Empty results: ✓ Works
+        /// 
+        /// Conclusion: Unable to reproduce the reported issue. The enumeration works as expected in v10.0.0.
+        /// Note: ConfigureAwait() on IAsyncEnumerable is supported in .NET 8+ via ConfiguredCancelableAsyncEnumerable
+        /// </summary>
+        [Fact]
+        public async Task GivenGroupApi_WhenUsingAwaitForeach_ThenGroupsAreEnumerated()
+        {
+            var guid = Guid.NewGuid();
+            var testGroupName = $"Issue812Test-{guid}";
+
+            // Create a test group to ensure at least one group exists
+            var groupRequest = new AddGroupRequest
+            {
+                Profile = new OktaUserGroupProfile
+                {
+                    Name = testGroupName,
+                    Description = "Test group for issue #812 - await foreach enumeration"
+                }
+            };
+
+            var createdGroup = await _groupApi.AddGroupAsync(groupRequest);
+            _createdGroupIds.Add(createdGroup.Id);
+
+            createdGroup.Should().NotBeNull();
+            createdGroup.Id.Should().NotBeNullOrEmpty();
+
+            // Wait for indexing
+            await Task.Delay(1000);
+
+            // Test 1: Using THE EXACT CODE FROM THE BUG REPORT - with ConfigureAwait(false)
+            var groupsWithConfigureAwait = new List<Group>();
+            int countWithConfigureAwait = 0;
+
+            Console.WriteLine("=== Test 1: Enumerating with ConfigureAwait(false) - EXACT USER CODE ===");
+            await foreach (var group in _groupApi.ListGroups().ConfigureAwait(false))
+            {
+                countWithConfigureAwait++;
+                groupsWithConfigureAwait.Add(group);
+                var groupName = GetGroupName(group.Profile);
+                Console.WriteLine($"  [{countWithConfigureAwait}] Group ID: {group.Id}, Name: {groupName ?? "(no name)"}");
+                
+                // Stop after finding our test group plus a few more
+                if (groupsWithConfigureAwait.Any(g => g.Id == createdGroup.Id) && countWithConfigureAwait >= 5)
+                {
+                    break;
+                }
+
+                // Safety limit
+                if (countWithConfigureAwait >= 100)
+                {
+                    break;
+                }
+            }
+
+            Console.WriteLine($"Total groups enumerated with ConfigureAwait(false): {countWithConfigureAwait}");
+            Console.WriteLine($"User reported: 'An empty collection is returned.' - Actual result: {(countWithConfigureAwait == 0 ? "REPRODUCED - EMPTY!" : "NOT REPRODUCED - Got " + countWithConfigureAwait + " groups")}");
+            Console.WriteLine("");
+
+            // Assert - THIS IS THE CORE ISSUE: User reported getting 0 groups
+            groupsWithConfigureAwait.Should().NotBeEmpty("await foreach with ConfigureAwait(false) should return groups");
+            countWithConfigureAwait.Should().BeGreaterThan(0, "at least one group should be enumerated with ConfigureAwait");
+            groupsWithConfigureAwait.Should().Contain(g => g.Id == createdGroup.Id, "should find the test group with ConfigureAwait");
+
+            // Test 2: Using await foreach WITHOUT ConfigureAwait for comparison
+            var groupsWithoutConfigureAwait = new List<Group>();
+            int countWithoutConfigureAwait = 0;
+
+            Console.WriteLine("=== Test 2: Enumerating WITHOUT ConfigureAwait - for comparison ===");
+            await foreach (var group in _groupApi.ListGroups())
+            {
+                countWithoutConfigureAwait++;
+                groupsWithoutConfigureAwait.Add(group);
+                var groupName = GetGroupName(group.Profile);
+                Console.WriteLine($"  [{countWithoutConfigureAwait}] Group ID: {group.Id}, Name: {groupName ?? "(no name)"}");
+                
+                if (groupsWithoutConfigureAwait.Any(g => g.Id == createdGroup.Id) && countWithoutConfigureAwait >= 5)
+                {
+                    break;
+                }
+
+                if (countWithoutConfigureAwait >= 100)
+                {
+                    break;
+                }
+            }
+
+            Console.WriteLine($"Total groups enumerated WITHOUT ConfigureAwait: {countWithoutConfigureAwait}");
+            Console.WriteLine("");
+
+            groupsWithoutConfigureAwait.Should().NotBeEmpty("await foreach without ConfigureAwait should return groups");
+            countWithoutConfigureAwait.Should().BeGreaterThan(0, "at least one group should be enumerated without ConfigureAwait");
+
+            // Test 3: Using await foreach with query parameter
+            var groupsFromQuery = new List<Group>();
+            int queryCount = 0;
+
+            Console.WriteLine($"=== Test 3: Enumerating with query parameter (q='{testGroupName.Substring(0, 15)}') ===");
+            await foreach (var group in _groupApi.ListGroups(q: testGroupName.Substring(0, 15)).ConfigureAwait(false))
+            {
+                queryCount++;
+                groupsFromQuery.Add(group);
+                var groupName = GetGroupName(group.Profile);
+                Console.WriteLine($"  [{queryCount}] Group ID: {group.Id}, Name: {groupName ?? "(no name)"}");
+                
+                if (queryCount >= 10) break;
+            }
+
+            Console.WriteLine($"Total groups from query: {queryCount}");
+            Console.WriteLine("");
+
+            groupsFromQuery.Should().NotBeEmpty("query with await foreach should return matching groups");
+
+            // Test 4: Using await foreach with limit parameter
+            var groupsWithLimit = new List<Group>();
+            
+            await foreach (var group in _groupApi.ListGroups(limit: 5).ConfigureAwait(false))
+            {
+                groupsWithLimit.Add(group);
+                
+                if (groupsWithLimit.Count >= 5)
+                {
+                    break;
+                }
+            }
+
+            groupsWithLimit.Should().NotBeEmpty("limited query with await foreach should return groups");
+            groupsWithLimit.Should().HaveCountLessOrEqualTo(5, "limit parameter should be respected");
+
+            // Test 5: Verify enumeration completes for empty results
+            var nonExistentName = $"NonExistent-{Guid.NewGuid()}";
+            var emptyCount = 0;
+            
+            await foreach (var group in _groupApi.ListGroups(q: nonExistentName).ConfigureAwait(false))
+            {
+                emptyCount++;
+            }
+
+            emptyCount.Should().Be(0, "no groups should match the non-existent name");
+        }
+
+        /// <summary>
+        /// Detailed test to verify pagination with await foreach
+        /// This tests if QueryParameters are preserved across pages
+        /// </summary>
+        [Fact]
+        public async Task GivenGroupApi_WhenEnumeratingMultiplePages_ThenPaginationWorks()
+        {
+            // This test verifies that pagination works correctly
+            // by fetching groups with a small limit and counting total
+
+            var groupCount = 0;
+            var pages = 0;
+            var seenIds = new HashSet<string>();
+
+            await foreach (var group in _groupApi.ListGroups(limit: 2)) // Small limit to force pagination
+            {
+                groupCount++;
+                seenIds.Add(group.Id);
+
+                // Track when we move to next page (this is approximate)
+                if (groupCount % 2 == 0)
+                {
+                    pages++;
+                }
+
+                // Safety limit
+                if (groupCount >= 10)
+                {
+                    break;
+                }
+            }
+
+            // Assert
+            groupCount.Should().BeGreaterThan(0, "should enumerate at least some groups");
+            seenIds.Count.Should().Be(groupCount, "all group IDs should be unique (no duplicates from pagination)");
+            
+            if (groupCount >= 4)
+            {
+                pages.Should().BeGreaterThan(0, "should have paginated through multiple pages");
+            }
+        }
     }
 }

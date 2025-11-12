@@ -131,6 +131,17 @@ namespace Okta.Sdk.Client
                 }
             }
 
+            // Fix for GitHub Issue #814: JSON parsing errors not propagated to API caller
+            // If response.Data is null AND we have an error message, it indicates deserialization failed
+            // We should throw an exception instead of silently returning an empty collection
+            if (response?.Data == null && !string.IsNullOrEmpty(response?.ErrorText))
+            {
+                throw new ApiException(
+                    (int)response.StatusCode,
+                    $"Failed to deserialize API response: {response.ErrorText}",
+                    response.ErrorText);
+            }
+
             var items = response?.Data ?? Array.Empty<T>();
 
             CurrentPage = new OktaCollectionPage<T>
