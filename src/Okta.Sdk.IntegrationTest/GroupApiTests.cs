@@ -1145,5 +1145,176 @@ namespace Okta.Sdk.IntegrationTest
                 }
             }
         }
+
+        /// <summary>
+        /// Tests Issue #814: JSON parsing errors should be propagated to API caller
+        /// Before the fix for Issue #812, JSON parsing errors during enumeration were silently
+        /// suppressed, returning empty collections instead of throwing exceptions.
+        /// This test verifies that deserialization now works correctly and doesn't silently fail.
+        /// </summary>
+        [Fact]
+        public async Task ListGroups_WithDeserializationIssues_ShouldNotReturnEmptyCollection()
+        {
+            // Arrange - This test verifies that the fix for Issue #812 also resolves Issue #814
+            // Issue #814: JSON parsing errors were not propagated, resulting in empty collections
+            // Issue #812: OktaActiveDirectoryGroupProfile was missing 4 properties causing deserialization to fail
+            
+            // Act - Try to enumerate groups (should not return empty collection due to silent errors)
+            var groups = new List<Group>();
+            Exception enumerationException = null;
+
+            try
+            {
+                await foreach (var group in _groupApi.ListGroups())
+                {
+                    groups.Add(group);
+                    
+                    // Verify each group's profile can be accessed (no silent deserialization failures)
+                    group.Profile.Should().NotBeNull("Profile should deserialize successfully");
+                    group.Profile.ActualInstance.Should().NotBeNull("Profile should deserialize to concrete type");
+                }
+            }
+            catch (ApiException ex)
+            {
+                // If there's a legitimate API error, that's expected and should be thrown
+                enumerationException = ex;
+                throw;
+            }
+            catch (Exception ex)
+            {
+                // Any other exception is unexpected
+                enumerationException = ex;
+            }
+
+            // Assert - Issue #814: Errors should be propagated, not silently suppressed
+            if (enumerationException != null && !(enumerationException is ApiException))
+            {
+                // If there's a non-API exception, it means deserialization failed
+                // This should NOT happen with the fix - it should either succeed or throw ApiException
+                enumerationException.Should().BeNull(
+                    $"Unexpected exception during enumeration (Issue #814): {enumerationException.Message}");
+            }
+
+            // Groups should be returned (not an empty collection due to silent errors)
+            groups.Should().NotBeEmpty(
+                "ListGroups() should return groups, not an empty collection due to silent deserialization errors (Issue #814)");
+
+            // Verify all groups deserialized successfully
+            foreach (var group in groups)
+            {
+                group.Id.Should().NotBeNullOrEmpty("Each group should have an ID");
+                group.Profile.Should().NotBeNull("Each group's profile should deserialize");
+                group.Profile.ActualInstance.Should().NotBeNull(
+                    "Profile should deserialize to concrete type, not fail silently (Issue #814)");
+
+                // Verify profile type is one of the expected types
+                var isUserGroup = group.Profile.ActualInstance is OktaUserGroupProfile;
+                var isAdGroup = group.Profile.ActualInstance is OktaActiveDirectoryGroupProfile;
+
+                (isUserGroup || isAdGroup).Should().BeTrue(
+                    "Group profile should deserialize to a known type without silent failures");
+
+                // For AD groups, verify they have the properties that were causing silent failures
+                if (isAdGroup)
+                {
+                    var adProfile = group.Profile.ActualInstance as OktaActiveDirectoryGroupProfile;
+                    adProfile.Should().NotBeNull();
+                    
+                    // These properties were missing and caused silent deserialization failures
+                    // Now they should be accessible (even if null)
+                    var _ = adProfile.GroupType;    // Should not throw
+                    var __ = adProfile.GroupScope;  // Should not throw
+                    var ___ = adProfile.ObjectSid;  // Should not throw
+                    var ____ = adProfile.ManagedBy; // Should not throw
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests Issue #814: Verifies that List methods across all APIs properly propagate errors
+        /// This test specifically checks ListGroups with WithHttpInfoAsync to ensure
+        /// deserialization errors are not suppressed at the HTTP response level.
+        /// </summary>
+        [Fact]
+        public async Task ListGroupsWithHttpInfo_ShouldNotSuppressDeserializationErrors()
+        {
+            // Arrange & Act
+            var httpInfoResponse = await _groupApi.ListGroupsWithHttpInfoAsync();
+
+            // Assert - HTTP response should be successful
+            httpInfoResponse.Should().NotBeNull();
+            httpInfoResponse.StatusCode.Should().Be(HttpStatusCode.OK);
+            httpInfoResponse.RawContent.Should().NotBeNullOrEmpty("Raw content should be present");
+
+            // Data should be deserialized without silent failures
+            httpInfoResponse.Data.Should().NotBeNull("Response data should deserialize");
+            httpInfoResponse.Data.Should().NotBeEmpty(
+                "If deserialization succeeded, data should not be empty (unless org truly has no groups)");
+
+            // Verify each group in the response deserialized correctly
+            foreach (var group in httpInfoResponse.Data)
+            {
+                group.Should().NotBeNull("Each group should deserialize");
+                group.Id.Should().NotBeNullOrEmpty("Each group should have an ID");
+                group.Profile.Should().NotBeNull(
+                    "Each group's profile should deserialize, not fail silently (Issue #814)");
+                group.Profile.ActualInstance.Should().NotBeNull(
+                    "Profile should deserialize to concrete type without silent failures");
+            }
+
+            // Specifically check for AD groups that were causing silent failures before the fix
+            var adGroups = httpInfoResponse.Data.Where(g =>
+                g.ObjectClass != null &&
+                g.ObjectClass.Contains("okta:windows_security_principal")).ToList();
+
+            if (adGroups.Any())
+            {
+                foreach (var adGroup in adGroups)
+                {
+                    // Before fix: These would cause silent deserialization failure → empty collection
+                    // After fix: These should deserialize successfully
+                    adGroup.Profile.ActualInstance.Should().BeOfType<OktaActiveDirectoryGroupProfile>(
+                        "AD groups should deserialize successfully, not fail silently (Issue #814 root cause from Issue #812)");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests Issue #814: Verifies collection enumeration doesn't return empty collection on deserialization errors
+        /// This test validates that the IOktaCollectionClient properly propagates exceptions.
+        /// </summary>
+        [Fact]
+        public async Task CollectionEnumeration_WithValidData_ShouldNotReturnEmptyCollectionDueToSilentErrors()
+        {
+            // Arrange
+            var collectionClient = _groupApi.ListGroups();
+            var enumeratedGroups = new List<Group>();
+
+            // Act - Enumerate using the collection client
+            await foreach (var group in collectionClient)
+            {
+                enumeratedGroups.Add(group);
+            }
+
+            // Assert - Issue #814: Should not return empty collection due to silent deserialization errors
+            enumeratedGroups.Should().NotBeEmpty(
+                "Collection enumeration should return items, not empty collection from silent errors (Issue #814)");
+
+            // Verify all enumerated items are valid (no partial deserialization failures)
+            foreach (var group in enumeratedGroups)
+            {
+                group.Should().NotBeNull("Each enumerated group should be valid");
+                group.Id.Should().NotBeNullOrEmpty("Each group should have an ID");
+                group.Profile.Should().NotBeNull("Each group should have a profile");
+                group.Profile.ActualInstance.Should().NotBeNull(
+                    "Profile should fully deserialize, not partially fail (Issue #814)");
+            }
+
+            // Verify we can convert to array without silent failures
+            var arrayResult = await _groupApi.ListGroups().ToArrayAsync();
+            arrayResult.Should().NotBeEmpty("ToArrayAsync should return items, not empty array from silent errors");
+            arrayResult.Length.Should().Be(enumeratedGroups.Count, 
+                "ToArrayAsync should return same count as enumeration");
+        }
     }
 }
