@@ -768,5 +768,382 @@ namespace Okta.Sdk.IntegrationTest
             invalidListAppsEx.Should().NotBeNull();
             invalidListAppsEx.ErrorCode.Should().Be(404);
         }
+
+        /// <summary>
+        /// Reproduces Issue #812: Group enumeration broken in SDK 10.0.0
+        /// Tests that ListGroups() correctly handles Active Directory-synced groups
+        /// and doesn't silently fail on deserialization errors.
+        /// 
+        /// This test verifies the fix for the GroupProfile deserialization issue with OktaActiveDirectoryGroupProfile.
+        /// Requires an Okta org with AD-synced groups for full validation.
+        /// </summary>
+        [Fact]
+        public async Task ListGroups_WithADGroups_ShouldEnumerateAllGroupsSuccessfully()
+        {
+            // Act - Try to get raw API response first to verify deserialization works
+            var directResponse = await _groupApi.ListGroupsWithHttpInfoAsync().ConfigureAwait(false);
+            
+            // Assert - HttpInfo should not throw exceptions
+            directResponse.Should().NotBeNull();
+            directResponse.StatusCode.Should().Be(HttpStatusCode.OK);
+            directResponse.Data.Should().NotBeNull();
+            directResponse.RawContent.Should().NotBeNullOrEmpty("API should return JSON content");
+
+            // Verify if there are AD groups, they deserialize correctly
+            if (directResponse.Data.Any())
+            {
+                var firstGroup = directResponse.Data.First();
+                firstGroup.Id.Should().NotBeNullOrEmpty();
+                firstGroup.Profile.Should().NotBeNull();
+                firstGroup.Profile.ActualInstance.Should().NotBeNull("Profile should deserialize to concrete type");
+
+                // If it's an AD group, verify AD-specific properties
+                if (firstGroup.Profile.ActualInstance is OktaActiveDirectoryGroupProfile adProfile)
+                {
+                    adProfile.Name.Should().NotBeNullOrEmpty("AD profile should have name");
+                    // Verify the 4 properties that were missing and causing issues
+                    // These properties may be null but should not cause deserialization errors
+                    adProfile.Should().NotBeNull();
+                }
+            }
+            
+            // Act - Enumerate all groups using async enumeration
+            var groups = new List<Group>();
+            Exception enumerationException = null;
+
+            try
+            {
+                await foreach (var group in _groupApi.ListGroups().ConfigureAwait(false))
+                {
+                    groups.Add(group);
+                }
+            }
+            catch (Exception ex)
+            {
+                enumerationException = ex;
+            }
+
+            // Assert - Groups should be returned without exceptions
+            enumerationException.Should().BeNull("ListGroups() should not throw exceptions during enumeration");
+            groups.Should().NotBeEmpty("ListGroups() should return groups, not an empty collection");
+
+            // Verify we can access group properties
+            foreach (var group in groups)
+            {
+                group.Id.Should().NotBeNullOrEmpty("Each group should have an ID");
+                group.Profile.Should().NotBeNull("Each group should have a Profile");
+
+                // Verify we can determine the profile type
+                var isUserGroup = group.Profile.ActualInstance is OktaUserGroupProfile;
+                var isAdGroup = group.Profile.ActualInstance is OktaActiveDirectoryGroupProfile;
+
+                (isUserGroup || isAdGroup).Should().BeTrue(
+                    "Group profile should be either OktaUserGroupProfile or OktaActiveDirectoryGroupProfile");
+
+                // Specifically, check AD groups can be deserialized
+                if (group.ObjectClass != null && group.ObjectClass.Contains("okta:windows_security_principal"))
+                {
+                    isAdGroup.Should().BeTrue("Groups with objectClass 'okta:windows_security_principal' should deserialize as OktaActiveDirectoryGroupProfile");
+                    
+                    var adProfile = group.Profile.ActualInstance as OktaActiveDirectoryGroupProfile;
+                    adProfile.Should().NotBeNull();
+                    adProfile?.Name.Should().NotBeNullOrEmpty("AD group should have a name");
+                    
+                    // Verify AD-specific properties exist (they were missing and causing deserialization failures)
+                    // These properties may be null but must be present on the model
+                    var properties = typeof(OktaActiveDirectoryGroupProfile).GetProperties();
+                    properties.Should().Contain(p => p.Name == "GroupType", "GroupType property should exist");
+                    properties.Should().Contain(p => p.Name == "GroupScope", "GroupScope property should exist");
+                    properties.Should().Contain(p => p.Name == "ObjectSid", "ObjectSid property should exist");
+                    properties.Should().Contain(p => p.Name == "ManagedBy", "ManagedBy property should exist");
+                }
+            }
+
+            // Also test the HttpInfo variant to ensure it doesn't throw deserialization errors
+            var httpInfoResponse = await _groupApi.ListGroupsWithHttpInfoAsync();
+            httpInfoResponse.Should().NotBeNull();
+            httpInfoResponse.StatusCode.Should().Be(HttpStatusCode.OK);
+            httpInfoResponse.Data.Should().NotBeNull();
+            httpInfoResponse.Data.Should().NotBeEmpty();
+
+            // The count should match what we got from enumeration
+            var httpInfoGroups = httpInfoResponse.Data.ToList();
+            httpInfoGroups.Should().HaveCount(groups.Count, "Both methods should return the same number of groups");
+        }
+
+        /// <summary>
+        /// Tests direct deserialization of OktaActiveDirectoryGroupProfile from JSON
+        /// to ensure all required AD-specific properties can be deserialized.
+        /// </summary>
+        [Fact]
+        public void OktaActiveDirectoryGroupProfile_ShouldDeserializeFromJson()
+        {
+            // Arrange - This is actual JSON from the Okta API for an AD group
+            var adGroupJson = @"{
+                ""name"": ""Allowed RODC Password Replication Group"",
+                ""description"": ""Members in this group can have their passwords replicated to all read-only domain controllers in the domain"",
+                ""windowsDomainQualifiedName"": ""CORP\\Allowed RODC Password Replication Group"",
+                ""groupType"": ""Security"",
+                ""groupScope"": ""DomainLocal"",
+                ""samAccountName"": ""Allowed RODC Password Replication Group"",
+                ""objectSid"": ""S-1-5-21-2804467693-3687138896-2975958527-571"",
+                ""externalId"": ""jI/S8DQ1qESwPIxvK+M8Kw=="",
+                ""dn"": ""CN=Allowed RODC Password Replication Group,CN=Users,DC=corp,DC=okta1,DC=com"",
+                ""managedBy"": null
+            }";
+
+            // Act - Deserialize as OktaActiveDirectoryGroupProfile directly
+            var adProfile = Newtonsoft.Json.JsonConvert.DeserializeObject<OktaActiveDirectoryGroupProfile>(adGroupJson);
+
+            // Assert - Verify all properties are correctly deserialized
+            adProfile.Should().NotBeNull();
+            adProfile.Name.Should().Be("Allowed RODC Password Replication Group");
+            adProfile.Description.Should().Be("Members in this group can have their passwords replicated to all read-only domain controllers in the domain");
+            adProfile.WindowsDomainQualifiedName.Should().Be("CORP\\Allowed RODC Password Replication Group");
+            adProfile.GroupType.Should().Be("Security");
+            adProfile.GroupScope.Should().Be("DomainLocal");
+            adProfile.SamAccountName.Should().Be("Allowed RODC Password Replication Group");
+            adProfile.ObjectSid.Should().Be("S-1-5-21-2804467693-3687138896-2975958527-571");
+            adProfile.ExternalId.Should().Be("jI/S8DQ1qESwPIxvK+M8Kw==");
+            adProfile.Dn.Should().Be("CN=Allowed RODC Password Replication Group,CN=Users,DC=corp,DC=okta1,DC=com");
+            adProfile.ManagedBy.Should().BeNull();
+        }
+
+        /// <summary>
+        /// Tests deserialization through the GroupProfile anyOf discriminator
+        /// to ensure it correctly identifies and deserializes as OktaActiveDirectoryGroupProfile.
+        /// </summary>
+        [Fact]
+        public void GroupProfile_ShouldDeserializeADGroupThroughAnyOfDiscriminator()
+        {
+            // Arrange - JSON for an AD group profile
+            var adGroupProfileJson = @"{
+                ""name"": ""Domain Admins"",
+                ""description"": ""Designated administrators of the domain"",
+                ""windowsDomainQualifiedName"": ""CORP\\Domain Admins"",
+                ""groupType"": ""Security"",
+                ""groupScope"": ""Global"",
+                ""samAccountName"": ""Domain Admins"",
+                ""objectSid"": ""S-1-5-21-123456789-987654321-1357924680-512"",
+                ""externalId"": ""abc123def456=="",
+                ""dn"": ""CN=Domain Admins,CN=Users,DC=corp,DC=local"",
+                ""managedBy"": ""CN=IT Admin,CN=Users,DC=corp,DC=local""
+            }";
+
+            // Act - Deserialize through GroupProfile (anyOf discriminator)
+            var profile = GroupProfile.FromJson(adGroupProfileJson);
+
+            // Assert - Verify it's correctly identified as OktaActiveDirectoryGroupProfile
+            profile.Should().NotBeNull();
+            profile.ActualInstance.Should().BeOfType<OktaActiveDirectoryGroupProfile>();
+            
+            var adProfile = profile.ActualInstance as OktaActiveDirectoryGroupProfile;
+            if (adProfile == null) return;
+            adProfile.Should().NotBeNull();
+            adProfile.Name.Should().Be("Domain Admins");
+            adProfile.GroupType.Should().Be("Security");
+            adProfile.GroupScope.Should().Be("Global");
+            adProfile.ObjectSid.Should().Be("S-1-5-21-123456789-987654321-1357924680-512");
+            adProfile.ManagedBy.Should().Be("CN=IT Admin,CN=Users,DC=corp,DC=local");
+        }
+
+        /// <summary>
+        /// Tests deserialization of a complete Group object with an AD profile
+        /// to ensure the entire deserialization chain works correctly.
+        /// </summary>
+        [Fact]
+        public void Group_ShouldDeserializeWithADProfile()
+        {
+            // Arrange - Complete Group JSON with AD profile
+            var fullGroupJson = @"{
+                ""id"": ""00grwh8qvnvG8HJzV1d7"",
+                ""created"": ""2025-11-17T12:54:11.000Z"",
+                ""lastUpdated"": ""2025-11-17T12:54:11.000Z"",
+                ""lastMembershipUpdated"": ""2025-11-17T12:54:11.000Z"",
+                ""objectClass"": [""okta:windows_security_principal""],
+                ""type"": ""APP_GROUP"",
+                ""profile"": {
+                    ""name"": ""Enterprise Admins"",
+                    ""description"": ""Designated administrators of the enterprise"",
+                    ""windowsDomainQualifiedName"": ""CORP\\Enterprise Admins"",
+                    ""groupType"": ""Security"",
+                    ""groupScope"": ""Universal"",
+                    ""samAccountName"": ""Enterprise Admins"",
+                    ""objectSid"": ""S-1-5-21-2804467693-3687138896-2975958527-519"",
+                    ""externalId"": ""xyz789abc123=="",
+                    ""dn"": ""CN=Enterprise Admins,CN=Users,DC=corp,DC=okta1,DC=com"",
+                    ""managedBy"": null
+                }
+            }";
+
+            // Act - Deserialize a full Group object
+            var group = Newtonsoft.Json.JsonConvert.DeserializeObject<Group>(fullGroupJson);
+
+            // Assert - Verify Group and its AD profile
+            group.Should().NotBeNull();
+            group.Id.Should().Be("00grwh8qvnvG8HJzV1d7");
+            group.Type.Should().Be(GroupType.APPGROUP);
+            group.ObjectClass.Should().Contain("okta:windows_security_principal");
+            
+            group.Profile.Should().NotBeNull();
+            group.Profile.ActualInstance.Should().BeOfType<OktaActiveDirectoryGroupProfile>();
+            
+            var adProfile = group.Profile.ActualInstance as OktaActiveDirectoryGroupProfile;
+            adProfile.Should().NotBeNull();
+            if (adProfile != null)
+            {
+                adProfile.Name.Should().Be("Enterprise Admins");
+                adProfile.GroupType.Should().Be("Security");
+                adProfile.GroupScope.Should().Be("Universal");
+                adProfile.ObjectSid.Should().Be("S-1-5-21-2804467693-3687138896-2975958527-519");
+                adProfile.WindowsDomainQualifiedName.Should().Be("CORP\\Enterprise Admins");
+            }
+        }
+
+        /// <summary>
+        /// Reproduces lewis-green's exact code pattern from Issue #812.
+        /// Tests that ListGroups().ToArrayAsync() returns groups (not empty array).
+        /// This was the exact code from documentation that failed in v10.0.0.
+        /// </summary>
+        [Fact]
+        public async Task ListGroups_WithADGroups_ToArrayAsync_ShouldReturnGroups()
+        {
+            // Act - This is lewis-green's exact code pattern from the issue
+            Group[] groups = await _groupApi.ListGroups().ToArrayAsync();
+
+            // Assert
+            groups.Should().NotBeNull("ToArrayAsync() should not return null");
+            groups.Should().NotBeEmpty("ToArrayAsync() should return groups, not an empty array");
+            groups.Length.Should().BeGreaterThan(0, "Should enumerate multiple groups");
+
+            // Verify all groups have required properties
+            foreach (var group in groups)
+            {
+                group.Id.Should().NotBeNullOrEmpty("Each group should have an ID");
+                group.Profile.Should().NotBeNull("Each group should have a Profile");
+                group.Profile.ActualInstance.Should().NotBeNull("Profile should deserialize to concrete type");
+            }
+
+            // Verify AD groups (if present) are included and deserialize correctly
+            var adGroups = groups.Where(g => 
+                g.ObjectClass != null && 
+                g.ObjectClass.Contains("okta:windows_security_principal")).ToList();
+            
+            // If there are AD groups, verify they deserialize correctly
+            if (adGroups.Any())
+            {
+                foreach (var adGroup in adGroups)
+                {
+                    adGroup.Profile.Should().NotBeNull();
+                    adGroup.Profile.ActualInstance.Should().BeOfType<OktaActiveDirectoryGroupProfile>(
+                        because: "AD groups should deserialize as OktaActiveDirectoryGroupProfile");
+
+                    var adProfile = adGroup.Profile.ActualInstance as OktaActiveDirectoryGroupProfile;
+                    adProfile?.Name.Should().NotBeNullOrEmpty("AD group should have a name");
+                    
+                    // Verify the 4 properties that were missing exist on the model
+                    var properties = typeof(OktaActiveDirectoryGroupProfile).GetProperties();
+                    properties.Should().Contain(p => p.Name == "GroupType");
+                    properties.Should().Contain(p => p.Name == "GroupScope");
+                    properties.Should().Contain(p => p.Name == "ObjectSid");
+                    properties.Should().Contain(p => p.Name == "ManagedBy");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reproduces lewis-green's exact loop pattern without ConfigureAwait.
+        /// Tests that enumeration works without ConfigureAwait (which was in the doc example).
+        /// </summary>
+        [Fact]
+        public async Task ListGroups_WithADGroups_WithoutConfigureAwait_ShouldEnumerate()
+        {
+            // Act - Enumerate WITHOUT ConfigureAwait (lewis-green's exact pattern)
+            var groupIds = new List<string>();
+            await foreach (var group in _groupApi.ListGroups())
+            {
+                groupIds.Add(group.Id);
+            }
+
+            // Assert
+            groupIds.Should().NotBeEmpty("Should enumerate groups without ConfigureAwait");
+            groupIds.Should().HaveCountGreaterThan(0, "Should find multiple groups");
+            groupIds.Should().OnlyContain(id => !string.IsNullOrEmpty(id), "All group IDs should be valid");
+        }
+
+        /// <summary>
+        /// Reproduces PaskeS's workaround from Issue #812.
+        /// Tests that manually deserializing RawContent with JsonConvert work.
+        /// This verifies the JSON structure is correct and can be deserialized.
+        /// </summary>
+        [Fact]
+        public async Task ListGroups_RawContentDeserialization_ShouldWork()
+        {
+            // Act - PaskeS's workaround: get raw content and manually deserialize
+            var groupResponse = await _groupApi.ListGroupsWithHttpInfoAsync();
+            groupResponse.Should().NotBeNull();
+            groupResponse.RawContent.Should().NotBeNullOrEmpty("Should have raw JSON content");
+
+            // This is what PaskeS tried that should now work with our fix
+            List<Group> groups = null;
+            Exception deserializationException = null;
+            
+            try
+            {
+                groups = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Group>>(groupResponse.RawContent);
+            }
+            catch (Exception ex)
+            {
+                deserializationException = ex;
+            }
+
+            // Assert
+            deserializationException.Should().BeNull(
+                "Manual deserialization with JsonConvert should not throw 'cannot be deserialized into any schema defined' error");
+            groups.Should().NotBeNull("Deserialization should produce a list");
+            groups.Should().NotBeEmpty("Deserialized list should contain groups");
+
+            // Verify all groups have required properties
+            if (groups != null)
+            {
+                foreach (var group in groups)
+                {
+                    group.Id.Should().NotBeNullOrEmpty("Each group should have an ID");
+                    group.Profile.Should().NotBeNull("Each group should have a profile");
+                    group.Profile.ActualInstance.Should().NotBeNull("Profile should deserialize to concrete type");
+                }
+
+                // Verify AD groups (if present) deserialized correctly
+                var adGroups = groups.Where(g =>
+                    g.ObjectClass != null &&
+                    g.ObjectClass.Contains("okta:windows_security_principal")).ToList();
+
+                // If there are AD groups, verify they deserialize correctly
+                if (adGroups.Any())
+                {
+                    foreach (var adGroup in adGroups)
+                    {
+                        adGroup.Profile.Should().NotBeNull("AD group should have a profile");
+                        adGroup.Profile.ActualInstance.Should().BeOfType<OktaActiveDirectoryGroupProfile>(
+                            "AD group profile should be OktaActiveDirectoryGroupProfile, not fail with 'cannot be deserialized into any schema'");
+
+                        var adProfile = adGroup.Profile.ActualInstance as OktaActiveDirectoryGroupProfile;
+                        adProfile?.Name.Should().NotBeNullOrEmpty("AD group should have a name");
+
+                        // Verify the 4 problematic properties exist on the model
+                        // (they were missing and caused the "cannot be deserialized into any schema" error)
+                        var properties = typeof(OktaActiveDirectoryGroupProfile).GetProperties();
+                        properties.Should().Contain(p => p.Name == "GroupType",
+                            "GroupType property should exist to prevent deserialization errors");
+                        properties.Should().Contain(p => p.Name == "GroupScope",
+                            "GroupScope property should exist to prevent deserialization errors");
+                        properties.Should().Contain(p => p.Name == "ObjectSid",
+                            "ObjectSid property should exist to prevent deserialization errors");
+                        properties.Should().Contain(p => p.Name == "ManagedBy",
+                            "ManagedBy property should exist to prevent deserialization errors");
+                    }
+                }
+            }
+        }
     }
 }

@@ -61,11 +61,39 @@ namespace Okta.Sdk.Model
         public string ExternalId { get; set; }
 
         /// <summary>
+        /// The scope of the Windows group (DomainLocal, Global, or Universal)
+        /// </summary>
+        /// <value>The scope of the Windows group (DomainLocal, Global, or Universal)</value>
+        [DataMember(Name = "groupScope", EmitDefaultValue = true)]
+        public string GroupScope { get; set; }
+
+        /// <summary>
+        /// The type of the Windows group (Security or Distribution)
+        /// </summary>
+        /// <value>The type of the Windows group (Security or Distribution)</value>
+        [DataMember(Name = "groupType", EmitDefaultValue = true)]
+        public string GroupType { get; set; }
+
+        /// <summary>
+        /// Distinguished name of the group that manages this group
+        /// </summary>
+        /// <value>Distinguished name of the group that manages this group</value>
+        [DataMember(Name = "managedBy", EmitDefaultValue = true)]
+        public string ManagedBy { get; set; }
+
+        /// <summary>
         /// Name of the Windows group
         /// </summary>
         /// <value>Name of the Windows group</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// The Windows Security Identifier (SID) for the group
+        /// </summary>
+        /// <value>The Windows Security Identifier (SID) for the group</value>
+        [DataMember(Name = "objectSid", EmitDefaultValue = true)]
+        public string ObjectSid { get; set; }
 
         /// <summary>
         /// Pre-Windows 2000 name of the Windows group
@@ -92,7 +120,11 @@ namespace Okta.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Dn: ").Append(Dn).Append("\n");
             sb.Append("  ExternalId: ").Append(ExternalId).Append("\n");
+            sb.Append("  GroupScope: ").Append(GroupScope).Append("\n");
+            sb.Append("  GroupType: ").Append(GroupType).Append("\n");
+            sb.Append("  ManagedBy: ").Append(ManagedBy).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  ObjectSid: ").Append(ObjectSid).Append("\n");
             sb.Append("  SamAccountName: ").Append(SamAccountName).Append("\n");
             sb.Append("  WindowsDomainQualifiedName: ").Append(WindowsDomainQualifiedName).Append("\n");
             sb.Append("}\n");
@@ -146,9 +178,29 @@ namespace Okta.Sdk.Model
                     this.ExternalId.Equals(input.ExternalId))
                 ) && 
                 (
+                    this.GroupScope == input.GroupScope ||
+                    (this.GroupScope != null &&
+                    this.GroupScope.Equals(input.GroupScope))
+                ) && 
+                (
+                    this.GroupType == input.GroupType ||
+                    (this.GroupType != null &&
+                    this.GroupType.Equals(input.GroupType))
+                ) && 
+                (
+                    this.ManagedBy == input.ManagedBy ||
+                    (this.ManagedBy != null &&
+                    this.ManagedBy.Equals(input.ManagedBy))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.ObjectSid == input.ObjectSid ||
+                    (this.ObjectSid != null &&
+                    this.ObjectSid.Equals(input.ObjectSid))
                 ) && 
                 (
                     this.SamAccountName == input.SamAccountName ||
@@ -184,9 +236,25 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ExternalId.GetHashCode();
                 }
+                if (this.GroupScope != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupScope.GetHashCode();
+                }
+                if (this.GroupType != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupType.GetHashCode();
+                }
+                if (this.ManagedBy != null)
+                {
+                    hashCode = (hashCode * 59) + this.ManagedBy.GetHashCode();
+                }
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.ObjectSid != null)
+                {
+                    hashCode = (hashCode * 59) + this.ObjectSid.GetHashCode();
                 }
                 if (this.SamAccountName != null)
                 {

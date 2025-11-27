@@ -214,7 +214,7 @@ namespace Okta.Sdk.Client
                     OverrideSpecifiedNames = false
                 }
             },
-            NullValueHandling = NullValueHandling.Ignore,
+            NullValueHandling = NullValueHandling.Ignore
         };
 
         /// <summary>
