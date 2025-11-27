@@ -35,8 +35,8 @@ namespace Okta.Sdk.Model
     /// Profile for a group that is imported from Active Directory.  The &#x60;objectClass&#x60; for such groups is &#x60;okta:windows_security_principal&#x60;.
     /// </summary>
     [DataContract(Name = "OktaActiveDirectoryGroupProfile")]
-    
     public partial class OktaActiveDirectoryGroupProfile : IEquatable<OktaActiveDirectoryGroupProfile>
+    
     {
         
         /// <summary>
@@ -110,6 +110,12 @@ namespace Okta.Sdk.Model
         public string WindowsDomainQualifiedName { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -127,6 +133,7 @@ namespace Okta.Sdk.Model
             sb.Append("  ObjectSid: ").Append(ObjectSid).Append("\n");
             sb.Append("  SamAccountName: ").Append(SamAccountName).Append("\n");
             sb.Append("  WindowsDomainQualifiedName: ").Append(WindowsDomainQualifiedName).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,7 +142,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -211,7 +218,8 @@ namespace Okta.Sdk.Model
                     this.WindowsDomainQualifiedName == input.WindowsDomainQualifiedName ||
                     (this.WindowsDomainQualifiedName != null &&
                     this.WindowsDomainQualifiedName.Equals(input.WindowsDomainQualifiedName))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -263,6 +271,10 @@ namespace Okta.Sdk.Model
                 if (this.WindowsDomainQualifiedName != null)
                 {
                     hashCode = (hashCode * 59) + this.WindowsDomainQualifiedName.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

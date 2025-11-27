@@ -68159,6 +68159,8 @@ components:
           type: string
           example: EXAMPLE\\West Coast users
           description: Fully qualified name of the Windows group
+      additionalProperties: true
+      x-okta-extensible: true
     OktaDeviceRiskChangeEvent:
       description: The device risk level changed
       type: object
@@ -68449,6 +68451,7 @@ components:
           type: string
           example: West Coast users
           description: Name of the group
+      additionalProperties: true
       x-okta-extensible: true
     OktaUserRiskChangeEvent:
       description: The user risk level changed

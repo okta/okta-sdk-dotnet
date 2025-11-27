@@ -1316,5 +1316,333 @@ namespace Okta.Sdk.IntegrationTest
             arrayResult.Length.Should().Be(enumeratedGroups.Count, 
                 "ToArrayAsync should return same count as enumeration");
         }
+
+        /// <summary>
+        /// Verifies that group profiles expose AdditionalProperties for custom schema attributes.
+        /// 
+        /// Group profiles should have an AdditionalProperties dictionary to access custom attributes
+        /// that are defined in the group schema but not part of the standard profile properties.
+        /// 
+        /// USAGE EXAMPLE for custom group schema attributes:
+        /// 
+        /// // If your Okta org has custom group schema attributes (e.g., "alias", "department"):
+        /// var group = await groupApi.GetGroupAsync(groupId);
+        /// var profile = group.Profile.ActualInstance as OktaUserGroupProfile;
+        /// 
+        /// // Check if custom attributes exist
+        /// if (profile?.AdditionalProperties != null && 
+        ///     profile.AdditionalProperties.ContainsKey("alias"))
+        /// {
+        ///     var aliasValue = profile.AdditionalProperties["alias"];
+        ///     Console.WriteLine($"Group alias: {aliasValue}");
+        /// }
+        /// 
+        /// NOTE: AdditionalProperties is NULL if the API response contains only standard properties.
+        /// It will be populated automatically by [JsonExtensionData] when custom attributes exist in the JSON.
+        /// 
+        /// Related: https://github.com/okta/okta-sdk-dotnet/issues/815
+        /// </summary>
+        [Fact]
+        public async Task GroupProfile_Should_Expose_AdditionalProperties_For_Custom_Attributes()
+        {
+            // Arrange - Create a group
+            var groupName = $"Test Group AdditionalProperties {Guid.NewGuid()}";
+            var addGroupRequest = new AddGroupRequest
+            {
+                Profile = new OktaUserGroupProfile
+                {
+                    Name = groupName,
+                    Description = "Test to verify AdditionalProperties dictionary exists"
+                }
+            };
+
+            Group createdGroup = null;
+
+            try
+            {
+                // Act - Create and retrieve group
+                createdGroup = await _groupApi.AddGroupAsync(addGroupRequest);
+                var response = await _groupApi.GetGroupWithHttpInfoAsync(createdGroup.Id);
+
+                // Assert
+                response.Should().NotBeNull();
+                response.StatusCode.Should().Be(HttpStatusCode.OK);
+                response.Data.Should().NotBeNull("Response should contain group data");
+
+                var group = response.Data;
+                group.Profile.Should().NotBeNull("Group should have a profile");
+                
+                var profileInstance = group.Profile.ActualInstance;
+                profileInstance.Should().NotBeNull("Profile should have an actual instance");
+                
+                // Both OktaUserGroupProfile AND OktaActiveDirectoryGroupProfile should have AdditionalProperties
+                if (profileInstance is OktaUserGroupProfile oktaUserProfile)
+                {
+                    // Verify AdditionalProperties dictionary is now present
+                    oktaUserProfile.AdditionalProperties.Should().NotBeNull(
+                        "OktaUserGroupProfile should have AdditionalProperties dictionary");
+
+                    // Verify basic properties still work
+                    oktaUserProfile.Name.Should().Be(groupName);
+                    oktaUserProfile.Description.Should().Be("Test to verify AdditionalProperties dictionary exists");
+
+                    // AdditionalProperties should be an empty dictionary for standard groups
+                    // (custom attributes would appear here if the group had them)
+                    oktaUserProfile.AdditionalProperties.Should().NotBeNull();
+                }
+                else if (profileInstance is OktaActiveDirectoryGroupProfile adProfile)
+                {
+                    // OktaActiveDirectoryGroupProfile also needs AdditionalProperties
+                    // Verify basic properties still work
+                    adProfile.Name.Should().Be(groupName);
+                    adProfile.Description.Should().Be("Test to verify AdditionalProperties dictionary exists");
+
+                    // Verify AdditionalProperties property exists using reflection
+                    var type = adProfile.GetType();
+                    var additionalPropertiesProperty = type.GetProperty("AdditionalProperties");
+                    
+                    additionalPropertiesProperty.Should().NotBeNull(
+                        "OktaActiveDirectoryGroupProfile should have AdditionalProperties property for custom group attributes");
+
+                    // Verify the property is of the correct type
+                    additionalPropertiesProperty.PropertyType.Should().BeAssignableTo<IDictionary<string, object>>(
+                        "AdditionalProperties should be IDictionary<string, object>");
+
+                    // NOTE: AdditionalProperties may be NULL if there are no custom attributes in the JSON response
+                    // This is expected behavior with [JsonExtensionData] - it only populates when unmapped properties exist
+                    // The important fix is that the PROPERTY EXISTS and has the correct attribute
+                    var jsonExtensionDataAttr = additionalPropertiesProperty.GetCustomAttributes(typeof(Newtonsoft.Json.JsonExtensionDataAttribute), false);
+                    jsonExtensionDataAttr.Should().NotBeEmpty(
+                        "AdditionalProperties should have [JsonExtensionData] attribute to capture custom fields");
+                }
+                else
+                {
+                    // Log what we actually got
+                    throw new Exception($"Unexpected profile type: {profileInstance.GetType().Name}");
+                }
+            }
+            finally
+            {
+                // Cleanup
+                if (createdGroup != null)
+                {
+                    await _groupApi.DeleteGroupAsync(createdGroup.Id);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Verifies that group profile types have the AdditionalProperties property with correct attributes.
+        /// 
+        /// Both OktaUserGroupProfile and OktaActiveDirectoryGroupProfile should have an AdditionalProperties
+        /// property decorated with [JsonExtensionData] to capture custom profile attributes that are not
+        /// part of the standard schema.
+        /// 
+        /// This ensures custom group schema attributes can be accessed at runtime via the AdditionalProperties
+        /// dictionary, maintaining compatibility with custom group profile extensions.
+        /// 
+        /// Related: https://github.com/okta/okta-sdk-dotnet/issues/815
+        /// </summary>
+        [Fact]
+        public async Task GroupProfile_Should_Have_JsonExtensionData_Attribute_On_AdditionalProperties()
+        {
+            // Arrange - Create a group
+            var groupName = $"Test Group JsonExtensionData {Guid.NewGuid()}";
+            var addGroupRequest = new AddGroupRequest
+            {
+                Profile = new OktaUserGroupProfile
+                {
+                    Name = groupName,
+                    Description = "Test group to verify JsonExtensionData attribute on AdditionalProperties"
+                }
+            };
+
+            Group createdGroup = null;
+
+            try
+            {
+                // Act
+                createdGroup = await _groupApi.AddGroupAsync(addGroupRequest);
+                var retrievedGroup = await _groupApi.GetGroupAsync(createdGroup.Id);
+
+                // Assert
+                retrievedGroup.Should().NotBeNull("Group should be retrieved successfully");
+                var profileInstance = retrievedGroup.Profile.ActualInstance;
+                profileInstance.Should().NotBeNull("Profile should have an actual instance");
+
+                // Both OktaUserGroupProfile AND OktaActiveDirectoryGroupProfile should have AdditionalProperties
+                if (profileInstance is OktaUserGroupProfile oktaUserProfile)
+                {
+                    // Verify basic properties work
+                    oktaUserProfile.Name.Should().Be(groupName);
+                    oktaUserProfile.Description.Should().Be("Test group to verify JsonExtensionData attribute on AdditionalProperties");
+
+                    // Verify AdditionalProperties property exists
+                    var type = oktaUserProfile.GetType();
+                    var additionalPropertiesProperty = type.GetProperty("AdditionalProperties");
+                    
+                    additionalPropertiesProperty.Should().NotBeNull(
+                        "OktaUserGroupProfile should have AdditionalProperties property for custom group attributes");
+
+                    // Verify the property is of the correct type
+                    additionalPropertiesProperty.PropertyType.Should().BeAssignableTo<IDictionary<string, object>>(
+                        "AdditionalProperties should be IDictionary<string, object>");
+
+                    // Verify the property has the [JsonExtensionData] attribute
+                    var jsonExtensionDataAttr = additionalPropertiesProperty.GetCustomAttributes(typeof(Newtonsoft.Json.JsonExtensionDataAttribute), false);
+                    jsonExtensionDataAttr.Should().NotBeEmpty(
+                        "AdditionalProperties should have [JsonExtensionData] attribute to capture custom fields");
+
+                    // NOTE: AdditionalProperties may be NULL if there are no custom attributes in the JSON response
+                    // This is expected behavior with [JsonExtensionData] - it only populates when unmapped properties exist
+                    // If custom attributes were added to the group schema and set on this group, they would appear here
+                }
+                else if (profileInstance is OktaActiveDirectoryGroupProfile adProfile)
+                {
+                    // OktaActiveDirectoryGroupProfile also needs AdditionalProperties
+                    // Verify basic properties work
+                    adProfile.Name.Should().Be(groupName);
+                    adProfile.Description.Should().Be("Test group to verify JsonExtensionData attribute on AdditionalProperties");
+
+                    // Verify AdditionalProperties property exists
+                    var type = adProfile.GetType();
+                    var additionalPropertiesProperty = type.GetProperty("AdditionalProperties");
+                    
+                    additionalPropertiesProperty.Should().NotBeNull(
+                        "OktaActiveDirectoryGroupProfile should have AdditionalProperties property for custom group attributes");
+
+                    // Verify the property is of the correct type
+                    additionalPropertiesProperty.PropertyType.Should().BeAssignableTo<IDictionary<string, object>>(
+                        "AdditionalProperties should be IDictionary<string, object>");
+
+                    // Verify the property has the [JsonExtensionData] attribute
+                    var jsonExtensionDataAttr = additionalPropertiesProperty.GetCustomAttributes(typeof(Newtonsoft.Json.JsonExtensionDataAttribute), false);
+                    jsonExtensionDataAttr.Should().NotBeEmpty(
+                        "AdditionalProperties should have [JsonExtensionData] attribute to capture custom fields");
+
+                    // NOTE: AdditionalProperties may be NULL if there are no custom attributes in the JSON response
+                    // This is expected behavior with [JsonExtensionData] - it only populates when unmapped properties exist
+                }
+                else
+                {
+                    throw new Exception($"Unexpected profile type: {profileInstance.GetType().Name}");
+                }
+            }
+            finally
+            {
+                // Cleanup
+                if (createdGroup != null)
+                {
+                    await _groupApi.DeleteGroupAsync(createdGroup.Id);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Verifies that group profiles support dynamic property access through AdditionalProperties.
+        /// 
+        /// This test ensures that both OktaUserGroupProfile and OktaActiveDirectoryGroupProfile have
+        /// the necessary infrastructure to support custom schema attributes:
+        /// - AdditionalProperties property of type IDictionary&lt;string, object&gt;
+        /// - [JsonExtensionData] attribute for automatic deserialization of unmapped JSON properties
+        /// 
+        /// Expected behavior with [JsonExtensionData]:
+        /// - If JSON contains ONLY known properties (name, description, etc.), AdditionalProperties will be NULL
+        /// - If JSON contains ANY unknown/custom properties, AdditionalProperties will be populated automatically
+        /// - Custom attributes are accessible via: profile.AdditionalProperties["customAttribute"]
+        /// 
+        /// This enables organizations to extend group profiles with custom attributes while maintaining
+        /// backward compatibility with the standard schema.
+        /// 
+        /// Related: https://github.com/okta/okta-sdk-dotnet/issues/815
+        /// </summary>
+        [Fact]
+        public async Task GroupProfile_Should_Support_Dynamic_Property_Access_Through_AdditionalProperties()
+        {
+            // Arrange
+            var groupName = $"Test Group AdditionalProperties {Guid.NewGuid()}";
+            var addGroupRequest = new AddGroupRequest
+            {
+                Profile = new OktaUserGroupProfile
+                {
+                    Name = groupName,
+                    Description = "Test group to verify AdditionalProperties support"
+                }
+            };
+
+            Group createdGroup = null;
+
+            try
+            {
+                // Act
+                createdGroup = await _groupApi.AddGroupAsync(addGroupRequest);
+                var retrievedGroup = await _groupApi.GetGroupAsync(createdGroup.Id);
+
+                // Assert - Verify basic functionality works
+                retrievedGroup.Should().NotBeNull();
+                retrievedGroup.Id.Should().NotBeNullOrEmpty();
+                
+                var profileInstance = retrievedGroup.Profile.ActualInstance;
+                
+                // Both OktaUserGroupProfile AND OktaActiveDirectoryGroupProfile should have AdditionalProperties
+                if (profileInstance is OktaUserGroupProfile oktaProfile)
+                {
+                    oktaProfile.Name.Should().Be(groupName);
+
+                    // .NET SDK Implementation:
+                    // File: src/Okta.Sdk/Model/OktaUserGroupProfile.cs
+                    // - Standard properties: Description, Name
+                    // - AdditionalProperties: IDictionary<string, object> with [JsonExtensionData] attribute
+                    //
+                    // The [JsonExtensionData] attribute enables automatic capture of custom schema attributes
+                    // during JSON deserialization. Any properties not mapped to known fields are stored in
+                    // AdditionalProperties dictionary and can be accessed via profile.AdditionalProperties["customField"].
+                    //
+                    // Fix Applied:
+                    // - File: openapi3/management.yaml (OktaUserGroupProfile)
+                    // - Added: additionalProperties: true
+                    // - Result: SDK now generates AdditionalProperties with [JsonExtensionData] attribute
+
+                    // Verify the fix - check property exists and has correct attribute
+                    var type = oktaProfile.GetType();
+                    var additionalPropertiesProperty = type.GetProperty("AdditionalProperties");
+                    
+                    additionalPropertiesProperty.Should().NotBeNull(
+                        "OktaUserGroupProfile should have AdditionalProperties property for custom attributes");
+                    
+                    var jsonExtensionDataAttr = additionalPropertiesProperty.GetCustomAttributes(typeof(Newtonsoft.Json.JsonExtensionDataAttribute), false);
+                    jsonExtensionDataAttr.Should().NotBeEmpty(
+                        "AdditionalProperties should have [JsonExtensionData] attribute for automatic deserialization");
+                }
+                else if (profileInstance is OktaActiveDirectoryGroupProfile adProfile)
+                {
+                    // AD groups also need AdditionalProperties
+                    adProfile.Name.Should().Be(groupName);
+                    
+                    // Verify AD profile has the same support - check property exists and has correct attribute
+                    var type = adProfile.GetType();
+                    var additionalPropertiesProperty = type.GetProperty("AdditionalProperties");
+                    
+                    additionalPropertiesProperty.Should().NotBeNull(
+                        "OktaActiveDirectoryGroupProfile should have AdditionalProperties property for custom attributes");
+                    
+                    var jsonExtensionDataAttr = additionalPropertiesProperty.GetCustomAttributes(typeof(Newtonsoft.Json.JsonExtensionDataAttribute), false);
+                    jsonExtensionDataAttr.Should().NotBeEmpty(
+                        "AdditionalProperties should have [JsonExtensionData] attribute for automatic deserialization");
+                }
+                else
+                {
+                    throw new Exception($"Unexpected profile type: {profileInstance.GetType().Name}");
+                }
+            }
+            finally
+            {
+                // Cleanup
+                if (createdGroup != null)
+                {
+                    await _groupApi.DeleteGroupAsync(createdGroup.Id);
+                }
+            }
+        }
     }
 }
