@@ -55744,9 +55744,9 @@ components:
           type: boolean
           description: Determines if the agent is on the latest generally available version
         lastConnection:
-          type: string
-          format: date-time
-          description: Timestamp when the agent last connected to Okta
+          type: integer
+          format: int64
+          description: Unix timestamp in milliseconds when the agent last connected to Okta
         name:
           type: string
           description: Agent name

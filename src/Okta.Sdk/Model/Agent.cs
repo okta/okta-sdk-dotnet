@@ -90,11 +90,11 @@ namespace Okta.Sdk.Model
         public bool IsLatestGAedVersion { get; set; }
 
         /// <summary>
-        /// Timestamp when the agent last connected to Okta
+        /// Unix timestamp in milliseconds when the agent last connected to Okta
         /// </summary>
-        /// <value>Timestamp when the agent last connected to Okta</value>
+        /// <value>Unix timestamp in milliseconds when the agent last connected to Okta</value>
         [DataMember(Name = "lastConnection", EmitDefaultValue = true)]
-        public DateTimeOffset LastConnection { get; set; }
+        public long LastConnection { get; set; }
 
         /// <summary>
         /// Agent name
@@ -200,8 +200,7 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.LastConnection == input.LastConnection ||
-                    (this.LastConnection != null &&
-                    this.LastConnection.Equals(input.LastConnection))
+                    this.LastConnection.Equals(input.LastConnection)
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -258,10 +257,7 @@ namespace Okta.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.IsHidden.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsLatestGAedVersion.GetHashCode();
-                if (this.LastConnection != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastConnection.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.LastConnection.GetHashCode();
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();

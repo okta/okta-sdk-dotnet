@@ -4,11 +4,13 @@
 // </copyright>
 
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Moq;
+using Newtonsoft.Json;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
@@ -644,6 +646,97 @@ namespace Okta.Sdk.UnitTest.Api
 
             // Assert
             await act.Should().ThrowAsync<OperationCanceledException>();
+        }
+
+        #endregion
+
+        #region Issue #808 - lastConnection Unix Timestamp Parsing Fix Tests
+
+        /// <summary>
+        /// Verifies the fix for GitHub Issue #808: AgentPoolsApi.ListAgentPools() 
+        /// https://github.com/okta/okta-sdk-dotnet/issues/808
+        /// 
+        /// The bug was that the Agent model's lastConnection property was defined as DateTimeOffset
+        /// (expecting ISO 8601 format like "2013-07-02T21:36:25.344Z"), but the actual Okta API
+        /// returns Unix timestamps in milliseconds as numbers (e.g., 1761037561000).
+        /// 
+        /// The fix changes the spec to define lastConnection as int64 (Unix timestamp in ms).
+        /// </summary>
+        [Fact]
+        public void Agent_Deserialization_WithUnixTimestamp_ShouldSucceed_Issue808Fix()
+        {
+            // Arrange - This is the actual JSON returned by Okta API
+            // Note: lastConnection is a Unix timestamp NUMBER in milliseconds
+            var actualOktaApiResponse = @"[{
+                ""disruptedAgents"": 1,
+                ""inactiveAgents"": 0,
+                ""operationalAgents"": 0,
+                ""id"": ""0oaw2s86uvbMgRqW6697"",
+                ""name"": ""contoso.com"",
+                ""type"": ""AD"",
+                ""operationalStatus"": ""DISRUPTED"",
+                ""agents"": [{
+                    ""latestGAedVersion"": true,
+                    ""id"": ""a53w29emx8bAy9lZH697"",
+                    ""type"": ""AD"",
+                    ""operationalStatus"": ""DISRUPTED"",
+                    ""version"": ""3.21.0"",
+                    ""lastConnection"": 1761037561000,
+                    ""isLatestGAedVersion"": true,
+                    ""poolId"": ""0oaw2s86uvbMgRqW6697"",
+                    ""name"": ""CONTOSO-DC"",
+                    ""isHidden"": false
+                }],
+                ""_links"": {}
+            }]";
+
+            // Act - After the fix, deserialization should succeed
+            var agentPools = JsonConvert.DeserializeObject<List<AgentPool>>(actualOktaApiResponse);
+
+            // Assert
+            agentPools.Should().NotBeNull();
+            agentPools.Should().HaveCount(1);
+            agentPools![0].Agents.Should().HaveCount(1);
+            
+            // LastConnection is now a long (Unix timestamp in milliseconds)
+            agentPools[0].Agents![0].LastConnection.Should().Be(1761037561000);
+            
+            // To convert to DateTimeOffset, use: DateTimeOffset.FromUnixTimeMilliseconds(lastConnection)
+            // Unix timestamp 1761037561000 ms = 2025-10-21T09:06:01.000Z
+            var dateTime = DateTimeOffset.FromUnixTimeMilliseconds(agentPools[0].Agents![0].LastConnection);
+            dateTime.Should().Be(new DateTimeOffset(2025, 10, 21, 9, 6, 1, TimeSpan.Zero));
+        }
+
+        /// <summary>
+        /// Verifies that the Agent model correctly deserializes the Unix timestamp as long
+        /// </summary>
+        [Fact]
+        public void Agent_LastConnection_IsUnixTimestampInMilliseconds()
+        {
+            // Arrange - JSON with Unix timestamp
+            var json = @"{
+                ""id"": ""a53w29emx8bAy9lZH697"",
+                ""type"": ""AD"",
+                ""operationalStatus"": ""DISRUPTED"",
+                ""version"": ""3.21.0"",
+                ""lastConnection"": 1764658925000,
+                ""poolId"": ""0oaw2s86uvbMgRqW6697"",
+                ""name"": ""CONTOSO-DC"",
+                ""isHidden"": false
+            }";
+
+            // Act
+            var agent = JsonConvert.DeserializeObject<Agent>(json);
+
+            // Assert
+            agent.Should().NotBeNull();
+            agent!.LastConnection.Should().Be(1764658925000);
+            
+            // Verify conversion to DateTimeOffset works correctly
+            var dateTime = DateTimeOffset.FromUnixTimeMilliseconds(agent.LastConnection);
+            dateTime.Year.Should().Be(2025);
+            dateTime.Month.Should().Be(12);
+            dateTime.Day.Should().Be(2);
         }
 
         #endregion
