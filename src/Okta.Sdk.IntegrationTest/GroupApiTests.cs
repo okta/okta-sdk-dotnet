@@ -1001,6 +1001,49 @@ namespace Okta.Sdk.IntegrationTest
         }
 
         /// <summary>
+        /// Tests deserialization of a complete Group object with an Okta User profile
+        /// to ensure standard groups correctly deserialize as OktaUserGroupProfile.
+        /// </summary>
+        [Fact]
+        public void Group_ShouldDeserializeWithUserProfile()
+        {
+            // Arrange - Complete Group JSON with standard Okta user profile
+            var fullGroupJson = @"{
+                ""id"": ""00g1234567890abcdef"",
+                ""created"": ""2025-12-01T10:00:00.000Z"",
+                ""lastUpdated"": ""2025-12-01T10:00:00.000Z"",
+                ""lastMembershipUpdated"": ""2025-12-01T10:00:00.000Z"",
+                ""objectClass"": [""okta:user_group""],
+                ""type"": ""OKTA_GROUP"",
+                ""profile"": {
+                    ""name"": ""Engineering Team"",
+                    ""description"": ""All engineers in the company""
+                }
+            }";
+
+            // Act - Deserialize a full Group object
+            var group = Newtonsoft.Json.JsonConvert.DeserializeObject<Group>(fullGroupJson);
+
+            // Assert - Verify Group and its user profile
+            group.Should().NotBeNull();
+            group.Id.Should().Be("00g1234567890abcdef");
+            group.Type.Should().Be(GroupType.OKTAGROUP);
+            group.ObjectClass.Should().Contain("okta:user_group");
+            
+            group.Profile.Should().NotBeNull();
+            group.Profile.ActualInstance.Should().BeOfType<OktaUserGroupProfile>(
+                "Groups with objectClass 'okta:user_group' should deserialize as OktaUserGroupProfile");
+            
+            var userProfile = group.Profile.ActualInstance as OktaUserGroupProfile;
+            userProfile.Should().NotBeNull();
+            if (userProfile != null)
+            {
+                userProfile.Name.Should().Be("Engineering Team");
+                userProfile.Description.Should().Be("All engineers in the company");
+            }
+        }
+
+        /// <summary>
         /// Reproduces lewis-green's exact code pattern from Issue #812.
         /// Tests that ListGroups().ToArrayAsync() returns groups (not empty array).
         /// This was the exact code from documentation that failed in v10.0.0.
@@ -1378,17 +1421,23 @@ namespace Okta.Sdk.IntegrationTest
                 // Both OktaUserGroupProfile AND OktaActiveDirectoryGroupProfile should have AdditionalProperties
                 if (profileInstance is OktaUserGroupProfile oktaUserProfile)
                 {
-                    // Verify AdditionalProperties dictionary is now present
-                    oktaUserProfile.AdditionalProperties.Should().NotBeNull(
-                        "OktaUserGroupProfile should have AdditionalProperties dictionary");
-
                     // Verify basic properties still work
                     oktaUserProfile.Name.Should().Be(groupName);
                     oktaUserProfile.Description.Should().Be("Test to verify AdditionalProperties dictionary exists");
 
-                    // AdditionalProperties should be an empty dictionary for standard groups
-                    // (custom attributes would appear here if the group had them)
-                    oktaUserProfile.AdditionalProperties.Should().NotBeNull();
+                    // Verify AdditionalProperties property exists using reflection
+                    // NOTE: AdditionalProperties may be NULL if there are no custom attributes in the JSON response
+                    // This is expected behavior with [JsonExtensionData] - it only populates when unmapped properties exist
+                    var type = oktaUserProfile.GetType();
+                    var additionalPropertiesProperty = type.GetProperty("AdditionalProperties");
+                    
+                    additionalPropertiesProperty.Should().NotBeNull(
+                        "OktaUserGroupProfile should have AdditionalProperties property for custom group attributes");
+
+                    // Verify the property has the [JsonExtensionData] attribute
+                    var jsonExtensionDataAttr = additionalPropertiesProperty.GetCustomAttributes(typeof(Newtonsoft.Json.JsonExtensionDataAttribute), false);
+                    jsonExtensionDataAttr.Should().NotBeEmpty(
+                        "AdditionalProperties should have [JsonExtensionData] attribute to capture custom fields");
                 }
                 else if (profileInstance is OktaActiveDirectoryGroupProfile adProfile)
                 {
@@ -1643,6 +1692,52 @@ namespace Okta.Sdk.IntegrationTest
                     await _groupApi.DeleteGroupAsync(createdGroup.Id);
                 }
             }
+        }
+
+        /// <summary>
+        /// Diagnostic test to verify both OktaUserGroupProfile and OktaActiveDirectoryGroupProfile
+        /// are correctly identified based on the objectClass discriminator when fetching live groups.
+        /// </summary>
+        [Fact]
+        public async Task ListGroups_ShouldCorrectlyIdentifyProfileTypesBasedOnObjectClass()
+        {
+            // Act - Fetch groups from the live Okta org
+            int userGroupCount = 0;
+            int adGroupCount = 0;
+            var groups = new List<Group>();
+
+            await foreach (var group in _groupApi.ListGroups(limit: 20))
+            {
+                groups.Add(group);
+                
+                // Verify each group has required properties
+                group.Id.Should().NotBeNullOrEmpty();
+                group.Profile.Should().NotBeNull();
+                group.Profile.ActualInstance.Should().NotBeNull();
+                group.ObjectClass.Should().NotBeNullOrEmpty();
+
+                if (group.Profile.ActualInstance is OktaUserGroupProfile userProfile)
+                {
+                    userGroupCount++;
+                    // Verify objectClass matches
+                    group.ObjectClass.Should().Contain("okta:user_group",
+                        "OktaUserGroupProfile should have 'okta:user_group' in objectClass");
+                    userProfile.Name.Should().NotBeNullOrEmpty();
+                }
+                else if (group.Profile.ActualInstance is OktaActiveDirectoryGroupProfile adProfile)
+                {
+                    adGroupCount++;
+                    // Verify objectClass matches
+                    group.ObjectClass.Should().Contain("okta:windows_security_principal",
+                        "OktaActiveDirectoryGroupProfile should have 'okta:windows_security_principal' in objectClass");
+                    adProfile.Name.Should().NotBeNullOrEmpty();
+                }
+            }
+
+            // Assert - Should have fetched some groups
+            groups.Should().NotBeEmpty("Should fetch at least some groups from the org");
+            (userGroupCount + adGroupCount).Should().Be(groups.Count,
+                "All groups should be either OktaUserGroupProfile or OktaActiveDirectoryGroupProfile");
         }
     }
 }

@@ -34,6 +34,7 @@ namespace Okta.Sdk.Model
     /// Template: ModelGeneric
     /// Group
     /// </summary>
+    [JsonConverter(typeof(GroupJsonConverter))]
     [DataContract(Name = "Group")]
     
     public partial class Group : IEquatable<Group>
