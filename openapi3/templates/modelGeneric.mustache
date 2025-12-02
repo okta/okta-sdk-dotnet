@@ -2,6 +2,9 @@
     /// Template: ModelGeneric
     /// {{description}}{{^description}}{{classname}}{{/description}}
     /// </summary>
+    {{#vendorExtensions.x-json-converter}}
+    [JsonConverter(typeof({{{.}}}))]
+    {{/vendorExtensions.x-json-converter}}
     [DataContract(Name = "{{{name}}}")]
     {{#discriminator}}
     [JsonConverter(typeof(JsonSubtypes), "{{{discriminatorName}}}")]

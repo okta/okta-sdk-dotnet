@@ -122,6 +122,11 @@
             "destinationFilename": "StringEnumSerializingConverter.cs",
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Model"
+        },
+        "GroupJsonConverter.mustache":{
+            "destinationFilename": "GroupJsonConverter.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Model"
         }
     }
 }

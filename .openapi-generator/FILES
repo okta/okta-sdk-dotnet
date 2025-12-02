@@ -2556,6 +2556,7 @@ src/Okta.Sdk/Model/GrantType.cs
 src/Okta.Sdk/Model/GrantTypePolicyRuleCondition.cs
 src/Okta.Sdk/Model/Group.cs
 src/Okta.Sdk/Model/GroupCondition.cs
+src/Okta.Sdk/Model/GroupJsonConverter.cs
 src/Okta.Sdk/Model/GroupLinks.cs
 src/Okta.Sdk/Model/GroupOwner.cs
 src/Okta.Sdk/Model/GroupOwnerOriginType.cs

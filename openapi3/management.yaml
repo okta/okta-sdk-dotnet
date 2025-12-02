@@ -63079,6 +63079,7 @@ components:
             type: string
     Group:
       type: object
+      x-json-converter: GroupJsonConverter
       properties:
         created:
           type: string
