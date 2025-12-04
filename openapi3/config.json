@@ -2,6 +2,7 @@
     "useDateTimeOffset": true,
     "returnICollection": true,
     "validatable": false,
+    "useOneOfDiscriminatorLookup": true,
     "templateDir" : "./templates",
     "packageName" : "Okta.Sdk",
     "outputDir" : "../",

@@ -841,6 +841,7 @@ docs/LinksVerifyVerify.md
 docs/ListGroupAssignedRoles200ResponseInner.md
 docs/ListJwk200ResponseInner.md
 docs/ListProfileMappings.md
+docs/ListRolesForClient200ResponseInner.md
 docs/ListSubscriptionsRoleRoleRefParameter.md
 docs/LoadingPageTouchPointVariant.md
 docs/LocationGranularity.md
@@ -2793,6 +2794,7 @@ src/Okta.Sdk/Model/LinksVerifyVerify.cs
 src/Okta.Sdk/Model/ListGroupAssignedRoles200ResponseInner.cs
 src/Okta.Sdk/Model/ListJwk200ResponseInner.cs
 src/Okta.Sdk/Model/ListProfileMappings.cs
+src/Okta.Sdk/Model/ListRolesForClient200ResponseInner.cs
 src/Okta.Sdk/Model/ListSubscriptionsRoleRoleRefParameter.cs
 src/Okta.Sdk/Model/LoadingPageTouchPointVariant.cs
 src/Okta.Sdk/Model/LocationGranularity.cs
