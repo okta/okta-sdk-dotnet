@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Unique identifier for the agent that&#39;s generated during installation | [optional] [readonly] 
 **IsHidden** | **bool** | Determines if an agent is hidden from the Admin Console | [optional] 
 **IsLatestGAedVersion** | **bool** | Determines if the agent is on the latest generally available version | [optional] 
-**LastConnection** | **DateTimeOffset** | Timestamp when the agent last connected to Okta | [optional] 
+**LastConnection** | **long** | Unix timestamp in milliseconds when the agent last connected to Okta | [optional] 
 **Name** | **string** | Agent name | [optional] 
 **OperationalStatus** | **OperationalStatus** |  | [optional] 
 **PoolId** | **string** | Pool ID | [optional] 

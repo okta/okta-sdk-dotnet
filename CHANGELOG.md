@@ -1,6 +1,39 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 10.0.1
+
+### Bug Fixes
+
+This release fixes 7 issues caused by OpenAPI spec mismatches with actual Okta API responses.
+
+| Issue | Problem | Fix |
+|-------|---------|-----|
+| [#819](https://github.com/okta/okta-sdk-dotnet/issues/819) | `GetUserAsync` returns `UserGetSingleton` instead of `User` | Changed response type to `User`, removed `UserGetSingleton` schema |
+| [#816](https://github.com/okta/okta-sdk-dotnet/issues/816) | `OriginalGrant.Request` always null in Token Inline Hooks | Renamed property from `request` to `authorization` |
+| [#815](https://github.com/okta/okta-sdk-dotnet/issues/815) | `Group.Profile.AdditionalProperties` missing | Added `additionalProperties: true` to group profile schemas |
+| [#814](https://github.com/okta/okta-sdk-dotnet/issues/814) | JSON parsing errors silently swallowed in List methods | Skip `oneOf`/`anyOf` deserialization for error responses |
+| [#812](https://github.com/okta/okta-sdk-dotnet/issues/812) | `ListGroups()` returns empty for AD-synced groups | Added `objectClass` discriminator with custom `GroupJsonConverter` |
+| [#808](https://github.com/okta/okta-sdk-dotnet/issues/808) | `ListAgentPools()` fails with JSON error | Changed `lastConnection` from `date-time` to `int64` |
+| [#807](https://github.com/okta/okta-sdk-dotnet/issues/807) | `ListRolesForClientAsync` returns null | Changed response from single object to `IOktaCollectionClient<>` |
+
+### Changes
+
+#### OpenAPI Spec Corrections
+- Fixed `getUser` response type from `UserGetSingleton` to `User`
+- Fixed `TokenPayLoadDataContextAllOfProtocolOriginalGrant.request` → `authorization`
+- Added `additionalProperties: true` to `OktaUserGroupProfile` and `OktaActiveDirectoryGroupProfile`
+- Fixed `Agent.lastConnection` type from `date-time` string to `int64` (Unix timestamp)
+- Fixed `listRolesForClient` response from single object to array
+
+#### Custom Code Additions
+- `GroupJsonConverter.cs`: Template-based converter using `objectClass` discriminator for group profile polymorphism
+- `AbstractOpenAPISchema.cs`: Skip polymorphic deserialization for error responses to properly propagate `ApiException`
+
+### Tests Added
+- Unit tests for all deserialization fixes
+- Integration tests: `GroupApiTests`, `AgentPoolsApiTests`, `RoleAssignmentClientApiTests`
+
 ## 10.0.0
 
 ### Breaking Changes

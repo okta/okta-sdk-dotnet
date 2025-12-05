@@ -23647,7 +23647,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserGetSingleton'
+                $ref: '#/components/schemas/User'
               examples:
                 GetUserExample:
                   $ref: '#/components/examples/user-example'
@@ -27851,9 +27851,28 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/StandardRole'
-                  - $ref: '#/components/schemas/CustomRole'
+                type: array
+                items:
+                  oneOf:
+                    - $ref: '#/components/schemas/StandardRole'
+                    - $ref: '#/components/schemas/CustomRole'
+                  discriminator:
+                    propertyName: type
+                    mapping:
+                      API_ACCESS_MANAGEMENT_ADMIN: '#/components/schemas/StandardRole'
+                      APP_ADMIN: '#/components/schemas/StandardRole'
+                      GROUP_MEMBERSHIP_ADMIN: '#/components/schemas/StandardRole'
+                      HELP_DESK_ADMIN: '#/components/schemas/StandardRole'
+                      MOBILE_ADMIN: '#/components/schemas/StandardRole'
+                      ORG_ADMIN: '#/components/schemas/StandardRole'
+                      READ_ONLY_ADMIN: '#/components/schemas/StandardRole'
+                      REPORT_ADMIN: '#/components/schemas/StandardRole'
+                      SUPER_ADMIN: '#/components/schemas/StandardRole'
+                      USER_ADMIN: '#/components/schemas/StandardRole'
+                      ACCESS_CERTIFICATIONS_ADMIN: '#/components/schemas/CustomRole'
+                      ACCESS_REQUESTS_ADMIN: '#/components/schemas/CustomRole'
+                      WORKFLOWS_ADMIN: '#/components/schemas/CustomRole'
+                      CUSTOM: '#/components/schemas/CustomRole'
               examples:
                 Standard Roles:
                   $ref: '#/components/examples/StandardRolesListResponseClient'
@@ -27909,6 +27928,23 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/StandardRole'
                   - $ref: '#/components/schemas/CustomRole'
+                discriminator:
+                  propertyName: type
+                  mapping:
+                    API_ACCESS_MANAGEMENT_ADMIN: '#/components/schemas/StandardRole'
+                    APP_ADMIN: '#/components/schemas/StandardRole'
+                    GROUP_MEMBERSHIP_ADMIN: '#/components/schemas/StandardRole'
+                    HELP_DESK_ADMIN: '#/components/schemas/StandardRole'
+                    MOBILE_ADMIN: '#/components/schemas/StandardRole'
+                    ORG_ADMIN: '#/components/schemas/StandardRole'
+                    READ_ONLY_ADMIN: '#/components/schemas/StandardRole'
+                    REPORT_ADMIN: '#/components/schemas/StandardRole'
+                    SUPER_ADMIN: '#/components/schemas/StandardRole'
+                    USER_ADMIN: '#/components/schemas/StandardRole'
+                    ACCESS_CERTIFICATIONS_ADMIN: '#/components/schemas/CustomRole'
+                    ACCESS_REQUESTS_ADMIN: '#/components/schemas/CustomRole'
+                    WORKFLOWS_ADMIN: '#/components/schemas/CustomRole'
+                    CUSTOM: '#/components/schemas/CustomRole'
               examples:
                 Standard Role:
                   $ref: '#/components/examples/StandardRoleResponseClient'
@@ -27948,6 +27984,23 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/StandardRole'
                   - $ref: '#/components/schemas/CustomRole'
+                discriminator:
+                  propertyName: type
+                  mapping:
+                    API_ACCESS_MANAGEMENT_ADMIN: '#/components/schemas/StandardRole'
+                    APP_ADMIN: '#/components/schemas/StandardRole'
+                    GROUP_MEMBERSHIP_ADMIN: '#/components/schemas/StandardRole'
+                    HELP_DESK_ADMIN: '#/components/schemas/StandardRole'
+                    MOBILE_ADMIN: '#/components/schemas/StandardRole'
+                    ORG_ADMIN: '#/components/schemas/StandardRole'
+                    READ_ONLY_ADMIN: '#/components/schemas/StandardRole'
+                    REPORT_ADMIN: '#/components/schemas/StandardRole'
+                    SUPER_ADMIN: '#/components/schemas/StandardRole'
+                    USER_ADMIN: '#/components/schemas/StandardRole'
+                    ACCESS_CERTIFICATIONS_ADMIN: '#/components/schemas/CustomRole'
+                    ACCESS_REQUESTS_ADMIN: '#/components/schemas/CustomRole'
+                    WORKFLOWS_ADMIN: '#/components/schemas/CustomRole'
+                    CUSTOM: '#/components/schemas/CustomRole'
               examples:
                 Standard Role:
                   $ref: '#/components/examples/StandardRoleResponseClient'
@@ -55744,9 +55797,9 @@ components:
           type: boolean
           description: Determines if the agent is on the latest generally available version
         lastConnection:
-          type: string
-          format: date-time
-          description: Timestamp when the agent last connected to Okta
+          type: integer
+          format: int64
+          description: Unix timestamp in milliseconds when the agent last connected to Okta
         name:
           type: string
           description: Agent name
@@ -63079,6 +63132,7 @@ components:
             type: string
     Group:
       type: object
+      x-json-converter: GroupJsonConverter
       properties:
         created:
           type: string
@@ -68130,10 +68184,27 @@ components:
           type: string
           example: VKzYZ1C+IkSZxIWlrW5ITg==
           description: Base-64 encoded GUID (`objectGUID`) of the Windows group
+        groupScope:
+          type: string
+          example: Global
+          description: The scope of the Windows group (DomainLocal, Global, or Universal)
+        groupType:
+          type: string
+          example: Security
+          description: The type of the Windows group (Security or Distribution)
+        managedBy:
+          type: string
+          nullable: true
+          example: CN=IT Admin,CN=Users,DC=example,DC=com
+          description: Distinguished name of the group that manages this group
         name:
           type: string
           example: West Coast users
           description: Name of the Windows group
+        objectSid:
+          type: string
+          example: S-1-5-21-3623811015-3361044348-30300820-1013
+          description: The Windows Security Identifier (SID) for the group
         samAccountName:
           type: string
           example: West Coast users
@@ -68142,6 +68213,8 @@ components:
           type: string
           example: EXAMPLE\\West Coast users
           description: Fully qualified name of the Windows group
+      additionalProperties: true
+      x-okta-extensible: true
     OktaDeviceRiskChangeEvent:
       description: The device risk level changed
       type: object
@@ -68432,6 +68505,7 @@ components:
           type: string
           example: West Coast users
           description: Name of the group
+      additionalProperties: true
       x-okta-extensible: true
     OktaUserRiskChangeEvent:
       description: The user risk level changed
@@ -76235,7 +76309,7 @@ components:
                           description: Information about the original token request used to get the refresh token being used, when in a refresh token request
                           type: object
                           properties:
-                            request:
+                            authorization:
                               $ref: '#/components/schemas/TokenProtocolRequest'
                             refresh_token:
                               $ref: '#/components/schemas/RefreshToken'
@@ -77866,20 +77940,6 @@ components:
             properties: {}
         _links:
           $ref: '#/components/schemas/UserFactorLinks'
-    UserGetSingleton:
-      allOf:
-        - $ref: '#/components/schemas/User'
-        - type: object
-          properties:
-            _embedded:
-              type: object
-              description: The embedded resources related to the object if the `expand` query parameter is specified
-              properties:
-                blocks:
-                  type: array
-                  description: A list of access block details for the user account
-                  items:
-                    $ref: '#/components/schemas/UserBlock'
     UserIdentifierConditionEvaluatorPattern:
       description: Specifies the details of the patterns to match against
       type: object

@@ -841,6 +841,7 @@ docs/LinksVerifyVerify.md
 docs/ListGroupAssignedRoles200ResponseInner.md
 docs/ListJwk200ResponseInner.md
 docs/ListProfileMappings.md
+docs/ListRolesForClient200ResponseInner.md
 docs/ListSubscriptionsRoleRoleRefParameter.md
 docs/LoadingPageTouchPointVariant.md
 docs/LocationGranularity.md
@@ -1695,8 +1696,6 @@ docs/UserFactorWebAuthn.md
 docs/UserFactorWebAuthnProfile.md
 docs/UserFactorWebProfile.md
 docs/UserFactorYubikeyOtpToken.md
-docs/UserGetSingleton.md
-docs/UserGetSingletonAllOfEmbedded.md
 docs/UserGrantApi.md
 docs/UserIdentifierConditionEvaluatorPattern.md
 docs/UserIdentifierMatchType.md
@@ -2556,6 +2555,7 @@ src/Okta.Sdk/Model/GrantType.cs
 src/Okta.Sdk/Model/GrantTypePolicyRuleCondition.cs
 src/Okta.Sdk/Model/Group.cs
 src/Okta.Sdk/Model/GroupCondition.cs
+src/Okta.Sdk/Model/GroupJsonConverter.cs
 src/Okta.Sdk/Model/GroupLinks.cs
 src/Okta.Sdk/Model/GroupOwner.cs
 src/Okta.Sdk/Model/GroupOwnerOriginType.cs
@@ -2792,6 +2792,7 @@ src/Okta.Sdk/Model/LinksVerifyVerify.cs
 src/Okta.Sdk/Model/ListGroupAssignedRoles200ResponseInner.cs
 src/Okta.Sdk/Model/ListJwk200ResponseInner.cs
 src/Okta.Sdk/Model/ListProfileMappings.cs
+src/Okta.Sdk/Model/ListRolesForClient200ResponseInner.cs
 src/Okta.Sdk/Model/ListSubscriptionsRoleRoleRefParameter.cs
 src/Okta.Sdk/Model/LoadingPageTouchPointVariant.cs
 src/Okta.Sdk/Model/LocationGranularity.cs
@@ -3595,8 +3596,6 @@ src/Okta.Sdk/Model/UserFactorWebAuthn.cs
 src/Okta.Sdk/Model/UserFactorWebAuthnProfile.cs
 src/Okta.Sdk/Model/UserFactorWebProfile.cs
 src/Okta.Sdk/Model/UserFactorYubikeyOtpToken.cs
-src/Okta.Sdk/Model/UserGetSingleton.cs
-src/Okta.Sdk/Model/UserGetSingletonAllOfEmbedded.cs
 src/Okta.Sdk/Model/UserIdentifierConditionEvaluatorPattern.cs
 src/Okta.Sdk/Model/UserIdentifierMatchType.cs
 src/Okta.Sdk/Model/UserIdentifierPolicyRuleCondition.cs

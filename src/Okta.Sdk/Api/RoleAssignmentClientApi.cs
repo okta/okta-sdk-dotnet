@@ -43,8 +43,8 @@ namespace Okta.Sdk.Api
         /// <param name="clientId">Client app ID</param>
         /// <param name="assignRoleToGroupRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ListGroupAssignedRoles200ResponseInner</returns>
-        System.Threading.Tasks.Task<ListGroupAssignedRoles200ResponseInner> AssignRoleToClientAsync(  string clientId ,   AssignRoleToGroupRequest assignRoleToGroupRequest , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ListRolesForClient200ResponseInner</returns>
+        System.Threading.Tasks.Task<ListRolesForClient200ResponseInner> AssignRoleToClientAsync(  string clientId ,   AssignRoleToGroupRequest assignRoleToGroupRequest , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Assign a client role
         /// </summary>
@@ -55,8 +55,8 @@ namespace Okta.Sdk.Api
         /// <param name="clientId">Client app ID</param>
         /// <param name="assignRoleToGroupRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ListGroupAssignedRoles200ResponseInner)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListGroupAssignedRoles200ResponseInner>> AssignRoleToClientWithHttpInfoAsync(  string clientId ,   AssignRoleToGroupRequest assignRoleToGroupRequest , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ListRolesForClient200ResponseInner)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ListRolesForClient200ResponseInner>> AssignRoleToClientWithHttpInfoAsync(  string clientId ,   AssignRoleToGroupRequest assignRoleToGroupRequest , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Unassign a client role
         /// </summary>
@@ -90,8 +90,8 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">Client app ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ListGroupAssignedRoles200ResponseInner</returns>
-        System.Threading.Tasks.Task<ListGroupAssignedRoles200ResponseInner> ListRolesForClientAsync(  string clientId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;ListRolesForClient200ResponseInner&gt;</returns>
+        IOktaCollectionClient<ListRolesForClient200ResponseInner> ListRolesForClient(  string clientId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all client role assignments
         /// </summary>
@@ -101,8 +101,8 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">Client app ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ListGroupAssignedRoles200ResponseInner)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListGroupAssignedRoles200ResponseInner>> ListRolesForClientWithHttpInfoAsync(  string clientId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;ListRolesForClient200ResponseInner&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<ListRolesForClient200ResponseInner>>> ListRolesForClientWithHttpInfoAsync(  string clientId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a client role
         /// </summary>
@@ -113,8 +113,8 @@ namespace Okta.Sdk.Api
         /// <param name="clientId">Client app ID</param>
         /// <param name="roleAssignmentId">The &#x60;id&#x60; of the role assignment</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ListGroupAssignedRoles200ResponseInner</returns>
-        System.Threading.Tasks.Task<ListGroupAssignedRoles200ResponseInner> RetrieveClientRoleAsync(  string clientId ,   string roleAssignmentId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ListRolesForClient200ResponseInner</returns>
+        System.Threading.Tasks.Task<ListRolesForClient200ResponseInner> RetrieveClientRoleAsync(  string clientId ,   string roleAssignmentId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a client role
         /// </summary>
@@ -125,8 +125,8 @@ namespace Okta.Sdk.Api
         /// <param name="clientId">Client app ID</param>
         /// <param name="roleAssignmentId">The &#x60;id&#x60; of the role assignment</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ListGroupAssignedRoles200ResponseInner)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListGroupAssignedRoles200ResponseInner>> RetrieveClientRoleWithHttpInfoAsync(  string clientId ,   string roleAssignmentId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ListRolesForClient200ResponseInner)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ListRolesForClient200ResponseInner>> RetrieveClientRoleWithHttpInfoAsync(  string clientId ,   string roleAssignmentId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -244,10 +244,10 @@ namespace Okta.Sdk.Api
         /// <param name="clientId">Client app ID</param>
         /// <param name="assignRoleToGroupRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ListGroupAssignedRoles200ResponseInner</returns>
-        public async System.Threading.Tasks.Task<ListGroupAssignedRoles200ResponseInner> AssignRoleToClientAsync(  string clientId ,   AssignRoleToGroupRequest assignRoleToGroupRequest , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ListRolesForClient200ResponseInner</returns>
+        public async System.Threading.Tasks.Task<ListRolesForClient200ResponseInner> AssignRoleToClientAsync(  string clientId ,   AssignRoleToGroupRequest assignRoleToGroupRequest , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<ListGroupAssignedRoles200ResponseInner> localVarResponse = await AssignRoleToClientWithHttpInfoAsync(clientId, assignRoleToGroupRequest, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<ListRolesForClient200ResponseInner> localVarResponse = await AssignRoleToClientWithHttpInfoAsync(clientId, assignRoleToGroupRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
@@ -257,8 +257,8 @@ namespace Okta.Sdk.Api
         /// <param name="clientId">Client app ID</param>
         /// <param name="assignRoleToGroupRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ListGroupAssignedRoles200ResponseInner)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ListGroupAssignedRoles200ResponseInner>> AssignRoleToClientWithHttpInfoAsync(  string clientId ,   AssignRoleToGroupRequest assignRoleToGroupRequest , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ListRolesForClient200ResponseInner)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ListRolesForClient200ResponseInner>> AssignRoleToClientWithHttpInfoAsync(  string clientId ,   AssignRoleToGroupRequest assignRoleToGroupRequest , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
@@ -317,7 +317,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<ListGroupAssignedRoles200ResponseInner>("/oauth2/v1/clients/{clientId}/roles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ListRolesForClient200ResponseInner>("/oauth2/v1/clients/{clientId}/roles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -429,20 +429,9 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">Client app ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ListGroupAssignedRoles200ResponseInner</returns>
-        public async System.Threading.Tasks.Task<ListGroupAssignedRoles200ResponseInner> ListRolesForClientAsync(  string clientId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Okta.Sdk.Client.ApiResponse<ListGroupAssignedRoles200ResponseInner> localVarResponse = await ListRolesForClientWithHttpInfoAsync(clientId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-        /// <summary>
-        /// List all client role assignments Lists all roles assigned to a client app identified by &#x60;clientId&#x60;
-        /// </summary>
-        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">Client app ID</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ListGroupAssignedRoles200ResponseInner)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ListGroupAssignedRoles200ResponseInner>> ListRolesForClientWithHttpInfoAsync(  string clientId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;ListRolesForClient200ResponseInner&gt;</returns>
+        //a
+        public IOktaCollectionClient<ListRolesForClient200ResponseInner> ListRolesForClient(  string clientId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
@@ -487,13 +476,66 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
             
-            if (Sdk.Client.Configuration.IsPrivateKeyMode(this.Configuration) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
+            
+            return new OktaCollectionClient<ListRolesForClient200ResponseInner>(localVarRequestOptions, "/oauth2/v1/clients/{clientId}/roles", this.AsynchronousClient, this.Configuration, this._oAuthTokenProvider);
+        }
+        /// <summary>
+        /// List all client role assignments Lists all roles assigned to a client app identified by &#x60;clientId&#x60;
+        /// </summary>
+        /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">Client app ID</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;ListRolesForClient200ResponseInner&gt;)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<ListRolesForClient200ResponseInner>>> ListRolesForClientWithHttpInfoAsync(  string clientId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'clientId' is set
+            if (clientId == null)
             {
-                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(localVarRequestOptions, $"/oauth2/v1/clients/{clientId}/roles", "GET", cancellationToken = default);
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'clientId' when calling RoleAssignmentClientApi->ListRolesForClient");
             }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("clientId", Okta.Sdk.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+
+            // authentication (apiToken) required
+            if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (oauth2) required
+            // oauth required
+            if (Sdk.Client.Configuration.IsBearerTokenMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            // If AuthorizationMode is equals to PrivateKey, the authorization header is set in the enumerator for collections.
+
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ListGroupAssignedRoles200ResponseInner>("/oauth2/v1/clients/{clientId}/roles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<ListRolesForClient200ResponseInner>>("/oauth2/v1/clients/{clientId}/roles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -514,10 +556,10 @@ namespace Okta.Sdk.Api
         /// <param name="clientId">Client app ID</param>
         /// <param name="roleAssignmentId">The &#x60;id&#x60; of the role assignment</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ListGroupAssignedRoles200ResponseInner</returns>
-        public async System.Threading.Tasks.Task<ListGroupAssignedRoles200ResponseInner> RetrieveClientRoleAsync(  string clientId ,   string roleAssignmentId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ListRolesForClient200ResponseInner</returns>
+        public async System.Threading.Tasks.Task<ListRolesForClient200ResponseInner> RetrieveClientRoleAsync(  string clientId ,   string roleAssignmentId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<ListGroupAssignedRoles200ResponseInner> localVarResponse = await RetrieveClientRoleWithHttpInfoAsync(clientId, roleAssignmentId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<ListRolesForClient200ResponseInner> localVarResponse = await RetrieveClientRoleWithHttpInfoAsync(clientId, roleAssignmentId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
@@ -527,8 +569,8 @@ namespace Okta.Sdk.Api
         /// <param name="clientId">Client app ID</param>
         /// <param name="roleAssignmentId">The &#x60;id&#x60; of the role assignment</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ListGroupAssignedRoles200ResponseInner)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ListGroupAssignedRoles200ResponseInner>> RetrieveClientRoleWithHttpInfoAsync(  string clientId ,   string roleAssignmentId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ListRolesForClient200ResponseInner)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ListRolesForClient200ResponseInner>> RetrieveClientRoleWithHttpInfoAsync(  string clientId ,   string roleAssignmentId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
@@ -586,7 +628,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ListGroupAssignedRoles200ResponseInner>("/oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ListRolesForClient200ResponseInner>("/oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -40,10 +40,10 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets Request
+        /// Gets or Sets Authorization
         /// </summary>
-        [DataMember(Name = "request", EmitDefaultValue = true)]
-        public TokenProtocolRequest Request { get; set; }
+        [DataMember(Name = "authorization", EmitDefaultValue = true)]
+        public TokenProtocolRequest Authorization { get; set; }
 
         /// <summary>
         /// Gets or Sets RefreshToken
@@ -59,7 +59,7 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class TokenPayLoadDataContextAllOfProtocolOriginalGrant {\n");
-            sb.Append("  Request: ").Append(Request).Append("\n");
+            sb.Append("  Authorization: ").Append(Authorization).Append("\n");
             sb.Append("  RefreshToken: ").Append(RefreshToken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -97,9 +97,9 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Request == input.Request ||
-                    (this.Request != null &&
-                    this.Request.Equals(input.Request))
+                    this.Authorization == input.Authorization ||
+                    (this.Authorization != null &&
+                    this.Authorization.Equals(input.Authorization))
                 ) && 
                 (
                     this.RefreshToken == input.RefreshToken ||
@@ -118,9 +118,9 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Request != null)
+                if (this.Authorization != null)
                 {
-                    hashCode = (hashCode * 59) + this.Request.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Authorization.GetHashCode();
                 }
                 if (this.RefreshToken != null)
                 {
