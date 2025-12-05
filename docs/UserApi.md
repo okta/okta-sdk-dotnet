@@ -183,7 +183,7 @@ void (empty response body)
 
 <a name="getuser"></a>
 # **GetUser**
-> UserGetSingleton GetUser (string id, string contentType = null, string expand = null)
+> User GetUser (string id, string contentType = null, string expand = null)
 
 Retrieve a user
 
@@ -218,7 +218,7 @@ namespace Example
             try
             {
                 // Retrieve a user
-                UserGetSingleton result = apiInstance.GetUser(id, contentType, expand);
+                User result = apiInstance.GetUser(id, contentType, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserGetSingleton**](UserGetSingleton.md)
+[**User**](User.md)
 
 ### Authorization
 

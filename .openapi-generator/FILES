@@ -1696,8 +1696,6 @@ docs/UserFactorWebAuthn.md
 docs/UserFactorWebAuthnProfile.md
 docs/UserFactorWebProfile.md
 docs/UserFactorYubikeyOtpToken.md
-docs/UserGetSingleton.md
-docs/UserGetSingletonAllOfEmbedded.md
 docs/UserGrantApi.md
 docs/UserIdentifierConditionEvaluatorPattern.md
 docs/UserIdentifierMatchType.md
@@ -3598,8 +3596,6 @@ src/Okta.Sdk/Model/UserFactorWebAuthn.cs
 src/Okta.Sdk/Model/UserFactorWebAuthnProfile.cs
 src/Okta.Sdk/Model/UserFactorWebProfile.cs
 src/Okta.Sdk/Model/UserFactorYubikeyOtpToken.cs
-src/Okta.Sdk/Model/UserGetSingleton.cs
-src/Okta.Sdk/Model/UserGetSingletonAllOfEmbedded.cs
 src/Okta.Sdk/Model/UserIdentifierConditionEvaluatorPattern.cs
 src/Okta.Sdk/Model/UserIdentifierMatchType.cs
 src/Okta.Sdk/Model/UserIdentifierPolicyRuleCondition.cs
