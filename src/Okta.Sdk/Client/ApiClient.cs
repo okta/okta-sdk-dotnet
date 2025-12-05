@@ -583,7 +583,10 @@ namespace Okta.Sdk.Client
             }
             
             // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
-            if (typeof(Okta.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+            // Only deserialize for successful responses (2xx) to avoid trying to deserialize 
+            // error responses (4xx/5xx) which have a different JSON structure (Okta error object)
+            // and would fail with InvalidDataException instead of propagating as ApiException
+            if (typeof(Okta.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)) && response.IsSuccessful)
             {
                 response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
             }

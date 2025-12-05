@@ -27,6 +27,12 @@ namespace Okta.Sdk.IntegrationTest
     /// <summary>
     /// Integration tests for RoleAssignmentClientApi to reproduce and verify Issue #807.
     /// 
+    /// API Endpoints Tested:
+    /// - GET    /oauth2/v1/clients/{clientId}/roles                       - ListRolesForClient
+    /// - POST   /oauth2/v1/clients/{clientId}/roles                       - AssignRoleToClient
+    /// - GET    /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}    - RetrieveClientRole
+    /// - DELETE /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}    - DeleteRoleFromClient
+    /// 
     /// Issue #807: ListRolesForClientAsync returns null because the API returns a JSON array,
     /// but the SDK tries to deserialize it as a single object.
     /// </summary>
@@ -344,6 +350,7 @@ namespace Okta.Sdk.IntegrationTest
         /// <summary>
         /// Tests that DeleteRoleFromClientAsync exists and can be called.
         /// We don't actually delete in this test to preserve our test role.
+        /// API: DELETE /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}
         /// </summary>
         [Fact]
         public async Task DeleteRoleFromClientAsync_WithInvalidRoleId_ShouldThrowApiException()
@@ -365,7 +372,8 @@ namespace Okta.Sdk.IntegrationTest
         #region AssignRoleToClientAsync Tests
 
         /// <summary>
-        /// Tests that AssignRoleToClientAsync throws for already assigned role.
+        /// Tests that AssignRoleToClientAsync throws ApiException for already assigned role.
+        /// API: POST /oauth2/v1/clients/{clientId}/roles
         /// </summary>
         [Fact]
         public async Task AssignRoleToClientAsync_WithAlreadyAssignedRole_ShouldThrowApiException()
@@ -382,10 +390,141 @@ namespace Okta.Sdk.IntegrationTest
                 await _roleAssignmentClientApi.AssignRoleToClientAsync(_testClientId, request);
             };
 
-            // Assert - Should throw because role is already assigned
-            // Note: This might throw due to polymorphic deserialization bug in response parsing
-            // rather than a proper API error
-            await act.Should().ThrowAsync<Exception>();
+            // Assert - Should throw ApiException because role is already assigned
+            // Error code E0000090 indicates "The role specified is already assigned to the user"
+            var exception = await act.Should().ThrowAsync<ApiException>();
+            exception.Which.Message.Should().Contain("E0000090", "Error should indicate role is already assigned");
+        }
+
+        /// <summary>
+        /// Tests AssignRoleToClientAsync and DeleteRoleFromClientAsync working together.
+        /// Assigns a role, verifies it, then deletes it.
+        /// API: POST /oauth2/v1/clients/{clientId}/roles
+        /// API: DELETE /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}
+        /// </summary>
+        [Fact]
+        public async Task AssignRoleToClientAsync_ThenDelete_ShouldSucceed()
+        {
+            SkipIfSetupIncomplete();
+
+            string helpDeskRoleId = null;
+            
+            try
+            {
+                // Act 1 - Assign HELP_DESK_ADMIN role
+                var request = new AssignRoleToGroupRequest(
+                    new StandardRoleAssignmentSchema { Type = "HELP_DESK_ADMIN" }
+                );
+
+                var assignedRole = await _roleAssignmentClientApi.AssignRoleToClientAsync(_testClientId, request);
+
+                // Assert 1 - Role should be assigned successfully
+                assignedRole.Should().NotBeNull("AssignRoleToClientAsync should return the assigned role");
+                
+                var standardRole = assignedRole.GetStandardRole();
+                standardRole.Should().NotBeNull();
+                standardRole.Type.Value.Should().Be("HELP_DESK_ADMIN");
+                standardRole.Status.Should().Be(LifecycleStatus.ACTIVE);
+                standardRole.AssignmentType.Should().Be(RoleAssignmentType.CLIENT);
+                
+                helpDeskRoleId = standardRole.Id;
+
+                // Act 2 - Delete the role
+                await _roleAssignmentClientApi.DeleteRoleFromClientAsync(_testClientId, helpDeskRoleId);
+
+                // Assert 2 - Trying to retrieve the deleted role should throw 404
+                Func<Task> act = async () =>
+                {
+                    await _roleAssignmentClientApi.RetrieveClientRoleAsync(_testClientId, helpDeskRoleId);
+                };
+
+                await act.Should().ThrowAsync<ApiException>()
+                    .Where(e => e.ErrorCode == 404, "Deleted role should return 404 Not Found");
+            }
+            catch (ApiException ex) when (ex.ErrorCode == 409)
+            {
+                // Role might already be assigned from a previous test run
+                // Try to clean it up
+                if (!string.IsNullOrEmpty(helpDeskRoleId))
+                {
+                    try { await _roleAssignmentClientApi.DeleteRoleFromClientAsync(_testClientId, helpDeskRoleId); }
+                    catch { /* Ignore */ }
+                }
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Full CRUD Workflow Test
+
+        /// <summary>
+        /// Complete end-to-end test covering all 4 API operations:
+        /// 1. AssignRoleToClient (POST)
+        /// 2. ListRolesForClient (GET list)
+        /// 3. RetrieveClientRole (GET single)
+        /// 4. DeleteRoleFromClient (DELETE)
+        /// </summary>
+        [Fact]
+        public async Task FullCrudWorkflow_AllFourOperations_ShouldSucceed()
+        {
+            SkipIfSetupIncomplete();
+
+            string readOnlyRoleId = null;
+
+            try
+            {
+                // 1. POST - Assign a new role
+                var assignRequest = new AssignRoleToGroupRequest(
+                    new StandardRoleAssignmentSchema { Type = "READ_ONLY_ADMIN" }
+                );
+
+                var assignedRole = await _roleAssignmentClientApi.AssignRoleToClientAsync(_testClientId, assignRequest);
+                assignedRole.Should().NotBeNull("POST: AssignRoleToClientAsync should return the assigned role");
+                
+                var standardRole = assignedRole.GetStandardRole();
+                standardRole.Type.Value.Should().Be("READ_ONLY_ADMIN");
+                readOnlyRoleId = standardRole.Id;
+
+                // 2. GET list - Verify role appears in the list
+                var roleCollection = _roleAssignmentClientApi.ListRolesForClient(_testClientId);
+                var roles = new List<ListRolesForClient200ResponseInner>();
+                await foreach (var role in roleCollection)
+                {
+                    roles.Add(role);
+                }
+
+                roles.Should().HaveCountGreaterThanOrEqualTo(2, "GET list: Should have at least 2 roles (APP_ADMIN and READ_ONLY_ADMIN)");
+                var readOnlyInList = roles.FirstOrDefault(r =>
+                    r.ActualInstance is StandardRole sr && sr.Type.Value == "READ_ONLY_ADMIN");
+                readOnlyInList.Should().NotBeNull("GET list: READ_ONLY_ADMIN should be in the list");
+
+                // 3. GET single - Retrieve the specific role
+                var retrievedRole = await _roleAssignmentClientApi.RetrieveClientRoleAsync(_testClientId, readOnlyRoleId);
+                retrievedRole.Should().NotBeNull("GET single: RetrieveClientRoleAsync should return the role");
+                retrievedRole.GetStandardRole().Id.Should().Be(readOnlyRoleId);
+
+                // 4. DELETE - Remove the role
+                await _roleAssignmentClientApi.DeleteRoleFromClientAsync(_testClientId, readOnlyRoleId);
+
+                // Verify deletion
+                Func<Task> act = async () =>
+                {
+                    await _roleAssignmentClientApi.RetrieveClientRoleAsync(_testClientId, readOnlyRoleId);
+                };
+
+                await act.Should().ThrowAsync<ApiException>()
+                    .Where(e => e.ErrorCode == 404, "DELETE: Role should no longer exist");
+            }
+            finally
+            {
+                // Cleanup - ensure the role is deleted
+                if (!string.IsNullOrEmpty(readOnlyRoleId))
+                {
+                    try { await _roleAssignmentClientApi.DeleteRoleFromClientAsync(_testClientId, readOnlyRoleId); }
+                    catch { /* Already deleted or doesn't exist */ }
+                }
+            }
         }
 
         #endregion
