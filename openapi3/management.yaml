@@ -76309,7 +76309,7 @@ components:
                           description: Information about the original token request used to get the refresh token being used, when in a refresh token request
                           type: object
                           properties:
-                            request:
+                            authorization:
                               $ref: '#/components/schemas/TokenProtocolRequest'
                             refresh_token:
                               $ref: '#/components/schemas/RefreshToken'
