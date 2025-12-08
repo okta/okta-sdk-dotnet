@@ -68750,7 +68750,7 @@ components:
         - type: object
           properties:
             app:
-              $ref: '#/components/schemas/ApplicationSettingsApplication'
+              $ref: '#/components/schemas/OpenIdConnectApplicationSettingsApplication'
             oauthClient:
               $ref: '#/components/schemas/OpenIdConnectApplicationSettingsClient'
     OpenIdConnectApplicationSettingsApplication:
