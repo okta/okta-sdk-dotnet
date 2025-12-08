@@ -56815,6 +56815,7 @@ components:
         - label
       discriminator:
         propertyName: signOnMode
+        defaultMapping: '#/components/schemas/ActiveDirectoryApplication'
         mapping:
           AUTO_LOGIN: '#/components/schemas/AutoLoginApplication'
           BASIC_AUTH: '#/components/schemas/BasicAuthApplication'
@@ -58745,6 +58746,52 @@ components:
         autoAssignAdminAppSetting:
           type: boolean
           description: Automatically assigns the Okta Admin Console to the user when an admin role is assigned
+    ActiveDirectoryApplication:
+      x-okta-defined-as:
+        name: active_directory
+      allOf:
+        - $ref: '#/components/schemas/Application'
+        - type: object
+          properties:
+            name:
+              type: string
+              description: '`active_directory` is the key name for an Active Directory app instance'
+              enum:
+                - active_directory
+            settings:
+              $ref: '#/components/schemas/ActiveDirectoryApplicationSettings'
+          required:
+            - name
+            - settings
+    ActiveDirectoryApplicationSettings:
+      allOf:
+        - $ref: '#/components/schemas/ApplicationSettings'
+        - type: object
+          properties:
+            app:
+              $ref: '#/components/schemas/ActiveDirectoryApplicationSettingsApplication'
+            manualProvisioning:
+              type: boolean
+              default: false
+    ActiveDirectoryApplicationSettingsApplication:
+      type: object
+      properties:
+        jitGroupsAcrossDomains:
+          type: boolean
+        password:
+          type: string
+        scanRate:
+          type: integer
+        searchOrgUnit:
+          type: string
+        filterGroupsByOU:
+          type: boolean
+        namingContext:
+          type: string
+        login:
+          type: string
+        activationEmail:
+          type: string
     AutoLoginApplication:
       allOf:
         - $ref: '#/components/schemas/Application'
@@ -62999,6 +63046,9 @@ components:
     GoogleApplicationSettingsApplication:
       description: Google app instance properties
       type: object
+      additionalProperties:
+        type: string
+        description: Additional properties for Google application settings
       properties:
         domain:
           type: string
@@ -63160,6 +63210,13 @@ components:
           description: Determines the group's `profile`
           items:
             type: string
+        source:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Identifier of the application which synchronizes the group
+              readOnly: true
         profile:
           $ref: '#/components/schemas/GroupProfile'
         type:
@@ -68692,8 +68749,16 @@ components:
         - $ref: '#/components/schemas/ApplicationSettings'
         - type: object
           properties:
+            app:
+              $ref: '#/components/schemas/ApplicationSettingsApplication'
             oauthClient:
               $ref: '#/components/schemas/OpenIdConnectApplicationSettingsClient'
+    OpenIdConnectApplicationSettingsApplication:
+      description: OpenID Connect application instance properties
+      type: object
+      additionalProperties:
+        type: string
+        description: Additional properties for OpenID Connect application settings
     OpenIdConnectApplicationSettingsClient:
       type: object
       properties:
@@ -73280,8 +73345,16 @@ components:
         - $ref: '#/components/schemas/ApplicationSettings'
         - type: object
           properties:
+            app:
+              $ref: '#/components/schemas/SamlApplicationSettingsApplication'
             signOn:
               $ref: '#/components/schemas/SamlApplicationSettingsSignOn'
+    SamlApplicationSettingsApplication:
+      description: SAML application instance properties
+      type: object
+      additionalProperties:
+        type: string
+        description: Additional properties for SAML application settings
     SamlApplicationSettingsSignOn:
       description: |-
         SAML 2.0 sign-on attributes.
@@ -75387,6 +75460,9 @@ components:
               $ref: '#/components/schemas/SwaApplicationSettingsApplication'
     SwaApplicationSettingsApplication:
       type: object
+      additionalProperties:
+        type: string
+        description: Additional properties for SWA application settings
       properties:
         buttonField:
           type: string
@@ -79357,6 +79433,9 @@ components:
               $ref: '#/components/schemas/WsFederationApplicationSettingsApplication'
     WsFederationApplicationSettingsApplication:
       type: object
+      additionalProperties:
+        type: string
+        description: Additional properties for WS-Federation application settings
       properties:
         attributeStatements:
           type: string
