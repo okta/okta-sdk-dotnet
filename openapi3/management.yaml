@@ -58810,8 +58810,15 @@ components:
         - $ref: '#/components/schemas/ApplicationSettings'
         - type: object
           properties:
+            app:
+              $ref: '#/components/schemas/AutoLoginApplicationSettingsApplication'
             signOn:
               $ref: '#/components/schemas/AutoLoginApplicationSettingsSignOn'
+    AutoLoginApplicationSettingsApplication:
+      type: object
+      additionalProperties:
+        type: string
+        description: Additional properties for Auto Login application settings
     AutoLoginApplicationSettingsSignOn:
       type: object
       properties:
