@@ -64285,13 +64285,7 @@ components:
         properties:
           $ref: '#/components/schemas/IdentityProviderProperties'
         protocol:
-          description: IdP-specific protocol settings for endpoints, bindings, and algorithms used to connect with the IdP and validate messages
-          oneOf:
-            - $ref: '#/components/schemas/ProtocolSaml'
-            - $ref: '#/components/schemas/ProtocolOAuth'
-            - $ref: '#/components/schemas/ProtocolOidc'
-            - $ref: '#/components/schemas/ProtocolMtls'
-            - $ref: '#/components/schemas/ProtocolIdVerification'
+          $ref: '#/components/schemas/IdentityProviderProtocol'
         status:
           $ref: '#/components/schemas/LifecycleStatus'
         type:
@@ -64492,6 +64486,37 @@ components:
           example: itmpl_HSctx8fNvXoHtrQfz2hxUVH8RBjG
       required:
         - inquiryTemplateId
+    IdentityProviderProtocol:
+      description: IdP-specific protocol settings for endpoints, bindings, and algorithms used to connect with the IdP and validate messages
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/IdentityProviderProtocolType'
+      required:
+        - type
+      discriminator:
+        propertyName: type
+        mapping:
+          ID_PROOFING: '#/components/schemas/ProtocolIdVerification'
+          MTLS: '#/components/schemas/ProtocolMtls'
+          OAUTH2: '#/components/schemas/ProtocolOAuth'
+          OIDC: '#/components/schemas/ProtocolOidc'
+          SAML2: '#/components/schemas/ProtocolSaml'
+    IdentityProviderProtocolType:
+      description: The protocol type for the Identity Provider
+      type: string
+      enum:
+        - ID_PROOFING
+        - MTLS
+        - OAUTH2
+        - OIDC
+        - SAML2
+      x-enumDescriptions:
+        ID_PROOFING: ID Verification
+        MTLS: Mutual TLS Protocol
+        OAUTH2: OAuth 2.0 Protocol
+        OIDC: OpenID Connect Protocol
+        SAML2: SAML 2.0 Protocol
     IdentityProviderType:
       description: |-
         The IdP object's `type` property identifies the social or enterprise IdP used for authentication. 
@@ -71447,99 +71472,84 @@ components:
     ProtocolIdVerification:
       title: ID Verification
       description: Protocol settings for the IDV
-      type: object
-      properties:
-        credentials:
-          $ref: '#/components/schemas/IDVCredentials'
-        endpoints:
-          $ref: '#/components/schemas/IDVEndpoints'
-        scopes:
-          $ref: '#/components/schemas/OAuthScopes'
-        type:
-          type: string
-          description: ID verification protocol
-          enum:
-            - ID_PROOFING
+      allOf:
+        - $ref: '#/components/schemas/IdentityProviderProtocol'
+        - type: object
+          properties:
+            credentials:
+              $ref: '#/components/schemas/IDVCredentials'
+            endpoints:
+              $ref: '#/components/schemas/IDVEndpoints'
+            scopes:
+              $ref: '#/components/schemas/OAuthScopes'
     ProtocolMtls:
       title: Mutual TLS Protocol
       description: Protocol settings for the [MTLS Protocol](https://tools.ietf.org/html/rfc5246#section-7.4.4)
-      type: object
-      properties:
-        credentials:
-          $ref: '#/components/schemas/MtlsCredentials'
-        endpoints:
-          $ref: '#/components/schemas/MtlsEndpoints'
-        type:
-          type: string
-          description: Mutual TLS
-          enum:
-            - MTLS
+      allOf:
+        - $ref: '#/components/schemas/IdentityProviderProtocol'
+        - type: object
+          properties:
+            credentials:
+              $ref: '#/components/schemas/MtlsCredentials'
+            endpoints:
+              $ref: '#/components/schemas/MtlsEndpoints'
     ProtocolOAuth:
       title: OAuth 2.0 Protocol
       description: Protocol settings for authentication using the [OAuth 2.0 Authorization Code flow](https://tools.ietf.org/html/rfc6749#section-4.1)
-      type: object
-      properties:
-        credentials:
-          $ref: '#/components/schemas/OAuthCredentials'
-        endpoints:
-          $ref: '#/components/schemas/OAuthEndpoints'
-        scopes:
-          $ref: '#/components/schemas/OAuthScopes'
-        type:
-          type: string
-          description: OAuth 2.0 Authorization Code flow
-          enum:
-            - OAUTH2
+      allOf:
+        - $ref: '#/components/schemas/IdentityProviderProtocol'
+        - type: object
+          properties:
+            credentials:
+              $ref: '#/components/schemas/OAuthCredentials'
+            endpoints:
+              $ref: '#/components/schemas/OAuthEndpoints'
+            scopes:
+              $ref: '#/components/schemas/OAuthScopes'
     ProtocolOidc:
       title: OpenID Connect Protocol
       description: Protocol settings for authentication using the [OpenID Connect Protocol](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)
-      type: object
-      properties:
-        algorithms:
-          $ref: '#/components/schemas/OidcAlgorithms'
-        credentials:
-          $ref: '#/components/schemas/OAuthCredentials'
-        endpoints:
-          $ref: '#/components/schemas/OAuthEndpoints'
-        oktaIdpOrgUrl:
-          type: string
-          description: URL of the IdP org
-          example: https://idp.example.com
-        scopes:
-          type: array
-          description: |-
-            OpenID Connect and IdP-defined permission bundles to request delegated access from the user
-            > **Note:** The [IdP type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=type&t=request) table lists the scopes that are supported for each IdP.
-          items:
-            type: string
-            example: openid
-        settings:
-          $ref: '#/components/schemas/OidcSettings'
-        type:
-          type: string
-          description: OpenID Connect Authorization Code flow
-          enum:
-            - OIDC
+      allOf:
+        - $ref: '#/components/schemas/IdentityProviderProtocol'
+        - type: object
+          properties:
+            algorithms:
+              $ref: '#/components/schemas/OidcAlgorithms'
+            credentials:
+              $ref: '#/components/schemas/OAuthCredentials'
+            endpoints:
+              $ref: '#/components/schemas/OAuthEndpoints'
+            oktaIdpOrgUrl:
+              type: string
+              description: URL of the IdP org
+              example: https://idp.example.com
+            scopes:
+              type: array
+              description: |-
+                OpenID Connect and IdP-defined permission bundles to request delegated access from the user
+                > **Note:** The [IdP type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=type&t=request) table lists the scopes that are supported for each IdP.
+              items:
+                type: string
+                example: openid
+            settings:
+              $ref: '#/components/schemas/OidcSettings'
     ProtocolSaml:
       title: SAML 2.0 Protocol
       description: Protocol settings for the [SAML 2.0 Authentication Request Protocol](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf)
-      type: object
-      properties:
-        algorithms:
-          $ref: '#/components/schemas/SamlAlgorithms'
-        credentials:
-          $ref: '#/components/schemas/SamlCredentials'
-        endpoints:
-          $ref: '#/components/schemas/SamlEndpoints'
-        relayState:
-          $ref: '#/components/schemas/SamlRelayState'
-        settings:
-          $ref: '#/components/schemas/SamlSettings'
-        type:
-          type: string
-          description: SAML 2.0 protocol
-          enum:
-            - SAML2
+      allOf:
+        - $ref: '#/components/schemas/IdentityProviderProtocol'
+        - type: object
+          properties:
+            algorithms:
+              $ref: '#/components/schemas/SamlAlgorithms'
+            credentials:
+              $ref: '#/components/schemas/SamlCredentials'
+            endpoints:
+              $ref: '#/components/schemas/SamlEndpoints'
+            relayState:
+              $ref: '#/components/schemas/SamlRelayState'
+            settings:
+              $ref: '#/components/schemas/SamlSettings'
     ProviderType:
       type: string
       enum:
