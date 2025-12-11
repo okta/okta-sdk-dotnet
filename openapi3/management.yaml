@@ -12831,9 +12831,7 @@ paths:
               schema:
                 type: array
                 items:
-                  oneOf:
-                    - $ref: '#/components/schemas/StandardRole'
-                    - $ref: '#/components/schemas/CustomRole'
+                  $ref: '#/components/schemas/Role'
               examples:
                 Standard Roles:
                   $ref: '#/components/examples/StandardRolesListResponseGroup'
@@ -12889,9 +12887,7 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/StandardRole'
-                  - $ref: '#/components/schemas/CustomRole'
+                $ref: '#/components/schemas/Role'
               examples:
                 Standard Roles:
                   $ref: '#/components/examples/CreateStandardRoleAssignmentResponseGroup'
@@ -12933,9 +12929,7 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/StandardRole'
-                  - $ref: '#/components/schemas/CustomRole'
+                $ref: '#/components/schemas/Role'
               examples:
                 Standard Roles:
                   $ref: '#/components/examples/CreateStandardRoleAssignmentResponseGroup'
@@ -26199,9 +26193,7 @@ paths:
               schema:
                 type: array
                 items:
-                  oneOf:
-                    - $ref: '#/components/schemas/StandardRole'
-                    - $ref: '#/components/schemas/CustomRole'
+                  $ref: '#/components/schemas/Role'
               examples:
                 Standard Roles:
                   $ref: '#/components/examples/StandardRolesListResponse'
@@ -26258,10 +26250,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                oneOf:
-                  - $ref: '#/components/schemas/StandardRole'
-                  - $ref: '#/components/schemas/CustomRole'
+                $ref: '#/components/schemas/Role'
               examples:
                 Standard Roles:
                   $ref: '#/components/examples/StandardRoleResponseUser'
@@ -26300,9 +26289,7 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/StandardRole'
-                  - $ref: '#/components/schemas/CustomRole'
+                $ref: '#/components/schemas/Role'
               examples:
                 Standard Roles:
                   $ref: '#/components/examples/StandardRoleResponseUser'
@@ -27853,26 +27840,7 @@ paths:
               schema:
                 type: array
                 items:
-                  oneOf:
-                    - $ref: '#/components/schemas/StandardRole'
-                    - $ref: '#/components/schemas/CustomRole'
-                  discriminator:
-                    propertyName: type
-                    mapping:
-                      API_ACCESS_MANAGEMENT_ADMIN: '#/components/schemas/StandardRole'
-                      APP_ADMIN: '#/components/schemas/StandardRole'
-                      GROUP_MEMBERSHIP_ADMIN: '#/components/schemas/StandardRole'
-                      HELP_DESK_ADMIN: '#/components/schemas/StandardRole'
-                      MOBILE_ADMIN: '#/components/schemas/StandardRole'
-                      ORG_ADMIN: '#/components/schemas/StandardRole'
-                      READ_ONLY_ADMIN: '#/components/schemas/StandardRole'
-                      REPORT_ADMIN: '#/components/schemas/StandardRole'
-                      SUPER_ADMIN: '#/components/schemas/StandardRole'
-                      USER_ADMIN: '#/components/schemas/StandardRole'
-                      ACCESS_CERTIFICATIONS_ADMIN: '#/components/schemas/CustomRole'
-                      ACCESS_REQUESTS_ADMIN: '#/components/schemas/CustomRole'
-                      WORKFLOWS_ADMIN: '#/components/schemas/CustomRole'
-                      CUSTOM: '#/components/schemas/CustomRole'
+                  $ref: '#/components/schemas/Role'
               examples:
                 Standard Roles:
                   $ref: '#/components/examples/StandardRolesListResponseClient'
@@ -27925,26 +27893,7 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/StandardRole'
-                  - $ref: '#/components/schemas/CustomRole'
-                discriminator:
-                  propertyName: type
-                  mapping:
-                    API_ACCESS_MANAGEMENT_ADMIN: '#/components/schemas/StandardRole'
-                    APP_ADMIN: '#/components/schemas/StandardRole'
-                    GROUP_MEMBERSHIP_ADMIN: '#/components/schemas/StandardRole'
-                    HELP_DESK_ADMIN: '#/components/schemas/StandardRole'
-                    MOBILE_ADMIN: '#/components/schemas/StandardRole'
-                    ORG_ADMIN: '#/components/schemas/StandardRole'
-                    READ_ONLY_ADMIN: '#/components/schemas/StandardRole'
-                    REPORT_ADMIN: '#/components/schemas/StandardRole'
-                    SUPER_ADMIN: '#/components/schemas/StandardRole'
-                    USER_ADMIN: '#/components/schemas/StandardRole'
-                    ACCESS_CERTIFICATIONS_ADMIN: '#/components/schemas/CustomRole'
-                    ACCESS_REQUESTS_ADMIN: '#/components/schemas/CustomRole'
-                    WORKFLOWS_ADMIN: '#/components/schemas/CustomRole'
-                    CUSTOM: '#/components/schemas/CustomRole'
+                $ref: '#/components/schemas/Role'
               examples:
                 Standard Role:
                   $ref: '#/components/examples/StandardRoleResponseClient'
@@ -27981,26 +27930,7 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/StandardRole'
-                  - $ref: '#/components/schemas/CustomRole'
-                discriminator:
-                  propertyName: type
-                  mapping:
-                    API_ACCESS_MANAGEMENT_ADMIN: '#/components/schemas/StandardRole'
-                    APP_ADMIN: '#/components/schemas/StandardRole'
-                    GROUP_MEMBERSHIP_ADMIN: '#/components/schemas/StandardRole'
-                    HELP_DESK_ADMIN: '#/components/schemas/StandardRole'
-                    MOBILE_ADMIN: '#/components/schemas/StandardRole'
-                    ORG_ADMIN: '#/components/schemas/StandardRole'
-                    READ_ONLY_ADMIN: '#/components/schemas/StandardRole'
-                    REPORT_ADMIN: '#/components/schemas/StandardRole'
-                    SUPER_ADMIN: '#/components/schemas/StandardRole'
-                    USER_ADMIN: '#/components/schemas/StandardRole'
-                    ACCESS_CERTIFICATIONS_ADMIN: '#/components/schemas/CustomRole'
-                    ACCESS_REQUESTS_ADMIN: '#/components/schemas/CustomRole'
-                    WORKFLOWS_ADMIN: '#/components/schemas/CustomRole'
-                    CUSTOM: '#/components/schemas/CustomRole'
+                $ref: '#/components/schemas/Role'
               examples:
                 Standard Role:
                   $ref: '#/components/examples/StandardRoleResponseClient'
@@ -60581,27 +60511,9 @@ components:
     CustomRole:
       title: Custom role assignment
       type: object
+      allOf:
+        - $ref: '#/components/schemas/Role'
       properties:
-        assignmentType:
-          $ref: '#/components/schemas/RoleAssignmentType'
-        created:
-          type: string
-          description: Timestamp when the object was created
-          format: date-time
-          readOnly: true
-        id:
-          type: string
-          description: Binding object ID
-          readOnly: true
-        label:
-          type: string
-          description: Label for the custom role assignment
-          readOnly: true
-        lastUpdated:
-          type: string
-          description: Timestamp when the object was last updated
-          format: date-time
-          readOnly: true
         resource-set:
           type: string
           description: Resource set ID
@@ -60610,15 +60522,6 @@ components:
           type: string
           description: Custom role ID
           readOnly: true
-        status:
-          allOf:
-            - $ref: '#/components/schemas/LifecycleStatus'
-            - description: Status of the custom role assignment
-        type:
-          type: string
-          description: CUSTOM for a custom role
-          enum:
-            - CUSTOM
         _links:
           $ref: '#/components/schemas/LinksCustomRoleResponse'
     CustomRoleAssignmentSchema:
@@ -72757,6 +72660,24 @@ components:
           readOnly: true
         _links:
           $ref: '#/components/schemas/LinksSelf'
+      discriminator:
+        propertyName: type
+        default: '#/components/schemas/StandardRole'
+        mapping:
+          API_ACCESS_MANAGEMENT_ADMIN: '#/components/schemas/StandardRole'
+          APP_ADMIN: '#/components/schemas/StandardRole'
+          GROUP_MEMBERSHIP_ADMIN: '#/components/schemas/StandardRole'
+          HELP_DESK_ADMIN: '#/components/schemas/StandardRole'
+          MOBILE_ADMIN: '#/components/schemas/StandardRole'
+          ORG_ADMIN: '#/components/schemas/StandardRole'
+          READ_ONLY_ADMIN: '#/components/schemas/StandardRole'
+          REPORT_ADMIN: '#/components/schemas/StandardRole'
+          SUPER_ADMIN: '#/components/schemas/StandardRole'
+          USER_ADMIN: '#/components/schemas/StandardRole'
+          ACCESS_CERTIFICATIONS_ADMIN: '#/components/schemas/CustomRole'
+          ACCESS_REQUESTS_ADMIN: '#/components/schemas/CustomRole'
+          WORKFLOWS_ADMIN: '#/components/schemas/CustomRole'
+          CUSTOM: '#/components/schemas/CustomRole'
     RoleAssignedUser:
       type: object
       properties:
@@ -75115,33 +75036,9 @@ components:
     StandardRole:
       title: Standard Role Assignment
       type: object
+      allOf:
+        - $ref: '#/components/schemas/Role'
       properties:
-        assignmentType:
-          $ref: '#/components/schemas/RoleAssignmentType'
-        created:
-          type: string
-          description: Timestamp when the object was created
-          format: date-time
-          readOnly: true
-        id:
-          type: string
-          description: Role assignment ID
-          readOnly: true
-        label:
-          type: string
-          description: Label for the role assignment
-          readOnly: true
-        lastUpdated:
-          type: string
-          description: Timestamp when the object was last updated
-          format: date-time
-          readOnly: true
-        status:
-          allOf:
-            - $ref: '#/components/schemas/LifecycleStatus'
-            - description: Status of the role assignment
-        type:
-          $ref: '#/components/schemas/RoleType'
         _embedded:
           type: object
           description: Optional embedded resources for the role assignment
