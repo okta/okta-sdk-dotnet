@@ -66960,6 +66960,11 @@ components:
           example: ACTIVE
           nullable: false
           default: ACTIVE
+        use:
+          type: string
+          description: Acceptable use of the JSON Web Key
+          example: sig
+          nullable: true
     OAuth2ClientJsonWebKeyRequestBody:
       type: object
       properties:
