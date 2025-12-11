@@ -2540,6 +2540,11 @@ paths:
                   oneOf:
                     - $ref: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
                     - $ref: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
+                  discriminator:
+                    propertyName: use
+                    mapping:
+                      sig: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
+                      enc: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
               examples:
                 OAuthClientJsonWebKeyListResponseExample:
                   $ref: '#/components/examples/oAuthClientJsonWebKeyListResponse'
@@ -2590,6 +2595,11 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
                   - $ref: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
+                discriminator:
+                  propertyName: use
+                  mapping:
+                    sig: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
+                    enc: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
               examples:
                 newOAuth2ClientJsonWebKeyResponse:
                   $ref: '#/components/examples/oAuthClientJsonWebKey'
@@ -2647,6 +2657,11 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
                   - $ref: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
+                discriminator:
+                  propertyName: use
+                  mapping:
+                    sig: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
+                    enc: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
               examples:
                 OAuthClientJsonWebKeyResponseExample:
                   $ref: '#/components/examples/oAuthClientJsonWebKey'
@@ -2719,6 +2734,11 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
                   - $ref: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
+                discriminator:
+                  propertyName: use
+                  mapping:
+                    sig: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
+                    enc: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
               examples:
                 activateOAuth2ClientJsonWebKeyResponse:
                   $ref: '#/components/examples/oAuthClientJsonWebKey'
@@ -64143,9 +64163,11 @@ components:
           type: string
           example: '101438407598598116085679865987760095721749307901605456708912786847324207000576780508113360584555007890315805735307890113536927352312915634368993759211767770602174860126854831344273970871509573365292777620005537635317282520456901584213746937262823585533063042033441296629204165064680610660631365266976782082747'
         use:
-          description: Intended use of the public key
           type: string
-          example: sig
+          description: The intended use for the key.
+          enum:
+            - enc
+            - sig
         x5c:
           $ref: '#/components/schemas/X5c'
         x5t#S256:
@@ -68877,6 +68899,11 @@ components:
             oneOf:
               - $ref: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
               - $ref: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
+            discriminator:
+              propertyName: use
+              mapping:
+                sig: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
+                enc: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
     OpenIdConnectApplicationSettingsRefreshToken:
       description: |
         Refresh token configuration for an OAuth 2.0 client
