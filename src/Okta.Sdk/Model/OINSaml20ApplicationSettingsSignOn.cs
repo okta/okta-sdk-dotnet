@@ -79,7 +79,7 @@ namespace Okta.Sdk.Model
         /// </summary>
         /// <value>Determines the SAML app session lifetimes with Okta</value>
         [DataMember(Name = "samlAssertionLifetimeSeconds", EmitDefaultValue = true)]
-        public int SamlAssertionLifetimeSeconds { get; set; }
+        public int? SamlAssertionLifetimeSeconds { get; set; }
 
         /// <summary>
         /// Assertion Consumer Service (ACS) URL override for CASB configuration. See [CASB config guide](https://help.okta.com/en-us/Content/Topics/Apps/CASB-config-guide.htm).
@@ -166,7 +166,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.SamlAssertionLifetimeSeconds == input.SamlAssertionLifetimeSeconds ||
-                    this.SamlAssertionLifetimeSeconds.Equals(input.SamlAssertionLifetimeSeconds)
+                    (this.SamlAssertionLifetimeSeconds != null &&
+                    this.SamlAssertionLifetimeSeconds.Equals(input.SamlAssertionLifetimeSeconds))
                 ) && 
                 (
                     this.SsoAcsUrlOverride == input.SsoAcsUrlOverride ||
@@ -205,7 +206,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.RecipientOverride.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.SamlAssertionLifetimeSeconds.GetHashCode();
+                if (this.SamlAssertionLifetimeSeconds != null)
+                {
+                    hashCode = (hashCode * 59) + this.SamlAssertionLifetimeSeconds.GetHashCode();
+                }
                 if (this.SsoAcsUrlOverride != null)
                 {
                     hashCode = (hashCode * 59) + this.SsoAcsUrlOverride.GetHashCode();

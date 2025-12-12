@@ -404,7 +404,7 @@ namespace Okta.Sdk.Model
         /// </summary>
         /// <value>Determines the SAML app session lifetimes with Okta</value>
         [DataMember(Name = "samlAssertionLifetimeSeconds", EmitDefaultValue = true)]
-        public int SamlAssertionLifetimeSeconds { get; set; }
+        public int? SamlAssertionLifetimeSeconds { get; set; }
 
         /// <summary>
         /// Gets or Sets Slo
@@ -623,7 +623,8 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.SamlAssertionLifetimeSeconds == input.SamlAssertionLifetimeSeconds ||
-                    this.SamlAssertionLifetimeSeconds.Equals(input.SamlAssertionLifetimeSeconds)
+                    (this.SamlAssertionLifetimeSeconds != null &&
+                    this.SamlAssertionLifetimeSeconds.Equals(input.SamlAssertionLifetimeSeconds))
                 ) && 
                 (
                     this.SignatureAlgorithm == input.SignatureAlgorithm ||
@@ -744,7 +745,10 @@ namespace Okta.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.RequestCompressed.GetHashCode();
                 hashCode = (hashCode * 59) + this.ResponseSigned.GetHashCode();
-                hashCode = (hashCode * 59) + this.SamlAssertionLifetimeSeconds.GetHashCode();
+                if (this.SamlAssertionLifetimeSeconds != null)
+                {
+                    hashCode = (hashCode * 59) + this.SamlAssertionLifetimeSeconds.GetHashCode();
+                }
                 if (this.SignatureAlgorithm != null)
                 {
                     hashCode = (hashCode * 59) + this.SignatureAlgorithm.GetHashCode();
