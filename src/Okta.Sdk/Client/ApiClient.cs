@@ -644,7 +644,9 @@ namespace Okta.Sdk.Client
 
                 if (token.IsDpopBound)
                 {
-                    dpopJwt = _authTokenProvider.GetDpopProofJwt(httpMethod: request.Method.ToString(), uri: request.Resource, accessToken: token.AccessToken);
+                    string requestUri = request.Parameters.Aggregate(request.Resource, (current, parameter) => current.Replace("{" + parameter.Name + "}", parameter.Value.ToString()));
+                    var uri = new Uri(new Uri(this._baseUrl, UriKind.Absolute), new Uri(requestUri, UriKind.RelativeOrAbsolute));
+                    dpopJwt = _authTokenProvider.GetDpopProofJwt(httpMethod: request.Method.ToString(), uri: uri.AbsoluteUri, accessToken: token.AccessToken);
                 }
             }
 

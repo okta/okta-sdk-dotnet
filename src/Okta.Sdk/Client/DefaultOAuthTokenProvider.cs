@@ -220,6 +220,7 @@ namespace Okta.Sdk.Client
                     requestOptions.HeaderParameters.Remove(oldDpopHeader.Key);
                 }
 
+                requestUri = requestOptions.PathParameters.Aggregate(requestUri, (current, parameter) => current.Replace("{" + parameter.Key + "}", parameter.Value));
                 var uri = new Uri(new Uri(this.Configuration.OktaDomain, UriKind.Absolute), new Uri(requestUri, UriKind.RelativeOrAbsolute));
                 var dPopProofJwt = this.GetDpopProofJwt(accessToken: tokenResponse.AccessToken, requestUri: uri.AbsoluteUri, httpMethod: httpMethod);
                 requestOptions.HeaderParameters.Add("DPoP", dPopProofJwt);
@@ -253,8 +254,8 @@ namespace Okta.Sdk.Client
             if (tokenResponse.IsDpopBound)
             {
                 string requestUri = response.Result.Request.Parameters.Aggregate(response.Result.Request.Resource, (current, parameter) => current.Replace("{" + parameter.Name + "}", parameter.Value.ToString()));
-                var uri = new Uri(requestUri, UriKind.RelativeOrAbsolute);
-                
+                var uri = new Uri(new Uri(this.Configuration.OktaDomain, UriKind.Absolute), new Uri(requestUri, UriKind.RelativeOrAbsolute));
+
                 var dPopJwt = _defaultDpopJwtGenerator.GenerateJwt(
                     httpMethod: response.Result.Request.Method.ToString(), accessToken: tokenResponse.AccessToken,
                     uri: uri.AbsoluteUri);
