@@ -67864,6 +67864,7 @@ components:
             lifecycle: GA
             isGenerallyAvailable: true
           type: integer
+          nullable: true
           description: Determines the SAML app session lifetimes with Okta
           example: 3600
         ssoAcsUrlOverride:
@@ -73393,6 +73394,7 @@ components:
             lifecycle: GA
             isGenerallyAvailable: true
           type: integer
+          nullable: true
           description: Determines the SAML app session lifetimes with Okta
           example: 3600
         signatureAlgorithm:

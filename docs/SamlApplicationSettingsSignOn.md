@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **RecipientOverride** | **string** | Recipient override for CASB configuration. See [CASB config guide](https://help.okta.com/en-us/Content/Topics/Apps/CASB-config-guide.htm). | [optional] 
 **RequestCompressed** | **bool** | Determines whether the SAML request is expected to be compressed | 
 **ResponseSigned** | **bool** | Determines whether the SAML authentication response message is digitally signed by the IdP &gt; **Note:** Either (or both) &#x60;responseSigned&#x60; or &#x60;assertionSigned&#x60; must be &#x60;TRUE&#x60;. | 
-**SamlAssertionLifetimeSeconds** | **int** | Determines the SAML app session lifetimes with Okta | [optional] 
+**SamlAssertionLifetimeSeconds** | **int?** | Determines the SAML app session lifetimes with Okta | [optional] 
 **SignatureAlgorithm** | **string** | Determines the signing algorithm used to digitally sign the SAML assertion and response | 
 **Slo** | [**SingleLogout**](SingleLogout.md) |  | [optional] 
 **SpCertificate** | [**SamlSpCertificate**](SamlSpCertificate.md) |  | [optional] 
