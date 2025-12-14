@@ -56765,8 +56765,8 @@ components:
         - label
       discriminator:
         propertyName: signOnMode
-        defaultMapping: '#/components/schemas/ActiveDirectoryApplication'
         mapping:
+          ~: '#/components/schemas/ActiveDirectoryApplication'
           AUTO_LOGIN: '#/components/schemas/AutoLoginApplication'
           BASIC_AUTH: '#/components/schemas/BasicAuthApplication'
           BOOKMARK: '#/components/schemas/BookmarkApplication'
@@ -56776,6 +56776,9 @@ components:
           SAML_2_0: '#/components/schemas/SamlApplication'
           SECURE_PASSWORD_STORE: '#/components/schemas/SecurePasswordStoreApplication'
           WS_FEDERATION: '#/components/schemas/WsFederationApplication'
+          RADIUS_FOR_GENERIC_APP: '#/components/schemas/Application'
+          RADIUS_FOR_CISCO_ASA: '#/components/schemas/Application'
+          AWS_FEDERATED_LOGIN: '#/components/schemas/Application'
     ApplicationAccessibility:
       description: Specifies access settings for the app
       type: object
