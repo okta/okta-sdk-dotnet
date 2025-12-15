@@ -22,6 +22,12 @@ jobs:
           name: "Install required components"
           command: |
               choco install -y dotnetcore-sdk
+              Write-Host "Downloading .NET install script..."
+              Invoke-WebRequest -Uri "https://dot.net/v1/dotnet-install.ps1" -OutFile "dotnet-install.ps1"
+              Write-Host "Installing .NET 10 SDK..."
+              .\dotnet-install.ps1 -Channel 10.0 -InstallDir "$env:ProgramFiles\dotnet"
+              Write-Host "Verifying installation..."
+              dotnet --list-sdks
       - run:
           name: "Build and Test"
           command: |
@@ -69,6 +75,15 @@ jobs:
           name: "Install openapi-generator-cli"
           command: |
               npm install @openapitools/openapi-generator-cli -g
+      - run:
+          name: "Install .NET 10 SDK"
+          command: |
+              Write-Host "Downloading .NET install script..."
+              Invoke-WebRequest -Uri "https://dot.net/v1/dotnet-install.ps1" -OutFile "dotnet-install.ps1"
+              Write-Host "Installing .NET 10 SDK..."
+              .\dotnet-install.ps1 -Channel 10.0 -InstallDir "$env:ProgramFiles\dotnet"
+              Write-Host "Verifying installation..."
+              dotnet --list-sdks
       - run:
           name: "Transform spec"
           command: |
