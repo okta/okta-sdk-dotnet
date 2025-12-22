@@ -1,5 +1,3 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
 orbs:
@@ -9,8 +7,6 @@ orbs:
   python: circleci/python@2.0.3
   aws-cli: circleci/aws-cli@5.1
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build:
     description: Run tests and build
@@ -32,19 +28,12 @@ jobs:
           name: "Build and Test"
           command: |
               ./build.ps1;
-      - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
+      - persist_to_workspace:
           root: ~/project
           paths:
             - src
             - .git
-      - when:
-          condition:
-            or:
-              - equal: [ "<<pipeline.git.branch>>", "master" ]
-          steps:
-            - general-platform-helpers/step-artifacts-prepare-and-upload-windows:
-                files-to-upload: "artifacts"
-                location: "com/okta/devex/okta-sdk-dotnet"
+            - artifacts
 
   transform-regenerate:
     description: transform spec, regenerate the SDK, build and run tests
@@ -104,7 +93,7 @@ jobs:
       - image: cimg/python:3.10
 
     steps:
-      - attach_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
+      - attach_workspace:
           at: ~/project
       - general-platform-helpers/step-load-dependencies
       - general-platform-helpers/step-run-snyk-monitor:
@@ -113,8 +102,6 @@ jobs:
           run-on-non-main: true
           detection-depth: 4
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   "Circle CI Tests":
     jobs:
@@ -138,5 +125,3 @@ workflows:
           context:
             - static-analysis
           name: "Scan with Semgrep"
-
-# VS Code Extension Version: 1.4.0
