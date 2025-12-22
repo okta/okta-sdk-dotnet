@@ -1,5 +1,3 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
 orbs:
@@ -9,17 +7,16 @@ orbs:
   python: circleci/python@2.0.3
   aws-cli: circleci/aws-cli@5.1
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  build:
-    description: Run tests and build
+  Build:
     executor:
       name: windows/default
+    environment:
+      CIRCLE_CI: True
     steps:
       - checkout
       - run:
-          name: "Install required components"
+          name: "Install .NET 10 SDK"
           command: |
               choco install -y dotnetcore-sdk
               Write-Host "Downloading .NET install script..."
@@ -29,22 +26,13 @@ jobs:
               Write-Host "Verifying installation..."
               dotnet --list-sdks
       - run:
-          name: "Build and Test"
-          command: |
-              ./build.ps1;
-      - persist_to_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
+          name: Build and Test
+          command: .\build.ps1
+      - persist_to_workspace:
           root: ~/project
           paths:
             - src
             - .git
-      - when:
-          condition:
-            or:
-              - equal: [ "<<pipeline.git.branch>>", "master" ]
-          steps:
-            - general-platform-helpers/step-artifacts-prepare-and-upload-windows:
-                files-to-upload: "artifacts"
-                location: "com/okta/devex/okta-sdk-dotnet"
 
   transform-regenerate:
     description: transform spec, regenerate the SDK, build and run tests
@@ -104,7 +92,7 @@ jobs:
       - image: cimg/python:3.10
 
     steps:
-      - attach_workspace: # Allows for sharing of build-workspace (containing downloaded dependencies) (optional)
+      - attach_workspace:
           at: ~/project
       - general-platform-helpers/step-load-dependencies
       - general-platform-helpers/step-run-snyk-monitor:
@@ -113,30 +101,26 @@ jobs:
           run-on-non-main: true
           detection-depth: 4
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  "Circle CI Tests":
+  "Build and Security Scanning":
     jobs:
-      - build
+      - Build
       - snyk-scan:
-          name: execute-snyk
+          name: Snyk Dependency Scan
           context:
             - static-analysis
           requires:
-            - build
-  "Transform -> Regenerate -> Test":
+            - Build
+      - platform-helpers/job-semgrep-scan:
+          context:
+            - static-analysis
+          name: Semgrep Code Analysis
+          requires:
+            - Build
+  "SDK Regeneration":
     jobs:
       - transform-regenerate:
           filters:
             branches:
               only:
                 - test
-  "Semgrep":
-    jobs:
-      - platform-helpers/job-semgrep-scan:
-          context:
-            - static-analysis
-          name: "Scan with Semgrep"
-
-# VS Code Extension Version: 1.4.0
