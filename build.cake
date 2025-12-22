@@ -62,7 +62,6 @@ Task("Test")
 .Does(() =>
 {
     var testProjects = new[] { "Okta.Sdk.UnitTest" };
-    //Run Integration tests on internal repo
     foreach (var name in testProjects)
     {
         DotNetCoreTest(string.Format("./src/{0}/{0}.csproj", name));
@@ -75,8 +74,6 @@ Task("IntegrationTest")
 .Does(() =>
 {
     var testProjects = new[] { "Okta.Sdk.IntegrationTest" };
-    // Run integration tests in nightly CI cron job
-
     foreach (var name in testProjects)
     {
         DotNetCoreTest(string.Format("./src/{0}/{0}.csproj", name));
@@ -90,8 +87,7 @@ Task("Default")
     .IsDependentOn("Clean")
     .IsDependentOn("Restore")
     .IsDependentOn("Build")
-    .IsDependentOn("Test")
-    .IsDependentOn("Pack");
+    .IsDependentOn("Test");
 
 Task("DefaultIT")
     .IsDependentOn("Clean")

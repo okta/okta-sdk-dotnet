@@ -33,7 +33,6 @@ jobs:
           paths:
             - src
             - .git
-            - artifacts
 
   transform-regenerate:
     description: transform spec, regenerate the SDK, build and run tests
