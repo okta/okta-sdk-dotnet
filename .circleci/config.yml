@@ -8,14 +8,15 @@ orbs:
   aws-cli: circleci/aws-cli@5.1
 
 jobs:
-  build:
-    description: Run tests and build
+  Build:
     executor:
       name: windows/default
+    environment:
+      CIRCLE_CI: True
     steps:
       - checkout
       - run:
-          name: "Install required components"
+          name: "Install .NET 10 SDK"
           command: |
               choco install -y dotnetcore-sdk
               Write-Host "Downloading .NET install script..."
@@ -25,9 +26,8 @@ jobs:
               Write-Host "Verifying installation..."
               dotnet --list-sdks
       - run:
-          name: "Build and Test"
-          command: |
-              ./build.ps1;
+          name: Build and Test
+          command: .\build.ps1
       - persist_to_workspace:
           root: ~/project
           paths:
@@ -103,25 +103,25 @@ jobs:
           detection-depth: 4
 
 workflows:
-  "Circle CI Tests":
+  "Build and Security Scanning":
     jobs:
-      - build
+      - Build
       - snyk-scan:
-          name: execute-snyk
+          name: Snyk Dependency Scan
           context:
             - static-analysis
           requires:
-            - build
-  "Transform -> Regenerate -> Test":
+            - Build
+      - platform-helpers/job-semgrep-scan:
+          context:
+            - static-analysis
+          name: Semgrep Code Analysis
+          requires:
+            - Build
+  "SDK Regeneration":
     jobs:
       - transform-regenerate:
           filters:
             branches:
               only:
                 - test
-  "Semgrep":
-    jobs:
-      - platform-helpers/job-semgrep-scan:
-          context:
-            - static-analysis
-          name: "Scan with Semgrep"
