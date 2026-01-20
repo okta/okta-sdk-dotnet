@@ -22,6 +22,10 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk.Client
 {
+    /// <summary>
+    /// An async enumerator for Okta collections.
+    /// </summary>
+    /// <typeparam name="T">The type of items in the collection.</typeparam>
     public class OktaCollectionAsyncEnumerator<T> : IAsyncEnumerator<T>
     {
         private readonly IOktaPagedCollectionEnumerator<T> _pagedEnumerator;
@@ -42,6 +46,15 @@ namespace Okta.Sdk.Client
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OktaCollectionAsyncEnumerator{T}"/> class.
+        /// </summary>
+        /// <param name="initialRequest">The initial request options.</param>
+        /// <param name="path">The API path.</param>
+        /// <param name="client">The asynchronous client.</param>
+        /// <param name="configuration">The configuration.</param>
+        /// <param name="oAuthTokenProvider">The OAuth token provider.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         public OktaCollectionAsyncEnumerator(RequestOptions initialRequest, string path, IAsynchronousClient client, IReadableConfiguration configuration, IOAuthTokenProvider oAuthTokenProvider, CancellationToken cancellationToken = default)
         {
             _pagedEnumerator =
@@ -49,8 +62,15 @@ namespace Okta.Sdk.Client
         }
 
 
+        /// <summary>
+        /// Gets the current item.
+        /// </summary>
         public T Current => _pagedEnumerator.CurrentPage.Items.ElementAt(_localPageIndex);
 
+        /// <summary>
+        /// Disposes the enumerator asynchronously.
+        /// </summary>
+        /// <returns>A ValueTask representing the asynchronous dispose operation.</returns>
         public ValueTask DisposeAsync()
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
@@ -59,6 +79,10 @@ namespace Okta.Sdk.Client
             return default(ValueTask);
         }
 
+        /// <summary>
+        /// Moves to the next item asynchronously.
+        /// </summary>
+        /// <returns>A ValueTask containing true if there are more items, false otherwise.</returns>
         public async ValueTask<bool> MoveNextAsync()
         {
             var hasMoreLocalItems = _initialized

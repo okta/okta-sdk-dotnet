@@ -40,8 +40,19 @@ namespace Okta.Sdk.Client
     /// </summary>
     public static class DefaultRetryStrategy
     {
+        /// <summary>
+        /// The header name for retry count.
+        /// </summary>
         public static string XOktaRetryCountHeader = "x-Okta-Retry-Count";
+        
+        /// <summary>
+        /// The header name for retry-for indicator.
+        /// </summary>
         public static string XOktaRetryForHeader = "X-Okta-Retry-For";
+        
+        /// <summary>
+        /// The header name for Okta request ID.
+        /// </summary>
         public static string XOktaRequestId = "X-Okta-Request-Id";
      
         /// <summary>

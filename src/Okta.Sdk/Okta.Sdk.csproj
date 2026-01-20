@@ -20,6 +20,12 @@
     <RepositoryUrl>https://github.com/okta/okta-sdk-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>okta api authentication identity management</PackageTags>
+    <!-- Suppress warnings that cannot be fixed at template level -->
+    <!-- CS0108: Member hides inherited member (OpenAPI schema inheritance issue) -->
+    <!-- CS0618/CS0612: Obsolete member usage (RestSharp API changes) -->
+    <!-- CS86xx: Nullable reference warnings (code analysis issues in generated code) -->
+    <!-- CS1574/CS1584/CS1658: XML comment cref issues from OpenAPI spec descriptions -->
+    <NoWarn>$(NoWarn);CS0108;CS0618;CS0612;CS8600;CS8601;CS8602;CS8603;CS8604;CS8618;CS8625;CS1574;CS1584;CS1658</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

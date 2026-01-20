@@ -80,6 +80,8 @@ namespace Okta.Sdk.Api
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="clientAssertionJwtGenerator">The client assertion JWT generator. Optional.</param>
+        /// <param name="dpopProofJwtGenerator">The DPoP proof JWT generator. Optional.</param>
         /// <returns></returns>
         public OAuthApi(Okta.Sdk.Client.Configuration configuration = null, IClientAssertionJwtGenerator clientAssertionJwtGenerator = null, IDpopProofJwtGenerator dpopProofJwtGenerator = null)
         {
@@ -98,11 +100,13 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SchemaApi"/> class
+        /// Initializes a new instance of the <see cref="OAuthApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <param name="clientAssertionJwtGenerator">The client assertion JWT generator.</param>
+        /// <param name="dpopProofJwtGenerator">The DPoP proof JWT generator.</param>
         public OAuthApi(Okta.Sdk.Client.IAsynchronousClient asyncClient, Okta.Sdk.Client.IReadableConfiguration configuration, IClientAssertionJwtGenerator clientAssertionJwtGenerator, IDpopProofJwtGenerator dpopProofJwtGenerator)
         {
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -152,6 +156,11 @@ namespace Okta.Sdk.Api
             set { _exceptionFactory = value; }
         }
 
+        /// <summary>
+        /// Gets a bearer token asynchronously.
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of OAuthTokenResponse</returns>
         public async Task<OAuthTokenResponse> GetBearerTokenAsync(CancellationToken cancellationToken = default)
         {
             Okta.Sdk.Client.ApiResponse<OAuthTokenResponse> localVarResponse = await GetBearerTokenWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
@@ -159,6 +168,11 @@ namespace Okta.Sdk.Api
         }
     
 
+        /// <summary>
+        /// Gets a bearer token with HTTP info asynchronously.
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (OAuthTokenResponse)</returns>
         public async Task<ApiResponse<OAuthTokenResponse>> GetBearerTokenWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();

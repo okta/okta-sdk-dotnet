@@ -42,7 +42,10 @@ namespace Okta.Sdk.Client
         IOktaPagedCollectionEnumerator<T> GetPagedEnumerator(CancellationToken cancellationToken = default);
     }
 
-    /// <inheritdoc/>
+    /// <summary>
+    /// Default implementation of <see cref="IOktaCollectionClient{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The resource's type in the collection.</typeparam>
     public class OktaCollectionClient<T> : IOktaCollectionClient<T>
     {
         private RequestOptions _initialRequest;
@@ -51,6 +54,14 @@ namespace Okta.Sdk.Client
         private IReadableConfiguration _configuration;
         private IOAuthTokenProvider _oAuthTokenProvider;
         
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OktaCollectionClient{T}"/> class.
+        /// </summary>
+        /// <param name="initialRequest">The initial request options.</param>
+        /// <param name="initialPath">The API path.</param>
+        /// <param name="client">The asynchronous client.</param>
+        /// <param name="configuration">The configuration.</param>
+        /// <param name="oAuthTokenProvider">The OAuth token provider.</param>
         public OktaCollectionClient(RequestOptions initialRequest, string initialPath, IAsynchronousClient client, IReadableConfiguration configuration, IOAuthTokenProvider oAuthTokenProvider)
         {
             _initialRequest = initialRequest;

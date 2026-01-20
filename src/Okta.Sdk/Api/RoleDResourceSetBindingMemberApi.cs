@@ -156,6 +156,11 @@ namespace Okta.Sdk.Api
         private Okta.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
         private IOAuthTokenProvider _oAuthTokenProvider;
         
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RoleDResourceSetBindingMemberApi"/> class
+        /// using OktaApiClientOptions object
+        /// </summary>
+        /// <param name="options">The Okta API client options</param>
         public RoleDResourceSetBindingMemberApi(Okta.Sdk.Client.OktaApiClientOptions options) : this(options.Configuration, options.OAuthTokenProvider, options.WebProxy)
         {
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(options);
@@ -166,8 +171,8 @@ namespace Okta.Sdk.Api
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
-        /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional./param>
-        /// <param name="webProxy">The web proxy to be used by the HTTP client. Optional./param>
+        /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional.</param>
+        /// <param name="webProxy">The web proxy to be used by the HTTP client. Optional.</param>
         /// <returns></returns>
         public RoleDResourceSetBindingMemberApi(Okta.Sdk.Client.Configuration configuration = null, IOAuthTokenProvider oAuthTokenProvider = null, WebProxy webProxy = null)
         {

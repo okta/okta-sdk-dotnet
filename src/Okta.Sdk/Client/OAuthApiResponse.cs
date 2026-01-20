@@ -18,11 +18,20 @@ using Newtonsoft.Json;
 
 namespace Okta.Sdk.Client
 {
+    /// <summary>
+    /// Represents the base class for OAuth API responses.
+    /// </summary>
     public abstract class OAuthApiResponse
     {
+        /// <summary>
+        /// Gets or sets the error code.
+        /// </summary>
         [JsonProperty("error")]
         public string Error { get; set; }
 
+        /// <summary>
+        /// Gets or sets the error description.
+        /// </summary>
         [JsonProperty("error_description")]
         public string ErrorDescription { get; set; }
     }
