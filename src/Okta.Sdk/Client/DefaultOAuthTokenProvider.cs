@@ -268,8 +268,10 @@ namespace Okta.Sdk.Client
 
             if (tokenResponse.IsDpopBound)
             {
-                string requestUri = response.Result.Request.Parameters.Aggregate(response.Result.Request.Resource, (current, parameter) => current.Replace("{" + parameter.Name + "}", parameter.Value.ToString()));
-                var uri = new Uri(requestUri, UriKind.RelativeOrAbsolute);
+                string requestUri = response.Result.Request.Parameters
+                    .Where(p => p.Type == RestSharp.ParameterType.UrlSegment)
+                    .Aggregate(response.Result.Request.Resource, (current, parameter) => current.Replace("{" + parameter.Name + "}", parameter.Value?.ToString() ?? string.Empty));
+                var uri = new Uri(new Uri(this.Configuration.OktaDomain, UriKind.Absolute), new Uri(requestUri, UriKind.RelativeOrAbsolute));
                 
                 var dPopJwt = _defaultDpopJwtGenerator.GenerateJwt(
                     httpMethod: response.Result.Request.Method.ToString(), accessToken: tokenResponse.AccessToken,
