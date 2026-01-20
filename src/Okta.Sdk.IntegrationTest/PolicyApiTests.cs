@@ -1073,8 +1073,8 @@ namespace Okta.Sdk.IntegrationTest
                 // Verify priorities are sequential for our rules
                 if (ourRules[0].Priority.HasValue && ourRules[1].Priority.HasValue && ourRules[2].Priority.HasValue)
                 {
-                    ourRules[0].Priority.Value.Should().BeLessOrEqualTo(ourRules[1].Priority.Value);
-                    ourRules[1].Priority.Value.Should().BeLessOrEqualTo(ourRules[2].Priority.Value);
+                    ourRules[0].Priority.Value.Should().BeLessThanOrEqualTo(ourRules[1].Priority.Value);
+                    ourRules[1].Priority.Value.Should().BeLessThanOrEqualTo(ourRules[2].Priority.Value);
                 }
                 
                 // Verify each rule has complete data

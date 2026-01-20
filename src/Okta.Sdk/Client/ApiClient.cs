@@ -14,6 +14,8 @@
  */
 
 
+#nullable enable
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -246,8 +248,8 @@ namespace Okta.Sdk.Client
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" />, defaulting to the global configurations' base url.
         /// </summary>
-        /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional./param>
-        /// <param name="webProxy">The web proxy to be used by the HTTP client. Optional./param>
+        /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional.</param>
+        /// <param name="webProxy">The web proxy to be used by the HTTP client. Optional.</param>
         public ApiClient(IOAuthTokenProvider oAuthTokenProvider = null, WebProxy webProxy = null)
         {
             _baseUrl = Okta.Sdk.Client.GlobalConfiguration.Instance.OktaDomain;
@@ -259,8 +261,8 @@ namespace Okta.Sdk.Client
         /// Initializes a new instance of the <see cref="ApiClient" />
         /// </summary>
         /// <param name="oktaDomain">The Okta domain in URL format.</param>
-        /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional./param>
-        /// <param name="webProxy">The web proxy to be used by the HTTP client. Optional./param>
+        /// <param name="oAuthTokenProvider">The access token provider to be used when the AuthorizationMode is equals to Private Key. Optional.</param>
+        /// <param name="webProxy">The web proxy to be used by the HTTP client. Optional.</param>
         /// <exception cref="ArgumentException"></exception>
         public ApiClient(string oktaDomain, IOAuthTokenProvider oAuthTokenProvider = null, WebProxy webProxy = null)
         {

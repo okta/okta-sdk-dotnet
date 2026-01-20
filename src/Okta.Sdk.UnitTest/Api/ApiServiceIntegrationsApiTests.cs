@@ -608,7 +608,7 @@ namespace Okta.Sdk.UnitTest.Api
 
             // Assert - Maximum of 2 secrets per instance
             result.Should().NotBeNull();
-            result.Should().HaveCountLessOrEqualTo(2);
+            result.Should().HaveCountLessThanOrEqualTo(2);
         }
 
         #endregion

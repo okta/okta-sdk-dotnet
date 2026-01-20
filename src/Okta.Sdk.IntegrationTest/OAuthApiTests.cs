@@ -457,7 +457,7 @@ namespace Okta.Sdk.IntegrationTest
                         retrievedUsers.AddRange(pagedEnumerator.CurrentPage.Items);
                     }
 
-                    retrievedUsers.Count.Should().BeGreaterOrEqualTo(2);
+                    retrievedUsers.Count.Should().BeGreaterThanOrEqualTo(2);
                     var invalidTokensCounter = 0;
 
                     while (mockOauthProvider.TokensQueue.Count > 0)
@@ -590,7 +590,7 @@ namespace Okta.Sdk.IntegrationTest
                     retrievedUsers.AddRange(pagedEnumerator.CurrentPage.Items);
                 }
 
-                retrievedUsers.Count.Should().BeGreaterOrEqualTo(2);
+                retrievedUsers.Count.Should().BeGreaterThanOrEqualTo(2);
 
                 retrievedUsers.Clear();
                 retrievedUsers.Count.Should().Be(0);
@@ -600,7 +600,7 @@ namespace Okta.Sdk.IntegrationTest
                     retrievedUsers.Add(asyncEnumerator.Current);
                 }
 
-                retrievedUsers.Count.Should().BeGreaterOrEqualTo(2);
+                retrievedUsers.Count.Should().BeGreaterThanOrEqualTo(2);
             }
             finally
             {
@@ -720,7 +720,7 @@ namespace Okta.Sdk.IntegrationTest
                     retrievedUsers.AddRange(pagedEnumerator.CurrentPage.Items);
                 }
 
-                retrievedUsers.Count.Should().BeGreaterOrEqualTo(2);
+                retrievedUsers.Count.Should().BeGreaterThanOrEqualTo(2);
                 var invalidTokensCounter = 0;
 
                 while (mockOauthProvider.TokensQueue.Count > 0)

@@ -143,7 +143,7 @@ namespace Okta.Sdk.IntegrationTest
             claimsCollection.Should().NotBeNull();
             var claimsList = await claimsCollection.ToListAsync();
             claimsList.Should().NotBeNull()
-                .And.HaveCountGreaterOrEqualTo(2);
+                .And.HaveCountGreaterThanOrEqualTo(2);
             claimsList.Should().Contain(c => c.Name == "department");
             claimsList.Should().Contain(c => c.Name == "userRole");
 
@@ -152,7 +152,7 @@ namespace Okta.Sdk.IntegrationTest
             listResponse.Should().NotBeNull();
             listResponse.StatusCode.Should().Be(HttpStatusCode.OK);
             listResponse.Data.Should().NotBeNull()
-                .And.HaveCountGreaterOrEqualTo(2);
+                .And.HaveCountGreaterThanOrEqualTo(2);
             listResponse.Headers.Should().NotBeNull()
                 .And.ContainKey("Content-Type");
 

@@ -23,6 +23,10 @@ using Okta.Sdk.Abstractions;
 
 namespace Okta.Sdk.Client
 {
+    /// <summary>
+    /// Interface for paged collection enumerators.
+    /// </summary>
+    /// <typeparam name="T">The type of items in the collection.</typeparam>
     public interface IOktaPagedCollectionEnumerator<T>
     {
         /// <summary>
@@ -42,7 +46,10 @@ namespace Okta.Sdk.Client
         Task<bool> MoveNextAsync();
     }
     
-    /// <inheritdoc/>
+    /// <summary>
+    /// Provides paged collection enumeration functionality for Okta API responses.
+    /// </summary>
+    /// <typeparam name="T">The type of items in the collection.</typeparam>
     public class OktaPagedCollectionEnumerator<T> : IOktaPagedCollectionEnumerator<T>
     {
         private RequestOptions _nextRequest;
@@ -69,6 +76,15 @@ namespace Okta.Sdk.Client
             set { _exceptionFactory = value; }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OktaPagedCollectionEnumerator{T}"/> class.
+        /// </summary>
+        /// <param name="initialRequest">The initial request options.</param>
+        /// <param name="path">The API path.</param>
+        /// <param name="client">The asynchronous client.</param>
+        /// <param name="configuration">The configuration.</param>
+        /// <param name="oAuthTokenProvider">The OAuth token provider.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         public OktaPagedCollectionEnumerator(RequestOptions initialRequest, string path, IAsynchronousClient client, IReadableConfiguration configuration, IOAuthTokenProvider oAuthTokenProvider, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrEmpty(path))

@@ -16,8 +16,6 @@
 
 using System;
 using System.Collections.Concurrent;
-using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -466,6 +464,11 @@ namespace Okta.Sdk.Client
             AuthorizationMode = Client.AuthorizationMode.SSWS;
         }
         
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Configuration" /> class with the specified Okta domain and token.
+        /// </summary>
+        /// <param name="oktaDomain">The Okta domain URL.</param>
+        /// <param name="token">The API token for authentication.</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         public Configuration(
             string oktaDomain,
@@ -851,6 +854,11 @@ namespace Okta.Sdk.Client
             return config;
         }
         
+        /// <summary>
+        /// Gets the specified configuration or creates a default configuration from environment and configuration files.
+        /// </summary>
+        /// <param name="configuration">The configuration to use, or null to create a default configuration.</param>
+        /// <returns>The specified configuration or a new default configuration.</returns>
         public static Configuration GetConfigurationOrDefault(Configuration configuration = null)
         {
             string configurationFileRoot = Directory.GetCurrentDirectory();
