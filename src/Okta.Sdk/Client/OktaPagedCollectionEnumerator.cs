@@ -133,7 +133,8 @@ namespace Okta.Sdk.Client
             
             if (Okta.Sdk.Client.Configuration.IsPrivateKeyMode(_configuration))
             {
-                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(_nextRequest, _nextPath, "GET", _cancellationToken);
+                var expandedPath = _nextRequest.PathParameters.Aggregate(_nextPath, (current, param) => current.Replace("{" + param.Key + "}", param.Value));
+                await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(_nextRequest, expandedPath, "GET", _cancellationToken);
             }
             
             var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, _configuration, _cancellationToken).ConfigureAwait(false);
