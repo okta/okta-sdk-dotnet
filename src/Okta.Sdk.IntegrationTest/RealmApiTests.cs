@@ -369,7 +369,7 @@ namespace Okta.Sdk.IntegrationTest
                 var firstPageItems = firstPage.Items.ToList();
                 
                 // The first page should respect the limit but may have fewer items if there aren't enough realms
-                firstPageItems.Count.Should().BeLessOrEqualTo(limit, "First page should not exceed the specified limit");
+                firstPageItems.Count.Should().BeLessThanOrEqualTo(limit, "First page should not exceed the specified limit");
                 
                 // If we have exactly the limit, verify we got the requested number
                 if (firstPageItems.Count == limit)
@@ -435,7 +435,7 @@ namespace Okta.Sdk.IntegrationTest
                     var nextName = realms[i + 1].Profile?.Name ?? "";
                     
                     string.Compare(currentName, nextName, StringComparison.OrdinalIgnoreCase)
-                        .Should().BeLessOrEqualTo(0, $"Realm '{currentName}' should come before or equal to '{nextName}' in ascending order");
+                        .Should().BeLessThanOrEqualTo(0, $"Realm '{currentName}' should come before or equal to '{nextName}' in ascending order");
                 }
             }
         }

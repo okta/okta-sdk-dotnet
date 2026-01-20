@@ -325,7 +325,7 @@ namespace Okta.Sdk.IntegrationTest
             var limitedGroups = await _groupApi.ListGroups(limit: 5).ToListAsync();
 
             limitedGroups.Should().NotBeNull();
-            limitedGroups.Count.Should().BeLessOrEqualTo(5);
+            limitedGroups.Count.Should().BeLessThanOrEqualTo(5);
 
             // ListGroups with sorting (ascending and descending)
             var ascGroups = await _groupApi.ListGroups(limit: 10, sortBy: "profile.name", sortOrder: "asc").ToListAsync();
@@ -343,7 +343,7 @@ namespace Okta.Sdk.IntegrationTest
             firstPageResponse.StatusCode.Should().Be(HttpStatusCode.OK);
             firstPageResponse.Headers.Should().NotBeNull();
             firstPageResponse.Data.Should().NotBeNull();
-            firstPageResponse.Data.Should().HaveCountLessOrEqualTo(2);
+            firstPageResponse.Data.Should().HaveCountLessThanOrEqualTo(2);
 
             // Test pagination with 'after' cursor if available
             if (firstPageResponse.Headers.TryGetValue("Link", out var linkHeaders) && linkHeaders.Any())
@@ -450,7 +450,7 @@ namespace Okta.Sdk.IntegrationTest
             // ListGroupUsers - Verify multiple users
             var usersAfterSecondAssign = await _groupApi.ListGroupUsers(groupId).ToListAsync();
 
-            usersAfterSecondAssign.Should().HaveCountGreaterOrEqualTo(2);
+            usersAfterSecondAssign.Should().HaveCountGreaterThanOrEqualTo(2);
             usersAfterSecondAssign.Should().Contain(u => u.Id == fixture.TestUser1Id);
             usersAfterSecondAssign.Should().Contain(u => u.Id == fixture.TestUser2Id);
 
@@ -477,7 +477,7 @@ namespace Okta.Sdk.IntegrationTest
 
             firstUserPageResponse.Should().NotBeNull();
             firstUserPageResponse.StatusCode.Should().Be(HttpStatusCode.OK);
-            firstUserPageResponse.Data.Should().HaveCountLessOrEqualTo(1);
+            firstUserPageResponse.Data.Should().HaveCountLessThanOrEqualTo(1);
 
             if (firstUserPageResponse.Headers.TryGetValue("Link", out var userLinkHeaders) && userLinkHeaders.Any())
             {
@@ -781,7 +781,7 @@ namespace Okta.Sdk.IntegrationTest
         public async Task ListGroups_WithADGroups_ShouldEnumerateAllGroupsSuccessfully()
         {
             // Act - Try to get raw API response first to verify deserialization works
-            var directResponse = await _groupApi.ListGroupsWithHttpInfoAsync().ConfigureAwait(false);
+            var directResponse = await _groupApi.ListGroupsWithHttpInfoAsync();
             
             // Assert - HttpInfo should not throw exceptions
             directResponse.Should().NotBeNull();

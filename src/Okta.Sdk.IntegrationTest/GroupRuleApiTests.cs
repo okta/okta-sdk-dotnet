@@ -257,14 +257,14 @@ namespace Okta.Sdk.IntegrationTest
             // READ - ListGroupRules
             var allRules = await _groupRuleApi.ListGroupRules().ToListAsync();
             allRules.Should().NotBeNull();
-            allRules.Should().HaveCountGreaterOrEqualTo(2);
+            allRules.Should().HaveCountGreaterThanOrEqualTo(2);
             allRules.Should().Contain(r => r.Id == createdRule1.Id);
             allRules.Should().Contain(r => r.Id == createdRule2.Id);
 
             // Test ListGroupRules with limit parameter
             var limitedRules = await _groupRuleApi.ListGroupRules(limit: 1).ToListAsync();
             limitedRules.Should().NotBeNull();
-            limitedRules.Should().HaveCountGreaterOrEqualTo(1);
+            limitedRules.Should().HaveCountGreaterThanOrEqualTo(1);
 
             // Test ListGroupRules with search parameter
             var searchedRules = await _groupRuleApi.ListGroupRules(search: $"Eng Rule {TestGuid.Substring(0, 8)}").ToListAsync();
@@ -408,7 +408,7 @@ namespace Okta.Sdk.IntegrationTest
             // Test pagination with after parameter
             var firstPage = await _groupRuleApi.ListGroupRules(limit: 1).ToListAsync();
             firstPage.Should().NotBeNull();
-            firstPage.Should().HaveCountGreaterOrEqualTo(1);
+            firstPage.Should().HaveCountGreaterThanOrEqualTo(1);
 
             // If we have more than one rule, test the after parameter
             if (firstPage.Count > 0)

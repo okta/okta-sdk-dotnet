@@ -350,7 +350,7 @@ namespace Okta.Sdk.IntegrationTest
                 .ToListAsync();
 
             allMappings.Should().NotBeNull();
-            allMappings.Should().HaveCountGreaterOrEqualTo(3, "should have at least our 3 created mappings");
+            allMappings.Should().HaveCountGreaterThanOrEqualTo(3, "should have at least our 3 created mappings");
             allMappings.Should().Contain(m => m.Id == mapping1Id);
             allMappings.Should().Contain(m => m.Id == mapping2Id);
             allMappings.Should().Contain(m => m.Id == mapping3Id);
@@ -409,7 +409,7 @@ namespace Okta.Sdk.IntegrationTest
                 .ToListAsync();
 
             limitedMappings.Should().NotBeNull();
-            limitedMappings.Should().HaveCountLessOrEqualTo(2);
+            limitedMappings.Should().HaveCountLessThanOrEqualTo(2);
 
             // ListGroupPushMappings with pagination (after cursor)
             var firstPage = await _groupPushMappingApi.ListGroupPushMappings(
@@ -452,7 +452,7 @@ namespace Okta.Sdk.IntegrationTest
             listResponse.StatusCode.Should().Be(HttpStatusCode.OK);
             listResponse.Headers.Should().NotBeNull();
             listResponse.Data.Should().NotBeNull();
-            listResponse.Data.Should().HaveCountGreaterOrEqualTo(3);
+            listResponse.Data.Should().HaveCountGreaterThanOrEqualTo(3);
 
             // ==================== UPDATE OPERATIONS ====================
 

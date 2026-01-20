@@ -294,8 +294,8 @@ namespace Okta.Sdk.UnitTest.Client
             iat.Should().NotBeNull();
             if (iat != null)
             {
-                iat.Value.Should().BeGreaterOrEqualTo(beforeGeneration, "because iat should be the current time");
-                iat.Value.Should().BeLessOrEqualTo(afterGeneration, "because iat should be the current time");
+                iat.Value.Should().BeGreaterThanOrEqualTo(beforeGeneration, "because iat should be the current time");
+                iat.Value.Should().BeLessThanOrEqualTo(afterGeneration, "because iat should be the current time");
             }
         }
 

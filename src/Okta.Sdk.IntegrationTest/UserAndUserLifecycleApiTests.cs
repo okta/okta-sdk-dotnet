@@ -228,7 +228,7 @@ namespace Okta.Sdk.IntegrationTest
 
             allUsersFirstPage.Should().NotBeNull();
             allUsersFirstPage.Should().NotBeEmpty();
-            allUsersFirstPage.Count.Should().BeLessOrEqualTo(10);
+            allUsersFirstPage.Count.Should().BeLessThanOrEqualTo(10);
 
             // READ: Filter users by status
             var activeUsers = await _userApi.ListUsers(
@@ -870,14 +870,14 @@ namespace Okta.Sdk.IntegrationTest
             var firstPage = await firstPageClient.ToListAsync();
 
             firstPage.Should().NotBeNull();
-            firstPage.Count.Should().BeLessOrEqualTo(5);
+            firstPage.Count.Should().BeLessThanOrEqualTo(5);
 
             if (firstPage.Count > 0)
             {
                 // Verify we can iterate through the collection (pagination handled automatically)
                 var allUsers = await _userApi.ListUsers(limit: 5).ToListAsync();
                 allUsers.Should().NotBeNull();
-                allUsers.Count.Should().BeGreaterOrEqualTo(firstPage.Count);
+                allUsers.Count.Should().BeGreaterThanOrEqualTo(firstPage.Count);
             }
 
             // TEST: GetUser with expand parameter

@@ -181,9 +181,9 @@ namespace Okta.Sdk.IntegrationTest
             var usersList = _appUsersApi.ListApplicationUsers(testApp.Id);
 
             usersList.Should().NotBeNull();
-            var usersEnumerable = usersList.ToListAsync().GetAwaiter().GetResult();
+            var usersEnumerable = await usersList.ToListAsync();
             usersEnumerable.Should().NotBeNull();
-            usersEnumerable.Should().HaveCountGreaterOrEqualTo(1);
+            usersEnumerable.Should().HaveCountGreaterThanOrEqualTo(1);
             usersEnumerable.Should().Contain(u => u.Id == testUser.Id);
 
             // GET with HttpInfo - Collection with HTTP response
@@ -193,20 +193,20 @@ namespace Okta.Sdk.IntegrationTest
             usersWithHttpInfo.StatusCode.Should().Be(HttpStatusCode.OK);
             usersWithHttpInfo.Headers.Should().NotBeNull();
             usersWithHttpInfo.Data.Should().NotBeNull();
-            usersWithHttpInfo.Data.Should().HaveCountGreaterOrEqualTo(1);
+            usersWithHttpInfo.Data.Should().HaveCountGreaterThanOrEqualTo(1);
 
             // GET with query parameter
             var filteredUsers = _appUsersApi.ListApplicationUsers(testApp.Id, q: testUser.Profile.Email.Substring(0, 10));
 
             filteredUsers.Should().NotBeNull();
-            var filteredList = filteredUsers.ToListAsync().GetAwaiter().GetResult();
+            var filteredList = await filteredUsers.ToListAsync();
             filteredList.Should().NotBeNull();
 
             // GET with limit parameter
             var limitedUsers = _appUsersApi.ListApplicationUsers(testApp.Id, limit: 1);
 
             limitedUsers.Should().NotBeNull();
-            var limitedList = limitedUsers.ToListAsync().GetAwaiter().GetResult();
+            var limitedList = await limitedUsers.ToListAsync();
             limitedList.Should().NotBeNull();
 
             // POST /api/v1/apps/{appId}/users/{userId} - Update user profile
@@ -483,13 +483,13 @@ namespace Okta.Sdk.IntegrationTest
             var firstPageList = await firstPage.ToListAsync();
 
             firstPageList.Should().NotBeNull();
-            firstPageList.Should().HaveCountGreaterOrEqualTo(5);
+            firstPageList.Should().HaveCountGreaterThanOrEqualTo(5);
 
             var allUsers = _appUsersApi.ListApplicationUsers(testApp.Id);
             var allUsersList = await allUsers.ToListAsync();
 
             allUsersList.Should().NotBeNull();
-            allUsersList.Should().HaveCountGreaterOrEqualTo(5);
+            allUsersList.Should().HaveCountGreaterThanOrEqualTo(5);
             foreach (var user in users)
             {
                 allUsersList.Should().Contain(u => u.Id == user.Id);

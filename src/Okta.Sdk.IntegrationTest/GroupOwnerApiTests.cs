@@ -433,7 +433,7 @@ namespace Okta.Sdk.IntegrationTest
             listResponse.Should().NotBeNull();
             listResponse.StatusCode.Should().Be(System.Net.HttpStatusCode.OK);
             listResponse.Data.Should().NotBeNull();
-            listResponse.Data.Should().HaveCountGreaterOrEqualTo(1);
+            listResponse.Data.Should().HaveCountGreaterThanOrEqualTo(1);
             listResponse.Data.Should().Contain(o => o.Id == OwnerUser2Id && o.Type == GroupOwnerType.USER);
 
             // ACT 3 & ASSERT 3: Test DeleteGroupOwnerWithHttpInfoAsync (Method #6)
@@ -471,7 +471,7 @@ namespace Okta.Sdk.IntegrationTest
             var allOwners = await _groupOwnerApi.ListGroupOwnersWithHttpInfoAsync(groupId);
             
             allOwners.Should().NotBeNull();
-            allOwners.Data.Should().HaveCountGreaterOrEqualTo(2);
+            allOwners.Data.Should().HaveCountGreaterThanOrEqualTo(2);
             allOwners.Data.Should().Contain(o => o.Id == SharedOwnerUserId && o.Type == GroupOwnerType.USER);
             allOwners.Data.Should().Contain(o => o.Id == SharedOwnerGroupId && o.Type == GroupOwnerType.GROUP);
 

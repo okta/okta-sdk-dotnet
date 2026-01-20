@@ -591,7 +591,7 @@ namespace Okta.Sdk.IntegrationTest
                     // Test pagination with limit
                     var firstPage = await _applicationApi.ListApplicationsWithHttpInfoAsync(limit: 2);
                     firstPage.Data.Should().NotBeNull();
-                    firstPage.Data.Count.Should().BeLessOrEqualTo(2);
+                    firstPage.Data.Count.Should().BeLessThanOrEqualTo(2);
 
                     // Verify we can list all created pagination apps
                     var allPaginationApps = await _applicationApi.ListApplications().ToListAsync();
@@ -737,7 +737,7 @@ namespace Okta.Sdk.IntegrationTest
                         break;
                 }
 
-                retrievedApps.Count.Should().BeGreaterOrEqualTo(3);
+                retrievedApps.Count.Should().BeGreaterThanOrEqualTo(3);
             }
             finally
             {

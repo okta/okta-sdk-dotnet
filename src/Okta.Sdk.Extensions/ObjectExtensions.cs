@@ -10,10 +10,10 @@ namespace Okta.Sdk.Extensions;
 
 public static class ObjectExtensions
 {
-    public static T? GetProperty<T>(this object obj, string propertyName)
+    public static T GetProperty<T>(this object obj, string propertyName)
     {
         Type type = obj.GetType();
-        PropertyInfo? propertyInfo = type.GetProperty(propertyName);
+        PropertyInfo propertyInfo = type.GetProperty(propertyName);
         if (propertyInfo != null)
         {
             return (T)propertyInfo.GetValue(obj);

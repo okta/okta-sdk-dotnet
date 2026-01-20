@@ -185,7 +185,7 @@ namespace Okta.Sdk.IntegrationTest
                 }
 
                 connectionsList.Should().NotBeEmpty("requesting app should have connections");
-                connectionsList.Count.Should().BeGreaterOrEqualTo(2, 
+                connectionsList.Count.Should().BeGreaterThanOrEqualTo(2, 
                     "should retrieve at least the two connections we created");
                 connectionsList.Should().Contain(c => c.Id == connectionId, 
                     "list should contain the first connection");
@@ -211,7 +211,7 @@ namespace Okta.Sdk.IntegrationTest
                 getAllHttpResponse.StatusCode.Should().Be(System.Net.HttpStatusCode.OK, 
                     "getting connections should return 200 OK");
                 getAllHttpResponse.Data.Should().NotBeNull("response should contain connection list");
-                getAllHttpResponse.Data.Count.Should().BeGreaterOrEqualTo(2, 
+                getAllHttpResponse.Data.Count.Should().BeGreaterThanOrEqualTo(2, 
                     "HTTP response data should contain at least two connections");
 
                 // Test 5: GetCrossAppAccessConnectionAsync
@@ -489,7 +489,7 @@ namespace Okta.Sdk.IntegrationTest
                 }
 
                 pagedList.Should().NotBeEmpty("pagination should return at least one connection");
-                pagedList.Count.Should().BeGreaterOrEqualTo(1, "should retrieve connections with pagination");
+                pagedList.Count.Should().BeGreaterThanOrEqualTo(1, "should retrieve connections with pagination");
 
                 // Test retrieving all connections
                 var allConnections = _applicationCrossAppAccessConnectionsApi
@@ -502,7 +502,7 @@ namespace Okta.Sdk.IntegrationTest
                 }
 
                 allList.Should().NotBeEmpty("should retrieve all connections");
-                allList.Count.Should().BeGreaterOrEqualTo(2, "should retrieve at least the two connections we created");
+                allList.Count.Should().BeGreaterThanOrEqualTo(2, "should retrieve at least the two connections we created");
             }
             finally
             {

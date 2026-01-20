@@ -221,7 +221,7 @@ namespace Okta.Sdk.IntegrationTest
             // Assert
             assignments.Should().NotBeNull();
             assignments.Data.Should().NotBeNull();
-            assignments.Data.Count.Should().BeLessOrEqualTo(10);
+            assignments.Data.Count.Should().BeLessThanOrEqualTo(10);
         }
 
         [Fact]
