@@ -500,7 +500,7 @@ namespace Okta.Sdk.Client
                 clientOptions.ConfigureMessageHandler = _ => _httpMessageHandler;
             }
 
-            clientOptions.MaxTimeout = configuration.ConnectionTimeout ?? Configuration.DefaultConnectionTimeout;
+            clientOptions.Timeout = TimeSpan.FromMilliseconds(configuration.ConnectionTimeout ?? Configuration.DefaultConnectionTimeout);
 
             if (_proxy != null)
             {

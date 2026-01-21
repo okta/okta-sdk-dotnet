@@ -32,26 +32,28 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// The authorization server policy used to mint the token
+    /// Source application for APP_GROUP type groups
     /// </summary>
-    [DataContract(Name = "TokenPayLoad_data_context_allOf_policy")]
+    [DataContract(Name = "GroupSource")]
     
-    public partial class TokenPayLoadDataContextAllOfPolicy : IEquatable<TokenPayLoadDataContextAllOfPolicy>
+    public partial class GroupSource : IEquatable<GroupSource>
     {
         
         /// <summary>
-        /// The unique identifier for the policy
+        /// Identifier of the application which synchronizes the group
         /// </summary>
-        /// <value>The unique identifier for the policy</value>
+        /// <value>Identifier of the application which synchronizes the group</value>
         [DataMember(Name = "id", EmitDefaultValue = true)]
-        public string Id { get; set; }
+        public string Id { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Rule
+        /// Returns false as Id should not be serialized given that it's read-only.
         /// </summary>
-        [DataMember(Name = "rule", EmitDefaultValue = true)]
-        public BaseContextUserPolicyRule Rule { get; set; }
-
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeId()
+        {
+            return false;
+        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -59,9 +61,8 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TokenPayLoadDataContextAllOfPolicy {\n");
+            sb.Append("class GroupSource {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Rule: ").Append(Rule).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,15 +83,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TokenPayLoadDataContextAllOfPolicy);
+            return this.Equals(input as GroupSource);
         }
 
         /// <summary>
-        /// Returns true if TokenPayLoadDataContextAllOfPolicy instances are equal
+        /// Returns true if GroupSource instances are equal
         /// </summary>
-        /// <param name="input">Instance of TokenPayLoadDataContextAllOfPolicy to be compared</param>
+        /// <param name="input">Instance of GroupSource to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TokenPayLoadDataContextAllOfPolicy input)
+        public bool Equals(GroupSource input)
         {
             if (input == null)
             {
@@ -101,11 +102,6 @@ namespace Okta.Sdk.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Rule == input.Rule ||
-                    (this.Rule != null &&
-                    this.Rule.Equals(input.Rule))
                 );
         }
 
@@ -122,10 +118,6 @@ namespace Okta.Sdk.Model
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Rule != null)
-                {
-                    hashCode = (hashCode * 59) + this.Rule.GetHashCode();
                 }
                 return hashCode;
             }

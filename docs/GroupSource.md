@@ -1,11 +1,11 @@
-# Okta.Sdk.Model.TokenPayLoadDataContextAllOfPolicyRule
-The authorization server policy rule used to mint the token
+# Okta.Sdk.Model.GroupSource
+Source application for APP_GROUP type groups
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | The unique identifier for the policy rule | [optional] 
+**Id** | **string** | Identifier of the application which synchronizes the group | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

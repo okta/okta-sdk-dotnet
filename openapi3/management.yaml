@@ -58937,6 +58937,26 @@ components:
                   description: URL to retrieve individual user's factor enrollments
                   allOf:
                     - $ref: '#/components/schemas/HrefObject'
+            policy:
+              description: The authorization server policy used to mint the token. This property is present in token inline hook payloads for refresh_token grant types.
+              type: object
+              properties:
+                id:
+                  description: The unique identifier for the policy
+                  type: string
+                  example: 00p4ktaq2ryOYtsHC0g7
+                rule:
+                  description: The authorization server policy rule used to mint the token
+                  type: object
+                  properties:
+                    id:
+                      description: The unique identifier for the policy rule
+                      type: string
+                      example: 0pr4ktb7elD3ZvrMy0g7
+            identity:
+              description: Provides information on the user's identity claims and token properties. This property is present in token inline hook payloads for refresh_token grant types.
+              allOf:
+                - $ref: '#/components/schemas/BaseToken'
     BaseEmailDomain:
       type: object
       properties:
@@ -63160,6 +63180,10 @@ components:
           description: Determines the group's `profile`
           items:
             type: string
+        source:
+          description: The source application for APP_GROUP type groups
+          readOnly: true
+          $ref: '#/components/schemas/GroupSource'
         profile:
           $ref: '#/components/schemas/GroupProfile'
         type:
@@ -63443,6 +63467,14 @@ components:
           description: Excluded `userIds` when processing rules
           items:
             type: string
+    GroupSource:
+      description: Source application for APP_GROUP type groups
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Identifier of the application which synchronizes the group
     GroupSchema:
       type: object
       properties:
@@ -64222,6 +64254,14 @@ components:
           $ref: '#/components/schemas/IdentityProviderProperties'
         protocol:
           description: IdP-specific protocol settings for endpoints, bindings, and algorithms used to connect with the IdP and validate messages
+          discriminator:
+            propertyName: type
+            mapping:
+              SAML2: '#/components/schemas/ProtocolSaml'
+              OAUTH2: '#/components/schemas/ProtocolOAuth'
+              OIDC: '#/components/schemas/ProtocolOidc'
+              MTLS: '#/components/schemas/ProtocolMtls'
+              ID_PROOFING: '#/components/schemas/ProtocolIdVerification'
           oneOf:
             - $ref: '#/components/schemas/ProtocolSaml'
             - $ref: '#/components/schemas/ProtocolOAuth'
