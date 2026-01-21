@@ -968,7 +968,7 @@ All methods in this API remain functionally identical **[IDENTICAL]**
 - `ActivateUserAsync()` → **[MOVED]** to `UserLifecycleApi.cs`
 - `DeactivateUserAsync()` → **[MOVED]** to `UserLifecycleApi.cs`
 - `ExpirePasswordAsync()` → **[MOVED]** to `UserCredApi.cs` (as part of UserCred operations)
-- `ExpirePasswordAndGetTemporaryPasswordAsync()` → **[MOVED]** to `UserCredApi.cs`
+- `ExpirePasswordAndGetTemporaryPasswordAsync()` → **[MOVED + RENAMED]** to `UserCredApi.ExpirePasswordWithTempPasswordAsync()`
 
 **Methods MOVED to UserCredApi:**
 
@@ -976,7 +976,7 @@ All methods in this API remain functionally identical **[IDENTICAL]**
 - `ChangeRecoveryQuestionAsync()` → **[MOVED]** to `UserCredApi.cs`
 - `ForgotPasswordAsync()` → **[MOVED]** to `UserCredApi.cs`
 - `ForgotPasswordSetNewPasswordAsync()` → **[MOVED]** to `UserCredApi.cs`
-- `GenerateResetPasswordTokenAsync()` → **[MOVED]** to `UserCredApi.cs`
+- `GenerateResetPasswordTokenAsync()` → **[MOVED + RENAMED]** to `UserCredApi.ResetPasswordAsync()` (same endpoint: POST `/api/v1/users/{id}/lifecycle/reset_password`)
 
 **Methods MOVED to UserOAuthApi:**
 
@@ -1592,10 +1592,10 @@ Methods in this API (moved from `UserApi.cs`):
 - `ChangePasswordAsync()` **[MOVED from UserApi]**
 - `ChangeRecoveryQuestionAsync()` **[MOVED from UserApi]**
 - `ExpirePasswordAsync()` **[MOVED from UserApi]**
-- `ExpirePasswordAndGetTemporaryPasswordAsync()` **[MOVED from UserApi]**
+- `ExpirePasswordWithTempPasswordAsync()` **[MOVED + RENAMED from UserApi.ExpirePasswordAndGetTemporaryPasswordAsync]**
 - `ForgotPasswordAsync()` **[MOVED from UserApi]**
 - `ForgotPasswordSetNewPasswordAsync()` **[MOVED from UserApi]**
-- `GenerateResetPasswordTokenAsync()` **[MOVED from UserApi]**
+- `ResetPasswordAsync()` **[MOVED + RENAMED from UserApi.GenerateResetPasswordTokenAsync]** - Same functionality, different method name
 - `RevokeUserSessionsAsync()` **[NEW]**
 - `SetPasswordAsync()` **[NEW]**
 
