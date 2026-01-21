@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **LastMembershipUpdated** | **DateTimeOffset** | Timestamp when the groups memberships were last updated | [optional] [readonly] 
 **LastUpdated** | **DateTimeOffset** | Timestamp when the group&#39;s profile was last updated | [optional] [readonly] 
 **ObjectClass** | **List&lt;string&gt;** | Determines the group&#39;s &#x60;profile&#x60; | [optional] [readonly] 
+**Source** | [**GroupSource**](GroupSource.md) |  | [optional] 
 **Profile** | [**GroupProfile**](GroupProfile.md) |  | [optional] 
 **Type** | **GroupType** |  | [optional] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** | Embedded resources related to the group | [optional] [readonly] 

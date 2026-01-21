@@ -628,6 +628,7 @@ docs/GroupSchemaBasePropertiesDescription.md
 docs/GroupSchemaBasePropertiesName.md
 docs/GroupSchemaCustom.md
 docs/GroupSchemaDefinitions.md
+docs/GroupSource.md
 docs/GroupType.md
 docs/GroupsLink.md
 docs/HelpLink.md
@@ -2589,6 +2590,7 @@ src/Okta.Sdk/Model/GroupSchemaBasePropertiesDescription.cs
 src/Okta.Sdk/Model/GroupSchemaBasePropertiesName.cs
 src/Okta.Sdk/Model/GroupSchemaCustom.cs
 src/Okta.Sdk/Model/GroupSchemaDefinitions.cs
+src/Okta.Sdk/Model/GroupSource.cs
 src/Okta.Sdk/Model/GroupType.cs
 src/Okta.Sdk/Model/GroupsLink.cs
 src/Okta.Sdk/Model/HelpLink.cs

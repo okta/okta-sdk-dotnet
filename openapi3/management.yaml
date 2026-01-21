@@ -63180,6 +63180,10 @@ components:
           description: Determines the group's `profile`
           items:
             type: string
+        source:
+          description: The source application for APP_GROUP type groups
+          readOnly: true
+          $ref: '#/components/schemas/GroupSource'
         profile:
           $ref: '#/components/schemas/GroupProfile'
         type:
@@ -63463,6 +63467,14 @@ components:
           description: Excluded `userIds` when processing rules
           items:
             type: string
+    GroupSource:
+      description: Source application for APP_GROUP type groups
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Identifier of the application which synchronizes the group
     GroupSchema:
       type: object
       properties:

@@ -125,6 +125,12 @@ namespace Okta.Sdk.Model
                 linksProperty?.SetValue(group, jsonObject["_links"].ToObject<GroupLinks>(tempSerializer));
             }
 
+            if (jsonObject["source"] != null)
+            {
+                var sourceProperty = typeof(Group).GetProperty("Source");
+                sourceProperty?.SetValue(group, jsonObject["source"].ToObject<GroupSource>(tempSerializer));
+            }
+
             // Now handle the profile with the correct type based on objectClass
             if (jsonObject["profile"] != null)
             {

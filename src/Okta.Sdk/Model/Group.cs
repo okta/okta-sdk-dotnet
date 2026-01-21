@@ -123,6 +123,12 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name = "source", EmitDefaultValue = true)]
+        public GroupSource Source { get; set; }
+
+        /// <summary>
         /// Gets or Sets Profile
         /// </summary>
         [DataMember(Name = "profile", EmitDefaultValue = true)]
@@ -162,6 +168,7 @@ namespace Okta.Sdk.Model
             sb.Append("  LastMembershipUpdated: ").Append(LastMembershipUpdated).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
             sb.Append("  ObjectClass: ").Append(ObjectClass).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Embedded: ").Append(Embedded).Append("\n");
@@ -228,6 +235,11 @@ namespace Okta.Sdk.Model
                     this.ObjectClass.SequenceEqual(input.ObjectClass)
                 ) && 
                 (
+                    this.Source == input.Source ||
+                    (this.Source != null &&
+                    this.Source.Equals(input.Source))
+                ) && 
+                (
                     this.Profile == input.Profile ||
                     (this.Profile != null &&
                     this.Profile.Equals(input.Profile))
@@ -278,6 +290,10 @@ namespace Okta.Sdk.Model
                 if (this.ObjectClass != null)
                 {
                     hashCode = (hashCode * 59) + this.ObjectClass.GetHashCode();
+                }
+                if (this.Source != null)
+                {
+                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 }
                 if (this.Profile != null)
                 {

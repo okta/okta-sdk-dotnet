@@ -1401,6 +1401,7 @@ Class | Method | HTTP request | Description
  - [Model.GroupSchemaBasePropertiesName](docs/GroupSchemaBasePropertiesName.md)
  - [Model.GroupSchemaCustom](docs/GroupSchemaCustom.md)
  - [Model.GroupSchemaDefinitions](docs/GroupSchemaDefinitions.md)
+ - [Model.GroupSource](docs/GroupSource.md)
  - [Model.GroupType](docs/GroupType.md)
  - [Model.GroupsLink](docs/GroupsLink.md)
  - [Model.HelpLink](docs/HelpLink.md)
