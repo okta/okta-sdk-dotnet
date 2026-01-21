@@ -34,9 +34,9 @@ namespace Okta.Sdk.Model
     /// Template: ModelGeneric
     /// The authorization server policy rule used to mint the token
     /// </summary>
-    [DataContract(Name = "TokenPayLoad_data_context_allOf_policy_rule")]
+    [DataContract(Name = "BaseContext_user_policy_rule")]
     
-    public partial class TokenPayLoadDataContextAllOfPolicyRule : IEquatable<TokenPayLoadDataContextAllOfPolicyRule>
+    public partial class BaseContextUserPolicyRule : IEquatable<BaseContextUserPolicyRule>
     {
         
         /// <summary>
@@ -53,7 +53,7 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TokenPayLoadDataContextAllOfPolicyRule {\n");
+            sb.Append("class BaseContextUserPolicyRule {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -75,15 +75,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TokenPayLoadDataContextAllOfPolicyRule);
+            return this.Equals(input as BaseContextUserPolicyRule);
         }
 
         /// <summary>
-        /// Returns true if TokenPayLoadDataContextAllOfPolicyRule instances are equal
+        /// Returns true if BaseContextUserPolicyRule instances are equal
         /// </summary>
-        /// <param name="input">Instance of TokenPayLoadDataContextAllOfPolicyRule to be compared</param>
+        /// <param name="input">Instance of BaseContextUserPolicyRule to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TokenPayLoadDataContextAllOfPolicyRule input)
+        public bool Equals(BaseContextUserPolicyRule input)
         {
             if (input == null)
             {

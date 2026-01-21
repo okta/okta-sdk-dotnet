@@ -32,25 +32,25 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// The authorization server policy used to mint the token
+    /// Provides information on the user&#39;s identity claims and token properties. This property is present in token inline hook payloads for refresh_token grant types.
     /// </summary>
-    [DataContract(Name = "TokenPayLoad_data_context_allOf_policy")]
+    [DataContract(Name = "BaseContext_user_identity")]
     
-    public partial class TokenPayLoadDataContextAllOfPolicy : IEquatable<TokenPayLoadDataContextAllOfPolicy>
+    public partial class BaseContextUserIdentity : IEquatable<BaseContextUserIdentity>
     {
         
         /// <summary>
-        /// The unique identifier for the policy
+        /// Claims included in the token. Consists of name-value pairs for each included claim. For descriptions of the claims that you can include, see the Okta [OpenID Connect and OAuth 2.0 API reference](/openapi/okta-oauth/guides/overview/#claims).
         /// </summary>
-        /// <value>The unique identifier for the policy</value>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
-        public string Id { get; set; }
+        /// <value>Claims included in the token. Consists of name-value pairs for each included claim. For descriptions of the claims that you can include, see the Okta [OpenID Connect and OAuth 2.0 API reference](/openapi/okta-oauth/guides/overview/#claims).</value>
+        [DataMember(Name = "claims", EmitDefaultValue = true)]
+        public Object Claims { get; set; }
 
         /// <summary>
-        /// Gets or Sets Rule
+        /// Gets or Sets Token
         /// </summary>
-        [DataMember(Name = "rule", EmitDefaultValue = true)]
-        public BaseContextUserPolicyRule Rule { get; set; }
+        [DataMember(Name = "token", EmitDefaultValue = true)]
+        public BaseTokenToken Token { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -59,9 +59,9 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TokenPayLoadDataContextAllOfPolicy {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Rule: ").Append(Rule).Append("\n");
+            sb.Append("class BaseContextUserIdentity {\n");
+            sb.Append("  Claims: ").Append(Claims).Append("\n");
+            sb.Append("  Token: ").Append(Token).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,15 +82,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TokenPayLoadDataContextAllOfPolicy);
+            return this.Equals(input as BaseContextUserIdentity);
         }
 
         /// <summary>
-        /// Returns true if TokenPayLoadDataContextAllOfPolicy instances are equal
+        /// Returns true if BaseContextUserIdentity instances are equal
         /// </summary>
-        /// <param name="input">Instance of TokenPayLoadDataContextAllOfPolicy to be compared</param>
+        /// <param name="input">Instance of BaseContextUserIdentity to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TokenPayLoadDataContextAllOfPolicy input)
+        public bool Equals(BaseContextUserIdentity input)
         {
             if (input == null)
             {
@@ -98,14 +98,14 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Claims == input.Claims ||
+                    (this.Claims != null &&
+                    this.Claims.Equals(input.Claims))
                 ) && 
                 (
-                    this.Rule == input.Rule ||
-                    (this.Rule != null &&
-                    this.Rule.Equals(input.Rule))
+                    this.Token == input.Token ||
+                    (this.Token != null &&
+                    this.Token.Equals(input.Token))
                 );
         }
 
@@ -119,13 +119,13 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                if (this.Id != null)
+                if (this.Claims != null)
                 {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Claims.GetHashCode();
                 }
-                if (this.Rule != null)
+                if (this.Token != null)
                 {
-                    hashCode = (hashCode * 59) + this.Rule.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
                 }
                 return hashCode;
             }

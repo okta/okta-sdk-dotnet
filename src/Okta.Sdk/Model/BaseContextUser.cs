@@ -66,6 +66,18 @@ namespace Okta.Sdk.Model
         public BaseContextUserLinks Links { get; set; }
 
         /// <summary>
+        /// Gets or Sets Policy
+        /// </summary>
+        [DataMember(Name = "policy", EmitDefaultValue = true)]
+        public BaseContextUserPolicy Policy { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Identity
+        /// </summary>
+        [DataMember(Name = "identity", EmitDefaultValue = true)]
+        public BaseContextUserIdentity Identity { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,6 +89,8 @@ namespace Okta.Sdk.Model
             sb.Append("  PasswordChanged: ").Append(PasswordChanged).Append("\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  Policy: ").Append(Policy).Append("\n");
+            sb.Append("  Identity: ").Append(Identity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,6 +145,16 @@ namespace Okta.Sdk.Model
                     this.Links == input.Links ||
                     (this.Links != null &&
                     this.Links.Equals(input.Links))
+                ) && 
+                (
+                    this.Policy == input.Policy ||
+                    (this.Policy != null &&
+                    this.Policy.Equals(input.Policy))
+                ) && 
+                (
+                    this.Identity == input.Identity ||
+                    (this.Identity != null &&
+                    this.Identity.Equals(input.Identity))
                 );
         }
 
@@ -159,6 +183,14 @@ namespace Okta.Sdk.Model
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();
+                }
+                if (this.Policy != null)
+                {
+                    hashCode = (hashCode * 59) + this.Policy.GetHashCode();
+                }
+                if (this.Identity != null)
+                {
+                    hashCode = (hashCode * 59) + this.Identity.GetHashCode();
                 }
                 return hashCode;
             }

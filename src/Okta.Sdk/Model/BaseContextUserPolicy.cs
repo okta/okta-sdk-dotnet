@@ -32,11 +32,11 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// The authorization server policy used to mint the token
+    /// The authorization server policy used to mint the token. This property is present in token inline hook payloads for refresh_token grant types.
     /// </summary>
-    [DataContract(Name = "TokenPayLoad_data_context_allOf_policy")]
+    [DataContract(Name = "BaseContext_user_policy")]
     
-    public partial class TokenPayLoadDataContextAllOfPolicy : IEquatable<TokenPayLoadDataContextAllOfPolicy>
+    public partial class BaseContextUserPolicy : IEquatable<BaseContextUserPolicy>
     {
         
         /// <summary>
@@ -59,7 +59,7 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TokenPayLoadDataContextAllOfPolicy {\n");
+            sb.Append("class BaseContextUserPolicy {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Rule: ").Append(Rule).Append("\n");
             sb.Append("}\n");
@@ -82,15 +82,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TokenPayLoadDataContextAllOfPolicy);
+            return this.Equals(input as BaseContextUserPolicy);
         }
 
         /// <summary>
-        /// Returns true if TokenPayLoadDataContextAllOfPolicy instances are equal
+        /// Returns true if BaseContextUserPolicy instances are equal
         /// </summary>
-        /// <param name="input">Instance of TokenPayLoadDataContextAllOfPolicy to be compared</param>
+        /// <param name="input">Instance of BaseContextUserPolicy to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TokenPayLoadDataContextAllOfPolicy input)
+        public bool Equals(BaseContextUserPolicy input)
         {
             if (input == null)
             {

@@ -1,5 +1,5 @@
-# Okta.Sdk.Model.TokenPayLoadDataContextAllOfPolicy
-The authorization server policy used to mint the token
+# Okta.Sdk.Model.BaseContextUserPolicy
+The authorization server policy used to mint the token. This property is present in token inline hook payloads for refresh_token grant types.
 
 ## Properties
 

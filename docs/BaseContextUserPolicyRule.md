@@ -1,4 +1,4 @@
-# Okta.Sdk.Model.TokenPayLoadDataContextAllOfPolicyRule
+# Okta.Sdk.Model.BaseContextUserPolicyRule
 The authorization server policy rule used to mint the token
 
 ## Properties

@@ -255,9 +255,12 @@ docs/AwsRegion.md
 docs/BaseContext.md
 docs/BaseContextSession.md
 docs/BaseContextUser.md
+docs/BaseContextUserIdentity.md
 docs/BaseContextUserLinks.md
 docs/BaseContextUserLinksFactors.md
 docs/BaseContextUserLinksGroups.md
+docs/BaseContextUserPolicy.md
+docs/BaseContextUserPolicyRule.md
 docs/BaseContextUserProfile.md
 docs/BaseEmailDomain.md
 docs/BaseEmailServer.md
@@ -1590,7 +1593,6 @@ docs/TokenPayLoadData.md
 docs/TokenPayLoadDataAccess.md
 docs/TokenPayLoadDataContext.md
 docs/TokenPayLoadDataContextAllOfPolicy.md
-docs/TokenPayLoadDataContextAllOfPolicyRule.md
 docs/TokenPayLoadDataContextAllOfProtocol.md
 docs/TokenPayLoadDataContextAllOfProtocolClient.md
 docs/TokenPayLoadDataContextAllOfProtocolIssuer.md
@@ -2235,9 +2237,12 @@ src/Okta.Sdk/Model/AwsRegion.cs
 src/Okta.Sdk/Model/BaseContext.cs
 src/Okta.Sdk/Model/BaseContextSession.cs
 src/Okta.Sdk/Model/BaseContextUser.cs
+src/Okta.Sdk/Model/BaseContextUserIdentity.cs
 src/Okta.Sdk/Model/BaseContextUserLinks.cs
 src/Okta.Sdk/Model/BaseContextUserLinksFactors.cs
 src/Okta.Sdk/Model/BaseContextUserLinksGroups.cs
+src/Okta.Sdk/Model/BaseContextUserPolicy.cs
+src/Okta.Sdk/Model/BaseContextUserPolicyRule.cs
 src/Okta.Sdk/Model/BaseContextUserProfile.cs
 src/Okta.Sdk/Model/BaseEmailDomain.cs
 src/Okta.Sdk/Model/BaseEmailServer.cs
@@ -3497,7 +3502,6 @@ src/Okta.Sdk/Model/TokenPayLoadData.cs
 src/Okta.Sdk/Model/TokenPayLoadDataAccess.cs
 src/Okta.Sdk/Model/TokenPayLoadDataContext.cs
 src/Okta.Sdk/Model/TokenPayLoadDataContextAllOfPolicy.cs
-src/Okta.Sdk/Model/TokenPayLoadDataContextAllOfPolicyRule.cs
 src/Okta.Sdk/Model/TokenPayLoadDataContextAllOfProtocol.cs
 src/Okta.Sdk/Model/TokenPayLoadDataContextAllOfProtocolClient.cs
 src/Okta.Sdk/Model/TokenPayLoadDataContextAllOfProtocolIssuer.cs

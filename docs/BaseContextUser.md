@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **PasswordChanged** | **DateTimeOffset** | The timestamp when the user&#39;s password was last updated | [optional] 
 **Profile** | [**BaseContextUserProfile**](BaseContextUserProfile.md) |  | [optional] 
 **Links** | [**BaseContextUserLinks**](BaseContextUserLinks.md) |  | [optional] 
+**Policy** | [**BaseContextUserPolicy**](BaseContextUserPolicy.md) |  | [optional] 
+**Identity** | [**BaseContextUserIdentity**](BaseContextUserIdentity.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
