@@ -26,6 +26,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 using System.Reflection;
 
@@ -225,6 +226,53 @@ namespace Okta.Sdk.Model
             {
                 return newIdentityProviderProtocol;
             }
+
+            try
+            {
+                var discriminatorObj = JObject.Parse(jsonString)["type"];
+                string discriminatorValue =  discriminatorObj == null ?string.Empty :discriminatorObj.ToString();
+                switch (discriminatorValue)
+                {
+                    case "ID_PROOFING":
+                        newIdentityProviderProtocol = new IdentityProviderProtocol(JsonConvert.DeserializeObject<ProtocolIdVerification>(jsonString, IdentityProviderProtocol.AdditionalPropertiesSerializerSettings));
+                        return newIdentityProviderProtocol;
+                    case "MTLS":
+                        newIdentityProviderProtocol = new IdentityProviderProtocol(JsonConvert.DeserializeObject<ProtocolMtls>(jsonString, IdentityProviderProtocol.AdditionalPropertiesSerializerSettings));
+                        return newIdentityProviderProtocol;
+                    case "OAUTH2":
+                        newIdentityProviderProtocol = new IdentityProviderProtocol(JsonConvert.DeserializeObject<ProtocolOAuth>(jsonString, IdentityProviderProtocol.AdditionalPropertiesSerializerSettings));
+                        return newIdentityProviderProtocol;
+                    case "OIDC":
+                        newIdentityProviderProtocol = new IdentityProviderProtocol(JsonConvert.DeserializeObject<ProtocolOidc>(jsonString, IdentityProviderProtocol.AdditionalPropertiesSerializerSettings));
+                        return newIdentityProviderProtocol;
+                    case "ProtocolIdVerification":
+                        newIdentityProviderProtocol = new IdentityProviderProtocol(JsonConvert.DeserializeObject<ProtocolIdVerification>(jsonString, IdentityProviderProtocol.AdditionalPropertiesSerializerSettings));
+                        return newIdentityProviderProtocol;
+                    case "ProtocolMtls":
+                        newIdentityProviderProtocol = new IdentityProviderProtocol(JsonConvert.DeserializeObject<ProtocolMtls>(jsonString, IdentityProviderProtocol.AdditionalPropertiesSerializerSettings));
+                        return newIdentityProviderProtocol;
+                    case "ProtocolOAuth":
+                        newIdentityProviderProtocol = new IdentityProviderProtocol(JsonConvert.DeserializeObject<ProtocolOAuth>(jsonString, IdentityProviderProtocol.AdditionalPropertiesSerializerSettings));
+                        return newIdentityProviderProtocol;
+                    case "ProtocolOidc":
+                        newIdentityProviderProtocol = new IdentityProviderProtocol(JsonConvert.DeserializeObject<ProtocolOidc>(jsonString, IdentityProviderProtocol.AdditionalPropertiesSerializerSettings));
+                        return newIdentityProviderProtocol;
+                    case "ProtocolSaml":
+                        newIdentityProviderProtocol = new IdentityProviderProtocol(JsonConvert.DeserializeObject<ProtocolSaml>(jsonString, IdentityProviderProtocol.AdditionalPropertiesSerializerSettings));
+                        return newIdentityProviderProtocol;
+                    case "SAML2":
+                        newIdentityProviderProtocol = new IdentityProviderProtocol(JsonConvert.DeserializeObject<ProtocolSaml>(jsonString, IdentityProviderProtocol.AdditionalPropertiesSerializerSettings));
+                        return newIdentityProviderProtocol;
+                    default:
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for IdentityProviderProtocol. Possible values: ID_PROOFING MTLS OAUTH2 OIDC ProtocolIdVerification ProtocolMtls ProtocolOAuth ProtocolOidc ProtocolSaml SAML2", discriminatorValue));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to parse the json data : `{0}` {1}", jsonString, ex.ToString()));
+            }
+
             int match = 0;
             List<string> matchedTypes = new List<string>();
 

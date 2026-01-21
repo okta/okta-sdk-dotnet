@@ -64222,6 +64222,14 @@ components:
           $ref: '#/components/schemas/IdentityProviderProperties'
         protocol:
           description: IdP-specific protocol settings for endpoints, bindings, and algorithms used to connect with the IdP and validate messages
+          discriminator:
+            propertyName: type
+            mapping:
+              SAML2: '#/components/schemas/ProtocolSaml'
+              OAUTH2: '#/components/schemas/ProtocolOAuth'
+              OIDC: '#/components/schemas/ProtocolOidc'
+              MTLS: '#/components/schemas/ProtocolMtls'
+              ID_PROOFING: '#/components/schemas/ProtocolIdVerification'
           oneOf:
             - $ref: '#/components/schemas/ProtocolSaml'
             - $ref: '#/components/schemas/ProtocolOAuth'
