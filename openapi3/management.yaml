@@ -71500,6 +71500,10 @@ components:
           $ref: '#/components/schemas/SamlCredentials'
         endpoints:
           $ref: '#/components/schemas/SamlEndpoints'
+        oktaIdpOrgUrl:
+          type: string
+          description: URL of the IdP org.
+          example: https://idp.example.com
         relayState:
           $ref: '#/components/schemas/SamlRelayState'
         settings:
