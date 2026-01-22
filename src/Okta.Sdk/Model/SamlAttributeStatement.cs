@@ -150,6 +150,35 @@ namespace Okta.Sdk.Model
 
             try
             {
+                var discriminatorObj = JObject.Parse(jsonString)["type"];
+                string discriminatorValue = discriminatorObj == null ? string.Empty : discriminatorObj.ToString();
+                switch (discriminatorValue)
+                {
+                    case "EXPRESSION":
+                        newSamlAttributeStatement = new SamlAttributeStatement(JsonConvert.DeserializeObject<SamlAttributeStatementExpression>(jsonString, SamlAttributeStatement.AdditionalPropertiesSerializerSettings));
+                        return newSamlAttributeStatement;
+                    case "GROUP":
+                        newSamlAttributeStatement = new SamlAttributeStatement(JsonConvert.DeserializeObject<SamlAttributeStatementGroup>(jsonString, SamlAttributeStatement.AdditionalPropertiesSerializerSettings));
+                        return newSamlAttributeStatement;
+                    case "SamlAttributeStatementExpression":
+                        newSamlAttributeStatement = new SamlAttributeStatement(JsonConvert.DeserializeObject<SamlAttributeStatementExpression>(jsonString, SamlAttributeStatement.AdditionalPropertiesSerializerSettings));
+                        return newSamlAttributeStatement;
+                    case "SamlAttributeStatementGroup":
+                        newSamlAttributeStatement = new SamlAttributeStatement(JsonConvert.DeserializeObject<SamlAttributeStatementGroup>(jsonString, SamlAttributeStatement.AdditionalPropertiesSerializerSettings));
+                        return newSamlAttributeStatement;
+                    default:
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for SamlAttributeStatement. Possible values: EXPRESSION GROUP SamlAttributeStatementExpression SamlAttributeStatementGroup", discriminatorValue));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to parse the json data : `{0}` {1}", jsonString, ex.ToString()));
+            }
+
+
+            try
+            {
                 newSamlAttributeStatement = new SamlAttributeStatement(JsonConvert.DeserializeObject<SamlAttributeStatementExpression>(jsonString, SamlAttributeStatement.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newSamlAttributeStatement;
