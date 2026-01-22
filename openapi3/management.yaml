@@ -58767,6 +58767,10 @@ components:
         - $ref: '#/components/schemas/ApplicationSettings'
         - type: object
           properties:
+            app:
+              description: App-specific settings for Auto-Login applications. Contains dynamic properties that vary based on the specific app configuration.
+              type: object
+              additionalProperties: true
             signOn:
               $ref: '#/components/schemas/AutoLoginApplicationSettingsSignOn'
     AutoLoginApplicationSettingsSignOn:
@@ -68737,6 +68741,10 @@ components:
         - $ref: '#/components/schemas/ApplicationSettings'
         - type: object
           properties:
+            app:
+              description: App-specific settings for OIDC applications. Contains dynamic properties that vary based on the specific app configuration.
+              type: object
+              additionalProperties: true
             oauthClient:
               $ref: '#/components/schemas/OpenIdConnectApplicationSettingsClient'
     OpenIdConnectApplicationSettingsClient:
@@ -73329,6 +73337,10 @@ components:
         - $ref: '#/components/schemas/ApplicationSettings'
         - type: object
           properties:
+            app:
+              description: App-specific settings for SAML 2.0 applications. Contains dynamic properties that vary based on the specific app configuration (e.g., domain, githubOrg).
+              type: object
+              additionalProperties: true
             signOn:
               $ref: '#/components/schemas/SamlApplicationSettingsSignOn'
     SamlApplicationSettingsSignOn:
@@ -75476,6 +75488,7 @@ components:
         - passwordField
         - usernameField
         - url
+      additionalProperties: true
     TacAuthenticatorEnrollment:
       type: object
       properties:

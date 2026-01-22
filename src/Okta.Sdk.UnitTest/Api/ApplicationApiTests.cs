@@ -128,7 +128,6 @@ namespace Okta.Sdk.UnitTest.Api
 
             var app = new OpenIdConnectApplication
             {
-                Name = "oidc_client",
                 Label = "Test OIDC App",
                 SignOnMode = "OPENID_CONNECT",
                 Settings = new OpenIdConnectApplicationSettings
@@ -151,7 +150,10 @@ namespace Okta.Sdk.UnitTest.Api
             createdApp.Should().NotBeNull();
             createdApp.SignOnMode.Should().Be(ApplicationSignOnMode.OPENIDCONNECT);
 
-            mockClient.ReceivedBody.Should().Contain("oidc_client");
+            // Note: Name is a read-only property (only in API responses), so it should not be in the request body
+            // Instead, verify that the essential fields are present in the request
+            mockClient.ReceivedBody.Should().Contain("OPENID_CONNECT");
+            mockClient.ReceivedBody.Should().Contain("Test OIDC App");
         }
 
         #endregion
