@@ -56775,6 +56775,10 @@ components:
           description: Timestamp when the application object was last updated
         licensing:
           $ref: '#/components/schemas/ApplicationLicensing'
+        name:
+          type: string
+          readOnly: true
+          description: Unique key for the app definition. The `name` is the identifier for the app and is only visible in API responses. For custom app instances, this value is a system-generated unique key. For OIN app instances, this is the key name for the app definition.
         orn:
           type: string
           readOnly: true
@@ -58763,6 +58767,10 @@ components:
         - $ref: '#/components/schemas/ApplicationSettings'
         - type: object
           properties:
+            app:
+              description: App-specific settings for Auto-Login applications. Contains dynamic properties that vary based on the specific app configuration.
+              type: object
+              additionalProperties: true
             signOn:
               $ref: '#/components/schemas/AutoLoginApplicationSettingsSignOn'
     AutoLoginApplicationSettingsSignOn:
@@ -68733,6 +68741,10 @@ components:
         - $ref: '#/components/schemas/ApplicationSettings'
         - type: object
           properties:
+            app:
+              description: App-specific settings for OIDC applications. Contains dynamic properties that vary based on the specific app configuration.
+              type: object
+              additionalProperties: true
             oauthClient:
               $ref: '#/components/schemas/OpenIdConnectApplicationSettingsClient'
     OpenIdConnectApplicationSettingsClient:
@@ -71500,6 +71512,10 @@ components:
           $ref: '#/components/schemas/SamlCredentials'
         endpoints:
           $ref: '#/components/schemas/SamlEndpoints'
+        oktaIdpOrgUrl:
+          type: string
+          description: URL of the IdP org.
+          example: https://idp.example.com
         relayState:
           $ref: '#/components/schemas/SamlRelayState'
         settings:
@@ -73321,6 +73337,10 @@ components:
         - $ref: '#/components/schemas/ApplicationSettings'
         - type: object
           properties:
+            app:
+              description: App-specific settings for SAML 2.0 applications. Contains dynamic properties that vary based on the specific app configuration (e.g., domain, githubOrg).
+              type: object
+              additionalProperties: true
             signOn:
               $ref: '#/components/schemas/SamlApplicationSettingsSignOn'
     SamlApplicationSettingsSignOn:
@@ -75468,6 +75488,7 @@ components:
         - passwordField
         - usernameField
         - url
+      additionalProperties: true
     TacAuthenticatorEnrollment:
       type: object
       properties:

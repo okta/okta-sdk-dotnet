@@ -35,14 +35,17 @@ namespace Okta.Sdk.Model
     /// SwaApplicationSettingsApplication
     /// </summary>
     [DataContract(Name = "SwaApplicationSettingsApplication")]
-    
     public partial class SwaApplicationSettingsApplication : IEquatable<SwaApplicationSettingsApplication>
+    
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SwaApplicationSettingsApplication" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public SwaApplicationSettingsApplication() { }
+        public SwaApplicationSettingsApplication()
+        {
+            this.AdditionalProperties = new Dictionary<string, object>();
+        }
         
         /// <summary>
         /// CSS selector for the **Sign-In** button in the sign-in form (for SWA apps with the &#x60;template_swa&#x60; app name definition)
@@ -122,6 +125,12 @@ namespace Okta.Sdk.Model
         public string UserNameSelector { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -140,6 +149,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  UsernameField: ").Append(UsernameField).Append("\n");
             sb.Append("  UserNameSelector: ").Append(UserNameSelector).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -148,7 +158,7 @@ namespace Okta.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -229,7 +239,8 @@ namespace Okta.Sdk.Model
                     this.UserNameSelector == input.UserNameSelector ||
                     (this.UserNameSelector != null &&
                     this.UserNameSelector.Equals(input.UserNameSelector))
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -285,6 +296,10 @@ namespace Okta.Sdk.Model
                 if (this.UserNameSelector != null)
                 {
                     hashCode = (hashCode * 59) + this.UserNameSelector.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

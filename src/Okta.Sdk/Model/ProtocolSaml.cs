@@ -96,6 +96,13 @@ namespace Okta.Sdk.Model
         public SamlEndpoints Endpoints { get; set; }
 
         /// <summary>
+        /// URL of the IdP org.
+        /// </summary>
+        /// <value>URL of the IdP org.</value>
+        [DataMember(Name = "oktaIdpOrgUrl", EmitDefaultValue = true)]
+        public string OktaIdpOrgUrl { get; set; }
+
+        /// <summary>
         /// Gets or Sets RelayState
         /// </summary>
         [DataMember(Name = "relayState", EmitDefaultValue = true)]
@@ -118,6 +125,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Algorithms: ").Append(Algorithms).Append("\n");
             sb.Append("  Credentials: ").Append(Credentials).Append("\n");
             sb.Append("  Endpoints: ").Append(Endpoints).Append("\n");
+            sb.Append("  OktaIdpOrgUrl: ").Append(OktaIdpOrgUrl).Append("\n");
             sb.Append("  RelayState: ").Append(RelayState).Append("\n");
             sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -172,6 +180,11 @@ namespace Okta.Sdk.Model
                     this.Endpoints.Equals(input.Endpoints))
                 ) && 
                 (
+                    this.OktaIdpOrgUrl == input.OktaIdpOrgUrl ||
+                    (this.OktaIdpOrgUrl != null &&
+                    this.OktaIdpOrgUrl.Equals(input.OktaIdpOrgUrl))
+                ) && 
+                (
                     this.RelayState == input.RelayState ||
                     (this.RelayState != null &&
                     this.RelayState.Equals(input.RelayState))
@@ -208,6 +221,10 @@ namespace Okta.Sdk.Model
                 if (this.Endpoints != null)
                 {
                     hashCode = (hashCode * 59) + this.Endpoints.GetHashCode();
+                }
+                if (this.OktaIdpOrgUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.OktaIdpOrgUrl.GetHashCode();
                 }
                 if (this.RelayState != null)
                 {

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Algorithms** | [**SamlAlgorithms**](SamlAlgorithms.md) |  | [optional] 
 **Credentials** | [**SamlCredentials**](SamlCredentials.md) |  | [optional] 
 **Endpoints** | [**SamlEndpoints**](SamlEndpoints.md) |  | [optional] 
+**OktaIdpOrgUrl** | **string** | URL of the IdP org. | [optional] 
 **RelayState** | [**SamlRelayState**](SamlRelayState.md) |  | [optional] 
 **Settings** | [**SamlSettings**](SamlSettings.md) |  | [optional] 
 **Type** | **string** | SAML 2.0 protocol | [optional] 

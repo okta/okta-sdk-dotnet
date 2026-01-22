@@ -150,6 +150,35 @@ namespace Okta.Sdk.Model
 
             try
             {
+                var discriminatorObj = JObject.Parse(jsonString)["contactType"];
+                string discriminatorValue = discriminatorObj == null ? string.Empty : discriminatorObj.ToString();
+                switch (discriminatorValue)
+                {
+                    case "BILLING":
+                        newOrgContactTypeObj = new OrgContactTypeObj(JsonConvert.DeserializeObject<OrgBillingContactType>(jsonString, OrgContactTypeObj.AdditionalPropertiesSerializerSettings));
+                        return newOrgContactTypeObj;
+                    case "TECHNICAL":
+                        newOrgContactTypeObj = new OrgContactTypeObj(JsonConvert.DeserializeObject<OrgTechnicalContactType>(jsonString, OrgContactTypeObj.AdditionalPropertiesSerializerSettings));
+                        return newOrgContactTypeObj;
+                    case "orgBillingContactType":
+                        newOrgContactTypeObj = new OrgContactTypeObj(JsonConvert.DeserializeObject<OrgBillingContactType>(jsonString, OrgContactTypeObj.AdditionalPropertiesSerializerSettings));
+                        return newOrgContactTypeObj;
+                    case "orgTechnicalContactType":
+                        newOrgContactTypeObj = new OrgContactTypeObj(JsonConvert.DeserializeObject<OrgTechnicalContactType>(jsonString, OrgContactTypeObj.AdditionalPropertiesSerializerSettings));
+                        return newOrgContactTypeObj;
+                    default:
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for OrgContactTypeObj. Possible values: BILLING TECHNICAL orgBillingContactType orgTechnicalContactType", discriminatorValue));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to parse the json data : `{0}` {1}", jsonString, ex.ToString()));
+            }
+
+
+            try
+            {
                 newOrgContactTypeObj = new OrgContactTypeObj(JsonConvert.DeserializeObject<OrgBillingContactType>(jsonString, OrgContactTypeObj.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newOrgContactTypeObj;
