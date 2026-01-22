@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Label** | **string** | User-defined display name for app | 
 **LastUpdated** | **DateTimeOffset** | Timestamp when the application object was last updated | [optional] [readonly] 
 **Licensing** | [**ApplicationLicensing**](ApplicationLicensing.md) |  | [optional] 
+**Name** | **string** | Unique key for the app definition. The &#x60;name&#x60; is the identifier for the app and is only visible in API responses. For custom app instances, this value is a system-generated unique key. For OIN app instances, this is the key name for the app definition. | [optional] [readonly] 
 **Orn** | **string** | The Okta resource name (ORN) for the current app instance | [optional] [readonly] 
 **Profile** | **Dictionary&lt;string, Object&gt;** | Contains any valid JSON schema for specifying properties that can be referenced from a request (only available to OAuth 2.0 client apps). For example, add an app manager contact email address or define an allowlist of groups that you can then reference using the Okta Expression Language &#x60;getFilteredGroups&#x60; function.  &gt; **Notes:** &gt; * &#x60;profile&#x60; isn&#39;t encrypted, so don&#39;t store sensitive data in it. &gt; * &#x60;profile&#x60; doesn&#39;t limit the level of nesting in the JSON schema you created, but there is a practical size limit. Okta recommends a JSON schema size of 1 MB or less for best performance. | [optional] 
 **SignOnMode** | **ApplicationSignOnMode** |  | 

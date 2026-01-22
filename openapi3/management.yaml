@@ -56775,6 +56775,10 @@ components:
           description: Timestamp when the application object was last updated
         licensing:
           $ref: '#/components/schemas/ApplicationLicensing'
+        name:
+          type: string
+          readOnly: true
+          description: Unique key for the app definition. The `name` is the identifier for the app and is only visible in API responses. For custom app instances, this value is a system-generated unique key. For OIN app instances, this is the key name for the app definition.
         orn:
           type: string
           readOnly: true

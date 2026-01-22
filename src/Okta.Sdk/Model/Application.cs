@@ -436,6 +436,21 @@ namespace Okta.Sdk.Model
         public ApplicationLicensing Licensing { get; set; }
 
         /// <summary>
+        /// Unique key for the app definition. The &#x60;name&#x60; is the identifier for the app and is only visible in API responses. For custom app instances, this value is a system-generated unique key. For OIN app instances, this is the key name for the app definition.
+        /// </summary>
+        /// <value>Unique key for the app definition. The &#x60;name&#x60; is the identifier for the app and is only visible in API responses. For custom app instances, this value is a system-generated unique key. For OIN app instances, this is the key name for the app definition.</value>
+        [DataMember(Name = "name", EmitDefaultValue = true)]
+        public string Name { get; private set; }
+
+        /// <summary>
+        /// Returns false as Name should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeName()
+        {
+            return false;
+        }
+        /// <summary>
         /// The Okta resource name (ORN) for the current app instance
         /// </summary>
         /// <value>The Okta resource name (ORN) for the current app instance</value>
@@ -496,6 +511,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
             sb.Append("  Licensing: ").Append(Licensing).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Orn: ").Append(Orn).Append("\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("  SignOnMode: ").Append(SignOnMode).Append("\n");
@@ -572,6 +588,11 @@ namespace Okta.Sdk.Model
                     this.Licensing == input.Licensing ||
                     (this.Licensing != null &&
                     this.Licensing.Equals(input.Licensing))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
                     this.Orn == input.Orn ||
@@ -651,6 +672,10 @@ namespace Okta.Sdk.Model
                 if (this.Licensing != null)
                 {
                     hashCode = (hashCode * 59) + this.Licensing.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 if (this.Orn != null)
                 {
