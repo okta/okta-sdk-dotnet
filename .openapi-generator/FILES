@@ -19,6 +19,9 @@ docs/AccessPolicyRuleConditions.md
 docs/AccessPolicyRuleCustomCondition.md
 docs/AcsEndpoint.md
 docs/Actions.md
+docs/ActiveDirectoryApplication.md
+docs/ActiveDirectoryApplicationSettings.md
+docs/ActiveDirectoryApplicationSettingsApplication.md
 docs/ActiveDirectoryGroupScope.md
 docs/ActiveDirectoryGroupType.md
 docs/AddGroupRequest.md
@@ -2030,6 +2033,9 @@ src/Okta.Sdk/Model/AccessPolicyRuleConditions.cs
 src/Okta.Sdk/Model/AccessPolicyRuleCustomCondition.cs
 src/Okta.Sdk/Model/AcsEndpoint.cs
 src/Okta.Sdk/Model/Actions.cs
+src/Okta.Sdk/Model/ActiveDirectoryApplication.cs
+src/Okta.Sdk/Model/ActiveDirectoryApplicationSettings.cs
+src/Okta.Sdk/Model/ActiveDirectoryApplicationSettingsApplication.cs
 src/Okta.Sdk/Model/ActiveDirectoryGroupScope.cs
 src/Okta.Sdk/Model/ActiveDirectoryGroupType.cs
 src/Okta.Sdk/Model/AddGroupRequest.cs
@@ -2092,6 +2098,7 @@ src/Okta.Sdk/Model/ApplicationFeatureLinks.cs
 src/Okta.Sdk/Model/ApplicationFeatureType.cs
 src/Okta.Sdk/Model/ApplicationGroupAssignment.cs
 src/Okta.Sdk/Model/ApplicationGroupAssignmentLinks.cs
+src/Okta.Sdk/Model/ApplicationJsonConverter.cs
 src/Okta.Sdk/Model/ApplicationLayout.cs
 src/Okta.Sdk/Model/ApplicationLayoutRule.cs
 src/Okta.Sdk/Model/ApplicationLayoutRuleCondition.cs
