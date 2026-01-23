@@ -67056,6 +67056,11 @@ components:
     OAuth2ClientJsonWebKeyRequestBase:
       type: object
       properties:
+        alg:
+          type: string
+          description: Algorithm used in the key
+          example: RS256
+          nullable: true
         kid:
           type: string
           description: Unique identifier of the JSON Web Key in the OAUth 2.0 client's JWKS
@@ -67070,6 +67075,11 @@ components:
           example: ACTIVE
           nullable: false
           default: ACTIVE
+        use:
+          type: string
+          description: Acceptable use of the JSON Web Key
+          example: sig
+          nullable: true
     OAuth2ClientJsonWebKeyRequestBody:
       type: object
       properties:

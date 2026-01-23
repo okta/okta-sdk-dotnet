@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Kty** | **string** | Cryptographic algorithm family for the certificate&#39;s key pair | [optional] 
 **N** | **string** | RSA key value (modulus) for key binding | [optional] 
 **Use** | **string** | Acceptable use of the JSON Web Key | [optional] 
+**Alg** | **string** | Algorithm used in the key | [optional] 
 **Kid** | **string** | Unique identifier of the JSON Web Key in the OAUth 2.0 client&#39;s JWKS | [optional] 
 **Status** | **string** | Status of the OAuth 2.0 client JSON Web Key | [optional] [default to StatusEnum.ACTIVE]
 
