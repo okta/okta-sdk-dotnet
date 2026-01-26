@@ -2535,16 +2535,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  oneOf:
-                    - $ref: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
-                    - $ref: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
-                  discriminator:
-                    propertyName: use
-                    mapping:
-                      sig: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
-                      enc: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
+                $ref: '#/components/schemas/OAuth2ClientJsonWebKeySet'
               examples:
                 OAuthClientJsonWebKeyListResponseExample:
                   $ref: '#/components/examples/oAuthClientJsonWebKeyListResponse'
@@ -67025,6 +67016,23 @@ components:
           nullable: false
           enum:
             - enc
+    OAuth2ClientJsonWebKeySet:
+      title: JSON Web Key Set
+      description: A JSON Web Key Set (JWKS) containing the OAuth 2.0 client's JSON Web Keys
+      type: object
+      properties:
+        keys:
+          type: array
+          description: The JSON Web Keys in this key set
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
+              - $ref: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
+            discriminator:
+              propertyName: use
+              mapping:
+                sig: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
+                enc: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
     OAuth2ClientJsonSigningKeyRequest:
       title: Signing Key
       oneOf:

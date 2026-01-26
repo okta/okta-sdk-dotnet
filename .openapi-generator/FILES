@@ -25,6 +25,7 @@ docs/ActiveDirectoryApplicationSettingsApplication.md
 docs/ActiveDirectoryGroupScope.md
 docs/ActiveDirectoryGroupType.md
 docs/AddGroupRequest.md
+docs/AddJwk201Response.md
 docs/AddJwkRequest.md
 docs/AdminConsoleSettings.md
 docs/Agent.md
@@ -846,7 +847,6 @@ docs/LinksUserUser.md
 docs/LinksVerify.md
 docs/LinksVerifyVerify.md
 docs/ListGroupAssignedRoles200ResponseInner.md
-docs/ListJwk200ResponseInner.md
 docs/ListProfileMappings.md
 docs/ListRolesForClient200ResponseInner.md
 docs/ListSubscriptionsRoleRoleRefParameter.md
@@ -930,6 +930,7 @@ docs/OAuth2ClientJsonWebKeyRequestBody.md
 docs/OAuth2ClientJsonWebKeyResponseBase.md
 docs/OAuth2ClientJsonWebKeyRsaRequest.md
 docs/OAuth2ClientJsonWebKeyRsaResponse.md
+docs/OAuth2ClientJsonWebKeySet.md
 docs/OAuth2ClientLinks.md
 docs/OAuth2ClientLinksAllOfGrants.md
 docs/OAuth2ClientLinksAllOfTokens.md
@@ -2039,6 +2040,7 @@ src/Okta.Sdk/Model/ActiveDirectoryApplicationSettingsApplication.cs
 src/Okta.Sdk/Model/ActiveDirectoryGroupScope.cs
 src/Okta.Sdk/Model/ActiveDirectoryGroupType.cs
 src/Okta.Sdk/Model/AddGroupRequest.cs
+src/Okta.Sdk/Model/AddJwk201Response.cs
 src/Okta.Sdk/Model/AddJwkRequest.cs
 src/Okta.Sdk/Model/AdminConsoleSettings.cs
 src/Okta.Sdk/Model/Agent.cs
@@ -2804,7 +2806,6 @@ src/Okta.Sdk/Model/LinksUserUser.cs
 src/Okta.Sdk/Model/LinksVerify.cs
 src/Okta.Sdk/Model/LinksVerifyVerify.cs
 src/Okta.Sdk/Model/ListGroupAssignedRoles200ResponseInner.cs
-src/Okta.Sdk/Model/ListJwk200ResponseInner.cs
 src/Okta.Sdk/Model/ListProfileMappings.cs
 src/Okta.Sdk/Model/ListRolesForClient200ResponseInner.cs
 src/Okta.Sdk/Model/ListSubscriptionsRoleRoleRefParameter.cs
@@ -2886,6 +2887,7 @@ src/Okta.Sdk/Model/OAuth2ClientJsonWebKeyRequestBody.cs
 src/Okta.Sdk/Model/OAuth2ClientJsonWebKeyResponseBase.cs
 src/Okta.Sdk/Model/OAuth2ClientJsonWebKeyRsaRequest.cs
 src/Okta.Sdk/Model/OAuth2ClientJsonWebKeyRsaResponse.cs
+src/Okta.Sdk/Model/OAuth2ClientJsonWebKeySet.cs
 src/Okta.Sdk/Model/OAuth2ClientLinks.cs
 src/Okta.Sdk/Model/OAuth2ClientLinksAllOfGrants.cs
 src/Okta.Sdk/Model/OAuth2ClientLinksAllOfTokens.cs

@@ -32,16 +32,17 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// A [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta or for encrypting ID tokens minted by Okta for the client
+    /// A JSON Web Key Set (JWKS) containing the OAuth 2.0 client&#39;s JSON Web Keys
     /// </summary>
-    [DataContract(Name = "OpenIdConnectApplicationSettingsClientKeys")]
+    [DataContract(Name = "OAuth2ClientJsonWebKeySet")]
     
-    public partial class OpenIdConnectApplicationSettingsClientKeys : IEquatable<OpenIdConnectApplicationSettingsClientKeys>
+    public partial class OAuth2ClientJsonWebKeySet : IEquatable<OAuth2ClientJsonWebKeySet>
     {
         
         /// <summary>
-        /// Gets or Sets Keys
+        /// The JSON Web Keys in this key set
         /// </summary>
+        /// <value>The JSON Web Keys in this key set</value>
         [DataMember(Name = "keys", EmitDefaultValue = true)]
         public List<AddJwk201Response> Keys { get; set; }
 
@@ -52,7 +53,7 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class OpenIdConnectApplicationSettingsClientKeys {\n");
+            sb.Append("class OAuth2ClientJsonWebKeySet {\n");
             sb.Append("  Keys: ").Append(Keys).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -74,15 +75,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OpenIdConnectApplicationSettingsClientKeys);
+            return this.Equals(input as OAuth2ClientJsonWebKeySet);
         }
 
         /// <summary>
-        /// Returns true if OpenIdConnectApplicationSettingsClientKeys instances are equal
+        /// Returns true if OAuth2ClientJsonWebKeySet instances are equal
         /// </summary>
-        /// <param name="input">Instance of OpenIdConnectApplicationSettingsClientKeys to be compared</param>
+        /// <param name="input">Instance of OAuth2ClientJsonWebKeySet to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OpenIdConnectApplicationSettingsClientKeys input)
+        public bool Equals(OAuth2ClientJsonWebKeySet input)
         {
             if (input == null)
             {

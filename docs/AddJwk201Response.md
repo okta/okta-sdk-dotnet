@@ -1,4 +1,4 @@
-# Okta.Sdk.Model.ListJwk200ResponseInner
+# Okta.Sdk.Model.AddJwk201Response
 
 ## Properties
 
