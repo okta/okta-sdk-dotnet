@@ -193,7 +193,7 @@ namespace Okta.Sdk.IntegrationTest
 
             // Act - Call the fixed method which now returns a collection
             var roleCollection = _roleAssignmentClientApi.ListRolesForClient(_testClientId);
-            var roles = new List<ListRolesForClient200ResponseInner>();
+            var roles = new List<ListGroupAssignedRoles200ResponseInner>();
             Exception deserializationException = null;
             
             try
@@ -488,7 +488,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 // 2. GET list - Verify role appears in the list
                 var roleCollection = _roleAssignmentClientApi.ListRolesForClient(_testClientId);
-                var roles = new List<ListRolesForClient200ResponseInner>();
+                var roles = new List<ListGroupAssignedRoles200ResponseInner>();
                 await foreach (var role in roleCollection)
                 {
                     roles.Add(role);
