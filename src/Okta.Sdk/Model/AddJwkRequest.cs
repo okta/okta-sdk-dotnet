@@ -26,6 +26,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 using System.Reflection;
 
@@ -147,6 +148,35 @@ namespace Okta.Sdk.Model
             {
                 return newAddJwkRequest;
             }
+
+            try
+            {
+                var discriminatorObj = JObject.Parse(jsonString)["use"];
+                string discriminatorValue =  discriminatorObj == null ?string.Empty :discriminatorObj.ToString();
+                switch (discriminatorValue)
+                {
+                    case "OAuth2ClientJsonEncryptionKeyRequest":
+                        newAddJwkRequest = new AddJwkRequest(JsonConvert.DeserializeObject<OAuth2ClientJsonEncryptionKeyRequest>(jsonString, AddJwkRequest.AdditionalPropertiesSerializerSettings));
+                        return newAddJwkRequest;
+                    case "OAuth2ClientJsonSigningKeyRequest":
+                        newAddJwkRequest = new AddJwkRequest(JsonConvert.DeserializeObject<OAuth2ClientJsonSigningKeyRequest>(jsonString, AddJwkRequest.AdditionalPropertiesSerializerSettings));
+                        return newAddJwkRequest;
+                    case "enc":
+                        newAddJwkRequest = new AddJwkRequest(JsonConvert.DeserializeObject<OAuth2ClientJsonEncryptionKeyRequest>(jsonString, AddJwkRequest.AdditionalPropertiesSerializerSettings));
+                        return newAddJwkRequest;
+                    case "sig":
+                        newAddJwkRequest = new AddJwkRequest(JsonConvert.DeserializeObject<OAuth2ClientJsonSigningKeyRequest>(jsonString, AddJwkRequest.AdditionalPropertiesSerializerSettings));
+                        return newAddJwkRequest;
+                    default:
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for AddJwkRequest. Possible values: OAuth2ClientJsonEncryptionKeyRequest OAuth2ClientJsonSigningKeyRequest enc sig", discriminatorValue));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to parse the json data : `{0}` {1}", jsonString, ex.ToString()));
+            }
+
             int match = 0;
             List<string> matchedTypes = new List<string>();
 

@@ -26,6 +26,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 using System.Reflection;
 
@@ -147,6 +148,35 @@ namespace Okta.Sdk.Model
             {
                 return newGetJwk200Response;
             }
+
+            try
+            {
+                var discriminatorObj = JObject.Parse(jsonString)["use"];
+                string discriminatorValue =  discriminatorObj == null ?string.Empty :discriminatorObj.ToString();
+                switch (discriminatorValue)
+                {
+                    case "OAuth2ClientJsonEncryptionKeyResponse":
+                        newGetJwk200Response = new GetJwk200Response(JsonConvert.DeserializeObject<OAuth2ClientJsonEncryptionKeyResponse>(jsonString, GetJwk200Response.AdditionalPropertiesSerializerSettings));
+                        return newGetJwk200Response;
+                    case "OAuth2ClientJsonSigningKeyResponse":
+                        newGetJwk200Response = new GetJwk200Response(JsonConvert.DeserializeObject<OAuth2ClientJsonSigningKeyResponse>(jsonString, GetJwk200Response.AdditionalPropertiesSerializerSettings));
+                        return newGetJwk200Response;
+                    case "enc":
+                        newGetJwk200Response = new GetJwk200Response(JsonConvert.DeserializeObject<OAuth2ClientJsonEncryptionKeyResponse>(jsonString, GetJwk200Response.AdditionalPropertiesSerializerSettings));
+                        return newGetJwk200Response;
+                    case "sig":
+                        newGetJwk200Response = new GetJwk200Response(JsonConvert.DeserializeObject<OAuth2ClientJsonSigningKeyResponse>(jsonString, GetJwk200Response.AdditionalPropertiesSerializerSettings));
+                        return newGetJwk200Response;
+                    default:
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for GetJwk200Response. Possible values: OAuth2ClientJsonEncryptionKeyResponse OAuth2ClientJsonSigningKeyResponse enc sig", discriminatorValue));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to parse the json data : `{0}` {1}", jsonString, ex.ToString()));
+            }
+
             int match = 0;
             List<string> matchedTypes = new List<string>();
 

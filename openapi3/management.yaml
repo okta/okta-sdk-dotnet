@@ -2540,6 +2540,11 @@ paths:
                   oneOf:
                     - $ref: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
                     - $ref: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
+                  discriminator:
+                    propertyName: use
+                    mapping:
+                      sig: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
+                      enc: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
               examples:
                 OAuthClientJsonWebKeyListResponseExample:
                   $ref: '#/components/examples/oAuthClientJsonWebKeyListResponse'
@@ -2574,6 +2579,11 @@ paths:
               oneOf:
                 - $ref: '#/components/schemas/OAuth2ClientJsonSigningKeyRequest'
                 - $ref: '#/components/schemas/OAuth2ClientJsonEncryptionKeyRequest'
+              discriminator:
+                propertyName: use
+                mapping:
+                  sig: '#/components/schemas/OAuth2ClientJsonSigningKeyRequest'
+                  enc: '#/components/schemas/OAuth2ClientJsonEncryptionKeyRequest'
             examples:
               createOAuth2ClientJsonWebKeyRequestBody:
                 $ref: '#/components/examples/oAuthClientJsonWebKeyRequest'
@@ -2590,6 +2600,11 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
                   - $ref: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
+                discriminator:
+                  propertyName: use
+                  mapping:
+                    sig: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
+                    enc: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
               examples:
                 newOAuth2ClientJsonWebKeyResponse:
                   $ref: '#/components/examples/oAuthClientJsonWebKey'
@@ -2647,6 +2662,11 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
                   - $ref: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
+                discriminator:
+                  propertyName: use
+                  mapping:
+                    sig: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
+                    enc: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
               examples:
                 OAuthClientJsonWebKeyResponseExample:
                   $ref: '#/components/examples/oAuthClientJsonWebKey'
@@ -2719,6 +2739,11 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
                   - $ref: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
+                discriminator:
+                  propertyName: use
+                  mapping:
+                    sig: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
+                    enc: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
               examples:
                 activateOAuth2ClientJsonWebKeyResponse:
                   $ref: '#/components/examples/oAuthClientJsonWebKey'
@@ -67005,6 +67030,11 @@ components:
       oneOf:
         - $ref: '#/components/schemas/OAuth2ClientJsonWebKeyRsaRequest'
         - $ref: '#/components/schemas/OAuth2ClientJsonWebKeyECRequest'
+      discriminator:
+        propertyName: kty
+        mapping:
+          RSA: '#/components/schemas/OAuth2ClientJsonWebKeyRsaRequest'
+          EC: '#/components/schemas/OAuth2ClientJsonWebKeyECRequest'
       description: A [JSON Web Key (JWK)](https://tools.ietf.org/html/rfc7517) is a JSON representation of a cryptographic key. Okta uses signing keys to verify the signature of a JWT when provided for the `private_key_jwt` client authentication method or for a signed authorize request object. Okta supports both RSA and Elliptic Curve (EC) keys for signing tokens.
     OAuth2ClientJsonSigningKeyResponse:
       title: Signing Key
@@ -67012,6 +67042,11 @@ components:
       oneOf:
         - $ref: '#/components/schemas/OAuth2ClientJsonWebKeyRsaResponse'
         - $ref: '#/components/schemas/OAuth2ClientJsonWebKeyECResponse'
+      discriminator:
+        propertyName: kty
+        mapping:
+          RSA: '#/components/schemas/OAuth2ClientJsonWebKeyRsaResponse'
+          EC: '#/components/schemas/OAuth2ClientJsonWebKeyECResponse'
     OAuth2ClientJsonWebKeyECRequest:
       title: EC Signing Key
       description: An EC signing key
@@ -68989,6 +69024,11 @@ components:
             oneOf:
               - $ref: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
               - $ref: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
+            discriminator:
+              propertyName: use
+              mapping:
+                sig: '#/components/schemas/OAuth2ClientJsonSigningKeyResponse'
+                enc: '#/components/schemas/OAuth2ClientJsonEncryptionKeyResponse'
     OpenIdConnectApplicationSettingsRefreshToken:
       description: |
         Refresh token configuration for an OAuth 2.0 client

@@ -26,6 +26,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 using System.Reflection;
 
@@ -147,6 +148,35 @@ namespace Okta.Sdk.Model
             {
                 return newListJwk200ResponseInner;
             }
+
+            try
+            {
+                var discriminatorObj = JObject.Parse(jsonString)["use"];
+                string discriminatorValue =  discriminatorObj == null ?string.Empty :discriminatorObj.ToString();
+                switch (discriminatorValue)
+                {
+                    case "OAuth2ClientJsonEncryptionKeyResponse":
+                        newListJwk200ResponseInner = new ListJwk200ResponseInner(JsonConvert.DeserializeObject<OAuth2ClientJsonEncryptionKeyResponse>(jsonString, ListJwk200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListJwk200ResponseInner;
+                    case "OAuth2ClientJsonSigningKeyResponse":
+                        newListJwk200ResponseInner = new ListJwk200ResponseInner(JsonConvert.DeserializeObject<OAuth2ClientJsonSigningKeyResponse>(jsonString, ListJwk200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListJwk200ResponseInner;
+                    case "enc":
+                        newListJwk200ResponseInner = new ListJwk200ResponseInner(JsonConvert.DeserializeObject<OAuth2ClientJsonEncryptionKeyResponse>(jsonString, ListJwk200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListJwk200ResponseInner;
+                    case "sig":
+                        newListJwk200ResponseInner = new ListJwk200ResponseInner(JsonConvert.DeserializeObject<OAuth2ClientJsonSigningKeyResponse>(jsonString, ListJwk200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListJwk200ResponseInner;
+                    default:
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for ListJwk200ResponseInner. Possible values: OAuth2ClientJsonEncryptionKeyResponse OAuth2ClientJsonSigningKeyResponse enc sig", discriminatorValue));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to parse the json data : `{0}` {1}", jsonString, ex.ToString()));
+            }
+
             int match = 0;
             List<string> matchedTypes = new List<string>();
 
