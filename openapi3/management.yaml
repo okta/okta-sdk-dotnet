@@ -12850,6 +12850,23 @@ paths:
                   oneOf:
                     - $ref: '#/components/schemas/StandardRole'
                     - $ref: '#/components/schemas/CustomRole'
+                  discriminator:
+                    propertyName: type
+                    mapping:
+                      API_ACCESS_MANAGEMENT_ADMIN: '#/components/schemas/StandardRole'
+                      APP_ADMIN: '#/components/schemas/StandardRole'
+                      GROUP_MEMBERSHIP_ADMIN: '#/components/schemas/StandardRole'
+                      HELP_DESK_ADMIN: '#/components/schemas/StandardRole'
+                      MOBILE_ADMIN: '#/components/schemas/StandardRole'
+                      ORG_ADMIN: '#/components/schemas/StandardRole'
+                      READ_ONLY_ADMIN: '#/components/schemas/StandardRole'
+                      REPORT_ADMIN: '#/components/schemas/StandardRole'
+                      SUPER_ADMIN: '#/components/schemas/StandardRole'
+                      USER_ADMIN: '#/components/schemas/StandardRole'
+                      ACCESS_CERTIFICATIONS_ADMIN: '#/components/schemas/CustomRole'
+                      ACCESS_REQUESTS_ADMIN: '#/components/schemas/CustomRole'
+                      WORKFLOWS_ADMIN: '#/components/schemas/CustomRole'
+                      CUSTOM: '#/components/schemas/CustomRole'
               examples:
                 Standard Roles:
                   $ref: '#/components/examples/StandardRolesListResponseGroup'
@@ -12908,6 +12925,23 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/StandardRole'
                   - $ref: '#/components/schemas/CustomRole'
+                discriminator:
+                  propertyName: type
+                  mapping:
+                    API_ACCESS_MANAGEMENT_ADMIN: '#/components/schemas/StandardRole'
+                    APP_ADMIN: '#/components/schemas/StandardRole'
+                    GROUP_MEMBERSHIP_ADMIN: '#/components/schemas/StandardRole'
+                    HELP_DESK_ADMIN: '#/components/schemas/StandardRole'
+                    MOBILE_ADMIN: '#/components/schemas/StandardRole'
+                    ORG_ADMIN: '#/components/schemas/StandardRole'
+                    READ_ONLY_ADMIN: '#/components/schemas/StandardRole'
+                    REPORT_ADMIN: '#/components/schemas/StandardRole'
+                    SUPER_ADMIN: '#/components/schemas/StandardRole'
+                    USER_ADMIN: '#/components/schemas/StandardRole'
+                    ACCESS_CERTIFICATIONS_ADMIN: '#/components/schemas/CustomRole'
+                    ACCESS_REQUESTS_ADMIN: '#/components/schemas/CustomRole'
+                    WORKFLOWS_ADMIN: '#/components/schemas/CustomRole'
+                    CUSTOM: '#/components/schemas/CustomRole'
               examples:
                 Standard Roles:
                   $ref: '#/components/examples/CreateStandardRoleAssignmentResponseGroup'
@@ -12952,6 +12986,23 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/StandardRole'
                   - $ref: '#/components/schemas/CustomRole'
+                discriminator:
+                  propertyName: type
+                  mapping:
+                    API_ACCESS_MANAGEMENT_ADMIN: '#/components/schemas/StandardRole'
+                    APP_ADMIN: '#/components/schemas/StandardRole'
+                    GROUP_MEMBERSHIP_ADMIN: '#/components/schemas/StandardRole'
+                    HELP_DESK_ADMIN: '#/components/schemas/StandardRole'
+                    MOBILE_ADMIN: '#/components/schemas/StandardRole'
+                    ORG_ADMIN: '#/components/schemas/StandardRole'
+                    READ_ONLY_ADMIN: '#/components/schemas/StandardRole'
+                    REPORT_ADMIN: '#/components/schemas/StandardRole'
+                    SUPER_ADMIN: '#/components/schemas/StandardRole'
+                    USER_ADMIN: '#/components/schemas/StandardRole'
+                    ACCESS_CERTIFICATIONS_ADMIN: '#/components/schemas/CustomRole'
+                    ACCESS_REQUESTS_ADMIN: '#/components/schemas/CustomRole'
+                    WORKFLOWS_ADMIN: '#/components/schemas/CustomRole'
+                    CUSTOM: '#/components/schemas/CustomRole'
               examples:
                 Standard Roles:
                   $ref: '#/components/examples/CreateStandardRoleAssignmentResponseGroup'
@@ -26218,6 +26269,23 @@ paths:
                   oneOf:
                     - $ref: '#/components/schemas/StandardRole'
                     - $ref: '#/components/schemas/CustomRole'
+                  discriminator:
+                    propertyName: type
+                    mapping:
+                      API_ACCESS_MANAGEMENT_ADMIN: '#/components/schemas/StandardRole'
+                      APP_ADMIN: '#/components/schemas/StandardRole'
+                      GROUP_MEMBERSHIP_ADMIN: '#/components/schemas/StandardRole'
+                      HELP_DESK_ADMIN: '#/components/schemas/StandardRole'
+                      MOBILE_ADMIN: '#/components/schemas/StandardRole'
+                      ORG_ADMIN: '#/components/schemas/StandardRole'
+                      READ_ONLY_ADMIN: '#/components/schemas/StandardRole'
+                      REPORT_ADMIN: '#/components/schemas/StandardRole'
+                      SUPER_ADMIN: '#/components/schemas/StandardRole'
+                      USER_ADMIN: '#/components/schemas/StandardRole'
+                      ACCESS_CERTIFICATIONS_ADMIN: '#/components/schemas/CustomRole'
+                      ACCESS_REQUESTS_ADMIN: '#/components/schemas/CustomRole'
+                      WORKFLOWS_ADMIN: '#/components/schemas/CustomRole'
+                      CUSTOM: '#/components/schemas/CustomRole'
               examples:
                 Standard Roles:
                   $ref: '#/components/examples/StandardRolesListResponse'
@@ -26278,6 +26346,23 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/StandardRole'
                   - $ref: '#/components/schemas/CustomRole'
+                discriminator:
+                  propertyName: type
+                  mapping:
+                    API_ACCESS_MANAGEMENT_ADMIN: '#/components/schemas/StandardRole'
+                    APP_ADMIN: '#/components/schemas/StandardRole'
+                    GROUP_MEMBERSHIP_ADMIN: '#/components/schemas/StandardRole'
+                    HELP_DESK_ADMIN: '#/components/schemas/StandardRole'
+                    MOBILE_ADMIN: '#/components/schemas/StandardRole'
+                    ORG_ADMIN: '#/components/schemas/StandardRole'
+                    READ_ONLY_ADMIN: '#/components/schemas/StandardRole'
+                    REPORT_ADMIN: '#/components/schemas/StandardRole'
+                    SUPER_ADMIN: '#/components/schemas/StandardRole'
+                    USER_ADMIN: '#/components/schemas/StandardRole'
+                    ACCESS_CERTIFICATIONS_ADMIN: '#/components/schemas/CustomRole'
+                    ACCESS_REQUESTS_ADMIN: '#/components/schemas/CustomRole'
+                    WORKFLOWS_ADMIN: '#/components/schemas/CustomRole'
+                    CUSTOM: '#/components/schemas/CustomRole'
               examples:
                 Standard Roles:
                   $ref: '#/components/examples/StandardRoleResponseUser'
@@ -26319,6 +26404,23 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/StandardRole'
                   - $ref: '#/components/schemas/CustomRole'
+                discriminator:
+                  propertyName: type
+                  mapping:
+                    API_ACCESS_MANAGEMENT_ADMIN: '#/components/schemas/StandardRole'
+                    APP_ADMIN: '#/components/schemas/StandardRole'
+                    GROUP_MEMBERSHIP_ADMIN: '#/components/schemas/StandardRole'
+                    HELP_DESK_ADMIN: '#/components/schemas/StandardRole'
+                    MOBILE_ADMIN: '#/components/schemas/StandardRole'
+                    ORG_ADMIN: '#/components/schemas/StandardRole'
+                    READ_ONLY_ADMIN: '#/components/schemas/StandardRole'
+                    REPORT_ADMIN: '#/components/schemas/StandardRole'
+                    SUPER_ADMIN: '#/components/schemas/StandardRole'
+                    USER_ADMIN: '#/components/schemas/StandardRole'
+                    ACCESS_CERTIFICATIONS_ADMIN: '#/components/schemas/CustomRole'
+                    ACCESS_REQUESTS_ADMIN: '#/components/schemas/CustomRole'
+                    WORKFLOWS_ADMIN: '#/components/schemas/CustomRole'
+                    CUSTOM: '#/components/schemas/CustomRole'
               examples:
                 Standard Roles:
                   $ref: '#/components/examples/StandardRoleResponseUser'

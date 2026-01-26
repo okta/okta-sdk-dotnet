@@ -1639,7 +1639,6 @@ Class | Method | HTTP request | Description
  - [Model.LinksVerifyVerify](docs/LinksVerifyVerify.md)
  - [Model.ListGroupAssignedRoles200ResponseInner](docs/ListGroupAssignedRoles200ResponseInner.md)
  - [Model.ListProfileMappings](docs/ListProfileMappings.md)
- - [Model.ListRolesForClient200ResponseInner](docs/ListRolesForClient200ResponseInner.md)
  - [Model.ListSubscriptionsRoleRoleRefParameter](docs/ListSubscriptionsRoleRoleRefParameter.md)
  - [Model.LoadingPageTouchPointVariant](docs/LoadingPageTouchPointVariant.md)
  - [Model.LocationGranularity](docs/LocationGranularity.md)
