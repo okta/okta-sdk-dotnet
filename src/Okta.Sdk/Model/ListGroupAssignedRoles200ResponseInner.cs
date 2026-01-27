@@ -26,6 +26,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 using System.Reflection;
 
@@ -147,6 +148,71 @@ namespace Okta.Sdk.Model
             {
                 return newListGroupAssignedRoles200ResponseInner;
             }
+
+            try
+            {
+                var discriminatorObj = JObject.Parse(jsonString)["type"];
+                string discriminatorValue =  discriminatorObj == null ?string.Empty :discriminatorObj.ToString();
+                switch (discriminatorValue)
+                {
+                    case "ACCESS_CERTIFICATIONS_ADMIN":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<CustomRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "ACCESS_REQUESTS_ADMIN":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<CustomRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "API_ACCESS_MANAGEMENT_ADMIN":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<StandardRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "APP_ADMIN":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<StandardRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "CUSTOM":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<CustomRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "CustomRole":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<CustomRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "GROUP_MEMBERSHIP_ADMIN":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<StandardRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "HELP_DESK_ADMIN":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<StandardRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "MOBILE_ADMIN":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<StandardRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "ORG_ADMIN":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<StandardRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "READ_ONLY_ADMIN":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<StandardRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "REPORT_ADMIN":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<StandardRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "SUPER_ADMIN":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<StandardRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "StandardRole":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<StandardRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "USER_ADMIN":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<StandardRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    case "WORKFLOWS_ADMIN":
+                        newListGroupAssignedRoles200ResponseInner = new ListGroupAssignedRoles200ResponseInner(JsonConvert.DeserializeObject<CustomRole>(jsonString, ListGroupAssignedRoles200ResponseInner.AdditionalPropertiesSerializerSettings));
+                        return newListGroupAssignedRoles200ResponseInner;
+                    default:
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for ListGroupAssignedRoles200ResponseInner. Possible values: ACCESS_CERTIFICATIONS_ADMIN ACCESS_REQUESTS_ADMIN API_ACCESS_MANAGEMENT_ADMIN APP_ADMIN CUSTOM CustomRole GROUP_MEMBERSHIP_ADMIN HELP_DESK_ADMIN MOBILE_ADMIN ORG_ADMIN READ_ONLY_ADMIN REPORT_ADMIN SUPER_ADMIN StandardRole USER_ADMIN WORKFLOWS_ADMIN", discriminatorValue));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to parse the json data : `{0}` {1}", jsonString, ex.ToString()));
+            }
+
             int match = 0;
             List<string> matchedTypes = new List<string>();
 

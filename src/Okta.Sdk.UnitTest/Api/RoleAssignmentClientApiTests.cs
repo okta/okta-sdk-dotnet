@@ -76,24 +76,24 @@ namespace Okta.Sdk.UnitTest.Api
             
             var returnType = methodInfo.ReturnType;
             
-            // After the fix, it should return IOktaCollectionClient<ListRolesForClient200ResponseInner>
+            // After the fix, it should return IOktaCollectionClient<ListGroupAssignedRoles200ResponseInner>
             returnType.IsGenericType.Should().BeTrue();
             returnType.GetGenericTypeDefinition().Should().Be(typeof(IOktaCollectionClient<>),
                 "ListRolesForClient should return IOktaCollectionClient<T>");
             
             var innerType = returnType.GetGenericArguments()[0];
-            innerType.Name.Should().Be("ListRolesForClient200ResponseInner",
-                "The collection item type should be ListRolesForClient200ResponseInner");
+            innerType.Name.Should().Be("ListGroupAssignedRoles200ResponseInner",
+                "The collection item type should be ListGroupAssignedRoles200ResponseInner");
         }
 
         /// <summary>
         /// Issue #807 FIX: Verifies the new response type can handle discriminator-based deserialization.
         /// </summary>
         [Fact]
-        public void Issue807_Fixed_ListRolesForClient200ResponseInner_HasDiscriminatorLogic()
+        public void Issue807_Fixed_ListGroupAssignedRoles200ResponseInner_HasDiscriminatorLogic()
         {
             // Verify the FromJson method exists with discriminator support
-            var responseType = typeof(ListRolesForClient200ResponseInner);
+            var responseType = typeof(ListGroupAssignedRoles200ResponseInner);
             var fromJsonMethod = responseType.GetMethod("FromJson", new[] { typeof(string) });
             
             fromJsonMethod.Should().NotBeNull("FromJson method should exist for discriminator-based deserialization");
@@ -128,7 +128,7 @@ namespace Okta.Sdk.UnitTest.Api
             }}";
 
             // Act - Use the new discriminator-based FromJson
-            var role = ListRolesForClient200ResponseInner.FromJson(json);
+            var role = ListGroupAssignedRoles200ResponseInner.FromJson(json);
 
             // Assert
             role.Should().NotBeNull($"Discriminator should properly deserialize {roleType} as StandardRole");
@@ -159,7 +159,7 @@ namespace Okta.Sdk.UnitTest.Api
             }";
 
             // Act - Use the new discriminator-based FromJson
-            var role = ListRolesForClient200ResponseInner.FromJson(json);
+            var role = ListGroupAssignedRoles200ResponseInner.FromJson(json);
 
             // Assert
             role.Should().NotBeNull("Discriminator should properly deserialize CUSTOM as CustomRole");
@@ -415,10 +415,10 @@ namespace Okta.Sdk.UnitTest.Api
         }
 
         /// <summary>
-        /// Verify that ListRolesForClient200ResponseInner wrapper can be created from deserialized StandardRole.
+        /// Verify that ListGroupAssignedRoles200ResponseInner wrapper can be created from deserialized StandardRole.
         /// </summary>
         [Fact]
-        public void ListRolesForClient200ResponseInner_ShouldWrapStandardRole()
+        public void ListGroupAssignedRoles200ResponseInner_ShouldWrapStandardRole()
         {
             // Arrange - Deserialize a StandardRole from JSON (since some properties are read-only)
             var json = @"{
@@ -431,7 +431,7 @@ namespace Okta.Sdk.UnitTest.Api
             var standardRole = JsonConvert.DeserializeObject<StandardRole>(json);
 
             // Act
-            var wrapper = new ListRolesForClient200ResponseInner(standardRole);
+            var wrapper = new ListGroupAssignedRoles200ResponseInner(standardRole);
 
             // Assert
             wrapper.Should().NotBeNull();
@@ -441,10 +441,10 @@ namespace Okta.Sdk.UnitTest.Api
         }
 
         /// <summary>
-        /// Verify that ListRolesForClient200ResponseInner wrapper works for CustomRole.
+        /// Verify that ListGroupAssignedRoles200ResponseInner wrapper works for CustomRole.
         /// </summary>
         [Fact]
-        public void ListRolesForClient200ResponseInner_ShouldWrapCustomRole()
+        public void ListGroupAssignedRoles200ResponseInner_ShouldWrapCustomRole()
         {
             // Arrange - Deserialize a CustomRole from JSON (since some properties are read-only)
             var json = @"{
@@ -457,7 +457,7 @@ namespace Okta.Sdk.UnitTest.Api
             var customRole = JsonConvert.DeserializeObject<CustomRole>(json);
 
             // Act
-            var wrapper = new ListRolesForClient200ResponseInner(customRole);
+            var wrapper = new ListGroupAssignedRoles200ResponseInner(customRole);
 
             // Assert
             wrapper.Should().NotBeNull();

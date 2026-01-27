@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 <a name="activateoauth2clientjsonwebkey"></a>
 # **ActivateOAuth2ClientJsonWebKey**
-> ListJwk200ResponseInner ActivateOAuth2ClientJsonWebKey (string appId, string keyId)
+> AddJwk201Response ActivateOAuth2ClientJsonWebKey (string appId, string keyId)
 
 Activate an OAuth 2.0 client JSON Web Key
 
@@ -54,7 +54,7 @@ namespace Example
             try
             {
                 // Activate an OAuth 2.0 client JSON Web Key
-                ListJwk200ResponseInner result = apiInstance.ActivateOAuth2ClientJsonWebKey(appId, keyId);
+                AddJwk201Response result = apiInstance.ActivateOAuth2ClientJsonWebKey(appId, keyId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListJwk200ResponseInner**](ListJwk200ResponseInner.md)
+[**AddJwk201Response**](AddJwk201Response.md)
 
 ### Authorization
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 <a name="addjwk"></a>
 # **AddJwk**
-> ListJwk200ResponseInner AddJwk (string appId, AddJwkRequest addJwkRequest)
+> AddJwk201Response AddJwk (string appId, AddJwkRequest addJwkRequest)
 
 Add a JSON Web Key
 
@@ -218,7 +218,7 @@ namespace Example
             try
             {
                 // Add a JSON Web Key
-                ListJwk200ResponseInner result = apiInstance.AddJwk(appId, addJwkRequest);
+                AddJwk201Response result = apiInstance.AddJwk(appId, addJwkRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListJwk200ResponseInner**](ListJwk200ResponseInner.md)
+[**AddJwk201Response**](AddJwk201Response.md)
 
 ### Authorization
 
@@ -842,7 +842,7 @@ Name | Type | Description  | Notes
 
 <a name="listjwk"></a>
 # **ListJwk**
-> List&lt;ListJwk200ResponseInner&gt; ListJwk (string appId)
+> OAuth2ClientJsonWebKeySet ListJwk (string appId)
 
 List all the OAuth 2.0 client JSON Web Keys
 
@@ -875,7 +875,7 @@ namespace Example
             try
             {
                 // List all the OAuth 2.0 client JSON Web Keys
-                List<ListJwk200ResponseInner> result = apiInstance.ListJwk(appId).ToListAsync();
+                OAuth2ClientJsonWebKeySet result = apiInstance.ListJwk(appId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -897,7 +897,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;ListJwk200ResponseInner&gt;**](ListJwk200ResponseInner.md)
+[**OAuth2ClientJsonWebKeySet**](OAuth2ClientJsonWebKeySet.md)
 
 ### Authorization
 

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="assignroletoclient"></a>
 # **AssignRoleToClient**
-> ListRolesForClient200ResponseInner AssignRoleToClient (string clientId, AssignRoleToGroupRequest assignRoleToGroupRequest)
+> ListGroupAssignedRoles200ResponseInner AssignRoleToClient (string clientId, AssignRoleToGroupRequest assignRoleToGroupRequest)
 
 Assign a client role
 
@@ -46,7 +46,7 @@ namespace Example
             try
             {
                 // Assign a client role
-                ListRolesForClient200ResponseInner result = apiInstance.AssignRoleToClient(clientId, assignRoleToGroupRequest);
+                ListGroupAssignedRoles200ResponseInner result = apiInstance.AssignRoleToClient(clientId, assignRoleToGroupRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListRolesForClient200ResponseInner**](ListRolesForClient200ResponseInner.md)
+[**ListGroupAssignedRoles200ResponseInner**](ListGroupAssignedRoles200ResponseInner.md)
 
 ### Authorization
 
@@ -173,7 +173,7 @@ void (empty response body)
 
 <a name="listrolesforclient"></a>
 # **ListRolesForClient**
-> List&lt;ListRolesForClient200ResponseInner&gt; ListRolesForClient (string clientId)
+> List&lt;ListGroupAssignedRoles200ResponseInner&gt; ListRolesForClient (string clientId)
 
 List all client role assignments
 
@@ -206,7 +206,7 @@ namespace Example
             try
             {
                 // List all client role assignments
-                List<ListRolesForClient200ResponseInner> result = apiInstance.ListRolesForClient(clientId).ToListAsync();
+                List<ListGroupAssignedRoles200ResponseInner> result = apiInstance.ListRolesForClient(clientId).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;ListRolesForClient200ResponseInner&gt;**](ListRolesForClient200ResponseInner.md)
+[**List&lt;ListGroupAssignedRoles200ResponseInner&gt;**](ListGroupAssignedRoles200ResponseInner.md)
 
 ### Authorization
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 <a name="retrieveclientrole"></a>
 # **RetrieveClientRole**
-> ListRolesForClient200ResponseInner RetrieveClientRole (string clientId, string roleAssignmentId)
+> ListGroupAssignedRoles200ResponseInner RetrieveClientRole (string clientId, string roleAssignmentId)
 
 Retrieve a client role
 
@@ -286,7 +286,7 @@ namespace Example
             try
             {
                 // Retrieve a client role
-                ListRolesForClient200ResponseInner result = apiInstance.RetrieveClientRole(clientId, roleAssignmentId);
+                ListGroupAssignedRoles200ResponseInner result = apiInstance.RetrieveClientRole(clientId, roleAssignmentId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListRolesForClient200ResponseInner**](ListRolesForClient200ResponseInner.md)
+[**ListGroupAssignedRoles200ResponseInner**](ListGroupAssignedRoles200ResponseInner.md)
 
 ### Authorization
 

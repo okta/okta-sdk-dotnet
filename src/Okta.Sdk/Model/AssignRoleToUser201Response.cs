@@ -26,6 +26,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 using System.Reflection;
 
@@ -147,6 +148,71 @@ namespace Okta.Sdk.Model
             {
                 return newAssignRoleToUser201Response;
             }
+
+            try
+            {
+                var discriminatorObj = JObject.Parse(jsonString)["type"];
+                string discriminatorValue =  discriminatorObj == null ?string.Empty :discriminatorObj.ToString();
+                switch (discriminatorValue)
+                {
+                    case "ACCESS_CERTIFICATIONS_ADMIN":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<CustomRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "ACCESS_REQUESTS_ADMIN":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<CustomRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "API_ACCESS_MANAGEMENT_ADMIN":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<StandardRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "APP_ADMIN":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<StandardRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "CUSTOM":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<CustomRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "CustomRole":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<CustomRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "GROUP_MEMBERSHIP_ADMIN":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<StandardRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "HELP_DESK_ADMIN":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<StandardRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "MOBILE_ADMIN":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<StandardRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "ORG_ADMIN":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<StandardRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "READ_ONLY_ADMIN":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<StandardRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "REPORT_ADMIN":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<StandardRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "SUPER_ADMIN":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<StandardRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "StandardRole":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<StandardRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "USER_ADMIN":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<StandardRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    case "WORKFLOWS_ADMIN":
+                        newAssignRoleToUser201Response = new AssignRoleToUser201Response(JsonConvert.DeserializeObject<CustomRole>(jsonString, AssignRoleToUser201Response.AdditionalPropertiesSerializerSettings));
+                        return newAssignRoleToUser201Response;
+                    default:
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for AssignRoleToUser201Response. Possible values: ACCESS_CERTIFICATIONS_ADMIN ACCESS_REQUESTS_ADMIN API_ACCESS_MANAGEMENT_ADMIN APP_ADMIN CUSTOM CustomRole GROUP_MEMBERSHIP_ADMIN HELP_DESK_ADMIN MOBILE_ADMIN ORG_ADMIN READ_ONLY_ADMIN REPORT_ADMIN SUPER_ADMIN StandardRole USER_ADMIN WORKFLOWS_ADMIN", discriminatorValue));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to parse the json data : `{0}` {1}", jsonString, ex.ToString()));
+            }
+
             int match = 0;
             List<string> matchedTypes = new List<string>();
 

@@ -7,7 +7,9 @@
     {{/vendorExtensions.x-json-converter}}
     [DataContract(Name = "{{{name}}}")]
     {{#discriminator}}
+    {{^vendorExtensions.x-json-converter}}
     [JsonConverter(typeof(JsonSubtypes), "{{{discriminatorName}}}")]
+    {{/vendorExtensions.x-json-converter}}
     {{#mappedModels}}
     [JsonSubtypes.KnownSubType(typeof({{{modelName}}}), "{{^vendorExtensions.x-discriminator-value}}{{{mappingName}}}{{/vendorExtensions.x-discriminator-value}}{{#vendorExtensions.x-discriminator-value}}{{{.}}}{{/vendorExtensions.x-discriminator-value}}")]
     {{/mappedModels}}

@@ -26,6 +26,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 using System.Reflection;
 
@@ -147,6 +148,35 @@ namespace Okta.Sdk.Model
             {
                 return newOAuth2ClientJsonSigningKeyRequest;
             }
+
+            try
+            {
+                var discriminatorObj = JObject.Parse(jsonString)["kty"];
+                string discriminatorValue =  discriminatorObj == null ?string.Empty :discriminatorObj.ToString();
+                switch (discriminatorValue)
+                {
+                    case "EC":
+                        newOAuth2ClientJsonSigningKeyRequest = new OAuth2ClientJsonSigningKeyRequest(JsonConvert.DeserializeObject<OAuth2ClientJsonWebKeyECRequest>(jsonString, OAuth2ClientJsonSigningKeyRequest.AdditionalPropertiesSerializerSettings));
+                        return newOAuth2ClientJsonSigningKeyRequest;
+                    case "OAuth2ClientJsonWebKeyECRequest":
+                        newOAuth2ClientJsonSigningKeyRequest = new OAuth2ClientJsonSigningKeyRequest(JsonConvert.DeserializeObject<OAuth2ClientJsonWebKeyECRequest>(jsonString, OAuth2ClientJsonSigningKeyRequest.AdditionalPropertiesSerializerSettings));
+                        return newOAuth2ClientJsonSigningKeyRequest;
+                    case "OAuth2ClientJsonWebKeyRsaRequest":
+                        newOAuth2ClientJsonSigningKeyRequest = new OAuth2ClientJsonSigningKeyRequest(JsonConvert.DeserializeObject<OAuth2ClientJsonWebKeyRsaRequest>(jsonString, OAuth2ClientJsonSigningKeyRequest.AdditionalPropertiesSerializerSettings));
+                        return newOAuth2ClientJsonSigningKeyRequest;
+                    case "RSA":
+                        newOAuth2ClientJsonSigningKeyRequest = new OAuth2ClientJsonSigningKeyRequest(JsonConvert.DeserializeObject<OAuth2ClientJsonWebKeyRsaRequest>(jsonString, OAuth2ClientJsonSigningKeyRequest.AdditionalPropertiesSerializerSettings));
+                        return newOAuth2ClientJsonSigningKeyRequest;
+                    default:
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for OAuth2ClientJsonSigningKeyRequest. Possible values: EC OAuth2ClientJsonWebKeyECRequest OAuth2ClientJsonWebKeyRsaRequest RSA", discriminatorValue));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to parse the json data : `{0}` {1}", jsonString, ex.ToString()));
+            }
+
             int match = 0;
             List<string> matchedTypes = new List<string>();
 

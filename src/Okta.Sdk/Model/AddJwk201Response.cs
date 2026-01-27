@@ -26,6 +26,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 using System.Reflection;
 
@@ -33,18 +34,18 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template" ModelOneOf
-    /// ListJwk200ResponseInner
+    /// AddJwk201Response
     /// </summary>
-    [JsonConverter(typeof(ListJwk200ResponseInnerJsonConverter))]
-    [DataContract(Name = "listJwk_200_response_inner")]
-    public partial class ListJwk200ResponseInner : AbstractOpenAPISchema, IEquatable<ListJwk200ResponseInner>
+    [JsonConverter(typeof(AddJwk201ResponseJsonConverter))]
+    [DataContract(Name = "addJwk_201_response")]
+    public partial class AddJwk201Response : AbstractOpenAPISchema, IEquatable<AddJwk201Response>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ListJwk200ResponseInner" /> class
+        /// Initializes a new instance of the <see cref="AddJwk201Response" /> class
         /// with the <see cref="OAuth2ClientJsonSigningKeyResponse" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of OAuth2ClientJsonSigningKeyResponse.</param>
-        public ListJwk200ResponseInner(OAuth2ClientJsonSigningKeyResponse actualInstance)
+        public AddJwk201Response(OAuth2ClientJsonSigningKeyResponse actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -52,11 +53,11 @@ namespace Okta.Sdk.Model
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ListJwk200ResponseInner" /> class
+        /// Initializes a new instance of the <see cref="AddJwk201Response" /> class
         /// with the <see cref="OAuth2ClientJsonEncryptionKeyResponse" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of OAuth2ClientJsonEncryptionKeyResponse.</param>
-        public ListJwk200ResponseInner(OAuth2ClientJsonEncryptionKeyResponse actualInstance)
+        public AddJwk201Response(OAuth2ClientJsonEncryptionKeyResponse actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -119,7 +120,7 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ListJwk200ResponseInner {\n");
+            sb.Append("class AddJwk201Response {\n");
             sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -131,22 +132,51 @@ namespace Okta.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, ListJwk200ResponseInner.SerializerSettings);
+            return JsonConvert.SerializeObject(this.ActualInstance, AddJwk201Response.SerializerSettings);
         }
 
         /// <summary>
-        /// Converts the JSON string into an instance of ListJwk200ResponseInner
+        /// Converts the JSON string into an instance of AddJwk201Response
         /// </summary>
         /// <param name="jsonString">JSON string</param>
-        /// <returns>An instance of ListJwk200ResponseInner</returns>
-        public static ListJwk200ResponseInner FromJson(string jsonString)
+        /// <returns>An instance of AddJwk201Response</returns>
+        public static AddJwk201Response FromJson(string jsonString)
         {
-            ListJwk200ResponseInner newListJwk200ResponseInner = null;
+            AddJwk201Response newAddJwk201Response = null;
 
             if (string.IsNullOrEmpty(jsonString))
             {
-                return newListJwk200ResponseInner;
+                return newAddJwk201Response;
             }
+
+            try
+            {
+                var discriminatorObj = JObject.Parse(jsonString)["use"];
+                string discriminatorValue =  discriminatorObj == null ?string.Empty :discriminatorObj.ToString();
+                switch (discriminatorValue)
+                {
+                    case "OAuth2ClientJsonEncryptionKeyResponse":
+                        newAddJwk201Response = new AddJwk201Response(JsonConvert.DeserializeObject<OAuth2ClientJsonEncryptionKeyResponse>(jsonString, AddJwk201Response.AdditionalPropertiesSerializerSettings));
+                        return newAddJwk201Response;
+                    case "OAuth2ClientJsonSigningKeyResponse":
+                        newAddJwk201Response = new AddJwk201Response(JsonConvert.DeserializeObject<OAuth2ClientJsonSigningKeyResponse>(jsonString, AddJwk201Response.AdditionalPropertiesSerializerSettings));
+                        return newAddJwk201Response;
+                    case "enc":
+                        newAddJwk201Response = new AddJwk201Response(JsonConvert.DeserializeObject<OAuth2ClientJsonEncryptionKeyResponse>(jsonString, AddJwk201Response.AdditionalPropertiesSerializerSettings));
+                        return newAddJwk201Response;
+                    case "sig":
+                        newAddJwk201Response = new AddJwk201Response(JsonConvert.DeserializeObject<OAuth2ClientJsonSigningKeyResponse>(jsonString, AddJwk201Response.AdditionalPropertiesSerializerSettings));
+                        return newAddJwk201Response;
+                    default:
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for AddJwk201Response. Possible values: OAuth2ClientJsonEncryptionKeyResponse OAuth2ClientJsonSigningKeyResponse enc sig", discriminatorValue));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to parse the json data : `{0}` {1}", jsonString, ex.ToString()));
+            }
+
             int match = 0;
             List<string> matchedTypes = new List<string>();
 
@@ -155,11 +185,11 @@ namespace Okta.Sdk.Model
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(OAuth2ClientJsonEncryptionKeyResponse).GetProperty("AdditionalProperties") == null)
                 {
-                    newListJwk200ResponseInner = new ListJwk200ResponseInner(JsonConvert.DeserializeObject<OAuth2ClientJsonEncryptionKeyResponse>(jsonString, ListJwk200ResponseInner.SerializerSettings));
+                    newAddJwk201Response = new AddJwk201Response(JsonConvert.DeserializeObject<OAuth2ClientJsonEncryptionKeyResponse>(jsonString, AddJwk201Response.SerializerSettings));
                 }
                 else
                 {
-                    newListJwk200ResponseInner = new ListJwk200ResponseInner(JsonConvert.DeserializeObject<OAuth2ClientJsonEncryptionKeyResponse>(jsonString, ListJwk200ResponseInner.AdditionalPropertiesSerializerSettings));
+                    newAddJwk201Response = new AddJwk201Response(JsonConvert.DeserializeObject<OAuth2ClientJsonEncryptionKeyResponse>(jsonString, AddJwk201Response.AdditionalPropertiesSerializerSettings));
                 }
                 matchedTypes.Add("OAuth2ClientJsonEncryptionKeyResponse");
                 match++;
@@ -175,11 +205,11 @@ namespace Okta.Sdk.Model
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(OAuth2ClientJsonSigningKeyResponse).GetProperty("AdditionalProperties") == null)
                 {
-                    newListJwk200ResponseInner = new ListJwk200ResponseInner(JsonConvert.DeserializeObject<OAuth2ClientJsonSigningKeyResponse>(jsonString, ListJwk200ResponseInner.SerializerSettings));
+                    newAddJwk201Response = new AddJwk201Response(JsonConvert.DeserializeObject<OAuth2ClientJsonSigningKeyResponse>(jsonString, AddJwk201Response.SerializerSettings));
                 }
                 else
                 {
-                    newListJwk200ResponseInner = new ListJwk200ResponseInner(JsonConvert.DeserializeObject<OAuth2ClientJsonSigningKeyResponse>(jsonString, ListJwk200ResponseInner.AdditionalPropertiesSerializerSettings));
+                    newAddJwk201Response = new AddJwk201Response(JsonConvert.DeserializeObject<OAuth2ClientJsonSigningKeyResponse>(jsonString, AddJwk201Response.AdditionalPropertiesSerializerSettings));
                 }
                 matchedTypes.Add("OAuth2ClientJsonSigningKeyResponse");
                 match++;
@@ -200,7 +230,7 @@ namespace Okta.Sdk.Model
             }
 
             // deserialization is considered successful at this point if no exception has been thrown.
-            return newListJwk200ResponseInner;
+            return newAddJwk201Response;
         }
 
         /// <summary>
@@ -210,15 +240,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ListJwk200ResponseInner);
+            return this.Equals(input as AddJwk201Response);
         }
 
         /// <summary>
-        /// Returns true if ListJwk200ResponseInner instances are equal
+        /// Returns true if AddJwk201Response instances are equal
         /// </summary>
-        /// <param name="input">Instance of ListJwk200ResponseInner to be compared</param>
+        /// <param name="input">Instance of AddJwk201Response to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ListJwk200ResponseInner input)
+        public bool Equals(AddJwk201Response input)
         {
             if (input == null)
                 return false;
@@ -244,9 +274,9 @@ namespace Okta.Sdk.Model
     }
 
     /// <summary>
-    /// Custom JSON converter for ListJwk200ResponseInner
+    /// Custom JSON converter for AddJwk201Response
     /// </summary>
-    public class ListJwk200ResponseInnerJsonConverter : JsonConverter
+    public class AddJwk201ResponseJsonConverter : JsonConverter
     {
         /// <summary>
         /// To write the JSON string
@@ -256,7 +286,7 @@ namespace Okta.Sdk.Model
         /// <param name="serializer">JSON Serializer</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue((string)(typeof(ListJwk200ResponseInner).GetMethod("ToJson").Invoke(value, null)));
+            writer.WriteRawValue((string)(typeof(AddJwk201Response).GetMethod("ToJson").Invoke(value, null)));
         }
 
         /// <summary>
@@ -271,7 +301,7 @@ namespace Okta.Sdk.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return ListJwk200ResponseInner.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return AddJwk201Response.FromJson(JObject.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

@@ -174,6 +174,13 @@ namespace Okta.Sdk.Model
         public string N { get; set; }
 
         /// <summary>
+        /// Algorithm used in the key
+        /// </summary>
+        /// <value>Algorithm used in the key</value>
+        [DataMember(Name = "alg", EmitDefaultValue = true)]
+        public string Alg { get; set; }
+
+        /// <summary>
         /// Unique identifier of the JSON Web Key in the OAUth 2.0 client&#39;s JWKS
         /// </summary>
         /// <value>Unique identifier of the JSON Web Key in the OAUth 2.0 client&#39;s JWKS</value>
@@ -243,6 +250,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Kty: ").Append(Kty).Append("\n");
             sb.Append("  N: ").Append(N).Append("\n");
             sb.Append("  Use: ").Append(Use).Append("\n");
+            sb.Append("  Alg: ").Append(Alg).Append("\n");
             sb.Append("  Kid: ").Append(Kid).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
@@ -303,6 +311,11 @@ namespace Okta.Sdk.Model
                     this.Use.Equals(input.Use)
                 ) && 
                 (
+                    this.Alg == input.Alg ||
+                    (this.Alg != null &&
+                    this.Alg.Equals(input.Alg))
+                ) && 
+                (
                     this.Kid == input.Kid ||
                     (this.Kid != null &&
                     this.Kid.Equals(input.Kid))
@@ -358,6 +371,10 @@ namespace Okta.Sdk.Model
                 if (this.Use != null)
                 {
                     hashCode = (hashCode * 59) + this.Use.GetHashCode();
+                }
+                if (this.Alg != null)
+                {
+                    hashCode = (hashCode * 59) + this.Alg.GetHashCode();
                 }
                 if (this.Kid != null)
                 {
