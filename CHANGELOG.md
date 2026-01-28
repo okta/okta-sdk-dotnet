@@ -1,6 +1,37 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 10.0.2
+
+### Bug Fixes
+
+| Issue | Problem | Fix |
+|-------|---------|-----|
+| [#846](https://github.com/okta/okta-sdk-dotnet/issues/846) | Unable to set OIDC protocol's issuer | Added `Issuer` property to `ProtocolOidc` |
+| [#836](https://github.com/okta/okta-sdk-dotnet/issues/836) | `ListApplications` returns 0 results (JWK deserialization) | Added discriminators to JWK oneOf schemas |
+| [#834](https://github.com/okta/okta-sdk-dotnet/issues/834) | Inline Hook deserialise fails for Refresh Token | Added `policy` and `identity` properties to `BaseContext.user` |
+| [#833](https://github.com/okta/okta-sdk-dotnet/issues/833) | `GenerateResetPasswordTokenAsync` missing | Updated migration guide for renamed methods |
+| [#832](https://github.com/okta/okta-sdk-dotnet/issues/832) | Error reading `SamlAttributeStatement` | Added discriminator-based lookup for anyOf schemas |
+| [#831](https://github.com/okta/okta-sdk-dotnet/issues/831) | `ListApplications` fails with `InvalidDataException` | Fixed JWK key schema deserialization |
+| [#827](https://github.com/okta/okta-sdk-dotnet/issues/827) | Error reading user role assignments | Added discriminators to `StandardRole`/`CustomRole` oneOf schemas |
+| [#826](https://github.com/okta/okta-sdk-dotnet/issues/826) | Error reading applications with JWKS keys | Added `alg` and `use` properties to `OAuth2ClientJsonWebKey` |
+| [#825](https://github.com/okta/okta-sdk-dotnet/issues/825) | DPoP `htu` claim using template path causing 400 errors | Fixed to use expanded request URL |
+| [#822](https://github.com/okta/okta-sdk-dotnet/issues/822) | Groups missing the `Source` property | Added `Source` property to `Group` |
+| [#821](https://github.com/okta/okta-sdk-dotnet/issues/821) | Cannot read Active Directory app | Added `ActiveDirectoryApplication` for null `signOnMode` handling |
+| [#820](https://github.com/okta/okta-sdk-dotnet/issues/820) | `Application` class missing `Name` property | Added `Name` property to base `Application` class |
+| [#811](https://github.com/okta/okta-sdk-dotnet/issues/811) | OIDC and SWA app settings not accessible | Added `app` property to OIDC, SAML, AutoLogin, and SWA application settings |
+| [#792](https://github.com/okta/okta-sdk-dotnet/issues/792) | Application `settings.app` data lost during deserialization | Fixed application settings deserialization |
+| [#790](https://github.com/okta/okta-sdk-dotnet/issues/790) | `ProtocolSaml` missing `oktaIdpOrgUrl` property | Added `oktaIdpOrgUrl` to `ProtocolSaml` schema |
+| [#838](https://github.com/okta/okta-sdk-dotnet/issues/838) | `ListIdentityProviders` returns empty result set | Added discriminator to `IdentityProviderProtocol` oneOf schema |
+| [#824](https://github.com/okta/okta-sdk-dotnet/issues/824) | RestSharp v113 compatibility (`MaxTimeout` removed) | Replaced deprecated `MaxTimeout` with `Timeout` |
+
+### Changes
+
+- Fixed 351 build warnings in mustache templates
+- Updated NuGet packages to latest compatible versions
+- Upgraded test projects to .NET 10
+- Moved artifact publishing to internal pipeline
+
 ## 10.0.1
 
 ### Bug Fixes
