@@ -1252,6 +1252,7 @@ docs/ProfileSettingObject.md
 docs/ProtocolAlgorithmRequestScope.md
 docs/ProtocolAlgorithmResponseScope.md
 docs/ProtocolEndpointBinding.md
+docs/ProtocolEndpointOidcIssuer.md
 docs/ProtocolIdVerification.md
 docs/ProtocolMtls.md
 docs/ProtocolOAuth.md
@@ -3194,6 +3195,7 @@ src/Okta.Sdk/Model/ProfileSettingObject.cs
 src/Okta.Sdk/Model/ProtocolAlgorithmRequestScope.cs
 src/Okta.Sdk/Model/ProtocolAlgorithmResponseScope.cs
 src/Okta.Sdk/Model/ProtocolEndpointBinding.cs
+src/Okta.Sdk/Model/ProtocolEndpointOidcIssuer.cs
 src/Okta.Sdk/Model/ProtocolIdVerification.cs
 src/Okta.Sdk/Model/ProtocolMtls.cs
 src/Okta.Sdk/Model/ProtocolOAuth.cs

@@ -96,6 +96,12 @@ namespace Okta.Sdk.Model
         public OAuthEndpoints Endpoints { get; set; }
 
         /// <summary>
+        /// Gets or Sets Issuer
+        /// </summary>
+        [DataMember(Name = "issuer", EmitDefaultValue = true)]
+        public ProtocolEndpointOidcIssuer Issuer { get; set; }
+
+        /// <summary>
         /// URL of the IdP org
         /// </summary>
         /// <value>URL of the IdP org</value>
@@ -126,6 +132,7 @@ namespace Okta.Sdk.Model
             sb.Append("  Algorithms: ").Append(Algorithms).Append("\n");
             sb.Append("  Credentials: ").Append(Credentials).Append("\n");
             sb.Append("  Endpoints: ").Append(Endpoints).Append("\n");
+            sb.Append("  Issuer: ").Append(Issuer).Append("\n");
             sb.Append("  OktaIdpOrgUrl: ").Append(OktaIdpOrgUrl).Append("\n");
             sb.Append("  Scopes: ").Append(Scopes).Append("\n");
             sb.Append("  Settings: ").Append(Settings).Append("\n");
@@ -181,6 +188,11 @@ namespace Okta.Sdk.Model
                     this.Endpoints.Equals(input.Endpoints))
                 ) && 
                 (
+                    this.Issuer == input.Issuer ||
+                    (this.Issuer != null &&
+                    this.Issuer.Equals(input.Issuer))
+                ) && 
+                (
                     this.OktaIdpOrgUrl == input.OktaIdpOrgUrl ||
                     (this.OktaIdpOrgUrl != null &&
                     this.OktaIdpOrgUrl.Equals(input.OktaIdpOrgUrl))
@@ -223,6 +235,10 @@ namespace Okta.Sdk.Model
                 if (this.Endpoints != null)
                 {
                     hashCode = (hashCode * 59) + this.Endpoints.GetHashCode();
+                }
+                if (this.Issuer != null)
+                {
+                    hashCode = (hashCode * 59) + this.Issuer.GetHashCode();
                 }
                 if (this.OktaIdpOrgUrl != null)
                 {
