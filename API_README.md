@@ -2063,6 +2063,7 @@ Class | Method | HTTP request | Description
  - [Model.ProtocolAlgorithmRequestScope](docs/ProtocolAlgorithmRequestScope.md)
  - [Model.ProtocolAlgorithmResponseScope](docs/ProtocolAlgorithmResponseScope.md)
  - [Model.ProtocolEndpointBinding](docs/ProtocolEndpointBinding.md)
+ - [Model.ProtocolEndpointOidcIssuer](docs/ProtocolEndpointOidcIssuer.md)
  - [Model.ProtocolIdVerification](docs/ProtocolIdVerification.md)
  - [Model.ProtocolMtls](docs/ProtocolMtls.md)
  - [Model.ProtocolOAuth](docs/ProtocolOAuth.md)

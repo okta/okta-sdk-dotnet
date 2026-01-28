@@ -71696,6 +71696,8 @@ components:
           $ref: '#/components/schemas/OAuthCredentials'
         endpoints:
           $ref: '#/components/schemas/OAuthEndpoints'
+        issuer:
+          $ref: '#/components/schemas/ProtocolEndpointOidcIssuer'
         oktaIdpOrgUrl:
           type: string
           description: URL of the IdP org
@@ -71715,6 +71717,15 @@ components:
           description: OpenID Connect Authorization Code flow
           enum:
             - OIDC
+    ProtocolEndpointOidcIssuer:
+      title: OIDC Protocol Issuer
+      description: The issuer configuration for the OIDC Identity Provider
+      type: object
+      properties:
+        url:
+          type: string
+          description: The issuer URL for the OIDC Identity Provider
+          example: https://idp.example.com
     ProtocolSaml:
       title: SAML 2.0 Protocol
       description: Protocol settings for the [SAML 2.0 Authentication Request Protocol](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf)

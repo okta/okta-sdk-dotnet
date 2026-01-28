@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Algorithms** | [**OidcAlgorithms**](OidcAlgorithms.md) |  | [optional] 
 **Credentials** | [**OAuthCredentials**](OAuthCredentials.md) |  | [optional] 
 **Endpoints** | [**OAuthEndpoints**](OAuthEndpoints.md) |  | [optional] 
+**Issuer** | [**ProtocolEndpointOidcIssuer**](ProtocolEndpointOidcIssuer.md) |  | [optional] 
 **OktaIdpOrgUrl** | **string** | URL of the IdP org | [optional] 
 **Scopes** | **List&lt;string&gt;** | OpenID Connect and IdP-defined permission bundles to request delegated access from the user &gt; **Note:** The [IdP type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path&#x3D;type&amp;t&#x3D;request) table lists the scopes that are supported for each IdP. | [optional] 
 **Settings** | [**OidcSettings**](OidcSettings.md) |  | [optional] 
