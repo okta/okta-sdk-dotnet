@@ -124,7 +124,10 @@ namespace Okta.Sdk.Model
         /// Initializes a new instance of the <see cref="AuthorizationServerPolicyRuleRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public AuthorizationServerPolicyRuleRequest() { }
+        public AuthorizationServerPolicyRuleRequest()
+        {
+            this.Type = TypeEnum.RESOURCEACCESS;
+        }
         
         /// <summary>
         /// Gets or Sets Actions

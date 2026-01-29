@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Priority** | **int** | Priority of the rule | [optional] 
 **Status** | **string** | Status of the rule | [optional] 
 **System** | **bool** | Set to &#x60;true&#x60; for system rules. You can&#39;t delete system rules. | [optional] 
-**Type** | **string** | Rule type | 
+**Type** | **string** | Rule type | [default to TypeEnum.RESOURCEACCESS]
 **Links** | [**AuthorizationServerPolicyRuleLinks**](AuthorizationServerPolicyRuleLinks.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

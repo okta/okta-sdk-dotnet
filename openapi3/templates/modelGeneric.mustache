@@ -118,7 +118,21 @@
         /// </summary>
         [JsonConstructorAttribute]
         {{^isAdditionalPropertiesTrue}}
+        {{#vendorExtensions.x-constructor-init}}
+        public {{classname}}()
+        {
+            {{#vars}}
+            {{#isEnum}}
+            {{#defaultValue}}
+            this.{{name}} = {{{defaultValue}}};
+            {{/defaultValue}}
+            {{/isEnum}}
+            {{/vars}}
+        }
+        {{/vendorExtensions.x-constructor-init}}
+        {{^vendorExtensions.x-constructor-init}}
         public {{classname}}() { }
+        {{/vendorExtensions.x-constructor-init}}
         {{/isAdditionalPropertiesTrue}}
         {{#isAdditionalPropertiesTrue}}
         public {{classname}}()

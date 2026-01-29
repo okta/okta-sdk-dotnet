@@ -58858,6 +58858,7 @@ components:
           description: Rule type
           enum:
             - RESOURCE_ACCESS
+          default: RESOURCE_ACCESS
         _links:
           allOf:
             - $ref: '#/components/schemas/LinksSelfAndLifecycle'
@@ -58887,6 +58888,7 @@ components:
           items:
             type: string
     AuthorizationServerPolicyRuleRequest:
+      x-constructor-init: true
       allOf:
         - $ref: '#/components/schemas/AuthorizationServerPolicyRule'
         - type: object
