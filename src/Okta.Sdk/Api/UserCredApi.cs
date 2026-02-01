@@ -115,8 +115,8 @@ namespace Okta.Sdk.Api
         /// <param name="id">An ID, login, or login shortname (as long as the shortname is unambiguous) of an existing Okta user</param>
         /// <param name="revokeSessions">Revokes the user&#39;s existing sessions if &#x60;true&#x60; (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> ExpirePasswordWithTempPasswordAsync(  string id ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of TempPassword</returns>
+        System.Threading.Tasks.Task<TempPassword> ExpirePasswordWithTempPasswordAsync(  string id ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Expire the password with a temporary password
         /// </summary>
@@ -127,8 +127,8 @@ namespace Okta.Sdk.Api
         /// <param name="id">An ID, login, or login shortname (as long as the shortname is unambiguous) of an existing Okta user</param>
         /// <param name="revokeSessions">Revokes the user&#39;s existing sessions if &#x60;true&#x60; (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> ExpirePasswordWithTempPasswordWithHttpInfoAsync(  string id ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (TempPassword)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TempPassword>> ExpirePasswordWithTempPasswordWithHttpInfoAsync(  string id ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Start forgot password flow
         /// </summary>
@@ -605,10 +605,10 @@ namespace Okta.Sdk.Api
         /// <param name="id">An ID, login, or login shortname (as long as the shortname is unambiguous) of an existing Okta user</param>
         /// <param name="revokeSessions">Revokes the user&#39;s existing sessions if &#x60;true&#x60; (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> ExpirePasswordWithTempPasswordAsync(  string id ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of TempPassword</returns>
+        public async System.Threading.Tasks.Task<TempPassword> ExpirePasswordWithTempPasswordAsync(  string id ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<User> localVarResponse = await ExpirePasswordWithTempPasswordWithHttpInfoAsync(id, revokeSessions, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<TempPassword> localVarResponse = await ExpirePasswordWithTempPasswordWithHttpInfoAsync(id, revokeSessions, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
@@ -618,8 +618,8 @@ namespace Okta.Sdk.Api
         /// <param name="id">An ID, login, or login shortname (as long as the shortname is unambiguous) of an existing Okta user</param>
         /// <param name="revokeSessions">Revokes the user&#39;s existing sessions if &#x60;true&#x60; (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<User>> ExpirePasswordWithTempPasswordWithHttpInfoAsync(  string id ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (TempPassword)</returns>
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<TempPassword>> ExpirePasswordWithTempPasswordWithHttpInfoAsync(  string id ,   bool? revokeSessions = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -674,7 +674,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<User>("/api/v1/users/{id}/lifecycle/expire_password_with_temp_password", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TempPassword>("/api/v1/users/{id}/lifecycle/expire_password_with_temp_password", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

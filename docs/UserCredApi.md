@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 <a name="expirepasswordwithtemppassword"></a>
 # **ExpirePasswordWithTempPassword**
-> User ExpirePasswordWithTempPassword (string id, bool? revokeSessions = null)
+> TempPassword ExpirePasswordWithTempPassword (string id, bool? revokeSessions = null)
 
 Expire the password with a temporary password
 
@@ -294,7 +294,7 @@ namespace Example
             try
             {
                 // Expire the password with a temporary password
-                User result = apiInstance.ExpirePasswordWithTempPassword(id, revokeSessions);
+                TempPassword result = apiInstance.ExpirePasswordWithTempPassword(id, revokeSessions);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**TempPassword**](TempPassword.md)
 
 ### Authorization
 

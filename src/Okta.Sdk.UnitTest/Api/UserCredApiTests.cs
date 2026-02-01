@@ -336,52 +336,27 @@ namespace Okta.Sdk.UnitTest.Api
         #region ExpirePasswordWithTempPassword Tests
 
         [Fact]
-        public async Task ExpirePasswordWithTempPassword_WithRevokeSessions_ReturnsUser()
+        public async Task ExpirePasswordWithTempPassword_WithRevokeSessions_ReturnsTempPassword()
         {
             // Arrange
             var userId = "user-temp-password-123";
+            var expectedTempPassword = "TempPass123!";
 
+            // The API returns a TempPassword object, not a User object
+            // This was the bug in issue #849 - the SDK incorrectly expected a User response
             var responseJson = @"{
-                ""id"": """ + userId + @""",
-                ""status"": ""PASSWORD_EXPIRED"",
-                ""created"": ""2025-10-05T12:00:00.000Z"",
-                ""activated"": ""2025-10-05T12:00:00.000Z"",
-                ""statusChanged"": ""2025-10-06T12:00:00.000Z"",
-                ""lastLogin"": null,
-                ""lastUpdated"": ""2025-10-06T12:00:00.000Z"",
-                ""passwordChanged"": ""2025-10-06T12:00:00.000Z"",
-                ""profile"": {
-                    ""firstName"": ""Temp"",
-                    ""lastName"": ""Password"",
-                    ""email"": ""temp@example.com"",
-                    ""login"": ""temp@example.com""
-                },
-                ""credentials"": {
-                    ""password"": {
-                        ""value"": ""TempPass123!""
-                    },
-                    ""provider"": {
-                        ""type"": ""OKTA"",
-                        ""name"": ""OKTA""
-                    }
-                },
-                ""_links"": {
-                    ""self"": {
-                        ""href"": ""https://test.okta.com/api/v1/users/" + userId + @"""
-                    }
-                }
+                ""tempPassword"": """ + expectedTempPassword + @"""
             }";
 
             var mockClient = new MockAsyncClient(responseJson);
             var userCredApi = new UserCredApi(mockClient, new Configuration { BasePath = "https://test.okta.com" });
 
             // Act
-            var user = await userCredApi.ExpirePasswordWithTempPasswordAsync(userId, revokeSessions: true);
+            var result = await userCredApi.ExpirePasswordWithTempPasswordAsync(userId, revokeSessions: true);
 
             // Assert
-            user.Should().NotBeNull();
-            user.Id.Should().Be(userId);
-            user.Status.Should().Be(UserStatus.PASSWORDEXPIRED);
+            result.Should().NotBeNull();
+            result._TempPassword.Should().Be(expectedTempPassword);
 
             mockClient.ReceivedPath.Should().StartWith("/api/v1/users/{id}/lifecycle/expire_password_with_temp_password");
             mockClient.ReceivedPathParams.Should().ContainKey("id");
@@ -394,45 +369,22 @@ namespace Okta.Sdk.UnitTest.Api
         {
             // Arrange
             var userId = "user-temp-password-456";
+            var expectedTempPassword = "TempPass456!";
 
+            // The API returns a TempPassword object, not a User object
             var responseJson = @"{
-                ""id"": """ + userId + @""",
-                ""status"": ""PASSWORD_EXPIRED"",
-                ""created"": ""2025-10-05T12:00:00.000Z"",
-                ""activated"": ""2025-10-05T12:00:00.000Z"",
-                ""statusChanged"": ""2025-10-06T12:00:00.000Z"",
-                ""lastLogin"": null,
-                ""lastUpdated"": ""2025-10-06T12:00:00.000Z"",
-                ""passwordChanged"": ""2025-10-06T12:00:00.000Z"",
-                ""profile"": {
-                    ""firstName"": ""Test"",
-                    ""lastName"": ""User"",
-                    ""email"": ""test@example.com"",
-                    ""login"": ""test@example.com""
-                },
-                ""credentials"": {
-                    ""password"": {
-                        ""value"": ""TempPass456!""
-                    },
-                    ""provider"": {
-                        ""type"": ""OKTA"",
-                        ""name"": ""OKTA""
-                    }
-                },
-                ""_links"": {
-                    ""self"": {
-                        ""href"": ""https://test.okta.com/api/v1/users/" + userId + @"""
-                    }
-                }
+                ""tempPassword"": """ + expectedTempPassword + @"""
             }";
 
             var mockClient = new MockAsyncClient(responseJson);
             var userCredApi = new UserCredApi(mockClient, new Configuration { BasePath = "https://test.okta.com" });
 
             // Act
-            await userCredApi.ExpirePasswordWithTempPasswordAsync(userId, revokeSessions: false);
+            var result = await userCredApi.ExpirePasswordWithTempPasswordAsync(userId, revokeSessions: false);
 
             // Assert
+            result.Should().NotBeNull();
+            result._TempPassword.Should().Be(expectedTempPassword);
             mockClient.ReceivedPath.Should().StartWith("/api/v1/users/{id}/lifecycle/expire_password_with_temp_password");
             mockClient.ReceivedPathParams.Should().ContainKey("id");
             mockClient.ReceivedPathParams["id"].Should().Contain(userId);

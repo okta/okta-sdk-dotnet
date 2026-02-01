@@ -24280,7 +24280,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/TempPassword'
               examples:
                 Expire password with temp password response:
                   $ref: '#/components/examples/ExpirePwdWithTempPwdResponse'
