@@ -3,11 +3,10 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-﻿using System;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using FluentAssertions;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Okta.Sdk.Client;
 using Xunit;
@@ -47,9 +46,9 @@ namespace Okta.Sdk.UnitTest.Client
         }
 
         [Theory]
-        [InlineData("POST", "http://foo.com/resource", "foo")]
-        [InlineData("PUT", "http://foo.com/resource/1", "bar")]
-        [InlineData("DELETE", "http://foo.com", "baz")]
+        [InlineData("POST", "https://foo.com/resource", "foo")]
+        [InlineData("PUT", "https://foo.com/resource/1", "bar")]
+        [InlineData("DELETE", "https://foo.com", "baz")]
         [Obsolete("Obsolete")]
         public void GenerateDpopJwtWithParams(string httpMethod, string uri, string accessToken)
         {
@@ -72,10 +71,50 @@ namespace Okta.Sdk.UnitTest.Client
 
             decodedJwt.Payload.Iat.Should().NotBeNull();
             decodedJwt.Payload.Jti.Should().NotBeNull();
-            decodedJwt.Payload["htm"].ToString().Should().Be(httpMethod);
+            decodedJwt.Payload["htm"].ToString().Should().Be(httpMethod.ToUpperInvariant());
             decodedJwt.Payload["htu"].ToString().Should()
                 .Be(uri);
             decodedJwt.Payload["ath"].Should().NotBeNull();
+        }
+
+        /// <summary>
+        /// Tests that the htm claim is always uppercase per RFC 9449 compliance (issue #852).
+        /// RestSharp's Method.ToString() returns PascalCase (e.g., "Get", "Post"), but RFC 9449
+        /// requires uppercase HTTP methods in the htm claim.
+        /// </summary>
+        [Theory]
+        [InlineData("get", "GET")]
+        [InlineData("Get", "GET")]
+        [InlineData("GET", "GET")]
+        [InlineData("post", "POST")]
+        [InlineData("Post", "POST")]
+        [InlineData("POST", "POST")]
+        [InlineData("put", "PUT")]
+        [InlineData("Put", "PUT")]
+        [InlineData("delete", "DELETE")]
+        [InlineData("Delete", "DELETE")]
+        [InlineData("patch", "PATCH")]
+        [InlineData("Patch", "PATCH")]
+        [Obsolete("Obsolete")]
+        public void GenerateHtmClaimAsUppercase_Rfc9449Compliance(string inputMethod, string expectedHtm)
+        {
+            // Arrange - This test verifies fix for GitHub issue #852
+            // The DPoP 'htm' claim must be uppercase per RFC 9449 Section 4.2
+            var configuration = new Configuration
+            {
+                OktaDomain = "https://foo-admin.okta.com",
+                Token = "foo"
+            };
+
+            var jwtGenerator = new DefaultDpopProofJwtGenerator(configuration);
+
+            // Act
+            var jwt = jwtGenerator.GenerateJwt(httpMethod: inputMethod, uri: "https://example.com/api");
+            
+            // Assert
+            var decodedJwt = new JwtSecurityTokenHandler().ReadJwtToken(jwt);
+            decodedJwt.Payload["htm"].ToString().Should().Be(expectedHtm, 
+                $"because RFC 9449 requires the htm claim to be uppercase, but got '{decodedJwt.Payload["htm"]}' for input '{inputMethod}'");
         }
 
         [Fact]
@@ -292,11 +331,8 @@ namespace Okta.Sdk.UnitTest.Client
             var iat = decodedJwt.Payload.Iat;
             
             iat.Should().NotBeNull();
-            if (iat != null)
-            {
-                iat.Value.Should().BeGreaterThanOrEqualTo(beforeGeneration, "because iat should be the current time");
-                iat.Value.Should().BeLessThanOrEqualTo(afterGeneration, "because iat should be the current time");
-            }
+            iat.Value.Should().BeGreaterThanOrEqualTo(beforeGeneration, "because iat should be the current time");
+            iat.Value.Should().BeLessThanOrEqualTo(afterGeneration, "because iat should be the current time");
         }
 
         [Fact]
@@ -313,23 +349,17 @@ namespace Okta.Sdk.UnitTest.Client
             
             var jwt1 = jwtGenerator.GenerateJwt();
             var decodedJwt1 = new JwtSecurityTokenHandler().ReadJwtToken(jwt1);
-            var jwk1 = decodedJwt1.Header["jwk"] as JObject;
-            if (jwk1 != null)
-            {
-                var n1 = jwk1["n"]?.ToString();
+            if (decodedJwt1.Header["jwk"] is not JObject jwk1) return;
+            var n1 = jwk1["n"]?.ToString();
             
-                jwtGenerator.RotateKeys();
+            jwtGenerator.RotateKeys();
             
-                var jwt2 = jwtGenerator.GenerateJwt();
-                var decodedJwt2 = new JwtSecurityTokenHandler().ReadJwtToken(jwt2);
-                var jwk2 = decodedJwt2.Header["jwk"] as JObject;
-                if (jwk2 != null)
-                {
-                    var n2 = jwk2["n"]?.ToString();
+            var jwt2 = jwtGenerator.GenerateJwt();
+            var decodedJwt2 = new JwtSecurityTokenHandler().ReadJwtToken(jwt2);
+            if (decodedJwt2.Header["jwk"] is not JObject jwk2) return;
+            var n2 = jwk2["n"]?.ToString();
             
-                    n1.Should().NotBe(n2, "because RotateKeys should generate a new RSA key pair");
-                }
-            }
+            n1.Should().NotBe(n2, "because RotateKeys should generate a new RSA key pair");
         }
 
         [Fact]
@@ -358,8 +388,8 @@ namespace Okta.Sdk.UnitTest.Client
             decodedJwt.Header.Alg.Should().Be(SecurityAlgorithms.RsaSha256);
             decodedJwt.Header["jwk"].Should().NotBeNull();
             
-            // Verify payload
-            decodedJwt.Payload["htm"].ToString().Should().Be(httpMethod);
+            // Verify payload - htm must be uppercase per RFC 9449
+            decodedJwt.Payload["htm"].ToString().Should().Be(httpMethod.ToUpperInvariant());
             decodedJwt.Payload["htu"].ToString().Should().Be(uri);
             decodedJwt.Payload["nonce"].ToString().Should().Be(nonce);
             decodedJwt.Payload.ContainsKey("ath").Should().BeTrue();

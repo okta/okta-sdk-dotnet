@@ -274,7 +274,7 @@ namespace Okta.Sdk.Client
                 var uri = new Uri(new Uri(this.Configuration.OktaDomain, UriKind.Absolute), new Uri(requestUri, UriKind.RelativeOrAbsolute));
                 
                 var dPopJwt = _defaultDpopJwtGenerator.GenerateJwt(
-                    httpMethod: response.Result.Request.Method.ToString(), accessToken: tokenResponse.AccessToken,
+                    httpMethod: response.Result.Request.Method.ToString().ToUpperInvariant(), accessToken: tokenResponse.AccessToken,
                     uri: uri.AbsoluteUri);
 
                 AddToContext(context, "dpop_jwt", dPopJwt);

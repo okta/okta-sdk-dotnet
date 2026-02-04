@@ -102,7 +102,8 @@ namespace Okta.Sdk.Client
 
                 var payload = new JwtPayload
                 {
-                    { "htm", httpMethod ?? "POST" },
+                    // RFC 9449 Section 4.2 requires the htm claim to be the uppercase HTTP method
+                    { "htm", (httpMethod ?? "POST").ToUpperInvariant() },
                     { "htu", uri ?? $"{ClientUtils.EnsureTrailingSlash(_configuration.OktaDomain)}oauth2/v1/token" },
                     { "iat", (int)timeSpanIat.TotalSeconds },
                     { "jti", Guid.NewGuid().ToString()}

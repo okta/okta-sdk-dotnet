@@ -650,7 +650,7 @@ namespace Okta.Sdk.Client
                         .Where(p => p.Type == ParameterType.UrlSegment)
                         .Aggregate(request.Resource, (current, param) => current.Replace("{" + param.Name + "}", param.Value?.ToString() ?? string.Empty));
                     var absoluteUri = new Uri(new Uri(configuration.OktaDomain, UriKind.Absolute), new Uri(expandedResource, UriKind.RelativeOrAbsolute)).AbsoluteUri;
-                    dpopJwt = _authTokenProvider.GetDpopProofJwt(httpMethod: request.Method.ToString(), uri: absoluteUri, accessToken: token.AccessToken);
+                    dpopJwt = _authTokenProvider.GetDpopProofJwt(httpMethod: request.Method.ToString().ToUpperInvariant(), uri: absoluteUri, accessToken: token.AccessToken);
                 }
             }
 
