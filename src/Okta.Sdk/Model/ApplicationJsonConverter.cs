@@ -79,6 +79,11 @@ namespace Okta.Sdk.Model
 
             var jsonObject = JObject.Load(reader);
             
+            // Fix JWK keys with null 'use' values before deserialization.
+            // The API can return JWKs with "use": null, but the oneOf discriminator
+            // expects "sig" or "enc". Default to "sig" (signing) when null.
+            FixNullJwkUseValues(jsonObject);
+            
             // Get the signOnMode value to determine the concrete type
             var signOnModeToken = jsonObject["signOnMode"];
             var signOnModeValue = signOnModeToken?.Type == JTokenType.Null ? null : signOnModeToken?.ToString();
@@ -125,6 +130,44 @@ namespace Okta.Sdk.Model
             // For derived types (which don't have the [JsonConverter] attribute), ToObject works fine
             var tempSerializer = JsonSerializer.CreateDefault(tempSettings);
             return (Application)jsonObject.ToObject(targetType, tempSerializer);
+        }
+        
+        /// <summary>
+        /// Fixes JWK keys that have null 'use' values by setting them to "sig" (signing).
+        /// The Okta API can return JWKs with "use": null, but the oneOf discriminator
+        /// for OAuth2ClientJsonSigningKeyResponse/OAuth2ClientJsonEncryptionKeyResponse
+        /// expects "sig" or "enc" to determine the correct type.
+        /// </summary>
+        private static void FixNullJwkUseValues(JObject jsonObject)
+        {
+            // Path: credentials.oauthClient.jwks.keys[*]
+            var jwksKeys = jsonObject.SelectTokens("credentials.oauthClient.jwks.keys[*]");
+            foreach (var key in jwksKeys)
+            {
+                if (key is JObject keyObj)
+                {
+                    var useToken = keyObj["use"];
+                    if (useToken == null || useToken.Type == JTokenType.Null)
+                    {
+                        // Default to "sig" (signing key) when use is null
+                        keyObj["use"] = "sig";
+                    }
+                }
+            }
+            
+            // Also check settings.oauthClient.jwks.keys[*] for some app types
+            var settingsJwksKeys = jsonObject.SelectTokens("settings.oauthClient.jwks.keys[*]");
+            foreach (var key in settingsJwksKeys)
+            {
+                if (key is JObject keyObj)
+                {
+                    var useToken = keyObj["use"];
+                    if (useToken == null || useToken.Type == JTokenType.Null)
+                    {
+                        keyObj["use"] = "sig";
+                    }
+                }
+            }
         }
     }
 }
