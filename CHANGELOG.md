@@ -1,6 +1,22 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 10.0.3
+
+### Bug Fixes
+
+| Issue | Problem | Fix |
+|-------|---------|-----|
+| - | JWK deserialization fails when `use` is null | Handle null `use` in `ApplicationJsonConverter` to avoid oneOf discriminator errors |
+| [#852](https://github.com/okta/okta-sdk-dotnet/issues/852) | DPoP token uses malformed `htm` claim (PascalCase instead of uppercase) | Fixed to use `.ToUpperInvariant()` for RFC 9449 compliance |
+| [#850](https://github.com/okta/okta-sdk-dotnet/issues/850) | `ReplaceAuthorizationServerPolicyRuleAsync` fails with malformed request body | Initialize `Type` to `RESOURCE_ACCESS` by default in `AuthorizationServerPolicyRuleRequest` |
+| [#849](https://github.com/okta/okta-sdk-dotnet/issues/849) | `ExpirePasswordWithTempPasswordAsync` returns `User` instead of `TempPassword` | Fixed return type to `TempPassword` containing the temporary password |
+
+### Changes
+
+- Added comprehensive unit and integration tests for Authentication & Authorization APIs
+- Test coverage includes: AuthenticatorApi, AuthorizationServerApi, OAuth2ResourceServerCredentialsKeysApi, WebAuthnPreregistrationApi
+
 ## 10.0.2
 
 ### Bug Fixes

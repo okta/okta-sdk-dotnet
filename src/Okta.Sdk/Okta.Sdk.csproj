@@ -13,7 +13,7 @@
     <Description>Official .NET SDK for the Okta API</Description>
     <Copyright>Okta, Inc.</Copyright>
     <RootNamespace>Okta.Sdk</RootNamespace>
-    <Version>10.0.2</Version>
+    <Version>10.0.3</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Okta.Sdk.xml</DocumentationFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>

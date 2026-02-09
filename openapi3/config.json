@@ -7,7 +7,7 @@
     "packageName" : "Okta.Sdk",
     "outputDir" : "../",
     "inputSpec" : "./management.yaml", 
-    "packageVersion" : "10.0.2",
+    "packageVersion" : "10.0.3",
     "packageDescription" : "Official .NET SDK for the Okta API",
     "packageTitle" : "Official .NET SDK for the Okta API",
     "packageCompany" : "Okta, Inc.",
