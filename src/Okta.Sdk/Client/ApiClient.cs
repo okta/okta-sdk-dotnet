@@ -65,7 +65,11 @@ namespace Okta.Sdk.Client
                     OverrideSpecifiedNames = false
                 }
             },
-            NullValueHandling = NullValueHandling.Ignore
+            NullValueHandling = NullValueHandling.Ignore,
+            Converters = new List<JsonConverter>
+            {
+                new Okta.Sdk.Model.StringEnumSerializingConverter()
+            }
         };
 
         internal JsonSerializerSettings JsonSerializer
@@ -216,7 +220,11 @@ namespace Okta.Sdk.Client
                     OverrideSpecifiedNames = false
                 }
             },
-            NullValueHandling = NullValueHandling.Ignore
+            NullValueHandling = NullValueHandling.Ignore,
+            Converters = new List<JsonConverter>
+            {
+                new Okta.Sdk.Model.StringEnumSerializingConverter()
+            }
         };
 
         /// <summary>

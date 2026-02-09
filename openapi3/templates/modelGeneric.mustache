@@ -50,8 +50,20 @@
         [Obsolete]
         {{/deprecated}}
         
-        public {{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}{{^isEnum}}?{{/isEnum}}{{/required}}{{/isContainer}} {{name}} { get; set; }
+        public {{#vendorExtensions.x-override-parent}}new {{/vendorExtensions.x-override-parent}}{{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}{{^isEnum}}?{{/isEnum}}{{/required}}{{/isContainer}} {{name}} { get; set; }
+        {{#vendorExtensions.x-override-parent}}
+
+        /// <summary>
+        /// Returns true if {{name}} should be serialized (overrides base class behavior when present).
+        /// </summary>
+        /// <returns>true if {{name}} has a value, false otherwise</returns>
+        public new bool ShouldSerialize{{name}}()
+        {
+            return {{name}} != null && !string.IsNullOrEmpty({{name}}.Value);
+        }
+        {{/vendorExtensions.x-override-parent}}
         {{#isReadOnly}}
+        {{^vendorExtensions.x-override-parent}}
 
         /// <summary>
         /// Returns false as {{name}} should not be serialized given that it's read-only.
@@ -61,6 +73,7 @@
         {
             return false;
         }
+        {{/vendorExtensions.x-override-parent}}
         {{/isReadOnly}}
         {{/conditionalSerialization}}
         {{#conditionalSerialization}}

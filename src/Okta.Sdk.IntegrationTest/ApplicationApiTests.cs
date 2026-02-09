@@ -111,7 +111,16 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Name = "bookmark",
                     Label = $"dotnet-sdk-test: BookmarkApp {guid}",
-                    SignOnMode = "BOOKMARK",
+                    SignOnMode = ApplicationSignOnMode.BOOKMARK,
+                    Visibility = new ApplicationVisibility
+                    {
+                        AutoSubmitToolbar = false,
+                        Hide = new ApplicationVisibilityHide
+                        {
+                            IOS = false,
+                            Web = false
+                        }
+                    },
                     Settings = new BookmarkApplicationSettings
                     {
                         App = new BookmarkApplicationSettingsApplication
@@ -144,7 +153,16 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Name = "template_basic_auth",
                     Label = $"dotnet-sdk-test: BasicAuthApp {guid}",
-                    SignOnMode = "BASIC_AUTH",
+                    SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                    Visibility = new ApplicationVisibility
+                    {
+                        AutoSubmitToolbar = false,
+                        Hide = new ApplicationVisibilityHide
+                        {
+                            IOS = false,
+                            Web = false
+                        }
+                    },
                     Settings = new BasicApplicationSettings
                     {
                         App = new BasicApplicationSettingsApplication
@@ -177,7 +195,16 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Name = "bookmark",
                     Label = $"dotnet-sdk-test: InactiveApp {guid}",
-                    SignOnMode = "BOOKMARK",
+                    SignOnMode = ApplicationSignOnMode.BOOKMARK,
+                    Visibility = new ApplicationVisibility
+                    {
+                        AutoSubmitToolbar = false,
+                        Hide = new ApplicationVisibilityHide
+                        {
+                            IOS = false,
+                            Web = false
+                        }
+                    },
                     Settings = new BookmarkApplicationSettings
                     {
                         App = new BookmarkApplicationSettingsApplication
@@ -199,7 +226,16 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Name = "oidc_client",
                     Label = $"dotnet-sdk-test: OIDCApp {guid}",
-                    SignOnMode = "OPENID_CONNECT",
+                    SignOnMode = ApplicationSignOnMode.OPENIDCONNECT,
+                    Visibility = new ApplicationVisibility
+                    {
+                        AutoSubmitToolbar = false,
+                        Hide = new ApplicationVisibilityHide
+                        {
+                            IOS = false,
+                            Web = false
+                        }
+                    },
                     Credentials = new OAuthApplicationCredentials
                     {
                         OauthClient = new ApplicationCredentialsOAuthClient
@@ -241,7 +277,16 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Name = "template_swa",
                     Label = $"dotnet-sdk-test: BrowserPluginApp {guid}",
-                    SignOnMode = "BROWSER_PLUGIN",
+                    SignOnMode = ApplicationSignOnMode.BROWSERPLUGIN,
+                    Visibility = new ApplicationVisibility
+                    {
+                        AutoSubmitToolbar = false,
+                        Hide = new ApplicationVisibilityHide
+                        {
+                            IOS = false,
+                            Web = false
+                        }
+                    },
                     Settings = new SwaApplicationSettings
                     {
                         App = new SwaApplicationSettingsApplication
@@ -541,7 +586,16 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Name = "bookmark",
                     Label = "Dummy",
-                    SignOnMode = "BOOKMARK",
+                    SignOnMode = ApplicationSignOnMode.BOOKMARK,
+                    Visibility = new ApplicationVisibility
+                    {
+                        AutoSubmitToolbar = false,
+                        Hide = new ApplicationVisibilityHide
+                        {
+                            IOS = false,
+                            Web = false
+                        }
+                    },
                     Settings = new BookmarkApplicationSettings
                     {
                         App = new BookmarkApplicationSettingsApplication
@@ -570,7 +624,16 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Name = "bookmark",
                             Label = $"dotnet-sdk-test: PaginationApp-{i}-{guid}",
-                            SignOnMode = "BOOKMARK",
+                            SignOnMode = ApplicationSignOnMode.BOOKMARK,
+                            Visibility = new ApplicationVisibility
+                            {
+                                AutoSubmitToolbar = false,
+                                Hide = new ApplicationVisibilityHide
+                                {
+                                    IOS = false,
+                                    Web = false
+                                }
+                            },
                             Settings = new BookmarkApplicationSettings
                             {
                                 App = new BookmarkApplicationSettingsApplication
@@ -632,7 +695,16 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Name = "bookmark",
                     Label = $"dotnet-sdk-test: ActiveDeleteTest {guid}",
-                    SignOnMode = "BOOKMARK",
+                    SignOnMode = ApplicationSignOnMode.BOOKMARK,
+                    Visibility = new ApplicationVisibility
+                    {
+                        AutoSubmitToolbar = false,
+                        Hide = new ApplicationVisibilityHide
+                        {
+                            IOS = false,
+                            Web = false
+                        }
+                    },
                     Settings = new BookmarkApplicationSettings
                     {
                         App = new BookmarkApplicationSettingsApplication
@@ -700,7 +772,16 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         Name = "bookmark",
                         Label = $"dotnet-sdk-test: EnumerationTest-{i}-{guid}",
-                        SignOnMode = "BOOKMARK",
+                        SignOnMode = ApplicationSignOnMode.BOOKMARK,
+                        Visibility = new ApplicationVisibility
+                        {
+                            AutoSubmitToolbar = false,
+                            Hide = new ApplicationVisibilityHide
+                            {
+                                IOS = false,
+                                Web = false
+                            }
+                        },
                         Settings = new BookmarkApplicationSettings
                         {
                             App = new BookmarkApplicationSettingsApplication
@@ -774,7 +855,16 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Name = "bookmark",
                     Label = $"dotnet-sdk-test: MinimalApp {guid}",
-                    SignOnMode = "BOOKMARK",
+                    SignOnMode = ApplicationSignOnMode.BOOKMARK,
+                    Visibility = new ApplicationVisibility
+                    {
+                        AutoSubmitToolbar = false,
+                        Hide = new ApplicationVisibilityHide
+                        {
+                            IOS = false,
+                            Web = false
+                        }
+                    },
                     Settings = new BookmarkApplicationSettings
                     {
                         App = new BookmarkApplicationSettingsApplication

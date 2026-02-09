@@ -45,9 +45,15 @@ namespace Okta.Sdk.Model
         /// <inheritdoc />
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            var enumValue = (value as StringEnum)?.Value ?? string.Empty;
+            var stringEnum = value as StringEnum;
+            
+            if (stringEnum == null || string.IsNullOrEmpty(stringEnum.Value))
+            {
+                writer.WriteNull();
+                return;
+            }
 
-            serializer.Serialize(writer, enumValue);
+            writer.WriteValue(stringEnum.Value);
         }
     }
 }

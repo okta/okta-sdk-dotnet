@@ -35,7 +35,16 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = "oidc_client",
                 Label = $"SDK Test ProfileMapping {Guid.NewGuid()}",
-                SignOnMode = "OPENID_CONNECT",
+                SignOnMode = ApplicationSignOnMode.OPENIDCONNECT,
+                Visibility = new ApplicationVisibility
+                {
+                    AutoSubmitToolbar = false,
+                    Hide = new ApplicationVisibilityHide
+                    {
+                        IOS = false,
+                        Web = false
+                    }
+                },
                 Credentials = new OAuthApplicationCredentials
                 {
                     OauthClient = new ApplicationCredentialsOAuthClient

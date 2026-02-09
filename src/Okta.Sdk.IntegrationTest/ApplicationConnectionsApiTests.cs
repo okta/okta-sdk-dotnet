@@ -107,7 +107,16 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Name = "oidc_client",
                     Label = $"dotnet-sdk-test-conn: ProvisioningTestApp {guid}",
-                    SignOnMode = "OPENID_CONNECT",
+                    SignOnMode = ApplicationSignOnMode.OPENIDCONNECT,
+                    Visibility = new ApplicationVisibility
+                    {
+                        AutoSubmitToolbar = false,
+                        Hide = new ApplicationVisibilityHide
+                        {
+                            IOS = false,
+                            Web = false
+                        }
+                    },
                     Credentials = new OAuthApplicationCredentials
                     {
                         OauthClient = new ApplicationCredentialsOAuthClient
@@ -538,7 +547,16 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Name = "bookmark",
                     Label = $"dotnet-sdk-test-conn: BookmarkApp {guid}",
-                    SignOnMode = "BOOKMARK",
+                    SignOnMode = ApplicationSignOnMode.BOOKMARK,
+                    Visibility = new ApplicationVisibility
+                    {
+                        AutoSubmitToolbar = false,
+                        Hide = new ApplicationVisibilityHide
+                        {
+                            IOS = false,
+                            Web = false
+                        }
+                    },
                     Settings = new BookmarkApplicationSettings
                     {
                         App = new BookmarkApplicationSettingsApplication
@@ -618,7 +636,16 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Name = "oidc_client",
                     Label = $"dotnet-sdk-test-conn: EdgeCaseApp {guid}",
-                    SignOnMode = "OPENID_CONNECT",
+                    SignOnMode = ApplicationSignOnMode.OPENIDCONNECT,
+                    Visibility = new ApplicationVisibility
+                    {
+                        AutoSubmitToolbar = false,
+                        Hide = new ApplicationVisibilityHide
+                        {
+                            IOS = false,
+                            Web = false
+                        }
+                    },
                     Credentials = new OAuthApplicationCredentials
                     {
                         OauthClient = new ApplicationCredentialsOAuthClient

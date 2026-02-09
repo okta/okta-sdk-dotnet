@@ -56,7 +56,11 @@ namespace {{packageName}}.Client
                     OverrideSpecifiedNames = false
                 }
             },
-            NullValueHandling = NullValueHandling.Ignore
+            NullValueHandling = NullValueHandling.Ignore,
+            Converters = new List<JsonConverter>
+            {
+                new {{{packageName}}}.{{modelPackage}}.StringEnumSerializingConverter()
+            }
         };
 
         internal JsonSerializerSettings JsonSerializer
@@ -208,7 +212,11 @@ namespace {{packageName}}.Client
                     OverrideSpecifiedNames = false
                 }
             },
-            NullValueHandling = NullValueHandling.Ignore
+            NullValueHandling = NullValueHandling.Ignore,
+            Converters = new List<JsonConverter>
+            {
+                new {{{packageName}}}.{{modelPackage}}.StringEnumSerializingConverter()
+            }
         };
 
         /// <summary>

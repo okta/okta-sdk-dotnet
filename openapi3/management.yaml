@@ -59219,6 +59219,7 @@ components:
             name:
               type: string
               description: '`template_basic_auth` is the key name for a Basic Authentication scheme app instance'
+              x-override-parent: true
               enum:
                 - template_basic_auth
             settings:
@@ -59379,6 +59380,7 @@ components:
             name:
               type: string
               description: '`bookmark` is the key name for a Bookmark app'
+              x-override-parent: true
               enum:
                 - bookmark
             settings:
@@ -59528,6 +59530,7 @@ components:
             name:
               type: string
               description: The key name for the app definition
+              x-override-parent: true
               enum:
                 - template_swa
                 - template_swa3field
@@ -68845,6 +68848,7 @@ components:
             name:
               type: string
               description: '`oidc_client` is the key name for an OAuth 2.0 client app instance'
+              x-override-parent: true
               enum:
                 - oidc_client
             settings:
@@ -74134,6 +74138,7 @@ components:
             name:
               type: string
               description: '`template_sps` is the key name for a SWA app instance that uses HTTP POST and doesn''t require a browser plugin'
+              x-override-parent: true
               enum:
                 - template_sps
             settings:
@@ -79631,6 +79636,7 @@ components:
             name:
               type: string
               description: '`template_wsfed` is the key name for a WS-Federated app instance with a SAML 2.0 token'
+              x-override-parent: true
               enum:
                 - template_wsfed
             settings:

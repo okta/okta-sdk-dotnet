@@ -86,7 +86,16 @@ namespace Okta.Sdk.Model
         /// <value>&#x60;template_wsfed&#x60; is the key name for a WS-Federated app instance with a SAML 2.0 token</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         
-        public NameEnum Name { get; set; }
+        public new NameEnum Name { get; set; }
+
+        /// <summary>
+        /// Returns true if Name should be serialized (overrides base class behavior when present).
+        /// </summary>
+        /// <returns>true if Name has a value, false otherwise</returns>
+        public new bool ShouldSerializeName()
+        {
+            return Name != null && !string.IsNullOrEmpty(Name.Value);
+        }
         /// <summary>
         /// Initializes a new instance of the <see cref="WsFederationApplication" /> class.
         /// </summary>
