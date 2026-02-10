@@ -61192,6 +61192,8 @@ components:
                     $ref: '#/components/schemas/ScreenLockType'
             secureHardwarePresent:
               type: boolean
+              nullable: true
+              description: Indicates if the device contains secure hardware functionality. When specified, only `true` is a valid value.
             thirdPartySignalProviders:
               type: object
               description: Settings for third-party signal providers (based on the `ANDROID` platform)
@@ -61258,6 +61260,8 @@ components:
                     $ref: '#/components/schemas/ScreenLockType'
             secureHardwarePresent:
               type: boolean
+              nullable: true
+              description: Indicates if the device contains secure hardware functionality. When specified, only `true` is a valid value.
             thirdPartySignalProviders:
               type: object
               description: Settings for third-party signal providers (based on the `MACOS` platform)
@@ -61307,6 +61311,8 @@ components:
                     $ref: '#/components/schemas/ScreenLockType'
             secureHardwarePresent:
               type: boolean
+              nullable: true
+              description: Indicates if the device contains secure hardware functionality. When specified, only `true` is a valid value.
             thirdPartySignalProviders:
               type: object
               description: Settings for third-party signal providers (based on the `WINDOWS` platform)
@@ -74121,6 +74127,12 @@ components:
         MEDIUM: A complex PIN, or alphabetic or alphanumeric screen lock with at least 4 digits is set
         HIGH: A complex 8-digit PIN, or 6-character alphabetic or alphanumeric screen lock is set
     ScreenLockType:
+      description: |
+        Indicates the type of screen lock required for device assurance.
+        **Note:** When used in `screenLockType.include`, only certain combinations are valid:
+        - `[BIOMETRIC]` - Requires biometric screen lock
+        - `[PASSCODE, BIOMETRIC]` - Requires passcode or biometric screen lock
+        The value `NONE` and single `[PASSCODE]` are not valid for device assurance policies.
       type: string
       enum:
         - BIOMETRIC

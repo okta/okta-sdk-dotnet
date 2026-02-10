@@ -31,8 +31,9 @@ using OpenAPIDateConverter = Okta.Sdk.Client.OpenAPIDateConverter;
 namespace Okta.Sdk.Model
 {
     /// <summary>
-    /// Defines ScreenLockType
+    /// Indicates the type of screen lock required for device assurance. **Note:** When used in &#x60;screenLockType.include&#x60;, only certain combinations are valid: - &#x60;[BIOMETRIC]&#x60; - Requires biometric screen lock - &#x60;[PASSCODE, BIOMETRIC]&#x60; - Requires passcode or biometric screen lock The value &#x60;NONE&#x60; and single &#x60;[PASSCODE]&#x60; are not valid for device assurance policies. 
     /// </summary>
+    /// <value>Indicates the type of screen lock required for device assurance. **Note:** When used in &#x60;screenLockType.include&#x60;, only certain combinations are valid: - &#x60;[BIOMETRIC]&#x60; - Requires biometric screen lock - &#x60;[PASSCODE, BIOMETRIC]&#x60; - Requires passcode or biometric screen lock The value &#x60;NONE&#x60; and single &#x60;[PASSCODE]&#x60; are not valid for device assurance policies. </value>
     [JsonConverter(typeof(StringEnumSerializingConverter))]
     public sealed class ScreenLockType : StringEnum
     {

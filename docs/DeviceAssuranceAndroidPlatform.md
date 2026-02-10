@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Jailbreak** | **bool** |  | [optional] 
 **OsVersion** | [**OSVersion**](OSVersion.md) |  | [optional] 
 **ScreenLockType** | [**DeviceAssuranceAndroidPlatformAllOfScreenLockType**](DeviceAssuranceAndroidPlatformAllOfScreenLockType.md) |  | [optional] 
-**SecureHardwarePresent** | **bool** |  | [optional] 
+**SecureHardwarePresent** | **bool?** | Indicates if the device contains secure hardware functionality. When specified, only &#x60;true&#x60; is a valid value. | [optional] 
 **ThirdPartySignalProviders** | [**DeviceAssuranceAndroidPlatformAllOfThirdPartySignalProviders**](DeviceAssuranceAndroidPlatformAllOfThirdPartySignalProviders.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

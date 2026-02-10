@@ -65,10 +65,11 @@ namespace Okta.Sdk.Model
         public DeviceAssuranceAndroidPlatformAllOfScreenLockType ScreenLockType { get; set; }
 
         /// <summary>
-        /// Gets or Sets SecureHardwarePresent
+        /// Indicates if the device contains secure hardware functionality. When specified, only &#x60;true&#x60; is a valid value.
         /// </summary>
+        /// <value>Indicates if the device contains secure hardware functionality. When specified, only &#x60;true&#x60; is a valid value.</value>
         [DataMember(Name = "secureHardwarePresent", EmitDefaultValue = true)]
-        public bool SecureHardwarePresent { get; set; }
+        public bool? SecureHardwarePresent { get; set; }
 
         /// <summary>
         /// Gets or Sets ThirdPartySignalProviders
@@ -142,7 +143,8 @@ namespace Okta.Sdk.Model
                 ) && base.Equals(input) && 
                 (
                     this.SecureHardwarePresent == input.SecureHardwarePresent ||
-                    this.SecureHardwarePresent.Equals(input.SecureHardwarePresent)
+                    (this.SecureHardwarePresent != null &&
+                    this.SecureHardwarePresent.Equals(input.SecureHardwarePresent))
                 ) && base.Equals(input) && 
                 (
                     this.ThirdPartySignalProviders == input.ThirdPartySignalProviders ||
@@ -173,7 +175,10 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ScreenLockType.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.SecureHardwarePresent.GetHashCode();
+                if (this.SecureHardwarePresent != null)
+                {
+                    hashCode = (hashCode * 59) + this.SecureHardwarePresent.GetHashCode();
+                }
                 if (this.ThirdPartySignalProviders != null)
                 {
                     hashCode = (hashCode * 59) + this.ThirdPartySignalProviders.GetHashCode();
