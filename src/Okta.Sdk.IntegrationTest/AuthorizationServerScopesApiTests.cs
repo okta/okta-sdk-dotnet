@@ -28,8 +28,8 @@ namespace Okta.Sdk.IntegrationTest
     /// </summary>
     public class AuthorizationServerScopesApiTests
     {
-        private AuthorizationServerScopesApi _scopesApi;
-        private AuthorizationServerApi _authServerApi;
+        private readonly AuthorizationServerScopesApi _scopesApi;
+        private readonly AuthorizationServerApi _authServerApi;
 
         public AuthorizationServerScopesApiTests()
         {
@@ -47,7 +47,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 Name = $"Test-Scopes-{testName}-{uniqueId}",
                 Description = $"Test Auth Server for Scopes API Integration Tests - {testName}",
-                Audiences = new List<string> { $"api://scopes-test-{uniqueId}" }
+                Audiences = [$"api://scopes-test-{uniqueId}"]
             };
 
             return await _authServerApi.CreateAuthorizationServerAsync(authServerRequest);
@@ -145,7 +145,7 @@ namespace Okta.Sdk.IntegrationTest
                     DisplayName = "API Write Access",
                     Consent = OAuth2ScopeConsentType.IMPLICIT,
                     Default = true,
-                    Optional = true,
+                    Optional = false, // Must be false when consent is IMPLICIT
                     MetadataPublish = OAuth2ScopeMetadataPublish.ALLCLIENTS
                 };
 
@@ -159,7 +159,7 @@ namespace Okta.Sdk.IntegrationTest
                 updatedScope.DisplayName.Should().Be(updateRequest.DisplayName, "Updated scope display name should match");
                 updatedScope.Consent.Should().Be(OAuth2ScopeConsentType.IMPLICIT, "Updated consent should be IMPLICIT");
                 updatedScope.Default.Should().BeTrue("Updated default should be true");
-                updatedScope.Optional.Should().BeTrue("Updated optional should be true");
+                updatedScope.Optional.Should().BeFalse("Updated optional should be false when consent is IMPLICIT");
                 updatedScope.MetadataPublish.Should().Be(OAuth2ScopeMetadataPublish.ALLCLIENTS, "Updated metadataPublish should be ALL_CLIENTS");
 
                 // ========================================
@@ -187,7 +187,7 @@ namespace Okta.Sdk.IntegrationTest
             finally
             {
                 // Cleanup
-                if (createdScope != null && authServer != null)
+                if (createdScope != null)
                 {
                     try
                     {
@@ -222,15 +222,16 @@ namespace Okta.Sdk.IntegrationTest
                 authServer = await CreateTestAuthorizationServerAsync("List");
                 authServer.Should().NotBeNull();
 
-                // Create multiple scopes
+                // Create multiple scopes with a searchable prefix
                 var uniqueId = Guid.NewGuid().ToString().Substring(0, 8);
+                var searchPrefix = $"testscope{uniqueId}";
                 var scopeNames = new[] { "read", "write", "delete" };
 
                 foreach (var scopeName in scopeNames)
                 {
                     var scopeRequest = new OAuth2Scope
                     {
-                        Name = $"api:{scopeName}:{uniqueId}",
+                        Name = $"{searchPrefix}:{scopeName}",
                         Description = $"{scopeName} access",
                         DisplayName = $"API {scopeName} Access",
                         Consent = OAuth2ScopeConsentType.IMPLICIT
@@ -260,17 +261,24 @@ namespace Okta.Sdk.IntegrationTest
                 }
 
                 // ========================================
-                // Test 2: List with query parameter (q)
+                // Test 2: List with query parameter (q) - with retry for indexing
                 // ========================================
                 var filteredList = new List<OAuth2Scope>();
-                await foreach (var scope in _scopesApi.ListOAuth2Scopes(authServer.Id, q: "read"))
+                for (int i = 0; i < 5; i++)
                 {
-                    filteredList.Add(scope);
+                    await Task.Delay(2000);
+                    filteredList.Clear();
+                    await foreach (var scope in _scopesApi.ListOAuth2Scopes(authServer.Id, q: searchPrefix))
+                    {
+                        filteredList.Add(scope);
+                    }
+                    if (filteredList.Any(s => s.Name.StartsWith(searchPrefix)))
+                        break;
                 }
 
-                // Should find our "read" scope
-                filteredList.Should().Contain(s => s.Name.Contains("read"),
-                    "Filtered list should contain scope with 'read' in name");
+                // Should find our scopes matching the search prefix
+                filteredList.Should().Contain(s => s.Name.StartsWith(searchPrefix),
+                    "Filtered list should contain scopes with our search prefix");
 
                 // ========================================
                 // Test 3: List with WithHttpInfo
@@ -288,7 +296,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     try
                     {
-                        await _scopesApi.DeleteOAuth2ScopeAsync(authServer.Id, scopeId);
+                        await _scopesApi.DeleteOAuth2ScopeAsync(authServer?.Id, scopeId);
                     }
                     catch (ApiException) { }
                 }
@@ -385,7 +393,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     try
                     {
-                        await _scopesApi.DeleteOAuth2ScopeAsync(authServer.Id, scopeId);
+                        await _scopesApi.DeleteOAuth2ScopeAsync(authServer?.Id, scopeId);
                     }
                     catch (ApiException) { }
                 }
@@ -460,7 +468,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     try
                     {
-                        await _scopesApi.DeleteOAuth2ScopeAsync(authServer.Id, scopeId);
+                        await _scopesApi.DeleteOAuth2ScopeAsync(authServer?.Id, scopeId);
                     }
                     catch (ApiException) { }
                 }
@@ -565,7 +573,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     try
                     {
-                        await _scopesApi.DeleteOAuth2ScopeAsync(authServer.Id, scopeId);
+                        await _scopesApi.DeleteOAuth2ScopeAsync(authServer?.Id, scopeId);
                     }
                     catch (ApiException) { }
                 }

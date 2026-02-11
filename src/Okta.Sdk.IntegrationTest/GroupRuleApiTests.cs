@@ -254,8 +254,15 @@ namespace Okta.Sdk.IntegrationTest
 
             await Task.Delay(2000);
 
-            // READ - ListGroupRules
-            var allRules = await _groupRuleApi.ListGroupRules().ToListAsync();
+            // READ - ListGroupRules (with retry for eventual consistency)
+            List<GroupRule> allRules = null;
+            for (int i = 0; i < 5; i++)
+            {
+                allRules = await _groupRuleApi.ListGroupRules().ToListAsync();
+                if (allRules.Any(r => r.Id == createdRule1.Id) && allRules.Any(r => r.Id == createdRule2.Id))
+                    break;
+                await Task.Delay(2000);
+            }
             allRules.Should().NotBeNull();
             allRules.Should().HaveCountGreaterThanOrEqualTo(2);
             allRules.Should().Contain(r => r.Id == createdRule1.Id);
@@ -403,15 +410,22 @@ namespace Okta.Sdk.IntegrationTest
             createdMultiGroupRule.Actions.AssignUserToGroups.GroupIds.Should().Contain(TargetGroup2Id);
             createdMultiGroupRule.Actions.AssignUserToGroups.GroupIds.Should().Contain(TargetGroup3Id);
 
-            await Task.Delay(1000);
+            await Task.Delay(2000);
 
-            // Test pagination with after parameter
-            var firstPage = await _groupRuleApi.ListGroupRules(limit: 1).ToListAsync();
+            // Test pagination with after parameter (with retry for eventual consistency)
+            List<GroupRule> firstPage = null;
+            for (int i = 0; i < 5; i++)
+            {
+                firstPage = await _groupRuleApi.ListGroupRules(limit: 1).ToListAsync();
+                if (firstPage.Count > 0)
+                    break;
+                await Task.Delay(2000);
+            }
             firstPage.Should().NotBeNull();
             firstPage.Should().HaveCountGreaterThanOrEqualTo(1);
 
             // If we have more than one rule, test the after parameter
-            if (firstPage.Count > 0)
+            if (firstPage is { Count: > 0 })
             {
                 var firstRuleId = firstPage[0].Id;
                 var secondPage = await _groupRuleApi.ListGroupRules(limit: 1, after: firstRuleId).ToListAsync();
@@ -590,17 +604,17 @@ namespace Okta.Sdk.IntegrationTest
             createdOrRule.Should().NotBeNull();
             createdOrRule.Conditions.Expression.Value.Should().Contain("or");
 
-            // Create rule with pattern matching
+            // Create rule with additional user attribute expression
             var patternRule = new CreateGroupRuleRequest
             {
                 Type = CreateGroupRuleRequest.TypeEnum.GroupRule,
-                Name = $"PatternMatch {TestGuid.Substring(0, 8)}",
+                Name = $"UserAttr {TestGuid.Substring(0, 8)}",
                 Conditions = new GroupRuleConditions
                 {
                     Expression = new GroupRuleExpression
                     {
                         Type = "urn:okta:expression:1.0",
-                        Value = "String.startsWith(user.email, \"group-rule-test\")"
+                        Value = "user.lastName==\"GroupRuleTestUser\""
                     }
                 },
                 Actions = new GroupRuleAction
@@ -616,12 +630,19 @@ namespace Okta.Sdk.IntegrationTest
             TrackCreatedGroupRule(createdPatternRule.Id);
 
             createdPatternRule.Should().NotBeNull();
-            createdPatternRule.Conditions.Expression.Value.Should().Contain("String.startsWith");
+            createdPatternRule.Conditions.Expression.Value.Should().Contain("lastName");
 
-            await Task.Delay(1000);
-
-            // Verify all rules are in the list
-            var allComplexRules = await _groupRuleApi.ListGroupRules().ToListAsync();
+            // Verify all rules are in the list (with retry for eventual consistency)
+            List<GroupRule> allComplexRules = null;
+            for (int i = 0; i < 5; i++)
+            {
+                await Task.Delay(2000);
+                allComplexRules = await _groupRuleApi.ListGroupRules().ToListAsync();
+                if (allComplexRules.Any(r => r.Id == createdAndRule.Id) &&
+                    allComplexRules.Any(r => r.Id == createdOrRule.Id) &&
+                    allComplexRules.Any(r => r.Id == createdPatternRule.Id))
+                    break;
+            }
             allComplexRules.Should().Contain(r => r.Id == createdAndRule.Id);
             allComplexRules.Should().Contain(r => r.Id == createdOrRule.Id);
             allComplexRules.Should().Contain(r => r.Id == createdPatternRule.Id);

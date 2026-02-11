@@ -19,6 +19,7 @@ namespace Okta.Sdk.IntegrationTest
     /// Integration tests for ApplicationGroupsApi
     /// Tests group assignment operations for applications
     /// </summary>
+    [Collection(nameof(ApplicationGroupsApiTests))]
     public class ApplicationGroupsApiTests : IAsyncLifetime
     {
         private ApplicationApi _applicationApi;
@@ -64,7 +65,7 @@ namespace Okta.Sdk.IntegrationTest
             var createdGroup = await _groupApi.AddGroupAsync(testGroup);
             _testGroupId = createdGroup.Id;
 
-            await Task.Delay(2000); // Wait for resources to be ready
+            await Task.Delay(3000); // Wait for resources to be ready
         }
 
         public async Task DisposeAsync()
@@ -115,7 +116,7 @@ namespace Okta.Sdk.IntegrationTest
             assignment.Links.App.Should().NotBeNull();
             assignment.Links.Group.Should().NotBeNull();
 
-            await Task.Delay(1000);
+            await Task.Delay(3000);
 
             // Act - Retrieve the specific assignment
             var retrievedAssignment = await _applicationGroupsApi.GetApplicationGroupAssignmentAsync(_testAppId, _testGroupId);
@@ -137,10 +138,16 @@ namespace Okta.Sdk.IntegrationTest
             };
 
             await _applicationGroupsApi.AssignGroupToApplicationAsync(_testAppId, _testGroupId, groupAssignment);
-            await Task.Delay(1000);
 
-            // Act - List all group assignments
-            var assignments = await _applicationGroupsApi.ListApplicationGroupAssignmentsWithHttpInfoAsync(_testAppId);
+            // Act - List all group assignments with retry for eventual consistency
+            ApiResponse<List<ApplicationGroupAssignment>> assignments = null;
+            for (int i = 0; i < 5; i++)
+            {
+                await Task.Delay(2000);
+                assignments = await _applicationGroupsApi.ListApplicationGroupAssignmentsWithHttpInfoAsync(_testAppId);
+                if (assignments.Data != null && assignments.Data.Count > 0)
+                    break;
+            }
 
             // Assert - Validate response and assignment details
             assignments.Should().NotBeNull();
@@ -186,13 +193,19 @@ namespace Okta.Sdk.IntegrationTest
             };
 
             await _applicationGroupsApi.AssignGroupToApplicationAsync(_testAppId, _testGroupId, groupAssignment);
-            await Task.Delay(1000);
 
-            // Act - List assignments with query filter
-            var assignments = await _applicationGroupsApi.ListApplicationGroupAssignmentsWithHttpInfoAsync(
-                _testAppId, 
-                q: groupNamePrefix
-            );
+            // Act - List assignments with query filter (with retry for eventual consistency)
+            ApiResponse<List<ApplicationGroupAssignment>> assignments = null;
+            for (int i = 0; i < 5; i++)
+            {
+                await Task.Delay(2000);
+                assignments = await _applicationGroupsApi.ListApplicationGroupAssignmentsWithHttpInfoAsync(
+                    _testAppId, 
+                    q: groupNamePrefix
+                );
+                if (assignments.Data != null && assignments.Data.Count > 0)
+                    break;
+            }
 
             // Assert
             assignments.Should().NotBeNull();
@@ -210,13 +223,19 @@ namespace Okta.Sdk.IntegrationTest
             };
 
             await _applicationGroupsApi.AssignGroupToApplicationAsync(_testAppId, _testGroupId, groupAssignment);
-            await Task.Delay(1000);
 
-            // Act - List with limit parameter
-            var assignments = await _applicationGroupsApi.ListApplicationGroupAssignmentsWithHttpInfoAsync(
-                _testAppId,
-                limit: 10
-            );
+            // Act - List with limit parameter (with retry for eventual consistency)
+            ApiResponse<List<ApplicationGroupAssignment>> assignments = null;
+            for (int i = 0; i < 5; i++)
+            {
+                await Task.Delay(2000);
+                assignments = await _applicationGroupsApi.ListApplicationGroupAssignmentsWithHttpInfoAsync(
+                    _testAppId,
+                    limit: 10
+                );
+                if (assignments.Data != null)
+                    break;
+            }
 
             // Assert
             assignments.Should().NotBeNull();
@@ -234,13 +253,19 @@ namespace Okta.Sdk.IntegrationTest
             };
 
             await _applicationGroupsApi.AssignGroupToApplicationAsync(_testAppId, _testGroupId, groupAssignment);
-            await Task.Delay(1000);
 
-            // Act - List with expanded parameter
-            var assignments = await _applicationGroupsApi.ListApplicationGroupAssignmentsWithHttpInfoAsync(
-                _testAppId,
-                expand: "group"
-            );
+            // Act - List with expanded parameter (with retry for eventual consistency)
+            ApiResponse<List<ApplicationGroupAssignment>> assignments = null;
+            for (int i = 0; i < 5; i++)
+            {
+                await Task.Delay(2000);
+                assignments = await _applicationGroupsApi.ListApplicationGroupAssignmentsWithHttpInfoAsync(
+                    _testAppId,
+                    expand: "group"
+                );
+                if (assignments.Data != null && assignments.Data.Count > 0)
+                    break;
+            }
 
             // Assert
             assignments.Should().NotBeNull();
@@ -258,7 +283,7 @@ namespace Okta.Sdk.IntegrationTest
             };
 
             await _applicationGroupsApi.AssignGroupToApplicationAsync(_testAppId, _testGroupId, groupAssignment);
-            await Task.Delay(1000);
+            await Task.Delay(3000);
 
             // Act - Get assignment with expanding
             var assignment = await _applicationGroupsApi.GetApplicationGroupAssignmentAsync(
@@ -282,7 +307,7 @@ namespace Okta.Sdk.IntegrationTest
             };
 
             await _applicationGroupsApi.AssignGroupToApplicationAsync(_testAppId, _testGroupId, initialAssignment);
-            await Task.Delay(1000);
+            await Task.Delay(3000);
 
             // Act - Update assignment priority using JSON Patch
             var patchOperations = new List<JsonPatchOperation>
@@ -325,11 +350,11 @@ namespace Okta.Sdk.IntegrationTest
             };
 
             await _applicationGroupsApi.AssignGroupToApplicationAsync(_testAppId, _testGroupId, groupAssignment);
-            await Task.Delay(1000);
+            await Task.Delay(3000);
 
             // Act - Unassign the group
             await _applicationGroupsApi.UnassignApplicationFromGroupAsync(_testAppId, _testGroupId);
-            await Task.Delay(1000);
+            await Task.Delay(3000);
 
             // Assert - Verify assignment is removed (should throw 404)
             Func<Task> act = async () => await _applicationGroupsApi.GetApplicationGroupAssignmentAsync(_testAppId, _testGroupId);
@@ -366,7 +391,7 @@ namespace Okta.Sdk.IntegrationTest
             };
 
             await _applicationGroupsApi.AssignGroupToApplicationAsync(_testAppId, _testGroupId, groupAssignment);
-            await Task.Delay(1000);
+            await Task.Delay(3000);
 
             // Act
             var response = await _applicationGroupsApi.GetApplicationGroupAssignmentWithHttpInfoAsync(_testAppId, _testGroupId);
@@ -388,7 +413,7 @@ namespace Okta.Sdk.IntegrationTest
             };
 
             await _applicationGroupsApi.AssignGroupToApplicationAsync(_testAppId, _testGroupId, groupAssignment);
-            await Task.Delay(1000);
+            await Task.Delay(3000);
 
             var patchOperations = new List<JsonPatchOperation>
             {
@@ -424,7 +449,7 @@ namespace Okta.Sdk.IntegrationTest
             };
 
             await _applicationGroupsApi.AssignGroupToApplicationAsync(_testAppId, _testGroupId, groupAssignment);
-            await Task.Delay(1000);
+            await Task.Delay(3000);
 
             // Act
             var response = await _applicationGroupsApi.UnassignApplicationFromGroupWithHttpInfoAsync(_testAppId, _testGroupId);

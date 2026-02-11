@@ -596,11 +596,18 @@ namespace Okta.Sdk.IntegrationTest
                         "Error should have descriptive message about provisioning not supported");
                 }
 
-                // Cleanup
-                await _applicationApi.DeactivateApplicationAsync(bookmarkAppId);
-                await _applicationApi.DeleteApplicationAsync(bookmarkAppId);
-                _createdAppIds.Remove(bookmarkAppId);
-                bookmarkAppId = null;
+                // Cleanup - wrap in try-catch to prevent timeout failures during cleanup
+                try
+                {
+                    await _applicationApi.DeactivateApplicationAsync(bookmarkAppId);
+                    await _applicationApi.DeleteApplicationAsync(bookmarkAppId);
+                    _createdAppIds.Remove(bookmarkAppId);
+                    bookmarkAppId = null;
+                }
+                catch (Exception)
+                {
+                    // Cleanup failure should not fail the test - the IAsyncLifetime.DisposeAsync will handle it
+                }
             }
             catch (Exception)
             {

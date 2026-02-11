@@ -21,10 +21,43 @@ namespace Okta.Sdk.IntegrationTest
     {
         private readonly UserTypeApi _userTypeApi = new();
         private readonly List<string> _createdUserTypeIds = [];
+        private const string TestTypePrefix = "test_type_";
+
+        public UserTypeApiTests()
+        {
+            // Clean up any leftover test user types from previous runs
+            CleanupLeftoverTestUserTypes().GetAwaiter().GetResult();
+        }
 
         public void Dispose()
         {
             CleanupResources().GetAwaiter().GetResult();
+        }
+
+        private async Task CleanupLeftoverTestUserTypes()
+        {
+            try
+            {
+                var allUserTypes = await _userTypeApi.ListUserTypes().ToListAsync();
+                foreach (var userType in allUserTypes)
+                {
+                    if (userType.Name?.StartsWith(TestTypePrefix) == true && userType.Default != true)
+                    {
+                        try
+                        {
+                            await _userTypeApi.DeleteUserTypeAsync(userType.Id);
+                        }
+                        catch (ApiException)
+                        {
+                            // Ignore cleanup errors - a user type may be in use
+                        }
+                    }
+                }
+            }
+            catch (ApiException)
+            {
+                // Ignore errors during cleanup discovery
+            }
         }
 
         private async Task CleanupResources()

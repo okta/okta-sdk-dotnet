@@ -159,7 +159,7 @@ namespace Okta.Sdk.IntegrationTest
             await Task.Delay(1000);
 
             // RevokeApiTokenAsync - DELETE /api/v1/api-tokens/{apiTokenId} (negative test with invalid ID)
-            // NOTE: Cannot revoke actual tokens as that would break subsequent tests
+            // NOTE: Cannot revoke actual tokens as that would break later tests
             const string invalidTokenId = "00Tin-valid_token_id_12345";
 
             var revokeException = await Assert.ThrowsAsync<ApiException>(async () =>

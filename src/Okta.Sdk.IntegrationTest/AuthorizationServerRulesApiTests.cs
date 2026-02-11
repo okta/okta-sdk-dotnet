@@ -4,7 +4,6 @@
 // </copyright>
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -58,7 +57,7 @@ namespace Okta.Sdk.IntegrationTest
             string createdPolicyId = null;
             string createdRuleId = null;
             string secondRuleId = null;
-            var testPrefix = $"dotnet-sdk-test-{Guid.NewGuid():N}".Substring(0, 30);
+            var testPrefix = $"sdk-{Guid.NewGuid():N}".Substring(0, 16); // Shorter prefix to avoid name too long errors
 
             try
             {
@@ -67,7 +66,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Name = $"{testPrefix}-authserver",
                     Description = "Test Authorization Server for Rules API tests",
-                    Audiences = new List<string> { $"https://api.{testPrefix}.example.com" }
+                    Audiences = [$"https://api.{testPrefix}.example.com"]
                 };
 
                 var createdAuthServer = await _authServerApi.CreateAuthorizationServerAsync(newAuthServer);
@@ -86,7 +85,7 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         Clients = new ClientPolicyCondition
                         {
-                            Include = new List<string> { "ALL_CLIENTS" }
+                            Include = ["ALL_CLIENTS"]
                         }
                     }
                 };
@@ -110,16 +109,16 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Groups = new AuthorizationServerPolicyRuleGroupCondition
                             {
-                                Include = new List<string> { "EVERYONE" }
+                                Include = ["EVERYONE"]
                             }
                         },
                         GrantTypes = new GrantTypePolicyRuleCondition
                         {
-                            Include = new List<string> { "authorization_code", "implicit" }
+                            Include = ["authorization_code", "implicit"]
                         },
                         Scopes = new OAuth2ScopesMediationPolicyRuleCondition
                         {
-                            Include = new List<string> { "*" }
+                            Include = ["*"]
                         }
                     },
                     Actions = new AuthorizationServerPolicyRuleActions
@@ -166,16 +165,16 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Groups = new AuthorizationServerPolicyRuleGroupCondition
                             {
-                                Include = new List<string> { "EVERYONE" }
+                                Include = ["EVERYONE"]
                             }
                         },
                         GrantTypes = new GrantTypePolicyRuleCondition
                         {
-                            Include = new List<string> { "client_credentials" }
+                            Include = ["client_credentials"]
                         },
                         Scopes = new OAuth2ScopesMediationPolicyRuleCondition
                         {
-                            Include = new List<string> { "*" }
+                            Include = ["*"]
                         }
                     },
                     Actions = new AuthorizationServerPolicyRuleActions
@@ -206,9 +205,11 @@ namespace Okta.Sdk.IntegrationTest
                 rulesList.Should().NotBeNull("ListAuthorizationServerPolicyRules should return a list");
                 rulesList.Should().HaveCountGreaterThanOrEqualTo(2,
                     "Should have at least the two rules we created");
-                rulesList.Should().Contain(r => r.Id == createdRuleId,
+                var ruleId = createdRuleId;
+                rulesList.Should().Contain(r => r.Id == ruleId,
                     "List should contain the first created rule");
-                rulesList.Should().Contain(r => r.Id == secondRuleId,
+                var id = secondRuleId;
+                rulesList.Should().Contain(r => r.Id == id,
                     "List should contain the second created rule");
 
                 // =============================================
@@ -258,16 +259,16 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Groups = new AuthorizationServerPolicyRuleGroupCondition
                             {
-                                Include = new List<string> { "EVERYONE" }
+                                Include = ["EVERYONE"]
                             }
                         },
                         GrantTypes = new GrantTypePolicyRuleCondition
                         {
-                            Include = new List<string> { "authorization_code", "implicit", "password" }
+                            Include = ["authorization_code", "implicit", "password"]
                         },
                         Scopes = new OAuth2ScopesMediationPolicyRuleCondition
                         {
-                            Include = new List<string> { "*" }
+                            Include = ["*"]
                         }
                     },
                     Actions = new AuthorizationServerPolicyRuleActions
@@ -378,7 +379,7 @@ namespace Okta.Sdk.IntegrationTest
                 deleteException.ErrorCode.Should().Be(404,
                     "Getting deleted rule should return 404");
 
-                secondRuleId = null; // Mark as deleted to avoid cleanup attempt
+                secondRuleId = null; // Mark as deleted to avoid a cleanup attempt
 
                 // =============================================
                 // Test 14: DeleteAuthorizationServerPolicyRuleWithHttpInfo
@@ -467,7 +468,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Name = $"{testPrefix}-authserver",
                     Description = "Test for 404 error handling",
-                    Audiences = new List<string> { $"https://api.{testPrefix}.example.com" }
+                    Audiences = [$"https://api.{testPrefix}.example.com"]
                 };
 
                 var createdAuthServer = await _authServerApi.CreateAuthorizationServerAsync(newAuthServer);
@@ -483,7 +484,7 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         Clients = new ClientPolicyCondition
                         {
-                            Include = new List<string> { "ALL_CLIENTS" }
+                            Include = ["ALL_CLIENTS"]
                         }
                     }
                 };
@@ -546,7 +547,7 @@ namespace Okta.Sdk.IntegrationTest
                 {
                     Name = $"{testPrefix}-authserver",
                     Description = "Test for rule lifecycle operations",
-                    Audiences = new List<string> { $"https://api.{testPrefix}.example.com" }
+                    Audiences = [$"https://api.{testPrefix}.example.com"]
                 };
 
                 var createdAuthServer = await _authServerApi.CreateAuthorizationServerAsync(newAuthServer);
@@ -563,7 +564,7 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         Clients = new ClientPolicyCondition
                         {
-                            Include = new List<string> { "ALL_CLIENTS" }
+                            Include = ["ALL_CLIENTS"]
                         }
                     }
                 };
@@ -584,16 +585,16 @@ namespace Okta.Sdk.IntegrationTest
                         {
                             Groups = new AuthorizationServerPolicyRuleGroupCondition
                             {
-                                Include = new List<string> { "EVERYONE" }
+                                Include = ["EVERYONE"]
                             }
                         },
                         GrantTypes = new GrantTypePolicyRuleCondition
                         {
-                            Include = new List<string> { "authorization_code" }
+                            Include = ["authorization_code"]
                         },
                         Scopes = new OAuth2ScopesMediationPolicyRuleCondition
                         {
-                            Include = new List<string> { "*" }
+                            Include = ["*"]
                         }
                     },
                     Actions = new AuthorizationServerPolicyRuleActions

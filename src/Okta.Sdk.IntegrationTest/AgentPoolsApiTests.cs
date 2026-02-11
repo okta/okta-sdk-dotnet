@@ -148,7 +148,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 #region ListAgentPoolsUpdates - GET /api/v1/agentPools/{poolId}/updates
 
-                // List all updates (may be empty)
+                // List all updates (maybe empty)
                 var allUpdates = await _agentPoolsApi.ListAgentPoolsUpdates(testPoolId).ToListAsync();
                 allUpdates.Should().NotBeNull();
 
@@ -441,7 +441,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 var invalidUpdatesResponse = await _agentPoolsApi.ListAgentPoolsUpdatesWithHttpInfoAsync("invalidPoolId123");
-                // If it doesn't throw, verify we got a response (empty list is valid)
+                // If it doesn't throw, verify we got a response (an empty list is valid)
                 invalidUpdatesResponse.Should().NotBeNull();
             }
             catch (ApiException ex)
@@ -466,13 +466,13 @@ namespace Okta.Sdk.IntegrationTest
             if (allPools.Count < 2)
             {
                 // Need at least 2 pools to test pagination effectively
-                // Just verify the pagination parameters work without error
+                // verify the pagination parameters work without error
                 var singlePage = await _agentPoolsApi.ListAgentPools(limitPerPoolType: 1).ToListAsync();
                 singlePage.Should().NotBeNull();
                 return;
             }
 
-            // Get first page with limit of 1
+            // Get the first page with limit of 1
             var firstPageResponse = await _agentPoolsApi.ListAgentPoolsWithHttpInfoAsync(limitPerPoolType: 1);
             firstPageResponse.Should().NotBeNull();
             firstPageResponse.Data.Should().NotBeNull();
@@ -482,7 +482,7 @@ namespace Okta.Sdk.IntegrationTest
             var firstPool = firstPageResponse.Data.FirstOrDefault();
             if (firstPool != null)
             {
-                // Use the first pool's ID as an 'after' cursor for next page
+                // Use the first pool's ID as an 'after' cursor for the next page
                 var secondPageResponse = await _agentPoolsApi.ListAgentPoolsWithHttpInfoAsync(
                     limitPerPoolType: 1, 
                     after: firstPool.Id);

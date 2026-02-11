@@ -187,7 +187,7 @@ namespace Okta.Sdk.IntegrationTest
         /// (StandardRole | CustomRole), which is a separate bug from the array issue.
         /// </summary>
         [Fact]
-        public async Task Issue807_Fixed_ListRolesForClient_ReturnsCollection()
+        public async Task Fixed_ListRolesForClient_ReturnsCollection()
         {
             SkipIfSetupIncomplete();
 
@@ -246,7 +246,7 @@ namespace Okta.Sdk.IntegrationTest
         /// This proves the API works correctly and the issue is in the SDK's deserialization.
         /// </summary>
         [Fact]
-        public async Task Issue807_RawApiCall_ListRolesForClient_ReturnsArray()
+        public async Task RawApiCall_ListRolesForClient_ReturnsArray()
         {
             SkipIfSetupIncomplete();
 
@@ -270,7 +270,7 @@ namespace Okta.Sdk.IntegrationTest
         /// then manually deserialize the JSON array.
         /// </summary>
         [Fact]
-        public async Task Issue807_Workaround_UseRawApiCallToGetRoles()
+        public async Task Workaround_UseRawApiCallToGetRoles()
         {
             SkipIfSetupIncomplete();
 
