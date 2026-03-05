@@ -56,7 +56,7 @@ Task("Pack")
     });
 });
 
-Task("Test")
+Task("UnitTest")
 .IsDependentOn("Restore")
 .IsDependentOn("Build")
 .Does(() =>
@@ -76,7 +76,14 @@ Task("IntegrationTest")
     var testProjects = new[] { "Okta.Sdk.IntegrationTest" };
     foreach (var name in testProjects)
     {
-        DotNetCoreTest(string.Format("./src/{0}/{0}.csproj", name));
+        DotNetCoreTest(string.Format("./src/{0}/{0}.csproj", name), new DotNetCoreTestSettings
+        {
+            // Run one test at a time — required for integration tests that share live Okta state
+            ArgumentCustomization = args => args
+                .Append("-- xunit.parallelizeTestCollections=false")
+                .Append("xunit.parallelizeAssembly=false")
+                .Append("xunit.maxParallelThreads=1")
+        });
     }
 });
 
@@ -87,13 +94,15 @@ Task("Default")
     .IsDependentOn("Clean")
     .IsDependentOn("Restore")
     .IsDependentOn("Build")
-    .IsDependentOn("Test");
+    .IsDependentOn("UnitTest")
+    .IsDependentOn("IntegrationTest");
 
 Task("DefaultIT")
     .IsDependentOn("Clean")
     .IsDependentOn("Restore")
     .IsDependentOn("Build")
-    .IsDependentOn("Test")
+    .IsDependentOn("UnitTest")
+    .IsDependentOn("IntegrationTest")
     .IsDependentOn("Pack");
 
 // Default task
