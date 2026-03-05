@@ -41,8 +41,8 @@ namespace {{packageName}}.Client
         /// <returns>Filename</returns>
         public static string SanitizeFilename(string filename)
         {
-            Match match = Regex.Match(filename, @".*[/\\](.*)$");
-            return match.Success ? match.Groups[1].Value : filename;
+            int lastSeparator = filename.LastIndexOfAny(new[] { '/', '\\' });
+            return lastSeparator >= 0 ? filename.Substring(lastSeparator + 1) : filename;
         }
 
         /// <summary>
