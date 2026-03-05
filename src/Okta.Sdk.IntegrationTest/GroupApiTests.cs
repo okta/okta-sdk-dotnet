@@ -439,9 +439,16 @@ namespace Okta.Sdk.IntegrationTest
 
             // AssignUserToGroup - Add first user
             await _groupApi.AssignUserToGroupAsync(groupId, fixture.TestUser1Id);
-            await Task.Delay(1500);
 
-            var usersAfterFirstAssign = await _groupApi.ListGroupUsers(groupId).ToListAsync();
+            // Retry for eventual consistency
+            List<User> usersAfterFirstAssign = null;
+            for (int i = 0; i < 5; i++)
+            {
+                await Task.Delay(2000);
+                usersAfterFirstAssign = await _groupApi.ListGroupUsers(groupId).ToListAsync();
+                if (usersAfterFirstAssign.Any(u => u.Id == fixture.TestUser1Id))
+                    break;
+            }
             usersAfterFirstAssign.Should().Contain(u => u.Id == fixture.TestUser1Id);
 
             // AssignUserToGroupWithHttpInfo - Add second user

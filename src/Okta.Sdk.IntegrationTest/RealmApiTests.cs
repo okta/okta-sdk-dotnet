@@ -136,9 +136,16 @@ namespace Okta.Sdk.IntegrationTest
             retrievedRealm.Profile.Domains.Should().HaveCount(2, "Should have 2 domains");
             retrievedRealm.IsDefault.Should().BeFalse("Retrieved realm should not be default");
 
-            // Step 3: List Realms (verify our realm appears in the list)
-            var allRealms = await _realmApi.ListRealms().ToListAsync();
-            
+            // Step 3: List Realms (verify our realm appears in the list) - retry for eventual consistency
+            List<Realm> allRealms = null;
+            for (int i = 0; i < 5; i++)
+            {
+                await Task.Delay(2000);
+                allRealms = await _realmApi.ListRealms().ToListAsync();
+                if (allRealms.Any(r => r.Id == realmId))
+                    break;
+            }
+
             allRealms.Should().NotBeNull("Realms list should not be null");
             allRealms.Should().Contain(r => r.Id == realmId, "Realms list should contain our realm");
             

@@ -214,7 +214,9 @@ namespace Okta.Sdk.IntegrationTest
                     var modifiedUpdate = new AgentPoolUpdate
                     {
                         Name = $"SDK Test Update - Modified - {DateTime.UtcNow:yyyyMMddHHmmss}",
-                        NotifyAdmin = true
+                        NotifyAdmin = true,
+                        AgentType = createdUpdate.AgentType,
+                        Agents = createdUpdate.Agents
                     };
 
                     try

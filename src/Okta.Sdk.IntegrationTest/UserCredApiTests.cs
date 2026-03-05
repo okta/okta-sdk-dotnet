@@ -75,6 +75,18 @@ namespace Okta.Sdk.IntegrationTest
             return createdUser;
         }
 
+        private async Task WaitForUserActiveAsync(string userId, int maxWaitSeconds = 30)
+        {
+            var deadline = DateTime.UtcNow.AddSeconds(maxWaitSeconds);
+            while (DateTime.UtcNow < deadline)
+            {
+                var u = await _userApi.GetUserAsync(userId);
+                if (u.Status == UserStatus.ACTIVE)
+                    return;
+                await Task.Delay(2000);
+            }
+        }
+
         #region Complete User Credentials API CRUD Lifecycle Test
 
         [Fact]
@@ -263,7 +275,7 @@ namespace Okta.Sdk.IntegrationTest
         {
             var guid = Guid.NewGuid();
             var user = await CreateTestUserWithCredentials(guid.ToString());
-            await Task.Delay(2000);
+            await WaitForUserActiveAsync(user.Id);
 
             var result = await _userCredApi.ForgotPasswordAsync(user.Id, sendEmail: false);
 
@@ -332,7 +344,7 @@ namespace Okta.Sdk.IntegrationTest
             var newPassword = "MyP@ssw0rd999";
 
             var user = await CreateTestUserWithCredentials(guid.ToString(), "MyP@ssw0rd111", recoveryQuestion, recoveryAnswer);
-            await Task.Delay(2000);
+            await WaitForUserActiveAsync(user.Id);
 
             await _userCredApi.ForgotPasswordAsync(user.Id, sendEmail: false);
             await Task.Delay(2000);

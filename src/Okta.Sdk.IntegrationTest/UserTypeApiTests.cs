@@ -163,13 +163,21 @@ namespace Okta.Sdk.IntegrationTest
             replacedUserType.Description.Should().Be("Replaced description");
             replacedUserType.LastUpdated.Should().BeAfter(updatedUserType.LastUpdated);
 
-            await Task.Delay(1000);
-
-            // DeleteUserTypeAsync - Delete the user type
-            await _userTypeApi.DeleteUserTypeAsync(createdUserType.Id);
-            _createdUserTypeIds.Remove(createdUserType.Id);
-
-            await Task.Delay(1000);
+            // DeleteUserTypeAsync - Delete the user type (retry for transient E0000009 server errors)
+            for (int attempt = 0; attempt < 5; attempt++)
+            {
+                await Task.Delay(2000);
+                try
+                {
+                    await _userTypeApi.DeleteUserTypeAsync(createdUserType.Id);
+                    _createdUserTypeIds.Remove(createdUserType.Id);
+                    break;
+                }
+                catch (ApiException ex) when (ex.ErrorCode == 500 && attempt < 4)
+                {
+                    // E0000009 Internal Server Error - transient after updates, retry after delay
+                }
+            }
 
             // Verify deletion
             var deleteException = await Assert.ThrowsAsync<ApiException>(async () =>
@@ -266,11 +274,22 @@ namespace Okta.Sdk.IntegrationTest
             replaceResponse.Data.Description.Should().Be("HttpInfo replaced description");
             replaceResponse.Headers.Should().NotBeNull();
 
-            await Task.Delay(1000);
-
-            // DeleteUserTypeWithHttpInfoAsync - Delete with HTTP metadata
-            var deleteResponse = await _userTypeApi.DeleteUserTypeWithHttpInfoAsync(createResponse.Data.Id);
-            _createdUserTypeIds.Remove(createResponse.Data.Id);
+            // DeleteUserTypeWithHttpInfoAsync - Delete with HTTP metadata (retry for transient E0000009 server errors)
+            ApiResponse<object> deleteResponse = null;
+            for (int attempt = 0; attempt < 5; attempt++)
+            {
+                await Task.Delay(2000);
+                try
+                {
+                    deleteResponse = await _userTypeApi.DeleteUserTypeWithHttpInfoAsync(createResponse.Data.Id);
+                    _createdUserTypeIds.Remove(createResponse.Data.Id);
+                    break;
+                }
+                catch (ApiException ex) when (ex.ErrorCode == 500 && attempt < 4)
+                {
+                    // E0000009 Internal Server Error - transient after updates, retry after delay
+                }
+            }
 
             deleteResponse.Should().NotBeNull();
             deleteResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
