@@ -215,8 +215,8 @@ namespace Okta.Sdk.IntegrationTest
                     {
                         Name = $"SDK Test Update - Modified - {DateTime.UtcNow:yyyyMMddHHmmss}",
                         NotifyAdmin = true,
-                        AgentType = createdUpdate.AgentType,
-                        Agents = createdUpdate.Agents
+                        AgentType = firstPool.Type,   // required; createdUpdate.Agents is null in API response
+                        Agents = firstPool.Agents     // use original pool agents; create response omits them
                     };
 
                     try

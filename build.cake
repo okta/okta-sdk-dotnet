@@ -78,9 +78,12 @@ Task("IntegrationTest")
     {
         DotNetCoreTest(string.Format("./src/{0}/{0}.csproj", name), new DotNetCoreTestSettings
         {
-            // Run one test at a time — required for integration tests that share live Okta state
+            // Produce per-test console output to prevent CI no-output timeout.
+            // The -- separator passes xunit runner settings directly.
             ArgumentCustomization = args => args
-                .Append("-- xunit.parallelizeTestCollections=false")
+                .Append("--logger").Append("console;verbosity=normal")
+                .Append("--")
+                .Append("xunit.parallelizeTestCollections=false")
                 .Append("xunit.parallelizeAssembly=false")
                 .Append("xunit.maxParallelThreads=1")
         });

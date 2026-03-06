@@ -50,6 +50,29 @@ namespace Okta.Sdk.IntegrationTest
                 catch (ApiException) { }
             }
         }
+
+        // Polls until the user reaches DEPROVISIONED status (or 404 if already deleted).
+        // Required because Okta processes deactivation asynchronously — the second
+        // DeleteUser call fails with E0000038 if called before deactivation completes.
+        private async Task WaitForDeprovisionedAsync(string userId, int maxSeconds = 60)
+        {
+            var deadline = DateTime.UtcNow.AddSeconds(maxSeconds);
+            while (DateTime.UtcNow < deadline)
+            {
+                try
+                {
+                    var u = await _userApi.GetUserAsync(userId);
+                    if (u.Status == UserStatus.DEPROVISIONED)
+                        return;
+                }
+                catch (ApiException ex) when (ex.ErrorCode == 404)
+                {
+                    return; // User already fully deleted — second delete will fail gracefully
+                }
+                await Task.Delay(2000);
+            }
+        }
+
         [Fact]
         public async Task GivenUsers_WhenPerformingCrudOperations_ThenAllStandardMethodsWork()
         {
@@ -416,16 +439,28 @@ namespace Okta.Sdk.IntegrationTest
             // DeleteUser - Attempt to delete active user (should deactivate)
             // First call deactivates, second call deletes
 
-            // First delete call - should deactivate the user
+            // First delete call — Okta deactivates the user asynchronously
             await _userApi.DeleteUserAsync(createdUser1.Id);
-            await Task.Delay(1000);
+            await WaitForDeprovisionedAsync(createdUser1.Id);
 
             // Verify user is deactivated (try to get it - should still exist but deactivated)
             var deactivatedUser = await _userApi.GetUserAsync(createdUser1.Id);
             deactivatedUser.Status.Should().Be(UserStatus.DEPROVISIONED);
 
-            // Second delete call - should permanently delete
-            await _userApi.DeleteUserAsync(createdUser1.Id);
+            // Second delete call — permanently deletes; retry because Okta may still be
+            // finalising deactivation internally even after status shows DEPROVISIONED (E0000038)
+            for (int attempt = 0; attempt < 5; attempt++)
+            {
+                try
+                {
+                    await _userApi.DeleteUserAsync(createdUser1.Id);
+                    break;
+                }
+                catch (ApiException ex) when (ex.ErrorCode == 403 && attempt < 4)
+                {
+                    await Task.Delay(3000);
+                }
+            }
             await Task.Delay(1000);
 
             // Verify user is deleted (should throw 404)
@@ -438,18 +473,37 @@ namespace Okta.Sdk.IntegrationTest
 
             // DeleteUser - Delete with sendEmail parameter
             await _userApi.DeleteUserAsync(createdUser2.Id, sendEmail: false);
-            await Task.Delay(1000);
-            await _userApi.DeleteUserAsync(createdUser2.Id, sendEmail: false);
-            await Task.Delay(500);
-
+            await WaitForDeprovisionedAsync(createdUser2.Id);
+            for (int attempt = 0; attempt < 5; attempt++)
+            {
+                try
+                {
+                    await _userApi.DeleteUserAsync(createdUser2.Id, sendEmail: false);
+                    break;
+                }
+                catch (ApiException ex) when (ex.ErrorCode == 403 && attempt < 4)
+                {
+                    await Task.Delay(3000);
+                }
+            }
             _createdUserIds.Remove(createdUser2.Id);
 
-            // DeleteUser - Async deletion with Prefer header
+            // DeleteUser - Async deletion with Prefer header (server returns 202 immediately;
+            // deactivation is queued, so WaitForDeprovisioned is especially important here)
             await _userApi.DeleteUserAsync(createdUser3.Id, prefer: PreferHeader.RespondAsync);
-            await Task.Delay(1000);
-            await _userApi.DeleteUserAsync(createdUser3.Id, prefer: PreferHeader.RespondAsync);
-            await Task.Delay(500);
-
+            await WaitForDeprovisionedAsync(createdUser3.Id);
+            for (int attempt = 0; attempt < 5; attempt++)
+            {
+                try
+                {
+                    await _userApi.DeleteUserAsync(createdUser3.Id, prefer: PreferHeader.RespondAsync);
+                    break;
+                }
+                catch (ApiException ex) when (ex.ErrorCode == 403 && attempt < 4)
+                {
+                    await Task.Delay(3000);
+                }
+            }
             _createdUserIds.Remove(createdUser3.Id);
 
             // GetUser - Test with non-existent user (should return 404)

@@ -27,6 +27,7 @@ jobs:
               dotnet --list-sdks
       - run:
           name: Build and Test
+          no_output_timeout: 60m
           command: .\build.ps1
       - persist_to_workspace:
           root: ~/project

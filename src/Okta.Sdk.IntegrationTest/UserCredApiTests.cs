@@ -277,7 +277,21 @@ namespace Okta.Sdk.IntegrationTest
             var user = await CreateTestUserWithCredentials(guid.ToString());
             await WaitForUserActiveAsync(user.Id);
 
-            var result = await _userCredApi.ForgotPasswordAsync(user.Id, sendEmail: false);
+            // Retry: user is ACTIVE per API but Okta's internal provisioning may lag,
+            // causing E0000017 (HTTP 403) on ForgotPassword immediately after activation.
+            ForgotPasswordResponse result = null;
+            for (int attempt = 0; attempt < 5; attempt++)
+            {
+                try
+                {
+                    result = await _userCredApi.ForgotPasswordAsync(user.Id, sendEmail: false);
+                    break;
+                }
+                catch (ApiException ex) when (ex.ErrorCode == 403 && attempt < 4)
+                {
+                    await Task.Delay(3000);
+                }
+            }
 
             result.Should().NotBeNull();
             result.ResetPasswordUrl.Should().Contain("/signin/reset-password/");
@@ -346,7 +360,19 @@ namespace Okta.Sdk.IntegrationTest
             var user = await CreateTestUserWithCredentials(guid.ToString(), "MyP@ssw0rd111", recoveryQuestion, recoveryAnswer);
             await WaitForUserActiveAsync(user.Id);
 
-            await _userCredApi.ForgotPasswordAsync(user.Id, sendEmail: false);
+            // Retry: user is ACTIVE but internal provisioning may not be complete yet (E0000017 / HTTP 403)
+            for (int attempt = 0; attempt < 5; attempt++)
+            {
+                try
+                {
+                    await _userCredApi.ForgotPasswordAsync(user.Id, sendEmail: false);
+                    break;
+                }
+                catch (ApiException ex) when (ex.ErrorCode == 403 && attempt < 4)
+                {
+                    await Task.Delay(3000);
+                }
+            }
             await Task.Delay(2000);
 
             var result = await _userCredApi.ForgotPasswordSetNewPasswordAsync(
