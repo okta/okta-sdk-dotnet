@@ -227,9 +227,11 @@ namespace Okta.Sdk.IntegrationTest
                         updatedResult.Name.Should().Contain("Modified");
                         updatedResult.NotifyAdmin.Should().BeTrue();
                     }
-                    catch (ApiException ex) when (ex.ErrorCode == 404)
+                    catch (ApiException ex) when (ex.ErrorCode == 404 || ex.ErrorCode == 400)
                     {
-                        // Update was deleted during test - acceptable
+                        // 404: Update was deleted during test - acceptable
+                        // 400 / E0000002: "Only 1 on-demand auto-update job is permitted at a time" -
+                        //   a job from a previous run is still active; skip update and treat as missing.
                         updateStillExists = false;
                         createdUpdateId = null;
                     }

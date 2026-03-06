@@ -279,17 +279,18 @@ namespace Okta.Sdk.IntegrationTest
 
             // Retry: user is ACTIVE per API but Okta's internal provisioning may lag,
             // causing E0000017 (HTTP 403) on ForgotPassword immediately after activation.
+            // Allow up to 10 attempts × 5 s = 50 s for the internal state to propagate.
             ForgotPasswordResponse result = null;
-            for (int attempt = 0; attempt < 5; attempt++)
+            for (int attempt = 0; attempt < 10; attempt++)
             {
                 try
                 {
                     result = await _userCredApi.ForgotPasswordAsync(user.Id, sendEmail: false);
                     break;
                 }
-                catch (ApiException ex) when (ex.ErrorCode == 403 && attempt < 4)
+                catch (ApiException ex) when (ex.ErrorCode == 403 && attempt < 9)
                 {
-                    await Task.Delay(3000);
+                    await Task.Delay(5000);
                 }
             }
 
@@ -361,16 +362,17 @@ namespace Okta.Sdk.IntegrationTest
             await WaitForUserActiveAsync(user.Id);
 
             // Retry: user is ACTIVE but internal provisioning may not be complete yet (E0000017 / HTTP 403)
-            for (int attempt = 0; attempt < 5; attempt++)
+            // Allow up to 10 attempts × 5 s = 50 s for the internal state to propagate.
+            for (int attempt = 0; attempt < 10; attempt++)
             {
                 try
                 {
                     await _userCredApi.ForgotPasswordAsync(user.Id, sendEmail: false);
                     break;
                 }
-                catch (ApiException ex) when (ex.ErrorCode == 403 && attempt < 4)
+                catch (ApiException ex) when (ex.ErrorCode == 403 && attempt < 9)
                 {
-                    await Task.Delay(3000);
+                    await Task.Delay(5000);
                 }
             }
             await Task.Delay(2000);
