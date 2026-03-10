@@ -1007,17 +1007,16 @@ namespace Okta.Sdk.UnitTest.Api
         }
 
         [Fact]
-        public async Task ReplaceCustomizedErrorPage_WithNullBody_DoesNotThrow()
+        public async Task ReplaceCustomizedErrorPage_WithNullBody_ThrowsApiException()
         {
-            // Arrange
+            // Arrange: errorPage is a required parameter; the generated SDK enforces this
+            // by throwing ApiException(400) before making any HTTP call.
             var mockClient = new MockAsyncClient(BuildErrorPageJson("<html>Error</html>"));
             var api = new CustomPagesApi(mockClient, new Configuration { BasePath = BaseUrl });
 
-            // Act
-            var act = async () => await api.ReplaceCustomizedErrorPageAsync(BrandId, null);
-
-            // Assert
-            await act.Should().NotThrowAsync();
+            // Act & Assert
+            await Assert.ThrowsAsync<ApiException>(() =>
+                api.ReplaceCustomizedErrorPageAsync(BrandId, null));
         }
 
         [Fact]

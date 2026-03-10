@@ -314,10 +314,7 @@ namespace Okta.Sdk.UnitTest.Api
         {
             // Arrange
             var domain1Json = BuildDomainResponseJson(DomainId, "login.example.com");
-            var json = $@"{{""domains"": [
-                    {domain1Json},
-                    {{""id"":""dom2xxxxxxxx"",""domain"":""portal.example.com"",""validationStatus"":""VERIFIED""}}" + @"]
-            }}";
+            var json = $@"{{""domains"":[{domain1Json},{{""id"":""dom2xxxxxxxx"",""domain"":""portal.example.com"",""validationStatus"":""VERIFIED""}}]}}";
             var mockClient = new MockAsyncClient(json);
             var api = new CustomDomainApi(mockClient, new Configuration { BasePath = BaseUrl });
 
