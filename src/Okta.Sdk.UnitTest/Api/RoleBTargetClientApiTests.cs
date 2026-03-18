@@ -4,286 +4,465 @@
 // </copyright>
 
 using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Moq;
-using Newtonsoft.Json;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
+using Okta.Sdk.UnitTest.Internal;
 using Xunit;
 
 namespace Okta.Sdk.UnitTest.Api
 {
-    /// <summary>
-    /// Unit tests for RoleBTargetClientApi to verify proper type handling.
-    /// These tests verify Issue #810 - ensuring that ListAppTargetRoleToClient
-    /// and ListGroupTargetRoleForClient return the correct types (CatalogApplication
-    /// and Group respectively), not ModelClient.
-    /// </summary>
     public class RoleBTargetClientApiTests
     {
-        private Mock<IAsynchronousClient> CreateMockAsyncClient()
-        {
-            return new Mock<IAsynchronousClient>();
-        }
-
-        private Configuration CreateTestConfiguration()
-        {
-            return new Configuration
-            {
-                OktaDomain = "https://test.okta.com"
-            };
-        }
-
-        private RoleBTargetClientApi CreateRoleBTargetClientApi(Mock<IAsynchronousClient> mockClient = null)
-        {
-            var client = mockClient ?? CreateMockAsyncClient();
-            var config = CreateTestConfiguration();
-            return new RoleBTargetClientApi(client.Object, config);
-        }
-
-        #region CatalogApplication Deserialization Tests
-
-        [Fact]
-        public void CatalogApplication_ShouldDeserializeCorrectly()
-        {
-            // Arrange - This is the expected JSON response format from Okta API for catalog applications
-            var json = @"[
-                {
-                    ""name"": ""facebook"",
-                    ""displayName"": ""Facebook"",
-                    ""description"": ""Social networking"",
-                    ""status"": ""ACTIVE"",
-                    ""lastUpdated"": ""2023-01-15T10:30:00.000Z"",
-                    ""category"": ""Social"",
-                    ""verificationStatus"": ""OKTA_VERIFIED"",
-                    ""website"": ""https://www.facebook.com"",
-                    ""signOnModes"": [""SAML_2_0""],
-                    ""features"": [""PUSH_NEW_USERS""],
-                    ""_links"": {
-                        ""logo"": [{ ""href"": ""https://example.com/logo.png"" }]
-                    }
-                }
-            ]";
-
-            // Act
-            var applications = JsonConvert.DeserializeObject<List<CatalogApplication>>(json);
-
-            // Assert
-            applications.Should().NotBeNull();
-            applications.Should().HaveCount(1);
-            
-            var app = applications[0];
-            app.Should().NotBeNull();
-            app.Should().BeOfType<CatalogApplication>();
-            app.Name.Should().Be("facebook");
-            app.DisplayName.Should().Be("Facebook");
-            app.Description.Should().Be("Social networking");
-        }
-
-        [Fact]
-        public void CatalogApplication_ShouldNotDeserializeAsModelClient()
-        {
-            // Arrange - This test verifies that CatalogApplication is a distinct type from ModelClient
-            // Issue #810 claims the API returns ModelClient, but these are different models
-            var catalogAppJson = @"{
-                ""name"": ""facebook"",
-                ""displayName"": ""Facebook"",
-                ""description"": ""Social networking""
-            }";
-
-            var modelClientJson = @"{
-                ""client_id"": ""0oa1234"",
-                ""client_name"": ""My OAuth App"",
-                ""client_uri"": ""https://example.com""
-            }";
-
-            // Act
-            var catalogApp = JsonConvert.DeserializeObject<CatalogApplication>(catalogAppJson);
-            var modelClient = JsonConvert.DeserializeObject<ModelClient>(modelClientJson);
-
-            // Assert - These are different types with different properties
-            catalogApp.Should().BeOfType<CatalogApplication>();
-            modelClient.Should().BeOfType<ModelClient>();
-            
-            // CatalogApplication has Name, DisplayName, Description (OIN catalog app properties)
-            catalogApp.Name.Should().Be("facebook");
-            catalogApp.DisplayName.Should().Be("Facebook");
-            
-            // ModelClient has ClientId, ClientName, ClientUri (OAuth client properties)
-            modelClient.ClientId.Should().Be("0oa1234");
-            modelClient.ClientName.Should().Be("My OAuth App");
-        }
-
-        #endregion
-
-        #region Group Deserialization Tests
-
-        [Fact]
-        public void Group_ShouldDeserializeCorrectly()
-        {
-            // Arrange
-            var json = @"[
-                {
-                    ""id"": ""00g1234567890"",
-                    ""created"": ""2023-01-15T10:30:00.000Z"",
-                    ""lastUpdated"": ""2023-01-15T10:30:00.000Z"",
-                    ""lastMembershipUpdated"": ""2023-01-15T10:30:00.000Z"",
-                    ""objectClass"": [""okta:user_group""],
-                    ""type"": ""OKTA_GROUP"",
-                    ""profile"": {
-                        ""name"": ""Test Group"",
-                        ""description"": ""A test group""
-                    }
-                }
-            ]";
-
-            // Act
-            var groups = JsonConvert.DeserializeObject<List<Group>>(json);
-
-            // Assert
-            groups.Should().NotBeNull();
-            groups.Should().HaveCount(1);
-            
-            var group = groups[0];
-            group.Should().NotBeNull();
-            group.Should().BeOfType<Group>();
-            group.Id.Should().Be("00g1234567890");
-            group.Type.Should().Be(GroupType.OKTAGROUP);
-            
-            // Access profile properties through the wrapper
-            var oktaProfile = group.Profile?.GetOktaUserGroupProfile();
-            oktaProfile?.Name.Should().Be("Test Group");
-            oktaProfile?.Description.Should().Be("A test group");
-        }
-
-        #endregion
-
-        #region API Method Return Type Tests
-
-        [Fact]
-        public void ListAppTargetRoleToClient_ReturnType_ShouldBeCatalogApplicationCollection()
-        {
-            // Arrange
-            var api = CreateRoleBTargetClientApi();
-            
-            // Act - This test verifies at compile time that the return type is correct
-            // If this compiles, the return type is IOktaCollectionClient<CatalogApplication>
-            // Issue #810 claims this returns ModelClient which is incorrect
-            IOktaCollectionClient<CatalogApplication> result = api.ListAppTargetRoleToClient(
-                clientId: "testClientId", 
-                roleAssignmentId: "testRoleAssignmentId");
-            
-            // Assert - The fact that this compiles proves the return type is correct
-            result.Should().NotBeNull();
-            result.Should().BeAssignableTo<IOktaCollectionClient<CatalogApplication>>();
-        }
-
-        [Fact]
-        public void ListGroupTargetRoleForClient_ReturnType_ShouldBeGroupCollection()
-        {
-            // Arrange
-            var api = CreateRoleBTargetClientApi();
-            
-            // Act - This test verifies at compile time that the return type is correct
-            // If this compiles, the return type is IOktaCollectionClient<Group>
-            // Issue #810 claims this returns ModelClient which is incorrect
-            IOktaCollectionClient<Group> result = api.ListGroupTargetRoleForClient(
-                clientId: "testClientId", 
-                roleAssignmentId: "testRoleAssignmentId");
-            
-            // Assert - The fact that this compiles proves the return type is correct
-            result.Should().NotBeNull();
-            result.Should().BeAssignableTo<IOktaCollectionClient<Group>>();
-        }
-
-        [Fact]
-        public void ListAppTargetRoleToClient_ShouldNotReturnModelClient()
-        {
-            // This test demonstrates that ListAppTargetRoleToClient returns CatalogApplication, not ModelClient
-            // Issue #810 claims the method returns ModelClient which is incorrect
-            
-            var api = CreateRoleBTargetClientApi();
-            var result = api.ListAppTargetRoleToClient(
-                clientId: "testClientId", 
-                roleAssignmentId: "testRoleAssignmentId");
-            
-            // Verify the return type is specifically CatalogApplication
-            result.Should().BeAssignableTo<IOktaCollectionClient<CatalogApplication>>();
-            
-            // Note: The following would NOT compile if the method returned ModelClient:
-            // IOktaCollectionClient<ModelClient> wrongType = api.ListAppTargetRoleToClient(...);
-            // This is a compile-time proof that the SDK is correctly typed.
-        }
-
-        [Fact]
-        public void ListGroupTargetRoleForClient_ShouldNotReturnModelClient()
-        {
-            // This test demonstrates that ListGroupTargetRoleForClient returns Group, not ModelClient
-            // Issue #810 claims the method returns ModelClient which is incorrect
-            
-            var api = CreateRoleBTargetClientApi();
-            var result = api.ListGroupTargetRoleForClient(
-                clientId: "testClientId", 
-                roleAssignmentId: "testRoleAssignmentId");
-            
-            // Verify the return type is specifically Group
-            result.Should().BeAssignableTo<IOktaCollectionClient<Group>>();
-            
-            // Note: The following would NOT compile if the method returned ModelClient:
-            // IOktaCollectionClient<ModelClient> wrongType = api.ListGroupTargetRoleForClient(...);
-            // This is a compile-time proof that the SDK is correctly typed.
-        }
-
-        #endregion
+        private const string BaseUrl = "https://test.okta.com";
+        private readonly string _clientId = "0oa1234567890abcde";
+        private readonly string _roleAssignmentId = "ra1234567890abcdef";
+        private readonly string _appName = "salesforce";
+        private readonly string _appId = "0oa9876543210fedcb";
+        private readonly string _groupId = "00g1234567890abcde";
 
         #region Constructor Tests
 
         [Fact]
+        public void Constructor_WithValidParameters_CreatesInstance()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+            api.Should().NotBeNull();
+        }
+
+        [Fact]
         public void Constructor_WithNullClient_ThrowsArgumentNullException()
         {
-            // Arrange
-            var config = CreateTestConfiguration();
-
-            // Act
-            Action act = () => new RoleBTargetClientApi(null, config);
-
-            // Assert
-            act.Should().Throw<ArgumentNullException>()
-                .WithParameterName("asyncClient");
+            var act = () => new RoleBTargetClientApi(null, new Configuration { BasePath = BaseUrl });
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
         public void Constructor_WithNullConfiguration_ThrowsArgumentNullException()
         {
-            // Arrange
-            var mockClient = CreateMockAsyncClient();
-
-            // Act
-            Action act = () => new RoleBTargetClientApi(mockClient.Object, null);
-
-            // Assert
-            act.Should().Throw<ArgumentNullException>()
-                .WithParameterName("configuration");
+            var act = () => new RoleBTargetClientApi(new MockAsyncClient("{}"), null);
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
-        public void Constructor_WithValidParameters_CreatesInstance()
+        public void Api_ImplementsIRoleBTargetClientApi()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+            api.Should().BeAssignableTo<IRoleBTargetClientApi>();
+        }
+
+        #endregion
+
+        #region AssignAppTargetInstanceRoleForClientAsync Tests
+
+        [Fact]
+        public async Task AssignAppTargetInstanceRoleForClientAsync_WithValidParams_Succeeds()
         {
             // Arrange
-            var mockClient = CreateMockAsyncClient();
-            var config = CreateTestConfiguration();
+            var mockClient = new MockAsyncClient("{}", HttpStatusCode.NoContent);
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
 
             // Act
-            var api = new RoleBTargetClientApi(mockClient.Object, config);
+            await api.AssignAppTargetInstanceRoleForClientAsync(_clientId, _roleAssignmentId, _appName, _appId);
 
             // Assert
-            api.Should().NotBeNull();
-            api.Should().BeAssignableTo<IRoleBTargetClientApiAsync>();
+            mockClient.ReceivedPath.Should().Be("/oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}/targets/catalog/apps/{appName}/{appId}");
+            mockClient.ReceivedPathParams["clientId"].Should().Contain(_clientId);
+            mockClient.ReceivedPathParams["roleAssignmentId"].Should().Contain(_roleAssignmentId);
+            mockClient.ReceivedPathParams["appName"].Should().Contain(_appName);
+            mockClient.ReceivedPathParams["appId"].Should().Contain(_appId);
+        }
+
+        [Fact]
+        public async Task AssignAppTargetInstanceRoleForClientAsync_WithNullClientId_ThrowsApiException()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+
+            Func<Task> act = async () => await api.AssignAppTargetInstanceRoleForClientAsync(null, _roleAssignmentId, _appName, _appId);
+
+            await act.Should().ThrowAsync<ApiException>().WithMessage("*Missing required parameter*clientId*");
+        }
+
+        [Fact]
+        public async Task AssignAppTargetInstanceRoleForClientAsync_WithNullAppName_ThrowsApiException()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+
+            Func<Task> act = async () => await api.AssignAppTargetInstanceRoleForClientAsync(_clientId, _roleAssignmentId, null, _appId);
+
+            await act.Should().ThrowAsync<ApiException>().WithMessage("*Missing required parameter*appName*");
+        }
+
+        [Fact]
+        public async Task AssignAppTargetInstanceRoleForClientAsync_WithNullAppId_ThrowsApiException()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+
+            Func<Task> act = async () => await api.AssignAppTargetInstanceRoleForClientAsync(_clientId, _roleAssignmentId, _appName, null);
+
+            await act.Should().ThrowAsync<ApiException>().WithMessage("*Missing required parameter*appId*");
+        }
+
+        [Fact]
+        public async Task AssignAppTargetInstanceRoleForClientWithHttpInfoAsync_ReturnsApiResponse()
+        {
+            var mockClient = new MockAsyncClient("{}", HttpStatusCode.NoContent);
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            var response = await api.AssignAppTargetInstanceRoleForClientWithHttpInfoAsync(_clientId, _roleAssignmentId, _appName, _appId);
+
+            response.Should().NotBeNull();
+        }
+
+        #endregion
+
+        #region AssignAppTargetRoleToClientAsync Tests
+
+        [Fact]
+        public async Task AssignAppTargetRoleToClientAsync_WithValidParams_Succeeds()
+        {
+            // Arrange
+            var mockClient = new MockAsyncClient("{}", HttpStatusCode.NoContent);
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            // Act
+            await api.AssignAppTargetRoleToClientAsync(_clientId, _roleAssignmentId, _appName);
+
+            // Assert
+            mockClient.ReceivedPath.Should().Be("/oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}/targets/catalog/apps/{appName}");
+            mockClient.ReceivedPathParams["clientId"].Should().Contain(_clientId);
+            mockClient.ReceivedPathParams["roleAssignmentId"].Should().Contain(_roleAssignmentId);
+            mockClient.ReceivedPathParams["appName"].Should().Contain(_appName);
+        }
+
+        [Fact]
+        public async Task AssignAppTargetRoleToClientAsync_WithNullClientId_ThrowsApiException()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+
+            Func<Task> act = async () => await api.AssignAppTargetRoleToClientAsync(null, _roleAssignmentId, _appName);
+
+            await act.Should().ThrowAsync<ApiException>().WithMessage("*Missing required parameter*clientId*");
+        }
+
+        [Fact]
+        public async Task AssignAppTargetRoleToClientAsync_WithNullAppName_ThrowsApiException()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+
+            Func<Task> act = async () => await api.AssignAppTargetRoleToClientAsync(_clientId, _roleAssignmentId, null);
+
+            await act.Should().ThrowAsync<ApiException>().WithMessage("*Missing required parameter*appName*");
+        }
+
+        [Fact]
+        public async Task AssignAppTargetRoleToClientWithHttpInfoAsync_ReturnsApiResponse()
+        {
+            var mockClient = new MockAsyncClient("{}", HttpStatusCode.NoContent);
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            var response = await api.AssignAppTargetRoleToClientWithHttpInfoAsync(_clientId, _roleAssignmentId, _appName);
+
+            response.Should().NotBeNull();
+        }
+
+        #endregion
+
+        #region AssignGroupTargetRoleForClientAsync Tests
+
+        [Fact]
+        public async Task AssignGroupTargetRoleForClientAsync_WithValidParams_Succeeds()
+        {
+            // Arrange
+            var mockClient = new MockAsyncClient("{}", HttpStatusCode.NoContent);
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            // Act
+            await api.AssignGroupTargetRoleForClientAsync(_clientId, _roleAssignmentId, _groupId);
+
+            // Assert
+            mockClient.ReceivedPath.Should().Be("/oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}/targets/groups/{groupId}");
+            mockClient.ReceivedPathParams["clientId"].Should().Contain(_clientId);
+            mockClient.ReceivedPathParams["roleAssignmentId"].Should().Contain(_roleAssignmentId);
+            mockClient.ReceivedPathParams["groupId"].Should().Contain(_groupId);
+        }
+
+        [Fact]
+        public async Task AssignGroupTargetRoleForClientAsync_WithNullClientId_ThrowsApiException()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+
+            Func<Task> act = async () => await api.AssignGroupTargetRoleForClientAsync(null, _roleAssignmentId, _groupId);
+
+            await act.Should().ThrowAsync<ApiException>().WithMessage("*Missing required parameter*clientId*");
+        }
+
+        [Fact]
+        public async Task AssignGroupTargetRoleForClientAsync_WithNullGroupId_ThrowsApiException()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+
+            Func<Task> act = async () => await api.AssignGroupTargetRoleForClientAsync(_clientId, _roleAssignmentId, null);
+
+            await act.Should().ThrowAsync<ApiException>().WithMessage("*Missing required parameter*groupId*");
+        }
+
+        [Fact]
+        public async Task AssignGroupTargetRoleForClientWithHttpInfoAsync_ReturnsApiResponse()
+        {
+            var mockClient = new MockAsyncClient("{}", HttpStatusCode.NoContent);
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            var response = await api.AssignGroupTargetRoleForClientWithHttpInfoAsync(_clientId, _roleAssignmentId, _groupId);
+
+            response.Should().NotBeNull();
+        }
+
+        #endregion
+
+        #region ListAppTargetRoleToClient Tests
+
+        [Fact]
+        public void ListAppTargetRoleToClient_WithValidParams_ReturnsCollectionClient()
+        {
+            var mockClient = new MockAsyncClient("[]");
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            var result = api.ListAppTargetRoleToClient(_clientId, _roleAssignmentId);
+
+            result.Should().NotBeNull();
+            result.Should().BeAssignableTo<IOktaCollectionClient<CatalogApplication>>();
+        }
+
+        [Fact]
+        public void ListAppTargetRoleToClient_WithPaginationParams_ReturnsCollectionClient()
+        {
+            var mockClient = new MockAsyncClient("[]");
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            var result = api.ListAppTargetRoleToClient(_clientId, _roleAssignmentId, after: "cursor123", limit: 25);
+
+            result.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async Task ListAppTargetRoleToClientWithHttpInfoAsync_ReturnsApiResponse()
+        {
+            var mockClient = new MockAsyncClient("[]");
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            var response = await api.ListAppTargetRoleToClientWithHttpInfoAsync(_clientId, _roleAssignmentId);
+
+            response.Should().NotBeNull();
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+        }
+
+        #endregion
+
+        #region ListGroupTargetRoleForClient Tests
+
+        [Fact]
+        public void ListGroupTargetRoleForClient_WithValidParams_ReturnsCollectionClient()
+        {
+            var mockClient = new MockAsyncClient("[]");
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            var result = api.ListGroupTargetRoleForClient(_clientId, _roleAssignmentId);
+
+            result.Should().NotBeNull();
+            result.Should().BeAssignableTo<IOktaCollectionClient<Group>>();
+        }
+
+        [Fact]
+        public void ListGroupTargetRoleForClient_WithPaginationParams_ReturnsCollectionClient()
+        {
+            var mockClient = new MockAsyncClient("[]");
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            var result = api.ListGroupTargetRoleForClient(_clientId, _roleAssignmentId, after: "cursor456", limit: 10);
+
+            result.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async Task ListGroupTargetRoleForClientWithHttpInfoAsync_ReturnsApiResponse()
+        {
+            var mockClient = new MockAsyncClient("[]");
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            var response = await api.ListGroupTargetRoleForClientWithHttpInfoAsync(_clientId, _roleAssignmentId);
+
+            response.Should().NotBeNull();
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+        }
+
+        #endregion
+
+        #region RemoveAppTargetInstanceRoleForClientAsync Tests
+
+        [Fact]
+        public async Task RemoveAppTargetInstanceRoleForClientAsync_WithValidParams_Succeeds()
+        {
+            // Arrange
+            var mockClient = new MockAsyncClient("{}", HttpStatusCode.NoContent);
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            // Act
+            await api.RemoveAppTargetInstanceRoleForClientAsync(_clientId, _roleAssignmentId, _appName, _appId);
+
+            // Assert
+            mockClient.ReceivedPath.Should().Be("/oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}/targets/catalog/apps/{appName}/{appId}");
+            mockClient.ReceivedPathParams["clientId"].Should().Contain(_clientId);
+            mockClient.ReceivedPathParams["appName"].Should().Contain(_appName);
+            mockClient.ReceivedPathParams["appId"].Should().Contain(_appId);
+        }
+
+        [Fact]
+        public async Task RemoveAppTargetInstanceRoleForClientAsync_WithNullClientId_ThrowsApiException()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+
+            Func<Task> act = async () => await api.RemoveAppTargetInstanceRoleForClientAsync(null, _roleAssignmentId, _appName, _appId);
+
+            await act.Should().ThrowAsync<ApiException>().WithMessage("*Missing required parameter*clientId*");
+        }
+
+        [Fact]
+        public async Task RemoveAppTargetInstanceRoleForClientAsync_WithNullAppName_ThrowsApiException()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+
+            Func<Task> act = async () => await api.RemoveAppTargetInstanceRoleForClientAsync(_clientId, _roleAssignmentId, null, _appId);
+
+            await act.Should().ThrowAsync<ApiException>().WithMessage("*Missing required parameter*appName*");
+        }
+
+        [Fact]
+        public async Task RemoveAppTargetInstanceRoleForClientAsync_WithNullAppId_ThrowsApiException()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+
+            Func<Task> act = async () => await api.RemoveAppTargetInstanceRoleForClientAsync(_clientId, _roleAssignmentId, _appName, null);
+
+            await act.Should().ThrowAsync<ApiException>().WithMessage("*Missing required parameter*appId*");
+        }
+
+        [Fact]
+        public async Task RemoveAppTargetInstanceRoleForClientWithHttpInfoAsync_ReturnsApiResponse()
+        {
+            var mockClient = new MockAsyncClient("{}", HttpStatusCode.NoContent);
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            var response = await api.RemoveAppTargetInstanceRoleForClientWithHttpInfoAsync(_clientId, _roleAssignmentId, _appName, _appId);
+
+            response.Should().NotBeNull();
+        }
+
+        #endregion
+
+        #region RemoveAppTargetRoleFromClientAsync Tests
+
+        [Fact]
+        public async Task RemoveAppTargetRoleFromClientAsync_WithValidParams_Succeeds()
+        {
+            // Arrange
+            var mockClient = new MockAsyncClient("{}", HttpStatusCode.NoContent);
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            // Act
+            await api.RemoveAppTargetRoleFromClientAsync(_clientId, _roleAssignmentId, _appName);
+
+            // Assert
+            mockClient.ReceivedPath.Should().Be("/oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}/targets/catalog/apps/{appName}");
+            mockClient.ReceivedPathParams["clientId"].Should().Contain(_clientId);
+            mockClient.ReceivedPathParams["roleAssignmentId"].Should().Contain(_roleAssignmentId);
+            mockClient.ReceivedPathParams["appName"].Should().Contain(_appName);
+        }
+
+        [Fact]
+        public async Task RemoveAppTargetRoleFromClientAsync_WithNullClientId_ThrowsApiException()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+
+            Func<Task> act = async () => await api.RemoveAppTargetRoleFromClientAsync(null, _roleAssignmentId, _appName);
+
+            await act.Should().ThrowAsync<ApiException>().WithMessage("*Missing required parameter*clientId*");
+        }
+
+        [Fact]
+        public async Task RemoveAppTargetRoleFromClientAsync_WithNullAppName_ThrowsApiException()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+
+            Func<Task> act = async () => await api.RemoveAppTargetRoleFromClientAsync(_clientId, _roleAssignmentId, null);
+
+            await act.Should().ThrowAsync<ApiException>().WithMessage("*Missing required parameter*appName*");
+        }
+
+        [Fact]
+        public async Task RemoveAppTargetRoleFromClientWithHttpInfoAsync_ReturnsApiResponse()
+        {
+            var mockClient = new MockAsyncClient("{}", HttpStatusCode.NoContent);
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            var response = await api.RemoveAppTargetRoleFromClientWithHttpInfoAsync(_clientId, _roleAssignmentId, _appName);
+
+            response.Should().NotBeNull();
+        }
+
+        #endregion
+
+        #region RemoveGroupTargetRoleFromClientAsync Tests
+
+        [Fact]
+        public async Task RemoveGroupTargetRoleFromClientAsync_WithValidParams_Succeeds()
+        {
+            // Arrange
+            var mockClient = new MockAsyncClient("{}", HttpStatusCode.NoContent);
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            // Act
+            await api.RemoveGroupTargetRoleFromClientAsync(_clientId, _roleAssignmentId, _groupId);
+
+            // Assert
+            mockClient.ReceivedPath.Should().Be("/oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}/targets/groups/{groupId}");
+            mockClient.ReceivedPathParams["clientId"].Should().Contain(_clientId);
+            mockClient.ReceivedPathParams["roleAssignmentId"].Should().Contain(_roleAssignmentId);
+            mockClient.ReceivedPathParams["groupId"].Should().Contain(_groupId);
+        }
+
+        [Fact]
+        public async Task RemoveGroupTargetRoleFromClientAsync_WithNullClientId_ThrowsApiException()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+
+            Func<Task> act = async () => await api.RemoveGroupTargetRoleFromClientAsync(null, _roleAssignmentId, _groupId);
+
+            await act.Should().ThrowAsync<ApiException>().WithMessage("*Missing required parameter*clientId*");
+        }
+
+        [Fact]
+        public async Task RemoveGroupTargetRoleFromClientAsync_WithNullGroupId_ThrowsApiException()
+        {
+            var api = new RoleBTargetClientApi(new MockAsyncClient("{}"), new Configuration { BasePath = BaseUrl });
+
+            Func<Task> act = async () => await api.RemoveGroupTargetRoleFromClientAsync(_clientId, _roleAssignmentId, null);
+
+            await act.Should().ThrowAsync<ApiException>().WithMessage("*Missing required parameter*groupId*");
+        }
+
+        [Fact]
+        public async Task RemoveGroupTargetRoleFromClientWithHttpInfoAsync_ReturnsApiResponse()
+        {
+            var mockClient = new MockAsyncClient("{}", HttpStatusCode.NoContent);
+            var api = new RoleBTargetClientApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            var response = await api.RemoveGroupTargetRoleFromClientWithHttpInfoAsync(_clientId, _roleAssignmentId, _groupId);
+
+            response.Should().NotBeNull();
         }
 
         #endregion

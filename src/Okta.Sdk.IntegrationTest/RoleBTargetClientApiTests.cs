@@ -3,774 +3,582 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using FluentAssertions;
-using Newtonsoft.Json.Linq;
-using Okta.Sdk.Api;
-using Okta.Sdk.Client;
-using Okta.Sdk.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using FluentAssertions;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 using Xunit;
 
 namespace Okta.Sdk.IntegrationTest
 {
     /// <summary>
-    /// Comprehensive integration tests for the RoleBTargetClientApi.
-    /// 
-    /// This test file validates Issue #810: Verifies that ListAppTargetRoleToClient returns 
-    /// CatalogApplication objects (not ModelClient) and ListGroupTargetRoleForClient returns 
-    /// Group objects (not ModelClient).
-    /// 
-    /// API ENDPOINTS COVERED (8 total):
-    /// ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-    /// │ #  │ Method │ Endpoint                                                                      │ SDK Method │
-    /// ├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-    /// │ 1  │ GET    │ /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/catalog/apps             │ ListAppTargetRoleToClient │
-    /// │ 2  │ PUT    │ /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/catalog/apps/{appName}   │ AssignAppTargetRoleToClient │
-    /// │ 3  │ DELETE │ /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/catalog/apps/{appName}   │ RemoveAppTargetRoleFromClient │
-    /// │ 4  │ PUT    │ /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/catalog/apps/{appName}/{appId} │ AssignAppTargetInstanceRoleForClient │
-    /// │ 5  │ DELETE │ /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/catalog/apps/{appName}/{appId} │ RemoveAppTargetInstanceRoleForClient │
-    /// │ 6  │ GET    │ /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/groups                   │ ListGroupTargetRoleForClient │
-    /// │ 7  │ PUT    │ /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/groups/{groupId}         │ AssignGroupTargetRoleForClient │
-    /// │ 8  │ DELETE │ /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/groups/{groupId}         │ RemoveGroupTargetRoleFromClient │
-    /// └─────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-    /// 
-    /// TEST STRATEGY:
-    /// This test creates its own OAuth service app, groups, applications, and role assignments, then cleans them up afterward.
-    /// It is fully self-contained and does not rely on external environment variables for client ID.
-    /// 
-    /// PREREQUISITES:
-    /// - Okta org with valid API token
+    /// Integration tests for <see cref="RoleBTargetClientApi"/>.
+    ///
+    /// SDK Methods &amp; Endpoints Covered (all 16 signatures — 8 functional + 8 WithHttpInfo):
+    /// ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+    /// │ Method                                                                              │ HTTP   │ Status │ Endpoint                                                                          │
+    /// ├───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+    /// │ ListAppTargetRoleToClient                                                           │ GET    │ 200    │ /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}/targets/catalog/apps       │
+    /// │   — called empty, non-empty, and with limit=1                                       │        │        │                                                                                   │
+    /// │ ListAppTargetRoleToClientWithHttpInfoAsync                                          │ GET    │ 200    │ same (empty, limit=1)                                                             │
+    /// │ AssignAppTargetRoleToClientAsync                                                    │ PUT    │ 204    │ .../targets/catalog/apps/{appName}                                                │
+    /// │ AssignAppTargetRoleToClientWithHttpInfoAsync                                        │ PUT    │ 204    │ same                                                                              │
+    /// │ AssignAppTargetInstanceRoleForClientAsync                                           │ PUT    │ 204    │ .../targets/catalog/apps/{appName}/{appId}                                        │
+    /// │ AssignAppTargetInstanceRoleForClientWithHttpInfoAsync                               │ PUT    │ 204    │ same                                                                              │
+    /// │ RemoveAppTargetInstanceRoleForClientAsync                                           │ DELETE │ 204    │ .../targets/catalog/apps/{appName}/{appId}                                        │
+    /// │ RemoveAppTargetInstanceRoleForClientWithHttpInfoAsync                               │ DELETE │ 204    │ same                                                                              │
+    /// │ RemoveAppTargetRoleFromClientAsync                                                  │ DELETE │ 204    │ .../targets/catalog/apps/{appName}                                                │
+    /// │ RemoveAppTargetRoleFromClientWithHttpInfoAsync                                      │ DELETE │ 204    │ same                                                                              │
+    /// │ ListGroupTargetRoleForClient                                                        │ GET    │ 200    │ /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}/targets/groups             │
+    /// │   — called empty, non-empty, and with limit=1                                       │        │        │                                                                                   │
+    /// │ ListGroupTargetRoleForClientWithHttpInfoAsync                                       │ GET    │ 200    │ same (empty, limit=1)                                                             │
+    /// │ AssignGroupTargetRoleForClientAsync                                                 │ PUT    │ 204    │ .../targets/groups/{groupId}                                                      │
+    /// │ AssignGroupTargetRoleForClientWithHttpInfoAsync                                     │ PUT    │ 204    │ same                                                                              │
+    /// │ RemoveGroupTargetRoleFromClientAsync                                                │ DELETE │ 204    │ .../targets/groups/{groupId}                                                      │
+    /// │ RemoveGroupTargetRoleFromClientWithHttpInfoAsync                                    │ DELETE │ 204    │ same                                                                              │
+    /// └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ///
     /// </summary>
     [Collection(nameof(RoleBTargetClientApiTests))]
     public class RoleBTargetClientApiTests : IAsyncLifetime
     {
-        private RoleBTargetClientApi _roleBTargetClientApi;
-        private RoleAssignmentClientApi _roleAssignmentClientApi;
-        private ApplicationApi _applicationApi;
-        private GroupApi _groupApi;
-        private ApiClient _apiClient;
-        private string _oktaDomain;
-        
-        private string _testClientId;
-        private string _appAdminRoleAssignmentId;
-        private string _userAdminRoleAssignmentId;
-        private string _createdGroupId;
-        private string _createdAppId;
-        private const string TestAppName = "bookmark"; // Common OIN app that exists in all Okta orgs
-        private bool _setupComplete;
+        // ── API Clients ──────────────────────────────────────────────────────────
+        private readonly RoleBTargetClientApi      _targetApi      = new();
+        private readonly RoleAssignmentClientApi   _roleAssignApi  = new();
+        private readonly ApplicationApi            _appApi         = new();
+        private readonly GroupApi                  _groupApi       = new();
 
-        // Test RSA public key for service app JWT authentication
-        private const string TestPublicKeyN = "mTjMc8AxU102LT1Jf-1qkGmaSiK4L7DDlC1SMvtyCRbDaiJDIagedfp1w8Pgud8YWOaS5FFx0S6JqGGP2U8OtpowzBcv5sYa-e5LHfnoueTJPj_jnI3fj5omZM1w-ofhFLPZoYEQ7DFYw0yLrzf8zaKB5-9BZ8yyOLhSKqxaOl2s7lw2TrwBRuQpPXmEir70oDPvazd8-An5ow6F5q7mzMtHAt61DJqrosRHiRwh4N37zIX_RNu-Tn1aMktCBl01rdoDyVq7Y4iwNH8ZAtT5thKK2eo8d-jb9TF9PH6LGffYCth157w-K4AZwXw74Ybo5NOux3XpIpKRbFTwvBLp1Q";
+        // ── Test state ────────────────────────────────────────────────────────────
+        private string _clientAppId;       // Okta App ID (== client_id) of the service OIDC app
+        private string _appAdminRoleId;    // APP_ADMIN role assignment id
+        private string _userAdminRoleId;   // USER_ADMIN role assignment id
+        private string _targetGroup1Id;    // first group used as a group-target
+        private string _targetGroup2Id;    // second group used as a group-target
+        private string _bookmarkApp1Id;    // first bookmark app instance (for app-instance-target tests)
+        private string _bookmarkApp2Id;    // second bookmark app instance
+
+        // ── Setup ─────────────────────────────────────────────────────────────────
 
         public async Task InitializeAsync()
         {
-            // Initialize API instances with default configuration from environment
-            _roleBTargetClientApi = new RoleBTargetClientApi();
-            _roleAssignmentClientApi = new RoleAssignmentClientApi();
-            _applicationApi = new ApplicationApi();
-            _groupApi = new GroupApi();
+            var suffix = Guid.NewGuid().ToString("N")[..12];
 
-            _oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;
-            if (_oktaDomain.EndsWith("/"))
+            // 1. Create a service-type OIDC app.
+            //    Only "service" application_type clients can receive role assignments.
+            //    The client_id for the RoleBTargetClientApi equals the app's Okta ID.
+            var serviceApp = new OpenIdConnectApplication
             {
-                _oktaDomain = _oktaDomain.Remove(_oktaDomain.Length - 1);
-            }
-            _apiClient = new ApiClient(_oktaDomain);
-
-            try
-            {
-                // Create an OAuth service app for testing client role assignments
-                var guid = Guid.NewGuid();
-                var payload = $@"{{
-                    ""client_name"": ""dotnet-sdk: RoleBTargetClientApiTests {guid}"",
-                    ""response_types"": [""token""],
-                    ""grant_types"": [""client_credentials""],
-                    ""token_endpoint_auth_method"": ""private_key_jwt"",
-                    ""application_type"": ""service"",
-                    ""jwks"": {{
-                        ""keys"": [{{
-                            ""kty"":""RSA"",
-                            ""e"":""AQAB"",
-                            ""n"":""{TestPublicKeyN}""
-                        }}]
-                    }}
-                }}";
-
-                var requestOptions = GetBasicRequestOptions();
-                requestOptions.Data = JObject.Parse(payload);
-
-                var serviceResponse = await _apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
-                _testClientId = serviceResponse.Data["client_id"]?.ToString();
-
-                if (string.IsNullOrEmpty(_testClientId))
+                Name       = OpenIdConnectApplication.NameEnum.OidcClient,
+                Label      = $"rbtc-client-{suffix}",
+                SignOnMode = ApplicationSignOnMode.OPENIDCONNECT,
+                Credentials = new OAuthApplicationCredentials
                 {
-                    return;
-                }
-
-                // Create a test group for group target tests
-                var addGroupRequest = new AddGroupRequest
-                {
-                    Profile = new OktaUserGroupProfile
+                    OauthClient = new ApplicationCredentialsOAuthClient
                     {
-                        Name = $"SDK-Test-RoleBTarget-{Guid.NewGuid():N}",
-                        Description = "Test group for RoleBTargetClientApi integration tests"
-                    }
-                };
-                var createdGroup = await _groupApi.AddGroupAsync(addGroupRequest);
-                _createdGroupId = createdGroup.Id;
-
-                // Create a test bookmark app for app instance target tests
-                var bookmarkApp = new BookmarkApplication
+                        TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretBasic,
+                    },
+                },
+                Settings = new OpenIdConnectApplicationSettings
                 {
-                    Name = "bookmark",
-                    Label = $"SDK-Test-RoleBTarget-App-{Guid.NewGuid():N}",
-                    Settings = new BookmarkApplicationSettings
+                    OauthClient = new OpenIdConnectApplicationSettingsClient
                     {
-                        App = new BookmarkApplicationSettingsApplication
-                        {
-                            Url = "https://example.com",
-                            RequestIntegration = false
-                        }
-                    }
-                };
-                var createdApp = await _applicationApi.CreateApplicationAsync(bookmarkApp);
-                _createdAppId = createdApp.Id;
+                        ApplicationType = OpenIdConnectApplicationType.Service,
+                        GrantTypes      = new List<GrantType> { GrantType.ClientCredentials },
+                        ResponseTypes   = new List<OAuthResponseType> { OAuthResponseType.Token },
+                    },
+                },
+            };
 
-                // Assign an APP_ADMIN role to the client for app target tests
-                // Using raw API call to avoid polymorphic deserialization bug in ListGroupAssignedRoles200ResponseInner.FromJson
-                var appAdminRequestOptions = GetBasicRequestOptions();
-                appAdminRequestOptions.Data = JObject.Parse(@"{ ""type"": ""APP_ADMIN"" }");
-                var appAdminResponse = await _apiClient.PostAsync<JObject>($"/oauth2/v1/clients/{_testClientId}/roles", appAdminRequestOptions);
-                _appAdminRoleAssignmentId = appAdminResponse.Data?["id"]?.ToString();
+            var createdApp = await _appApi.CreateApplicationAsync(serviceApp);
+            _clientAppId = createdApp.Id;   // client_id == app.Id for OIDC apps
 
-                // Assign USER_ADMIN role to the client for group target tests
-                var userAdminRequestOptions = GetBasicRequestOptions();
-                userAdminRequestOptions.Data = JObject.Parse(@"{ ""type"": ""USER_ADMIN"" }");
-                var userAdminResponse = await _apiClient.PostAsync<JObject>($"/oauth2/v1/clients/{_testClientId}/roles", userAdminRequestOptions);
-                _userAdminRoleAssignmentId = userAdminResponse.Data?["id"]?.ToString();
-
-                _setupComplete = !string.IsNullOrEmpty(_appAdminRoleAssignmentId) && 
-                                 !string.IsNullOrEmpty(_userAdminRoleAssignmentId);
-            }
-            catch (ApiException ex)
+            // 2. Create two bookmark apps for app-instance-target tests.
+            //    Two instances are needed to safely test instance unassignment
+            //    without hitting the "cannot remove last target" 400 constraint.
+            var bookmarkTemplate = new BookmarkApplication
             {
-                // Role might already be assigned - try to retrieve it
-                Console.WriteLine($"Setup warning: {ex.Message}");
-            }
+                Name      = "bookmark",
+                SignOnMode = ApplicationSignOnMode.BOOKMARK,
+                Settings  = new BookmarkApplicationSettings
+                {
+                    App = new BookmarkApplicationSettingsApplication
+                    {
+                        Url                = "https://example.com",
+                        RequestIntegration = false,
+                    },
+                },
+            };
+
+            bookmarkTemplate.Label = $"rbtc-bm1-{suffix}";
+            var bm1 = await _appApi.CreateApplicationAsync(bookmarkTemplate);
+            _bookmarkApp1Id = bm1.Id;
+
+            bookmarkTemplate.Label = $"rbtc-bm2-{suffix}";
+            var bm2 = await _appApi.CreateApplicationAsync(bookmarkTemplate);
+            _bookmarkApp2Id = bm2.Id;
+
+            // 3. Create two target groups (used as group-targets for the USER_ADMIN role).
+            //    Two groups are needed to safely test group unassignment.
+            var tgt1 = await _groupApi.AddGroupAsync(new AddGroupRequest
+            {
+                Profile = new OktaUserGroupProfile { Name = $"rbtc-tgt1-{suffix}" },
+            });
+            _targetGroup1Id = tgt1.Id;
+
+            var tgt2 = await _groupApi.AddGroupAsync(new AddGroupRequest
+            {
+                Profile = new OktaUserGroupProfile { Name = $"rbtc-tgt2-{suffix}" },
+            });
+            _targetGroup2Id = tgt2.Id;
+
+            // 4. Assign APP_ADMIN role to the service-app client (for app-target tests).
+            var appAdminResp = await _roleAssignApi.AssignRoleToClientAsync(
+                _clientAppId,
+                new AssignRoleToGroupRequest(new StandardRoleAssignmentSchema { Type = "APP_ADMIN" }));
+            _appAdminRoleId = ResolveRoleId(appAdminResp);
+
+            // 5. Assign USER_ADMIN role to the service-app client (for group-target tests).
+            var userAdminResp = await _roleAssignApi.AssignRoleToClientAsync(
+                _clientAppId,
+                new AssignRoleToGroupRequest(new StandardRoleAssignmentSchema { Type = "USER_ADMIN" }));
+            _userAdminRoleId = ResolveRoleId(userAdminResp);
         }
+
+        // ── Teardown ──────────────────────────────────────────────────────────────
 
         public async Task DisposeAsync()
         {
-            // Clean up role assignments
-            if (!string.IsNullOrEmpty(_testClientId) && !string.IsNullOrEmpty(_appAdminRoleAssignmentId))
+            // Unassign roles (implicitly clears all targets on the client).
+            if (!string.IsNullOrEmpty(_clientAppId))
             {
-                try
-                {
-                    await _roleAssignmentClientApi.DeleteRoleFromClientAsync(_testClientId, _appAdminRoleAssignmentId);
-                }
-                catch { /* Ignore cleanup errors */ }
+                if (!string.IsNullOrEmpty(_appAdminRoleId))
+                    try { await _roleAssignApi.DeleteRoleFromClientAsync(_clientAppId, _appAdminRoleId); } catch { /* ignore */ }
+
+                if (!string.IsNullOrEmpty(_userAdminRoleId))
+                    try { await _roleAssignApi.DeleteRoleFromClientAsync(_clientAppId, _userAdminRoleId); } catch { /* ignore */ }
             }
 
-            if (!string.IsNullOrEmpty(_testClientId) && !string.IsNullOrEmpty(_userAdminRoleAssignmentId))
+            // Deactivate + delete the service app (deactivation is always done via ApplicationApi).
+            if (!string.IsNullOrEmpty(_clientAppId))
             {
-                try
-                {
-                    await _roleAssignmentClientApi.DeleteRoleFromClientAsync(_testClientId, _userAdminRoleAssignmentId);
-                }
-                catch { /* Ignore cleanup errors */ }
+                try { await _appApi.DeactivateApplicationAsync(_clientAppId); } catch { /* ignore */ }
+                try { await _appApi.DeleteApplicationAsync(_clientAppId); }     catch { /* ignore */ }
             }
 
-            // Clean up test group
-            if (!string.IsNullOrEmpty(_createdGroupId))
+            // Deactivate + delete bookmark app instances.
+            foreach (var appId in new[] { _bookmarkApp1Id, _bookmarkApp2Id })
             {
-                try
-                {
-                    await _groupApi.DeleteGroupAsync(_createdGroupId);
-                }
-                catch { /* Ignore cleanup errors */ }
+                if (string.IsNullOrEmpty(appId)) continue;
+                try { await _appApi.DeactivateApplicationAsync(appId); } catch { /* ignore */ }
+                try { await _appApi.DeleteApplicationAsync(appId); }     catch { /* ignore */ }
             }
 
-            // Clean up test app
-            if (!string.IsNullOrEmpty(_createdAppId))
+            // Delete target groups.
+            foreach (var groupId in new[] { _targetGroup1Id, _targetGroup2Id })
             {
-                try
-                {
-                    await _applicationApi.DeactivateApplicationAsync(_createdAppId);
-                    await _applicationApi.DeleteApplicationAsync(_createdAppId);
-                }
-                catch { /* Ignore cleanup errors */ }
-            }
-
-            // Clean up the OAuth service app
-            if (!string.IsNullOrEmpty(_testClientId))
-            {
-                try
-                {
-                    var requestOptions = GetBasicRequestOptions();
-                    await _apiClient.DeleteAsync<JObject>($"/oauth2/v1/clients/{_testClientId}", requestOptions, Configuration.GetConfigurationOrDefault());
-                }
-                catch { /* Ignore cleanup errors */ }
+                if (string.IsNullOrEmpty(groupId)) continue;
+                try { await _groupApi.DeleteGroupAsync(groupId); } catch { /* ignore */ }
             }
         }
 
-        private RequestOptions GetBasicRequestOptions()
+        // ── Helper ────────────────────────────────────────────────────────────────
+
+        private static string ResolveRoleId(ListGroupAssignedRoles200ResponseInner wrapper)
         {
-            string[] contentTypes = ["application/json"];
-            string[] accepts = ["application/json"];
-
-            var requestOptions = new RequestOptions();
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null)
-            {
-                requestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null)
-            {
-                requestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (!string.IsNullOrEmpty(Configuration.GetConfigurationOrDefault().GetApiKeyWithPrefix("Authorization")))
-            {
-                requestOptions.HeaderParameters.Add("Authorization", Configuration.GetConfigurationOrDefault().GetApiKeyWithPrefix("Authorization"));
-            }
-
-            return requestOptions;
-        }
-
-        private void SkipIfSetupIncomplete()
-        {
-            if (!_setupComplete)
-            {
-                throw new RoleBTargetTestSkipException("Test setup incomplete - missing role assignments or client ID.");
-            }
-        }
-
-        /// <summary>
-        /// Helper method to extract group name from GroupProfile (which is a union type).
-        /// </summary>
-        private string GetGroupName(GroupProfile profile)
-        {
-            if (profile?.ActualInstance is OktaUserGroupProfile userProfile)
-                return userProfile.Name;
-            else if (profile?.ActualInstance is OktaActiveDirectoryGroupProfile adProfile)
-                return adProfile.Name;
+            if (wrapper?.ActualInstance is StandardRole sr) return sr.Id;
+            if (wrapper?.ActualInstance is CustomRole   cr) return cr.Id;
             return null;
         }
 
-        #region Issue #810 Verification Tests - Return Type Verification
+        // ═══════════════════════════════════════════════════════════════════════
+        //  SINGLE COMPREHENSIVE TEST — covers all 16 SDK signatures in one flow
+        // ═══════════════════════════════════════════════════════════════════════
 
-        /// <summary>
-        /// ISSUE #810 TEST: Verifies that ListAppTargetRoleToClient returns CatalogApplication objects, NOT ModelClient.
-        /// 
-        /// This is the primary test for Issue #810 that claimed the method returns ModelClient.
-        /// The API returns CatalogApplication objects with properties: name, displayName, status, category, etc.
-        /// </summary>
         [Fact]
-        public async Task ListAppTargetRoleToClient_ShouldReturnCatalogApplication_NotModelClient()
+        public async Task ClientRoleTargets_FullWorkflow_ShouldSucceed()
         {
-            SkipIfSetupIncomplete();
+            // ══════════════════════════════════════════════════════════════════
+            //  APP TARGETS  (APP_ADMIN role assigned to the service-app client)
+            // ══════════════════════════════════════════════════════════════════
+            //
+            // Endpoint base: /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/catalog/apps
+            //
+            // "bookmark" is the OIN catalog key for all bookmark app instances.
+            // "mfa_rdp" is used as a second assignable OIN entry to safely test
+            // OIN deletion (a minimum of 2 targets must exist before removing one).
 
-            // First, assign an OIN app target to ensure we have something to list
-            try
-            {
-                await _roleBTargetClientApi.AssignAppTargetRoleToClientAsync(
-                    _testClientId, _appAdminRoleAssignmentId, TestAppName);
-            }
-            catch (ApiException ex) when (ex.ErrorCode == 409)
-            {
-                // Already assigned, continue
-            }
+            // ──────────────────────────────────────────────────────────────────
+            // 1. GET initial app-target list — must be empty.
+            // ──────────────────────────────────────────────────────────────────
+            var initialAppTargets = await _targetApi
+                .ListAppTargetRoleToClient(_clientAppId, _appAdminRoleId)
+                .ToListAsync();
 
-            // Act - Call the method that Issue #810 claims returns the wrong type
-            var appTargets = new List<CatalogApplication>();
-            await foreach (var app in _roleBTargetClientApi.ListAppTargetRoleToClient(
-                _testClientId, _appAdminRoleAssignmentId))
-            {
-                appTargets.Add(app);
-                
-                // CRITICAL ASSERTION: This is a CatalogApplication, NOT ModelClient
-                app.Should().BeOfType<CatalogApplication>(
-                    "Issue #810: ListAppTargetRoleToClient should return CatalogApplication, not ModelClient");
-                
-                // Verify CatalogApplication-specific properties exist and are accessible
-                // CatalogApplication has: Name, DisplayName, Description, Status, Category, VerificationStatus
-                // ModelClient has: ClientId, ClientSecret, ApplicationType, TokenEndpointAuthMethod
-                app.Name.Should().NotBeNullOrEmpty("CatalogApplication.Name should be populated");
-            }
+            initialAppTargets.Should().BeEmpty(
+                "a freshly assigned APP_ADMIN role has no scoped app targets yet");
 
-            // Assert
-            appTargets.Should().NotBeEmpty("At least one app target should exist after assignment");
-            
-            // Verify the items have CatalogApplication properties
-            var firstApp = appTargets.First();
-            firstApp.Name.Should().Be(TestAppName);
-            
-            // These properties exist on CatalogApplication but NOT on ModelClient
-            var status = firstApp.Status; // CatalogApplicationStatus enum
-            status.Should().NotBeNull();
+            // WithHttpInfo variant — status 200
+            var initialAppTargetsHttp = await _targetApi
+                .ListAppTargetRoleToClientWithHttpInfoAsync(_clientAppId, _appAdminRoleId);
 
-            // Cleanup - remove the app target we added
-            try
-            {
-                await _roleBTargetClientApi.RemoveAppTargetRoleFromClientAsync(
-                    _testClientId, _appAdminRoleAssignmentId, TestAppName);
-            }
-            catch { /* Ignore */ }
+            ((int)initialAppTargetsHttp.StatusCode).Should().Be(200,
+                "GET .../targets/catalog/apps must return 200");
+            initialAppTargetsHttp.Data.Should().BeEmpty();
+
+            // ──────────────────────────────────────────────────────────────────
+            // 2. PUT .../targets/catalog/apps/bookmark — AssignAppTargetRoleToClient (OIN scope).
+            //    Curl-validated: returns 204.
+            //    Subsequent GET returns 1 catalogue entry with Name="bookmark" and
+            //    no Id (OIN-level target, not a specific instance).
+            // ──────────────────────────────────────────────────────────────────
+            await _targetApi.AssignAppTargetRoleToClientAsync(
+                _clientAppId, _appAdminRoleId, "bookmark");
+
+            var afterAssignOin = await _targetApi
+                .ListAppTargetRoleToClient(_clientAppId, _appAdminRoleId)
+                .ToListAsync();
+
+            afterAssignOin.Should().HaveCount(1,
+                "assigning an OIN app target scopes the APP_ADMIN role to that catalog entry");
+            afterAssignOin[0].Name.Should().Be("bookmark");
+            afterAssignOin[0].Id.Should().BeNullOrEmpty(
+                "a catalog-level target has no instance id");
+
+            // WithHttpInfo variant — must return 204
+            var assignOinHttp = await _targetApi
+                .AssignAppTargetRoleToClientWithHttpInfoAsync(
+                    _clientAppId, _appAdminRoleId, "bookmark");
+
+            ((int)assignOinHttp.StatusCode).Should().Be(204,
+                "PUT .../targets/catalog/apps/{appName} must return 204");
+
+            // ──────────────────────────────────────────────────────────────────
+            // 3. PUT .../targets/catalog/apps/bookmark/{bookmarkApp1Id}
+            //    — AssignAppTargetInstanceRoleForClient.
+            //    Assigning a specific instance replaces the OIN-level catalog target.
+            // ──────────────────────────────────────────────────────────────────
+            await _targetApi.AssignAppTargetInstanceRoleForClientAsync(
+                _clientAppId, _appAdminRoleId, "bookmark", _bookmarkApp1Id);
+
+            // Verify the OIN catalog entry was replaced by the app1 instance.
+            // Docs: "When you assign the first app instance target, the role no longer applies to all
+            //        app targets, but applies only to the specified target."
+            var afterApp1Instance = await _targetApi
+                .ListAppTargetRoleToClient(_clientAppId, _appAdminRoleId)
+                .ToListAsync();
+
+            afterApp1Instance.Should().HaveCount(1,
+                "assigning an app instance target must replace the existing OIN catalog entry for the same app");
+            afterApp1Instance[0].Id.Should().Be(_bookmarkApp1Id,
+                "the single remaining entry is the app1 instance, not an OIN catalog target");
+            // For instance-level targets the Name field carries the app's display label,
+            // NOT the OIN catalog key ("bookmark").  Only OIN catalog-level entries use "bookmark".
+            afterApp1Instance[0].Name.Should().NotBe("bookmark",
+                "instance-level targets expose the app's display label as Name, not the OIN catalog key");
+
+            // Assign second instance via WithHttpInfo — status 204
+            var assignInstanceHttp = await _targetApi
+                .AssignAppTargetInstanceRoleForClientWithHttpInfoAsync(
+                    _clientAppId, _appAdminRoleId, "bookmark", _bookmarkApp2Id);
+
+            ((int)assignInstanceHttp.StatusCode).Should().Be(204,
+                "PUT .../targets/catalog/apps/{appName}/{appId} must return 204");
+
+            var afterTwoInstances = await _targetApi
+                .ListAppTargetRoleToClient(_clientAppId, _appAdminRoleId)
+                .ToListAsync();
+
+            afterTwoInstances.Should().HaveCount(2,
+                "both bookmark app instances should appear as separate targets");
+            afterTwoInstances.Should().OnlyContain(t => t.Id != null,
+                "instance-level targets carry an id field");
+            afterTwoInstances.Should().Contain(t => t.Id == _bookmarkApp1Id);
+            afterTwoInstances.Should().Contain(t => t.Id == _bookmarkApp2Id);
+
+            // ──────────────────────────────────────────────────────────────────
+            // 3b. List with limit=1 — exercises the optional `limit` parameter.
+            //     IOktaCollectionClient.ToListAsync() auto-follows all Link headers
+            //     (pagination), so it always returns ALL items regardless of page size.
+            //     The WithHttpInfo variant returns the raw single page, so limit=1
+            //     is directly observable there (exactly 1 entry per raw page).
+            // ──────────────────────────────────────────────────────────────────
+
+            // Collection client with limit=1 — fetches all pages, count equals total.
+            var limitedAppTargets = await _targetApi
+                .ListAppTargetRoleToClient(_clientAppId, _appAdminRoleId, limit: 1)
+                .ToListAsync();
+
+            limitedAppTargets.Should().HaveCount(2,
+                "ToListAsync() follows all pagination links so all 2 targets are returned even with limit=1");
+
+            // WithHttpInfo with limit=1 — raw single page, must contain exactly 1 item.
+            var limitedAppTargetsHttp = await _targetApi
+                .ListAppTargetRoleToClientWithHttpInfoAsync(
+                    _clientAppId, _appAdminRoleId, limit: 1);
+
+            ((int)limitedAppTargetsHttp.StatusCode).Should().Be(200,
+                "GET .../targets/catalog/apps?limit=1 must return 200");
+            limitedAppTargetsHttp.Data.Should().HaveCount(1,
+                "WithHttpInfo returns a raw single page; limit=1 restricts it to 1 entry");
+
+            // `after` cursor — the Link response header carries rel="next" when more pages exist.
+            // Extract the cursor and fetch the second page to exercise the `after` parameter.
+            var appLinkKey = limitedAppTargetsHttp.Headers.Keys
+                .FirstOrDefault(k => k.Equals("Link", StringComparison.OrdinalIgnoreCase));
+            appLinkKey.Should().NotBeNull(
+                "a paginated response with limit=1 and 2 items must include a Link response header");
+
+            var appNextLinkEntry = limitedAppTargetsHttp.Headers[appLinkKey]
+                .FirstOrDefault(h => h.Contains("rel=\"next\""));
+            appNextLinkEntry.Should().NotBeNullOrEmpty(
+                "the Link header must include a rel=\"next\" entry when there is a next page");
+
+            var appAfterMatch = Regex.Match(appNextLinkEntry, @"after=([^&>]+)");
+            appAfterMatch.Success.Should().BeTrue("the next Link URL must contain an 'after' cursor parameter");
+            var appAfterCursor = Uri.UnescapeDataString(appAfterMatch.Groups[1].Value);
+
+            var appSecondPageHttp = await _targetApi
+                .ListAppTargetRoleToClientWithHttpInfoAsync(
+                    _clientAppId, _appAdminRoleId, after: appAfterCursor, limit: 1);
+
+            ((int)appSecondPageHttp.StatusCode).Should().Be(200,
+                "GET .../targets/catalog/apps?after=CURSOR must return 200");
+            appSecondPageHttp.Data.Should().HaveCount(1,
+                "the second page fetched via 'after' cursor must contain the 1 remaining app target");
+
+            // ──────────────────────────────────────────────────────────────────
+            // 4. DELETE .../targets/catalog/apps/bookmark/{bookmarkApp1Id}
+            //    — RemoveAppTargetInstanceRoleForClient.
+            //    bookmarkApp2 remains, so we are NOT removing the last target.
+            // ──────────────────────────────────────────────────────────────────
+            await _targetApi.RemoveAppTargetInstanceRoleForClientAsync(
+                _clientAppId, _appAdminRoleId, "bookmark", _bookmarkApp1Id);
+
+            var afterRemoveInstance = await _targetApi
+                .ListAppTargetRoleToClient(_clientAppId, _appAdminRoleId)
+                .ToListAsync();
+
+            afterRemoveInstance.Should().HaveCount(1,
+                "after removing bookmarkApp1 only bookmarkApp2 should remain");
+            afterRemoveInstance[0].Id.Should().Be(_bookmarkApp2Id);
+
+            // WithHttpInfo variant — re-assign bookmarkApp1 so we have 2, then remove via WithHttpInfo.
+            await _targetApi.AssignAppTargetInstanceRoleForClientAsync(
+                _clientAppId, _appAdminRoleId, "bookmark", _bookmarkApp1Id);
+
+            var removeInstanceHttp = await _targetApi
+                .RemoveAppTargetInstanceRoleForClientWithHttpInfoAsync(
+                    _clientAppId, _appAdminRoleId, "bookmark", _bookmarkApp1Id);
+
+            ((int)removeInstanceHttp.StatusCode).Should().Be(204,
+                "DELETE .../targets/catalog/apps/{appName}/{appId} must return 204");
+
+            // State: [bookmarkApp2 instance only]
+
+            // ──────────────────────────────────────────────────────────────────
+            // 5. DELETE .../targets/catalog/apps/{appName}
+            //    — RemoveAppTargetRoleFromClient (OIN-level unassign).
+            //    Need ≥2 targets before removing one.  Add "mfa_rdp" OIN alongside
+            //    the existing bookmarkApp2 instance; then remove mfa_rdp safely.
+            // ──────────────────────────────────────────────────────────────────
+            await _targetApi.AssignAppTargetRoleToClientAsync(
+                _clientAppId, _appAdminRoleId, "mfa_rdp");
+
+            var beforeOinDelete = await _targetApi
+                .ListAppTargetRoleToClient(_clientAppId, _appAdminRoleId)
+                .ToListAsync();
+
+            beforeOinDelete.Should().HaveCount(2,
+                "mfa_rdp OIN and bookmarkApp2 instance should coexist as separate entries");
+
+            // Plain method — removes mfa_rdp OIN; bookmarkApp2 instance still remains.
+            await _targetApi.RemoveAppTargetRoleFromClientAsync(
+                _clientAppId, _appAdminRoleId, "mfa_rdp");
+
+            var afterOinDelete = await _targetApi
+                .ListAppTargetRoleToClient(_clientAppId, _appAdminRoleId)
+                .ToListAsync();
+
+            afterOinDelete.Should().HaveCount(1,
+                "only bookmarkApp2 instance should remain after removing the mfa_rdp OIN target");
+            afterOinDelete[0].Id.Should().Be(_bookmarkApp2Id);
+
+            // WithHttpInfo variant — re-add mfa_rdp, then remove via WithHttpInfo.
+            await _targetApi.AssignAppTargetRoleToClientAsync(
+                _clientAppId, _appAdminRoleId, "mfa_rdp");
+
+            var removeOinHttp = await _targetApi
+                .RemoveAppTargetRoleFromClientWithHttpInfoAsync(
+                    _clientAppId, _appAdminRoleId, "mfa_rdp");
+
+            ((int)removeOinHttp.StatusCode).Should().Be(204,
+                "DELETE .../targets/catalog/apps/{appName} must return 204");
+
+            // State: [bookmarkApp2 instance only]
+
+            // ──────────────────────────────────────────────────────────────────
+            // 5b. Documented behavior: assigning an OIN target overrides any
+            //     existing instance targets of the same app.
+            // ──────────────────────────────────────────────────────────────────
+            await _targetApi.AssignAppTargetRoleToClientAsync(
+                _clientAppId, _appAdminRoleId, "bookmark");
+
+            var afterOinOverridesInstance = await _targetApi
+                .ListAppTargetRoleToClient(_clientAppId, _appAdminRoleId)
+                .ToListAsync();
+
+            afterOinOverridesInstance.Should().HaveCount(1,
+                "assigning the OIN bookmark target must override the existing bookmarkApp2 instance");
+            afterOinOverridesInstance[0].Name.Should().Be("bookmark");
+            afterOinOverridesInstance[0].Id.Should().BeNullOrEmpty(
+                "the entry is now a catalog-level target (no instance id)");
+
+            // ══════════════════════════════════════════════════════════════════
+            //  GROUP TARGETS  (USER_ADMIN role assigned to the service-app client)
+            // ══════════════════════════════════════════════════════════════════
+            //
+            // Endpoint base: /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/groups
+            //
+            // _targetGroup1Id / _targetGroup2Id are the groups BEING targeted.
+            // They are distinct from the client app itself.
+
+            // ──────────────────────────────────────────────────────────────────
+            // 6. GET initial group-target list — must be empty.
+            // ──────────────────────────────────────────────────────────────────
+            var initialGroupTargets = await _targetApi
+                .ListGroupTargetRoleForClient(_clientAppId, _userAdminRoleId)
+                .ToListAsync();
+
+            initialGroupTargets.Should().BeEmpty(
+                "a freshly assigned USER_ADMIN role has no scoped group targets yet");
+
+            // WithHttpInfo variant — status 200
+            var initialGroupTargetsHttp = await _targetApi
+                .ListGroupTargetRoleForClientWithHttpInfoAsync(_clientAppId, _userAdminRoleId);
+
+            ((int)initialGroupTargetsHttp.StatusCode).Should().Be(200,
+                "GET .../targets/groups must return 200");
+            initialGroupTargetsHttp.Data.Should().BeEmpty();
+
+            // ──────────────────────────────────────────────────────────────────
+            // 7. PUT .../targets/groups/{targetGroup1Id} — AssignGroupTargetRoleForClient.
+            // ──────────────────────────────────────────────────────────────────
+            await _targetApi.AssignGroupTargetRoleForClientAsync(
+                _clientAppId, _userAdminRoleId, _targetGroup1Id);
+
+            // Assign second target group via WithHttpInfo — status 204
+            var assignGroupHttp = await _targetApi
+                .AssignGroupTargetRoleForClientWithHttpInfoAsync(
+                    _clientAppId, _userAdminRoleId, _targetGroup2Id);
+
+            ((int)assignGroupHttp.StatusCode).Should().Be(204,
+                "PUT .../targets/groups/{groupId} must return 204");
+
+            var afterTwoGroups = await _targetApi
+                .ListGroupTargetRoleForClient(_clientAppId, _userAdminRoleId)
+                .ToListAsync();
+
+            afterTwoGroups.Should().HaveCount(2,
+                "both target groups should appear after assignment");
+            afterTwoGroups.Should().Contain(g => g.Id == _targetGroup1Id);
+            afterTwoGroups.Should().Contain(g => g.Id == _targetGroup2Id);
+
+            // ──────────────────────────────────────────────────────────────────
+            // 7b. List with limit=1 — exercises the optional `limit` parameter.
+            //     Same pagination behavior: ToListAsync() auto-follows links and
+            //     returns all items; WithHttpInfo returns one raw page.
+            // ──────────────────────────────────────────────────────────────────
+
+            // Collection client with limit=1 — fetches all pages, count equals total.
+            var limitedGroupTargets = await _targetApi
+                .ListGroupTargetRoleForClient(_clientAppId, _userAdminRoleId, limit: 1)
+                .ToListAsync();
+
+            limitedGroupTargets.Should().HaveCount(2,
+                "ToListAsync() follows all pagination links so all 2 group targets are returned even with limit=1");
+
+            // WithHttpInfo with limit=1 — raw single page, must contain exactly 1 item.
+            var limitedGroupTargetsHttp = await _targetApi
+                .ListGroupTargetRoleForClientWithHttpInfoAsync(
+                    _clientAppId, _userAdminRoleId, limit: 1);
+
+            ((int)limitedGroupTargetsHttp.StatusCode).Should().Be(200,
+                "GET .../targets/groups?limit=1 must return 200");
+            limitedGroupTargetsHttp.Data.Should().HaveCount(1,
+                "WithHttpInfo returns a raw single page; limit=1 restricts it to 1 entry");
+            limitedGroupTargetsHttp.Data[0].Id.Should().NotBeNullOrEmpty(
+                "group target in the paginated response must carry an Id");
+
+            // `after` cursor for group targets — same pattern as app targets above.
+            var groupLinkKey = limitedGroupTargetsHttp.Headers.Keys
+                .FirstOrDefault(k => k.Equals("Link", StringComparison.OrdinalIgnoreCase));
+            groupLinkKey.Should().NotBeNull(
+                "a paginated response with limit=1 and 2 groups must include a Link response header");
+
+            var groupNextLinkEntry = limitedGroupTargetsHttp.Headers[groupLinkKey]
+                .FirstOrDefault(h => h.Contains("rel=\"next\""));
+            groupNextLinkEntry.Should().NotBeNullOrEmpty(
+                "the Link header must include a rel=\"next\" entry when there is a next page");
+
+            var groupAfterMatch = Regex.Match(groupNextLinkEntry, @"after=([^&>]+)");
+            groupAfterMatch.Success.Should().BeTrue("the next Link URL must contain an 'after' cursor parameter");
+            var groupAfterCursor = Uri.UnescapeDataString(groupAfterMatch.Groups[1].Value);
+
+            var groupSecondPageHttp = await _targetApi
+                .ListGroupTargetRoleForClientWithHttpInfoAsync(
+                    _clientAppId, _userAdminRoleId, after: groupAfterCursor, limit: 1);
+
+            ((int)groupSecondPageHttp.StatusCode).Should().Be(200,
+                "GET .../targets/groups?after=CURSOR must return 200");
+            groupSecondPageHttp.Data.Should().HaveCount(1,
+                "the second page fetched via 'after' cursor must contain the 1 remaining group target");
+
+            // ──────────────────────────────────────────────────────────────────
+            // 8. DELETE .../targets/groups/{targetGroup1Id}
+            //    — RemoveGroupTargetRoleFromClient.
+            //    targetGroup2 remains, so we are NOT removing the last target.
+            // ──────────────────────────────────────────────────────────────────
+            await _targetApi.RemoveGroupTargetRoleFromClientAsync(
+                _clientAppId, _userAdminRoleId, _targetGroup1Id);
+
+            var afterRemoveGroup = await _targetApi
+                .ListGroupTargetRoleForClient(_clientAppId, _userAdminRoleId)
+                .ToListAsync();
+
+            afterRemoveGroup.Should().HaveCount(1,
+                "only targetGroup2 should remain after removing targetGroup1");
+            afterRemoveGroup[0].Id.Should().Be(_targetGroup2Id);
+
+            // WithHttpInfo variant — re-add targetGroup1, then remove via WithHttpInfo.
+            await _targetApi.AssignGroupTargetRoleForClientAsync(
+                _clientAppId, _userAdminRoleId, _targetGroup1Id);
+
+            var removeGroupHttp = await _targetApi
+                .RemoveGroupTargetRoleFromClientWithHttpInfoAsync(
+                    _clientAppId, _userAdminRoleId, _targetGroup1Id);
+
+            ((int)removeGroupHttp.StatusCode).Should().Be(204,
+                "DELETE .../targets/groups/{groupId} must return 204");
+
+            // ──────────────────────────────────────────────────────────────────
+            // Final state verification — targetGroup2 is the sole remaining target.
+            // ──────────────────────────────────────────────────────────────────
+            var finalGroupTargets = await _targetApi
+                .ListGroupTargetRoleForClient(_clientAppId, _userAdminRoleId)
+                .ToListAsync();
+
+            finalGroupTargets.Should().HaveCount(1,
+                "targetGroup2 should be the only remaining group target");
+            finalGroupTargets[0].Id.Should().Be(_targetGroup2Id);
+            finalGroupTargets[0].Type.Should().NotBeNull(
+                "group target should carry a type field (e.g. OKTA_GROUP)");
+            finalGroupTargets[0].Profile.Should().NotBeNull(
+                "group target should carry the group profile");
         }
-
-        /// <summary>
-        /// ISSUE #810 TEST: Verifies that ListGroupTargetRoleForClient returns Group objects, NOT ModelClient.
-        /// 
-        /// This is the secondary test for Issue #810 for the group targets endpoint.
-        /// The API returns Group objects with properties: id, profile, type, created, etc.
-        /// </summary>
-        [Fact]
-        public async Task ListGroupTargetRoleForClient_ShouldReturnGroup_NotModelClient()
-        {
-            SkipIfSetupIncomplete();
-
-            // First, assign a group target to ensure we have something to list
-            try
-            {
-                await _roleBTargetClientApi.AssignGroupTargetRoleForClientAsync(
-                    _testClientId, _userAdminRoleAssignmentId, _createdGroupId);
-            }
-            catch (ApiException ex) when (ex.ErrorCode == 409)
-            {
-                // Already assigned, continue
-            }
-
-            // Act - Call the method that Issue #810 claims returns the wrong type
-            var groupTargets = new List<Group>();
-            await foreach (var group in _roleBTargetClientApi.ListGroupTargetRoleForClient(
-                _testClientId, _userAdminRoleAssignmentId))
-            {
-                groupTargets.Add(group);
-                
-                // CRITICAL ASSERTION: This is a Group, NOT ModelClient
-                group.Should().BeOfType<Group>(
-                    "Issue #810: ListGroupTargetRoleForClient should return Group, not ModelClient");
-                
-                // Verify Group-specific properties exist and are accessible
-                // Group having: ID, Profile, Type, Created, LastUpdated, ObjectClass
-                // ModelClient has: ClientId, ClientSecret, ApplicationType, TokenEndpointAuthMethod
-                group.Id.Should().NotBeNullOrEmpty("Group.Id should be populated");
-                group.Profile.Should().NotBeNull("Group.Profile should not be null");
-            }
-
-            // Assert
-            groupTargets.Should().NotBeEmpty("At least one group target should exist after assignment");
-            
-            // Verify the items have Group properties
-            var ourGroup = groupTargets.FirstOrDefault(g => g.Id == _createdGroupId);
-            ourGroup.Should().NotBeNull("Our created group should be in the targets list");
-            GetGroupName(ourGroup!.Profile).Should().StartWith("SDK-Test-RoleBTarget-");
-            
-            // These properties exist on Group but NOT on ModelClient
-            var type = ourGroup.Type; // GroupType enum
-            type.Should().NotBeNull();
-        }
-
-        /// <summary>
-        /// Type comparison test: Verifies CatalogApplication and ModelClient are completely different types.
-        /// </summary>
-        [Fact]
-        public void TypeComparison_CatalogApplication_And_ModelClient_AreDifferentTypes()
-        {
-            // Get properties of each type
-            var catalogAppProperties = typeof(CatalogApplication).GetProperties().Select(p => p.Name).ToHashSet();
-            var modelClientProperties = typeof(ModelClient).GetProperties().Select(p => p.Name).ToHashSet();
-
-            // CatalogApplication-specific properties
-            catalogAppProperties.Should().Contain("Name", "CatalogApplication should have Name property");
-            catalogAppProperties.Should().Contain("DisplayName", "CatalogApplication should have DisplayName property");
-            catalogAppProperties.Should().Contain("Category", "CatalogApplication should have Category property");
-            catalogAppProperties.Should().Contain("VerificationStatus", "CatalogApplication should have VerificationStatus property");
-            
-            // ModelClient-specific properties (these should NOT be in CatalogApplication)
-            modelClientProperties.Should().Contain("ClientId", "ModelClient should have ClientId property");
-            modelClientProperties.Should().Contain("ClientSecret", "ModelClient should have ClientSecret property");
-            modelClientProperties.Should().Contain("ApplicationType", "ModelClient should have ApplicationType property");
-            
-            // Verify they're different
-            catalogAppProperties.Should().NotContain("ClientSecret", 
-                "CatalogApplication should NOT have ClientSecret (that's a ModelClient property)");
-            modelClientProperties.Should().NotContain("VerificationStatus", 
-                "ModelClient should NOT have VerificationStatus (that's a CatalogApplication property)");
-            
-            typeof(CatalogApplication).Should().NotBe(typeof(ModelClient), 
-                "CatalogApplication and ModelClient must be different types");
-        }
-
-        /// <summary>
-        /// Type comparison test: Verifies Group and ModelClient are completely different types.
-        /// </summary>
-        [Fact]
-        public void TypeComparison_Group_And_ModelClient_AreDifferentTypes()
-        {
-            // Get properties of each type
-            var groupProperties = typeof(Group).GetProperties().Select(p => p.Name).ToHashSet();
-            var modelClientProperties = typeof(ModelClient).GetProperties().Select(p => p.Name).ToHashSet();
-
-            // Group-specific properties
-            groupProperties.Should().Contain("Id", "Group should have Id property");
-            groupProperties.Should().Contain("Profile", "Group should have Profile property");
-            groupProperties.Should().Contain("Type", "Group should have Type property");
-            groupProperties.Should().Contain("ObjectClass", "Group should have ObjectClass property");
-            
-            // ModelClient-specific properties (these should NOT be in Group)
-            modelClientProperties.Should().Contain("ClientId", "ModelClient should have ClientId property");
-            modelClientProperties.Should().Contain("ClientSecret", "ModelClient should have ClientSecret property");
-            
-            // Verify they're different
-            groupProperties.Should().NotContain("ClientSecret", 
-                "Group should NOT have ClientSecret (that's a ModelClient property)");
-            modelClientProperties.Should().NotContain("ObjectClass", 
-                "ModelClient should NOT have ObjectClass (that's a Group property)");
-            
-            typeof(Group).Should().NotBe(typeof(ModelClient), 
-                "Group and ModelClient must be different types");
-        }
-
-        #endregion
-
-        #region Comprehensive Endpoint Coverage Test
-
-        /// <summary>
-        /// COMPREHENSIVE TEST: Tests all 8 RoleBTargetClient API endpoints in a single workflow.
-        /// 
-        /// Workflow:
-        /// 1. List app targets (empty initially) - GET /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/catalog/apps
-        /// 2. Assign OIN app target - PUT /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/catalog/apps/{appName}
-        /// 3. List app targets (should contain the app) - GET
-        /// 4. Assign app instance target - PUT /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/catalog/apps/{appName}/{appId}
-        /// 5. List app targets (should contain instance) - GET
-        /// 6. Remove app instance target - DELETE /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/catalog/apps/{appName}/{appId}
-        /// 7. Remove OIN app target - DELETE /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/catalog/apps/{appName}
-        /// 8. List group targets (empty initially) - GET /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/groups
-        /// 9. Assign group target - PUT /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/groups/{groupId}
-        /// 10. List group targets (should contain the group) - GET
-        /// 11. Remove group target - DELETE /oauth2/v1/clients/{clientId}/roles/{roleId}/targets/groups/{groupId}
-        /// </summary>
-        [Fact]
-        public async Task ComprehensiveWorkflow_AllEndpoints_ShouldWorkCorrectly()
-        {
-            SkipIfSetupIncomplete();
-
-            // ============ APP TARGET TESTS (APP_ADMIN role) ============
-
-            // Step 1: List app targets - should be empty initially or contain any existing targets
-            var initialAppTargets = new List<CatalogApplication>();
-            await foreach (var app in _roleBTargetClientApi.ListAppTargetRoleToClient(
-                _testClientId, _appAdminRoleAssignmentId))
-            {
-                initialAppTargets.Add(app);
-            }
-            initialAppTargets.Should().NotBeNull();
-            var initialCount = initialAppTargets.Count;
-
-            // Step 2: Assign OIN app target (e.g., "bookmark")
-            await _roleBTargetClientApi.AssignAppTargetRoleToClientAsync(
-                _testClientId, _appAdminRoleAssignmentId, TestAppName);
-
-            // Step 3: List app targets - should now contain the assigned app
-            var afterAssignAppTargets = new List<CatalogApplication>();
-            await foreach (var app in _roleBTargetClientApi.ListAppTargetRoleToClient(
-                _testClientId, _appAdminRoleAssignmentId))
-            {
-                afterAssignAppTargets.Add(app);
-                app.Should().BeOfType<CatalogApplication>("Return type must be CatalogApplication");
-            }
-            afterAssignAppTargets.Should().HaveCountGreaterThanOrEqualTo(initialCount + 1);
-            afterAssignAppTargets.Should().Contain(a => a.Name == TestAppName);
-
-            // Note: We skip app target removal tests because:
-            // 1. You cannot remove the last/only app target from role
-            // 2. Finding a second app that can be assigned to APP_ADMIN is Okta org-specific
-            // The key functionality (ListAppTargetRoleToClient returns CatalogApplication) is verified above
-
-            // ============ GROUP TARGET TESTS (USER_ADMIN role) ============
-
-            // Step 4: List group targets - should be empty initially
-            var initialGroupTargets = new List<Group>();
-            await foreach (var group in _roleBTargetClientApi.ListGroupTargetRoleForClient(
-                _testClientId, _userAdminRoleAssignmentId))
-            {
-                initialGroupTargets.Add(group);
-            }
-            initialGroupTargets.Should().NotBeNull();
-            var initialGroupCount = initialGroupTargets.Count;
-
-            // Step 5: Assign group target
-            await _roleBTargetClientApi.AssignGroupTargetRoleForClientAsync(
-                _testClientId, _userAdminRoleAssignmentId, _createdGroupId);
-
-            // Step 6: List group targets - should now contain the assigned group
-            var afterAssignGroupTargets = new List<Group>();
-            await foreach (var group in _roleBTargetClientApi.ListGroupTargetRoleForClient(
-                _testClientId, _userAdminRoleAssignmentId))
-            {
-                afterAssignGroupTargets.Add(group);
-                group.Should().BeOfType<Group>("Return type must be Group");
-            }
-            afterAssignGroupTargets.Should().HaveCountGreaterThanOrEqualTo(initialGroupCount + 1);
-            afterAssignGroupTargets.Should().Contain(g => g.Id == _createdGroupId);
-
-            // Verify the Group object properties
-            var ourGroup = afterAssignGroupTargets.First(g => g.Id == _createdGroupId);
-            ourGroup.Profile.Should().NotBeNull();
-            GetGroupName(ourGroup.Profile).Should().StartWith("SDK-Test-RoleBTarget-");
-            ourGroup.Created.Should().BeBefore(DateTimeOffset.UtcNow.AddMinutes(1));
-            ourGroup.Type.Should().NotBeNull();
-
-            // Step 11: Remove group target - Note: We leave this for cleanup since we can't remove the last one
-        }
-
-        #endregion
-
-        #region Error Handling Tests
-
-        /// <summary>
-        /// Tests that ListAppTargetRoleToClient throws ApiException for invalid clientId.
-        /// </summary>
-        [Fact]
-        public async Task ListAppTargetRoleToClient_WithInvalidClientId_ShouldThrowApiException()
-        {
-            // Act - Use a non-existent client ID and role ID
-            Func<Task> act = async () =>
-            {
-                await foreach (var _ in _roleBTargetClientApi.ListAppTargetRoleToClient("nonexistent_client_id", "nonexistent_role_id"))
-                {
-                    // Enumerate to trigger the API call
-                }
-            };
-
-            // Assert - The API should throw an exception or return empty (depending on API behavior)
-            // Some Okta APIs return empty collections instead of 404 for invalid IDs
-            try
-            {
-                await act.Invoke();
-                // If no exception, that's also acceptable behavior for this API
-            }
-            catch (ApiException ex)
-            {
-                ex.ErrorCode.Should().BeOneOf(404, 400, 403);
-            }
-        }
-
-        /// <summary>
-        /// Tests that ListGroupTargetRoleForClient throws ApiException for invalid clientId.
-        /// </summary>
-        [Fact]
-        public async Task ListGroupTargetRoleForClient_WithInvalidClientId_ShouldThrowApiException()
-        {
-            // Act - Use a non-existent client ID and role ID
-            Func<Task> act = async () =>
-            {
-                await foreach (var _ in _roleBTargetClientApi.ListGroupTargetRoleForClient("nonexistent_client_id", "nonexistent_role_id"))
-                {
-                    // Enumerate to trigger the API call
-                }
-            };
-
-            // Assert - The API should throw an exception or return empty (depending on API behavior)
-            // Some Okta APIs return empty collections instead of 404 for invalid IDs
-            try
-            {
-                await act.Invoke();
-                // If no exception, that's also acceptable behavior for this API
-            }
-            catch (ApiException ex)
-            {
-                ex.ErrorCode.Should().BeOneOf(404, 400, 403);
-            }
-        }
-
-        /// <summary>
-        /// Tests that AssignAppTargetRoleToClient throws ApiException for invalid app name.
-        /// </summary>
-        [Fact]
-        public async Task AssignAppTargetRoleToClient_WithInvalidAppName_ShouldThrowApiException()
-        {
-            SkipIfSetupIncomplete();
-
-            // Act
-            Func<Task> act = () => _roleBTargetClientApi.AssignAppTargetRoleToClientAsync(
-                _testClientId, _appAdminRoleAssignmentId, "nonexistent_app_12345xyz");
-
-            // Assert
-            await act.Should().ThrowAsync<ApiException>()
-                .Where(e => e.ErrorCode == 404 || e.ErrorCode == 400);
-        }
-
-        /// <summary>
-        /// Tests that AssignGroupTargetRoleForClient throws ApiException for invalid group ID.
-        /// </summary>
-        [Fact]
-        public async Task AssignGroupTargetRoleForClient_WithInvalidGroupId_ShouldThrowApiException()
-        {
-            SkipIfSetupIncomplete();
-
-            // Act
-            Func<Task> act = () => _roleBTargetClientApi.AssignGroupTargetRoleForClientAsync(
-                _testClientId, _userAdminRoleAssignmentId, "00g000000000000000000");
-
-            // Assert
-            await act.Should().ThrowAsync<ApiException>()
-                .Where(e => e.ErrorCode == 404 || e.ErrorCode == 400);
-        }
-
-        #endregion
-
-        #region Pagination Tests
-
-        /// <summary>
-        /// Tests that ListAppTargetRoleToClient supports limit parameter.
-        /// </summary>
-        [Fact]
-        public async Task ListAppTargetRoleToClient_WithLimit_ShouldRespectLimit()
-        {
-            SkipIfSetupIncomplete();
-
-            // Add an app target first
-            try
-            {
-                await _roleBTargetClientApi.AssignAppTargetRoleToClientAsync(
-                    _testClientId, _appAdminRoleAssignmentId, TestAppName);
-            }
-            catch (ApiException ex) when (ex.ErrorCode == 409)
-            {
-                // Already assigned, continue
-            }
-
-            // Act - Get with limit=1
-            var limitedResults = new List<CatalogApplication>();
-            await foreach (var app in _roleBTargetClientApi.ListAppTargetRoleToClient(
-                _testClientId, _appAdminRoleAssignmentId, limit: 1))
-            {
-                limitedResults.Add(app);
-            }
-
-            // Assert - The SDK handles pagination automatically, so we may get all results
-            // But each item should still be a CatalogApplication
-            limitedResults.Should().NotBeEmpty();
-            limitedResults.Should().AllBeOfType<CatalogApplication>();
-        }
-
-        /// <summary>
-        /// Tests that ListGroupTargetRoleForClient supports limit parameter.
-        /// </summary>
-        [Fact]
-        public async Task ListGroupTargetRoleForClient_WithLimit_ShouldRespectLimit()
-        {
-            SkipIfSetupIncomplete();
-
-            // Assign a group target
-            try
-            {
-                await _roleBTargetClientApi.AssignGroupTargetRoleForClientAsync(
-                    _testClientId, _userAdminRoleAssignmentId, _createdGroupId);
-            }
-            catch (ApiException ex) when (ex.ErrorCode == 409)
-            {
-                // Already assigned
-            }
-
-            // Act
-            var results = new List<Group>();
-            await foreach (var group in _roleBTargetClientApi.ListGroupTargetRoleForClient(
-                _testClientId, _userAdminRoleAssignmentId, limit: 1))
-            {
-                results.Add(group);
-            }
-
-            // Assert
-            results.Should().NotBeEmpty();
-            results.Should().AllBeOfType<Group>();
-        }
-
-        #endregion
-
-        #region HttpInfo Variant Tests
-
-        /// <summary>
-        /// Tests the WithHttpInfo variant of ListAppTargetRoleToClient.
-        /// </summary>
-        [Fact]
-        public async Task ListAppTargetRoleToClientWithHttpInfo_ShouldReturnHttpResponse()
-        {
-            SkipIfSetupIncomplete();
-
-            // Ensure there's at least one app target
-            try
-            {
-                await _roleBTargetClientApi.AssignAppTargetRoleToClientAsync(
-                    _testClientId, _appAdminRoleAssignmentId, TestAppName);
-            }
-            catch (ApiException ex) when (ex.ErrorCode == 409) { }
-
-            // Act
-            var response = await _roleBTargetClientApi.ListAppTargetRoleToClientWithHttpInfoAsync(
-                _testClientId, _appAdminRoleAssignmentId);
-
-            // Assert
-            response.Should().NotBeNull();
-            response.StatusCode.Should().Be(System.Net.HttpStatusCode.OK);
-            response.Data.Should().NotBeNull();
-            response.Data.Should().BeOfType<List<CatalogApplication>>();
-            
-            if (response.Data.Any())
-            {
-                response.Data.First().Should().BeOfType<CatalogApplication>();
-            }
-        }
-
-        /// <summary>
-        /// Tests the WithHttpInfo variant of ListGroupTargetRoleForClient.
-        /// </summary>
-        [Fact]
-        public async Task ListGroupTargetRoleForClientWithHttpInfo_ShouldReturnHttpResponse()
-        {
-            SkipIfSetupIncomplete();
-
-            // Ensure there's at least one group target
-            try
-            {
-                await _roleBTargetClientApi.AssignGroupTargetRoleForClientAsync(
-                    _testClientId, _userAdminRoleAssignmentId, _createdGroupId);
-            }
-            catch (ApiException ex) when (ex.ErrorCode == 409) { }
-
-            // Act
-            var response = await _roleBTargetClientApi.ListGroupTargetRoleForClientWithHttpInfoAsync(
-                _testClientId, _userAdminRoleAssignmentId);
-
-            // Assert
-            response.Should().NotBeNull();
-            response.StatusCode.Should().Be(System.Net.HttpStatusCode.OK);
-            response.Data.Should().NotBeNull();
-            response.Data.Should().BeOfType<List<Group>>();
-            
-            if (response.Data.Any())
-            {
-                response.Data.First().Should().BeOfType<Group>();
-            }
-        }
-
-        #endregion
-    }
-
-    /// <summary>
-    /// Exception to skip tests when prerequisites are not met for RoleBTargetClientApi tests.
-    /// </summary>
-    public class RoleBTargetTestSkipException : Exception
-    {
-        public RoleBTargetTestSkipException(string message) : base(message) { }
     }
 }
