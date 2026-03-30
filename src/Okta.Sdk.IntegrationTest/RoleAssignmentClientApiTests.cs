@@ -5,10 +5,9 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Newtonsoft.Json.Linq;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
@@ -17,516 +16,507 @@ using Xunit;
 namespace Okta.Sdk.IntegrationTest
 {
     /// <summary>
-    /// Custom exception for skipping tests when setup is incomplete.
+    /// Integration tests for <see cref="RoleAssignmentClientApi"/>.
+    ///
+    /// SDK Methods &amp; Endpoints Covered:
+    /// ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+    /// │ Method                                  │ HTTP   │ Status │ Endpoint                                                 │
+    /// ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+    /// │ AssignRoleToClientAsync                 │ POST   │ 201    │ /oauth2/v1/clients/{clientId}/roles                      │
+    /// │ AssignRoleToClientWithHttpInfoAsync     │ POST   │ 201    │ /oauth2/v1/clients/{clientId}/roles                      │
+    /// │ ListRolesForClient                      │ GET    │ 200    │ /oauth2/v1/clients/{clientId}/roles                      │
+    /// │ ListRolesForClientWithHttpInfoAsync     │ GET    │ 200    │ /oauth2/v1/clients/{clientId}/roles                      │
+    /// │ RetrieveClientRoleAsync                 │ GET    │ 200    │ /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}   │
+    /// │ RetrieveClientRoleWithHttpInfoAsync     │ GET    │ 200    │ /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}   │
+    /// │ DeleteRoleFromClientAsync               │ DELETE │ 204    │ /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}   │
+    /// │ DeleteRoleFromClientWithHttpInfoAsync   │ DELETE │ 204    │ /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}   │
+    /// └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ///
+    /// Prerequisites:
+    ///   Only OIDC service (M2M) apps support client role assignment.
+    ///   The test creates a dedicated service app in InitializeAsync and tears it down in DisposeAsync.
     /// </summary>
-    public class RoleAssignmentTestSkipException : Exception
-    {
-        public RoleAssignmentTestSkipException(string message) : base(message) { }
-    }
-
-    /// <summary>
-    /// Integration tests for RoleAssignmentClientApi to reproduce and verify Issue #807.
-    /// 
-    /// API Endpoints Tested:
-    /// - GET    /oauth2/v1/clients/{clientId}/roles                       - ListRolesForClient
-    /// - POST   /oauth2/v1/clients/{clientId}/roles                       - AssignRoleToClient
-    /// - GET    /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}    - RetrieveClientRole
-    /// - DELETE /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}    - DeleteRoleFromClient
-    /// 
-    /// Issue #807: ListRolesForClientAsync returns null because the API returns a JSON array,
-    /// but the SDK tries to deserialize it as a single object.
-    /// </summary>
-    [Collection("RoleAssignmentClientApiTests")]
+    [Collection(nameof(RoleAssignmentClientApiTests))]
     public class RoleAssignmentClientApiTests : IAsyncLifetime
     {
-        private RoleAssignmentClientApi _roleAssignmentClientApi;
-        private ApplicationApi _applicationApi;
-        private GroupApi _groupApi;
-        private ApiClient _apiClient;
-        private string _oktaDomain;
-        
-        private string _testClientId;
-        private string _appAdminRoleAssignmentId;
-        private bool _setupComplete = false;
+        private readonly RoleAssignmentClientApi _roleAssignmentApi = new();
+        private readonly ApplicationApi         _applicationApi    = new();
 
-        // Test RSA public key for service app JWT authentication
-        private const string TestPublicKeyN = "mTjMc8AxU102LT1Jf-1qkGmaSiK4L7DDlC1SMvtyCRbDaiJDIagedfp1w8Pgud8YWOaS5FFx0S6JqGGP2U8OtpowzBcv5sYa-e5LHfnoueTJPj_jnI3fj5omZM1w-ofhFLPZoYEQ7DFYw0yLrzf8zaKB5-9BZ8yyOLhSKqxaOl2s7lw2TrwBRuQpPXmEir70oDPvazd8-An5ow6F5q7mzMtHAt61DJqrosRHiRwh4N37zIX_RNu-Tn1aMktCBl01rdoDyVq7Y4iwNH8ZAtT5thKK2eo8d-jb9TF9PH6LGffYCth157w-K4AZwXw74Ybo5NOux3XpIpKRbFTwvBLp1Q";
+        private string _testClientId;
+        private string _primaryRoleAssignmentId;
+
+        // ── Setup ────────────────────────────────────────────────────────────────
 
         public async Task InitializeAsync()
         {
-            // Initialize API instances with default configuration from environment
-            _roleAssignmentClientApi = new RoleAssignmentClientApi();
-            _applicationApi = new ApplicationApi();
-            _groupApi = new GroupApi();
+            var guid = Guid.NewGuid();
 
-            _oktaDomain = Configuration.GetConfigurationOrDefault().OktaDomain;
-            if (_oktaDomain.EndsWith("/"))
+            // Create a dedicated OIDC service (M2M) app.
+            // Only service-type apps accept client role assignments.
+            var app = new OpenIdConnectApplication
             {
-                _oktaDomain = _oktaDomain.Remove(_oktaDomain.Length - 1);
-            }
-            _apiClient = new ApiClient(_oktaDomain);
-
-            try
-            {
-                // Create an OAuth service app for testing client role assignments
-                var guid = Guid.NewGuid();
-                var payload = $@"{{
-                    ""client_name"": ""dotnet-sdk: RoleAssignmentClientApiTests {guid}"",
-                    ""response_types"": [""token""],
-                    ""grant_types"": [""client_credentials""],
-                    ""token_endpoint_auth_method"": ""private_key_jwt"",
-                    ""application_type"": ""service"",
-                    ""jwks"": {{
-                        ""keys"": [{{
-                            ""kty"":""RSA"",
-                            ""e"":""AQAB"",
-                            ""n"":""{TestPublicKeyN}""
-                        }}]
-                    }}
-                }}";
-
-                var requestOptions = GetBasicRequestOptions();
-                requestOptions.Data = JObject.Parse(payload);
-
-                var serviceResponse = await _apiClient.PostAsync<JObject>("/oauth2/v1/clients", requestOptions);
-                _testClientId = serviceResponse.Data["client_id"]?.ToString();
-
-                if (string.IsNullOrEmpty(_testClientId))
+                Name        = "oidc_client",
+                Label       = $"role-assign-client-{guid.ToString("N")[..12]}",
+                SignOnMode  = ApplicationSignOnMode.OPENIDCONNECT,
+                Credentials = new OAuthApplicationCredentials
                 {
-                    return;
-                }
+                    OauthClient = new ApplicationCredentialsOAuthClient
+                    {
+                        TokenEndpointAuthMethod = "client_secret_post",
+                        AutoKeyRotation         = true,
+                    },
+                },
+                Settings = new OpenIdConnectApplicationSettings
+                {
+                    OauthClient = new OpenIdConnectApplicationSettingsClient
+                    {
+                        RedirectUris    = new List<string> { "https://example.com/callback" },
+                        ResponseTypes   = new List<OAuthResponseType>(),
+                        GrantTypes      = new List<GrantType> { GrantType.ClientCredentials },
+                        ApplicationType = OpenIdConnectApplicationType.Service,
+                    },
+                },
+            };
 
-                // Assign APP_ADMIN role to the client for testing
-                // Using raw API call to avoid polymorphic deserialization bug in ListGroupAssignedRoles200ResponseInner.FromJson
-                var appAdminRequestOptions = GetBasicRequestOptions();
-                appAdminRequestOptions.Data = JObject.Parse(@"{ ""type"": ""APP_ADMIN"" }");
-                var appAdminResponse = await _apiClient.PostAsync<JObject>($"/oauth2/v1/clients/{_testClientId}/roles", appAdminRequestOptions);
-                _appAdminRoleAssignmentId = appAdminResponse.Data?["id"]?.ToString();
+            var created = await _applicationApi.CreateApplicationAsync(app);
+            _testClientId = created.Id;
 
-                _setupComplete = !string.IsNullOrEmpty(_appAdminRoleAssignmentId);
-            }
-            catch (ApiException ex)
-            {
-                Console.WriteLine($"Setup warning: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Setup error: {ex.Message}");
-            }
+            // Pre-assign READ_ONLY_ADMIN so that GET / LIST tests always have at least one role.
+            var assignRequest = new AssignRoleToGroupRequest(
+                new StandardRoleAssignmentSchema { Type = "READ_ONLY_ADMIN" });
+
+            var assignResponse = await _roleAssignmentApi.AssignRoleToClientAsync(_testClientId, assignRequest);
+            _primaryRoleAssignmentId = assignResponse.GetStandardRole()?.Id;
         }
+
+        // ── Teardown ─────────────────────────────────────────────────────────────
 
         public async Task DisposeAsync()
         {
-            // Clean up role assignments
-            if (!string.IsNullOrEmpty(_testClientId) && !string.IsNullOrEmpty(_appAdminRoleAssignmentId))
-            {
-                try
-                {
-                    await _roleAssignmentClientApi.DeleteRoleFromClientAsync(_testClientId, _appAdminRoleAssignmentId);
-                }
-                catch { /* Ignore cleanup errors */ }
-            }
+            if (string.IsNullOrEmpty(_testClientId))
+                return;
 
-            // Clean up OAuth service app
-            if (!string.IsNullOrEmpty(_testClientId))
-            {
-                try
-                {
-                    var requestOptions = GetBasicRequestOptions();
-                    await _apiClient.DeleteAsync<object>($"/oauth2/v1/clients/{_testClientId}", requestOptions);
-                }
-                catch { /* Ignore cleanup errors */ }
-            }
-        }
-
-        private RequestOptions GetBasicRequestOptions()
-        {
-            var config = Configuration.GetConfigurationOrDefault();
-            var requestOptions = new RequestOptions();
-            requestOptions.HeaderParameters.Add("Content-Type", "application/json");
-            requestOptions.HeaderParameters.Add("Accept", "application/json");
-
-            if (Configuration.IsSswsMode(config) && !string.IsNullOrEmpty(config.GetApiKeyWithPrefix("Authorization")))
-            {
-                requestOptions.HeaderParameters.Add("Authorization", config.GetApiKeyWithPrefix("Authorization"));
-            }
-            else if (!string.IsNullOrEmpty(config.AccessToken))
-            {
-                requestOptions.HeaderParameters.Add("Authorization", "Bearer " + config.AccessToken);
-            }
-
-            return requestOptions;
-        }
-
-        private void SkipIfSetupIncomplete()
-        {
-            if (!_setupComplete)
-            {
-                throw new RoleAssignmentTestSkipException("Test setup incomplete - missing role assignments or client ID.");
-            }
-        }
-
-        #region Issue 807 Tests - ListRolesForClient Fix Verification
-
-        /// <summary>
-        /// Issue #807 FIX VERIFICATION: This test verifies that ListRolesForClient now works correctly
-        /// after the OpenAPI spec fix.
-        /// 
-        /// Previously the API endpoint GET /oauth2/v1/clients/{clientId}/roles returned an array
-        /// but the SDK method signature was:
-        /// Task&lt;ListGroupAssignedRoles200ResponseInner&gt; ListRolesForClientAsync(...)
-        /// 
-        /// This caused a deserialization failure. 
-        /// 
-        /// After the fix, the method returns:
-        /// IOktaCollectionClient&lt;ListGroupAssignedRoles200ResponseInner&gt; ListRolesForClient(...)
-        /// 
-        /// This correctly handles the array response.
-        /// 
-        /// NOTE: There may still be a polymorphic deserialization issue with the oneOf schema
-        /// (StandardRole | CustomRole), which is a separate bug from the array issue.
-        /// </summary>
-        [Fact]
-        public async Task Fixed_ListRolesForClient_ReturnsCollection()
-        {
-            SkipIfSetupIncomplete();
-
-            // Act - Call the fixed method which now returns a collection
-            var roleCollection = _roleAssignmentClientApi.ListRolesForClient(_testClientId);
-            var roles = new List<ListGroupAssignedRoles200ResponseInner>();
-            Exception deserializationException = null;
-            
+            // Remove all role assignments first.
             try
             {
-                await foreach (var role in roleCollection)
+                var roles = _roleAssignmentApi.ListRolesForClient(_testClientId);
+                await foreach (var role in roles)
                 {
-                    roles.Add(role);
+                    var id = role.GetStandardRole()?.Id;
+                    if (!string.IsNullOrEmpty(id))
+                    {
+                        try { await _roleAssignmentApi.DeleteRoleFromClientAsync(_testClientId, id); }
+                        catch { /* ignore */ }
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                deserializationException = ex;
-            }
+            catch { /* ignore */ }
 
-            // If we got items, the fix works perfectly
-            if (roles.Count > 0)
-            {
-                roles.Should().NotBeNull("Issue #807 Fix: ListRolesForClient should now return a valid collection");
-                roles.Should().HaveCountGreaterThanOrEqualTo(1, "Should have at least one role assigned");
-                
-                // Verify the APP_ADMIN role is in the collection
-                var appAdminRole = roles.FirstOrDefault(r => 
-                    r.ActualInstance is StandardRole sr && sr.Type == RoleType.APPADMIN);
-                appAdminRole.Should().NotBeNull("APP_ADMIN role should be in the collection");
-            }
-            else if (deserializationException != null)
-            {
-                // If there's a deserialization error, this indicates the polymorphic oneOf issue still exists
-                // This is a separate issue from Issue #807's array deserialization
-                var innerEx = deserializationException is System.Reflection.TargetInvocationException tie
-                    ? tie.InnerException
-                    : deserializationException;
-                    
-                // Document this as a related but separate issue
-                innerEx.Should().BeOfType<System.IO.InvalidDataException>(
-                    "Polymorphic oneOf deserialization still has issues - separate from Issue #807");
-            }
-            else
-            {
-                // Verify raw API works (to prove the fix at least handles array response)
-                var requestOptions = GetBasicRequestOptions();
-                var rawResponse = await _apiClient.GetAsync<JArray>($"/oauth2/v1/clients/{_testClientId}/roles", requestOptions);
-                rawResponse.Data.Should().NotBeNull("Raw API should return roles");
-                rawResponse.Data.Count.Should().BeGreaterThanOrEqualTo(1, "Should have at least one role via raw API");
-            }
+            // Deactivate then delete the service app.
+            try { await _applicationApi.DeactivateApplicationAsync(_testClientId); }
+            catch { /* ignore */ }
+
+            try { await _applicationApi.DeleteApplicationAsync(_testClientId); }
+            catch { /* ignore */ }
         }
 
-        /// <summary>
-        /// This test verifies that the API actually returns an array by using a raw API call.
-        /// This proves the API works correctly and the issue is in the SDK's deserialization.
-        /// </summary>
-        [Fact]
-        public async Task RawApiCall_ListRolesForClient_ReturnsArray()
-        {
-            SkipIfSetupIncomplete();
-
-            // Act - Make a raw API call to get the actual response
-            var requestOptions = GetBasicRequestOptions();
-            var response = await _apiClient.GetAsync<JArray>($"/oauth2/v1/clients/{_testClientId}/roles", requestOptions);
-
-            // Assert - The API returns an array with the assigned role
-            response.Data.Should().NotBeNull("API should return a JSON array");
-            response.Data.Should().HaveCountGreaterThanOrEqualTo(1, "Should have at least one role assigned");
-            
-            var firstRole = response.Data[0] as JObject;
-            firstRole.Should().NotBeNull();
-            firstRole["id"].Should().NotBeNull();
-            firstRole["type"].Value<string>().Should().Be("APP_ADMIN");
-        }
+        // ── Helpers ──────────────────────────────────────────────────────────────
 
         /// <summary>
-        /// This test verifies the correct workaround for Issue #807:
-        /// Use ListRolesForClientWithHttpInfoAsync to get the raw response,
-        /// then manually deserialize the JSON array.
+        /// Creates a new OIDC service app with no role assignments.
+        /// Used by tests that need a clean client (e.g., empty-list scenarios).
         /// </summary>
-        [Fact]
-        public async Task Workaround_UseRawApiCallToGetRoles()
+        private async Task<string> CreateFreshServiceAppAsync()
         {
-            SkipIfSetupIncomplete();
-
-            // Workaround: Use raw API call to get the roles
-            var requestOptions = GetBasicRequestOptions();
-            var response = await _apiClient.GetAsync<JArray>($"/oauth2/v1/clients/{_testClientId}/roles", requestOptions);
-
-            // Assert - Successfully retrieved roles using raw API
-            response.Data.Should().NotBeNull();
-            response.Data.Count.Should().BeGreaterThanOrEqualTo(1);
-            
-            // Verify the role properties
-            var role = response.Data[0] as JObject;
-            role["id"]?.ToString().Should().Be(_appAdminRoleAssignmentId);
-            role["type"]?.Value<string>().Should().Be("APP_ADMIN");
-            role["status"]?.Value<string>().Should().Be("ACTIVE");
-            role["assignmentType"]?.Value<string>().Should().Be("CLIENT");
-        }
-
-        #endregion
-
-        #region RetrieveClientRoleAsync Tests
-
-        /// <summary>
-        /// Tests that RetrieveClientRoleAsync now works correctly after the discriminator fix.
-        /// 
-        /// ISSUE #807 FIX: The OpenAPI spec now includes proper discriminator mappings 
-        /// that allow the SDK to correctly determine whether a response is StandardRole or CustomRole
-        /// based on the "type" property value (e.g., "APP_ADMIN" -> StandardRole, "CUSTOM" -> CustomRole).
-        /// </summary>
-        [Fact]
-        public async Task RetrieveClientRoleAsync_Fixed_WorksWithDiscriminator()
-        {
-            SkipIfSetupIncomplete();
-
-            // Act - Call the method which now works due to discriminator fix
-            var role = await _roleAssignmentClientApi.RetrieveClientRoleAsync(_testClientId, _appAdminRoleAssignmentId);
-
-            // Assert - The role should be properly deserialized as StandardRole
-            role.Should().NotBeNull("RetrieveClientRoleAsync should return a valid role");
-            
-            // Verify the role is a StandardRole (APP_ADMIN is a standard role type)
-            var standardRole = role.GetStandardRole();
-            standardRole.Should().NotBeNull("APP_ADMIN should deserialize as StandardRole");
-            standardRole.Id.Should().Be(_appAdminRoleAssignmentId);
-            standardRole.Type.Value.Should().Be("APP_ADMIN");
-            standardRole.Status.Should().Be(LifecycleStatus.ACTIVE);
-            standardRole.AssignmentType.Should().Be(RoleAssignmentType.CLIENT);
-        }
-
-        /// <summary>
-        /// Workaround for RetrieveClientRoleAsync: Use raw API call to retrieve role.
-        /// Note: This workaround is no longer necessary after Issue #807 fix, but kept for reference.
-        /// </summary>
-        [Fact]
-        public async Task RetrieveClientRoleAsync_Workaround_UseRawApiCall()
-        {
-            SkipIfSetupIncomplete();
-
-            // Workaround: Use raw API call to get a single role
-            var requestOptions = GetBasicRequestOptions();
-            var response = await _apiClient.GetAsync<JObject>(
-                $"/oauth2/v1/clients/{_testClientId}/roles/{_appAdminRoleAssignmentId}", 
-                requestOptions);
-
-            // Assert - Successfully retrieved role using raw API
-            response.Data.Should().NotBeNull();
-            response.Data["id"]?.ToString().Should().Be(_appAdminRoleAssignmentId);
-            response.Data["type"]?.Value<string>().Should().Be("APP_ADMIN");
-            response.Data["status"]?.Value<string>().Should().Be("ACTIVE");
-        }
-
-        #endregion
-
-        #region DeleteRoleFromClientAsync Tests
-
-        /// <summary>
-        /// Tests that DeleteRoleFromClientAsync exists and can be called.
-        /// We don't actually delete in this test to preserve our test role.
-        /// API: DELETE /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}
-        /// </summary>
-        [Fact]
-        public async Task DeleteRoleFromClientAsync_WithInvalidRoleId_ShouldThrowApiException()
-        {
-            SkipIfSetupIncomplete();
-
-            // Act & Assert - Should throw ApiException for invalid role ID
-            Func<Task> act = async () =>
+            var app = new OpenIdConnectApplication
             {
-                await _roleAssignmentClientApi.DeleteRoleFromClientAsync(_testClientId, "invalid-role-id-12345");
+                Name       = "oidc_client",
+                Label      = $"role-empty-{Guid.NewGuid().ToString("N")[..12]}",
+                SignOnMode = ApplicationSignOnMode.OPENIDCONNECT,
+                Credentials = new OAuthApplicationCredentials
+                {
+                    OauthClient = new ApplicationCredentialsOAuthClient
+                    {
+                        TokenEndpointAuthMethod = "client_secret_post",
+                        AutoKeyRotation         = true,
+                    },
+                },
+                Settings = new OpenIdConnectApplicationSettings
+                {
+                    OauthClient = new OpenIdConnectApplicationSettingsClient
+                    {
+                        RedirectUris    = new List<string> { "https://example.com/callback" },
+                        ResponseTypes   = new List<OAuthResponseType>(),
+                        GrantTypes      = new List<GrantType> { GrantType.ClientCredentials },
+                        ApplicationType = OpenIdConnectApplicationType.Service,
+                    },
+                },
             };
 
-            await act.Should().ThrowAsync<ApiException>()
-                .Where(e => e.ErrorCode == 404 || e.ErrorCode == 400);
+            var created = await _applicationApi.CreateApplicationAsync(app);
+            return created.Id;
         }
 
-        #endregion
-
-        #region AssignRoleToClientAsync Tests
-
-        /// <summary>
-        /// Tests that AssignRoleToClientAsync throws ApiException for already assigned role.
-        /// API: POST /oauth2/v1/clients/{clientId}/roles
-        /// </summary>
-        [Fact]
-        public async Task AssignRoleToClientAsync_WithAlreadyAssignedRole_ShouldThrowApiException()
+        /// <summary>Deactivates and deletes a service app (best-effort, swallows all errors).</summary>
+        private async Task DeleteServiceAppAsync(string clientId)
         {
-            SkipIfSetupIncomplete();
-
-            // Act - Try to assign the same role again
-            var request = new AssignRoleToGroupRequest(
-                new StandardRoleAssignmentSchema { Type = "APP_ADMIN" }
-            );
-
-            Func<Task> act = async () =>
-            {
-                await _roleAssignmentClientApi.AssignRoleToClientAsync(_testClientId, request);
-            };
-
-            // Assert - Should throw ApiException because role is already assigned
-            // Error code E0000090 indicates "The role specified is already assigned to the user"
-            var exception = await act.Should().ThrowAsync<ApiException>();
-            exception.Which.Message.Should().Contain("E0000090", "Error should indicate role is already assigned");
+            try { await _applicationApi.DeactivateApplicationAsync(clientId); } catch { /* ignore */ }
+            try { await _applicationApi.DeleteApplicationAsync(clientId); }     catch { /* ignore */ }
         }
 
-        /// <summary>
-        /// Tests AssignRoleToClientAsync and DeleteRoleFromClientAsync working together.
-        /// Assigns a role, verifies it, then deletes it.
-        /// API: POST /oauth2/v1/clients/{clientId}/roles
-        /// API: DELETE /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId}
-        /// </summary>
-        [Fact]
-        public async Task AssignRoleToClientAsync_ThenDelete_ShouldSucceed()
-        {
-            SkipIfSetupIncomplete();
+        // ═══════════════════════════════════════════════════════════════════════════════
+        //  HAPPY-PATH — covers all four SDK methods in one flow
+        // ═══════════════════════════════════════════════════════════════════════════════
 
+        [Fact]
+        public async Task ClientRoleAssignment_FullCrudWorkflow_ShouldSucceed()
+        {
             string helpDeskRoleId = null;
-            
-            try
-            {
-                // Act 1 - Assign HELP_DESK_ADMIN role
-                var request = new AssignRoleToGroupRequest(
-                    new StandardRoleAssignmentSchema { Type = "HELP_DESK_ADMIN" }
-                );
-
-                var assignedRole = await _roleAssignmentClientApi.AssignRoleToClientAsync(_testClientId, request);
-
-                // Assert 1 - Role should be assigned successfully
-                assignedRole.Should().NotBeNull("AssignRoleToClientAsync should return the assigned role");
-                
-                var standardRole = assignedRole.GetStandardRole();
-                standardRole.Should().NotBeNull();
-                standardRole.Type.Value.Should().Be("HELP_DESK_ADMIN");
-                standardRole.Status.Should().Be(LifecycleStatus.ACTIVE);
-                standardRole.AssignmentType.Should().Be(RoleAssignmentType.CLIENT);
-                
-                helpDeskRoleId = standardRole.Id;
-
-                // Act 2 - Delete the role
-                await _roleAssignmentClientApi.DeleteRoleFromClientAsync(_testClientId, helpDeskRoleId);
-
-                // Assert 2 - Trying to retrieve the deleted role should throw 404
-                Func<Task> act = async () =>
-                {
-                    await _roleAssignmentClientApi.RetrieveClientRoleAsync(_testClientId, helpDeskRoleId);
-                };
-
-                await act.Should().ThrowAsync<ApiException>()
-                    .Where(e => e.ErrorCode == 404, "Deleted role should return 404 Not Found");
-            }
-            catch (ApiException ex) when (ex.ErrorCode == 409)
-            {
-                // Role might already be assigned from a previous test run
-                // Try to clean it up
-                if (!string.IsNullOrEmpty(helpDeskRoleId))
-                {
-                    try { await _roleAssignmentClientApi.DeleteRoleFromClientAsync(_testClientId, helpDeskRoleId); }
-                    catch { /* Ignore */ }
-                }
-                throw;
-            }
-        }
-
-        #endregion
-
-        #region Full CRUD Workflow Test
-
-        /// <summary>
-        /// Complete end-to-end test covering all 4 API operations:
-        /// 1. AssignRoleToClient (POST)
-        /// 2. ListRolesForClient (GET list)
-        /// 3. RetrieveClientRole (GET single)
-        /// 4. DeleteRoleFromClient (DELETE)
-        /// </summary>
-        [Fact]
-        public async Task FullCrudWorkflow_AllFourOperations_ShouldSucceed()
-        {
-            SkipIfSetupIncomplete();
-
-            string readOnlyRoleId = null;
 
             try
             {
-                // 1. POST - Assign a new role
+                // ── 1. POST /oauth2/v1/clients/{clientId}/roles ────────────────────────
                 var assignRequest = new AssignRoleToGroupRequest(
-                    new StandardRoleAssignmentSchema { Type = "READ_ONLY_ADMIN" }
-                );
+                    new StandardRoleAssignmentSchema { Type = "HELP_DESK_ADMIN" });
 
-                var assignedRole = await _roleAssignmentClientApi.AssignRoleToClientAsync(_testClientId, assignRequest);
-                assignedRole.Should().NotBeNull("POST: AssignRoleToClientAsync should return the assigned role");
-                
-                var standardRole = assignedRole.GetStandardRole();
-                standardRole.Type.Value.Should().Be("READ_ONLY_ADMIN");
-                readOnlyRoleId = standardRole.Id;
+                var assignResponse = await _roleAssignmentApi.AssignRoleToClientAsync(_testClientId, assignRequest);
 
-                // 2. GET list - Verify role appears in the list
-                var roleCollection = _roleAssignmentClientApi.ListRolesForClient(_testClientId);
+                assignResponse.Should().NotBeNull(
+                    "POST /oauth2/v1/clients/{clientId}/roles must return the created role assignment");
+
+                var assignedRole = assignResponse.GetStandardRole();
+                assignedRole.Should().NotBeNull(
+                    "HELP_DESK_ADMIN is a standard role and must deserialise as StandardRole");
+
+                assignedRole.Type.Value.Should().Be("HELP_DESK_ADMIN");
+                assignedRole.Status.Should().Be(LifecycleStatus.ACTIVE);
+                assignedRole.AssignmentType.Should().Be(RoleAssignmentType.CLIENT,
+                    "roles assigned to a client app have assignmentType CLIENT");
+                assignedRole.Id.Should().NotBeNullOrEmpty();
+                assignedRole.Created.Should().NotBe(default);
+                assignedRole.LastUpdated.Should().NotBe(default,
+                    "the API always returns lastUpdated on a role assignment");
+                assignedRole.Label.Should().NotBeNullOrEmpty(
+                    "the response must contain a human-readable label");
+                assignedRole.Links.Should().NotBeNull(
+                    "_links must be present in the response");
+                assignedRole.Links.Assignee.Should().NotBeNull(
+                    "_links.assignee must be present");
+                assignedRole.Links.Assignee.Href.Should().Contain(_testClientId,
+                    "_links.assignee.href must contain the clientId");
+
+                helpDeskRoleId = assignedRole.Id;
+
+                // ── 2. GET /oauth2/v1/clients/{clientId}/roles (list) ─────────────────
+                var roleCollection = _roleAssignmentApi.ListRolesForClient(_testClientId);
                 var roles = new List<ListGroupAssignedRoles200ResponseInner>();
-                await foreach (var role in roleCollection)
+                await foreach (var r in roleCollection)
                 {
-                    roles.Add(role);
+                    roles.Add(r);
                 }
 
-                roles.Should().HaveCountGreaterThanOrEqualTo(2, "GET list: Should have at least 2 roles (APP_ADMIN and READ_ONLY_ADMIN)");
-                var readOnlyInList = roles.FirstOrDefault(r =>
-                    r.ActualInstance is StandardRole sr && sr.Type.Value == "READ_ONLY_ADMIN");
-                readOnlyInList.Should().NotBeNull("GET list: READ_ONLY_ADMIN should be in the list");
+                roles.Should().HaveCountGreaterThanOrEqualTo(2,
+                    "list must include at least READ_ONLY_ADMIN (pre-assigned) and HELP_DESK_ADMIN (just assigned)");
 
-                // 3. GET single - Retrieve the specific role
-                var retrievedRole = await _roleAssignmentClientApi.RetrieveClientRoleAsync(_testClientId, readOnlyRoleId);
-                retrievedRole.Should().NotBeNull("GET single: RetrieveClientRoleAsync should return the role");
-                retrievedRole.GetStandardRole().Id.Should().Be(readOnlyRoleId);
-
-                // 4. DELETE - Remove the role
-                await _roleAssignmentClientApi.DeleteRoleFromClientAsync(_testClientId, readOnlyRoleId);
-
-                // Verify deletion
-                Func<Task> act = async () =>
+                var types = new List<string>();
+                foreach (var r in roles)
                 {
-                    await _roleAssignmentClientApi.RetrieveClientRoleAsync(_testClientId, readOnlyRoleId);
-                };
+                    var t = r.GetStandardRole()?.Type?.Value;
+                    if (t != null)
+                        types.Add(t);
+                }
+                types.Should().Contain("READ_ONLY_ADMIN",
+                    "the pre-assigned READ_ONLY_ADMIN role must appear in the list");
+                types.Should().Contain("HELP_DESK_ADMIN",
+                    "the just-assigned HELP_DESK_ADMIN role must appear in the list");
 
-                await act.Should().ThrowAsync<ApiException>()
-                    .Where(e => e.ErrorCode == 404, "DELETE: Role should no longer exist");
+                // Validate field-level data on every list item.
+                foreach (var roleItem in roles)
+                {
+                    var itemRole = roleItem.GetStandardRole();
+                    if (itemRole == null)
+                        continue;
+                    itemRole.Id.Should().NotBeNullOrEmpty(
+                        "each list item must carry its role-assignment id");
+                    itemRole.Label.Should().NotBeNullOrEmpty(
+                        "label must be present on each list item");
+                    itemRole.Status.Should().Be(LifecycleStatus.ACTIVE,
+                        "all assigned roles must be ACTIVE");
+                    itemRole.AssignmentType.Should().Be(RoleAssignmentType.CLIENT,
+                        "roles assigned to a client always have assignmentType CLIENT");
+                    itemRole.Created.Should().NotBe(default,
+                        "created timestamp must be present on each list item");
+                    itemRole.LastUpdated.Should().NotBe(default,
+                        "lastUpdated must be present on each list item");
+                    itemRole.Links.Should().NotBeNull(
+                        "_links must be present on each list item");
+                    itemRole.Links.Assignee.Href.Should().Contain(_testClientId,
+                        "_links.assignee.href must contain the clientId on each list item");
+                }
+
+                // ── 3. GET /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId} ─────
+                var singleRole = await _roleAssignmentApi.RetrieveClientRoleAsync(_testClientId, helpDeskRoleId);
+
+                singleRole.Should().NotBeNull(
+                    "GET /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId} must return the role");
+
+                var singleStandardRole = singleRole.GetStandardRole();
+                singleStandardRole.Should().NotBeNull();
+                singleStandardRole.Id.Should().Be(helpDeskRoleId);
+                singleStandardRole.Type.Value.Should().Be("HELP_DESK_ADMIN");
+                singleStandardRole.Status.Should().Be(LifecycleStatus.ACTIVE);
+                singleStandardRole.AssignmentType.Should().Be(RoleAssignmentType.CLIENT);
+                singleStandardRole.Created.Should().NotBe(default);
+                singleStandardRole.LastUpdated.Should().NotBe(default,
+                    "lastUpdated must be present on the retrieved role");
+                singleStandardRole.Label.Should().NotBeNullOrEmpty(
+                    "label must be present on the retrieved role");
+                singleStandardRole.Links.Should().NotBeNull(
+                    "_links must be present on the retrieved role");
+                singleStandardRole.Links.Assignee.Href.Should().Contain(_testClientId,
+                    "_links.assignee.href must contain the clientId on the retrieved role");
+
+                // ── 4. DELETE /oauth2/v1/clients/{clientId}/roles/{roleAssignmentId} ──
+                Func<Task> deleteAct = async () =>
+                    await _roleAssignmentApi.DeleteRoleFromClientAsync(_testClientId, helpDeskRoleId);
+
+                await deleteAct.Should().NotThrowAsync(
+                    "DELETE must return 204 No Content");
+
+                helpDeskRoleId = null; // prevent double-delete in finally
+
+                // Verify the role is gone from the list.
+                var afterDelete = _roleAssignmentApi.ListRolesForClient(_testClientId);
+                var afterDeleteList = new List<ListGroupAssignedRoles200ResponseInner>();
+                await foreach (var r in afterDelete)
+                    afterDeleteList.Add(r);
+
+                var afterTypes = new List<string>();
+                foreach (var r in afterDeleteList)
+                {
+                    var t = r.GetStandardRole()?.Type?.Value;
+                    if (t != null)
+                        afterTypes.Add(t);
+                }
+                afterTypes.Should().NotContain("HELP_DESK_ADMIN",
+                    "HELP_DESK_ADMIN must not appear after it is deleted");
             }
             finally
             {
-                // Cleanup - ensure the role is deleted
-                if (!string.IsNullOrEmpty(readOnlyRoleId))
+                if (!string.IsNullOrEmpty(helpDeskRoleId))
                 {
-                    try { await _roleAssignmentClientApi.DeleteRoleFromClientAsync(_testClientId, readOnlyRoleId); }
-                    catch { /* Already deleted or doesn't exist */ }
+                    try { await _roleAssignmentApi.DeleteRoleFromClientAsync(_testClientId, helpDeskRoleId); }
+                    catch { /* ignore */ }
                 }
             }
         }
 
-        #endregion
+        // ═══════════════════════════════════════════════════════════════════════════════
+        //  HAPPY-PATH — WithHttpInfo variants (verifies raw HTTP status codes)
+        // ═══════════════════════════════════════════════════════════════════════════════
+
+        /// <summary>
+        /// Exercises all four WithHttpInfo methods and asserts the raw HTTP status codes:
+        ///   AssignRoleToClientWithHttpInfoAsync   → 201 Created
+        ///   ListRolesForClientWithHttpInfoAsync   → 200 OK
+        ///   RetrieveClientRoleWithHttpInfoAsync   → 200 OK
+        ///   DeleteRoleFromClientWithHttpInfoAsync → 204 No Content
+        /// </summary>
+        [Fact]
+        public async Task WithHttpInfo_FullCrudWorkflow_ShouldReturn_CorrectStatusCodes()
+        {
+            string reportAdminRoleId = null;
+
+            try
+            {
+                // ── 1. POST → 201 Created ─────────────────────────────────────────
+                var assignRequest = new AssignRoleToGroupRequest(
+                    new StandardRoleAssignmentSchema { Type = "REPORT_ADMIN" });
+
+                var assignResponse = await _roleAssignmentApi.AssignRoleToClientWithHttpInfoAsync(
+                    _testClientId, assignRequest);
+
+                ((int)assignResponse.StatusCode).Should().Be(201,
+                    "POST /oauth2/v1/clients/{clientId}/roles must return HTTP 201 Created");
+                assignResponse.Data.Should().NotBeNull(
+                    "the response body must contain the newly created role assignment");
+
+                var assignedRole = assignResponse.Data.GetStandardRole();
+                assignedRole.Should().NotBeNull();
+                assignedRole.Type.Value.Should().Be("REPORT_ADMIN");
+                assignedRole.AssignmentType.Should().Be(RoleAssignmentType.CLIENT);
+                assignedRole.Id.Should().NotBeNullOrEmpty();
+
+                reportAdminRoleId = assignedRole.Id;
+
+                // ── 2. GET list → 200 OK ──────────────────────────────────────────
+                var listResponse = await _roleAssignmentApi.ListRolesForClientWithHttpInfoAsync(_testClientId);
+
+                ((int)listResponse.StatusCode).Should().Be(200,
+                    "GET /oauth2/v1/clients/{clientId}/roles must return HTTP 200 OK");
+                listResponse.Data.Should().NotBeNull();
+                listResponse.Data.Should().HaveCountGreaterThanOrEqualTo(2,
+                    "list must contain at least READ_ONLY_ADMIN (pre-assigned) and REPORT_ADMIN (just assigned)");
+
+                // ── 3. GET single → 200 OK ────────────────────────────────────────
+                var retrieveResponse = await _roleAssignmentApi.RetrieveClientRoleWithHttpInfoAsync(
+                    _testClientId, reportAdminRoleId);
+
+                ((int)retrieveResponse.StatusCode).Should().Be(200,
+                    "GET /oauth2/v1/clients/{clientId}/roles/{id} must return HTTP 200 OK");
+                retrieveResponse.Data.Should().NotBeNull();
+
+                var retrievedRole = retrieveResponse.Data.GetStandardRole();
+                retrievedRole.Should().NotBeNull();
+                retrievedRole.Id.Should().Be(reportAdminRoleId);
+                retrievedRole.Type.Value.Should().Be("REPORT_ADMIN");
+
+                // ── 4. DELETE → 204 No Content ────────────────────────────────────
+                var deleteResponse = await _roleAssignmentApi.DeleteRoleFromClientWithHttpInfoAsync(
+                    _testClientId, reportAdminRoleId);
+
+                ((int)deleteResponse.StatusCode).Should().Be(204,
+                    "DELETE /oauth2/v1/clients/{clientId}/roles/{id} must return HTTP 204 No Content");
+
+                reportAdminRoleId = null; // prevent double-delete in finally
+            }
+            finally
+            {
+                if (!string.IsNullOrEmpty(reportAdminRoleId))
+                {
+                    try { await _roleAssignmentApi.DeleteRoleFromClientAsync(_testClientId, reportAdminRoleId); }
+                    catch { /* ignore */ }
+                }
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════════════
+        //  EDGE-CASE — empty role list before any assignment
+        // ═══════════════════════════════════════════════════════════════════════════════
+
+        /// <summary>
+        /// A fresh service app with no role assignments must return an empty list (HTTP 200).
+        /// Exercises both <see cref="RoleAssignmentClientApi.ListRolesForClient"/> (streaming)
+        /// and <see cref="RoleAssignmentClientApi.ListRolesForClientWithHttpInfoAsync"/>.
+        /// </summary>
+        [Fact]
+        public async Task ListRolesForClient_BeforeAnyAssignment_ShouldReturnEmptyList()
+        {
+            var freshClientId = await CreateFreshServiceAppAsync();
+
+            try
+            {
+                // Via streaming collection (plain async method).
+                var collection = _roleAssignmentApi.ListRolesForClient(freshClientId);
+                var roles = new List<ListGroupAssignedRoles200ResponseInner>();
+                await foreach (var r in collection)
+                    roles.Add(r);
+
+                roles.Should().BeEmpty(
+                    "a service app with no role assignments must return an empty list");
+
+                // Via WithHttpInfo (verifies HTTP 200 + empty data payload).
+                var httpResponse = await _roleAssignmentApi.ListRolesForClientWithHttpInfoAsync(freshClientId);
+
+                ((int)httpResponse.StatusCode).Should().Be(200,
+                    "an empty list must still return HTTP 200 OK");
+                httpResponse.Data.Should().NotBeNull();
+                httpResponse.Data.Should().BeEmpty(
+                    "the data payload must be an empty collection when no roles are assigned");
+            }
+            finally
+            {
+                await DeleteServiceAppAsync(freshClientId);
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════════════
+        //  ERROR-PATH TESTS
+        // ═══════════════════════════════════════════════════════════════════════════════
+
+        /// <summary>
+        /// POST duplicate role → 409 (E0000090)
+        /// </summary>
+        [Fact]
+        public async Task AssignRoleToClientAsync_DuplicateRole_ShouldThrow409()
+        {
+            // READ_ONLY_ADMIN is already assigned in InitializeAsync.
+            var request = new AssignRoleToGroupRequest(
+                new StandardRoleAssignmentSchema { Type = "READ_ONLY_ADMIN" });
+
+            var ex = await Assert.ThrowsAsync<ApiException>(() =>
+                _roleAssignmentApi.AssignRoleToClientAsync(_testClientId, request));
+
+            ex.ErrorCode.Should().Be(409,
+                "assigning the same role twice must return HTTP 409 (role already assigned)");
+        }
+
+        /// <summary>
+        /// POST with invalid clientId → 404 (E0000007)
+        /// </summary>
+        [Fact]
+        public async Task AssignRoleToClientAsync_InvalidClientId_ShouldThrow404()
+        {
+            var request = new AssignRoleToGroupRequest(
+                new StandardRoleAssignmentSchema { Type = "READ_ONLY_ADMIN" });
+
+            var ex = await Assert.ThrowsAsync<ApiException>(() =>
+                _roleAssignmentApi.AssignRoleToClientAsync("INVALID_CLIENT_ID_00000", request));
+
+            ex.ErrorCode.Should().Be(404,
+                "a non-existent clientId must return HTTP 404");
+        }
+
+        /// <summary>
+        /// GET single with invalid roleAssignmentId → 404 (E0000007)
+        /// </summary>
+        [Fact]
+        public async Task RetrieveClientRoleAsync_InvalidRoleAssignmentId_ShouldThrow404()
+        {
+            var ex = await Assert.ThrowsAsync<ApiException>(() =>
+                _roleAssignmentApi.RetrieveClientRoleAsync(_testClientId, "INVALID_ROLE_ID_00000"));
+
+            ex.ErrorCode.Should().Be(404,
+                "a non-existent roleAssignmentId must return HTTP 404");
+        }
+
+        /// <summary>
+        /// DELETE with invalid roleAssignmentId → 404 (E0000007)
+        /// </summary>
+        [Fact]
+        public async Task DeleteRoleFromClientAsync_InvalidRoleAssignmentId_ShouldThrow404()
+        {
+            var ex = await Assert.ThrowsAsync<ApiException>(() =>
+                _roleAssignmentApi.DeleteRoleFromClientAsync(_testClientId, "INVALID_ROLE_ID_00000"));
+
+            ex.ErrorCode.Should().Be(404,
+                "a non-existent roleAssignmentId on DELETE must return HTTP 404");
+        }
+
+        /// <summary>
+        /// GET single with invalid clientId → 404 (E0000007)
+        /// </summary>
+        [Fact]
+        public async Task RetrieveClientRoleAsync_InvalidClientId_ShouldThrow404()
+        {
+            var ex = await Assert.ThrowsAsync<ApiException>(() =>
+                _roleAssignmentApi.RetrieveClientRoleAsync("INVALID_CLIENT_ID_00000", _primaryRoleAssignmentId));
+
+            ex.ErrorCode.Should().Be(404,
+                "a non-existent clientId on GET single must return HTTP 404");
+        }
+
+        /// <summary>
+        /// DELETE with invalid clientId → 404 (E0000007)
+        /// </summary>
+        [Fact]
+        public async Task DeleteRoleFromClientAsync_InvalidClientId_ShouldThrow404()
+        {
+            var ex = await Assert.ThrowsAsync<ApiException>(() =>
+                _roleAssignmentApi.DeleteRoleFromClientAsync("INVALID_CLIENT_ID_00000", _primaryRoleAssignmentId));
+
+            ex.ErrorCode.Should().Be(404,
+                "a non-existent clientId on DELETE must return HTTP 404");
+        }
     }
 }
