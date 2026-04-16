@@ -438,3 +438,166 @@
 //         }
 //     }
 // }
+
+using System.Collections.Generic;
+using System.Net;
+using System.Threading.Tasks;
+using FluentAssertions;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+using Okta.Sdk.UnitTest.Internal;
+using Xunit;
+
+namespace Okta.Sdk.UnitTest.Api
+{
+    /// <summary>
+    /// Unit tests for IdentityProviderApi covering serialization correctness.
+    /// Specifically validates that oneOf wrapper types (IdentityProviderProtocol) correctly
+    /// propagate NullValueHandling.Ignore from the outer serializer.
+    /// </summary>
+    public class IdentityProviderApiTests
+    {
+        private const string BaseUrl = "https://test.okta.com";
+
+        private static string BuildIdpResponseJson(string id = "0oatest1234567890id0", string name = "Test OIDC IdP")
+            => $@"{{
+                ""id"": ""{id}"",
+                ""name"": ""{name}"",
+                ""type"": ""OIDC"",
+                ""status"": ""ACTIVE"",
+                ""protocol"": {{
+                    ""type"": ""OIDC"",
+                    ""scopes"": [""openid"", ""profile"", ""email""],
+                    ""credentials"": {{
+                        ""client"": {{
+                            ""client_id"": ""test-client-id"",
+                            ""client_secret"": ""test-client-secret""
+                        }}
+                    }},
+                    ""endpoints"": {{
+                        ""authorization"": {{ ""url"": ""https://idp.example.com/authorize"", ""binding"": ""HTTP-REDIRECT"" }},
+                        ""token"": {{ ""url"": ""https://idp.example.com/token"", ""binding"": ""HTTP-POST"" }},
+                        ""userInfo"": {{ ""url"": ""https://idp.example.com/userinfo"", ""binding"": ""HTTP-REDIRECT"" }},
+                        ""jwks"": {{ ""url"": ""https://idp.example.com/keys"", ""binding"": ""HTTP-REDIRECT"" }}
+                    }},
+                    ""issuer"": {{ ""url"": ""https://idp.example.com"" }}
+                }},
+                ""policy"": {{
+                    ""provisioning"": {{
+                        ""action"": ""AUTO"",
+                        ""profileMaster"": false,
+                        ""groups"": {{ ""action"": ""NONE"" }},
+                        ""conditions"": {{
+                            ""deprovisioned"": {{ ""action"": ""NONE"" }},
+                            ""suspended"": {{ ""action"": ""NONE"" }}
+                        }}
+                    }},
+                    ""accountLink"": {{ ""action"": ""AUTO"" }},
+                    ""subject"": {{
+                        ""matchType"": ""USERNAME"",
+                        ""userNameTemplate"": {{ ""template"": ""idpuser.email"" }}
+                    }},
+                    ""maxClockSkew"": 0
+                }}
+            }}";
+
+        private static IdentityProvider BuildOidcIdp(string name = "Test OIDC IdP")
+            => new IdentityProvider
+            {
+                Type = IdentityProviderType.OIDC,
+                Name = name,
+                Protocol = new IdentityProviderProtocol(new ProtocolOidc
+                {
+                    Type = ProtocolOidc.TypeEnum.OIDC,
+                    Endpoints = new OAuthEndpoints
+                    {
+                        Authorization = new() { Url = "https://idp.example.com/authorize", Binding = "HTTP-REDIRECT" },
+                        Token = new() { Url = "https://idp.example.com/token", Binding = "HTTP-POST" },
+                        UserInfo = new() { Url = "https://idp.example.com/userinfo", Binding = "HTTP-REDIRECT" },
+                        Jwks = new() { Url = "https://idp.example.com/keys", Binding = "HTTP-REDIRECT" },
+                    },
+                    Scopes = new List<string> { "openid", "profile", "email" },
+                    Issuer = new ProtocolEndpointOidcIssuer { Url = "https://idp.example.com" },
+                    Credentials = new OAuthCredentials
+                    {
+                        _Client = new() { ClientId = "test-client-id", ClientSecret = "test-client-secret" }
+                    }
+                }),
+                Policy = new IdentityProviderPolicy
+                {
+                    Provisioning = new Provisioning
+                    {
+                        Action = "AUTO",
+                        ProfileMaster = false,
+                        Groups = new() { Action = "NONE" },
+                        Conditions = new()
+                        {
+                            Deprovisioned = new() { Action = "NONE" },
+                            Suspended = new() { Action = "NONE" }
+                        }
+                    },
+                    AccountLink = new PolicyAccountLink { Action = "AUTO" },
+                    Subject = new PolicySubject
+                    {
+                        MatchType = "USERNAME",
+                        UserNameTemplate = new PolicyUserNameTemplate { Template = "idpuser.email" }
+                    },
+                    MaxClockSkew = 0
+                }
+            };
+
+        [Fact]
+        public async Task CreateIdentityProviderAsync_WithOidcProtocol_DoesNotSerializeNullProtocolFields()
+        {
+            // null fields in ProtocolOidc (algorithms, settings, signing,
+            // slo, oktaIdpOrgUrl, token_endpoint_auth_method) must not appear in the request body.
+            var mockClient = new MockAsyncClient(BuildIdpResponseJson(), HttpStatusCode.OK);
+            var api = new IdentityProviderApi(mockClient, new Configuration { BasePath = BaseUrl });
+            var idp = BuildOidcIdp();
+
+            // Act
+            var result = await api.CreateIdentityProviderAsync(idp);
+
+            // Assert — verify required fields are present
+            result.Should().NotBeNull();
+            result.Id.Should().NotBeNullOrEmpty();
+            mockClient.ReceivedPath.Should().Be("/api/v1/idps");
+
+            // Assert — null Protocol fields must NOT appear in the serialized request body
+            mockClient.ReceivedBody.Should().NotContain("\"algorithms\":null");
+            mockClient.ReceivedBody.Should().NotContain("\"settings\":null");
+            mockClient.ReceivedBody.Should().NotContain("\"signing\":null");
+            mockClient.ReceivedBody.Should().NotContain("\"slo\":null");
+            mockClient.ReceivedBody.Should().NotContain("\"oktaIdpOrgUrl\":null");
+            mockClient.ReceivedBody.Should().NotContain("\"token_endpoint_auth_method\":null");
+        }
+
+        [Fact]
+        public async Task ReplaceIdentityProviderAsync_WithOidcProtocol_DoesNotSerializeNullProtocolFields()
+        {
+            // same null-field problem must not appear on PUT (replace) either.
+            const string idpId = "0oatest1234567890id0";
+            var responseJson = BuildIdpResponseJson(idpId, "Updated OIDC IdP");
+            var mockClient = new MockAsyncClient(responseJson, HttpStatusCode.OK);
+            var api = new IdentityProviderApi(mockClient, new Configuration { BasePath = BaseUrl });
+            var idp = BuildOidcIdp("Updated OIDC IdP");
+
+            // Act
+            var result = await api.ReplaceIdentityProviderAsync(idpId, idp);
+
+            // Assert — verify required fields are present
+            result.Should().NotBeNull();
+            result.Name.Should().Be("Updated OIDC IdP");
+            mockClient.ReceivedPath.Should().Be("/api/v1/idps/{idpId}");
+
+            // Assert — null Protocol fields must NOT appear in the serialized request body
+            mockClient.ReceivedBody.Should().NotContain("\"algorithms\":null");
+            mockClient.ReceivedBody.Should().NotContain("\"settings\":null");
+            mockClient.ReceivedBody.Should().NotContain("\"signing\":null");
+            mockClient.ReceivedBody.Should().NotContain("\"slo\":null");
+            mockClient.ReceivedBody.Should().NotContain("\"oktaIdpOrgUrl\":null");
+            mockClient.ReceivedBody.Should().NotContain("\"token_endpoint_auth_method\":null");
+        }
+    }
+}

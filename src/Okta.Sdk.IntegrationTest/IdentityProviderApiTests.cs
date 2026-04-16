@@ -198,6 +198,50 @@ namespace Okta.Sdk.IntegrationTest
             createEx.ErrorCode.Should().Be(400);
         }
 
+        [Fact]
+        public async Task ReplaceIdentityProviderAsync_WithOidcProtocolFetchedFromApi_DoesNotThrow500()
+        {
+            // Calling ReplaceIdentityProviderAsync with an IdentityProvider object returned by
+            // GetIdentityProviderAsync previously caused HTTP 500 because null fields in the
+            // oneOf IdentityProviderProtocol wrapper were incorrectly serialized as explicit nulls
+            // instead of being omitted.
+            string idpId = null;
+            try
+            {
+                // Arrange — create an OIDC IdP
+                var template = CreateTestIdpTemplate("Automated OIDC IdP - NullFieldsRegressionTest");
+                var created = await _idpApi.CreateIdentityProviderAsync(template);
+                idpId = created.Id;
+                idpId.Should().NotBeNullOrEmpty();
+
+                // Act — fetch the IdP and immediately replace it (this was the failing scenario)
+                var fetched = await _idpApi.GetIdentityProviderAsync(idpId);
+                fetched.Name = "Automated OIDC IdP - NullFieldsRegressionTest (updated)";
+
+                // Assert — should succeed without throwing ApiException (HTTP 500)
+                var replaced = await _idpApi.ReplaceIdentityProviderAsync(idpId, fetched);
+                replaced.Should().NotBeNull();
+                replaced.Id.Should().Be(idpId);
+                replaced.Name.Should().Be("Automated OIDC IdP - NullFieldsRegressionTest (updated)");
+            }
+            finally
+            {
+                if (!string.IsNullOrEmpty(idpId))
+                {
+                    try
+                    {
+                        var current = await _idpApi.GetIdentityProviderAsync(idpId);
+                        if (current.Status == LifecycleStatus.ACTIVE)
+                            await _idpApi.DeactivateIdentityProviderAsync(idpId);
+                    }
+                    catch (ApiException) { }
+
+                    try { await _idpApi.DeleteIdentityProviderAsync(idpId); }
+                    catch (ApiException) { }
+                }
+            }
+        }
+
         /// <summary>
         /// Helper method to generate a valid IdentityProvider payload for testing
         /// </summary>

@@ -612,7 +612,10 @@ namespace Okta.Sdk.UnitTest.Api
             var featuresApi = new ApplicationFeaturesApi(mockClient, new Configuration { BasePath = BaseUrl });
 
             var updateRequest = new UpdateFeatureForApplicationRequest(
-                new CapabilitiesInboundProvisioningObject());
+                new CapabilitiesInboundProvisioningObject
+                {
+                    ImportSettings = new CapabilitiesImportSettingsObject()
+                });
 
             // Act
             var feature = await featuresApi.UpdateFeatureForApplicationAsync(_appId, ApplicationFeatureType.INBOUNDPROVISIONING, updateRequest);
