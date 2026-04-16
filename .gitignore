@@ -386,3 +386,6 @@ okta.yaml
 *.oktaconfig
 appsettings.Development.json
 appsettings.Local.json
+
+# Claude skills (local only, not for version control)
+.claude/
