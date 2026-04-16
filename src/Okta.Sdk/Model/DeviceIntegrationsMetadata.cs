@@ -302,7 +302,21 @@ namespace Okta.Sdk.Model
         /// <param name="serializer">JSON Serializer</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue((string)(typeof(DeviceIntegrationsMetadata).GetMethod("ToJson").Invoke(value, null)));
+            var instance = ((DeviceIntegrationsMetadata)value).ActualInstance;
+            if (instance == null)
+            {
+                writer.WriteNull();
+                return;
+            }
+            var settings = new JsonSerializerSettings
+            {
+                ContractResolver = serializer.ContractResolver,
+                NullValueHandling = serializer.NullValueHandling,
+                Formatting = serializer.Formatting,
+                DateParseHandling = serializer.DateParseHandling,
+                Converters = serializer.Converters.Where(c => !(c is DeviceIntegrationsMetadataJsonConverter)).ToList()
+            };
+            JToken.FromObject(instance, JsonSerializer.Create(settings)).WriteTo(writer);
         }
 
         /// <summary>
