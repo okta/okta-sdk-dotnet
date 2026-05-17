@@ -41,7 +41,7 @@ namespace Okta.Sdk.IntegrationTest
                 #region Create Policy - POST /api/v1/policies
                 
                 // Test CreatePolicyAsync() 
-                var policy = new CreateOrUpdatePolicy()
+                var policy = new Policy()
                 {
                     Name = $"SDK-Test-Policy-{guid}".Substring(0, 50),
                     Type = PolicyType.OKTASIGNON,
@@ -123,7 +123,7 @@ namespace Okta.Sdk.IntegrationTest
                 #region Replace Policy - PUT /api/v1/policies/{policyId}
                 
                 // Test ReplacePolicyAsync() 
-                var updatedPolicyData = new CreateOrUpdatePolicy()
+                var updatedPolicyData = new Policy()
                 {
                     Name = $"SDK-Test-Policy-Updated-{guid}".Substring(0, 50),
                     Description = "Updated description for comprehensive test",
@@ -416,7 +416,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 #region Test Password Policy
                 
-                var passwordPolicy = new CreateOrUpdatePolicy()
+                var passwordPolicy = new Policy()
                 {
                     Name = $"SDK-Test-PasswordPolicy-{guid}".Substring(0, 50),
                     Type = PolicyType.PASSWORD,
@@ -435,7 +435,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 #region Test Profile Enrollment Policy
                 
-                var profilePolicy = new CreateOrUpdatePolicy()
+                var profilePolicy = new Policy()
                 {
                     Name = $"SDK-Test-ProfilePolicy-{guid}".Substring(0, 50),
                     Type = PolicyType.PROFILEENROLLMENT,
@@ -756,7 +756,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 // Create a test policy with a unique name for searching
-                var policy = new CreateOrUpdatePolicy()
+                var policy = new Policy()
                 {
                     Name = $"SDK-QueryTest-{guid}".Substring(0, 50),
                     Type = PolicyType.OKTASIGNON,
@@ -839,7 +839,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 // Create password policy
-                var policy = new CreateOrUpdatePolicy()
+                var policy = new Policy()
                 {
                     Name = $"SDK-PasswordPolicy-{guid}".Substring(0, 50),
                     Type = PolicyType.PASSWORD,
@@ -1006,7 +1006,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 // Create a test policy
-                var policy = new CreateOrUpdatePolicy()
+                var policy = new Policy()
                 {
                     Name = $"SDK-PriorityTest-{guid}".Substring(0, 50),
                     Type = PolicyType.OKTASIGNON,
@@ -1120,7 +1120,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 // Create test policy
-                var policy = new CreateOrUpdatePolicy()
+                var policy = new Policy()
                 {
                     Name = $"SDK-NetworkTest-{guid}".Substring(0, 50),
                     Type = PolicyType.OKTASIGNON,
@@ -1205,7 +1205,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 // Create test policy
-                var policy = new CreateOrUpdatePolicy()
+                var policy = new Policy()
                 {
                     Name = $"SDK-SessionTest-{guid}".Substring(0, 50),
                     Type = PolicyType.OKTASIGNON,
@@ -1351,7 +1351,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 // Create a valid policy for testing invalid operations
-                var policy = new CreateOrUpdatePolicy()
+                var policy = new Policy()
                 {
                     Name = $"SDK-ErrorTest-{guid}".Substring(0, 50),
                     Type = PolicyType.OKTASIGNON,
@@ -1399,7 +1399,7 @@ namespace Okta.Sdk.IntegrationTest
             {
                 // Test 49 characters (should work)
                 var name49 = new string('A', 49);
-                var policy1 = new CreateOrUpdatePolicy()
+                var policy1 = new Policy()
                 {
                     Name = name49,
                     Type = PolicyType.OKTASIGNON,
@@ -1414,7 +1414,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 // Test exactly 50 characters (should work)
                 var name50 = new string('B', 50);
-                var policy2 = new CreateOrUpdatePolicy()
+                var policy2 = new Policy()
                 {
                     Name = name50,
                     Type = PolicyType.OKTASIGNON,
@@ -1429,7 +1429,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 // Test 51 characters (API doesn't enforce a strict 50-char limit, it accepts 51+)
                 var name51 = new string('C', 51);
-                var policy3 = new CreateOrUpdatePolicy()
+                var policy3 = new Policy()
                 {
                     Name = name51,
                     Type = PolicyType.OKTASIGNON,
@@ -1483,7 +1483,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 // Create a test policy for simulation
-                var policy = new CreateOrUpdatePolicy()
+                var policy = new Policy()
                 {
                     Name = $"SDK-Test-Simulation-Policy-{guid}".Substring(0, 50),
                     Type = PolicyType.OKTASIGNON,
@@ -1617,7 +1617,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 // CreatePolicyWithHttpInfo
-                var policy = new CreateOrUpdatePolicy()
+                var policy = new Policy()
                 {
                     Name = $"SDK-HttpInfo-Test-{guid}".Substring(0, 50),
                     Type = PolicyType.OKTASIGNON,
@@ -1654,7 +1654,7 @@ namespace Okta.Sdk.IntegrationTest
                 listResponse.Data.Should().Contain(p => p.Id == policy1.Id);
 
                 // ReplacePolicyWithHttpInfo
-                var updatePolicy = new CreateOrUpdatePolicy()
+                var updatePolicy = new Policy()
                 {
                     Name = createdPolicy.Name,
                     Type = PolicyType.OKTASIGNON,

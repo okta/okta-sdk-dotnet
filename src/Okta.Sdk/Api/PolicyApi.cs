@@ -112,7 +112,7 @@ namespace Okta.Sdk.Api
         /// <param name="activate">This query parameter is only valid for Classic Engine orgs. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Policy</returns>
-        System.Threading.Tasks.Task<Policy> CreatePolicyAsync(  CreateOrUpdatePolicy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Policy> CreatePolicyAsync(  Policy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a policy
         /// </summary>
@@ -124,7 +124,7 @@ namespace Okta.Sdk.Api
         /// <param name="activate">This query parameter is only valid for Classic Engine orgs. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Policy)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Policy>> CreatePolicyWithHttpInfoAsync(  CreateOrUpdatePolicy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Policy>> CreatePolicyWithHttpInfoAsync(  Policy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a policy rule
         /// </summary>
@@ -506,7 +506,7 @@ namespace Okta.Sdk.Api
         /// <param name="policy"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Policy</returns>
-        System.Threading.Tasks.Task<Policy> ReplacePolicyAsync(  string policyId ,   CreateOrUpdatePolicy policy , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Policy> ReplacePolicyAsync(  string policyId ,   Policy policy , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a policy
         /// </summary>
@@ -518,7 +518,7 @@ namespace Okta.Sdk.Api
         /// <param name="policy"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Policy)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Policy>> ReplacePolicyWithHttpInfoAsync(  string policyId ,   CreateOrUpdatePolicy policy , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Policy>> ReplacePolicyWithHttpInfoAsync(  string policyId ,   Policy policy , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a policy rule
         /// </summary>
@@ -927,7 +927,7 @@ namespace Okta.Sdk.Api
         /// <param name="activate">This query parameter is only valid for Classic Engine orgs. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Policy</returns>
-        public async System.Threading.Tasks.Task<Policy> CreatePolicyAsync(  CreateOrUpdatePolicy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Policy> CreatePolicyAsync(  Policy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<Policy> localVarResponse = await CreatePolicyWithHttpInfoAsync(policy, activate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -940,7 +940,7 @@ namespace Okta.Sdk.Api
         /// <param name="activate">This query parameter is only valid for Classic Engine orgs. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Policy)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Policy>> CreatePolicyWithHttpInfoAsync(  CreateOrUpdatePolicy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Policy>> CreatePolicyWithHttpInfoAsync(  Policy policy ,   bool? activate = default(bool?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'policy' is set
             if (policy == null)
@@ -2648,7 +2648,7 @@ namespace Okta.Sdk.Api
         /// <param name="policy"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Policy</returns>
-        public async System.Threading.Tasks.Task<Policy> ReplacePolicyAsync(  string policyId ,   CreateOrUpdatePolicy policy , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Policy> ReplacePolicyAsync(  string policyId ,   Policy policy , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Okta.Sdk.Client.ApiResponse<Policy> localVarResponse = await ReplacePolicyWithHttpInfoAsync(policyId, policy, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2661,7 +2661,7 @@ namespace Okta.Sdk.Api
         /// <param name="policy"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Policy)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Policy>> ReplacePolicyWithHttpInfoAsync(  string policyId ,   CreateOrUpdatePolicy policy , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<Policy>> ReplacePolicyWithHttpInfoAsync(  string policyId ,   Policy policy , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'policyId' is set
             if (policyId == null)

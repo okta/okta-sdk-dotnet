@@ -66,7 +66,7 @@ namespace Okta.Sdk.IntegrationTest
             _testAppId = createdApp.Id;
 
             // Create a test authentication policy
-            var testPolicy = new CreateOrUpdatePolicy
+            var testPolicy = new Policy
             {
                 Type = PolicyType.ACCESSPOLICY,
                 Status = LifecycleStatus.ACTIVE,
@@ -146,7 +146,7 @@ namespace Okta.Sdk.IntegrationTest
         public async Task GivenExistingPolicy_WhenAssigningNewPolicy_ThenExistingPolicyIsReplaced()
         {
             // Arrange - Create second policy
-            var secondPolicy = new CreateOrUpdatePolicy
+            var secondPolicy = new Policy
             {
                 Type = PolicyType.ACCESSPOLICY,
                 Status = LifecycleStatus.ACTIVE,

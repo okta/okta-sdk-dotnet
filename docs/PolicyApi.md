@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 <a name="createpolicy"></a>
 # **CreatePolicy**
-> Policy CreatePolicy (CreateOrUpdatePolicy policy, bool? activate = null)
+> Policy CreatePolicy (Policy policy, bool? activate = null)
 
 Create a policy
 
@@ -295,7 +295,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
-            var policy = new CreateOrUpdatePolicy(); // CreateOrUpdatePolicy | 
+            var policy = new Policy(); // Policy | 
             var activate = true;  // bool? | This query parameter is only valid for Classic Engine orgs. (optional)  (default to true)
 
             try
@@ -319,7 +319,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policy** | [**CreateOrUpdatePolicy**](CreateOrUpdatePolicy.md)|  | 
+ **policy** | [**Policy**](Policy.md)|  | 
  **activate** | **bool?**| This query parameter is only valid for Classic Engine orgs. | [optional] [default to true]
 
 ### Return type
@@ -1567,7 +1567,7 @@ Name | Type | Description  | Notes
 
 <a name="replacepolicy"></a>
 # **ReplacePolicy**
-> Policy ReplacePolicy (string policyId, CreateOrUpdatePolicy policy)
+> Policy ReplacePolicy (string policyId, Policy policy)
 
 Replace a policy
 
@@ -1596,7 +1596,7 @@ namespace Example
 
             var apiInstance = new PolicyApi(config);
             var policyId = 00plrilJ7jZ66Gn0X0g3;  // string | `id` of the Policy
-            var policy = new CreateOrUpdatePolicy(); // CreateOrUpdatePolicy | 
+            var policy = new Policy(); // Policy | 
 
             try
             {
@@ -1620,7 +1620,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **policyId** | **string**| &#x60;id&#x60; of the Policy | 
- **policy** | [**CreateOrUpdatePolicy**](CreateOrUpdatePolicy.md)|  | 
+ **policy** | [**Policy**](Policy.md)|  | 
 
 ### Return type
 

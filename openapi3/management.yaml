@@ -19589,7 +19589,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateOrUpdatePolicy'
+              $ref: '#/components/schemas/Policy'
         required: true
       responses:
         '200':
@@ -19743,7 +19743,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateOrUpdatePolicy'
+              $ref: '#/components/schemas/Policy'
         required: true
       responses:
         '200':

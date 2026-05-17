@@ -57,7 +57,7 @@ namespace Okta.Sdk.UnitTest.Api
             var mockClient = new MockAsyncClient(responseJson);
             var policyApi = new PolicyApi(mockClient, new Configuration { BasePath = BaseUrl });
 
-            var policy = new CreateOrUpdatePolicy
+            var policy = new OktaSignOnPolicy
             {
                 Name = policyName,
                 Type = PolicyType.OKTASIGNON,
@@ -96,7 +96,7 @@ namespace Okta.Sdk.UnitTest.Api
             var mockClient = new MockAsyncClient(responseJson);
             var policyApi = new PolicyApi(mockClient, new Configuration { BasePath = BaseUrl });
 
-            var policy = new CreateOrUpdatePolicy
+            var policy = new PasswordPolicy
             {
                 Name = "Password Policy",
                 Type = PolicyType.PASSWORD
@@ -274,7 +274,7 @@ namespace Okta.Sdk.UnitTest.Api
             var mockClient = new MockAsyncClient(responseJson);
             var policyApi = new PolicyApi(mockClient, new Configuration { BasePath = BaseUrl });
 
-            var policy = new CreateOrUpdatePolicy
+            var policy = new OktaSignOnPolicy
             {
                 Name = updatedName,
                 Type = PolicyType.OKTASIGNON,
@@ -308,7 +308,7 @@ namespace Okta.Sdk.UnitTest.Api
             var mockClient = new MockAsyncClient(responseJson);
             var policyApi = new PolicyApi(mockClient, new Configuration { BasePath = BaseUrl });
 
-            var policy = new CreateOrUpdatePolicy { Name = "Replaced Policy", Type = PolicyType.PASSWORD };
+            var policy = new PasswordPolicy { Name = "Replaced Policy", Type = PolicyType.PASSWORD };
 
             // Act
             var response = await policyApi.ReplacePolicyWithHttpInfoAsync(_policyId, policy);
