@@ -183,6 +183,18 @@
             return false;
         }
         {{/isReadOnly}}
+        {{^isReadOnly}}
+        {{#vendorExtensions.x-okta-read-only}}
+        /// <summary>
+        /// Returns false as {{name}} should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerialize{{name}}()
+        {
+            return false;
+        }
+        {{/vendorExtensions.x-okta-read-only}}
+        {{/isReadOnly}}
         {{/conditionalSerialization}}
         {{#conditionalSerialization}}
         {{#isReadOnly}}

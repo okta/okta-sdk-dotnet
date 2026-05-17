@@ -56968,7 +56968,9 @@ components:
         signOnMode:
           $ref: '#/components/schemas/ApplicationSignOnMode'
         status:
-          $ref: '#/components/schemas/ApplicationLifecycleStatus'
+          allOf:
+            - $ref: '#/components/schemas/ApplicationLifecycleStatus'
+          readOnly: true
         universalLogout:
           $ref: '#/components/schemas/ApplicationUniversalLogout'
         visibility:
@@ -56984,8 +56986,12 @@ components:
                 type: object
                 properties: {}
           readOnly: true
+          x-okta-read-only: true
         _links:
-          $ref: '#/components/schemas/ApplicationLinks'
+          allOf:
+            - $ref: '#/components/schemas/ApplicationLinks'
+          readOnly: true
+          x-okta-read-only: true
       required:
         - signOnMode
         - label

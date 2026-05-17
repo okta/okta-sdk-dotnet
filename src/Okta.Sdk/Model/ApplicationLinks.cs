@@ -32,9 +32,9 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// Discoverable resources related to the app
+    /// ApplicationLinks
     /// </summary>
-    [DataContract(Name = "ApplicationLinks")]
+    [DataContract(Name = "Application__links")]
     
     public partial class ApplicationLinks : IEquatable<ApplicationLinks>
     {

@@ -366,6 +366,15 @@ namespace Okta.Sdk.Model
         [DataMember(Name = "status", EmitDefaultValue = true)]
         
         public ApplicationLifecycleStatus Status { get; set; }
+
+        /// <summary>
+        /// Returns false as Status should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeStatus()
+        {
+            return false;
+        }
         /// <summary>
         /// Initializes a new instance of the <see cref="Application" /> class.
         /// </summary>
@@ -492,11 +501,27 @@ namespace Okta.Sdk.Model
         public ApplicationEmbedded Embedded { get; set; }
 
         /// <summary>
+        /// Returns false as Embedded should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeEmbedded()
+        {
+            return false;
+        }
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "_links", EmitDefaultValue = true)]
         public ApplicationLinks Links { get; set; }
 
+        /// <summary>
+        /// Returns false as Links should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeLinks()
+        {
+            return false;
+        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
