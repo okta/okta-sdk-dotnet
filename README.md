@@ -425,7 +425,7 @@ var createUserRequest = new CreateUserRequest
                     Email = "darth.vader@imperial-senate.gov",
                     Login = "darth.vader@imperial-senate.gov",
                 },
-                Credentials = new UserCredentials
+                Credentials = new UserCredentialsWritable
                 {
                     Password = new PasswordCredential
                     {
@@ -493,11 +493,10 @@ var appList = await _applicationApi.ListApplications().ToArrayAsync();
 
 ### Get an Application
 ``` csharp
-var createdApp = await _applicationApi.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
+var createdApp = await _applicationApi.CreateApplicationAsync(new BasicAuthApplication
                 {
                     Label = "Sample Basic Auth App",
-                    Url = "https://example.com/login.html",
-                    AuthUrl = "https://example.com/auth.html",
+                    SignOnMode = ApplicationSignOnMode.BASICAUTH,
                 });
 
 var retrievedById = await _applicationApi.GetApplicationAsync(createdApp.Id);
@@ -509,7 +508,7 @@ var retrievedById = await _applicationApi.GetApplicationAsync(createdApp.Id);
 var app = new OpenIdConnectApplication
         {
             Name = "oidc_client",
-            SignOnMode = "OPENID_CONNECT",
+            SignOnMode = ApplicationSignOnMode.OPENIDCONNECT,
             Label = $"dotnet-sdk: AddOpenIdConnectApp",
             Credentials = new OAuthApplicationCredentials()
             {

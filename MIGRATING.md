@@ -90,15 +90,19 @@ await credApi.ChangePasswordAsync(userId, changePasswordRequest);
 await credApi.ExpirePasswordAsync(userId);
 await credApi.ForgotPasswordAsync(userId, sendEmail);
 
-// OAuth operations moved to UserOAuthApi
+// Grant operations moved to UserGrantApi
+var grantApi = new UserGrantApi();
+var grants = grantApi.ListGrantsForUserAndClient(userId, clientId).ToListAsync();
+await grantApi.RevokeGrantsForUserAndClientAsync(userId, clientId);
+
+// OAuth token operations moved to UserOAuthApi
 var oauthApi = new UserOAuthApi();
-var grants = await oauthApi.ListGrantsForUserAndClient(userId, clientId).ToListAsync();
-await oauthApi.RevokeGrantsForUserAndClientAsync(userId, clientId);
+var tokens = oauthApi.ListRefreshTokensForUserAndClient(userId, clientId).ToListAsync();
+await oauthApi.RevokeTokensForUserAndClientAsync(userId, clientId);
 
 // Session operations moved to UserSessionsApi
 var sessionsApi = new UserSessionsApi();
-await sessionsApi.ClearUserSessions(userId);
-var sessions = await sessionsApi.ListUserSessions(userId).ToListAsync();
+await sessionsApi.RevokeUserSessionsAsync(userId);
 
 // Resource operations moved to UserResourcesApi
 var resourcesApi = new UserResourcesApi();
@@ -129,16 +133,16 @@ await generalApi.UpdateOrgSettingsAsync(orgSettings);
 // Support settings
 var supportApi = new OrgSettingSupportApi();
 await supportApi.GrantOktaSupportAsync();
-await supportApi.GetOktaSupportSettingsAsync();
+await supportApi.GetOrgOktaSupportSettingsAsync();
 
 // Contact settings
 var contactApi = new OrgSettingContactApi();
 await contactApi.GetOrgContactUserAsync(contactType);
-await contactApi.UpdateOrgContactUserAsync(contactType, orgContactUser);
+await contactApi.ReplaceOrgContactUserAsync(contactType, orgContactUser);
 
 // Communication settings
 var commApi = new OrgSettingCommunicationApi();
-await commApi.GetOrgCommunicationSettingsAsync();
+await commApi.GetOktaCommunicationSettingsAsync();
 ```
 
 #### RoleApi Changes
@@ -163,23 +167,23 @@ _Now (v10.0.0):_
 // User role assignments
 var userRoleApi = new RoleAssignmentAUserApi();
 await userRoleApi.AssignRoleToUserAsync(userId, assignRoleRequest);
-var userRoles = await userRoleApi.ListUserRoles(userId).ToListAsync();
+var userRoles = userRoleApi.ListAssignedRolesForUser(userId).ToListAsync();
 await userRoleApi.UnassignRoleFromUserAsync(userId, roleId);
 
 // Group role assignments
 var groupRoleApi = new RoleAssignmentBGroupApi();
 await groupRoleApi.AssignRoleToGroupAsync(groupId, assignRoleRequest);
-var groupRoles = await groupRoleApi.ListGroupRoles(groupId).ToListAsync();
+var groupRoles = groupRoleApi.ListGroupAssignedRoles(groupId).ToListAsync();
 
 // Group role targets
 var groupTargetApi = new RoleBTargetBGroupApi();
-await groupTargetApi.AddGroupTargetToGroupRoleAsync(groupId, roleId, targetGroupId);
-var targets = await groupTargetApi.ListGroupTargetsForGroupRoleAsync(groupId, roleId).ToListAsync();
+await groupTargetApi.AssignGroupTargetToGroupAdminRoleAsync(groupId, roleId, targetGroupId);
+var targets = groupTargetApi.ListGroupTargetsForGroupRole(groupId, roleId).ToListAsync();
 
-// Custom roles
+// Custom roles (note: methods use generic role naming, not "Custom")
 var customRoleApi = new RoleECustomApi();
-await customRoleApi.CreateCustomRoleAsync(customRole);
-var customRoles = await customRoleApi.ListCustomRoles().ToListAsync();
+await customRoleApi.CreateRoleAsync(createIamRoleRequest);
+var customRoles = await customRoleApi.ListRolesAsync();
 ```
 
 ### New API Clients
@@ -404,11 +408,11 @@ When you change your project to reference version 9 instead of 8, reference the 
 - AuthenticatorApi methods that previously returned Authenticator now return AuthenticatorBase.
 - GroupApi
   - ListGroupUsers
-    - return type collection of User changed to collectio of GroupMember.
+    - return type collection of User changed to collection of GroupMember.
 - RealmApi
   - CreateRealm
     - parameter of type Realm changed to CreateRealmRequest.
-- UserFacorApi
+- UserFactorApi
   - ResendEnrollFactor 
     - parameter of type UserFactor changed to ResendUserFactor.
     - return type UserFactor changed to ResendUserFactor.
@@ -429,7 +433,7 @@ See also [added](#added).
 ### Replaced
 The following are methods and classes that have been replaced and the methods or classes that replaced them.
 
-- CustomizationApi is replaced by CustomTemplatesApi, CusomPagesApi and BrandsApi, ThemesApi see [added](#added).
+- `OrgSettingCustomizationApi` is replaced by `CustomTemplatesApi`, `CustomPagesApi` and `BrandsApi`, `ThemesApi` see [added](#added).
 - RealmApi.UpdateRealm is replaced by RealmApi.ReplaceRealm.
 - ProvisioningConnection is replaced by ProvisioningConnectionRequest & ProvisioningConnectionResponse.
 - VerifyFactorRequest is replaced by UserFactorVerifyRequest
@@ -450,9 +454,9 @@ The following are methods and APIs that are added in version 9:
   - UpsertApiToken
 - ApplicationConnectionsApi methods added:
   - VerifyProvisioningConnectionForApplication
-- AuthorizationAssocApi is a new API to maange authorization server associations.
-- AuthorizationServerClaimsApi is a new API to manage authorization server claims.
-- AuthroziationServerClientsApi is a new API to manage authorization server clients.
+- `AuthorizationServerAssocApi` is a new API to manage authorization server associations.
+- `AuthorizationServerClaimsApi` is a new API to manage authorization server claims.
+- `AuthorizationServerClientsApi` is a new API to manage authorization server clients.
 - AuthorizationServerKeysApi is a new API to manage authorization server keys.
 - AuthorizationServerPoliciesApi is a new API to manage authorization server policies.
 - AuthorizationServerRulesApi is a new API to manage authorization server rules.
@@ -461,7 +465,7 @@ The following are methods and APIs that are added in version 9:
   - UpdateGroupAssignmentToApplication overload accepting a list of JsonPathOperation objects.
 - BrandsApi is a new API to manage brands.
 - CustomTemplatesApi is new API to manage custom templates.
-- CustotmPagesApi is new API to manage custom pages.
+- `CustomPagesApi` is a new API to manage custom pages.
 - DirectoriesIntegrationApi is a new API to manage AD integrations.
 - GroupOwnerApi is a new API to manage group owners.
 - InlineHookApi methods added:
@@ -473,7 +477,7 @@ The following are methods and APIs that are added in version 9:
   - UpdateThirdPartyAdminSetting
   - GetClientPrivilegesSetting
   - AssignClientPrivilegesSetting
-- RealAssignmentApi is a new API to manage realm assignments.
+- `RealmAssignmentApi` is a new API to manage realm assignments.
 - SSFReceiverApi is a new API to manage the consumption of security events.
 - SSFSecurityEventTokenApi is a new API to manage security event tokens.
 - SSFTransmitterApi is a new API to manage security event transmitters.
@@ -1025,7 +1029,7 @@ var groups = await oktaClient.Groups.ListGroupTargetsForGroupRole(createdGroup1.
 _Now:_
 
 ```csharp
-var _roleAssignmentApi = new RoleAssignmentApi();
+var _roleAssignmentApi = new RoleAssignmentBGroupApi();
 
 var role1 = await _roleAssignmentApi.AssignRoleToGroupAsync(createdGroup.Id, new AssignRoleRequest
                 {
@@ -1036,9 +1040,9 @@ var roles = await _roleAssignmentApi.ListGroupAssignedRoles(createdGroup.Id).ToL
 
 /// ...
 
-var _roleTargetApi = new RoleTargetApi();
+var _roleTargetApi = new RoleBTargetBGroupApi();
 
-await _roleTargetApi.AddGroupTargetToGroupAdministratorRoleForGroupAsync(group1.Id, role1.Id, group2.Id);
+await _roleTargetApi.AssignGroupTargetToGroupAdminRoleAsync(group1.Id, role1.Id, group2.Id);
 
 var groupTargetList = await _roleTargetApi.ListGroupTargetsForGroupRole(createdGroup1.Id, role1.Id).ToListAsync();
 ```

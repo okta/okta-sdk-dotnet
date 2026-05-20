@@ -981,16 +981,19 @@ All methods in this API remain functionally identical **[IDENTICAL]**
 **Methods MOVED to UserOAuthApi:**
 
 - `GetRefreshTokenForUserAndClientAsync()` → **[MOVED]** to `UserOAuthApi.cs`
+
+**Methods MOVED to UserGrantApi:**
+
 - `GetUserGrantAsync()` → **[MOVED]** to `UserGrantApi.cs`
-- `ListGrantsForUserAndClient()` → **[MOVED]** to `UserOAuthApi.cs`
+- `ListGrantsForUserAndClient()` → **[MOVED]** to `UserGrantApi.cs`
 - `RevokeUserGrantAsync()` → **[MOVED]** to `UserGrantApi.cs`
-- `RevokeGrantsForUserAndClientAsync()` → **[MOVED]** to `UserOAuthApi.cs`
+- `RevokeGrantsForUserAndClientAsync()` → **[MOVED]** to `UserGrantApi.cs`
 
 **Methods MOVED to UserLinkedObjectApi:**
 
 - `DeleteLinkedObjectForUserAsync()` → **[MOVED]** to `UserLinkedObjectApi.cs`
 - `ListLinkedObjectsForUser()` → **[MOVED]** to `UserLinkedObjectApi.cs`
-- `SetLinkedObjectForUserAsync()` → **[MOVED]** to `UserLinkedObjectApi.cs`
+- `SetLinkedObjectForUserAsync()` → **[MOVED + RENAMED]** to `UserLinkedObjectApi.AssignLinkedObjectValueForPrimaryAsync()`
 
 **Methods MOVED to UserResourcesApi:**
 
@@ -998,7 +1001,7 @@ All methods in this API remain functionally identical **[IDENTICAL]**
 
 **Methods MOVED to UserSessionsApi:**
 
-- `ClearUserSessions()` → **[MOVED]** to `UserSessionsApi.cs`
+- `ClearUserSessions()` → **[MOVED + RENAMED]** to `UserSessionsApi.RevokeUserSessionsAsync()`
 
 See [Section 2](#user-apis-new-split-from-userapi) for details on each new API.
 
@@ -1163,11 +1166,11 @@ This section lists brand-new public methods that exist in v10.0.0 but had no equ
 
 All methods in this API are new:
 
-- `CreateApplicationCrossAppAccessConnectionAsync()`
-- `DeleteApplicationCrossAppAccessConnectionAsync()`
-- `GetApplicationCrossAppAccessConnectionAsync()`
-- `ListApplicationCrossAppAccessConnections()`
-- `ReplaceApplicationCrossAppAccessConnectionAsync()`
+- `CreateCrossAppAccessConnectionAsync()`
+- `DeleteCrossAppAccessConnectionAsync()`
+- `GetAllCrossAppAccessConnections()`
+- `GetCrossAppAccessConnectionAsync()`
+- `UpdateCrossAppAccessConnectionAsync()`
 
 ---
 
@@ -1175,10 +1178,15 @@ All methods in this API are new:
 
 All methods in this API are new:
 
-- `CreateApplicationSSOCredentialKeyAsync()`
-- `DeleteApplicationSSOCredentialKeyAsync()`
-- `GetApplicationSSOCredentialKeyAsync()`
-- `ListApplicationSSOCredentialKeys()`
+- `CloneApplicationKeyAsync()`
+- `GenerateApplicationKeyAsync()`
+- `GenerateCsrForApplicationAsync()`
+- `GetApplicationKeyAsync()`
+- `GetCsrForApplicationAsync()`
+- `ListApplicationKeys()`
+- `ListCsrsForApplication()`
+- `PublishCsrFromApplicationAsync()`
+- `RevokeCsrFromApplicationAsync()`
 
 ---
 
@@ -1186,11 +1194,11 @@ All methods in this API are new:
 
 All methods in this API are new:
 
-- `CreateApplicationSSOFederatedClaimAsync()`
-- `DeleteApplicationSSOFederatedClaimAsync()`
-- `GetApplicationSSOFederatedClaimAsync()`
-- `ListApplicationSSOFederatedClaims()`
-- `ReplaceApplicationSSOFederatedClaimAsync()`
+- `CreateFederatedClaimAsync()`
+- `DeleteFederatedClaimAsync()`
+- `GetFederatedClaimAsync()`
+- `ListFederatedClaims()`
+- `ReplaceFederatedClaimAsync()`
 
 ---
 
@@ -1198,10 +1206,18 @@ All methods in this API are new:
 
 All methods in this API are new:
 
-- `CreateApplicationSSOPublicKeyAsync()`
-- `DeleteApplicationSSOPublicKeyAsync()`
-- `GetApplicationSSOPublicKeyAsync()`
-- `ListApplicationSSOPublicKeys()`
+- `ActivateOAuth2ClientJsonWebKeyAsync()`
+- `ActivateOAuth2ClientSecretAsync()`
+- `AddJwkAsync()`
+- `CreateOAuth2ClientSecretAsync()`
+- `DeactivateOAuth2ClientJsonWebKeyAsync()`
+- `DeactivateOAuth2ClientSecretAsync()`
+- `DeletejwkAsync()`
+- `DeleteOAuth2ClientSecretAsync()`
+- `GetJwkAsync()`
+- `GetOAuth2ClientSecretAsync()`
+- `ListJwkAsync()`
+- `ListOAuth2ClientSecrets()`
 
 ---
 
@@ -1209,11 +1225,13 @@ All methods in this API are new:
 
 All methods in this API are new:
 
-- `CreateBrandAssociatedDomainCustomizationAsync()`
-- `DeleteBrandAssociatedDomainCustomizationAsync()`
-- `GetBrandAssociatedDomainCustomizationAsync()`
-- `ListBrandAssociatedDomainCustomizations()`
-- `ReplaceBrandAssociatedDomainCustomizationAsync()`
+- `GetAllWellKnownURIsAsync()`
+- `GetAppleAppSiteAssociationWellKnownURIAsync()`
+- `GetAssetLinksWellKnownURIAsync()`
+- `GetBrandWellKnownURIAsync()`
+- `GetRootBrandWellKnownURIAsync()`
+- `GetWebAuthnWellKnownURIAsync()`
+- `ReplaceBrandWellKnownURIAsync()`
 
 ---
 
@@ -1221,11 +1239,10 @@ All methods in this API are new:
 
 All methods in this API are new:
 
-- `CreateDeviceAccessPolicyAsync()`
-- `DeleteDeviceAccessPolicyAsync()`
-- `GetDeviceAccessPolicyAsync()`
-- `ListDeviceAccessPolicies()`
-- `ReplaceDeviceAccessPolicyAsync()`
+- `GetDesktopMFAEnforceNumberMatchingChallengeOrgSettingAsync()`
+- `GetDesktopMFARecoveryPinOrgSettingAsync()`
+- `ReplaceDesktopMFAEnforceNumberMatchingChallengeOrgSettingAsync()`
+- `ReplaceDesktopMFARecoveryPinOrgSettingAsync()`
 
 ---
 
@@ -1233,11 +1250,10 @@ All methods in this API are new:
 
 All methods in this API are new:
 
-- `CreateDeviceIntegrationAsync()`
-- `DeleteDeviceIntegrationAsync()`
+- `ActivateDeviceIntegrationAsync()`
+- `DeactivateDeviceIntegrationAsync()`
 - `GetDeviceIntegrationAsync()`
 - `ListDeviceIntegrations()`
-- `UpdateDeviceIntegrationAsync()`
 
 ---
 
@@ -1248,6 +1264,7 @@ All methods in this API are new:
 - `CreateDevicePostureCheckAsync()`
 - `DeleteDevicePostureCheckAsync()`
 - `GetDevicePostureCheckAsync()`
+- `ListDefaultDevicePostureChecks()`
 - `ListDevicePostureChecks()`
 - `ReplaceDevicePostureCheckAsync()`
 
@@ -1257,11 +1274,9 @@ All methods in this API are new:
 
 All methods in this API are new:
 
-- `CreateBrandEmailCustomizationAsync()`
-- `DeleteBrandEmailCustomizationAsync()`
-- `GetBrandEmailCustomizationAsync()`
-- `ListBrandEmailCustomizations()`
-- `ReplaceBrandEmailCustomizationAsync()`
+- `BulkRemoveEmailAddressBouncesAsync()`
+
+> **Note:** Email template customization methods (`CreateEmailCustomizationAsync`, `ListEmailCustomizations`, etc.) are located in `CustomTemplatesApi`.
 
 ---
 
@@ -1272,8 +1287,13 @@ All methods in this API are new:
 - `CreateGovernanceBundleAsync()`
 - `DeleteGovernanceBundleAsync()`
 - `GetGovernanceBundleAsync()`
-- `ListGovernanceBundles()`
-- `UpdateGovernanceBundleAsync()`
+- `GetOptInStatusAsync()`
+- `ListBundleEntitlementValuesAsync()`
+- `ListBundleEntitlementsAsync()`
+- `ListGovernanceBundlesAsync()`
+- `OptInAsync()`
+- `OptOutAsync()`
+- `ReplaceGovernanceBundleAsync()`
 
 ---
 
@@ -1299,7 +1319,7 @@ All methods in this API are new:
 - `DeleteGroupRuleAsync()`
 - `GetGroupRuleAsync()`
 - `ListGroupRules()`
-- `UpdateGroupRuleAsync()`
+- `ReplaceGroupRuleAsync()`
 
 ---
 
@@ -1311,6 +1331,7 @@ All methods in this API are new:
 - `DeleteIdentityProviderKeyAsync()`
 - `GetIdentityProviderKeyAsync()`
 - `ListIdentityProviderKeys()`
+- `ReplaceIdentityProviderKeyAsync()`
 
 ---
 
@@ -1318,14 +1339,15 @@ All methods in this API are new:
 
 All methods in this API are new:
 
-- `CloneIdentityProviderSigningKeyAsync()`
-- `CreateIdentityProviderSigningKeyAsync()`
-- `DeleteIdentityProviderSigningKeyAsync()`
-- `GenerateIdentityProviderSigningKeyCsrAsync()`
+- `CloneIdentityProviderKeyAsync()`
+- `GenerateCsrForIdentityProviderAsync()`
+- `GenerateIdentityProviderSigningKeyAsync()`
+- `GetCsrForIdentityProviderAsync()`
 - `GetIdentityProviderSigningKeyAsync()`
-- `GetIdentityProviderSigningKeyCsrAsync()`
+- `ListActiveIdentityProviderSigningKey()`
+- `ListCsrsForIdentityProvider()`
 - `ListIdentityProviderSigningKeys()`
-- `PublishIdentityProviderSigningCertAsync()`
+- `PublishCsrForIdentityProviderAsync()`
 - `RevokeCsrForIdentityProviderAsync()`
 
 ---
@@ -1334,8 +1356,11 @@ All methods in this API are new:
 
 All methods in this API are new:
 
-- `GetIdentityProviderUserAsync()`
-- `ListIdentityProviderUsers()`
+- `GetIdentityProviderApplicationUserAsync()`
+- `LinkUserToIdentityProviderAsync()`
+- `ListIdentityProviderApplicationUsers()`
+- `ListSocialAuthTokens()`
+- `ListUserIdentityProviders()`
 - `UnlinkUserFromIdentityProviderAsync()`
 
 ---
@@ -1344,10 +1369,12 @@ All methods in this API are new:
 
 All methods in this API are new:
 
-- `CreateOAuth2ResourceServerCredentialKeyAsync()`
-- `DeleteOAuth2ResourceServerCredentialKeyAsync()`
-- `GetOAuth2ResourceServerCredentialKeyAsync()`
-- `ListOAuth2ResourceServerCredentialKeys()`
+- `ActivateOAuth2ResourceServerJsonWebKeyAsync()`
+- `AddOAuth2ResourceServerJsonWebKeyAsync()`
+- `DeactivateOAuth2ResourceServerJsonWebKeyAsync()`
+- `DeleteOAuth2ResourceServerJsonWebKeyAsync()`
+- `GetOAuth2ResourceServerJsonWebKeyAsync()`
+- `ListOAuth2ResourceServerJsonWebKeys()`
 
 ---
 
@@ -1355,8 +1382,9 @@ All methods in this API are new:
 
 All methods in this API are new:
 
-- `GetOktaPersonalSettingsAsync()`
-- `UpdateOktaPersonalSettingsAsync()`
+- `ListPersonalAppsExportBlockListAsync()`
+- `ReplaceBlockedEmailDomainsAsync()`
+- `ReplaceOktaPersonalAdminSettingsAsync()`
 
 ---
 
@@ -1364,10 +1392,7 @@ All methods in this API are new:
 
 All methods in this API are new:
 
-- `CreateOrgCreatorAsync()`
-- `GetOrgCreatorAsync()`
-- `ListOrgCreators()`
-- `UpdateOrgCreatorAsync()`
+- `CreateChildOrgAsync()`
 
 ---
 
@@ -1377,59 +1402,65 @@ All methods in this API are new:
 
 All methods in this API are new to v10.0.0:
 
-- `GetOrgAdminSettingsAsync()`
-- `UpdateOrgAdminSettingsAsync()`
+- `AssignClientPrivilegesSettingAsync()`
+- `GetAutoAssignAdminAppSettingAsync()`
+- `GetClientPrivilegesSettingAsync()`
+- `GetThirdPartyAdminSettingAsync()`
+- `UpdateAutoAssignAdminAppSettingAsync()`
+- `UpdateThirdPartyAdminSettingAsync()`
 
 #### OrgSettingCommunicationApi
 
 All methods in this API are new to v10.0.0:
 
-- `GetOrgCommunicationSettingsAsync()`
-- `OptInOrgUsersToCommunicationEmailsAsync()`
-- `OptOutOrgUsersFromCommunicationEmailsAsync()`
+- `GetOktaCommunicationSettingsAsync()`
+- `OptInUsersToOktaCommunicationEmailsAsync()`
+- `OptOutUsersFromOktaCommunicationEmailsAsync()`
 
 #### OrgSettingContactApi
 
 All methods in this API are new to v10.0.0:
 
-- `GetOrgContactTypesAsync()`
+- `ListOrgContactTypes()`
 - `GetOrgContactUserAsync()`
-- `UpdateOrgContactUserAsync()`
+- `ReplaceOrgContactUserAsync()`
 
 #### OrgSettingCustomizationApi
 
 All methods in this API are new to v10.0.0:
 
-- `GetOrgCustomizationSettingsAsync()`
-- `UpdateOrgCustomizationSettingsAsync()`
+- `GetOrgPreferencesAsync()`
+- `SetOrgHideOktaUIFooterAsync()`
+- `SetOrgShowOktaUIFooterAsync()`
+- `UploadOrgLogoAsync()`
 
 #### OrgSettingGeneralApi
 
 All methods in this API are new to v10.0.0:
 
-- `ExtendOktaSupport()`
-- `GetOktaSupportSettingsAsync()`
-- `GetOrgOktaCommunicationSettingsAsync()`
 - `GetOrgSettingsAsync()`
-- `GrantOktaSupportAsync()`
-- `RevokeOktaSupportAsync()`
+- `ReplaceOrgSettingsAsync()`
 - `UpdateOrgSettingsAsync()`
-- `UpdateOrgOktaCommunicationSettingsAsync()`
 
 #### OrgSettingMetadataApi
 
 All methods in this API are new to v10.0.0:
 
-- `GetOrgMetadataAsync()`
+- `GetWellknownOrgMetadataAsync()`
 
 #### OrgSettingSupportApi
 
 All methods in this API are new to v10.0.0:
 
 - `ExtendOktaSupportAsync()`
-- `GetOktaSupportSettingsAsync()`
+- `GetAerialConsentAsync()`
+- `GetOrgOktaSupportSettingsAsync()`
+- `GrantAerialConsentAsync()`
 - `GrantOktaSupportAsync()`
+- `ListOktaSupportCasesAsync()`
+- `RevokeAerialConsentAsync()`
 - `RevokeOktaSupportAsync()`
+- `UpdateOktaSupportCaseAsync()`
 
 ---
 
@@ -1440,8 +1471,8 @@ All methods in this API are new to v10.0.0:
 All methods in this API are new to v10.0.0:
 
 - `AssignRoleToUserAsync()`
-- `GetUserRoleAsync()`
-- `ListUserRoles()`
+- `GetUserAssignedRoleAsync()`
+- `ListAssignedRolesForUser()`
 - `UnassignRoleFromUserAsync()`
 
 #### RoleAssignmentBGroupApi
@@ -1449,8 +1480,8 @@ All methods in this API are new to v10.0.0:
 All methods in this API are new to v10.0.0:
 
 - `AssignRoleToGroupAsync()`
-- `GetGroupRoleAsync()`
-- `ListGroupRoles()`
+- `GetGroupAssignedRoleAsync()`
+- `ListGroupAssignedRoles()`
 - `UnassignRoleFromGroupAsync()`
 
 #### RoleAssignmentClientApi
@@ -1458,58 +1489,70 @@ All methods in this API are new to v10.0.0:
 All methods in this API are new to v10.0.0:
 
 - `AssignRoleToClientAsync()`
-- `GetClientRoleAsync()`
-- `ListClientRoles()`
-- `UnassignRoleFromClientAsync()`
+- `RetrieveClientRoleAsync()`
+- `ListRolesForClient()`
+- `DeleteRoleFromClientAsync()`
 
 #### RoleBTargetAdminApi
 
 All methods in this API are new to v10.0.0:
 
-- `AddAdminRoleTargetToGroupAsync()`
-- `AddAdminRoleTargetToUserAsync()`
-- `ListAdminRoleTargetsForGroupAsync()`
-- `ListAdminRoleTargetsForUserAsync()`
-- `RemoveAdminRoleTargetFromGroupAsync()`
-- `RemoveAdminRoleTargetFromUserAsync()`
+- `AssignAllAppsAsTargetToRoleForUserAsync()`
+- `AssignAppInstanceTargetToAppAdminRoleForUserAsync()`
+- `AssignAppTargetToAdminRoleForUserAsync()`
+- `AssignGroupTargetToUserRoleAsync()`
+- `GetRoleTargetsByUserIdAndRoleId()`
+- `ListApplicationTargetsForApplicationAdministratorRoleForUser()`
+- `ListGroupTargetsForRole()`
+- `UnassignAppInstanceTargetFromAdminRoleForUserAsync()`
+- `UnassignAppTargetFromAppAdminRoleForUserAsync()`
+- `UnassignGroupTargetFromUserAdminRoleAsync()`
 
 #### RoleBTargetBGroupApi
 
 All methods in this API are new to v10.0.0:
 
-- `AddGroupTargetToGroupRoleAsync()`
-- `AddGroupTargetToUserRoleAsync()`
-- `ListGroupTargetsForGroupRoleAsync()`
-- `ListGroupTargetsForUserRoleAsync()`
-- `RemoveGroupTargetFromGroupRoleAsync()`
-- `RemoveGroupTargetFromUserRoleAsync()`
+- `AssignAppInstanceTargetToAppAdminRoleForGroupAsync()`
+- `AssignAppTargetToAdminRoleForGroupAsync()`
+- `AssignGroupTargetToGroupAdminRoleAsync()`
+- `ListApplicationTargetsForApplicationAdministratorRoleForGroup()`
+- `ListGroupTargetsForGroupRole()`
+- `UnassignAppInstanceTargetToAppAdminRoleForGroupAsync()`
+- `UnassignAppTargetToAdminRoleForGroupAsync()`
+- `UnassignGroupTargetFromGroupAdminRoleAsync()`
 
 #### RoleBTargetClientApi
 
 All methods in this API are new to v10.0.0:
 
-- `AddClientTargetToRoleAsync()`
-- `ListClientTargetsForRoleAsync()`
-- `RemoveClientTargetFromRoleAsync()`
+- `AssignAppTargetInstanceRoleForClientAsync()`
+- `AssignAppTargetRoleToClientAsync()`
+- `AssignGroupTargetRoleForClientAsync()`
+- `ListAppTargetRoleToClient()`
+- `ListGroupTargetRoleForClient()`
+- `RemoveAppTargetInstanceRoleForClientAsync()`
+- `RemoveAppTargetRoleFromClientAsync()`
+- `RemoveGroupTargetRoleFromClientAsync()`
 
 #### RoleECustomApi
 
 All methods in this API are new to v10.0.0:
 
-- `CreateCustomRoleAsync()`
-- `DeleteCustomRoleAsync()`
-- `GetCustomRoleAsync()`
-- `ListCustomRoles()`
-- `ReplaceCustomRoleAsync()`
+- `CreateRoleAsync()`
+- `DeleteRoleAsync()`
+- `GetRoleAsync()`
+- `ListRolesAsync()`
+- `ReplaceRoleAsync()`
 
 #### RoleECustomPermissionApi
 
 All methods in this API are new to v10.0.0:
 
-- `CreateCustomRolePermissionAsync()`
-- `DeleteCustomRolePermissionAsync()`
-- `GetCustomRolePermissionAsync()`
-- `ListCustomRolePermissions()`
+- `CreateRolePermissionAsync()`
+- `DeleteRolePermissionAsync()`
+- `GetRolePermissionAsync()`
+- `ListRolePermissionsAsync()`
+- `ReplaceRolePermissionAsync()`
 
 ---
 
@@ -1522,35 +1565,37 @@ All methods in this API are new to v10.0.0:
 - `CreateResourceSetAsync()`
 - `DeleteResourceSetAsync()`
 - `GetResourceSetAsync()`
-- `ListResourceSets()`
+- `ListResourceSetsAsync()`
 - `ReplaceResourceSetAsync()`
 
 #### RoleCResourceSetResourceApi
 
 All methods in this API are new to v10.0.0:
 
-- `AddResourceToResourceSetAsync()`
-- `DeleteResourceFromResourceSetAsync()`
-- `ListResourceSetResources()`
+- `AddResourceSetResourceAsync()`
+- `AddResourceSetResourcesAsync()`
+- `DeleteResourceSetResourceAsync()`
+- `GetResourceSetResourceAsync()`
+- `ListResourceSetResourcesAsync()`
+- `ReplaceResourceSetResourceAsync()`
 
 #### RoleDResourceSetBindingApi
 
 All methods in this API are new to v10.0.0:
 
 - `CreateResourceSetBindingAsync()`
-- `DeleteResourceSetBindingAsync()`
-- `GetResourceSetBindingAsync()`
-- `ListResourceSetBindings()`
-- `ReplaceResourceSetBindingAsync()`
+- `DeleteBindingAsync()`
+- `GetBindingAsync()`
+- `ListBindingsAsync()`
 
 #### RoleDResourceSetBindingMemberApi
 
 All methods in this API are new to v10.0.0:
 
-- `AddMemberToResourceSetBindingAsync()`
-- `GetMemberOfResourceSetBindingAsync()`
-- `ListMembersOfResourceSetBinding()`
-- `RemoveMemberFromResourceSetBindingAsync()`
+- `AddMembersToBindingAsync()`
+- `GetMemberOfBindingAsync()`
+- `ListMembersOfBindingAsync()`
+- `UnassignMemberFromBindingAsync()`
 
 ---
 
@@ -1558,13 +1603,11 @@ All methods in this API are new to v10.0.0:
 
 All methods in this API are new:
 
-- `ActivateServiceAccountAsync()`
-- `CreateServiceAccountAsync()`
-- `DeactivateServiceAccountAsync()`
-- `DeleteServiceAccountAsync()`
-- `GetServiceAccountAsync()`
-- `ListServiceAccounts()`
-- `UpdateServiceAccountAsync()`
+- `CreateAppServiceAccountAsync()`
+- `DeleteAppServiceAccountAsync()`
+- `GetAppServiceAccountAsync()`
+- `ListAppServiceAccounts()`
+- `UpdateAppServiceAccountAsync()`
 
 ---
 
@@ -1574,16 +1617,18 @@ All methods in this API are new:
 
 All methods in this API are new:
 
-- `GetUserAuthenticatorEnrollmentAsync()`
-- `ListUserAuthenticatorEnrollments()`
-- `ResetUserAuthenticatorEnrollmentAsync()`
+- `CreateAuthenticatorEnrollmentAsync()`
+- `CreateTacAuthenticatorEnrollmentAsync()`
+- `DeleteAuthenticatorEnrollmentAsync()`
+- `GetAuthenticatorEnrollmentAsync()`
+- `ListAuthenticatorEnrollmentsAsync()`
 
 #### UserClassificationApi
 
 All methods in this API are new:
 
 - `GetUserClassificationAsync()`
-- `UpdateUserClassificationAsync()`
+- `ReplaceUserClassificationAsync()`
 
 #### UserCredApi [Methods moved from UserApi]
 
@@ -1596,15 +1641,15 @@ Methods in this API (moved from `UserApi.cs`):
 - `ForgotPasswordAsync()` **[MOVED from UserApi]**
 - `ForgotPasswordSetNewPasswordAsync()` **[MOVED from UserApi]**
 - `ResetPasswordAsync()` **[MOVED + RENAMED from UserApi.GenerateResetPasswordTokenAsync]** - Same functionality, different method name
-- `RevokeUserSessionsAsync()` **[NEW]**
-- `SetPasswordAsync()` **[NEW]**
 
 #### UserGrantApi [Methods moved from UserApi]
 
 Methods in this API (moved from `UserApi.cs`):
 
 - `GetUserGrantAsync()` **[MOVED from UserApi]**
+- `ListGrantsForUserAndClient()` **[MOVED from UserApi]**
 - `ListUserGrants()` **[MOVED from UserApi]**
+- `RevokeGrantsForUserAndClientAsync()` **[MOVED from UserApi]**
 - `RevokeUserGrantAsync()` **[MOVED from UserApi]**
 - `RevokeUserGrantsAsync()` **[MOVED from UserApi]**
 
@@ -1623,45 +1668,41 @@ Methods in this API (moved from `UserApi.cs`):
 
 Methods in this API (moved from `UserApi.cs`):
 
+- `AssignLinkedObjectValueForPrimaryAsync()` **[MOVED + RENAMED from UserApi.SetLinkedObjectForUserAsync]**
 - `DeleteLinkedObjectForUserAsync()` **[MOVED from UserApi]**
-- `GetLinkedObjectForUserAsync()` **[NEW]**
 - `ListLinkedObjectsForUser()` **[MOVED from UserApi]**
-- `SetLinkedObjectForUserAsync()` **[MOVED from UserApi]**
 
 #### UserOAuthApi [Methods moved from UserApi]
 
 Methods in this API (moved from `UserApi.cs`):
 
 - `GetRefreshTokenForUserAndClientAsync()` **[MOVED from UserApi]**
-- `ListGrantsForUserAndClient()` **[MOVED from UserApi]**
 - `ListRefreshTokensForUserAndClient()` **[NEW]**
-- `RevokeGrantsForUserAndClientAsync()` **[MOVED from UserApi]**
-- `RevokeRefreshTokenForUserAndClientAsync()` **[NEW]**
-- `RevokeRefreshTokensForUserAndClientAsync()` **[NEW]**
+- `RevokeTokenForUserAndClientAsync()` **[NEW]**
+- `RevokeTokensForUserAndClientAsync()` **[NEW]**
 
 #### UserResourcesApi [Methods moved from UserApi]
 
 Methods in this API (moved from `UserApi.cs`):
 
 - `ListAppLinks()` **[MOVED from UserApi]**
-- `ListAppTargetsForAppAdminRoleAsync()` **[NEW]**
-- `ListAssignedApplicationsForUser()` **[NEW]**
+- `ListUserClients()` **[NEW]**
+- `ListUserDevices()` **[NEW]**
+- `ListUserGroups()` **[NEW]**
 
 #### UserRiskApi
 
 All methods in this API are new:
 
 - `GetUserRiskAsync()`
-- `UpdateUserRiskAsync()`
+- `UpsertUserRiskAsync()`
 
 #### UserSessionsApi [Methods moved from UserApi]
 
 Methods in this API (moved from `UserApi.cs`):
 
-- `ClearUserSessions()` **[MOVED from UserApi]**
-- `GetUserSessionAsync()` **[NEW]**
-- `ListUserSessions()` **[NEW]**
-- `RevokeUserSessionAsync()` **[NEW]**
+- `RevokeUserSessionsAsync()` **[MOVED + RENAMED from UserApi.ClearUserSessions]**
+- `EndUserSessionsAsync()` **[NEW]**
 
 ---
 
@@ -1669,10 +1710,13 @@ Methods in this API (moved from `UserApi.cs`):
 
 All methods in this API are new:
 
-- `CreateWebAuthnPreregistrationAsync()`
-- `DeleteWebAuthnPreregistrationAsync()`
-- `GetWebAuthnPreregistrationAsync()`
-- `ListWebAuthnPreregistrations()`
+- `ActivatePreregistrationEnrollmentAsync()`
+- `AssignFulfillmentErrorWebAuthnPreregistrationFactorAsync()`
+- `DeleteWebAuthnPreregistrationFactorAsync()`
+- `EnrollPreregistrationEnrollmentAsync()`
+- `GenerateFulfillmentRequestAsync()`
+- `ListWebAuthnPreregistrationFactors()`
+- `SendPinAsync()`
 
 ---
 
