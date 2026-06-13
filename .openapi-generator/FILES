@@ -832,7 +832,6 @@ docs/LinksQrcodeQrcode.md
 docs/LinksQuestions.md
 docs/LinksQuestionsQuestion.md
 docs/LinksResend.md
-docs/LinksResendResend.md
 docs/LinksSelf.md
 docs/LinksSelfAndFullUsersLifecycle.md
 docs/LinksSelfAndLifecycle.md
@@ -2791,7 +2790,6 @@ src/Okta.Sdk/Model/LinksQrcodeQrcode.cs
 src/Okta.Sdk/Model/LinksQuestions.cs
 src/Okta.Sdk/Model/LinksQuestionsQuestion.cs
 src/Okta.Sdk/Model/LinksResend.cs
-src/Okta.Sdk/Model/LinksResendResend.cs
 src/Okta.Sdk/Model/LinksSelf.cs
 src/Okta.Sdk/Model/LinksSelfAndFullUsersLifecycle.cs
 src/Okta.Sdk/Model/LinksSelfAndLifecycle.cs

@@ -1619,7 +1619,6 @@ Class | Method | HTTP request | Description
  - [Model.LinksQuestions](docs/LinksQuestions.md)
  - [Model.LinksQuestionsQuestion](docs/LinksQuestionsQuestion.md)
  - [Model.LinksResend](docs/LinksResend.md)
- - [Model.LinksResendResend](docs/LinksResendResend.md)
  - [Model.LinksSelf](docs/LinksSelf.md)
  - [Model.LinksSelfAndFullUsersLifecycle](docs/LinksSelfAndFullUsersLifecycle.md)
  - [Model.LinksSelfAndFullUsersLifecycleAllOf](docs/LinksSelfAndFullUsersLifecycleAllOf.md)

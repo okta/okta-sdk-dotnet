@@ -65851,9 +65851,10 @@ components:
       type: object
       properties:
         resend:
-          allOf:
-            - description: Resends the factor enrollment challenge. See [Resend a factor enrollment](/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/resendEnrollFactor).
-            - $ref: '#/components/schemas/HrefObject'
+          type: array
+          description: Resends the factor enrollment challenge. See [Resend a factor enrollment](/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/resendEnrollFactor).
+          items:
+            $ref: '#/components/schemas/HrefObject'
       readOnly: true
     LinksSelf:
       description: Specifies link relations (see [Web Linking](https://www.rfc-editor.org/rfc/rfc8288)) available using the [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.

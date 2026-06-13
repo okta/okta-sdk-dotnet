@@ -378,6 +378,82 @@ namespace Okta.Sdk.IntegrationTest
             response.Data.Should().NotBeEmpty();
         }
 
+        /// Regression for okta-sdk-dotnet#874: when a factor's `_links.resend` is returned
+        /// as a JSON array (e.g., for an SMS factor in PENDING_ACTIVATION), ListFactors must
+        /// deserialize successfully and return the factor. Prior to the fix, the SDK silently
+        /// dropped the factor because LinksResend.resend was modeled as a single object.
+        [Fact]
+        public async Task GivenSmsFactorWithResendLinkArray_WhenListingFactors_ThenFactorIsDeserialized()
+        {
+            User testUser = null;
+            UserFactor smsFactor = null;
+
+            try
+            {
+                testUser = await CreateTestUserAsync();
+                await Task.Delay(1000);
+
+                try
+                {
+                    smsFactor = await _userFactorApi.EnrollFactorAsync(
+                        testUser.Id,
+                        new UserFactorSMS
+                        {
+                            FactorType = UserFactorType.Sms,
+                            Provider = UserFactorSMS.ProviderEnum.OKTA,
+                            Profile = new UserFactorSMSProfile
+                            {
+                                PhoneNumber = "+919876543210"
+                            }
+                        },
+                        activate: false);
+                }
+                catch (ApiException ex) when (ex.ErrorCode == 400 || ex.ErrorCode == 403)
+                {
+                    // Org policy disables SMS factor in this test org — skip the assertion path.
+                    return;
+                }
+
+                smsFactor.Should().NotBeNull();
+                smsFactor.Should().BeOfType<UserFactorSMS>();
+                smsFactor.Status.Should().Be(UserFactorStatus.PENDINGACTIVATION);
+
+                await Task.Delay(1000);
+
+                var factors = await _userFactorApi.ListFactors(testUser.Id).ToListAsync();
+
+                factors.Should().NotBeEmpty(
+                    because: "the SDK must deserialize factors whose `_links.resend` is a JSON array (#874)");
+                factors.Should().Contain(f => f.Id == smsFactor.Id);
+
+                var fetched = factors.Single(f => f.Id == smsFactor.Id);
+                fetched.Links.Should().NotBeNull();
+                fetched.Links.Resend.Should().NotBeNull(
+                    because: "PENDING_ACTIVATION SMS factors return a `resend` link from the API");
+                fetched.Links.Resend.Should().NotBeEmpty();
+                fetched.Links.Resend.Should().AllSatisfy(r => r.Href.Should().NotBeNullOrEmpty());
+
+                var withInfo = await _userFactorApi.ListFactorsWithHttpInfoAsync(testUser.Id);
+                withInfo.StatusCode.Should().Be(System.Net.HttpStatusCode.OK);
+                withInfo.Data.Should().NotBeNull();
+                withInfo.Data.Should().Contain(f => f.Id == smsFactor.Id);
+            }
+            finally
+            {
+                if (testUser != null && smsFactor != null)
+                {
+                    try
+                    {
+                        await _userFactorApi.UnenrollFactorAsync(testUser.Id, smsFactor.Id);
+                    }
+                    catch (ApiException)
+                    {
+                        // Ignore cleanup errors
+                    }
+                }
+            }
+        }
+
         /// Tests EnrollFactorAsync with optional parameters like tokenLifetimeSeconds and acceptLanguage.
         [Fact]
         public async Task GivenTokenLifetime_WhenEnrollingFactor_ThenEnrollmentSucceeds()
