@@ -154,11 +154,11 @@ namespace Okta.Sdk.Model
         public string Title { get; set; }
 
         /// <summary>
-        /// Determines whether property values must be unique
+        /// Determines whether property values must be unique. The API returns a string enum (for example, &#x60;UNIQUE_VALIDATED&#x60; or &#x60;NOT_UNIQUE&#x60;).
         /// </summary>
-        /// <value>Determines whether property values must be unique</value>
+        /// <value>Determines whether property values must be unique. The API returns a string enum (for example, &#x60;UNIQUE_VALIDATED&#x60; or &#x60;NOT_UNIQUE&#x60;).</value>
         [DataMember(Name = "unique", EmitDefaultValue = true)]
-        public bool? Unique { get; set; }
+        public string Unique { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -383,7 +383,98 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
+        /// <summary>
+        /// Regression test for https://github.com/okta/okta-sdk-dotnet/issues/873.
+        /// The Okta API returns the group schema attribute `unique` property as a string
+        /// enum (for example, `UNIQUE_VALIDATED`), but the SDK previously modeled it as a
+        /// boolean. That mismatch caused a deserialization exception that RestSharp swallowed,
+        /// so `GetGroupSchemaAsync` silently returned `null` on an HTTP 200 response.
+        /// This test creates a custom group attribute with `unique = UNIQUE_VALIDATED` and
+        /// verifies that the schema (and the attribute) deserialize correctly.
+        /// </summary>
+        [Fact]
+        public async Task GivenGroupSchemaWithUniqueValidatedAttribute_WhenGettingGroupSchema_ThenSchemaDeserializesCorrectly()
+        {
+            var uniqueAttributeName = $"grp_unique_{RandomString(8)}";
+
+            try
+            {
+                // Add a custom group attribute whose `unique` value is the string enum `UNIQUE_VALIDATED`.
+                var groupSchema = await _schemaApi.GetGroupSchemaAsync();
+                groupSchema.Should().NotBeNull();
+
+                var uniqueAttribute = new GroupSchemaAttribute()
+                {
+                    Title = $"Unique Test {RandomString(6)}",
+                    Type = "string",
+                    Description = "Group custom attribute with UNIQUE_VALIDATED",
+                    Unique = "UNIQUE_VALIDATED",
+                    MinLength = 1,
+                    MaxLength = 50,
+                    Permissions =
+                    [
+                        new()
+                        {
+                            Action = "READ_WRITE",
+                            Principal = "SELF"
+                        }
+                    ]
+                };
+
+                var customAttributes = new Dictionary<string, GroupSchemaAttribute>
+                {
+                    [uniqueAttributeName] = uniqueAttribute
+                };
+                groupSchema.Definitions.Custom.Properties = customAttributes;
+
+                var updatedGroupSchema = await _schemaApi.UpdateGroupSchemaAsync(groupSchema);
+                updatedGroupSchema.Should().NotBeNull();
+                updatedGroupSchema.Definitions.Custom.Properties.Should().ContainKey(uniqueAttributeName);
+                updatedGroupSchema.Definitions.Custom.Properties[uniqueAttributeName].Unique.Should().Be("UNIQUE_VALIDATED");
+
+                Thread.Sleep(6000); // Wait for schema update to propagate
+
+                // GET the group schema again. Before the fix this returned null because the
+                // `unique` string value could not be deserialized into a boolean.
+                var refetchedGroupSchema = await _schemaApi.GetGroupSchemaAsync();
+
+                refetchedGroupSchema.Should().NotBeNull();
+                refetchedGroupSchema.Name.Should().Be("group");
+                refetchedGroupSchema.Title.Should().Be("Okta group");
+                refetchedGroupSchema.Definitions.Should().NotBeNull();
+                refetchedGroupSchema.Definitions.Custom.Should().NotBeNull();
+                refetchedGroupSchema.Definitions.Custom.Properties.Should().NotBeNull();
+                refetchedGroupSchema.Definitions.Custom.Properties.Should().ContainKey(uniqueAttributeName);
+
+                var retrievedUniqueAttribute = refetchedGroupSchema.Definitions.Custom.Properties[uniqueAttributeName];
+                retrievedUniqueAttribute.Should().NotBeNull();
+                retrievedUniqueAttribute.Unique.Should().Be("UNIQUE_VALIDATED");
+                retrievedUniqueAttribute.Type.Value.Should().Be("string");
+            }
+            finally
+            {
+                // Cleanup: Remove the custom attribute.
+                try
+                {
+                    var groupSchema = await _schemaApi.GetGroupSchemaAsync();
+                    if (groupSchema?.Definitions?.Custom?.Properties?.ContainsKey(uniqueAttributeName) == true)
+                    {
+                        groupSchema.Definitions.Custom.Properties = new Dictionary<string, GroupSchemaAttribute>
+                        {
+                            [uniqueAttributeName] = null
+                        };
+                        await _schemaApi.UpdateGroupSchemaAsync(groupSchema);
+                    }
+                }
+                catch
+                {
+                    // Best effort cleanup
+                }
+            }
+        }
+
         private static string RandomString(int length)
+
         {
             var random = new Random();
             var result = string.Empty;

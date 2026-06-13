@@ -63810,8 +63810,8 @@ components:
           allOf:
             - $ref: '#/components/schemas/UserSchemaAttributeType'
         unique:
-          description: Determines whether property values must be unique
-          type: boolean
+          description: Determines whether property values must be unique. The API returns a string enum (for example, `UNIQUE_VALIDATED` or `NOT_UNIQUE`).
+          type: string
           nullable: true
     GroupSchemaBase:
       type: object
