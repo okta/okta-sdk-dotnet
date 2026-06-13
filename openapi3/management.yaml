@@ -63185,6 +63185,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - google
               example: google
@@ -68260,6 +68261,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - office365
               example: office365
@@ -69337,6 +69339,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - okta_org2org
               example: okta_org2org
@@ -73391,6 +73394,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - salesforce
               example: salesforce
@@ -75110,6 +75114,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - slack
               example: slack
@@ -76797,6 +76802,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - trendmicroapexoneservice
               example: trendmicroapexoneservice
@@ -79755,6 +79761,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - zoomus
               example: zoomus
@@ -79809,6 +79816,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - zscalerbyz
               example: zscalerbyz
