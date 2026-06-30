@@ -286,7 +286,21 @@ namespace Okta.Sdk.Model
         /// <param name="serializer">JSON Serializer</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue((string)(typeof(OAuth2ClientJsonSigningKeyResponse).GetMethod("ToJson").Invoke(value, null)));
+            var instance = ((OAuth2ClientJsonSigningKeyResponse)value).ActualInstance;
+            if (instance == null)
+            {
+                writer.WriteNull();
+                return;
+            }
+            var settings = new JsonSerializerSettings
+            {
+                ContractResolver = serializer.ContractResolver,
+                NullValueHandling = serializer.NullValueHandling,
+                Formatting = serializer.Formatting,
+                DateParseHandling = serializer.DateParseHandling,
+                Converters = serializer.Converters.Where(c => !(c is OAuth2ClientJsonSigningKeyResponseJsonConverter)).ToList()
+            };
+            JToken.FromObject(instance, JsonSerializer.Create(settings)).WriteTo(writer);
         }
 
         /// <summary>
