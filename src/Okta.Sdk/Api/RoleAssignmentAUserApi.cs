@@ -95,9 +95,10 @@ namespace Okta.Sdk.Api
         /// <param name="userId">ID of an existing Okta user</param>
         /// <param name="roleAssignmentId">The &#x60;id&#x60; of the role assignment</param>
         /// <param name="grantId">Grant ID</param>
+        /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RoleGovernanceResources</returns>
-        System.Threading.Tasks.Task<RoleGovernanceResources> GetRoleAssignmentGovernanceGrantResourcesAsync(  string userId ,   string roleAssignmentId ,   string grantId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<RoleGovernanceResources> GetRoleAssignmentGovernanceGrantResourcesAsync(  string userId ,   string roleAssignmentId ,   string grantId ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the user role governance source resources
         /// </summary>
@@ -108,9 +109,10 @@ namespace Okta.Sdk.Api
         /// <param name="userId">ID of an existing Okta user</param>
         /// <param name="roleAssignmentId">The &#x60;id&#x60; of the role assignment</param>
         /// <param name="grantId">Grant ID</param>
+        /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RoleGovernanceResources)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RoleGovernanceResources>> GetRoleAssignmentGovernanceGrantResourcesWithHttpInfoAsync(  string userId ,   string roleAssignmentId ,   string grantId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<RoleGovernanceResources>> GetRoleAssignmentGovernanceGrantResourcesWithHttpInfoAsync(  string userId ,   string roleAssignmentId ,   string grantId ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a user role assignment
         /// </summary>
@@ -555,11 +557,12 @@ namespace Okta.Sdk.Api
         /// <param name="userId">ID of an existing Okta user</param>
         /// <param name="roleAssignmentId">The &#x60;id&#x60; of the role assignment</param>
         /// <param name="grantId">Grant ID</param>
+        /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RoleGovernanceResources</returns>
-        public async System.Threading.Tasks.Task<RoleGovernanceResources> GetRoleAssignmentGovernanceGrantResourcesAsync(  string userId ,   string roleAssignmentId ,   string grantId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RoleGovernanceResources> GetRoleAssignmentGovernanceGrantResourcesAsync(  string userId ,   string roleAssignmentId ,   string grantId ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<RoleGovernanceResources> localVarResponse = await GetRoleAssignmentGovernanceGrantResourcesWithHttpInfoAsync(userId, roleAssignmentId, grantId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<RoleGovernanceResources> localVarResponse = await GetRoleAssignmentGovernanceGrantResourcesWithHttpInfoAsync(userId, roleAssignmentId, grantId, after, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
@@ -569,9 +572,10 @@ namespace Okta.Sdk.Api
         /// <param name="userId">ID of an existing Okta user</param>
         /// <param name="roleAssignmentId">The &#x60;id&#x60; of the role assignment</param>
         /// <param name="grantId">Grant ID</param>
+        /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RoleGovernanceResources)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<RoleGovernanceResources>> GetRoleAssignmentGovernanceGrantResourcesWithHttpInfoAsync(  string userId ,   string roleAssignmentId ,   string grantId , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<RoleGovernanceResources>> GetRoleAssignmentGovernanceGrantResourcesWithHttpInfoAsync(  string userId ,   string roleAssignmentId ,   string grantId ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -617,6 +621,10 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("roleAssignmentId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleAssignmentId)); // path parameter
             localVarRequestOptions.PathParameters.Add("grantId", Okta.Sdk.Client.ClientUtils.ParameterToString(grantId)); // path parameter
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
 
             // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))

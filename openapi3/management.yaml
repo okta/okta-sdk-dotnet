@@ -14461,6 +14461,8 @@ paths:
       summary: List all resource set resources
       description: Lists all resources for the resource set
       operationId: listResourceSetResources
+      parameters:
+        - $ref: '#/components/parameters/queryAfter'
       responses:
         '200':
           description: OK
@@ -26544,6 +26546,8 @@ paths:
       summary: Retrieve the user role governance source resources
       description: Retrieves the resources of a governance source (identified by `grantId`) for a role (identified by `roleAssignmentId`) that's assigned to a user (identified by `userId`)
       operationId: getRoleAssignmentGovernanceGrantResources
+      parameters:
+        - $ref: '#/components/parameters/queryAfter'
       responses:
         '200':
           description: Success

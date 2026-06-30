@@ -1949,6 +1949,7 @@ src/Okta.Sdk/Api/RoleBTargetBGroupApi.cs
 src/Okta.Sdk/Api/RoleBTargetClientApi.cs
 src/Okta.Sdk/Api/RoleCResourceSetApi.cs
 src/Okta.Sdk/Api/RoleCResourceSetResourceApi.cs
+src/Okta.Sdk/Api/RoleCollectionExtensions.cs
 src/Okta.Sdk/Api/RoleDResourceSetBindingApi.cs
 src/Okta.Sdk/Api/RoleDResourceSetBindingMemberApi.cs
 src/Okta.Sdk/Api/RoleECustomApi.cs
