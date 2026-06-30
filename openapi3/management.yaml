@@ -73941,15 +73941,18 @@ components:
       properties:
         honorPersistentNameId:
           type: boolean
+          nullable: true
           description: Determines if the IdP should persist account linking when the incoming assertion NameID format is `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
           default: true
         nameFormat:
           $ref: '#/components/schemas/SamlNameIdFormat'
         participateSlo:
           type: boolean
+          nullable: true
           description: Set to `true` to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
         sendApplicationContext:
           type: boolean
+          nullable: true
           description: Determines if the IdP should send the application context as `<OktaAppInstanceId>` and `<OktaAppName>` in the `<saml2p:Extensions>` element of the `<AuthnRequest>` message
           default: false
     SamlSigningAlgorithm:
