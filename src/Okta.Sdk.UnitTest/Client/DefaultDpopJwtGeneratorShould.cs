@@ -78,6 +78,37 @@ namespace Okta.Sdk.UnitTest.Client
         }
 
         /// <summary>
+        /// Tests that the htu claim never carries a query or fragment per RFC 9449 compliance
+        /// (issue #875). Paging follows the absolute 'next' link from the Link header, which
+        /// includes a query string, and Okta rejects such a proof with 'invalid_dpop_proof'.
+        /// </summary>
+        [Theory]
+        [InlineData("https://foo.com/api/v1/users?limit=1", "https://foo.com/api/v1/users")]
+        [InlineData("https://foo.com/api/v1/users?after=000u123&limit=200", "https://foo.com/api/v1/users")]
+        [InlineData("https://foo.com/api/v1/users#frag", "https://foo.com/api/v1/users")]
+        [InlineData("/api/v1/users?limit=1", "/api/v1/users")]
+        // A URI that already meets the contract must be passed through unchanged.
+        [InlineData("https://foo.com/api/v1/users", "https://foo.com/api/v1/users")]
+        [InlineData("https://foo.com", "https://foo.com")]
+        [Obsolete("Obsolete")]
+        public void GenerateHtuClaimWithoutQueryOrFragment_Rfc9449Compliance(string inputUri, string expectedHtu)
+        {
+            var configuration = new Configuration
+            {
+                OktaDomain = "https://foo-admin.okta.com",
+                Token = "foo"
+            };
+
+            var jwtGenerator = new DefaultDpopProofJwtGenerator(configuration);
+
+            var jwt = jwtGenerator.GenerateJwt(httpMethod: "GET", uri: inputUri);
+
+            var decodedJwt = new JwtSecurityTokenHandler().ReadJwtToken(jwt);
+            decodedJwt.Payload["htu"].ToString().Should().Be(expectedHtu,
+                $"because RFC 9449 requires the htu claim to exclude query and fragment, but got '{decodedJwt.Payload["htu"]}' for input '{inputUri}'");
+        }
+
+        /// <summary>
         /// Tests that the htm claim is always uppercase per RFC 9449 compliance (issue #852).
         /// RestSharp's Method.ToString() returns PascalCase (e.g., "Get", "Post"), but RFC 9449
         /// requires uppercase HTTP methods in the htm claim.

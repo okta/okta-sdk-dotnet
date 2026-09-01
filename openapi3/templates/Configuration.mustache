@@ -230,8 +230,20 @@ namespace {{packageName}}.Client
             var status = (int)response.StatusCode;
             if (status >= 400)
             {
+                // Authorization failures often come back with an empty body, with the only
+                // explanation carried in the WWW-Authenticate header. Fall back to that header so
+                // the message says why the call failed instead of being blank.
+                var detail = response.RawContent;
+                if (string.IsNullOrWhiteSpace(detail))
+                {
+                    detail = response.Headers?
+                        .Where(header => header.Key.Equals("WWW-Authenticate", StringComparison.OrdinalIgnoreCase))
+                        .SelectMany(header => header.Value)
+                        .FirstOrDefault();
+                }
+
                 return new ApiException(status,
-                    string.Format("Error calling {0}: {1}", methodName, response.RawContent),
+                    string.Format("Error calling {0}: {1}", methodName, detail),
                     response.RawContent, response.Headers);
             }
             {{^netStandard}}

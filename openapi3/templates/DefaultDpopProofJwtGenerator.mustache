@@ -90,7 +90,7 @@ namespace Okta.Sdk.Client
                 {
                     // RFC 9449 Section 4.2 requires the htm claim to be the uppercase HTTP method
                     { "htm", (httpMethod ?? "POST").ToUpperInvariant() },
-                    { "htu", uri ?? $"{ClientUtils.EnsureTrailingSlash(_configuration.OktaDomain)}oauth2/v1/token" },
+                    { "htu", NormalizeHtu(uri) },
                     { "iat", (int)timeSpanIat.TotalSeconds },
                     { "jti", Guid.NewGuid().ToString()}
                 };
@@ -144,6 +144,28 @@ namespace Okta.Sdk.Client
             {
                 throw new InvalidOperationException("Something went wrong when creating the signed JWT. Verify your private key.", e);
             }
+        }
+
+        /// <summary>
+        /// Builds the 'htu' claim value. RFC 9449 Section 4.2 defines 'htu' as the request URI
+        /// without its query and fragment parts, and Okta rejects a proof whose 'htu' carries them.
+        /// Callers that page through a collection follow the absolute 'next' link from the Link
+        /// header, which does include a query string, so the value is normalized here rather than
+        /// relying on every caller to strip it.
+        /// </summary>
+        /// <param name="uri">The request URI, which may include a query or fragment.</param>
+        /// <returns>The request URI with any query and fragment removed.</returns>
+        private string NormalizeHtu(string? uri)
+        {
+            var requestUri = uri ?? $"{ClientUtils.EnsureTrailingSlash(_configuration.OktaDomain)}oauth2/v1/token";
+
+            // A URI that already meets the contract is passed through untouched, so this only
+            // changes the behavior of callers that supply a query or fragment. Trimming the string
+            // rather than reparsing keeps the value byte-identical to the URI being requested,
+            // which is what the server compares the claim against.
+            var delimiterIndex = requestUri.IndexOfAny(new[] { '?', '#' });
+
+            return delimiterIndex < 0 ? requestUri : requestUri.Substring(0, delimiterIndex);
         }
 
         /// <summary>

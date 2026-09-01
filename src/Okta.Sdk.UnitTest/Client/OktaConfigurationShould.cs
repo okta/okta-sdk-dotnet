@@ -6,6 +6,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using FluentAssertions;
 using Okta.Sdk.Client;
 using Xunit;
@@ -20,6 +21,40 @@ namespace Okta.Sdk.UnitTest.Client
             var clientConfiguration = new Okta.Sdk.Client.Configuration();
 
             clientConfiguration.DisableHttpsCheck.Should().BeFalse();
+        }
+
+        /// <summary>
+        /// Authorization failures can come back with an empty body, with the only explanation in the
+        /// WWW-Authenticate header (issue #875). The message must surface it rather than be blank.
+        /// </summary>
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData("   ")]
+        public void IncludeWwwAuthenticateInExceptionMessageWhenBodyIsEmpty(string rawContent)
+        {
+            var wwwAuthenticate = "DPoP error=\"invalid_dpop_proof\", error_description=\"'htu' claim in the DPoP proof JWT is invalid.\"";
+            var headers = new Multimap<string, string> { { "WWW-Authenticate", wwwAuthenticate } };
+            var response = new ApiResponse<string>(HttpStatusCode.BadRequest, headers, null, rawContent);
+
+            var exception = Configuration.DefaultExceptionFactory("ListUsers", response) as ApiException;
+
+            exception.Should().NotBeNull();
+            exception.ErrorCode.Should().Be(400);
+            exception.Message.Should().Contain("invalid_dpop_proof");
+        }
+
+        [Fact]
+        public void PreferResponseBodyOverWwwAuthenticateInExceptionMessage()
+        {
+            var headers = new Multimap<string, string> { { "WWW-Authenticate", "DPoP error=\"invalid_dpop_proof\"" } };
+            var response = new ApiResponse<string>(HttpStatusCode.BadRequest, headers, null, "{\"errorCode\":\"E0000001\"}");
+
+            var exception = Configuration.DefaultExceptionFactory("ListUsers", response) as ApiException;
+
+            exception.Should().NotBeNull();
+            exception.Message.Should().Contain("E0000001");
+            exception.Message.Should().NotContain("invalid_dpop_proof");
         }
 
         [Theory]
