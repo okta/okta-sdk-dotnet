@@ -94,6 +94,18 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/project
+      # Snyk's cliDotnetRuntimeResolution feature flag makes the CLI shell out to `dotnet`, which
+      # this Python image does not ship, failing the scan with "spawn dotnet ENOENT".
+      - run:
+          name: "Install .NET 10 SDK"
+          command: |
+              curl -fsSL https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh
+              chmod +x dotnet-install.sh
+              ./dotnet-install.sh --channel 10.0 --install-dir "$HOME/.dotnet"
+              echo 'export DOTNET_ROOT="$HOME/.dotnet"' >> "$BASH_ENV"
+              echo 'export PATH="$HOME/.dotnet:$PATH"' >> "$BASH_ENV"
+              source "$BASH_ENV"
+              dotnet --list-sdks
       - general-platform-helpers/step-load-dependencies
       - general-platform-helpers/step-run-snyk-monitor:
           scan-all-projects: true
