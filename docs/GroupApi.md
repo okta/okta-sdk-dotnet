@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 
 <a name="listgroupusers"></a>
 # **ListGroupUsers**
-> List&lt;User&gt; ListGroupUsers (string groupId, string after = null, int? limit = null)
+> List&lt;User&gt; ListGroupUsers (string groupId, string after = null, int? limit = null, string search = null)
 
 List all member users
 
@@ -447,11 +447,12 @@ namespace Example
             var groupId = 00g1emaKYZTWRYYRRTSK;  // string | The `id` of the group
             var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
             var limit = 1000;  // int? | Specifies the number of user results in a page (optional)  (default to 1000)
+            var search = status%20eq%20%22ACTIVE%22;  // string | Searches the group's member users with a supported [filtering](https://developer.okta.com/docs/api/#filter) expression for all properties except for `_embedded`, `_links`, and `objectClass`. This operation supports [pagination](https://developer.okta.com/docs/api/#pagination).  Using search requires [URL encoding](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding), for example, `search=status eq \"ACTIVE\"` is encoded as `search=status+eq+%22ACTIVE%22`.  This operation searches many properties:  * Any user profile attribute, including custom-defined attributes. * The top-level properties: `id`, `status`, `created`, `activated`, `statusChanged`, and `lastUpdated`.  Searches for users can be filtered by the following operators: `sw`, `eq`, and `co`. See [Operators](https://developer.okta.com/docs/api/#operators). (optional) 
 
             try
             {
                 // List all member users
-                List<User> result = apiInstance.ListGroupUsers(groupId, after, limit).ToListAsync();
+                List<User> result = apiInstance.ListGroupUsers(groupId, after, limit, search).ToListAsync();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -472,6 +473,7 @@ Name | Type | Description  | Notes
  **groupId** | **string**| The &#x60;id&#x60; of the group | 
  **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
  **limit** | **int?**| Specifies the number of user results in a page | [optional] [default to 1000]
+ **search** | **string**| Searches the group&#39;s member users with a supported [filtering](https://developer.okta.com/docs/api/#filter) expression for all properties except for &#x60;_embedded&#x60;, &#x60;_links&#x60;, and &#x60;objectClass&#x60;. This operation supports [pagination](https://developer.okta.com/docs/api/#pagination).  Using search requires [URL encoding](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding), for example, &#x60;search&#x3D;status eq \&quot;ACTIVE\&quot;&#x60; is encoded as &#x60;search&#x3D;status+eq+%22ACTIVE%22&#x60;.  This operation searches many properties:  * Any user profile attribute, including custom-defined attributes. * The top-level properties: &#x60;id&#x60;, &#x60;status&#x60;, &#x60;created&#x60;, &#x60;activated&#x60;, &#x60;statusChanged&#x60;, and &#x60;lastUpdated&#x60;.  Searches for users can be filtered by the following operators: &#x60;sw&#x60;, &#x60;eq&#x60;, and &#x60;co&#x60;. See [Operators](https://developer.okta.com/docs/api/#operators). | [optional] 
 
 ### Return type
 

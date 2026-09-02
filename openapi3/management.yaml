@@ -13307,6 +13307,30 @@ paths:
             type: integer
             format: int32
             default: 1000
+        - name: search
+          in: query
+          description: |-
+            Searches the group's member users with a supported [filtering](https://developer.okta.com/docs/api/#filter) expression for all properties except for `_embedded`, `_links`, and `objectClass`. This operation supports [pagination](https://developer.okta.com/docs/api/#pagination).
+
+            Using search requires [URL encoding](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding), for example, `search=status eq "ACTIVE"` is encoded as `search=status+eq+%22ACTIVE%22`.
+
+            This operation searches many properties:
+
+            * Any user profile attribute, including custom-defined attributes.
+            * The top-level properties: `id`, `status`, `created`, `activated`, `statusChanged`, and `lastUpdated`.
+
+            Searches for users can be filtered by the following operators: `sw`, `eq`, and `co`. See [Operators](https://developer.okta.com/docs/api/#operators).
+          schema:
+            type: string
+          examples:
+            searchByStatus:
+              value: status%20eq%20%22ACTIVE%22
+              summary: Search by status
+              description: Search for member users that have a status of ACTIVE
+            searchByLastName:
+              value: profile.lastName%20sw%20%22Smith%22
+              summary: Search by last name
+              description: Search for member users whose last name starts with Smith
       responses:
         '200':
           description: Success
