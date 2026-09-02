@@ -59,6 +59,7 @@ namespace Okta.Sdk.Client
         private readonly IReadableConfiguration _configuration;
         private readonly IOAuthTokenProvider _oAuthTokenProvider;
         private readonly Multimap<string, string> _initialQueryParameters;
+        private readonly string _initialPath;
         private Okta.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
@@ -96,6 +97,10 @@ namespace Okta.Sdk.Client
             _nextRequest = initialRequest ?? throw new ArgumentNullException(nameof(initialRequest));
             _initialQueryParameters = initialRequest.QueryParameters;
             _nextPath = path;
+
+            // Kept separately from _nextPath, which is replaced by the absolute 'next' link as
+            // paging advances, so errors always name the endpoint the caller asked for.
+            _initialPath = path;
             _client = client ?? throw new ArgumentNullException(nameof(client));
             _cancellationToken = cancellationToken;
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
@@ -143,7 +148,9 @@ namespace Okta.Sdk.Client
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory(nameof(OktaPagedCollectionEnumerator<T>), response);
+                // Name the endpoint that failed. Naming this class instead told the caller nothing
+                // about which request had failed (see issue #795).
+                Exception _exception = this.ExceptionFactory(_initialPath, response);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -182,5 +182,65 @@ namespace Okta.Sdk.UnitTest.Client
             (await enumerator.MoveNextAsync()).Should().BeTrue();
             (await enumerator.MoveNextAsync()).Should().BeFalse();
         }
+
+        [Fact]
+        public async Task NameTheFailingEndpointWhenAPageRequestFails()
+        {
+            // Issue #795: the error named the enumerator class, which told the caller nothing about
+            // which call had failed.
+            var enumerator = NewEnumerator(new MockAsyncClient(Forbidden()), new Multimap<string, string>());
+
+            var exception = await Assert.ThrowsAsync<ApiException>(() => enumerator.MoveNextAsync());
+
+            exception.ErrorCode.Should().Be(403);
+            exception.Message.Should().StartWith($"Error calling {Path}:");
+            exception.Message.Should().NotContain(nameof(OktaPagedCollectionEnumerator<User>));
+            exception.Message.Should().Contain("insufficient_scope",
+                "because the reason is only carried in the WWW-Authenticate header on an empty body");
+        }
+
+        [Fact]
+        public async Task NameTheOriginalEndpointWhenALaterPageFails()
+        {
+            // Errors past the first page must still name the endpoint the caller asked for, not the
+            // absolute 'next' link the enumerator happens to be following.
+            var responses = new Queue<MockResponseInfo>(new[]
+            {
+                new MockResponseInfo
+                {
+                    ReturnThis = UsersJson,
+                    StatusCode = HttpStatusCode.OK,
+                    ReceivedHeaders = new Multimap<string, string>
+                    {
+                        { "Link", "<https://test.okta.com/api/v1/groups/00g123456789abcdef/users?after=00u1>; rel=\"next\"" },
+                    },
+                },
+                Forbidden().Dequeue(),
+            });
+
+            var enumerator = NewEnumerator(new MockAsyncClient(responses), new Multimap<string, string>());
+
+            await enumerator.MoveNextAsync();
+            var exception = await Assert.ThrowsAsync<ApiException>(() => enumerator.MoveNextAsync());
+
+            exception.Message.Should().StartWith($"Error calling {Path}:");
+        }
+
+        /// <summary>
+        /// A 403 shaped the way Okta returns authorization failures: no body, with the reason
+        /// carried only in the WWW-Authenticate header.
+        /// </summary>
+        private static Queue<MockResponseInfo> Forbidden() => new Queue<MockResponseInfo>(new[]
+        {
+            new MockResponseInfo
+            {
+                ReturnThis = string.Empty,
+                StatusCode = HttpStatusCode.Forbidden,
+                ReceivedHeaders = new Multimap<string, string>
+                {
+                    { "WWW-Authenticate", "Bearer error=\"insufficient_scope\", error_description=\"The access token must provide access to at least one of these scopes - okta.users.read\"" },
+                },
+            },
+        });
     }
 }
