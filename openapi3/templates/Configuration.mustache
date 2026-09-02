@@ -982,8 +982,8 @@ namespace {{packageName}}.Client
         /// <param name="configurationFilePath">
         /// The path to an additional YAML or JSON configuration file to read, or null to read only the default
         /// locations. Useful for switching between orgs, for example <c>okta.org1.yaml</c> and <c>okta.org2.yaml</c>.
-        /// Values in this file take precedence over the default file locations, and are in turn overridden by
-        /// environment variables and by <paramref name="configuration"/>.
+        /// Values in this file take precedence over the default file locations and over environment variables,
+        /// and are in turn overridden by <paramref name="configuration"/>.
         /// </param>
         /// <exception cref="FileNotFoundException">Thrown when <paramref name="configurationFilePath"/> does not exist.</exception>
         /// <returns>The specified configuration or a new default configuration.</returns>
@@ -1001,13 +1001,17 @@ namespace {{packageName}}.Client
                 .AddYamlFile(homeOktaYamlLocation, optional: true)
                 .AddJsonFile(applicationAppSettingsLocation, optional: true)
                 .AddJsonFile(environmentAppSettingsLocation, optional: true)
-                .AddYamlFile(applicationOktaYamlLocation, optional: true);
+                .AddYamlFile(applicationOktaYamlLocation, optional: true)
+                .AddEnvironmentVariables("okta", "_", root: "okta")
+                .AddEnvironmentVariables("okta_testing", "_", root: "okta");
 
+            // Naming a file is as deliberate as setting a property in code, so it outranks the ambient
+            // environment. Were it the other way round, an OKTA_CLIENT_* variable left in the environment
+            // would pull every per-org file back to the same org, or pair one org's domain with another
+            // org's token, defeating the point of asking for the file by name (see issue #863).
             AddCallerSuppliedFile(configBuilder, configurationFilePath);
 
             configBuilder
-                .AddEnvironmentVariables("okta", "_", root: "okta")
-                .AddEnvironmentVariables("okta_testing", "_", root: "okta")
                 // Only the values the caller actually set may override the files. Adding the object
                 // itself would also apply its constructor defaults, discarding file values the
                 // caller never meant to touch (see issue #899).

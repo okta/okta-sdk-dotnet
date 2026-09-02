@@ -4,6 +4,7 @@
 // </copyright>
 
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -13,7 +14,7 @@ using Xunit;
 
 namespace Okta.Sdk.UnitTest.Client
 {
-    [Collection(WorkingDirectoryCollection.Name)]
+    [Collection(AmbientConfigurationCollection.Name)]
     public class OktaConfigurationShould
     {
         [Fact]
@@ -500,6 +501,54 @@ namespace Okta.Sdk.UnitTest.Client
         }
 
         /// <summary>
+        /// A file asked for by name has to outrank the environment. Otherwise an OKTA_CLIENT_* variable
+        /// left in the environment - which is how the build machine is set up - would pull every per-org
+        /// file back to the same org, or pair one org's domain with another org's token.
+        /// </summary>
+        [Fact]
+        public void PreferTheCallerSuppliedFileOverEnvironmentVariables()
+        {
+            InTemporaryDirectory(dir =>
+            {
+                Environment.SetEnvironmentVariable("OKTA_CLIENT_OKTADOMAIN", "https://from-environment.okta.com");
+                Environment.SetEnvironmentVariable("OKTA_CLIENT_TOKEN", "token-from-environment");
+
+                File.WriteAllText(Path.Combine(dir, "okta.org1.yaml"), string.Join("\n",
+                    "okta:",
+                    "  client:",
+                    "    oktaDomain: https://org1.okta.com",
+                    "    token: token-org1",
+                    string.Empty));
+
+                var config = Configuration.GetConfigurationOrDefault(null, "okta.org1.yaml");
+
+                config.OktaDomain.Should().Be("https://org1.okta.com");
+                config.Token.Should().Be("token-org1");
+            });
+        }
+
+        /// <summary>
+        /// The environment must still win over the conventional locations, which is the documented order.
+        /// </summary>
+        [Fact]
+        public void PreferEnvironmentVariablesOverTheConventionalFileLocations()
+        {
+            InTemporaryDirectory(dir =>
+            {
+                Environment.SetEnvironmentVariable("OKTA_CLIENT_OKTADOMAIN", "https://from-environment.okta.com");
+
+                File.WriteAllText(Path.Combine(dir, "okta.yaml"), AmbientYaml);
+
+                var config = Configuration.GetConfigurationOrDefault();
+
+                config.OktaDomain.Should().Be("https://from-environment.okta.com");
+
+                // And a value the environment says nothing about still comes from the file.
+                config.MaxRetries.Should().Be(7);
+            });
+        }
+
+        /// <summary>
         /// Clients resolve their configuration again, so a per-org configuration must survive the
         /// round trip instead of reverting to the ambient file.
         /// </summary>
@@ -543,13 +592,16 @@ namespace Okta.Sdk.UnitTest.Client
 
         /// <summary>
         /// Runs <paramref name="test"/> with the working directory set to a fresh temporary directory,
-        /// because the SDK discovers configuration files relative to it.
+        /// because the SDK discovers configuration files relative to it, and with any ambient
+        /// <c>OKTA_*</c> environment variables removed, because the SDK layers those over the files
+        /// these tests are about. The build machine sets them for the integration tests.
         /// </summary>
         private static void InTemporaryDirectory(Action<string> test)
         {
             var testDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
             Directory.CreateDirectory(testDir);
             var originalDir = Directory.GetCurrentDirectory();
+            var oktaVariables = ClearOktaEnvironmentVariables();
 
             try
             {
@@ -560,7 +612,37 @@ namespace Okta.Sdk.UnitTest.Client
             {
                 Directory.SetCurrentDirectory(originalDir);
                 Directory.Delete(testDir, recursive: true);
+
+                // Clear again first, so any variable the test set for itself does not outlive it.
+                ClearOktaEnvironmentVariables();
+
+                foreach (var variable in oktaVariables)
+                {
+                    Environment.SetEnvironmentVariable(variable.Key, variable.Value);
+                }
             }
+        }
+
+        /// <summary>
+        /// Removes the <c>OKTA_*</c> environment variables and returns them so they can be put back.
+        /// </summary>
+        private static IEnumerable<KeyValuePair<string, string>> ClearOktaEnvironmentVariables()
+        {
+            var cleared = new List<KeyValuePair<string, string>>();
+
+            foreach (DictionaryEntry variable in Environment.GetEnvironmentVariables())
+            {
+                var name = (string)variable.Key;
+
+                // The SDK matches its prefix case-insensitively, so this has to as well.
+                if (name.StartsWith("okta", StringComparison.OrdinalIgnoreCase))
+                {
+                    cleared.Add(new KeyValuePair<string, string>(name, variable.Value as string));
+                    Environment.SetEnvironmentVariable(name, null);
+                }
+            }
+
+            return cleared;
         }
     }
 }

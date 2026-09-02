@@ -13,6 +13,9 @@ using Xunit;
 
 namespace Okta.Sdk.UnitTest.Client;
 
+// Resolves the ambient configuration twice and compares the two, so it cannot run alongside the tests
+// that move the working directory or clear the OKTA_* environment variables.
+[Collection(AmbientConfigurationCollection.Name)]
 public class OktaApiClientOptionsShould
 {
     [Fact]
