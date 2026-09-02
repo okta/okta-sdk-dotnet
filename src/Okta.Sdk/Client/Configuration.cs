@@ -194,10 +194,30 @@ namespace Okta.Sdk.Client
         /// </value>
         public int? MaxRetries { get; set; } = DefaultMaxRetries;
         
+        private AuthorizationMode? _authorizationMode = Client.AuthorizationMode.SSWS;
+
         /// <summary>
         /// Gets or sets the authorization mode.
         /// </summary>
-        public AuthorizationMode? AuthorizationMode { get; set; } = Client.AuthorizationMode.SSWS;
+        public AuthorizationMode? AuthorizationMode
+        {
+            get { return _authorizationMode; }
+            set
+            {
+                _authorizationMode = value;
+
+                // SSWS is both the default and a mode callers deliberately choose, so an assignment
+                // cannot be told apart from the default by comparing values. Record it, so
+                // GetConfigurationOrDefault knows the caller meant it (see issue #899).
+                _authorizationModeAssigned = true;
+            }
+        }
+
+        /// <summary>
+        /// Whether <see cref="AuthorizationMode"/> was assigned after construction. Cleared at the end
+        /// of the default constructor so its own assignment does not count.
+        /// </summary>
+        private bool _authorizationModeAssigned;
 
         /// <summary>
         /// Gets or sets the private key. Required when AuthorizationMode is equal to PrivateKey.
@@ -435,6 +455,10 @@ namespace Okta.Sdk.Client
             // Setting Timeout has side effects (forces ApiClient creation).
             Timeout = 100000;
             AuthorizationMode = Client.AuthorizationMode.SSWS;
+
+            // Everything above is a default, not a caller's choice. Constructors that chain to this
+            // one and then assign AuthorizationMode themselves mark it again.
+            _authorizationModeAssigned = false;
         }
 
         /// <summary>
@@ -873,6 +897,33 @@ namespace Okta.Sdk.Client
         /// <returns>The specified configuration or a new default configuration.</returns>
         public static Configuration GetConfigurationOrDefault(Configuration configuration = null)
         {
+            return GetConfigurationOrDefault(configuration, null);
+        }
+
+        /// <summary>
+        /// Gets the specified configuration or creates a default configuration from environment and configuration files,
+        /// optionally reading an additional configuration file from a caller-supplied path.
+        /// </summary>
+        /// <remarks>
+        /// Properties set on <paramref name="configuration"/> take precedence over every configuration file. A property
+        /// that still holds the value a newly constructed <see cref="Configuration"/> would give it is treated as unset,
+        /// so passing <c>new Configuration { AccessToken = "..." }</c> overrides only the access token and leaves the
+        /// rest of the file intact. <see cref="AuthorizationMode"/> is exempt from that comparison because its default is
+        /// also a deliberate choice, so assigning <see cref="Client.AuthorizationMode.SSWS"/> always wins. For the
+        /// remaining properties, assigning the default value leaves the configuration file's value in place; set those
+        /// through the environment or on the returned object if you need to force the default.
+        /// </remarks>
+        /// <param name="configuration">The configuration to use, or null to create a default configuration.</param>
+        /// <param name="configurationFilePath">
+        /// The path to an additional YAML or JSON configuration file to read, or null to read only the default
+        /// locations. Useful for switching between orgs, for example <c>okta.org1.yaml</c> and <c>okta.org2.yaml</c>.
+        /// Values in this file take precedence over the default file locations, and are in turn overridden by
+        /// environment variables and by <paramref name="configuration"/>.
+        /// </param>
+        /// <exception cref="FileNotFoundException">Thrown when <paramref name="configurationFilePath"/> does not exist.</exception>
+        /// <returns>The specified configuration or a new default configuration.</returns>
+        public static Configuration GetConfigurationOrDefault(Configuration configuration, string configurationFilePath)
+        {
             string configurationFileRoot = Directory.GetCurrentDirectory();
 
             var homeOktaYamlLocation = HomePath.Resolve("~", ".okta", "okta.yaml");
@@ -885,12 +936,19 @@ namespace Okta.Sdk.Client
                 .AddYamlFile(homeOktaYamlLocation, optional: true)
                 .AddJsonFile(applicationAppSettingsLocation, optional: true)
                 .AddJsonFile(environmentAppSettingsLocation, optional: true)
-                .AddYamlFile(applicationOktaYamlLocation, optional: true)
+                .AddYamlFile(applicationOktaYamlLocation, optional: true);
+
+            AddCallerSuppliedFile(configBuilder, configurationFilePath);
+
+            configBuilder
                 .AddEnvironmentVariables("okta", "_", root: "okta")
                 .AddEnvironmentVariables("okta_testing", "_", root: "okta")
-                .AddObject(configuration, root: "okta:client")
-                .AddObject(configuration, root: "okta:testing")
-                .AddObject(configuration);
+                // Only the values the caller actually set may override the files. Adding the object
+                // itself would also apply its constructor defaults, discarding file values the
+                // caller never meant to touch (see issue #899).
+                .AddInMemoryCollection(GetExplicitlySetValues(configuration, "okta:client"))
+                .AddInMemoryCollection(GetExplicitlySetValues(configuration, "okta:testing"))
+                .AddInMemoryCollection(GetExplicitlySetValues(configuration, null));
 
             var compiledConfig = new Configuration();
             configBuilder.Build().GetSection("okta").GetSection("client").Bind(compiledConfig);
@@ -899,7 +957,112 @@ namespace Okta.Sdk.Client
 
             return compiledConfig;
         }
-        
+
+        /// <summary>
+        /// Adds a caller-supplied configuration file to the builder, choosing the provider from the file extension.
+        /// </summary>
+        /// <param name="configBuilder">The builder to add the file to.</param>
+        /// <param name="configurationFilePath">The path to the file, or null to add nothing.</param>
+        /// <exception cref="FileNotFoundException">Thrown when the file does not exist.</exception>
+        private static void AddCallerSuppliedFile(IConfigurationBuilder configBuilder, string configurationFilePath)
+        {
+            if (string.IsNullOrWhiteSpace(configurationFilePath))
+            {
+                return;
+            }
+
+            var fullPath = Path.GetFullPath(configurationFilePath);
+
+            // The default locations are optional because they are conventions. This path was asked
+            // for by name, so failing loudly beats silently falling back to a different org.
+            if (!File.Exists(fullPath))
+            {
+                throw new FileNotFoundException($"The configuration file '{fullPath}' was not found.", fullPath);
+            }
+
+            if (Path.GetExtension(fullPath).Equals(".json", StringComparison.OrdinalIgnoreCase))
+            {
+                configBuilder.AddJsonFile(fullPath, optional: false);
+            }
+            else
+            {
+                configBuilder.AddYamlFile(fullPath, optional: false);
+            }
+        }
+
+        /// <summary>
+        /// Projects <paramref name="configuration"/> into configuration keys, keeping only the values that differ from
+        /// those of a newly constructed <see cref="Configuration"/>.
+        /// </summary>
+        /// <remarks>
+        /// The default constructor populates properties such as <see cref="OktaDomain"/>, <see cref="AuthorizationMode"/>,
+        /// <see cref="ConnectionTimeout"/>, <see cref="MaxRetries"/> and <see cref="UserAgent"/>. Those values are
+        /// indistinguishable from caller intent once the object is built, so anything still matching them is dropped
+        /// rather than allowed to override a configuration file.
+        /// </remarks>
+        /// <param name="configuration">The caller-supplied configuration, or null.</param>
+        /// <param name="root">The configuration section to place the values under, or null for the root.</param>
+        /// <returns>The keys and values to layer over the configuration files.</returns>
+        private static IEnumerable<KeyValuePair<string, string>> GetExplicitlySetValues(Configuration configuration, string root)
+        {
+            var explicitlySetValues = new List<KeyValuePair<string, string>>();
+
+            if (configuration == null)
+            {
+                return explicitlySetValues;
+            }
+
+            var supplied = BuildObjectConfiguration(configuration, root);
+            var defaults = BuildObjectConfiguration(new Configuration(), root);
+
+            foreach (var setting in supplied.AsEnumerable())
+            {
+                if (setting.Value == null)
+                {
+                    continue;
+                }
+
+                if (string.Equals(setting.Value, defaults[setting.Key], StringComparison.Ordinal)
+                    && !WasAssignedDespiteMatchingDefault(configuration, setting.Key))
+                {
+                    continue;
+                }
+
+                explicitlySetValues.Add(setting);
+            }
+
+            return explicitlySetValues;
+        }
+
+        /// <summary>
+        /// A value equal to the default is normally treated as unset, which is harmless for the tuning
+        /// knobs but not for a property whose default is itself a choice. Those track their own
+        /// assignment, because dropping one would silently switch to the configuration file's value.
+        /// </summary>
+        /// <param name="configuration">The caller-supplied configuration.</param>
+        /// <param name="key">The configuration key to test.</param>
+        /// <returns>True when the caller assigned the property even though it matches the default.</returns>
+        private static bool WasAssignedDespiteMatchingDefault(Configuration configuration, string key)
+        {
+            var propertyName = key.Substring(key.LastIndexOf(':') + 1);
+
+            return string.Equals(propertyName, nameof(AuthorizationMode), StringComparison.Ordinal)
+                && configuration._authorizationModeAssigned;
+        }
+
+        /// <summary>
+        /// Builds a configuration root containing only the properties of the given configuration object.
+        /// </summary>
+        /// <param name="configuration">The configuration object to read.</param>
+        /// <param name="root">The configuration section to place the values under, or null for the root.</param>
+        /// <returns>A configuration root over the object's properties.</returns>
+        private static IConfigurationRoot BuildObjectConfiguration(Configuration configuration, string root)
+        {
+            return root == null
+                ? new ConfigurationBuilder().AddObject(configuration).Build()
+                : new ConfigurationBuilder().AddObject(configuration, root: root).Build();
+        }
+
         #endregion Static Members
     }
     

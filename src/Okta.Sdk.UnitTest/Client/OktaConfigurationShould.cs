@@ -338,5 +338,228 @@ namespace Okta.Sdk.UnitTest.Client
             }
         }
 
+        /// <summary>
+        /// Issue #899: a Configuration passed in to override one property carried its constructor
+        /// defaults along with it, silently replacing everything the file had set.
+        /// </summary>
+        [Fact]
+        public void KeepFileValuesWhenTheSuppliedConfigurationOnlyOverridesOneProperty()
+        {
+            InTemporaryDirectory(dir =>
+            {
+                File.WriteAllText(Path.Combine(dir, "okta.yaml"), AmbientYaml);
+
+                var config = Configuration.GetConfigurationOrDefault(new Configuration { AccessToken = "supplied-token" });
+
+                config.AccessToken.Should().Be("supplied-token");
+                config.OktaDomain.Should().Be("https://ambient.okta.com");
+                config.AuthorizationMode.Should().Be(AuthorizationMode.BearerToken);
+                config.ConnectionTimeout.Should().Be(45);
+                config.MaxRetries.Should().Be(7);
+                config.ClientId.Should().Be("client-from-ambient");
+            });
+        }
+
+        [Fact]
+        public void PreferSuppliedValuesOverTheFileWhenTheyAreSet()
+        {
+            InTemporaryDirectory(dir =>
+            {
+                File.WriteAllText(Path.Combine(dir, "okta.yaml"), AmbientYaml);
+
+                var config = Configuration.GetConfigurationOrDefault(new Configuration
+                {
+                    OktaDomain = "https://supplied.okta.com",
+                    ConnectionTimeout = 11,
+                });
+
+                config.OktaDomain.Should().Be("https://supplied.okta.com");
+                config.ConnectionTimeout.Should().Be(11);
+            });
+        }
+
+        /// <summary>
+        /// SSWS is the constructor default, so it cannot be recognised as a caller's choice by
+        /// comparing values. Dropping it would fall back to the file's mode and then reject the
+        /// request for having no access token.
+        /// </summary>
+        [Fact]
+        public void PreferAnExplicitlyChosenAuthorizationModeEvenWhenItMatchesTheDefault()
+        {
+            InTemporaryDirectory(dir =>
+            {
+                File.WriteAllText(Path.Combine(dir, "okta.yaml"), AmbientYaml);
+
+                var config = Configuration.GetConfigurationOrDefault(new Configuration
+                {
+                    AuthorizationMode = AuthorizationMode.SSWS,
+                    Token = "ssws-token",
+                });
+
+                config.AuthorizationMode.Should().Be(AuthorizationMode.SSWS);
+                Configuration.IsSswsMode(config).Should().BeTrue();
+            });
+        }
+
+        [Fact]
+        public void NotTreatTheConstructorsOwnDefaultsAsCallerChoices()
+        {
+            InTemporaryDirectory(dir =>
+            {
+                File.WriteAllText(Path.Combine(dir, "okta.yaml"), AmbientYaml);
+
+                // Nothing was assigned, so the file's mode must survive.
+                var config = Configuration.GetConfigurationOrDefault(new Configuration());
+
+                config.AuthorizationMode.Should().Be(AuthorizationMode.BearerToken);
+            });
+        }
+
+        /// <summary>
+        /// Issue #863: one process talking to many orgs needs to name the configuration file to use.
+        /// </summary>
+        [Theory]
+        [InlineData("okta.org1.yaml")]
+        [InlineData("okta.org1.json")]
+        public void ReadConfigurationFromACallerSuppliedPath(string fileName)
+        {
+            InTemporaryDirectory(dir =>
+            {
+                File.WriteAllText(Path.Combine(dir, "okta.yaml"), AmbientYaml);
+                File.WriteAllText(Path.Combine(dir, "okta.org1.yaml"), string.Join("\n",
+                    "okta:",
+                    "  client:",
+                    "    oktaDomain: https://org1.okta.com",
+                    "    token: token-org1",
+                    string.Empty));
+                File.WriteAllText(Path.Combine(dir, "okta.org1.json"),
+                    @"{""okta"": {""client"": {""oktaDomain"": ""https://org1.okta.com"", ""token"": ""token-org1""}}}");
+
+                var config = Configuration.GetConfigurationOrDefault(null, fileName);
+
+                config.OktaDomain.Should().Be("https://org1.okta.com");
+                config.Token.Should().Be("token-org1");
+
+                // Values the named file leaves alone still come from the conventional locations.
+                config.ConnectionTimeout.Should().Be(45);
+            });
+        }
+
+        [Fact]
+        public void ReadConfigurationFromAnAbsoluteCallerSuppliedPath()
+        {
+            InTemporaryDirectory(dir =>
+            {
+                var path = Path.Combine(dir, "okta.org2.yaml");
+                File.WriteAllText(path, string.Join("\n",
+                    "okta:",
+                    "  client:",
+                    "    oktaDomain: https://org2.okta.com",
+                    string.Empty));
+
+                Configuration.GetConfigurationOrDefault(null, path)
+                    .OktaDomain.Should().Be("https://org2.okta.com");
+            });
+        }
+
+        /// <summary>
+        /// The conventional locations are optional because they are conventions. A path asked for by
+        /// name must fail loudly rather than quietly talk to whichever org the ambient file names.
+        /// </summary>
+        [Fact]
+        public void ThrowWhenTheCallerSuppliedPathDoesNotExist()
+        {
+            InTemporaryDirectory(dir =>
+            {
+                File.WriteAllText(Path.Combine(dir, "okta.yaml"), AmbientYaml);
+
+                Assert.Throws<FileNotFoundException>(
+                    () => Configuration.GetConfigurationOrDefault(null, "okta.missing.yaml"));
+            });
+        }
+
+        [Fact]
+        public void LetSuppliedValuesOverrideTheCallerSuppliedFile()
+        {
+            InTemporaryDirectory(dir =>
+            {
+                File.WriteAllText(Path.Combine(dir, "okta.org1.yaml"), string.Join("\n",
+                    "okta:",
+                    "  client:",
+                    "    oktaDomain: https://org1.okta.com",
+                    "    token: token-org1",
+                    string.Empty));
+
+                var config = Configuration.GetConfigurationOrDefault(
+                    new Configuration { Token = "token-from-code" }, "okta.org1.yaml");
+
+                config.OktaDomain.Should().Be("https://org1.okta.com");
+                config.Token.Should().Be("token-from-code");
+            });
+        }
+
+        /// <summary>
+        /// Clients resolve their configuration again, so a per-org configuration must survive the
+        /// round trip instead of reverting to the ambient file.
+        /// </summary>
+        [Fact]
+        public void KeepACallerSuppliedFilesValuesWhenTheResultIsResolvedAgain()
+        {
+            InTemporaryDirectory(dir =>
+            {
+                File.WriteAllText(Path.Combine(dir, "okta.yaml"), AmbientYaml);
+                File.WriteAllText(Path.Combine(dir, "okta.org1.yaml"), string.Join("\n",
+                    "okta:",
+                    "  client:",
+                    "    oktaDomain: https://org1.okta.com",
+                    "    authorizationMode: SSWS",
+                    "    token: token-org1",
+                    string.Empty));
+
+                var org1 = Configuration.GetConfigurationOrDefault(null, "okta.org1.yaml");
+                var roundTripped = Configuration.GetConfigurationOrDefault(org1);
+
+                roundTripped.OktaDomain.Should().Be("https://org1.okta.com");
+                roundTripped.Token.Should().Be("token-org1");
+                roundTripped.AuthorizationMode.Should().Be(AuthorizationMode.SSWS);
+            });
+        }
+
+        /// <summary>
+        /// A configuration file in the working directory, which is where the SDK looks by convention.
+        /// Deliberately sets authorizationMode to something other than the default so that a value
+        /// wrongly treated as a caller override is visible.
+        /// </summary>
+        private const string AmbientYaml = @"okta:
+  client:
+    oktaDomain: https://ambient.okta.com
+    authorizationMode: BearerToken
+    accessToken: access-token-from-ambient
+    clientId: client-from-ambient
+    connectionTimeout: 45
+    maxRetries: 7
+";
+
+        /// <summary>
+        /// Runs <paramref name="test"/> with the working directory set to a fresh temporary directory,
+        /// because the SDK discovers configuration files relative to it.
+        /// </summary>
+        private static void InTemporaryDirectory(Action<string> test)
+        {
+            var testDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+            Directory.CreateDirectory(testDir);
+            var originalDir = Directory.GetCurrentDirectory();
+
+            try
+            {
+                Directory.SetCurrentDirectory(testDir);
+                test(testDir);
+            }
+            finally
+            {
+                Directory.SetCurrentDirectory(originalDir);
+                Directory.Delete(testDir, recursive: true);
+            }
+        }
     }
 }
