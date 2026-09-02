@@ -51,21 +51,21 @@ namespace Okta.Sdk.Model
         /// </summary>
         /// <value>Determines if the IdP should persist account linking when the incoming assertion NameID format is &#x60;urn:oasis:names:tc:SAML:2.0:nameid-format:persistent&#x60;</value>
         [DataMember(Name = "honorPersistentNameId", EmitDefaultValue = true)]
-        public bool HonorPersistentNameId { get; set; }
+        public bool? HonorPersistentNameId { get; set; }
 
         /// <summary>
         /// Set to &#x60;true&#x60; to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
         /// </summary>
         /// <value>Set to &#x60;true&#x60; to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.</value>
         [DataMember(Name = "participateSlo", EmitDefaultValue = true)]
-        public bool ParticipateSlo { get; set; }
+        public bool? ParticipateSlo { get; set; }
 
         /// <summary>
         /// Determines if the IdP should send the application context as &#x60;&lt;OktaAppInstanceId&gt;&#x60; and &#x60;&lt;OktaAppName&gt;&#x60; in the &#x60;&lt;saml2p:Extensions&gt;&#x60; element of the &#x60;&lt;AuthnRequest&gt;&#x60; message
         /// </summary>
         /// <value>Determines if the IdP should send the application context as &#x60;&lt;OktaAppInstanceId&gt;&#x60; and &#x60;&lt;OktaAppName&gt;&#x60; in the &#x60;&lt;saml2p:Extensions&gt;&#x60; element of the &#x60;&lt;AuthnRequest&gt;&#x60; message</value>
         [DataMember(Name = "sendApplicationContext", EmitDefaultValue = true)]
-        public bool SendApplicationContext { get; set; }
+        public bool? SendApplicationContext { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -116,7 +116,8 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.HonorPersistentNameId == input.HonorPersistentNameId ||
-                    this.HonorPersistentNameId.Equals(input.HonorPersistentNameId)
+                    (this.HonorPersistentNameId != null &&
+                    this.HonorPersistentNameId.Equals(input.HonorPersistentNameId))
                 ) && 
                 (
                     this.NameFormat == input.NameFormat ||
@@ -124,11 +125,13 @@ namespace Okta.Sdk.Model
                 ) && 
                 (
                     this.ParticipateSlo == input.ParticipateSlo ||
-                    this.ParticipateSlo.Equals(input.ParticipateSlo)
+                    (this.ParticipateSlo != null &&
+                    this.ParticipateSlo.Equals(input.ParticipateSlo))
                 ) && 
                 (
                     this.SendApplicationContext == input.SendApplicationContext ||
-                    this.SendApplicationContext.Equals(input.SendApplicationContext)
+                    (this.SendApplicationContext != null &&
+                    this.SendApplicationContext.Equals(input.SendApplicationContext))
                 );
         }
 
@@ -142,13 +145,22 @@ namespace Okta.Sdk.Model
             {
                 int hashCode = 41;
                 
-                hashCode = (hashCode * 59) + this.HonorPersistentNameId.GetHashCode();
+                if (this.HonorPersistentNameId != null)
+                {
+                    hashCode = (hashCode * 59) + this.HonorPersistentNameId.GetHashCode();
+                }
                 if (this.NameFormat != null)
                 {
                     hashCode = (hashCode * 59) + this.NameFormat.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ParticipateSlo.GetHashCode();
-                hashCode = (hashCode * 59) + this.SendApplicationContext.GetHashCode();
+                if (this.ParticipateSlo != null)
+                {
+                    hashCode = (hashCode * 59) + this.ParticipateSlo.GetHashCode();
+                }
+                if (this.SendApplicationContext != null)
+                {
+                    hashCode = (hashCode * 59) + this.SendApplicationContext.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -14461,6 +14461,8 @@ paths:
       summary: List all resource set resources
       description: Lists all resources for the resource set
       operationId: listResourceSetResources
+      parameters:
+        - $ref: '#/components/parameters/queryAfter'
       responses:
         '200':
           description: OK
@@ -26544,6 +26546,8 @@ paths:
       summary: Retrieve the user role governance source resources
       description: Retrieves the resources of a governance source (identified by `grantId`) for a role (identified by `roleAssignmentId`) that's assigned to a user (identified by `userId`)
       operationId: getRoleAssignmentGovernanceGrantResources
+      parameters:
+        - $ref: '#/components/parameters/queryAfter'
       responses:
         '200':
           description: Success
@@ -63185,6 +63189,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - google
               example: google
@@ -63810,8 +63815,8 @@ components:
           allOf:
             - $ref: '#/components/schemas/UserSchemaAttributeType'
         unique:
-          description: Determines whether property values must be unique
-          type: boolean
+          description: Determines whether property values must be unique. The API returns a string enum (for example, `UNIQUE_VALIDATED` or `NOT_UNIQUE`).
+          type: string
           nullable: true
     GroupSchemaBase:
       type: object
@@ -65851,9 +65856,10 @@ components:
       type: object
       properties:
         resend:
-          allOf:
-            - description: Resends the factor enrollment challenge. See [Resend a factor enrollment](/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/resendEnrollFactor).
-            - $ref: '#/components/schemas/HrefObject'
+          type: array
+          description: Resends the factor enrollment challenge. See [Resend a factor enrollment](/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/resendEnrollFactor).
+          items:
+            $ref: '#/components/schemas/HrefObject'
       readOnly: true
     LinksSelf:
       description: Specifies link relations (see [Web Linking](https://www.rfc-editor.org/rfc/rfc8288)) available using the [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.
@@ -68259,6 +68265,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - office365
               example: office365
@@ -69336,6 +69343,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - okta_org2org
               example: okta_org2org
@@ -73390,6 +73398,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - salesforce
               example: salesforce
@@ -73936,15 +73945,18 @@ components:
       properties:
         honorPersistentNameId:
           type: boolean
+          nullable: true
           description: Determines if the IdP should persist account linking when the incoming assertion NameID format is `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
           default: true
         nameFormat:
           $ref: '#/components/schemas/SamlNameIdFormat'
         participateSlo:
           type: boolean
+          nullable: true
           description: Set to `true` to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
         sendApplicationContext:
           type: boolean
+          nullable: true
           description: Determines if the IdP should send the application context as `<OktaAppInstanceId>` and `<OktaAppName>` in the `<saml2p:Extensions>` element of the `<AuthnRequest>` message
           default: false
     SamlSigningAlgorithm:
@@ -75109,6 +75121,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - slack
               example: slack
@@ -76796,6 +76809,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - trendmicroapexoneservice
               example: trendmicroapexoneservice
@@ -79754,6 +79768,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - zoomus
               example: zoomus
@@ -79808,6 +79823,7 @@ components:
           properties:
             name:
               type: string
+              x-override-parent: true
               enum:
                 - zscalerbyz
               example: zscalerbyz

@@ -24,6 +24,11 @@
         "isOAuth": true
     },
     "files": {
+        "RoleCollectionExtensions.mustache":{
+            "destinationFilename": "RoleCollectionExtensions.cs",
+            "templateType": "SupportingFiles",
+            "folder": "/src/Okta.Sdk/Api"
+        },
         "OktaApiClientOptions.mustache":{
             "destinationFilename": "OktaApiClientOptions.cs",
             "templateType": "SupportingFiles",

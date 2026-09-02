@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Poll** | [**LinksPollPoll**](LinksPollPoll.md) |  | [optional] 
 **Qrcode** | [**LinksQrcodeQrcode**](LinksQrcodeQrcode.md) |  | [optional] 
 **Question** | [**LinksQuestionsQuestion**](LinksQuestionsQuestion.md) |  | [optional] 
-**Resend** | [**LinksResendResend**](LinksResendResend.md) |  | [optional] 
+**Resend** | [**List&lt;HrefObject&gt;**](HrefObject.md) | Resends the factor enrollment challenge. See [Resend a factor enrollment](/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/resendEnrollFactor). | [optional] 
 **Send** | [**LinksSendSend**](LinksSendSend.md) |  | [optional] 
 **Self** | [**HrefObjectSelfLink**](HrefObjectSelfLink.md) |  | [optional] 
 **User** | [**LinksUserUser**](LinksUserUser.md) |  | [optional] 

@@ -302,5 +302,54 @@ namespace Okta.Sdk.IntegrationTest
             await getDeletedById2.Should().ThrowAsync<ApiException>(
                 "GET on a deleted resource set must throw ApiException (404)");
         }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        //  Regression test for https://github.com/okta/okta-sdk-dotnet/issues/862
+        //  ListAllResourceSetsAsync auto-pages (IAsyncEnumerable) without the caller
+        //  having to follow the body `_links.next` cursor by hand.
+        // ═══════════════════════════════════════════════════════════════════════
+        [Fact]
+        public async Task ListAllResourceSetsAsync_EnumeratesCreatedResourceSets()
+        {
+            var suffix = Guid.NewGuid().ToString("N")[..8];
+            var labelA = $"rcrs-enum-a-{suffix}";
+            var labelB = $"rcrs-enum-b-{suffix}";
+            string idA = null, idB = null;
+            try
+            {
+                idA = (await _api.CreateResourceSetAsync(new CreateResourceSetRequest
+                {
+                    Label = labelA,
+                    Description = "issue862 enumeration test A",
+                    Resources = new List<string> { $"{OrgBaseUrl}/api/v1/users" },
+                })).Id;
+                idB = (await _api.CreateResourceSetAsync(new CreateResourceSetRequest
+                {
+                    Label = labelB,
+                    Description = "issue862 enumeration test B",
+                    Resources = new List<string> { $"{OrgBaseUrl}/api/v1/groups" },
+                })).Id;
+
+                // Enumerate everything via the auto-paging extension — no cursor handling.
+                var labels = new List<string>();
+                await foreach (var rs in _api.ListAllResourceSetsAsync())
+                {
+                    labels.Add(rs.Label);
+                }
+
+                labels.Should().Contain(labelA);
+                labels.Should().Contain(labelB);
+            }
+            finally
+            {
+                foreach (var id in new[] { idA, idB })
+                {
+                    if (!string.IsNullOrEmpty(id))
+                    {
+                        try { await _api.DeleteResourceSetAsync(id); } catch { /* ignore */ }
+                    }
+                }
+            }
+        }
     }
 }

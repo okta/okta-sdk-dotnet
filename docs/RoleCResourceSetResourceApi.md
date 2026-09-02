@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 <a name="listresourcesetresources"></a>
 # **ListResourceSetResources**
-> ResourceSetResources ListResourceSetResources (string resourceSetIdOrLabel)
+> ResourceSetResources ListResourceSetResources (string resourceSetIdOrLabel, string after = null)
 
 List all resource set resources
 
@@ -369,11 +369,12 @@ namespace Example
 
             var apiInstance = new RoleCResourceSetResourceApi(config);
             var resourceSetIdOrLabel = iamoJDFKaJxGIr0oamd9g;  // string | `id` or `label` of the resource set
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
 
             try
             {
                 // List all resource set resources
-                ResourceSetResources result = apiInstance.ListResourceSetResources(resourceSetIdOrLabel);
+                ResourceSetResources result = apiInstance.ListResourceSetResources(resourceSetIdOrLabel, after);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -392,6 +393,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **resourceSetIdOrLabel** | **string**| &#x60;id&#x60; or &#x60;label&#x60; of the resource set | 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
 
 ### Return type
 

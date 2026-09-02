@@ -7,8 +7,12 @@ using FluentAssertions;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -196,6 +200,170 @@ namespace Okta.Sdk.IntegrationTest
             var createEx = await Assert.ThrowsAsync<ApiException>(
                 () => _idpApi.CreateIdentityProviderAsync(badIdp));
             createEx.ErrorCode.Should().Be(400);
+        }
+
+        [Fact]
+        public async Task ReplaceIdentityProviderAsync_WithOidcProtocolFetchedFromApi_DoesNotThrow500()
+        {
+            // Regression test for https://github.com/okta/okta-sdk-dotnet/issues/872.
+            // Calling ReplaceIdentityProviderAsync with an IdentityProvider object returned by
+            // GetIdentityProviderAsync previously caused HTTP 500 because null fields in the
+            // oneOf IdentityProviderProtocol wrapper were incorrectly serialized as explicit nulls
+            // instead of being omitted.
+            string idpId = null;
+            try
+            {
+                // Arrange — create an OIDC IdP
+                var template = CreateTestIdpTemplate("Automated OIDC IdP - NullFieldsRegressionTest");
+                var created = await _idpApi.CreateIdentityProviderAsync(template);
+                idpId = created.Id;
+                idpId.Should().NotBeNullOrEmpty();
+
+                // Act — fetch the IdP and immediately replace it (this was the failing scenario)
+                var fetched = await _idpApi.GetIdentityProviderAsync(idpId);
+                fetched.Name = "Automated OIDC IdP - NullFieldsRegressionTest (updated)";
+
+                // Assert — should succeed without throwing ApiException (HTTP 500)
+                var replaced = await _idpApi.ReplaceIdentityProviderAsync(idpId, fetched);
+                replaced.Should().NotBeNull();
+                replaced.Id.Should().Be(idpId);
+                replaced.Name.Should().Be("Automated OIDC IdP - NullFieldsRegressionTest (updated)");
+            }
+            finally
+            {
+                if (!string.IsNullOrEmpty(idpId))
+                {
+                    try
+                    {
+                        var current = await _idpApi.GetIdentityProviderAsync(idpId);
+                        if (current.Status == LifecycleStatus.ACTIVE)
+                            await _idpApi.DeactivateIdentityProviderAsync(idpId);
+                    }
+                    catch (ApiException) { }
+
+                    try { await _idpApi.DeleteIdentityProviderAsync(idpId); }
+                    catch (ApiException) { }
+                }
+            }
+        }
+
+        [Fact]
+        public async Task CreateSamlIdp_WithoutHonorPersistentNameId_OmitsFieldSoApiDefaultApplies()
+        {
+            // Regression test for https://github.com/okta/okta-sdk-dotnet/issues/896.
+            // honorPersistentNameId is an optional SAML setting whose API default is `true`. It was
+            // generated as a non-nullable `bool`, so the SDK always sent it (defaulting to false),
+            // overriding the API default. Now that it is `bool?`, leaving it unset omits it from the
+            // request and the API applies its own default (true).
+            var keysApi = new IdentityProviderKeysApi();
+            string idpId = null;
+            string kid = null;
+            try
+            {
+                // Arrange — upload a self-signed cert as an IdP key (required for SAML trust).
+                using var rsa = RSA.Create(2048);
+                var req = new CertificateRequest("CN=okta-sdk-dotnet-issue896", rsa, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+                using var cert = req.CreateSelfSigned(DateTimeOffset.UtcNow.AddDays(-1), DateTimeOffset.UtcNow.AddYears(5));
+                var x5c = Convert.ToBase64String(cert.Export(X509ContentType.Cert));
+                var key = await keysApi.CreateIdentityProviderKeyAsync(new IdPCertificateCredential { X5c = new List<string> { x5c } });
+                kid = key.Kid;
+
+                // Act — create a SAML IdP WITHOUT setting HonorPersistentNameId.
+                var created = await _idpApi.CreateIdentityProviderAsync(CreateTestSamlIdpTemplate("Automated SAML IdP - issue896", kid));
+                idpId = created.Id;
+                idpId.Should().NotBeNullOrEmpty();
+
+                // Assert — the API applies its default (true) because the field was omitted.
+                var fetched = await _idpApi.GetIdentityProviderAsync(idpId);
+                var samlProtocol = fetched.Protocol.ActualInstance as ProtocolSaml;
+                samlProtocol.Should().NotBeNull();
+                samlProtocol.Settings.HonorPersistentNameId.Should().Be(true);
+            }
+            finally
+            {
+                if (!string.IsNullOrEmpty(idpId))
+                {
+                    try
+                    {
+                        var current = await _idpApi.GetIdentityProviderAsync(idpId);
+                        if (current.Status == LifecycleStatus.ACTIVE)
+                            await _idpApi.DeactivateIdentityProviderAsync(idpId);
+                    }
+                    catch (ApiException) { }
+                    try { await _idpApi.DeleteIdentityProviderAsync(idpId); }
+                    catch (ApiException) { }
+                }
+                if (!string.IsNullOrEmpty(kid))
+                {
+                    try { await keysApi.DeleteIdentityProviderKeyAsync(kid); }
+                    catch (ApiException) { }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Helper method to generate a valid SAML 2.0 IdentityProvider payload for testing.
+        /// </summary>
+        private IdentityProvider CreateTestSamlIdpTemplate(string name, string kid)
+        {
+            return new IdentityProvider
+            {
+                Type = IdentityProviderType.SAML2,
+                Name = name,
+                Protocol = new IdentityProviderProtocol(new ProtocolSaml
+                {
+                    Type = ProtocolSaml.TypeEnum.SAML2,
+                    Algorithms = new SamlAlgorithms
+                    {
+                        Request = new SamlRequestAlgorithm
+                        {
+                            Signature = new SamlRequestSignatureAlgorithm { Algorithm = SamlSigningAlgorithm._256, Scope = ProtocolAlgorithmRequestScope.REQUEST }
+                        },
+                        Response = new SamlResponseAlgorithm
+                        {
+                            Signature = new SamlResponseSignatureAlgorithm { Algorithm = SamlSigningAlgorithm._256, Scope = ProtocolAlgorithmResponseScope.ANY }
+                        }
+                    },
+                    Endpoints = new SamlEndpoints
+                    {
+                        Sso = new SamlSsoEndpoint
+                        {
+                            Url = "https://idp.example.com/saml2/sso",
+                            Binding = ProtocolEndpointBinding.REDIRECT,
+                            Destination = "https://idp.example.com/saml2/sso"
+                        },
+                        Acs = new SamlAcsEndpoint { Binding = ProtocolEndpointBinding.POST, Type = SamlEndpointType.INSTANCE }
+                    },
+                    Credentials = new SamlCredentials
+                    {
+                        Trust = new SamlTrustCredentials
+                        {
+                            Issuer = "https://idp.example.com/issuer",
+                            Audience = "https://www.okta.com/saml2/service-provider/issue896",
+                            Kid = kid
+                        }
+                    },
+                    // NOTE: deliberately leave Settings.HonorPersistentNameId unset (null).
+                    Settings = new SamlSettings { NameFormat = SamlNameIdFormat._20nameidFormatpersistent }
+                }),
+                Policy = new IdentityProviderPolicy
+                {
+                    Provisioning = new Provisioning
+                    {
+                        Action = "AUTO",
+                        ProfileMaster = false,
+                        Groups = new() { Action = "NONE" },
+                        Conditions = new() { Deprovisioned = new() { Action = "NONE" }, Suspended = new() { Action = "NONE" } }
+                    },
+                    AccountLink = new PolicyAccountLink { Action = "AUTO" },
+                    Subject = new PolicySubject
+                    {
+                        MatchType = "USERNAME",
+                        UserNameTemplate = new PolicyUserNameTemplate { Template = "idpuser.subjectNameId" }
+                    },
+                    MaxClockSkew = 0
+                }
+            };
         }
 
         /// <summary>

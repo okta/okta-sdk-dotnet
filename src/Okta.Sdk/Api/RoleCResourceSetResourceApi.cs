@@ -137,9 +137,10 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resourceSetIdOrLabel">&#x60;id&#x60; or &#x60;label&#x60; of the resource set</param>
+        /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceSetResources</returns>
-        System.Threading.Tasks.Task<ResourceSetResources> ListResourceSetResourcesAsync(  string resourceSetIdOrLabel , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceSetResources> ListResourceSetResourcesAsync(  string resourceSetIdOrLabel ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all resource set resources
         /// </summary>
@@ -148,9 +149,10 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resourceSetIdOrLabel">&#x60;id&#x60; or &#x60;label&#x60; of the resource set</param>
+        /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceSetResources)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceSetResources>> ListResourceSetResourcesWithHttpInfoAsync(  string resourceSetIdOrLabel , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceSetResources>> ListResourceSetResourcesWithHttpInfoAsync(  string resourceSetIdOrLabel ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace the resource set resource conditions
         /// </summary>
@@ -670,11 +672,12 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resourceSetIdOrLabel">&#x60;id&#x60; or &#x60;label&#x60; of the resource set</param>
+        /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceSetResources</returns>
-        public async System.Threading.Tasks.Task<ResourceSetResources> ListResourceSetResourcesAsync(  string resourceSetIdOrLabel , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceSetResources> ListResourceSetResourcesAsync(  string resourceSetIdOrLabel ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<ResourceSetResources> localVarResponse = await ListResourceSetResourcesWithHttpInfoAsync(resourceSetIdOrLabel, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<ResourceSetResources> localVarResponse = await ListResourceSetResourcesWithHttpInfoAsync(resourceSetIdOrLabel, after, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
         /// <summary>
@@ -682,9 +685,10 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resourceSetIdOrLabel">&#x60;id&#x60; or &#x60;label&#x60; of the resource set</param>
+        /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceSetResources)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ResourceSetResources>> ListResourceSetResourcesWithHttpInfoAsync(  string resourceSetIdOrLabel , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<ResourceSetResources>> ListResourceSetResourcesWithHttpInfoAsync(  string resourceSetIdOrLabel ,   string after = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'resourceSetIdOrLabel' is set
             if (resourceSetIdOrLabel == null)
@@ -716,6 +720,10 @@ namespace Okta.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("resourceSetIdOrLabel", Okta.Sdk.Client.ClientUtils.ParameterToString(resourceSetIdOrLabel)); // path parameter
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
 
             // authentication (apiToken) required
             if (Sdk.Client.Configuration.IsSswsMode(this.Configuration) && !string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))

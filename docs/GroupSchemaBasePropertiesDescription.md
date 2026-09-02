@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Scope** | **UserSchemaAttributeScope** | Determines whether a group attribute can be set at the individual or group level | [optional] 
 **Title** | **string** | User-defined display name for the property | [optional] 
 **Type** | **UserSchemaAttributeType** | Type of property | [optional] 
-**Unique** | **bool?** | Determines whether property values must be unique | [optional] 
+**Unique** | **string** | Determines whether property values must be unique. The API returns a string enum (for example, &#x60;UNIQUE_VALIDATED&#x60; or &#x60;NOT_UNIQUE&#x60;). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

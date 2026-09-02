@@ -3,10 +3,13 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Newtonsoft.Json;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
@@ -553,6 +556,137 @@ namespace Okta.Sdk.UnitTest.Api
 
             mockClient.ReceivedQueryParams.Should().ContainKey("expand");
             mockClient.ReceivedQueryParams["expand"].Should().Contain($"user/{_userId}");
+        }
+
+        #endregion
+
+        #region OpenID Connect Application Name Serialization Tests (issue #871)
+
+        // Regression tests for the originally reported https://github.com/okta/okta-sdk-dotnet/issues/871
+        // scenario: creating and then replacing an OpenID Connect application failed with HTTP 400
+        // because the inherited `Name` property was redefined as a string enum and serialized as
+        // `"name":null`, which the Okta API rejects (the `name` key drives `signOnMode`/`settings`).
+        // The `x-override-parent` serialization override (added for OpenIdConnectApplication) omits
+        // the `name` field when unset. These tests pin that behavior on the create and replace paths.
+
+        [Fact]
+        public async Task OpenIdConnectApplication_OnCreate_DoesNotSerializeNullName()
+        {
+            // Arrange
+            var mockClient = new MockAsyncClient(GetOidcAppResponseJson());
+            var appApi = new ApplicationApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            var app = new OpenIdConnectApplication
+            {
+                Label = "Test OIDC App",
+                SignOnMode = "OPENID_CONNECT",
+                Settings = new OpenIdConnectApplicationSettings
+                {
+                    OauthClient = new OpenIdConnectApplicationSettingsClient
+                    {
+                        RedirectUris = ["https://example.com/callback"],
+                        ResponseTypes = [OAuthResponseType.Code],
+                        GrantTypes = [GrantType.AuthorizationCode],
+                        ApplicationType = OpenIdConnectApplicationType.Web
+                    }
+                }
+            };
+
+            // Act
+            await appApi.CreateApplicationAsync(app);
+
+            // Assert - the bug emitted `"name":null`; the fix omits the field entirely.
+            mockClient.ReceivedBody.Should().NotContain("\"name\":null");
+            mockClient.ReceivedBody.Should().Contain("OPENID_CONNECT");
+        }
+
+        [Fact]
+        public async Task OpenIdConnectApplication_OnReplaceRoundTrip_DoesNotSerializeNullName()
+        {
+            // Arrange - simulate the reported flow: modify an existing OIDC app, then replace it.
+            var mockClient = new MockAsyncClient(GetOidcAppResponseJson());
+            var appApi = new ApplicationApi(mockClient, new Configuration { BasePath = BaseUrl });
+
+            var app = new OpenIdConnectApplication
+            {
+                Label = "Updated OIDC App",
+                SignOnMode = "OPENID_CONNECT",
+                Settings = new OpenIdConnectApplicationSettings
+                {
+                    OauthClient = new OpenIdConnectApplicationSettingsClient
+                    {
+                        RedirectUris = ["https://example.com/callback"],
+                        ResponseTypes = [OAuthResponseType.Code],
+                        GrantTypes = [GrantType.AuthorizationCode],
+                        ApplicationType = OpenIdConnectApplicationType.Web
+                    }
+                }
+            };
+
+            // Act
+            await appApi.ReplaceApplicationAsync(_appId, app);
+
+            // Assert - replacing the app must not emit `"name":null`.
+            mockClient.ReceivedBody.Should().NotContain("\"name\":null");
+            mockClient.ReceivedBody.Should().Contain("OPENID_CONNECT");
+            mockClient.ReceivedBody.Should().Contain("Updated OIDC App");
+        }
+
+        #endregion
+
+        #region Application Name Serialization Tests (issue #871)
+
+        // Regression tests for https://github.com/okta/okta-sdk-dotnet/issues/871.
+        // OIN catalog application types (Google, Office365, Org2Org, Salesforce, Slack,
+        // TrendMicroApexOneService, ZoomUs, Zscalerbyz) redefine the inherited `Name`
+        // property as a string enum. Without the `x-override-parent` serialization
+        // override they emitted `"name":null`, which the Okta API rejects (the `name`
+        // key drives `signOnMode`/`settings.signOn`), producing create/replace failures.
+        // These tests verify the override: `name` is omitted when unset and serialized
+        // as the plain string enum value when set.
+
+        public static IEnumerable<object[]> OinApplicationFactories()
+        {
+            yield return new object[] { "google", (Func<string, object>)(label => new GoogleApplication { Label = label }) };
+            yield return new object[] { "office365", (Func<string, object>)(label => new Office365Application { Label = label }) };
+            yield return new object[] { "okta_org2org", (Func<string, object>)(label => new Org2OrgApplication { Label = label }) };
+            yield return new object[] { "salesforce", (Func<string, object>)(label => new SalesforceApplication { Label = label }) };
+            yield return new object[] { "slack", (Func<string, object>)(label => new SlackApplication { Label = label }) };
+            yield return new object[] { "trendmicroapexoneservice", (Func<string, object>)(label => new TrendMicroApexOneServiceApplication { Label = label }) };
+            yield return new object[] { "zoomus", (Func<string, object>)(label => new ZoomUsApplication { Label = label }) };
+            yield return new object[] { "zscalerbyz", (Func<string, object>)(label => new ZscalerbyzApplication { Label = label }) };
+        }
+
+        [Theory]
+        [MemberData(nameof(OinApplicationFactories))]
+        public void OinApplication_WithoutName_DoesNotSerializeNullName(string nameKey, Func<string, object> factory)
+        {
+            var app = factory("Test App");
+
+            var json = JsonConvert.SerializeObject(app);
+
+            // The bug emitted `"name":null`; the fix omits it instead.
+            json.Should().NotContain("\"name\":null", $"{nameKey} app must not serialize a null name");
+        }
+
+        [Theory]
+        [MemberData(nameof(OinApplicationFactories))]
+        public void OinApplication_WithName_SerializesNameAsStringValue(string nameKey, Func<string, object> factory)
+        {
+            // Set the Name to the catalog key via reflection (the property type is a
+            // per-class NameEnum that implicitly converts from string).
+            var app = factory("Test App");
+            var nameProp = app.GetType().GetProperty("Name");
+            nameProp.Should().NotBeNull();
+            var nameEnumType = nameProp!.PropertyType;
+            var nameValue = System.Activator.CreateInstance(nameEnumType, nameKey);
+            nameProp.SetValue(app, nameValue);
+
+            var json = JsonConvert.SerializeObject(app);
+
+            // Should serialize the plain string value, not an object/null.
+            json.Should().Contain($"\"name\":\"{nameKey}\"");
+            json.Should().NotContain("\"name\":null");
         }
 
         #endregion

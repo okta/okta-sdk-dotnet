@@ -40,10 +40,11 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets Resend
+        /// Resends the factor enrollment challenge. See [Resend a factor enrollment](/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/resendEnrollFactor).
         /// </summary>
+        /// <value>Resends the factor enrollment challenge. See [Resend a factor enrollment](/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/resendEnrollFactor).</value>
         [DataMember(Name = "resend", EmitDefaultValue = true)]
-        public LinksResendResend Resend { get; set; }
+        public List<HrefObject> Resend { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,8 +92,9 @@ namespace Okta.Sdk.Model
             return 
                 (
                     this.Resend == input.Resend ||
-                    (this.Resend != null &&
-                    this.Resend.Equals(input.Resend))
+                    this.Resend != null &&
+                    input.Resend != null &&
+                    this.Resend.SequenceEqual(input.Resend)
                 );
         }
 

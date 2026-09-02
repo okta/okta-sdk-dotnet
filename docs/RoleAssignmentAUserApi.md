@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 <a name="getroleassignmentgovernancegrantresources"></a>
 # **GetRoleAssignmentGovernanceGrantResources**
-> RoleGovernanceResources GetRoleAssignmentGovernanceGrantResources (string userId, string roleAssignmentId, string grantId)
+> RoleGovernanceResources GetRoleAssignmentGovernanceGrantResources (string userId, string roleAssignmentId, string grantId, string after = null)
 
 Retrieve the user role governance source resources
 
@@ -214,11 +214,12 @@ namespace Example
             var userId = 00ub0oNGTSWTBKOLGLNR;  // string | ID of an existing Okta user
             var roleAssignmentId = JBCUYUC7IRCVGS27IFCE2SKO;  // string | The `id` of the role assignment
             var grantId = iJoqkwx50mrgX4T9LcaH;  // string | Grant ID
+            var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional) 
 
             try
             {
                 // Retrieve the user role governance source resources
-                RoleGovernanceResources result = apiInstance.GetRoleAssignmentGovernanceGrantResources(userId, roleAssignmentId, grantId);
+                RoleGovernanceResources result = apiInstance.GetRoleAssignmentGovernanceGrantResources(userId, roleAssignmentId, grantId, after);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -239,6 +240,7 @@ Name | Type | Description  | Notes
  **userId** | **string**| ID of an existing Okta user | 
  **roleAssignmentId** | **string**| The &#x60;id&#x60; of the role assignment | 
  **grantId** | **string**| Grant ID | 
+ **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). | [optional] 
 
 ### Return type
 

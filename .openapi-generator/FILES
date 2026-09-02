@@ -832,7 +832,6 @@ docs/LinksQrcodeQrcode.md
 docs/LinksQuestions.md
 docs/LinksQuestionsQuestion.md
 docs/LinksResend.md
-docs/LinksResendResend.md
 docs/LinksSelf.md
 docs/LinksSelfAndFullUsersLifecycle.md
 docs/LinksSelfAndLifecycle.md
@@ -1950,6 +1949,7 @@ src/Okta.Sdk/Api/RoleBTargetBGroupApi.cs
 src/Okta.Sdk/Api/RoleBTargetClientApi.cs
 src/Okta.Sdk/Api/RoleCResourceSetApi.cs
 src/Okta.Sdk/Api/RoleCResourceSetResourceApi.cs
+src/Okta.Sdk/Api/RoleCollectionExtensions.cs
 src/Okta.Sdk/Api/RoleDResourceSetBindingApi.cs
 src/Okta.Sdk/Api/RoleDResourceSetBindingMemberApi.cs
 src/Okta.Sdk/Api/RoleECustomApi.cs
@@ -2791,7 +2791,6 @@ src/Okta.Sdk/Model/LinksQrcodeQrcode.cs
 src/Okta.Sdk/Model/LinksQuestions.cs
 src/Okta.Sdk/Model/LinksQuestionsQuestion.cs
 src/Okta.Sdk/Model/LinksResend.cs
-src/Okta.Sdk/Model/LinksResendResend.cs
 src/Okta.Sdk/Model/LinksSelf.cs
 src/Okta.Sdk/Model/LinksSelfAndFullUsersLifecycle.cs
 src/Okta.Sdk/Model/LinksSelfAndLifecycle.cs
