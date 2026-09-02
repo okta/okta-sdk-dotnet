@@ -43,7 +43,9 @@ namespace {{packageName}}.Client
                 throw new ArgumentNullException("The Okta configuration cannot be null.");
             }
 
-            if (!_supportedKeys.Contains(configuration.PrivateKey?.Kty))
+            // Credentials supplied directly carry their own algorithm, so there is no kty to check. This is
+            // how a key that never leaves a TPM or an HSM is used (see issue #864).
+            if (configuration.PrivateKeySigningCredentials == null && !_supportedKeys.Contains(configuration.PrivateKey?.Kty))
             {
                 throw new NotSupportedException($"The kty {configuration.PrivateKey?.Kty} is not supported. Use 'EC' or 'RSA'.");
             }
@@ -58,6 +60,13 @@ namespace {{packageName}}.Client
         /// <returns>A <c>SigningCredentials</c> instance. </returns>
         private SigningCredentials GetSigningCredentials(JsonWebKeyConfiguration jsonWebKeyConfiguration)
         {
+            // Credentials the caller supplied win: the whole point is that the key material behind them is
+            // never available as a JWK.
+            if (_configuration.PrivateKeySigningCredentials != null)
+            {
+                return _configuration.PrivateKeySigningCredentials;
+            }
+
             var jsonWebKey = new Microsoft.IdentityModel.Tokens.JsonWebKey(JsonConvert.SerializeObject(jsonWebKeyConfiguration));
 
             return new SigningCredentials(jsonWebKey, GetSecurityAlgorithm(jsonWebKeyConfiguration.Kty));

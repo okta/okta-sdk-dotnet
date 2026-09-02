@@ -11,6 +11,8 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using Okta.Sdk.Abstractions.Configuration.Providers.EnvironmentVariables;
 using Okta.Sdk.Abstractions.Configuration.Providers.Object;
 using Okta.Sdk.Abstractions.Configuration.Providers.Yaml;
@@ -206,9 +208,30 @@ namespace {{packageName}}.Client
         private bool _authorizationModeAssigned;
 
         /// <summary>
-        /// Gets or sets the private key. Required when AuthorizationMode is equal to PrivateKey.
+        /// Gets or sets the private key. Required when AuthorizationMode is equal to PrivateKey, unless
+        /// <see cref="PrivateKeySigningCredentials"/> is set.
         /// </summary>
         public JsonWebKeyConfiguration PrivateKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets the credentials used to sign the client assertion JWT, as an alternative to
+        /// <see cref="PrivateKey"/>. Takes precedence over <see cref="PrivateKey"/> when both are set.
+        /// </summary>
+        /// <remarks>
+        /// Use this to authenticate with a private key that never enters the process as key material, so it
+        /// cannot be read out of <c>okta.yaml</c> or <c>appsettings.json</c>. Any <c>SecurityKey</c> whose
+        /// signing is delegated to the key's owner works, including a TPM-backed key opened through a Windows
+        /// Key Storage Provider:
+        /// <code>
+        /// var cngKey = CngKey.Open("my-okta-key", new CngProvider("Microsoft Platform Crypto Provider"));
+        /// configuration.PrivateKeySigningCredentials =
+        ///     new SigningCredentials(new RsaSecurityKey(new RSACng(cngKey)), SecurityAlgorithms.RsaSha256);
+        /// </code>
+        /// The same applies to a hardware security module, a non-exportable <c>X509Certificate2</c>, or a
+        /// cloud key store. This value is deliberately not read from or written to configuration files.
+        /// </remarks>
+        [JsonIgnore]
+        public SigningCredentials PrivateKeySigningCredentials { get; set; }
 
         /// <summary>
         /// Gets or sets the client id. Required when AuthorizationMode is equal to PrivateKey.
@@ -352,9 +375,9 @@ namespace {{packageName}}.Client
                         "Replace {clientId} with the client ID of your Application. You can copy it from the Okta Developer Console in the details for the Application you created. Follow these instructions to find it: https://bit.ly/finding-okta-app-credentials");
                 }
 
-                if (configuration.PrivateKey == null)
+                if (configuration.PrivateKey == null && configuration.PrivateKeySigningCredentials == null)
                 {
-                    throw new ArgumentNullException(nameof(configuration.PrivateKey), "Your private key is missing.");
+                    throw new ArgumentNullException(nameof(configuration.PrivateKey), "Your private key is missing. Set PrivateKey, or set PrivateKeySigningCredentials to sign with a key held outside configuration.");
                 }
 
                 if (configuration.Scopes == null || configuration.Scopes.Count == 0)
@@ -924,6 +947,7 @@ namespace {{packageName}}.Client
                 ClientId = second.ClientId ?? first.ClientId,
                 Scopes = second.Scopes ?? first.Scopes,
                 PrivateKey = second.PrivateKey ?? first.PrivateKey,
+                PrivateKeySigningCredentials = second.PrivateKeySigningCredentials ?? first.PrivateKeySigningCredentials,
                 DisableOktaDomainCheck = second.DisableOktaDomainCheck ?? first.DisableOktaDomainCheck,
                 DisableHttpsCheck = second.DisableHttpsCheck ?? first.DisableHttpsCheck,
                 UseProxy = second.UseProxy ?? first.UseProxy,
@@ -995,6 +1019,13 @@ namespace {{packageName}}.Client
             configBuilder.Build().GetSection("okta").GetSection("client").Bind(compiledConfig);
             configBuilder.Build().GetSection("okta").GetSection("testing").Bind(compiledConfig);
             configBuilder.Build().Bind(compiledConfig);
+
+            // Signing credentials are deliberately kept out of the configuration providers, so they have
+            // to be carried across by hand (see issue #864).
+            if (configuration?.PrivateKeySigningCredentials != null)
+            {
+                compiledConfig.PrivateKeySigningCredentials = configuration.PrivateKeySigningCredentials;
+            }
 
             return compiledConfig;
         }
