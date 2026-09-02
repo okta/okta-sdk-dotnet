@@ -13,6 +13,7 @@ using Xunit;
 
 namespace Okta.Sdk.UnitTest.Client
 {
+    [Collection(WorkingDirectoryCollection.Name)]
     public class OktaConfigurationShould
     {
         [Fact]

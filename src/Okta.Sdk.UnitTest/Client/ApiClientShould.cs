@@ -22,6 +22,7 @@ using RichardSzalay.MockHttp;
 
 namespace Okta.Sdk.UnitTest.Client
 {
+    [Collection(WorkingDirectoryCollection.Name)]
     public class ApiClientShould
     {
         [Fact]
