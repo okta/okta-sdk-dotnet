@@ -1,6 +1,41 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 10.1.0
+
+### Features
+
+| Issue | Request | Implementation |
+|-------|---------|----------------|
+| [#863](https://github.com/okta/okta-sdk-dotnet/issues/863) | One process cannot talk to more than one org, because the configuration file locations are fixed | `Configuration.GetConfigurationOrDefault` accepts the path of a YAML or JSON file, whose values outrank both the conventional locations and the `OKTA_*` environment variables |
+| [#864](https://github.com/okta/okta-sdk-dotnet/issues/864) | The private key has to be readable by the process, so it cannot stay in a TPM or HSM | Added `Configuration.PrivateKeySigningCredentials`, which signs the client assertion through a key the SDK never holds |
+| [#862](https://github.com/okta/okta-sdk-dotnet/issues/862) | Role and Governance list methods return a wrapped collection, so they cannot be enumerated | Added `ListAll...Async` auto-paging `IAsyncEnumerable` extensions in `RoleCollectionExtensions` |
+
+### Bug Fixes
+
+| Issue | Problem | Fix |
+|-------|---------|-----|
+| [#899](https://github.com/okta/okta-sdk-dotnet/issues/899) | A `Configuration` passed in to override one property replaced everything the configuration file had set | Only the values explicitly set on it override the files; constructor defaults are no longer treated as caller intent |
+| [#897](https://github.com/okta/okta-sdk-dotnet/issues/897) | `GroupApi.ListGroupUsers` is missing the `search` query parameter | Added `search` to the operation |
+| [#896](https://github.com/okta/okta-sdk-dotnet/issues/896) | `IdentityProviderApi.CreateIdentityProviderAsync` defaults to a property that cannot be edited through the API | Stopped sending the read-only property |
+| [#875](https://github.com/okta/okta-sdk-dotnet/issues/875) | The DPoP proof `htu` claim included the query string, so paged enumeration failed after the first page | Build `htu` from the request path only, per RFC 9449 |
+| [#874](https://github.com/okta/okta-sdk-dotnet/issues/874) | `ListFactors(userId)` returns no factors for any user | Fixed the factor collection deserialization |
+| [#873](https://github.com/okta/okta-sdk-dotnet/issues/873) | `SchemaApi.GetGroupSchemaAsync` does not return the schema properly | Fixed the group schema deserialization |
+| [#872](https://github.com/okta/okta-sdk-dotnet/issues/872) | `IdentityProviderApi.ReplaceIdentityProviderAsync` and `CreateIdentityProviderAsync` return an 'Internal Server Error' | Corrected the identity provider request body |
+| [#871](https://github.com/okta/okta-sdk-dotnet/issues/871) | `ApplicationApi.ReplaceApplicationAsync` and `CreateApplicationAsync` return an 'Internal Server Error' | Corrected the application request body |
+| [#882](https://github.com/okta/okta-sdk-dotnet/issues/882) | Method names in the migration guides and README do not match the v10 API | Audited and corrected the names against the generated source |
+| [#795](https://github.com/okta/okta-sdk-dotnet/issues/795) | Errors from a paged list named the enumerator class instead of the endpoint that failed, and an authorization failure with an empty body said nothing at all | Errors name the endpoint, and fall back to the `WWW-Authenticate` header when the body is empty |
+| - | `CreatePolicyAsync` and `ReplacePolicyAsync` could not accept `PasswordPolicy`, `OktaSignOnPolicy`, or any other `Policy` subtype | Restored `Policy` as the request body ([#883](https://github.com/okta/okta-sdk-dotnet/pull/883)) |
+
+### Changes
+
+- Added integration and unit tests for the Device, AgentPools, Identity Provider, Brands/Themes/Templates, CustomDomain/CustomTemplates/CustomPages/AssociatedDomainCustomizations, EmailCustomization/OktaPersonalSettings/UISchema, Roles & Permissions, LinkedObject, and IdentitySource APIs
+- Documented the caller-supplied configuration file, `PrivateKeySigningCredentials`, and the auto-paging role extensions in the README
+- Serialized the unit test classes that read or change the ambient configuration, which were racing on the working directory and on the `OKTA_*` environment variables
+- `ClientUtils.SanitizeFilename` uses a string search rather than a regular expression
+- The Snyk scan job installs the .NET SDK so its runtime resolution can run
+- Updated `.gitignore`
+
 ## 10.0.3
 
 ### Bug Fixes
