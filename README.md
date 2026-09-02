@@ -377,6 +377,26 @@ var configuration = new Configuration
 var oauthAppsApi = new ApplicationApi(configuration);
 ```
 
+### Keeping the private key out of the process
+
+Both examples above hand the SDK the key material itself, which means it has to exist somewhere readable - in `okta.yaml`, in `appsettings.json`, or in a string in memory. If the key lives somewhere that signs on your behalf without surrendering it, such as a TPM, a hardware security module, or a non-exportable certificate, set `PrivateKeySigningCredentials` instead of `PrivateKey` and the SDK signs the client assertion through it:
+
+```csharp
+var cngKey = CngKey.Open("my-okta-key", new CngProvider("Microsoft Platform Crypto Provider"));
+
+var configuration = new Configuration
+{
+    OktaDomain = "https://{{yourOktaDomain}}",
+    AuthorizationMode = AuthorizationMode.PrivateKey,
+    ClientId = "{{clientId}}",
+    Scopes = new HashSet<string> { "okta.users.read" },
+    PrivateKeySigningCredentials =
+        new SigningCredentials(new RsaSecurityKey(new RSACng(cngKey)), SecurityAlgorithms.RsaSha256),
+};
+```
+
+Any `SigningCredentials` works, so the same applies to an `X509Certificate2` whose key cannot be exported or to a key held in a cloud key store. `PrivateKeySigningCredentials` takes precedence over `PrivateKey` when both are set, and it is deliberately never read from or written to a configuration file.
+
 It is possible to use an access token you retrieved outside of the SDK for authentication. For that, set `Configuration.AuthorizationMode` configuration property to `AuthorizationMode.BearerToken` and `Configuration.AccessToken` to the token string.
 
 > Note: Starting from 8.x series the Okta management SDK added support for DPoP. If the SDK detects the application has DPoP enabled, it will silently proceed to obtain a DPoP-bound access token, and will generate a new DPoP Proof JWT for every request. There's no additional configuration required for developers.
@@ -574,6 +594,17 @@ while (await enumerator.MoveNextAsync())
 }
 ```
 
+A few endpoints return their collection wrapped in an object with a `Value` property rather than as a bare array, so their list methods return a single page and a cursor instead of a collection you can enumerate. `RoleCollectionExtensions` adds a `ListAll...Async` extension for each of those, which follows the cursor for you:
+
+```csharp
+await foreach (var role in new RoleECustomApi(configuration).ListAllRolesAsync())
+{
+    // Pages are fetched as you go.
+}
+```
+
+The extensions cover roles, resource sets, resource-set bindings and members, entitlement bundles, and role-assignment governance grants.
+
 > Note: For more API samples checkout our [tests](https://github.com/okta/okta-sdk-dotnet/tree/master/src/Okta.Sdk.IntegrationTest)
 
 ## Rate Limiting
@@ -619,11 +650,25 @@ This library looks for configuration in the following sources:
 2. An `appsettings.json` file in the application or project's root directory
 3. An `okta.yaml` file in a `.okta` folder in the application or project's root directory
 4. Environment variables
-5. Configuration explicitly passed to the constructor (see the example in [Getting started](#getting-started))
+5. A configuration file you name yourself (see [Naming a configuration file](#naming-a-configuration-file))
+6. Configuration explicitly passed to the constructor (see the example in [Getting started](#getting-started))
  
 Higher numbers win. In other words, configuration passed via the constructor will override configuration found in environment variables, which will override configuration in `okta.yaml` (if any), and so on.
 
+Only the properties you actually set on a `Configuration` you pass in are treated as overrides. A property left at the value the constructor gave it does not replace what a configuration file said, so `new Configuration { AccessToken = "..." }` changes the access token and leaves the rest of the file in place.
+
 Note that `json` files cannot be used if they contain JavaScript comments. Comments are not allowed by JSON format.
+
+### Naming a configuration file
+
+A process that talks to more than one org needs more than one set of credentials, so `Configuration.GetConfigurationOrDefault` also takes the path of a YAML or JSON file to read:
+
+```csharp
+var org1 = new UserApi(Configuration.GetConfigurationOrDefault(null, "okta.org1.yaml"));
+var org2 = new UserApi(Configuration.GetConfigurationOrDefault(null, "okta.org2.yaml"));
+```
+
+The path may be relative to the working directory or absolute, and the file has the same shape as `okta.yaml`. Naming a file is as deliberate as setting a property in code, so its values outrank both the conventional locations above and the `OKTA_*` environment variables; anything the file leaves out still comes from those. Unlike the conventional locations, which are optional by convention, a path that does not exist throws `FileNotFoundException` rather than quietly falling back to a different org.
 
 ### YAML configuration
  
