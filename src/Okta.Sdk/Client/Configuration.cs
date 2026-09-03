@@ -25,6 +25,8 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using Okta.Sdk.Abstractions.Configuration.Providers.EnvironmentVariables;
 using Okta.Sdk.Abstractions.Configuration.Providers.Object;
 using Okta.Sdk.Abstractions.Configuration.Providers.Yaml;
@@ -42,7 +44,7 @@ namespace Okta.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "10.0.3";
+        public const string Version = "10.1.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -194,15 +196,56 @@ namespace Okta.Sdk.Client
         /// </value>
         public int? MaxRetries { get; set; } = DefaultMaxRetries;
         
+        private AuthorizationMode? _authorizationMode = Client.AuthorizationMode.SSWS;
+
         /// <summary>
         /// Gets or sets the authorization mode.
         /// </summary>
-        public AuthorizationMode? AuthorizationMode { get; set; } = Client.AuthorizationMode.SSWS;
+        public AuthorizationMode? AuthorizationMode
+        {
+            get { return _authorizationMode; }
+            set
+            {
+                _authorizationMode = value;
+
+                // SSWS is both the default and a mode callers deliberately choose, so an assignment
+                // cannot be told apart from the default by comparing values. Record it, so
+                // GetConfigurationOrDefault knows the caller meant it (see issue #899).
+                _authorizationModeAssigned = true;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the private key. Required when AuthorizationMode is equal to PrivateKey.
+        /// Whether <see cref="AuthorizationMode"/> was assigned after construction. Cleared at the end
+        /// of the default constructor so its own assignment does not count.
+        /// </summary>
+        private bool _authorizationModeAssigned;
+
+        /// <summary>
+        /// Gets or sets the private key. Required when AuthorizationMode is equal to PrivateKey, unless
+        /// <see cref="PrivateKeySigningCredentials"/> is set.
         /// </summary>
         public JsonWebKeyConfiguration PrivateKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets the credentials used to sign the client assertion JWT, as an alternative to
+        /// <see cref="PrivateKey"/>. Takes precedence over <see cref="PrivateKey"/> when both are set.
+        /// </summary>
+        /// <remarks>
+        /// Use this to authenticate with a private key that never enters the process as key material, so it
+        /// cannot be read out of <c>okta.yaml</c> or <c>appsettings.json</c>. Any <c>SecurityKey</c> whose
+        /// signing is delegated to the key's owner works, including a TPM-backed key opened through a Windows
+        /// Key Storage Provider:
+        /// <code>
+        /// var cngKey = CngKey.Open("my-okta-key", new CngProvider("Microsoft Platform Crypto Provider"));
+        /// configuration.PrivateKeySigningCredentials =
+        ///     new SigningCredentials(new RsaSecurityKey(new RSACng(cngKey)), SecurityAlgorithms.RsaSha256);
+        /// </code>
+        /// The same applies to a hardware security module, a non-exportable <c>X509Certificate2</c>, or a
+        /// cloud key store. This value is deliberately not read from or written to configuration files.
+        /// </remarks>
+        [JsonIgnore]
+        public SigningCredentials PrivateKeySigningCredentials { get; set; }
 
         /// <summary>
         /// Gets or sets the client id. Required when AuthorizationMode is equal to PrivateKey.
@@ -339,9 +382,9 @@ namespace Okta.Sdk.Client
                         "Replace {clientId} with the client ID of your Application. You can copy it from the Okta Developer Console in the details for the Application you created. Follow these instructions to find it: https://bit.ly/finding-okta-app-credentials");
                 }
 
-                if (configuration.PrivateKey == null)
+                if (configuration.PrivateKey == null && configuration.PrivateKeySigningCredentials == null)
                 {
-                    throw new ArgumentNullException(nameof(configuration.PrivateKey), "Your private key is missing.");
+                    throw new ArgumentNullException(nameof(configuration.PrivateKey), "Your private key is missing. Set PrivateKey, or set PrivateKeySigningCredentials to sign with a key held outside configuration.");
                 }
 
                 if (configuration.Scopes == null || configuration.Scopes.Count == 0)
@@ -435,6 +478,10 @@ namespace Okta.Sdk.Client
             // Setting Timeout has side effects (forces ApiClient creation).
             Timeout = 100000;
             AuthorizationMode = Client.AuthorizationMode.SSWS;
+
+            // Everything above is a default, not a caller's choice. Constructors that chain to this
+            // one and then assign AuthorizationMode themselves mark it again.
+            _authorizationModeAssigned = false;
         }
 
         /// <summary>
@@ -790,7 +837,7 @@ namespace Okta.Sdk.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 5.1.0\n";
-            report += "    SDK Package Version: 10.0.3\n";
+            report += "    SDK Package Version: 10.1.0\n";
 
             return report;
         }
@@ -859,6 +906,7 @@ namespace Okta.Sdk.Client
                 ClientId = second.ClientId ?? first.ClientId,
                 Scopes = second.Scopes ?? first.Scopes,
                 PrivateKey = second.PrivateKey ?? first.PrivateKey,
+                PrivateKeySigningCredentials = second.PrivateKeySigningCredentials ?? first.PrivateKeySigningCredentials,
                 DisableOktaDomainCheck = second.DisableOktaDomainCheck ?? first.DisableOktaDomainCheck,
                 DisableHttpsCheck = second.DisableHttpsCheck ?? first.DisableHttpsCheck,
                 UseProxy = second.UseProxy ?? first.UseProxy,
@@ -872,6 +920,33 @@ namespace Okta.Sdk.Client
         /// <param name="configuration">The configuration to use, or null to create a default configuration.</param>
         /// <returns>The specified configuration or a new default configuration.</returns>
         public static Configuration GetConfigurationOrDefault(Configuration configuration = null)
+        {
+            return GetConfigurationOrDefault(configuration, null);
+        }
+
+        /// <summary>
+        /// Gets the specified configuration or creates a default configuration from environment and configuration files,
+        /// optionally reading an additional configuration file from a caller-supplied path.
+        /// </summary>
+        /// <remarks>
+        /// Properties set on <paramref name="configuration"/> take precedence over every configuration file. A property
+        /// that still holds the value a newly constructed <see cref="Configuration"/> would give it is treated as unset,
+        /// so passing <c>new Configuration { AccessToken = "..." }</c> overrides only the access token and leaves the
+        /// rest of the file intact. <see cref="AuthorizationMode"/> is exempt from that comparison because its default is
+        /// also a deliberate choice, so assigning <see cref="Client.AuthorizationMode.SSWS"/> always wins. For the
+        /// remaining properties, assigning the default value leaves the configuration file's value in place; set those
+        /// through the environment or on the returned object if you need to force the default.
+        /// </remarks>
+        /// <param name="configuration">The configuration to use, or null to create a default configuration.</param>
+        /// <param name="configurationFilePath">
+        /// The path to an additional YAML or JSON configuration file to read, or null to read only the default
+        /// locations. Useful for switching between orgs, for example <c>okta.org1.yaml</c> and <c>okta.org2.yaml</c>.
+        /// Values in this file take precedence over the default file locations and over environment variables,
+        /// and are in turn overridden by <paramref name="configuration"/>.
+        /// </param>
+        /// <exception cref="FileNotFoundException">Thrown when <paramref name="configurationFilePath"/> does not exist.</exception>
+        /// <returns>The specified configuration or a new default configuration.</returns>
+        public static Configuration GetConfigurationOrDefault(Configuration configuration, string configurationFilePath)
         {
             string configurationFileRoot = Directory.GetCurrentDirectory();
 
@@ -887,19 +962,142 @@ namespace Okta.Sdk.Client
                 .AddJsonFile(environmentAppSettingsLocation, optional: true)
                 .AddYamlFile(applicationOktaYamlLocation, optional: true)
                 .AddEnvironmentVariables("okta", "_", root: "okta")
-                .AddEnvironmentVariables("okta_testing", "_", root: "okta")
-                .AddObject(configuration, root: "okta:client")
-                .AddObject(configuration, root: "okta:testing")
-                .AddObject(configuration);
+                .AddEnvironmentVariables("okta_testing", "_", root: "okta");
+
+            // Naming a file is as deliberate as setting a property in code, so it outranks the ambient
+            // environment. Were it the other way round, an OKTA_CLIENT_* variable left in the environment
+            // would pull every per-org file back to the same org, or pair one org's domain with another
+            // org's token, defeating the point of asking for the file by name (see issue #863).
+            AddCallerSuppliedFile(configBuilder, configurationFilePath);
+
+            configBuilder
+                // Only the values the caller actually set may override the files. Adding the object
+                // itself would also apply its constructor defaults, discarding file values the
+                // caller never meant to touch (see issue #899).
+                .AddInMemoryCollection(GetExplicitlySetValues(configuration, "okta:client"))
+                .AddInMemoryCollection(GetExplicitlySetValues(configuration, "okta:testing"))
+                .AddInMemoryCollection(GetExplicitlySetValues(configuration, null));
 
             var compiledConfig = new Configuration();
             configBuilder.Build().GetSection("okta").GetSection("client").Bind(compiledConfig);
             configBuilder.Build().GetSection("okta").GetSection("testing").Bind(compiledConfig);
             configBuilder.Build().Bind(compiledConfig);
 
+            // Signing credentials are deliberately kept out of the configuration providers, so they have
+            // to be carried across by hand (see issue #864).
+            if (configuration?.PrivateKeySigningCredentials != null)
+            {
+                compiledConfig.PrivateKeySigningCredentials = configuration.PrivateKeySigningCredentials;
+            }
+
             return compiledConfig;
         }
-        
+
+        /// <summary>
+        /// Adds a caller-supplied configuration file to the builder, choosing the provider from the file extension.
+        /// </summary>
+        /// <param name="configBuilder">The builder to add the file to.</param>
+        /// <param name="configurationFilePath">The path to the file, or null to add nothing.</param>
+        /// <exception cref="FileNotFoundException">Thrown when the file does not exist.</exception>
+        private static void AddCallerSuppliedFile(IConfigurationBuilder configBuilder, string configurationFilePath)
+        {
+            if (string.IsNullOrWhiteSpace(configurationFilePath))
+            {
+                return;
+            }
+
+            var fullPath = Path.GetFullPath(configurationFilePath);
+
+            // The default locations are optional because they are conventions. This path was asked
+            // for by name, so failing loudly beats silently falling back to a different org.
+            if (!File.Exists(fullPath))
+            {
+                throw new FileNotFoundException($"The configuration file '{fullPath}' was not found.", fullPath);
+            }
+
+            if (Path.GetExtension(fullPath).Equals(".json", StringComparison.OrdinalIgnoreCase))
+            {
+                configBuilder.AddJsonFile(fullPath, optional: false);
+            }
+            else
+            {
+                configBuilder.AddYamlFile(fullPath, optional: false);
+            }
+        }
+
+        /// <summary>
+        /// Projects <paramref name="configuration"/> into configuration keys, keeping only the values that differ from
+        /// those of a newly constructed <see cref="Configuration"/>.
+        /// </summary>
+        /// <remarks>
+        /// The default constructor populates properties such as <see cref="OktaDomain"/>, <see cref="AuthorizationMode"/>,
+        /// <see cref="ConnectionTimeout"/>, <see cref="MaxRetries"/> and <see cref="UserAgent"/>. Those values are
+        /// indistinguishable from caller intent once the object is built, so anything still matching them is dropped
+        /// rather than allowed to override a configuration file.
+        /// </remarks>
+        /// <param name="configuration">The caller-supplied configuration, or null.</param>
+        /// <param name="root">The configuration section to place the values under, or null for the root.</param>
+        /// <returns>The keys and values to layer over the configuration files.</returns>
+        private static IEnumerable<KeyValuePair<string, string>> GetExplicitlySetValues(Configuration configuration, string root)
+        {
+            var explicitlySetValues = new List<KeyValuePair<string, string>>();
+
+            if (configuration == null)
+            {
+                return explicitlySetValues;
+            }
+
+            var supplied = BuildObjectConfiguration(configuration, root);
+            var defaults = BuildObjectConfiguration(new Configuration(), root);
+
+            foreach (var setting in supplied.AsEnumerable())
+            {
+                if (setting.Value == null)
+                {
+                    continue;
+                }
+
+                if (string.Equals(setting.Value, defaults[setting.Key], StringComparison.Ordinal)
+                    && !WasAssignedDespiteMatchingDefault(configuration, setting.Key))
+                {
+                    continue;
+                }
+
+                explicitlySetValues.Add(setting);
+            }
+
+            return explicitlySetValues;
+        }
+
+        /// <summary>
+        /// A value equal to the default is normally treated as unset, which is harmless for the tuning
+        /// knobs but not for a property whose default is itself a choice. Those track their own
+        /// assignment, because dropping one would silently switch to the configuration file's value.
+        /// </summary>
+        /// <param name="configuration">The caller-supplied configuration.</param>
+        /// <param name="key">The configuration key to test.</param>
+        /// <returns>True when the caller assigned the property even though it matches the default.</returns>
+        private static bool WasAssignedDespiteMatchingDefault(Configuration configuration, string key)
+        {
+            var propertyName = key.Substring(key.LastIndexOf(':') + 1);
+
+            return string.Equals(propertyName, nameof(AuthorizationMode), StringComparison.Ordinal)
+                && configuration._authorizationModeAssigned;
+        }
+
+        /// <summary>
+        /// Builds a configuration root containing only the properties of the given configuration object.
+        /// </summary>
+        /// <param name="configuration">The configuration object to read.</param>
+        /// <param name="root">The configuration section to place the values under, or null for the root.</param>
+        /// <returns>A configuration root over the object's properties.</returns>
+        private static IConfigurationRoot BuildObjectConfiguration(Configuration configuration, string root)
+        {
+            return root == null
+                ? new ConfigurationBuilder().AddObject(configuration).Build()
+                : new ConfigurationBuilder().AddObject(configuration, root: root).Build();
+        }
+
         #endregion Static Members
     }
     

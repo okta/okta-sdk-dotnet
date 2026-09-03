@@ -58,6 +58,8 @@ namespace Okta.Sdk.Client
         private readonly CancellationToken _cancellationToken;
         private readonly IReadableConfiguration _configuration;
         private readonly IOAuthTokenProvider _oAuthTokenProvider;
+        private readonly Multimap<string, string> _initialQueryParameters;
+        private readonly string _initialPath;
         private Okta.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
@@ -93,7 +95,12 @@ namespace Okta.Sdk.Client
             }
 
             _nextRequest = initialRequest ?? throw new ArgumentNullException(nameof(initialRequest));
+            _initialQueryParameters = initialRequest.QueryParameters;
             _nextPath = path;
+
+            // Kept separately from _nextPath, which is replaced by the absolute 'next' link as
+            // paging advances, so errors always name the endpoint the caller asked for.
+            _initialPath = path;
             _client = client ?? throw new ArgumentNullException(nameof(client));
             _cancellationToken = cancellationToken;
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
@@ -141,7 +148,9 @@ namespace Okta.Sdk.Client
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory(nameof(OktaPagedCollectionEnumerator<T>), response);
+                // Name the endpoint that failed. Naming this class instead told the caller nothing
+                // about which request had failed (see issue #795).
+                Exception _exception = this.ExceptionFactory(_initialPath, response);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -163,12 +172,82 @@ namespace Okta.Sdk.Client
                 _nextPath = CurrentPage.NextLink.Target;
                 _nextRequest = new RequestOptions
                 {
-                    HeaderParameters = _nextRequest.HeaderParameters, 
+                    HeaderParameters = _nextRequest.HeaderParameters,
                     PathParameters = _nextRequest.PathParameters
                 };
+
+                CarryForwardMissingQueryParameters(_nextPath, _nextRequest);
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Re-applies the original request's query parameters that the 'next' link does not already
+        /// carry. Most Okta endpoints echo filters such as 'search', 'filter' and 'q' back into the
+        /// link, which makes the link self-contained; a few omit them, and following such a link
+        /// verbatim silently widens the result set from the second page onwards. Parameters the link
+        /// already carries are left untouched, so endpoints that behave correctly are unaffected.
+        /// </summary>
+        /// <param name="nextLink">The absolute 'next' link to be requested.</param>
+        /// <param name="request">The request options for the next page.</param>
+        private void CarryForwardMissingQueryParameters(string nextLink, RequestOptions request)
+        {
+            if (_initialQueryParameters == null || _initialQueryParameters.Count == 0)
+            {
+                return;
+            }
+
+            var queryIndex = nextLink.IndexOf('?');
+            var nextLinkQuery = queryIndex < 0 ? string.Empty : nextLink.Substring(queryIndex + 1);
+
+            foreach (var parameter in _initialQueryParameters)
+            {
+                // The link is authoritative for the pagination cursor, so the cursor from the
+                // original request must never be re-applied - doing so would re-request a page
+                // that has already been served.
+                if (parameter.Key.Equals("after", StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+
+                if (QueryContainsParameter(nextLinkQuery, parameter.Key))
+                {
+                    continue;
+                }
+
+                foreach (var value in parameter.Value)
+                {
+                    request.QueryParameters.Add(parameter.Key, value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Determines whether a URL query string already contains the named parameter.
+        /// </summary>
+        /// <param name="query">The query string, without the leading '?'.</param>
+        /// <param name="name">The parameter name to look for.</param>
+        /// <returns><see langword="true"/> if the query string contains the parameter.</returns>
+        private static bool QueryContainsParameter(string query, string name)
+        {
+            if (string.IsNullOrEmpty(query))
+            {
+                return false;
+            }
+
+            foreach (var pair in query.Split('&'))
+            {
+                var separatorIndex = pair.IndexOf('=');
+                var key = separatorIndex < 0 ? pair : pair.Substring(0, separatorIndex);
+
+                if (Uri.UnescapeDataString(key).Equals(name, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

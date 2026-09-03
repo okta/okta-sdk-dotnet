@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.IdentityModel.Tokens;
 
 namespace {{packageName}}.Client
 {
@@ -64,9 +65,17 @@ namespace {{packageName}}.Client
         AuthorizationMode? AuthorizationMode { get; }
 
         /// <summary>
-        /// Gets the private key. Required when AuthorizationMode is equal to PrivateKey.
+        /// Gets the private key. Required when AuthorizationMode is equal to PrivateKey, unless
+        /// <see cref="PrivateKeySigningCredentials"/> is set.
         /// </summary>
         JsonWebKeyConfiguration PrivateKey { get; }
+
+        /// <summary>
+        /// Gets the credentials used to sign the client assertion JWT, for a private key held outside
+        /// configuration such as in a TPM or a hardware security module. Takes precedence over
+        /// <see cref="PrivateKey"/> when both are set.
+        /// </summary>
+        SigningCredentials PrivateKeySigningCredentials { get; }
 
         /// <summary>
         /// Gets the client id. Required when AuthorizationMode is equal to PrivateKey.

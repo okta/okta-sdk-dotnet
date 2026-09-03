@@ -159,9 +159,10 @@ namespace Okta.Sdk.Api
         /// <param name="groupId">The &#x60;id&#x60; of the group</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional)</param>
         /// <param name="limit">Specifies the number of user results in a page (optional, default to 1000)</param>
+        /// <param name="search">Searches the group&#39;s member users with a supported [filtering](https://developer.okta.com/docs/api/#filter) expression for all properties except for &#x60;_embedded&#x60;, &#x60;_links&#x60;, and &#x60;objectClass&#x60;. This operation supports [pagination](https://developer.okta.com/docs/api/#pagination).  Using search requires [URL encoding](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding), for example, &#x60;search&#x3D;status eq \&quot;ACTIVE\&quot;&#x60; is encoded as &#x60;search&#x3D;status+eq+%22ACTIVE%22&#x60;.  This operation searches many properties:  * Any user profile attribute, including custom-defined attributes. * The top-level properties: &#x60;id&#x60;, &#x60;status&#x60;, &#x60;created&#x60;, &#x60;activated&#x60;, &#x60;statusChanged&#x60;, and &#x60;lastUpdated&#x60;.  Searches for users can be filtered by the following operators: &#x60;sw&#x60;, &#x60;eq&#x60;, and &#x60;co&#x60;. See [Operators](https://developer.okta.com/docs/api/#operators). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;User&gt;</returns>
-        IOktaCollectionClient<User> ListGroupUsers(  string groupId ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        IOktaCollectionClient<User> ListGroupUsers(  string groupId ,   string after = default(string) ,   int? limit = default(int?) ,   string search = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all member users
         /// </summary>
@@ -172,9 +173,10 @@ namespace Okta.Sdk.Api
         /// <param name="groupId">The &#x60;id&#x60; of the group</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional)</param>
         /// <param name="limit">Specifies the number of user results in a page (optional, default to 1000)</param>
+        /// <param name="search">Searches the group&#39;s member users with a supported [filtering](https://developer.okta.com/docs/api/#filter) expression for all properties except for &#x60;_embedded&#x60;, &#x60;_links&#x60;, and &#x60;objectClass&#x60;. This operation supports [pagination](https://developer.okta.com/docs/api/#pagination).  Using search requires [URL encoding](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding), for example, &#x60;search&#x3D;status eq \&quot;ACTIVE\&quot;&#x60; is encoded as &#x60;search&#x3D;status+eq+%22ACTIVE%22&#x60;.  This operation searches many properties:  * Any user profile attribute, including custom-defined attributes. * The top-level properties: &#x60;id&#x60;, &#x60;status&#x60;, &#x60;created&#x60;, &#x60;activated&#x60;, &#x60;statusChanged&#x60;, and &#x60;lastUpdated&#x60;.  Searches for users can be filtered by the following operators: &#x60;sw&#x60;, &#x60;eq&#x60;, and &#x60;co&#x60;. See [Operators](https://developer.okta.com/docs/api/#operators). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;User&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<User>>> ListGroupUsersWithHttpInfoAsync(  string groupId ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<User>>> ListGroupUsersWithHttpInfoAsync(  string groupId ,   string after = default(string) ,   int? limit = default(int?) ,   string search = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all groups
         /// </summary>
@@ -871,10 +873,11 @@ namespace Okta.Sdk.Api
         /// <param name="groupId">The &#x60;id&#x60; of the group</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional)</param>
         /// <param name="limit">Specifies the number of user results in a page (optional, default to 1000)</param>
+        /// <param name="search">Searches the group&#39;s member users with a supported [filtering](https://developer.okta.com/docs/api/#filter) expression for all properties except for &#x60;_embedded&#x60;, &#x60;_links&#x60;, and &#x60;objectClass&#x60;. This operation supports [pagination](https://developer.okta.com/docs/api/#pagination).  Using search requires [URL encoding](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding), for example, &#x60;search&#x3D;status eq \&quot;ACTIVE\&quot;&#x60; is encoded as &#x60;search&#x3D;status+eq+%22ACTIVE%22&#x60;.  This operation searches many properties:  * Any user profile attribute, including custom-defined attributes. * The top-level properties: &#x60;id&#x60;, &#x60;status&#x60;, &#x60;created&#x60;, &#x60;activated&#x60;, &#x60;statusChanged&#x60;, and &#x60;lastUpdated&#x60;.  Searches for users can be filtered by the following operators: &#x60;sw&#x60;, &#x60;eq&#x60;, and &#x60;co&#x60;. See [Operators](https://developer.okta.com/docs/api/#operators). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;User&gt;</returns>
         //a
-        public IOktaCollectionClient<User> ListGroupUsers(  string groupId ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<User> ListGroupUsers(  string groupId ,   string after = default(string) ,   int? limit = default(int?) ,   string search = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -913,6 +916,10 @@ namespace Okta.Sdk.Api
             if (limit != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "search", search));
             }
 
             // authentication (apiToken) required
@@ -938,9 +945,10 @@ namespace Okta.Sdk.Api
         /// <param name="groupId">The &#x60;id&#x60; of the group</param>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/api/#pagination). (optional)</param>
         /// <param name="limit">Specifies the number of user results in a page (optional, default to 1000)</param>
+        /// <param name="search">Searches the group&#39;s member users with a supported [filtering](https://developer.okta.com/docs/api/#filter) expression for all properties except for &#x60;_embedded&#x60;, &#x60;_links&#x60;, and &#x60;objectClass&#x60;. This operation supports [pagination](https://developer.okta.com/docs/api/#pagination).  Using search requires [URL encoding](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding), for example, &#x60;search&#x3D;status eq \&quot;ACTIVE\&quot;&#x60; is encoded as &#x60;search&#x3D;status+eq+%22ACTIVE%22&#x60;.  This operation searches many properties:  * Any user profile attribute, including custom-defined attributes. * The top-level properties: &#x60;id&#x60;, &#x60;status&#x60;, &#x60;created&#x60;, &#x60;activated&#x60;, &#x60;statusChanged&#x60;, and &#x60;lastUpdated&#x60;.  Searches for users can be filtered by the following operators: &#x60;sw&#x60;, &#x60;eq&#x60;, and &#x60;co&#x60;. See [Operators](https://developer.okta.com/docs/api/#operators). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;User&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<User>>> ListGroupUsersWithHttpInfoAsync(  string groupId ,   string after = default(string) ,   int? limit = default(int?) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<User>>> ListGroupUsersWithHttpInfoAsync(  string groupId ,   string after = default(string) ,   int? limit = default(int?) ,   string search = default(string) , System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -979,6 +987,10 @@ namespace Okta.Sdk.Api
             if (limit != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "search", search));
             }
 
             // authentication (apiToken) required
