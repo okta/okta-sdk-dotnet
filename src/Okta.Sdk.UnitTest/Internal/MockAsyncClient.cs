@@ -92,7 +92,20 @@ namespace Okta.Sdk.UnitTest.Internal
             ReceivedHeaders = options.HeaderParameters;
             ReceivedBody = JsonConvert.SerializeObject(options.Data, customCodec.JsonSerializer);
             ReceivedHeadersQueue ??= new Queue<Multimap<string, string>>();
-            ReceivedHeadersQueue.Enqueue(options.HeaderParameters);
+
+            // Snapshot the headers rather than queueing the caller's collection. Paged enumeration
+            // reuses one header collection across every page, so queueing the reference would make
+            // all entries show the final state and any per-page assertion vacuously true.
+            var headersSnapshot = new Multimap<string, string>();
+            foreach (var header in options.HeaderParameters)
+            {
+                foreach (var value in header.Value)
+                {
+                    headersSnapshot.Add(header.Key, value);
+                }
+            }
+
+            ReceivedHeadersQueue.Enqueue(headersSnapshot);
 
             if (_returnThisInOrder != null)
             {

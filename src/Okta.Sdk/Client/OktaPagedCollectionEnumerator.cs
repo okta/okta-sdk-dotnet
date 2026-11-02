@@ -143,7 +143,24 @@ namespace Okta.Sdk.Client
                 var expandedPath = _nextRequest.PathParameters.Aggregate(_nextPath, (current, param) => current.Replace("{" + param.Key + "}", param.Value));
                 await _oAuthTokenProvider.AddOrUpdateAuthorizationHeader(_nextRequest, expandedPath, "GET", _cancellationToken);
             }
-            
+
+            // The calling list method stamps 'Authorization' into the initial request once, and the
+            // header collection is then carried forward to every later page, so an enumeration that
+            // outlived its access token kept sending the token the first page was issued with and
+            // failed with a 401 part-way through (see issue #817). Re-reading the configuration on
+            // each page lets a caller that refreshes the access token mid-enumeration reach the
+            // remaining pages. Only the bearer token is re-read: an SSWS API token does not expire,
+            // so that header is left exactly as the calling method set it.
+            if (Okta.Sdk.Client.Configuration.IsBearerTokenMode(_configuration) && !string.IsNullOrEmpty(_configuration.AccessToken))
+            {
+                foreach (var staleAuthorizationHeader in _nextRequest.HeaderParameters.Where(p => p.Key.Equals("Authorization", StringComparison.OrdinalIgnoreCase)).ToArray())
+                {
+                    _nextRequest.HeaderParameters.Remove(staleAuthorizationHeader.Key);
+                }
+
+                _nextRequest.HeaderParameters.Add("Authorization", "Bearer " + _configuration.AccessToken);
+            }
+
             var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, _configuration, _cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
