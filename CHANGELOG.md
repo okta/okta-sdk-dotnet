@@ -1,6 +1,18 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 10.1.1
+
+### Changes
+
+- Updated `Okta.Sdk.Abstractions` from `4.0.4` to `4.0.8`, which picks up these fixes:
+  - `DefaultRequestExecutor` no longer stores the API token or Okta domain on the `HttpClient` it is given, so several clients can share one `HttpClient` without overwriting each other's token or base address (OKTA-1251806)
+  - Request URIs that resolve outside the configured Okta origin are rejected, so the API token cannot be sent to another host (OKTA-1250467)
+  - Scoped `Authorization` headers are set on each request rather than on the shared `HttpClient` (OKTA-1275144)
+  - Support for the `trex-govcloud.com`, `okta-gov.com`, `okta.mil`, and `okta-miltest.com` domains
+  - Removed the `System.Interactive.Async` dependency and updated vulnerable packages
+- Updated `Newtonsoft.Json` to `13.0.4`, and `Microsoft.Extensions.Configuration`, `Microsoft.Bcl.AsyncInterfaces`, and `System.Text.Json` to `10.0.1`, the minimum versions `Okta.Sdk.Abstractions` 4.0.8 requires
+
 ## 10.1.0
 
 ### Features
