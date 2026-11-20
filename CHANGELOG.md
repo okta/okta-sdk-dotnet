@@ -11,6 +11,7 @@ Running changelog of releases since `3.1.1`
   - Scoped `Authorization` headers are set on each request rather than on the shared `HttpClient` (OKTA-1275144)
   - Support for the `trex-govcloud.com`, `okta-gov.com`, `okta.mil`, and `okta-miltest.com` domains
   - Removed the `System.Interactive.Async` dependency and updated vulnerable packages
+- Updated `Newtonsoft.Json` to `13.0.4`, and `Microsoft.Extensions.Configuration`, `Microsoft.Bcl.AsyncInterfaces`, and `System.Text.Json` to `10.0.1`, the minimum versions `Okta.Sdk.Abstractions` 4.0.8 requires
 
 ## 10.1.0
 
